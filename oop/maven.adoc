@@ -21,6 +21,7 @@ De standaard java {lib} is groot, maar ze kan nooit alle _code_ bevatten die ont
 Zo kan de standaard library niet alle _jdbc drivers_ in zijn standaard library opnemen. 
 Of het kan dit proberen, maar wat dan met nieuwe soorten databases? 
 De ontwikkeling van software staat immers nooit stil.
+Men wil ook vermijden dat de standaard {lib} veel te groot wordt.
 ====
 
 == _Custom libraries_
@@ -39,6 +40,7 @@ Deze bevat de broncode en bytecode van de klassen in een gezipt formaat.
 === De voordelen van samenwerking
 
 Het gebruik van {libs} biedt veel voodelen, namelijk:
+
 * Minder _bugs_.
 Ontwikkelaars die fouten opmerken in een {lib} kunnen dit rapporteren. De bug kan opgelost worden en bij de volgende update van de {lib} beschikt iedere ontwikkelaar over de bugvrije _code_.
 * Je kan gebruik maken van _code_ van specialisten
@@ -66,11 +68,103 @@ Enkele voorbeelden van open-source licenties:
 
 == Maven installeren
 
+[NOTE]
+====
+Op de computers van onze school staat Maven standaard geinstalleerd.
+Ook in Eclipse is Maven standaard beschikbaar.
+Je hoeft deze installatie niet te doorlopen, tenzij je op je eigen computer in de _commandline_ gebruik wil kunnen maken van Maven.
+====
+
+Op de https://maven.apache.org/[Maven website] kan je de Maven downloads terugvinden. 
+Je kan kiezen voor een binary zip file of een zip met de source code. Voor ons gebruik volstaat deze met het binary bestand, zie: https://maven.apache.org/download.cgi
+
+Dit bestand kan je uitpakken in een bepaalde folder op je harde schijf. Als je in de bin folder een commandline opent, kan je gebruik maken van het *mvn* commando.
+
+[IMPORTANT]
+====
+Om in een willekeurige commandline (dus niet een commandline geopend in de _bin_ folder) gebruik te kunnen maken van Maven, dien je het *PATH* van je computer aan te passen.
+
+Zie: https://mkyong.com/maven/how-to-install-maven-in-windows/[https://mkyong.com/maven/how-to-install-maven-in-windows/]
+====
+
 == Maven uitvoeren ( _commandline_ )
+
+Maven kan uitgevoerd worden via het mvn commando. Dit commando heeft verschillende opties:
+
+* ##install## -> Dit compileerd een project en maakt er ook een jar file van.
+* -v of --version -> Toon de versie van Maven
+* validate -> Valideer of het project correct opgebouwd is
+* compile -> Compileer de broncode van het project
+* test -> Voer alle unit tests uit.
+* ..
+
+Een volledig overzicht kan hier gevonden worden: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html[https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html]
+
+Voor ons gebruik is de install de belangrijkste (deze voert autmatisch enkele andere _goals_ uit (_verify, compile, test, package_)).
+
+Een voorbeeld van de output van het mvn commando:
+
+.Mvn output
+image::mvnoutput.png[mvn output]
+
+De _build success_ geeft aan dat het project correct gecompileerd werd door Maven.
 
 == Maven central
 
+In {j} is het mogelijk gebruik te maken van extra jar _files_.
+Deze jar files kan je tijdens het compileren aangeven om gebruik te kunnen maken van de extra klassen en methods.
+In Eclipse is dit eenvoudiger gemaakt door referenties te leggen naar andere jar _files_ (je voegt ze via de GUI toe aan het _classpath_ (of build path)).
+
+Maven automatiseert het zoeken, downloaden en toevoegen aan het _classpath_ van {libs} of jar files.
+In Maven volstaat het aan te geven dat je gebruik wil maken van een bepaalde {lib}.
+
+Maven doet dan het volgende:
+
+* Zoekt de {lib} in de Maven central repository
+* Download het bestand
+* Plaatst het bestand op het _classpath_
+* Compileerd de code van het project
+
+[IMPORTANT]
+====
+Om een {lib} te kunnen gebruiken, moet iemand deze {lib} op de maven central repository (of een andere repository) geplaatst hebben.
+Om aan te geven om exact welke _jar file_ het gaat, moet de volgende informatie aangegeven worden:
+
+* ##groupid## -> Wie heeft deze {lib} ontwikkeld?
+* ##artifactid## -> De naam van de {lib}
+* ##version## -> Welke versie? (er bestaan er meerdere, de nummers geven _releases_, _minor releases_, _bugfixes_,..) aan.
+====
+
+[NOTE]
+====
+Een _repository_ is een plaats waar verschillende artifacten (bijvoorbeeld _jar files_ of {libs}) bijgehouden worden.
+
+Maven central is de meest gebruikte _repository_, maar er bestaan er ook andere. Een bedrijf kan bijvoorbeeld ook een aparte _repository_ maken voor intern gebruik.
+====
+
 == Structuur van een Maven project
+
+Maven legt enkele eisen op aan het {j} project:
+
+* Een vaste structuur (hiervan kan eventueel afgeweken worden, maar dit moet aangegeven worden in de *pom.xml* file, niet aan te raden).
+* Het gebruik van een *pom.xml* file.
+
+De vaste structuur deelt de mappen van het project als volgt in:
+
+----
+project-folder
+|-- pom.xml ->xml beschrijving van het project, met verwijzingen naar libraries
+`-- src
+    |-- main
+    |   `-- java
+    |       `-- Hier komen de packages en .java files van je project
+         -- resources 
+             -- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
+    `-- test
+        `-- java
+            `-- Hier komen de unit test files (Zien we later in de lessen)
+    
+----
 
 == POM.xml
 
