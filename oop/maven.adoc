@@ -100,7 +100,7 @@ Maven kan uitgevoerd worden via het mvn commando. Dit commando heeft verschillen
 
 Een volledig overzicht kan hier gevonden worden: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html[https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html]
 
-Voor ons gebruik is de install de belangrijkste (deze voert autmatisch enkele andere _goals_ uit (_verify, compile, test, package_)).
+Voor ons gebruik is de _install_ de belangrijkste (deze voert autmatisch enkele andere _goals_ uit (_verify, compile, test, package_)).
 
 Een voorbeeld van de output van het mvn commando:
 
