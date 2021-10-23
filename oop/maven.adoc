@@ -1,0 +1,91 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:icons: font
+
+= Maven
+
+Apache Maven is een _commandline tool_ die het beheren van _libraries_ en het compileren van Java projecten automatiseerd.
+
+In de java virtuele machine zit een grote {lib} ingebouwd (als bytecode in de _Java runtime environment_ of _jre_). 
+Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
+Dankzij deze {lib} kunnen we gebruik maken van functies of klassen die reeds door anderen zijn geschreven.
+Een voorbeeld hiervan is de Math klasse. 
+We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi . 
+Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken. 
+Deze method is immers als door iemand geschreven.
+
+[IMPORTANT]
+====
+De standaard java {lib} is groot, maar ze kan nooit alle _code_ bevatten die ontwikkelaars, of groepen van ontwikkelaars, wensen te gebruiken. 
+Zo kan de standaard library niet alle _jdbc drivers_ in zijn standaard library opnemen. 
+Of het kan dit proberen, maar wat dan met nieuwe soorten databases? 
+De ontwikkeling van software staat immers nooit stil.
+====
+
+== _Custom libraries_
+
+In Java is het mogelijk gebruik te maken van _libraries_ die niet in de _jre_ vervat zijn.
+Andere {j} ontwikkelaars kunnen software schrijven (klassen met functies) en deze op internet plaatsen in een _jar file_.
+Als software ontwikkelaar kan je deze _jar files_ gebruiken in je projecten, instanties maken van de klassen, de functies oproepen,.. net alsof je ze zelf geschreven zou hebben.
+
+[NOTE]
+====
+Jar: {j} archive file. 
+
+Deze bevat de broncode en bytecode van de klassen in een gezipt formaat.
+====
+
+=== De voordelen van samenwerking
+
+Het gebruik van {libs} biedt veel voodelen, namelijk:
+* Minder _bugs_.
+Ontwikkelaars die fouten opmerken in een {lib} kunnen dit rapporteren. De bug kan opgelost worden en bij de volgende update van de {lib} beschikt iedere ontwikkelaar over de bugvrije _code_.
+* Je kan gebruik maken van _code_ van specialisten
+* Verschillende ontwikkelaars kunnen samenwerken aan 1 grote {lib}
+* Je eigen _code_ in je project blijft beperkter en overzichtelijker.
+* Het is gewoon makkelijker gebruik te maken van iemand anders zijn code, zonder dat je deze zelf hoeft te schrijven.
+
+.Licenties
+****
+Het samenwerken tussen ontwikkelaars wordt gestimuleerd indien een {lib} gebruik maakt van een https://nl.wikipedia.org/wiki/Open_source[Open-source licentie].
+Dit type licentie garandeert dat de broncode vrij te gebruiken is (en het gebruik ervan geen rechten schendt). 
+Bepaalde open-source licenties verplichten ontwikkelaars ertoe _code_ terug te delen als ze verbeteringen of aanpassingen aanbrengen in het oorspronkelijke project. Op deze manier kan iedereen genieten van de inspanningen die geleverd werden (en blijven ze bijvoorbeeld niet vast binnen een commercieel bedrijf).
+
+Enkele voorbeelden van open-source licenties:
+
+* GNU General Public License (GPL)
+* Eclipse public license
+* Apache license
+* MIT license
+* BSD license
+* Lesser General Public License (LGPL)
+
+****
+
+
+== Maven installeren
+
+== Maven uitvoeren ( _commandline_ )
+
+== Maven central
+
+== Structuur van een Maven project
+
+== POM.xml
+
+=== De syntax
+
+=== _Libraries_ toevoegen
+
+=== Compiler opties
+
+== In Eclipse
+
+=== Een maven project aanmaken
+
+=== De structuur in Eclipse
+
+=== Een maven project compileren in Eclipse
+
+
