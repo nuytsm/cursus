@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Untitled</title>
+<title>Maven</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -435,36 +435,823 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
+<h1>Maven</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_custom_libraries"><em>Custom libraries</em></a>
+<ul class="sectlevel2">
+<li><a href="#_de_voordelen_van_samenwerking">De voordelen van samenwerking</a></li>
+</ul>
+</li>
+<li><a href="#_maven_installeren">Maven installeren</a></li>
+<li><a href="#_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</a></li>
+<li><a href="#_maven_central">Maven central</a></li>
+<li><a href="#_structuur_van_een_maven_project">Structuur van een Maven project</a></li>
+<li><a href="#_pom_xml">POM.xml</a>
+<ul class="sectlevel2">
+<li><a href="#_de_syntax">De syntax</a></li>
+<li><a href="#_libraries_toevoegen"><em>Libraries</em> toevoegen</a></li>
+<li><a href="#_compiler_opties">Compiler opties</a></li>
+</ul>
+</li>
+<li><a href="#_in_eclipse">In Eclipse</a>
+<ul class="sectlevel2">
+<li><a href="#_een_maven_project_aanmaken">Een maven project aanmaken</a></li>
+<li><a href="#_de_structuur_in_eclipse">De structuur in Eclipse</a></li>
+<li><a href="#_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>:lib:_library_</p>
+<p>Apache Maven is een <em>commandline tool</em> die het beheren van <em>libraries</em> en het compileren van Java projecten automatiseert.</p>
 </div>
 <div class="paragraph">
-<p>=Maven</p>
+<p>In de java virtuele machine zit een grote <em>library</em> ingebouwd (als bytecode in de <em>Java runtime environment</em> of <em>jre</em>).
+Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
+Dankzij deze <em>library</em> kunnen we gebruik maken van functies of klassen die reeds door anderen zijn geschreven.
+Een voorbeeld hiervan is de Math klasse.
+We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi .
+Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken.
+Deze method is immers als door iemand geschreven.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>De standaard java <em>library</em> is groot, maar ze kan nooit alle <em>code</em> bevatten die ontwikkelaars, of groepen van ontwikkelaars, wensen te gebruiken.
+Zo kan de standaard library niet alle <em>jdbc drivers</em> in zijn standaard library opnemen.
+Of het kan dit proberen, maar wat dan met nieuwe soorten databases?
+De ontwikkeling van software staat immers nooit stil.
+Men wil ook vermijden dat de standaard <em>library</em> veel te groot wordt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_custom_libraries"><em>Custom libraries</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Java is het mogelijk gebruik te maken van <em>libraries</em> die niet in de <em>jre</em> vervat zijn.
+Andere Java ontwikkelaars kunnen software schrijven (klassen met functies) en deze op internet plaatsen in een <em>jar file</em>.
+Als software ontwikkelaar kan je deze <em>jar files</em> gebruiken in je projecten, instanties maken van de klassen, de functies oproepen,.. net alsof je ze zelf geschreven zou hebben.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Jar: Java archive file.</p>
 </div>
 <div class="paragraph">
-<p>In de java virtuele machine zit een grote {lib} ingebouwd (als bytecode in de <em>Java runtime environment</em> of <em>jre</em>). Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
-Dankzij deze {lib} kunnen we gebruik maken van functies of klassen die reeds door anderen zijn geschreven.
-Een voorbeeld hiervan is de Math klasse. We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi . Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken. Deze method is immers als door iemand geschreven.</p>
+<p>Deze bevat de broncode en bytecode van de klassen in een gezipt formaat.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_de_voordelen_van_samenwerking">De voordelen van samenwerking</h3>
+<div class="paragraph">
+<p>Het gebruik van <em>libraries</em> biedt veel voodelen, namelijk:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Minder <em>bugs</em>.
+Ontwikkelaars die fouten opmerken in een <em>library</em> kunnen dit rapporteren. De bug kan opgelost worden en bij de volgende update van de <em>library</em> beschikt iedere ontwikkelaar over de bugvrije <em>code</em>.</p>
+</li>
+<li>
+<p>Je kan gebruik maken van <em>code</em> van specialisten</p>
+</li>
+<li>
+<p>Verschillende ontwikkelaars kunnen samenwerken aan 1 grote <em>library</em></p>
+</li>
+<li>
+<p>Je eigen <em>code</em> in je project blijft beperkter en overzichtelijker.</p>
+</li>
+<li>
+<p>Het is gewoon makkelijker gebruik te maken van iemand anders zijn code, zonder dat je deze zelf hoeft te schrijven.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Licenties</div>
+<div class="paragraph">
+<p>Het samenwerken tussen ontwikkelaars wordt gestimuleerd indien een <em>library</em> gebruik maakt van een <a href="https://nl.wikipedia.org/wiki/Open_source">Open-source licentie</a>.
+Dit type licentie garandeert dat de broncode vrij te gebruiken is (en het gebruik ervan geen rechten schendt).
+Bepaalde open-source licenties verplichten ontwikkelaars ertoe <em>code</em> terug te delen als ze verbeteringen of aanpassingen aanbrengen in het oorspronkelijke project. Op deze manier kan iedereen genieten van de inspanningen die geleverd werden (en blijven ze bijvoorbeeld niet vast binnen een commercieel bedrijf).</p>
 </div>
 <div class="paragraph">
-<p>De standaard java {lib} is groot, maar ze kan nooit alle <em>code</em> bevatten die ontwikkelaars, of groepen van ontwikkelaars, wensen te gebruiken. Zo kan de standaard library niet alle <em>jdbc drivers</em> in zijn standaard library opnemen. Of het kan dit proberen, maar wat dan met nieuwe soorten databases? De ontwikkeling van software staat immers nooit stil..</p>
+<p>Enkele voorbeelden van open-source licenties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GNU General Public License (GPL)</p>
+</li>
+<li>
+<p>Eclipse public license</p>
+</li>
+<li>
+<p>Apache license</p>
+</li>
+<li>
+<p>MIT license</p>
+</li>
+<li>
+<p>BSD license</p>
+</li>
+<li>
+<p>Lesser General Public License (LGPL)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maven_installeren">Maven installeren</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Op de computers van onze school staat Maven standaard geinstalleerd.
+Ook in Eclipse is Maven standaard beschikbaar.
+Je hoeft deze installatie niet te doorlopen, tenzij je op je eigen computer in de <em>commandline</em> gebruik wil kunnen maken van Maven.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>==<em>Custom libraries</em></p>
+<p>Op de <a href="https://maven.apache.org/">Maven website</a> kan je de Maven downloads terugvinden.
+Je kan kiezen voor een binary zip file of een zip met de source code. Voor ons gebruik volstaat deze met het binary bestand, zie: <a href="https://maven.apache.org/download.cgi" class="bare">https://maven.apache.org/download.cgi</a></p>
 </div>
 <div class="paragraph">
-<p>In Java is het mogelijk gebruik te maken van <em>libraries</em> die niet in de <em>jre</em></p>
+<p>Dit bestand kan je uitpakken in een bepaalde folder op je harde schijf. Als je in de bin folder een commandline opent, kan je gebruik maken van het <strong>mvn</strong> commando.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Om in een willekeurige commandline (dus niet een commandline geopend in de <em>bin</em> folder) gebruik te kunnen maken van Maven, dien je het <strong>PATH</strong> van je computer aan te passen.</p>
+</div>
+<div class="paragraph">
+<p>Zie: <a href="https://mkyong.com/maven/how-to-install-maven-in-windows/">https://mkyong.com/maven/how-to-install-maven-in-windows/</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Maven kan uitgevoerd worden via het mvn commando. Dit commando heeft verschillende opties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><mark>install</mark> &#8594; Dit compileerd een project en maakt er ook een jar file van.</p>
+</li>
+<li>
+<p>-v of --version &#8594; Toon de versie van Maven</p>
+</li>
+<li>
+<p>validate &#8594; Valideer of het project correct opgebouwd is</p>
+</li>
+<li>
+<p>compile &#8594; Compileer de broncode van het project</p>
+</li>
+<li>
+<p>test &#8594; Voer alle unit tests uit.</p>
+</li>
+<li>
+<p>..</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Een volledig overzicht kan hier gevonden worden: <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
+</div>
+<div class="paragraph">
+<p>Voor ons gebruik is de <em>install</em> de belangrijkste (deze voert autmatisch enkele andere <em>goals</em> uit (<em>verify, compile, test, package</em>)).</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld van de output van het mvn commando:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="mvnoutput.png" alt="mvn output">
+</div>
+<div class="title">Figure 1. Mvn output</div>
+</div>
+<div class="paragraph">
+<p>De <em>build success</em> geeft aan dat het project correct gecompileerd werd door Maven.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maven_central">Maven central</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Java is het mogelijk gebruik te maken van extra jar <em>files</em>.
+Deze jar files kan je tijdens het compileren aangeven om gebruik te kunnen maken van de extra klassen en methods.
+In Eclipse is dit eenvoudiger gemaakt door referenties te leggen naar andere jar <em>files</em> (je voegt ze via de GUI toe aan het <em>classpath</em> (of build path)).</p>
+</div>
+<div class="paragraph">
+<p>Maven automatiseert het zoeken, downloaden en toevoegen aan het <em>classpath</em> van <em>libraries</em> of jar files.
+In Maven volstaat het aan te geven dat je gebruik wil maken van een bepaalde <em>library</em>.</p>
+</div>
+<div class="paragraph">
+<p>Maven doet dan het volgende:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Zoekt de <em>library</em> in de Maven central repository</p>
+</li>
+<li>
+<p>Download het bestand</p>
+</li>
+<li>
+<p>Plaatst het bestand op het <em>classpath</em></p>
+</li>
+<li>
+<p>Compileerd de code van het project</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Om een <em>library</em> te kunnen gebruiken, moet iemand deze <em>library</em> op de maven central repository (of een andere repository) geplaatst hebben.
+Om aan te geven om exact welke <em>jar file</em> het gaat, moet de volgende informatie aangegeven worden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><mark>groupid</mark> &#8594; Wie heeft deze <em>library</em> ontwikkeld?</p>
+</li>
+<li>
+<p><mark>artifactid</mark> &#8594; De naam van de <em>library</em></p>
+</li>
+<li>
+<p><mark>version</mark> &#8594; Welke versie? (er bestaan er meerdere, de nummers geven <em>releases</em>, <em>minor releases</em>, <em>bugfixes</em>,..) aan.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Een <em>repository</em> is een plaats waar verschillende artifacten (bijvoorbeeld <em>jar files</em> of <em>libraries</em>) bijgehouden worden.</p>
+</div>
+<div class="paragraph">
+<p>Maven central is de meest gebruikte <em>repository</em>, maar er bestaan er ook andere. Een bedrijf kan bijvoorbeeld ook een aparte <em>repository</em> maken voor intern gebruik.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structuur_van_een_maven_project">Structuur van een Maven project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Maven legt enkele eisen op aan het Java project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Een vaste structuur (hiervan kan eventueel afgeweken worden, maar dit moet aangegeven worden in de <strong>pom.xml</strong> file, niet aan te raden).</p>
+</li>
+<li>
+<p>Het gebruik van een <strong>pom.xml</strong> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>De vaste structuur deelt de mappen van het project als volgt in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>project-folder
+|-- pom.xml -&gt;xml beschrijving van het project, met verwijzingen naar libraries
+`-- src
+    |`-- main
+    |   `-- java
+    |       `-- Hier komen de packages en .java files van je project
+    |   `-- resources
+    |       `-- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
+     `-- test
+        `-- java
+            `-- Hier komen de unit test files (Zien we later in de lessen)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pom_xml">POM.xml</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Elk project, waarvoor je Maven wil gebruiken, moet een <mark>pom.xml</mark> hebben.
+Dit is een xml bestand dat beschrijft hoe het project eruit ziet, wat de <mark><em>dependencies</em></mark> (<em>libraries</em>) zijn, welke <mark>plugins</mark> gebruikt worden, etc.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>XML: Extensible Markup Language (XML) is een standaard van het World Wide Web Consortium voor de syntaxis van formele opmaaktalen waarmee men gestructureerde gegevens kan weergeven in de vorm van platte tekst. Deze presentatie is zowel machineleesbaar als leesbaar voor de mens.</p>
+</div>
+<div class="paragraph">
+<p>XML-talen gebruiken zogenaamde elementen en attributen om gegevens te structureren. De XML-specificatie definieert de syntaxis van elementen, attributen en de andere structuren die in XML-bestanden kunnen voorkomen. De XML-specificatie legt echter geen namen vast voor deze elementen en attributen, precies omdat deze keuze afhangt van het doel van het XML-bestand.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>De pom.xml heeft op zich een vaste structuur, namelijk:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>de beschrijving van het project</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>groupid</p>
+</li>
+<li>
+<p>artifactid</p>
+</li>
+<li>
+<p>version</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>de dependencies of <em>libraries</em> die het project wil gebruiken.</p>
+</li>
+<li>
+<p>plugins</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>bijvoorbeeld de compiler plugin om aan te geven dat we java versie 11 gebruiken.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_de_syntax">De syntax</h3>
+<div class="paragraph">
+<p>De syntax is een xml syntax, je maakt hier dus gebruik van tags (net zoals in html) om elementen te definieren, groepen te maken en te sluiten.</p>
+</div>
+<div class="paragraph">
+<p>Dit is een voorbeeld van een pom.xml bestand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="code"><pre>    <span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+      <span class="nt">&lt;groupId&gt;</span>com.mycompany.app<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>my-app<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+      <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>1.7<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>1.7<span class="nt">&lt;/maven.compiler.target&gt;</span>
+      <span class="nt">&lt;/properties&gt;</span>
+
+      <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+          <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+          <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+          <span class="nt">&lt;version&gt;</span>4.12<span class="nt">&lt;/version&gt;</span>
+          <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+      <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/project&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_libraries_toevoegen"><em>Libraries</em> toevoegen</h3>
+<div class="paragraph">
+<p>Om <em>libraries</em> toe te voegen, moeten we gebruik maken van de <em>&lt;dependencies&gt;</em> tag. In deze tag kunnen verschillende <em>&lt;dependency&gt;</em> tags gebruikt worden, die op hun beurt elk een <em>dependency</em> (of <em>library</em>) aangeven.</p>
+</div>
+<div class="paragraph">
+<p>Binnen een <em>&lt;dependency&gt;</em> tag kan een <em>library</em> gedefinieerd worden met de volgende info:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>naam uitgever (groupid)</p>
+</li>
+<li>
+<p>naam <em>library</em> (artifactid)</p>
+</li>
+<li>
+<p>versie (version)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.xerial<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>sqlite-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.36.0.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Elke <em>dependency</em> moet binnen de <em>&lt;dependencies&gt;</em> tag geplaats worden. Net zoals <em>tags</em> in een <em>&lt;div&gt;</em> geplaatst kunnen worden in HTML.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compiler_opties">Compiler opties</h3>
+<div class="paragraph">
+<p>Naast de <em>libraries</em> kan in de pom.xml ook aangegeven worden hoe het project gebouwd of gecompileerd moet worden.</p>
+</div>
+<div class="paragraph">
+<p>Dit gebeurt binnen de <em>&lt;build&gt;</em> tag.
+Hierin kunnen <em>plugins</em> gebruikt worden.</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld hiervan is de compiler <em>plugin</em>. Via deze <em>plugin</em> kunnen we aangeven naar welke versie van bytecode de compiler moet compileren ( Java 8, 9, 11, .. compatibele code).</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="title">compileren compatibel met bytecode versie 11</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+</pre></td><td class="code"><pre>    <span class="nt">&lt;build&gt;</span>
+            <span class="nt">&lt;plugins&gt;</span>
+                <span class="nt">&lt;plugin&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                    <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
+                    <span class="nt">&lt;configuration&gt;</span>
+                        <span class="nt">&lt;release&gt;</span>11<span class="nt">&lt;/release&gt;</span>
+                    <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_in_eclipse">In Eclipse</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_een_maven_project_aanmaken">Een maven project aanmaken</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_de_structuur_in_eclipse">De structuur in Eclipse</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</h3>
+
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-23 10:51:12 +0200
+Last updated 2021-10-24 17:46:10 +0200
 </div>
 </div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </body>
 </html>

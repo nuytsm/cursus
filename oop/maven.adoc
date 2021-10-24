@@ -2,10 +2,15 @@
 :libs: pass:quotes[_libraries_]
 :j: Java
 :icons: font
+:source-highlighter: rouge
 
 = Maven
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
 
-Apache Maven is een _commandline tool_ die het beheren van _libraries_ en het compileren van Java projecten automatiseerd.
+Apache Maven is een _commandline tool_ die het beheren van _libraries_ en het compileren van Java projecten automatiseert.
 
 In de java virtuele machine zit een grote {lib} ingebouwd (als bytecode in de _Java runtime environment_ of _jre_). 
 Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
@@ -13,7 +18,7 @@ Dankzij deze {lib} kunnen we gebruik maken van functies of klassen die reeds doo
 Een voorbeeld hiervan is de Math klasse. 
 We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi . 
 Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken. 
-Deze method is immers als door iemand geschreven.
+Deze method is immers al door iemand geschreven.
 
 [IMPORTANT]
 ====
@@ -155,12 +160,12 @@ De vaste structuur deelt de mappen van het project als volgt in:
 project-folder
 |-- pom.xml ->xml beschrijving van het project, met verwijzingen naar libraries
 `-- src
-    |-- main
+    |`-- main
     |   `-- java
     |       `-- Hier komen de packages en .java files van je project
-         -- resources 
-             -- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
-    `-- test
+    |   `-- resources 
+    |       `-- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
+     `-- test
         `-- java
             `-- Hier komen de unit test files (Zien we later in de lessen)
     
@@ -168,11 +173,111 @@ project-folder
 
 == POM.xml
 
+Elk project, waarvoor je Maven wil gebruiken, moet een ##pom.xml## hebben.
+Dit is een xml bestand dat beschrijft hoe het project eruit ziet, wat de ##_dependencies_## ({libs}) zijn, welke ##plugins## gebruikt worden, etc.
+
+[NOTE]
+====
+XML: Extensible Markup Language (XML) is een standaard van het World Wide Web Consortium voor de syntaxis van formele opmaaktalen waarmee men gestructureerde gegevens kan weergeven in de vorm van platte tekst. Deze presentatie is zowel machineleesbaar als leesbaar voor de mens. 
+
+XML-talen gebruiken zogenaamde elementen en attributen om gegevens te structureren. De XML-specificatie definieert de syntaxis van elementen, attributen en de andere structuren die in XML-bestanden kunnen voorkomen. De XML-specificatie legt echter geen namen vast voor deze elementen en attributen, precies omdat deze keuze afhangt van het doel van het XML-bestand. 
+====
+
+De pom.xml heeft op zich een vaste structuur, namelijk:
+
+. de beschrijving van het project
+.. groupid
+.. artifactid
+.. version
+. de dependencies of {libs} die het project wil gebruiken.
+. plugins
+   .. bijvoorbeeld de compiler plugin om aan te geven dat we java versie 11 gebruiken.
+
+
 === De syntax
+
+De syntax is een xml syntax, je maakt hier dus gebruik van tags (net zoals in html) om elementen te definieren, groepen te maken en te sluiten.
+
+Dit is een voorbeeld van een pom.xml bestand:
+[source%linenums, xml]
+----
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+      <modelVersion>4.0.0</modelVersion>
+     
+      <groupId>com.mycompany.app</groupId>
+      <artifactId>my-app</artifactId>
+      <version>1.0-SNAPSHOT</version>
+     
+      <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+      </properties>
+     
+      <dependencies>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </project>
+
+----
 
 === _Libraries_ toevoegen
 
+Om {libs} toe te voegen, moeten we gebruik maken van de _<dependencies>_ tag. In deze tag kunnen verschillende _<dependency>_ tags gebruikt worden, die op hun beurt elk een _dependency_ (of {lib}) aangeven.
+
+Binnen een _<dependency>_ tag kan een {lib} gedefinieerd worden met de volgende info:
+
+* naam uitgever (groupid)
+* naam {lib} (artifactid)
+* versie (version)
+
+Een voorbeeld:
+[source%linenums, xml]
+----
+<dependency>
+    <groupId>org.xerial</groupId>
+    <artifactId>sqlite-jdbc</artifactId>
+    <version>3.36.0.3</version>
+</dependency>
+----
+
+[IMPORTANT]
+====
+Elke _dependency_ moet binnen de _<dependencies>_ tag geplaats worden. Net zoals _tags_ in een _<div>_ geplaatst kunnen worden in HTML.
+====
+
 === Compiler opties
+
+Naast de {libs} kan in de pom.xml ook aangegeven worden hoe het project gebouwd of gecompileerd moet worden.
+
+Dit gebeurt binnen de _<build>_ tag.
+Hierin kunnen _plugins_ gebruikt worden.
+
+Een voorbeeld hiervan is de compiler _plugin_. Via deze _plugin_ kunnen we aangeven naar welke versie van bytecode de compiler moet compileren ( {j} 8, 9, 11, .. compatibele code).
+
+Een voorbeeld:
+
+.compileren compatibel met bytecode versie 11
+[source%linenums, xml]
+----
+    <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <release>11</release>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
+----
 
 == In Eclipse
 
