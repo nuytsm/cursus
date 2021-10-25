@@ -288,8 +288,55 @@ De build van een Maven project (mvn install) kan via een gui opgeroepen worden.
 
 === Een maven project aanmaken
 
+Rechterklik in de _project explorer_ van Eclipse om een nieuw project aan te maken.
+
+.Nieuw mvn project in eclipse
+image::newproject.jpg[mvn project in eclipse]
+
+Kies voor een Maven project.
+
+.Mvn project in eclipse
+image::mvnproject.jpg[mvn project in eclipse]
+
+Vink _skip archetype selection_ aan.
+
+.Mvn project in eclipse
+image::mvnproject2.jpg[mvn project in eclipse]
+
+Vul de vereiste velden in.
+Als artifactnaam wordt er verwacht dat je de naam van je project ingeeft.
+
+.Mvn project in eclipse
+image::mvnproject3.jpg[mvn project in eclipse]
+
+Eenmaal je het project aangemaakt hebt, komt links in de _project explorer_
+het project zichtbaar.
+
 === De structuur in Eclipse
+
+.Mvn project structuur in eclipse
+image::mvnstructuur.jpg[mvn project in eclipse]
+
+Zoals je ziet houdt dit project zich aan de maven mappenstructuur.
+Ook is er een *pom.xml* aanwezig.
+Deze file kan je vervolgens gebruiken om _dependecies_ of {libs} aan toe te voegen.
+
+
 
 === Een maven project compileren in Eclipse
 
+Om een maven project correct te compileren in Eclipse, 
+dien je een _mvn install_ uit te voeren.
 
+In de Eclipse GUI kan je dit doen door te rechterklikken op je project,
+te kiezen voor _run as_ -> _Maven install_ .
+
+.Mvn project compileren in eclipse
+image::mvninstall.jpg[mvn install in eclipse]
+
+In de console zie je vervolgens de output van het mvn compilatie proces.
+Indien de build succesvol was, wordt dit aangegeven.
+Bij compilatiefouten is het belangrijk deze output te lezen om te weten te komen wat er misliep.
+
+.Mvn output in eclipse
+image::mvnoutput.jpg[mvn install in eclipse]
