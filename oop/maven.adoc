@@ -279,7 +279,12 @@ Een voorbeeld:
     </build>
 ----
 
-== In Eclipse
+== Maven en Eclipse
+
+In Eclipse zit standaard ondersteuning voor Maven ingebouwd. 
+Je kan er maven projecten mee aanmaken.
+De pom.xml wordt automatisch uitgelezen en {libs} worden automatisch gedownload.
+De build van een Maven project (mvn install) kan via een gui opgeroepen worden.
 
 === Een maven project aanmaken
 
