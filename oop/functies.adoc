@@ -1,0 +1,72 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Functies en Methods
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Functies (of methods) zijn stukken code die een naam hebben gekregen.
+Ze worden buiten de _main_ {m} geschreven.  
+De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen. 
+Als een programma (of de _main_ method) veel dezelfde code bevat (herhaling),
+kan je de code die altijd hetzelfde is apart zetten in een functie en die functie telkens opnieuw oproepen.
+
+== Het definiëren van een {f}.
+
+Een functie wordt gedefiniëerd met behulp van enkele keywords:
+
+. *public* : bepaald of de functie overal bruikbaar is (dit kan gelimiteerd worden)
+. *static* : er is geen instantie van de klasse nodig om deze functie te gebruiken
+. *void* : het return type. Void (= leegte in het Engls), geeft aan dat er geen return type wordt gebruikt.
+. *de functienaam*.
+
+.Een voorbeeld van een functie.
+[source,java]
+----
+include::Functies.java[lines=11..13]
+----
+
+
+
+[IMPORTANT]
+====
+Een speciale functie, of method, is de _main method_. 
+Deze bepaalt het startpunt van een {j} programma.
+De definitie van deze functie heeft een vaste structuur.
+
+
+.De main method.
+[source,java]
+----
+include::Functies.java[lines=3]
+----
+====
+
+
+== Functies oproepen
+
+== Functies met parameters
+
+=== Argumenten
+
+
+
+== Functies oproepen in functies
+
+== Return types
+
+=== Gebruik maken van functies met return types
+
+== Functies combineren
+
+
+
+
