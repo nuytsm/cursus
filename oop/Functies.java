@@ -20,15 +20,15 @@ public class Oppervlakte {
 		System.out.println("Hello World!");
 	}
 	
-	pulic static void zegHallo(String naam){
+	public static void zegHallo(String naam){
 		System.out.println("Hallo " + naam);
 	}
 	
-	pulic static void zegHalloMetLeeftijd(String naam, int leeftijd){
+	public static void zegHalloMetLeeftijd(String naam, int leeftijd){
 		System.out.println("Hallo " + naam + ", je bent " + leeftijd + " jaar oud.");
 	}
 	
-	pulic static void zegHalloMetLeeftijdJongOfOud(String naam, int leeftijd){
+	public static void zegHalloMetLeeftijdJongOfOud(String naam, int leeftijd){
 		if (leeftijd > 18){
 			System.out.println("Hallo " + naam + ", je bent " + leeftijd + " jaar jong.");
 		} else {
