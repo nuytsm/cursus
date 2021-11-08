@@ -11,7 +11,7 @@ public class Oppervlakte {
 		zegHalloMetLeeftijdJongOfOud("Thomas", 11);
 		zegHalloMetLeeftijdJongOfOud("Popeye", 90);
 		int oppervlaktevandedriehoek = oppervlakteDriehoek(5, 10);
-		System.out.println(oppervlaktevandedriehoek);	
+		double oppervlakte = berekenoppervlaktevancirkel(25);	
 		oppervlaktevandedriehoek = oppervlakteDriehoek(5, -10);
 		System.out.println(oppervlaktevandedriehoek);
 	}
