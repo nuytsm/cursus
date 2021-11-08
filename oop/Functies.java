@@ -1,15 +1,31 @@
 public class Oppervlakte {
 	
 	public static void main(String[] args) {
+		voorbeeldFunctie();
 		int oppervlaktevandedriehoek = oppervlakteDriehoek(5, 10);
-		System.out.println(oppervlaktevandedriehoek);
-		
+		System.out.println(oppervlaktevandedriehoek);	
 		oppervlaktevandedriehoek = oppervlakteDriehoek(5, -10);
 		System.out.println(oppervlaktevandedriehoek);
 	}
 	
 	public static void voorbeeldFunctie() {
 		System.out.println("Hello World!");
+	}
+	
+	pulic static void zegHallo(String naam){
+		System.out.println("Hallo " + naam);
+	}
+	
+	pulic static void zegHalloMetLeeftijd(String naam, int leeftijd){
+		System.out.println("Hallo " + naam + ", je bent " + leeftijd + " jaar oud.");
+	}
+	
+	pulic static void zegHalloMetLeeftijdJongOfOud(String naam, int leeftijd){
+		if (leeftijd > 18){
+			System.out.println("Hallo " + naam + ", je bent " + leeftijd + " jaar jong.");
+		} else {
+			System.out.println("Hallo " + naam + ", je al zeeer oud, namelijk " + leeftijd + " jaar.");
+		}
 	}
 	
 	public static int oppervlakteDriehoek(int basis, int hoogte) {
