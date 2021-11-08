@@ -2,6 +2,14 @@ public class Oppervlakte {
 	
 	public static void main(String[] args) {
 		voorbeeldFunctie();
+		zegHallo("Erik");
+		zegHallo("Dirk");
+		zegHallo("Beethoven");
+		zegHallo("Jennifer");
+		zegHalloMetLeeftijd("Vladimir", 65);
+		zegHalloMetLeeftijd("Erika", 16);
+		zegHalloMetLeeftijdJongOfOud("Thomas", 11);
+		zegHalloMetLeeftijdJongOfOud("Popeye", 90);
 		int oppervlaktevandedriehoek = oppervlakteDriehoek(5, 10);
 		System.out.println(oppervlaktevandedriehoek);	
 		oppervlaktevandedriehoek = oppervlakteDriehoek(5, -10);
