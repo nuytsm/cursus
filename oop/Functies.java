@@ -36,6 +36,12 @@ public class Oppervlakte {
 		}
 	}
 	
+	public static void maakKaderMetNaam(String naam){
+		System.out.println("-----------------");
+		zegHallo(naam);
+		System.out.println("-----------------");
+	}
+	
 	public static int oppervlakteDriehoek(int basis, int hoogte) {
 		if (hoogte < 0 || basis < 0) {
 			System.out.println("Negatieve invoer is niet toegestaan");
