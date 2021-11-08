@@ -31,10 +31,11 @@ Een functie wordt gedefiniëerd met behulp van enkele keywords:
 .Een voorbeeld van een functie.
 [source,java]
 ----
-include::Functies.java[lines=11..13]
+include::Functies.java[lines=18..21]
 ----
 
-
+Bovenstaande functie geeft een stuk _code_ aan die een naam (of een noemer) heeft gekregen, namelijk _voorbeeldFunctie_.
+Dit stuk _code_ kan meermaals aangeroepen worden.
 
 [IMPORTANT]
 ====
@@ -53,20 +54,87 @@ include::Functies.java[lines=3]
 
 == Functies oproepen
 
+Om een functie (en dus een stuk _code_) op te roepen, maak je gebruik van de naam van functie, gevolgd door ronde haken:
+.De voorbeeldfunctie aanroepen.
+[source,java]
+----
+include::Functies.java[lines=3-4-17]
+----
+
+Iedere keer de main functie (of main method) aangeroepen wordt (dus iedere keer je het programma start), wordt ook bovenstaande functie op zijn beurt aangeroepen.
+De _code_ in de functie wordt op dat moment uitgevoerd.
+
+Als output krijg je dat er _"Hello world!"_ naar de console wordt geprint.
+
 == Functies met parameters
+
+Aan een functie kan je variabelen meegeven.
+Deze variabelen worden meegegeven bij het oproepen van de functie. Bijvoorbeeld:
+[source,java]
+----
+include::Functies.java[lines=3-5-17]
+----
+Dit zorgt ervoor dat in de volgende functie:
+
+[source,java]
+----
+include::Functies.java[lines=23..25]
+----
+De tekst "Erik" wordt meegegeven als _naam_. 
+Deze naam _*parameter*_ (of tijdelijke variabele) kan gebruikt worden in de _code_ van de functie.
+
 
 === Argumenten
 
+Iedere keer dat de functie wordt opgeroepen kan de naam *parameter* anders ingevuld worden:
+[source,java]
+----
+include::Functies.java[lines=3-6-7-8-17]
+----
 
+Iedere keer dat deze functie wordt aangeroepen, wordt er een andere naam naar de console geschreven.
+Dit terwijl in de _code_ van de functie onveranderd blijft.
+Er worden verschillende *argumenten* meegegeven aan de *parameter* van de functie.
 
 == Functies oproepen in functies
 
+Tot nu toe hebben we functies altijd opgeroepen vanuit de main functie (of method).
+Dit hoeft echter niet.
+Je kan perfect iedere functie oproepen vanuit een andere functie.
+Bijvoorbeeld:
+[source,java]
+----
+include::Functies.java[lines=39..43]
+----
+
+
+== Meerdere parameters
+
+[source,java]
+----
+include::Functies.java[lines=27..29]
+----
+
+
 == Return types
+
+[source,java]
+----
+include::Functies.java[lines=62..65]
+----
 
 === Gebruik maken van functies met return types
 
+[source,java]
+----
+include::Functies.java[lines=3-14-17]
+----
+
 == Functies combineren
 
-
+[source,java]
+----
+include::Functies.java[lines=55..65]
+----
 
 
