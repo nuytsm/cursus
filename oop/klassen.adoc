@@ -16,6 +16,7 @@
 Een *klasse* in een object georiënteerde taal is een concept dat een blauwdruk vormt.
 Van deze blauwdruk kunnen verschillende *instanties* aangemaakt worden.
 Een klasse bestaat uit:
+
 * variabelen
 * methods (functies die in een klasse geschreven zijn)
 
