@@ -31,9 +31,9 @@ Een functie wordt gedefiniëerd met behulp van enkele keywords:
 .Een voorbeeld van een functie.
 [source,java]
 ----
-public static<3> void<1> voorbeeldFunctie<2>() {<5>
-		System.out.println("Hello World!");<4>
-}<5>
+public static <3> void <1> voorbeeldFunctie <2> () { <5>
+		System.out.println("Hello World!"); <4>
+} <5>
 ----
 <1> Het datatype dat de functie teruggeeft. In dit geval _void_ (een leegte), dus niets.
 <2> De naam van de functie.
