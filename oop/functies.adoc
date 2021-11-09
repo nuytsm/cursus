@@ -31,7 +31,11 @@ Een functie wordt gedefiniëerd met behulp van enkele keywords:
 .Een voorbeeld van een functie.
 [source,java]
 ----
-public static <3> void <1> voorbeeldFunctie <2> () { <5>
+public 
+	static  <3>
+		void <1>
+			voorbeeldFunctie() <2>
+{  <5>
 		System.out.println("Hello World!"); <4>
 } <5>
 ----
