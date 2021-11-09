@@ -32,9 +32,9 @@ In de afbeelding hierboven (uit het computerspel Age of Empires) kunnen we versc
 
 * Een ruiter (deze komt meerdere keren voor -> meerdere instanties)
 * Een kameel (ook deze komt meerdere keren voor -> meerdere instanties)
-* Een kasteel (komt 1x voor, slechts 1 instantie)
+* Een kasteel (komt 1x voor -> slechts 1 instantie)
 
-Een ruiter is als klasse in dit computerspel is slechts eenmaal gedefiniëerd.
+Een ruiter is als klasse in dit computerspel slechts eenmaal gedefiniëerd.
 Toch zien we meerdere ruiters.
 Dit komt omdat er van deze ruiter klasse meerdere instanties werden aangemaakt.
 
@@ -64,7 +64,75 @@ public class Ruiter { <1>
 
 == Instanties
 
+Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van een auto.
+
+image::teslablauwdruk.jpg[Tesla blauwdruk]
+
+Dit ontwerp beschrijft hoe auto eruit moet zien, wat het concept is:
+
+* De afmetingen
+* De buiging van de carosserie
+* Het aantal zetels
+* De maat van de velgen
+* Paardenkracht van de motor
+* ..
+
+Maar het is (nog) geen auto die je kan gebruiken.
+Om het te gaan gebruiken zal je een instantie moeten maken (een echte auto van de fabrieksband laten rollen).
+
+Het aanmaken van instanties in {j} gebeurt met het *##new##* keyword:
+
+[source,java]
+----
+Ruiter ruiter1 = new Ruiter();
+----
+
+Het is mogelijk meerdere instanties aan te maken van dezelfde klasse:
+
+[source,java]
+----
+Ruiter ruiter2 = new Ruiter();
+Ruiter ruiter3 = new Ruiter();
+Ruiter ruiter4 = new Ruiter();
+Ruiter ruiter5 = new Ruiter();
+----
+
+Zo lang het werkgeheugen (RAM) niet vol is, kan je instanties blijven aanmaken.
+
+=== Variabelen en geheugengebruik
+
+Iedere instantie van een klasse neemt een deel van het geheugen in.
+Voor iedere instantie worden immers de waarden van de verschillende variabelen apart bijgehouden.
+
+Als de hitpoints van 1 ruiter verminderen doordat hij aangevallen werd, geldt dit enkel voor deze ruiter.
+De hitpoints van de andere ruiters behouden hun eigen waarden.
+
+Al deze informatie moet in het werkgeheugen bijgehouden worden.
+
 === Variabelen
+
+Om de variabele van instanties aan te passen kunnen we via de _dot notatie_ (punt notatie) aan de variabelen van een instantie:
+
+[source,java]
+----
+System.out.println(ruiter2.hitpoints);
+System.out.println(ruiter3.hitpoints);
+----
+
+Initieel hebben deze variabelen een standaardwaarde. Deze werd in de klasse bepaald, namelijk 200.
+Het uitprinten van bovenstaande _code_ zal tweemaal 200 afprinten.
+
+Als we de hit() method (functie in een klasse) uitvoeren op de 3de instantie, zal van deze instantie 10 hitpoints afgetrokken worden:
+
+[source,java]
+----
+ruiter3.hit(); <1>
+System.out.println(ruiter2.hitpoints); <2>
+System.out.println(ruiter3.hitpoints); <3>
+----
+<1> Het uitvoeren van de hit() method op de 3de instantie (via de _dot notatie_).
+<2> Het afprinten van de hitpoints van ruiter 2: 200
+<3> Het afprinten van de hitpoints van ruiter 3. Dit is nu: 190
 
 === Methods (functies)
 
