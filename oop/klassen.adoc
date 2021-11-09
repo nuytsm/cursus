@@ -28,6 +28,7 @@ In computer spellen wordt veel gebruik gemaakt van klassen.
 image::ages.png[Game characters]
 
 In de afbeelding hierboven (uit het computerspel Age of Empires) kunnen we verschillende klassen aan het werk zien:
+
 * Een ruiter (deze komt meerdere keren voor -> meerdere instanties)
 * Een kameel (ook deze komt meerdere keren voor -> meerdere instanties)
 * Een kasteel (komt 1x voor, slechts 1 instantie)
