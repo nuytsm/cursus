@@ -149,6 +149,8 @@ We kunnen echter kiezen uit verschillende datatypes om terug te geven:
 * double : voor kommagetallen.
 * Klassen : voor instanties van klassen (zien we later in de cursus)
 * boolean : true/false (waar / niet waar).
+* Arrays
+* ..
 
 [source,java]
 ----
