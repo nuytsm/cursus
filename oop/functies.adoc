@@ -122,13 +122,33 @@ include::Functies.java[lines=39..43]
 
 == Meerdere parameters
 
+Je kan een functie meerdere parameters geven. 
+Iedere keer dat de functie wordt opgroepen, moeten deze parameters ingevuld worden. 
+Je gaat dus iedere keer argumenten moeten meegeven.
+
 [source,java]
 ----
 include::Functies.java[lines=27..29]
 ----
 
+Bovenstaande functie kunnen we oproepen op de volgende manier:
+
+[source,java]
+----
+zegHalloMetLeeftijd("Nathan", 17){
+----
 
 == Return types
+
+Een return type geeft aan welk resultaat een functie teruggeeft als hij opgeroepen wordt.
+Tot nu toe werkten we met het _void_ datatype. Dit geeft een leegte aan (dus niets werd er teruggegeven).
+We kunnen echter kiezen uit verschillende datatypes om terug te geven:
+
+* int : voor gehele getallen.
+* String : voor tekst.
+* double : voor kommagetallen.
+* Klassen : voor instanties van klassen (zien we later in de cursus)
+* boolean : true/false (waar / niet waar).
 
 [source,java]
 ----
@@ -145,6 +165,28 @@ Het resultaat van het oproepen van een functie met een return type is een tijdel
 ----
 include::Functies.java[lines=3;14;17]
 ----
+
+In het bovenstaande voorbeeld werd het *return type* datatype aangepast van _void_ naar _double_.
+Dit verplicht de code in de functie een resultaat terug te geven of te _returnen_.
+Dit wordt aangegeven met het *return* _keyword_.
+
+[source,java]
+----
+public static 
+		double <1>
+			berekenoppervlaktevancirkel(int straal) {
+				double oppervlakte = 3.1415 * straal * straal;<2>
+				return oppervlakte;<3>
+			}
+----
+<1> Het _return type_ : dit geeft aan welk datatype de functie zal teruggeven.
+<2> Een berekening van een variabele.
+<3> Het teruggeven of _returnen_ van een variabele.
+
+[IMPORTANT]
+====
+De variabele die wordt teruggegeven *moet* verplicht van hetzelfde datatype zijn als het _return type_ van de functie.
+====
 
 == Functies combineren
 Vanuit functies kan je andere functies oproepen.
