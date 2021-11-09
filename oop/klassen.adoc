@@ -1,0 +1,73 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Klassen
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Een *klasse* in een object georiënteerde taal is een concept dat een blauwdruk vormt.
+Van deze blauwdruk kunnen verschillende *instanties* aangemaakt worden.
+Een klasse bestaat uit:
+* variabelen
+* methods (functies die in een klasse geschreven zijn)
+
+== Voorbeeld van een klasse
+
+Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
+In computer spellen wordt veel gebruik gemaakt van klassen.
+image::ages.png[gamechar,400]
+
+In de afbeelding hierboven (uit het computerspel Age of Empires) kunnen we verschillende klassen aan het werk zien:
+* Een ruiter (deze komt meerdere keren voor -> meerdere instanties)
+* Een kameel (ook deze komt meerdere keren voor -> meerdere instanties)
+* Een kasteel (komt 1x voor, slechts 1 instantie)
+
+Een ruiter is als klasse in dit computerspel is slechts eenmaal gedefiniëerd.
+Toch zien we meerdere ruiters.
+Dit komt omdat er van deze ruiter klasse meerdere instanties werden aangemaakt.
+
+== De _code_ om een klasse te definiëren
+
+De ruiter klasse uit bovenstaande _screenshot_ zou als volgt geprogrameerd kunnen zijn:
+
+[source,java]
+----
+public class Ruiter { <1>
+  public int hitpoints = 200; <2>
+  public int speed = 4; <2>
+  public int armour = 20; <2>
+  public int positionX = 485; <2>
+  public int positiony = 312; <2>
+  
+  public void hit(){ <3>
+      hitpoints -= 10; <4>
+  }
+  
+}
+----
+<1> De definitie van de klasse.
+<2> De variabelen in de klasse.
+<3> De functie die in de klasse werd gedefiniëerd.
+<4> De code in de functie werkt op de variabelen uit de klasse.
+
+== Instanties
+
+=== Variabelen
+
+=== Methods (functies)
+
+== Een uitgewerkt voorbeeld
+
+== Gebruik van bestaande klassen
+
+
+
+
