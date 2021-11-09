@@ -88,7 +88,7 @@ Dit zorgt ervoor dat in de volgende functie:
 include::Functies.java[lines=23..25]
 ----
 De tekst "Erik" wordt meegegeven als _naam_. 
-Deze naam _*parameter*_ (of tijdelijke variabele) kan gebruikt worden in de _code_ van de functie.
+Deze naam _**parameter**_ (of tijdelijke variabele) kan gebruikt worden in de _code_ van de functie.
 
 
 === Argumenten
