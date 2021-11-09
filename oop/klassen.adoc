@@ -23,7 +23,9 @@ Een klasse bestaat uit:
 
 Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
 In computer spellen wordt veel gebruik gemaakt van klassen.
-image::ages.png[gamechar,400]
+
+.Klassen en instanties in Age of Empires 2
+image::ages.png[Game characters]
 
 In de afbeelding hierboven (uit het computerspel Age of Empires) kunnen we verschillende klassen aan het werk zien:
 * Een ruiter (deze komt meerdere keren voor -> meerdere instanties)
