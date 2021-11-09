@@ -58,7 +58,7 @@ Om een functie (en dus een stuk _code_) op te roepen, maak je gebruik van de naa
 .De voorbeeldfunctie aanroepen.
 [source,java]
 ----
-include::Functies.java[lines=3-4-17]
+include::Functies.java[lines=3,4,17]
 ----
 
 Iedere keer de main functie (of main method) aangeroepen wordt (dus iedere keer je het programma start), wordt ook bovenstaande functie op zijn beurt aangeroepen.
@@ -72,7 +72,7 @@ Aan een functie kan je variabelen meegeven.
 Deze variabelen worden meegegeven bij het oproepen van de functie. Bijvoorbeeld:
 [source,java]
 ----
-include::Functies.java[lines=3-5-17]
+include::Functies.java[lines=3,5,17]
 ----
 Dit zorgt ervoor dat in de volgende functie:
 
@@ -89,7 +89,7 @@ Deze naam _*parameter*_ (of tijdelijke variabele) kan gebruikt worden in de _cod
 Iedere keer dat de functie wordt opgeroepen kan de naam *parameter* anders ingevuld worden:
 [source,java]
 ----
-include::Functies.java[lines=3-6-7-8-17]
+include::Functies.java[lines=3,6,7,8,17]
 ----
 
 Iedere keer dat deze functie wordt aangeroepen, wordt er een andere naam naar de console geschreven.
@@ -127,7 +127,7 @@ include::Functies.java[lines=62..65]
 
 [source,java]
 ----
-include::Functies.java[lines=3-14-17]
+include::Functies.java[lines=3,14,17]
 ----
 
 == Functies combineren
