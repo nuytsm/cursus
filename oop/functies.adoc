@@ -23,16 +23,16 @@ kan je de code die altijd hetzelfde is apart zetten in een functie en die functi
 
 Een functie wordt gedefiniëerd met behulp van enkele keywords:
 
-. *public* : bepaald of de functie overal bruikbaar is (dit kan gelimiteerd worden)
-. *static* : er is geen instantie van de klasse nodig om deze functie te gebruiken
+. *public* : bepaalt of de functie overal bruikbaar is (dit kan gelimiteerd worden, hier komen we later in de cursus op terug).
+. *static* : er is geen instantie van de klasse nodig om deze functie te gebruiken.
 . *void* : het return type. Void (= leegte in het Engels), geeft aan dat er geen return type wordt gebruikt.
 . *de functienaam*.
 
 .Een voorbeeld van een functie.
 [source,java]
 ----
-public 
-	static  <3>
+public <6>
+	static <3>
 		void <1>
 			voorbeeldFunctie() <2>
 {  <5>
@@ -44,6 +44,7 @@ public
 <3> Static: geeft aan dat er geen instantie nodig is van de klasse om de functie uit te voeren.
 <4> De code die in de functie wordt uitgevoerd (indien de functie aangeroepen wordt).
 <5> De code binnen een functie, moet tussen accolades staan.
+<6> De _access modifier_ , dit komt later in de cursus aan bod, public wilt zeggen dat de functie oproepbaar is vanuit alle klassen.
 
 Bovenstaande functie geeft een stuk _code_ aan die een naam (of een noemer) heeft gekregen, namelijk _voorbeeldFunctie_.
 Dit stuk _code_ kan meermaals aangeroepen worden.
