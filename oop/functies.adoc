@@ -58,7 +58,7 @@ Om een functie (en dus een stuk _code_) op te roepen, maak je gebruik van de naa
 .De voorbeeldfunctie aanroepen.
 [source,java]
 ----
-include::Functies.java[lines=3,4,17]
+include::Functies.java[lines=3;4;17]
 ----
 
 Iedere keer de main functie (of main method) aangeroepen wordt (dus iedere keer je het programma start), wordt ook bovenstaande functie op zijn beurt aangeroepen.
@@ -72,7 +72,7 @@ Aan een functie kan je variabelen meegeven.
 Deze variabelen worden meegegeven bij het oproepen van de functie. Bijvoorbeeld:
 [source,java]
 ----
-include::Functies.java[lines=3,5,17]
+include::Functies.java[lines=3;5;17]
 ----
 Dit zorgt ervoor dat in de volgende functie:
 
@@ -89,7 +89,7 @@ Deze naam _*parameter*_ (of tijdelijke variabele) kan gebruikt worden in de _cod
 Iedere keer dat de functie wordt opgeroepen kan de naam *parameter* anders ingevuld worden:
 [source,java]
 ----
-include::Functies.java[lines=3,6,7,8,17]
+include::Functies.java[lines=3;6;7;8;17]
 ----
 
 Iedere keer dat deze functie wordt aangeroepen, wordt er een andere naam naar de console geschreven.
@@ -125,12 +125,20 @@ include::Functies.java[lines=62..65]
 
 === Gebruik maken van functies met return types
 
+Als je een functie oproept die een return type heeft, kan je het resultaat van de functie opslaan in een variabele. 
+Deze variabele kan je achteraf verder gebruiken in je _code_.
+Het resultaat van het oproepen van een functie met een return type is een tijdelijke variabele van het type van het return type.
+
 [source,java]
 ----
-include::Functies.java[lines=3,14,17]
+include::Functies.java[lines=3;14;17]
 ----
 
 == Functies combineren
+Vanuit functies kan je andere functies oproepen.
+Dit maakt het mogelijk in een bepaalde functie gebruik te maken van andere functies die onderliggende (complexe) zaken voor hun rekening nemen.
+Hierdoor kan je functies schrijven die zich focussen op hun eigen taak.
+Zie het voorbeeld hieronder:
 
 [source,java]
 ----
