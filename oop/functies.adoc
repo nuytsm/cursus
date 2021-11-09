@@ -155,17 +155,6 @@ We kunnen echter kiezen uit verschillende datatypes om terug te geven:
 include::Functies.java[lines=62..65]
 ----
 
-=== Gebruik maken van functies met return types
-
-Als je een functie oproept die een return type heeft, kan je het resultaat van de functie opslaan in een variabele. 
-Deze variabele kan je achteraf verder gebruiken in je _code_.
-Het resultaat van het oproepen van een functie met een return type is een tijdelijke variabele van het type van het return type.
-
-[source,java]
-----
-include::Functies.java[lines=3;14;17]
-----
-
 In het bovenstaande voorbeeld werd het *return type* datatype aangepast van _void_ naar _double_.
 Dit verplicht de code in de functie een resultaat terug te geven of te _returnen_.
 Dit wordt aangegeven met het *return* _keyword_.
@@ -187,6 +176,17 @@ public static
 ====
 De variabele die wordt teruggegeven *moet* verplicht van hetzelfde datatype zijn als het _return type_ van de functie.
 ====
+
+=== Gebruik maken van functies met return types
+
+Als je een functie oproept die een return type heeft, kan je het resultaat van de functie opslaan in een variabele. 
+Deze variabele kan je achteraf verder gebruiken in je _code_.
+Het resultaat van het oproepen van een functie met een return type is een tijdelijke variabele van het type van het return type.
+
+[source,java]
+----
+include::Functies.java[lines=3;14;17]
+----
 
 == Functies combineren
 Vanuit functies kan je andere functies oproepen.
