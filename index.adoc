@@ -1,0 +1,13 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Cursus OOP
+
+* link:oop/functies.adoc[Functies]
+* link:oop/klassen.adoc[Klassen]
