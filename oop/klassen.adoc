@@ -45,7 +45,7 @@ De ruiter klasse uit bovenstaande _screenshot_ zou als volgt geprogrameerd kunne
 [source,java]
 ----
 public class Ruiter { <1>
-  public int hitpoints = 200; <2>
+  public int totalhitpoints = 200; <2>
   public int health = 200; <2>
   public int speed = 4; <2>
   public int armour = 20; <2>
@@ -63,9 +63,16 @@ public class Ruiter { <1>
 <3> De functie die in de klasse werd gedefiniëerd.
 <4> De code in de functie werkt op de variabelen uit de klasse.
 
+[IMPORTANT]
+====
+Iedere klasse moet in een aparte Java _file_ aangemaakt worden, ##met dezelfde naam als de klasse##.
+De _class Ruiter_ zal dus in een Ruiter.java _file_ moeten staan.
+##Een klasse begint steeds met een hoofdletter##.
+====
+
 == Instanties
 
-Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van een auto.
+Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van iets, bijvoorbeeld van een auto.
 
 image::teslablauwdruk.jpg[Tesla blauwdruk]
 
@@ -81,12 +88,17 @@ Dit ontwerp beschrijft hoe auto eruit moet zien, wat het concept is:
 Maar het is (nog) geen auto die je kan gebruiken.
 Om het te gaan gebruiken zal je een instantie moeten maken (een echte auto van de fabrieksband laten rollen).
 
+.In de fabriek worden instanties van Teslas aangemaakt.
+image::teslas.webp[Tesla fabriek]
+
 Het aanmaken van instanties in {j} gebeurt met het *##new##* keyword:
 
 [source,java]
 ----
-Ruiter ruiter1 = new Ruiter();
+Ruiter ruiter1 = new Ruiter(); <1>
 ----
+
+<1> Merk op dat de klasse met een hoofdletter wordt geschreven en de instantie met een kleine letter.
 
 Het is mogelijk meerdere instanties aan te maken van dezelfde klasse:
 
@@ -119,8 +131,8 @@ Om de variabele van instanties aan te passen kunnen we via de _dot notatie_ (pun
 
 [source,java]
 ----
-System.out.println(ruiter2.hitpoints);
-System.out.println(ruiter3.hitpoints);
+System.out.println(ruiter2.health);
+System.out.println(ruiter3.health);
 ----
 
 Initieel hebben deze variabelen een standaardwaarde. Deze werd in de klasse bepaald, namelijk 200.
@@ -131,12 +143,12 @@ Als we de hit() method (functie in een klasse) uitvoeren op de 3de instantie, za
 [source,java]
 ----
 ruiter3.hit(); <1>
-System.out.println(ruiter2.hitpoints); <2>
-System.out.println(ruiter3.hitpoints); <3>
+System.out.println(ruiter2.health); <2>
+System.out.println(ruiter3.health); <3>
 ----
 <1> Het uitvoeren van de hit() method op de 3de instantie (via de _dot notatie_).
-<2> Het afprinten van de hitpoints van ruiter 2: 200
-<3> Het afprinten van de hitpoints van ruiter 3. Dit is nu: 190
+<2> Het afprinten van de _health_ van ruiter 2: 200
+<3> Het afprinten van de _health_ van ruiter 3. Dit is nu: 190
 
 === Methods (functies)
 
@@ -167,9 +179,13 @@ Het volgende is dus niet mogelijk:
 
 [source,java]
 ----
-public void hit(){}
+public void hit(){
+    health -= 10;
+}
 
-public void hit(){} //Compiler error
+public void hit(){ //Compiler error
+    health -= 10;
+}
 ----
 
 Dit maakt 2 maal dezelfde method (naam) aan, dit geeft de compiler aan als een fout.
@@ -177,9 +193,13 @@ Wat wel kan is andere _parameters_ gebruiken:
 
 [source,java]
 ----
-public void hit(int hitpoints){}
+public void hit(int hitpoints){
+    health -= hitpoints;
+}
 
-public void hit(){}
+public void hit(){
+    health -= 10;
+}
 ----
 
 Hier kan de compiler een duidelijk onderscheid maken tussen de 2 methods.
@@ -220,7 +240,7 @@ De groene balk geeft vervolgens de hitpoints aan van de individuele _units_ in d
 image::health.png[Game selectie]
 
 Ieder _unit_ in het spel is een instantie van een klasse.
-Voor iedere instantie worden de variabelen apart bijgehouden.
+##Voor iedere instantie worden de variabelen apart bijgehouden.##
 In het screenshot kan je zien dat enkele _units_ meer schade hebben opgelopen dan anderen.
 
 Voor de bommenwerpers (de vliegtuigen onderaan op het screenshots) kan je zien aan de hand van de gele blokjes, hoeveel bommen ze nog dragen.
