@@ -9,5 +9,5 @@
 
 = Cursus OOP
 
-* link:oop/functies.adoc[Functies]
-* link:oop/klassen.adoc[Klassen]
+* link:oop/functies[Functies]
+* link:oop/klassen[Klassen]
