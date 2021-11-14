@@ -11,3 +11,23 @@
 
 * link:oop/functies[Functies]
 * link:oop/klassen[Klassen]
+
+Todo:
+
+* Java
+** Virtuele machine
+** Syntax
+** Compiler
+* Datatypes
+* If/else
+* Arrays
+* For loops
+* While loops
+* Collections
+** Lists
+** Maps
+* Overerving
+* Constructors
+* Exceptions
+* Interfaces
+
