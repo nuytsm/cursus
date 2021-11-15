@@ -4,7 +4,6 @@
 :fs: functies
 :f: functie
 :m: method
-:icons: font
 :source-highlighter: rouge
 
 = Arrays
@@ -29,7 +28,6 @@ Het voordeel hiervan is dat:
 ====
 int[] nummers = new int[10]; <1>
 ====
-
 <1> Via het *new* keyword maken we een nieuwe instantie aan van een reeks (of array). ##De array heeft een lengte meegekregen: 10.## Dit is verplicht.
 
 [IMPORTANT]
@@ -45,7 +43,6 @@ nummers[0] = 4; <1>
 nummers[1] = 3789; <2>
 nummers[9] = 155; <3>
 ====
-
 <1> Het eerste getal van de array wordt op 4 geplaatst. ##De nummering van de vakjes begint vanaf 0##.
 <2> Het 2de getal wordt op 3789 geplaatst.
 <3> Het laatste getal wordt op 155 geplaatst.
@@ -55,7 +52,6 @@ Het is onmogelijk om een getal toe te wijzen buiten de lengte van de array:
 ====
 nummers[10] = 788; //error <1>
 ====
-
 <1> Dit geeft een fout: de array is maar 10 vakjes lang. We probeerden het 11de vakje (vanaf 0 beginnen tellen) toch een waarde te geven.
 
 === Een array aanmaken via een kortere weg
@@ -65,7 +61,6 @@ Met de volgende syntax kan je op een directe manier onmiddelijk getallen toewijz
 ====
 int[] nummers = {1,2,3,4,55,74,12,1}; <1>
 ====
-
 <1> Een kortere manier om onmiddelijk waardes te geven aan de vakjes van de reeks (array).
 
 === Andere datatypes
@@ -110,8 +105,21 @@ for (int i = 0; i < 10; i++){ <1>
   System.out.println(nummers[i]); <2> 
 }
 ====
-
 <1> De for lus
 <2> In de for lus kunnen we van _i_ gebruik maken. Dit getal variëert door de lus van 0 -> 9. Dit kunnen we gebruiken om telkens het i'de vakje af te printen.
 
 === De lengte van de array gebruiken
+
+Bovenstaande code kan nog verbeterd worden door gebruik te maken van de lengte van de array in de for lus.
+Door dit te doen kunnen we de lengte van de array aanpassen, zonder ook de for lus te hoeven aanpassen:
+
+[source,java]
+====
+int[] nummers = new int[10];
+for (int i = 0; i < nummers.length; i++){ <1>
+  System.out.println(nummers[i]); 
+}
+====
+<1> Via nummers.length halen we de lengte van de array op.
+
+
