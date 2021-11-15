@@ -23,7 +23,7 @@ Een klasse bestaat uit:
 == Voorbeeld van een klasse
 
 Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
-In computer spellen wordt veel gebruik gemaakt van klassen.
+In computerspellen wordt veel gebruik gemaakt van klassen.
 
 .Klassen en instanties in Age of Empires 2
 image::ages.png[Game characters]
@@ -314,5 +314,27 @@ Om met Math.random() een getal tussen 0 en 50 te krijgen:
 double random = Math.random() * 50;
 ----
 
+=== Date
+
+{j} voorziet klassen om met datums (ook de uren, minuten, seconden, schrikkeljaren, andere kalenders (buiten de gregoriaanse),..) zijn hierin verwerkt.
+Om een instantie hiervan aan te maken:
+
+[source,java]
+----
+   public static void main(String args[]) {
+      // Instantie aanmaken van een date
+      Date date = new Date();
+      // De datum (en tijd) tonen via toString()
+      System.out.println(date.toString());
+   }
+----
+
+Output:
+....
+May 04 09:51:52 CDT 2020
+....
+
+Voor meer informatie, zie:
+https://www.tutorialspoint.com/java/java_date_time.htm[Java Date en Time]
 
 
