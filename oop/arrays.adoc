@@ -55,6 +55,21 @@ nummers[10] = 788; //error <1>
 ----
 <1> Dit geeft een fout: de array is maar 10 vakjes lang. We probeerden het 11de vakje (vanaf 0 beginnen tellen) toch een waarde te geven.
 
+We kunnen de vakjes van een array grafisch voorstellen.
+
+[source,java]
+----
+int[] a = new int[5];
+a[0] = 1;
+a[1] = 2;
+a[2] = 4;
+a[3] = 8;
+a[4] = 16;
+----
+
+.Grafische voorstelling van de 'a' array.
+image::array.gif[Array]
+
 === Een array aanmaken via een kortere weg
 
 Met de volgende syntax kan je op een directe manier onmiddelijk getallen toewijzen aan de verschillende vakjes van de array.
