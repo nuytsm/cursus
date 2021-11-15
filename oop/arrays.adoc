@@ -1,0 +1,117 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Arrays
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Arrays worden gebruikt om een reeks variabelen van een bepaald datatype bij te houden.
+
+Zo kan je in een array bijvoorbeeld een reeks van gehele getallen bijhouden.
+Zonder hiervoor 10 keer een verschillende veriabele te moeten voor aanmaken.
+Het voordeel hiervan is dat:
+
+* De reeks (of array) via 1 noemer benaderbaar is (alle verschillende namen van de getallen hoeven niet onthouden te worden).
+* Je bent zeker dat heel de reeks een bepaald datatype bevat.
+* De reeks staat in een vaste volgorde.
+
+== Een array aanmaken
+
+[source,java]
+====
+int[] nummers = new int[10]; <1>
+====
+
+<1> Via het *new* keyword maken we een nieuwe instantie aan van een reeks (of array). ##De array heeft een lengte meegekregen: 10.## Dit is verplicht.
+
+[IMPORTANT]
+====
+Indien we een array aanmaken worden de waarden initiëel op de standaardwaarde van het datatype geplaatst.
+Voor een int is dit 0. Voor een double is dit 0.0. Voor een String is dit "".
+====
+
+Om de nummers van de array in te vullen, selecteren we de vakjes van de array:
+[source,java]
+====
+nummers[0] = 4; <1>
+nummers[1] = 3789; <2>
+nummers[9] = 155; <3>
+====
+
+<1> Het eerste getal van de array wordt op 4 geplaatst. ##De nummering van de vakjes begint vanaf 0##.
+<2> Het 2de getal wordt op 3789 geplaatst.
+<3> Het laatste getal wordt op 155 geplaatst.
+
+Het is onmogelijk om een getal toe te wijzen buiten de lengte van de array:
+[source,java]
+====
+nummers[10] = 788; //error <1>
+====
+
+<1> Dit geeft een fout: de array is maar 10 vakjes lang. We probeerden het 11de vakje (vanaf 0 beginnen tellen) toch een waarde te geven.
+
+=== Een array aanmaken via een kortere weg
+
+Met de volgende syntax kan je op een directe manier onmiddelijk getallen toewijzen aan de verschillende vakjes van de array.
+[source,java]
+====
+int[] nummers = {1,2,3,4,55,74,12,1}; <1>
+====
+
+<1> Een kortere manier om onmiddelijk waardes te geven aan de vakjes van de reeks (array).
+
+=== Andere datatypes
+
+Je kan arrays aanmaken van eender welk datatype:
+
+* double: double[]
+* String: String[]
+* char: char[]
+* Date: Date[]
+* Klasse: Klasse[]
+
+[source,java]
+====
+double[] kommagetallen = new double[2];
+kommagetallen[0] = 4.12;
+kommagetallen[1] = 3.6;
+====
+
+De lengte van de array is beperkt door de grootte van het RAM geheugen.
+
+== De verschillende waarden van een array weergeven.
+
+Om alle waarden van de reeks af te printen naar de _console_, kunnen we gebruik maken van een for lus.
+
+We hebben bijvoorbeeld deze array:
+[source,java]
+====
+int[] nummers = new int[10];
+====
+
+We weten dat de array een lengte heeft van 10 gehele getallen.
+Er zijn dus 10 vakjes met telkens een geheel getal in.
+Via een for lus kunnen we al deze vakjes afgaan.
+
+De for lus moet van 0 tot 9 tellen om de 10 vakjes af te lopen:
+
+[source,java]
+====
+int[] nummers = new int[10];
+for (int i = 0; i < 10; i++){ <1>
+  System.out.println(nummers[i]); <2> 
+}
+====
+
+<1> De for lus
+<2> In de for lus kunnen we van _i_ gebruik maken. Dit getal variëert door de lus van 0 -> 9. Dit kunnen we gebruiken om telkens het i'de vakje af te printen.
+
+=== De lengte van de array gebruiken
