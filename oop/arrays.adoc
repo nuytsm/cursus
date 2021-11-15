@@ -37,7 +37,7 @@ Het voordeel hiervan is dat:
 ----
 int[] nummers = new int[10]; <1>
 ----
-<1> Via het *new* keyword maken we een nieuwe instantie aan van een reeks (of array). ##De array heeft een lengte meegekregen: 10.## Dit is verplicht.
+<1> Via het *new* keyword maken we een nieuwe instantie aan van een reeks (of array). ##De array heeft een lengte meegekregen: 10.## De lengte meegeven is verplicht.
 
 [IMPORTANT]
 ====
