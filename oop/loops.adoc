@@ -1,0 +1,98 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:source-highlighter: rouge
+:icons: font
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Lussen
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Lussen worden gebruikt om meerdere keren na elkaar een bepaalde actie (of _code_) uit te voeren.
+
+Via een 
+
+== For lus
+
+=== De for lus en Arrays
+
+== While lus
+
+Deze lus wordt uitgevoerd zolang de conditie tussen de ronde haken als _'True'_ wordt geëvalueerd.
+
+=== Condities
+
+Tussen de ronde haken van de while lus wordt een conditie geschreven. Dit een een stukje _code_ dat geëvalueerd wordt tot een **ja of nee antwoord** -> _True of False_.
+Het gaat hier om een **boolean datatype**.
+
+Enkele voorbeelden van condities:
+
+[source,java]
+----
+int a = 5;
+boolean conditie = a < 10; <1>
+----
+<1> De conditie werd hier geëvalueerd tot een **True**.
+
+[source,java]
+----
+int a = 5;
+int b = 125;
+boolean conditie = b < a; <1>
+----
+<1> De conditie werd hier geëvalueerd tot een **False**.
+
+[source,java]
+----
+int a = 5;
+int b = 10;
+while (a < b){ <1>
+  a++; <2>
+} <3>
+----
+<1> Aan deze conditie wordt 5 keer voldaan.
+<2> In de lus wordt de waarde van a aangepast, dit beïnvloed de conditie uit <1>. Vandaar dat de lus maar 5 keer wordt uitgevoerd.
+<3> Elke lus steeds afgesluiten met een accolade.
+
+== Do while lus
+
+Deze lus is een variatie op de _while_ lus, het verschil is dat de lus **zeker 1 maal** wordt uitgevoerd.
+Ook al wordt er aan de conditie van de _while_ lus niet voldaan.
+
+[source,java]
+----
+int a = 5;
+int b = 10;
+do { <3>
+  a++; <2>
+} while (b < a) <1>
+----
+<1> Aan de conditie werd niet voldaan. B is immers groter dan A, niet kleiner.
+<2> Toch wordt deze code uitgevoerd (1 maal).
+<3> Het _do_ keyword geeft aan dat het om een _do while_ lus gaat.
+
+== For each lus
+
+Deze lus is een vorm van https://nl.wikipedia.org/wiki/Syntactische_suiker[syntactic sugar].
+Het is een variatie op de _for_ lus, die het voor de programmeur wat makkelijker maakt om te gebruiken met lijsten of arrays.
+
+Een voorbeeld:
+[source,java]
+----
+String[] array1 = new String[10];
+
+for (String 
+----
