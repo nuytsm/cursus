@@ -22,12 +22,56 @@
 :toclevels: 4
 
 Lussen worden gebruikt om meerdere keren na elkaar een bepaalde actie (of _code_) uit te voeren.
+Iedere keer dat de lus loopt, wordt een iteratie genoemd.
 
-Via een 
+Met bijvoorbeeld een for lus, kunnen we bepalen hoeveel keer (hoeveel iteraties) een bepaalde actie moet uitgevoerd worden.
 
 == For lus
 
+.Een for lus die van 0 tot 9 telt (10 iteraties).
+[source,java]
+----
+for (int i = 0; i < 10; i++;){
+  System.out.println(i); <1>                   
+ }
+----
+<1> De actie die 10x wordt uitgevoerd.
+
+.Een for lus in detail.
+[source,java]
+----
+for  <1>
+  ( <2>
+    int i = 0; <3>
+              i < 10; <4>
+                    i++; <5>
+                    ){ <6>
+  
+  System.out.println(i); <7>
+                    
+ } <8>
+----
+<1> Een for lus begint steeds met het *for* keyword.
+<2> In de ronde haakjes gaan we aangeven voor hoeveel iteraties de lus zal lopen.
+<3> ##Het beginpunt van de iteraties##. We definiëren een tijdelijke variabele (in dit geval i). Deze wordt op 0 geplaatst. 
+<5> De waarde van i wordt elke iteratie aangepast.
+<4> ##De eindconditie van de iteraties##. Deze conditie wordt _voor_ elke iteratie geëvalueerd. Iedere iteratie is de i waarde anders. Als de conditie een _false_ teruggeeft, stopt de _for_ lus.
+<6> We eindigen de aangave van het aantal iteraties met ronde haken. En markeren het begin van de acties van de for lus met een accolade.
+<7> Iedere iteratie printen we het getal i af naar de console.
+<8> Eindig de for lus met een sluitende accolade.
+
 === De for lus en Arrays
+
+Via een _for_ lus kunnen we alle vakjes van een array afgaan:
+
+[source,java]
+----
+String[] array1 = new String[10];
+for (int i = 0; i < 10; i++;){
+  System.out.println(array1[i]); <1>                   
+ }
+----
+<1> We halen iedere iteratie het i'de vakje op. Aangezien i varieert van 0 tot 9, gaan we alle vakjes van de array af.
 
 == While lus
 
@@ -94,5 +138,8 @@ Een voorbeeld:
 ----
 String[] array1 = new String[10];
 
-for (String 
+for (String s : array1){ <1>
+  System.out.println(s);
+}
 ----
+<1> Geef aan welk datatype in de array zit, vervolgens een tijdelijke variabele. Deze tijdelijke variabele wordt elke iteratie van de lus veranderd naar het volgend element in de array.
