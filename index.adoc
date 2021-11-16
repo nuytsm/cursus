@@ -11,6 +11,7 @@
 
 * link:oop/functies[Functies]
 * link:oop/klassen[Klassen]
+* link:oop/arrays[Arrays]
 
 Todo:
 
@@ -20,7 +21,6 @@ Todo:
 ** Compiler
 * Datatypes
 * If/else
-* Arrays
 * For loops
 * While loops
 * Collections
