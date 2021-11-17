@@ -73,9 +73,58 @@ for (int i = 0; i < 10; i++;){
 ----
 <1> We halen iedere iteratie het i'de vakje op. Aangezien i varieert van 0 tot 9, gaan we alle vakjes van de array af.
 
+=== For lus variaties
+
+.Een for lus die van -10 tot 999 telt.
+[source,java]
+----
+for (int i = -10; i < 1000; i++;){
+  System.out.println(i);                   
+ }
+----
+
+
+.Een for lus die van 10 tot -10 telt.
+[source,java]
+----
+for (int i = 10; i > -11; i--;){ <1>
+  System.out.println(i);                   
+ }
+----
+<1> Er wordt hier een > teken gebruik, want i neemt af in waarde.
+
+.Een for lus die van 0 tot 10 telt, maar enkel de even getallen (sprongen van 2).
+[source,java]
+----
+for (int i = 0; i <= 10; i = i + 2;){ <1>
+  System.out.println(i);                   
+ }
+----
+<1> In plaats van i++ gebruiken we hier i = i + 2.
+
+
+.Een for lus met een if statement.
+[source,java]
+----
+for (int i = 0; i < 1000; i++;){
+  if (i % 5 == 0){ <1>
+    System.out.println(i);                   
+    }
+ }
+----
+<1> Enkel de getallen die deelbaar zijn door 5 (zonder restwaarde, dit is de http://www.cs.umd.edu/~clin/MoreJava/Intro/expr-mod.html[modulus operator]).
+
 == While lus
 
-Deze lus wordt uitgevoerd zolang de conditie tussen de ronde haken als _'True'_ wordt geëvalueerd.
+[source,java]
+----
+int a = 0;
+while ( a < 5) {
+  a++;
+}
+----
+
+Deze lus wordt uitgevoerd zolang de conditie tussen de ronde haken (a < 5) als _'True'_ wordt geëvalueerd.
 
 === Condities
 
@@ -124,7 +173,7 @@ do { <3>
   a++; <2>
 } while (b < a) <1>
 ----
-<1> Aan de conditie werd niet voldaan. B is immers groter dan A, niet kleiner.
+<1> Aan de conditie werd niet voldaan. b is immers groter dan a, niet kleiner.
 <2> Toch wordt deze code uitgevoerd (1 maal).
 <3> Het _do_ keyword geeft aan dat het om een _do while_ lus gaat.
 
