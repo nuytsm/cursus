@@ -12,6 +12,7 @@
 * link:oop/functies[Functies]
 * link:oop/klassen[Klassen]
 * link:oop/arrays[Arrays]
+* link:oop/loops[For lussen & while lussen]
 
 Todo:
 
@@ -21,8 +22,6 @@ Todo:
 ** Compiler
 * Datatypes
 * If/else
-* For loops
-* While loops
 * Collections
 ** Lists
 ** Maps
