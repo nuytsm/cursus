@@ -1,0 +1,26 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:source-highlighter: rouge
+:icons: font
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= If / Else
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+== 
+
+
