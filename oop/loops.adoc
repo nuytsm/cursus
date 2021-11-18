@@ -54,8 +54,8 @@ for  <1>
 <1> Een for lus begint steeds met het *for* keyword.
 <2> In de ronde haakjes gaan we aangeven voor hoeveel iteraties de lus zal lopen.
 <3> ##Het beginpunt van de iteraties##. We definiëren een tijdelijke variabele (in dit geval i). Deze wordt op 0 geplaatst. 
-<5> De waarde van i wordt elke iteratie aangepast.
 <4> ##De eindconditie van de iteraties##. Deze conditie wordt _voor_ elke iteratie geëvalueerd. Iedere iteratie is de i waarde anders. Als de conditie een _false_ teruggeeft, stopt de _for_ lus.
+<5> De waarde van i wordt elke iteratie aangepast. (i verhoogt telkens met 1 door de ++)
 <6> We eindigen de aangave van het aantal iteraties met ronde haken. En markeren het begin van de acties van de for lus met een accolade.
 <7> Iedere iteratie printen we het getal i af naar de console.
 <8> Eindig de for lus met een sluitende accolade.
