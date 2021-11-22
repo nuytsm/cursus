@@ -1,0 +1,103 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:source-highlighter: rouge
+:icons: font
+:pm: polymorfisme
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Polymorfisme
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Polymorfisme in object georienteerde talen geeft aan dat subklassen een *specifieke invulling* hebben van een *method* die gedefinieerd werd in een *hoger liggende klasse* (_superclass_).
+Polymorfisme betekent letterlijk " vele vormen ".
+
+== Een voorbeeld
+Stel dat een hogere klasse de volgende method heeft:
+
+[source,java]
+----
+public class Unit{
+  public String attack(Unit unit){
+    return "10 damage to unit: " + unit;
+  }
+}
+----
+
+Dan kan een subclass deze method ook gebruiken (impliciet):
+[source,java]
+----
+public class Warrior extends Unit{ <1>
+}
+----
+<1> Met extends geven we aan dat Warrior een subclass van Unit is.
+
+[source,java]
+----
+Unit unit1 = new Unit(); <1>
+Unit warrior1 = new Warrior(); <2>
+unit1.attack(warrior1); <3>
+warrior1.attack(unit1); <4>
+----
+<1> Een instantie van Unit
+<2> Een instantie van Warrior, dit is ook een Unit (want een subclass)
+<3> output: "10 damage to unit: warrior1"
+<4> output "10 damage to unit: unit1"
+
+== Het _overriden_ van een method
+
+Een subclass kan er echter voor kiezen om de method van de superklasse niet zomaar over te nemen, maar een specifieke implementatie toe te voegen:
+
+[source,java]
+----
+public class Paladin extends Unit{ <1>
+  @Override <2>
+  public String attack(Unit unit){ <3>
+    return "55 damage (wielding broadsword) to unit: " + unit; <4>
+  }
+}
+----
+<1> Ook de Paladin is een subclass van Unit
+<2> Met _override_ geven we aan dat we een bovenliggende (van een superclass) method gaan overschrijven.
+<3> De method definitie is identiek.
+<4> De implementatie van de method is verschillend. De Paladin is in dit voorbeeld sterker.
+
+De output:
+[source,java]
+----
+Unit unit1 = new Unit(); <1>
+Unit paladin1 = new Paladin(); <2>
+unit1.attack(paladin1); <3>
+paladin1.attack(unit1); <4>
+----
+<1> Een instantie van Unit
+<2> Een instantie van Paladin, dit is ook een Unit (want een subclass)
+<3> output: "10 damage to unit: paladin1"
+<4> output "55 damage (wielding broadsword) to: unit1" -> de implementatie van de method in paladin werd gebruikt.
+
+== Polymorfisme in lijsten
+
+In de praktijk komt polymorfisme veel voor als we met lijsten werken.
+
+[source,java]
+----
+List<Unit> units;
+
+for (Unit u : units){
+  u.attack(); <1>
+}
+----
+<1> Bij het uitvoeren van deze code wordt gekeken naar de specifieke method implementatie op het laagste niveau (klasse) van de instantie.
