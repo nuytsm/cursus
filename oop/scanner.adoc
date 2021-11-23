@@ -1,0 +1,95 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Scanner
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Met de scanner klasse uit de _standard library_ is het mogelijk input uit te lezen van de console of van tekstbestanden.
+Dit maakt het bouwen van _console_ aplicaties mogelijk. Gebruikers kunnen hierdoor input typen in het programma.
+
+== De scanner klasse instantiëren
+
+[source,java]
+----
+import java.util.Scanner; <1>
+
+public class Starter { <2>
+  public static void main(String[] args) { <3>
+    Scanner scanner = new Scanner(System.in); <4> 
+    System.out.println("Enter username: "); <5>
+
+    String userName = scanner.nextLine();  <6>
+    
+    System.out.println("Username is: " + userName); <7>
+  }
+}
+----
+<1> Met deze _import_ regel geven we aan met welke klasse uit de _standard library_ we willen gaan werken. In eclipse kunnen we dit automatisch doen door _ctrl-spatie_ in te geven na het typen van 'scanner'.
+<2> We maken een klasse aan
+<3> met een main method.
+<4> We instantiëren een scanner. Deze scanner gaat lezen van _System.in_. Dit is de input van de console.
+<5> We vragen de gebruiker om zijn gebruikersnaam in te geven (via _System.out_ schrijven we naar de console).
+<6> Met _scanner.nextLine()_ lezen we de input in de console (een volledige lijn) uit naar een _String_ variabele.
+<7> De variabele heeft een waarde gekregen, deze kunnen we nu in ons programma verder gebruiken. In dit geval is de variabele gekend tot de sluitende accolade.
+
+== De _scope_ van de variabele vergroten.
+
+In het voorgaande voorbeeld was de ingelezen variabele slechts bruikbaar tot de sluitende accolade van de _main method_.
+Dit omdat de variabele in de main method zelf gedefiniëerd werd.
+
+Waar een variabele bruikbaar (zichtbaar) is om te gebruiken, wordt de _scope_ genoemd.
+Deze _scope_ kunnen we vergroten door de variabele bovenaan in de klasse te plaatsen.
+Zodoende is de variabele over alle methods van de Starter klasse bruikbaar.
+
+Een voorbeeld:
+
+[source,java]
+----
+import java.util.Scanner;
+
+public class Starter {
+
+  String userName = ""; <1>
+
+  public static void main(String[] args) {
+    Starter starterinstantie = new Starter(); <2>
+  
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Enter username: ");
+
+    starter.userName = scanner.nextLine();  <3>
+    starterinstantie.printUsername(); <4>    
+  }
+  
+  public void printUsername(){
+    System.out.println("Username is: " + this.userName); <5>
+  }
+  
+}
+----
+<1> Bovenaan in de klasse definiëren we een lege _String_.
+<2> We maken van de klasse zelf een instantie.
+<3> Via de scanner lezen we een lijn uit van de console, deze wordt opgeslagen in de variabele bovenaan. Omdat we in een main method zitten, moeten we via de instantie van de klasse (starterinstantie), via de punt notatie, de variabele benaderen.
+<4> Ook om een method op te roepen in een klasse, moeten we in de main method gebruik maken van de instantie van de klasse.
+<5> In de method (of functie), kunnen we gebruik maken van de variabele bovenaan via het *this* keyword. Dit keyword verwijst naar de huidige instantie van de klasse.
+
+
+
+
