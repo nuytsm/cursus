@@ -72,7 +72,7 @@ public class Paladin extends Unit{ <1>
 ----
 <1> Ook de Paladin is een subclass van Unit
 <2> Met _override_ geven we aan dat we een bovenliggende (van een superclass) method gaan overschrijven.
-<3> De method definitie is identiek.
+<3> De method definitie is identiek aan deze in de _superclass_.
 <4> De implementatie van de method is verschillend. De Paladin is in dit voorbeeld sterker.
 
 De output:
