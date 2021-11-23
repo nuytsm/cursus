@@ -90,6 +90,70 @@ public class Starter {
 <4> Ook om een method op te roepen in een klasse, moeten we in de main method gebruik maken van de instantie van de klasse.
 <5> In de method (of functie), kunnen we gebruik maken van de variabele bovenaan via het *this* keyword. Dit keyword verwijst naar de huidige instantie van de klasse.
 
+== Inlezen van andere datatypes
+
+In de voorbeelden hierboven hebben we telkens een _String_ uitgelezen.
+Met de scanner kunnen we ook andere datatypes uitlezen.
+
+Indien we een instantie van een scanner hebben, kunnen we in Eclipse via _ctrl-spatie_ _**autocomplete**_ verkrijgen.
+Deze geeft ons alle mogelijke methods die we op een scanner kunnen gebruiken:
+
+.Control-spatie _autocomplete_ in Eclipse
+image::scannereclipse.png[Autocomplete]
+
+Via de _autocomplete_ zien we dat we andere datatypes kunnen inlezen:
+
+* nextBoolean() ->	boolean inlezen
+* nextByte() ->	byte inlezen
+* nextDouble() ->	double inlezen
+* nextFloat() ->	float inlezen
+* nextInt() ->	int inlezen
+* nextLine() ->	String inlezen
+* nextLong() ->	long inlezen
+* nextShort() ->	short inlezen
+
+[NOTE]
+====
+Indien je deze andere datatypes inleest, moet je deze wel opslaan in het juiste datatype:
+[source,java]
+----
+Double kommagetal = scannerinstantie.nextDouble();
+----
+====
+
+== De scanner gebruiken om tekstbestanden uit te lezen
+
+Naast het uilezen uit de console, heeft de _Scanner_ klasse ook de mogelijkheid om bestanden uit te lezen.
+
+Een voorbeeld:
+[source,java]
+----
+import java.io.File; <1>
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ScannerTest {
+	
+	public static void main(String[] args) {
+		File mijnfile = new File("C:\temp\test.txt"); <2>
+		Scanner scannerinstantie;
+		try { <3>
+			scannerinstantie = new Scanner(mijnfile); <4>
+			while (scannerinstantie.hasNext()) {  <5>
+				System.out.println(scannerinstantie.next()); <6>
+			}
+		} catch (FileNotFoundException e) { <7>
+			e.printStackTrace();
+		}
+	}
+}
+----
+<1> We werken met een _File_ klasse uit de _standard library_
+<2> Een instantie van een _File_ klasse.
+<3> Er kunnen zich _errors_ voordoen: de file wordt niet gevonden (file bestaat niet), de file is corrupt,.. in {j} wordt je verplicht hiermee rekening te houden door deze uitzonderingen (_exceptions_) op te vangen. Dit komt later in de cursus verder aan bod.
+<4> We laten de scanner de file uitlezen in plaats van uit _System.in_.
+<5> We vragen aan de scanner of er een regel in de _file_ staat die nog niet is uitgelezen. Dit geeft ons een boolean terug, deze kunnen we in een while lus gebruiken.
+<6> In elke herhaling van de while lus printen we een regel uit naar de console. Via _next()_ halen we uit de file telkens de volgende regel.
 
 
 
