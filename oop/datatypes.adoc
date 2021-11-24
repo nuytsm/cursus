@@ -50,7 +50,7 @@ Indien we per ongeluk een datum proberen toe te wijzen aan een variabele die een
 int geheelgetal = 5; <1>
 geheelgetal = new Date(); <2>
 ----
-<1> De variabele 'geheelgetal' heeft als datatype integer
+<1> De variabele 'geheelgetal' heeft als datatype integer.
 <2> Het toewijzen van een verkeerd datatype aan een integer variabele geeft een compiler fout.
 
 Dit geeft de volgende error:
@@ -102,7 +102,7 @@ Dit heeft als gevolg dat klassen als datatype gebruikt kunnen worden:
 
 [source,java]
 ----
-Date datum = new Date(); <1>
+Date datum = new Date();
 ----
 
 Java heeft er echter voor gekozen enkele optimalisaties toe te passen (wat geheugengebruik betreft).
@@ -128,10 +128,31 @@ In andere gevallen is het beter **double** te gebruiken.
 
 image::java-data-types.png[Datatypes]
 
-== Andere belangrijke datatypes
+== Klassen als datatype
 
-* String -> Tekst
-* Date -> Datums
-* LocalDateTime -> Datum en tijd
+Ieder klasse kan gebruikt worden als datatype van een variabele:
 
+[source,java]
+----
+Date datum = new Date(); <1>
+String tekst = "Dit is tekst"; <2>
+----
+<1> De Date klasse
+<2> De String klasse
+
+Indien we zelf een klasse aanmaken:
+
+[source,java]
+----
+public class Unit{
+	int hitpoints = 100;
+}
+----
+
+Kunnen we deze gebruken als variabele:
+
+[source,java]
+----
+Unit unit1 = new Unit();
+----
 
