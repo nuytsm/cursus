@@ -149,10 +149,13 @@ public class Unit{
 }
 ----
 
-Kunnen we deze gebruken als variabele:
+Kunnen we deze gebruiken als variabele:
 
 [source,java]
 ----
-Unit unit1 = new Unit();
+Unit unit1 = new Unit(); <1> 
+unit1 = new Date(); <2>
 ----
+<1> Een instantie van een klasse kan toegewezen worden aan een variabele van hetzelfde datatype.
+<2> Compilatiefout: we proberen een andere (niet gerelateerde) klasse toe te wijzen aan een variabele van een ander datatype.
 
