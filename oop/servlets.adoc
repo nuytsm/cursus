@@ -122,3 +122,27 @@ public class MyServlet extends HttpServlet{ <1>
 <3> Op het _HttpServletResponse_ object kunnen we bepalen wat het resultaat gaat zijn dat naar de browser van de _client_ wordt teruggestuurd.
 <4> Het is aangeraden steeds de _writer_ te sluiten (memoryleaks vermijden).
 
+== Het starten van de jetty _servlet container_
+
+Om de maven jetty plugin te starten, kunnen we een terminal openen in de folder van het project en het volgende commando ingeven:
+
+----
+maven jetty:run
+----
+
+In Eclipse kan dit via:
+
+image::eclipsemvnjetty.png[Selecteer run as mvn build..]
+
+image::eclipsemvnjetty2.png[Run jetty:run]
+
+== Resultaat in de browser
+
+Op onze eigen computer draait nu een servlet container die luistert op een bepaalde url (in dit geval /hello).
+Onze eigen computer is localhost of 127.0.0.1
+In de maven jetty plugin hebben we bepaald op welke poort de webserver draait: poort 8080.
+
+Dus de url wordt als volgt:
+http://localhost:8080/naamproject/hello
+
+image::browserservlet.png[De webpagina]
