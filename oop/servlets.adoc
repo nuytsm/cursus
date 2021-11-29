@@ -25,6 +25,9 @@ Een Java servlet vormt de brug tussen de webserver en de Java code. Voor iedere 
 
 == Web.xml
 
+Een web.xml beschrijft welke Servlet klasse voor welke url gebruikt word.
+Deze klasse wordt door de webserver (de servlet container) gebruikt om de _http get requests_ van de browser van de gebruiker correct om te leiden naar de juiste servlet.
+
 [source,xml]
 ----
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -45,6 +48,12 @@ Een Java servlet vormt de brug tussen de webserver en de Java code. Voor iedere 
   </servlet-mapping>
 </web-app>  
 ----
+
+De web.xml moet verplicht op een vaste plaats staan. 
+Anders weet de jetty webserver de web.xml niet te vinden.
+Deze plaats is gestandaardiseerd:
+
+image::webxml.png[Web.xml locatie]
 
 == Servlet dependency in pom.xml
 
@@ -92,3 +101,24 @@ Een Java servlet vormt de brug tussen de webserver en de Java code. Voor iedere 
 		</plugins>
 	</build>
 ----
+
+== Het aanmaken van een Servlet
+
+Om een servlet klasse aan te maken, moeten we de _dependency_ naar de _servlet api_ hebben geconfigureerd in _Maven_.
+Eenmaal dit gebeurd is kunnen we een subklasse van HtpServlet aanmaken.
+
+[source,java]
+----
+public class MyServlet extends HttpServlet{ <1>
+	@Override <2>
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.getWriter().print("Hello world"); <3>
+		resp.getWriter().close(); <4>
+	}
+}
+----
+<1> Onze Servlet is een subklass van HttpServlet
+<2> We _overriden_ een method die in de superklass aanwezig is met onze eigen code.
+<3> Op het _HttpServletResponse_ object kunnen we bepalen wat het resultaat gaat zijn dat naar de browser van de _client_ wordt teruggestuurd.
+<4> Het is aangeraden steeds de _writer_ te sluiten (memoryleaks vermijden).
+
