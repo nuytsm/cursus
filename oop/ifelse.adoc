@@ -67,11 +67,11 @@ Deze _else if_ kan meermaals herhaald worden:
 int getal = 526;
 
 if (getal > 1000){
-// getal groter dan 1000;
+// getal is groter dan 1000;
 } else if (getal < 600) {
-// getal kleiner dan 600
+// getal is kleiner dan 600
 } else if (getal < 700) {
-// getal kleiner dan 600
+// getal is kleiner dan 600
 } else {
 // alle andere gevallen
 }
