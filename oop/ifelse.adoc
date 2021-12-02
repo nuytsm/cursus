@@ -79,10 +79,34 @@ if (getal > 1000){
 
 == Vergelijken van condities
 
-* Kleiner dan: a < b
-* Kleiner dan of gelijk aan: a <= b
-* Groter dan: a > b
-* Groter dan of gelijk aan: a >= b
-* Gelijk aan: a == b
-* Niet gelijk aan: a != b
+* Kleiner dan: 
++
+----
+a < b
+----
+* Kleiner dan of gelijk aan: 
++
+----
+a <= b
+----
+* Groter dan: 
++
+----
+a > b
+----
+* Groter dan of gelijk aan: 
++
+----
+a >= b
+----
+* Gelijk aan: 
++
+----
+a == b
+----
+* Niet gelijk aan: 
++
+----
+a != b
+----
 
