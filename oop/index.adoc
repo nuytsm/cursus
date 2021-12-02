@@ -1,0 +1,7 @@
+include::datatypes.adoc[]
+include::ifelse.adoc[]
+include::loops.adoc[]
+include::arrays.adoc[]
+include::functies.adoc[]
+include::klassen.adoc[]
+include::scanner.adoc[]
