@@ -41,9 +41,9 @@ Een voorbeeld van een if/else statement:
 ----
 int getal = 5;
 if (getal < 10){ <1>
-  System.out.println("het getal is kleiner dan 5"); <2>
+  System.out.println("het getal is kleiner dan 10"); <2>
 } else { <3>
-  System.out.println("Het getal is niet kleiner dan 5"); <4>
+  System.out.println("Het getal is niet kleiner dan 10"); <4>
 } <5>
 ----
 <1> De boolean conditie die gaat bepalen of we in het if statement terecht komen, ofwel of we in het else gedeelte terecht komen.
@@ -51,6 +51,11 @@ if (getal < 10){ <1>
 <3> De else (anders) geeft aan wat er moet gebeuren indien de boolean conditie _false_ is.
 <4> Deze code wordt uitgevoerd indien indien de boolean conditie _false_ is.
 <5> Sluit de if statements steeds af met een curly brace.
+
+In dit geval wordt afgeprint:
+----
+het getal is kleiner dan 10
+----
 
 == Else if
 
