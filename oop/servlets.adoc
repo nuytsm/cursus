@@ -199,7 +199,7 @@ image::eclipsemvnjetty.png[Selecteer run as mvn build..]
 
 image::eclipsemvnjetty2.png[Run jetty:run]
 
-== Resultaat in de browser
+=== Resultaat in de browser
 
 Op onze eigen computer draait nu een servlet container die luistert op een bepaalde url (in dit geval /hello).
 Onze eigen computer is localhost of 127.0.0.1
@@ -209,3 +209,42 @@ Dus de url wordt als volgt:
 http://localhost:8080/naamproject/hello
 
 image::browserservlet.png[De webpagina]
+
+== Http request parameters
+
+Via _http request parameters_ kunnen we via een url bepaalde gegevens meegeven aan de broser.
+Bijvoorbeeld:
+----
+http://www.site.com:8080/?param1=1&param2=2
+----
+
+Ontleed:
+----
+http:// <1>
+	www.site.com <2>
+	:8080/ <3>
+	? <4>
+	param1=1 <5>
+	& <6>
+	param2=2 <7>
+----
+<1> We maken gebruik van het _http protocol_ om te verbinden met een webserver.
+<2> De domeinnaam wordt via _DNS_ omgezet naar een ip adres. Op dit ip adres draait een webserver.
+<3> We geven aan welke _TCP_ poort we willen gebruiken (standaard is dit 80 voor http en 443 voor https).
+<4> Met het vraagteken geven we aan dat er _query parameters_ gaan volgen.
+<5> De eerste parameter met naam 'param1' en waarde '1'
+<6> Query parameters worden gescheiden door een & teken.
+<7> De tweede parameter met naam 'param2' en waarde '2'
+
+=== De parameters van de url opvragen in de servlet
+
+[source,java]
+----
+@Override
+public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String param1 = req.getParameter("param1"); <1>
+		String param2 = req.getParameter("param2"); <2>
+}
+----
+<1> Opvragen van de eerste parameter value. Dit zal '1' zijn.
+<2> Opvragen van de tweede parameter value. Dit zal '2' zijn.
