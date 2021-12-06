@@ -23,6 +23,45 @@
 
 Een Java servlet vormt de brug tussen de webserver en de Java code. Voor iedere url die in onze webserver binnenkomt, kunnen we bepalen naar welke Servlet klasse dit _request_ omgeleid wordt.
 
+== Waarom is een servlet nodig?
+
+Als we via een browser aan het surfen zijn, is het soms handig om van een website data op te vragen. Deze data komt uit databases.
+##Via onze webbrowser is het onmogelijk rechtstreeks verbinding te maken met de databases## in kwestie en er rechtstreeks _queries_ op uit te voeren.
+
+De oplossing hiervoor is gebruik te maken van een webserver die java ondersteund (de zogenaamde _**servlet containers**_).
+Deze maken het mogelijk vanuit java code op de webserver verbinding te maken met een database en _queries_ uit te voeren.
+
+De webbrowser maakt _http requests_ aan, deze worden via het http protocol aan de webserver overgemaakt. De webserver krijgt deze url's binnen en moet ze interpreteren.
+De ##web.xml## file helpt hierbij:
+
+[IMPORTANT]
+====
+De web.xml file beschrijft welke url naar welke servlet doorgestuurd moet worden.
+Om de werking te standaardiseren, staat de web.xml op een standaard plaats (onder de _src/main/webapp/WEB-INF/_ folder).
+====
+
+image::servlets.png[Servlet schema]
+
+De browsers dienen dus geen Java te ondersteunen, enkel de servlet containers moeten dit kunnen doen.
+In de onderstaande voorbeeldcode maken we gebruik van de _Maven Jetty plugin_.
+
+Deze maven plugin start een jetty servlet container (dus een webserver) op de localhost machine onder een bepaalde poort.
+_Mave_ zorgt ervoor dat onze gecompileerde code (met servlet, web.xml, ..) automatisch terecht komt in de servlet container.
+
+=== Andere talen
+
+In andere programmeertalen wordt er ook gebruik gemaakt van webservers die de programmeertalen ondersteunen.
+
+* Zo maakt php gebruik van de _xampp stack_ (apache webserver, mysql, php, perl). De apache webserver ondersteunt in dit geval de php taal via een _plugin_.
+* Microsoft IIS maakt gebruik van _.NET_.
+* Python maakt gebruik van https://flask.palletsprojects.com/en/2.0.x/[_Flask_] via de Gunicorn webserver.
+* ...
+
+[NOTE]
+====
+_Servlets_ zijn iets specifiek voor de Java programmeertaal. In andere programmeertalen zijn er andere constructies voorzien, maar ze doen hetzelfde: een brug vormen tussen het http protocol en de programmeertaal.
+====
+
 == Web.xml
 
 Een web.xml beschrijft welke Servlet klasse voor welke url gebruikt word.
