@@ -76,6 +76,10 @@ image::encrypt1.jpg[Public private key encryptie]
 Bob versleutelt zijn boodschap met de publieke sleutel van Alice. 
 Alleen Alice kan de boodschap lezen, met haar geheime sleutel – bron: Wikipedia, David Göthberg
 
+Een bijkomend voorbeeld:
+
+image::encrypt3.png[Public private key encryption]
+
 == Digitale handtekening
 
 Als je de twee sleutels omdraait, krijg je iets heel anders: een digitale handtekening.
@@ -127,7 +131,7 @@ Op die manier neemt men het grootste nadeel van symmetrische encryptie weg (het 
 
 Asymmetrische encryptie wordt voor een klein, maar belangrijk deel, van de communicatie gebruikt. Dit zijn hybride systemen.
 
-Een samenvatting van de werking:
+=== Een samenvatting van de werking:
 
 De tekst die men geëncrypteerd wil doorsturen, wordt versleuteld door **symmertrische** encryptie.
 Dit is vaak een 128bit cijfer, maar het kan groter zijn.
