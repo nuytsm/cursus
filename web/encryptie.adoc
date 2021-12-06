@@ -52,8 +52,16 @@ Algoritmes voor **symmetrische encryptie werken doorgaans snel**.
 
 Enkele voorbeelden hiervan zijn:
 
-* DES
-* AES
+* DES (Data Encryption Standard)
++
+https://nl.wikipedia.org/wiki/Data_Encryption_Standard
++
+DES wordt nu als onveilig beschouwd, het is relatief makkelijk kraakbaar. Het gebruikt een sleutellengte van slechts 64 bits.
+* AES of het Rijndaelcijfer (Advanced Encryption Standard)
++
+https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard
++
+De veilige opvolger van DES. AES laat het gebruik van langere sleutellengtes toe (met blokken van minimun 128 bits).
 
 Maar dat encryptie en decryptie dezelfde sleutel vereisen, zorgt in heel wat situaties voor praktische problemen. 
 Als je een versleutelde boodschap met iemand wilt uitwisselen, dienen de ontvanger en jij namelijk ook de gebruikte sleutel uit te wisselen. 
