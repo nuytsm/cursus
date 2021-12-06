@@ -81,7 +81,7 @@ Als iemand een boodschap met je publieke sleutel versleutelt, kan alleen jij met
 
 image::encrypt1.jpg[Public private key encryptie]
 
-Bob versleutelt zijn boodschap met de publieke sleutel van Alice. 
+##Bob versleutelt zijn boodschap met de publieke sleutel van Alice.## 
 Alleen Alice kan de boodschap lezen, met haar geheime sleutel – bron: Wikipedia, David Göthberg
 
 Een bijkomend voorbeeld:
