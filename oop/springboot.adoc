@@ -1,0 +1,56 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Spring boot
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Spring boot is een maven _dependency_ die het ontwikkelen van applicaties vereenvoudigd. Spring boot helpt de ontwikkelaar met, onder andere, de volgende zaken:
+
+* Het aanmaken van database connecties
+* Het koppelen van tabellen
+* Het maken van servlets
+* Het structureren van de applicatie
+* ..
+
+== Spring boot annotaties
+
+Spring boot helpt bij het ontwikkelen van een applicatie die over een databank, servlets, dependencies, .. beschikt. Maar Spring boot heeft informatie nodig om te kunnen helpen. Via annotaties kunnen we aangeven aan Spring boot wat we juist willen bouwen.
+
+Een annotatie wordt aangegeven met het _*@*_ teken. Bijvoorbeeld:
+
+[source,java]
+----
+@Entity <1>
+public class Car { <2>
+    @Column <3>
+    private int cylinders;
+----
+<1> Een voorbeeld van een annotatie. Deze staat boven een klasse, dus deze zegt iets over de klasse.
+<2> De klasse die we aan het definiëren zijn.
+<3> Een voorbeeld van een annotatie. Deze staat boven een variabele, dus deze zegt iets over de variabele.
+
+De volgende annotaties gaan we gebruiken:
+* @Service -> Geeft aan dat de klasse gebruikt wordt door andere klassen in de applicatie.
+* @Entity -> Geeft aan dat deze klasse een tabel in de database voorstelt.
+* @Column -> Geeft aan dat deze variabele een kolom in de database voorstelt.
+* @Id -> Geeft aan dat deze variabele een primary key kolom in de database voorstelt.
+* @Repository  -> Geeft aan dat deze klasse een bepaalde tabel uit de database gaat inlezen.
+* @Controller -> Geeft aan dat deze klasse een soort van servlet gaat zijn.
+* @RequestMapping -> Geeft aan welke url gebruikt kan worden in de controller (staat boven een method).
