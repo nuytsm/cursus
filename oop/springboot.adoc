@@ -33,7 +33,7 @@ Spring boot is een maven _dependency_ die het ontwikkelen van applicaties vereen
 
 Spring boot helpt bij het ontwikkelen van een applicatie die over een databank, servlets, dependencies, .. beschikt. Maar Spring boot heeft informatie nodig om te kunnen helpen. Via annotaties kunnen we aangeven aan Spring boot wat we juist willen bouwen.
 
-Een annotatie wordt aangegeven met het _*@*_ teken. Bijvoorbeeld:
+Een annotatie wordt aangegeven met het _** @ **_ teken. Bijvoorbeeld:
 
 [source,java]
 ----
@@ -47,10 +47,105 @@ public class Car { <2>
 <3> Een voorbeeld van een annotatie. Deze staat boven een variabele, dus deze zegt iets over de variabele.
 
 De volgende annotaties gaan we gebruiken:
+
 * @Service -> Geeft aan dat de klasse gebruikt wordt door andere klassen in de applicatie.
-* @Entity -> Geeft aan dat deze klasse een tabel in de database voorstelt.
-* @Column -> Geeft aan dat deze variabele een kolom in de database voorstelt.
-* @Id -> Geeft aan dat deze variabele een primary key kolom in de database voorstelt.
-* @Repository  -> Geeft aan dat deze klasse een bepaalde tabel uit de database gaat inlezen.
-* @Controller -> Geeft aan dat deze klasse een soort van servlet gaat zijn.
-* @RequestMapping -> Geeft aan welke url gebruikt kan worden in de controller (staat boven een method).
+* @Entity -> Geeft aan dat deze klasse een #tabel# in de database voorstelt.
+* @Column -> Geeft aan dat deze variabele een #kolom# in de database voorstelt.
+* @Id -> Geeft aan dat deze variabele een #primary key# kolom in de database voorstelt.
+* @Repository  -> Geeft aan dat deze klasse een bepaalde #tabel uit de database gaat inlezen#.
+* @Controller -> Geeft aan dat deze klasse een soort van #servlet# gaat zijn.
+* @RequestMapping -> Geeft aan welke #url# gebruikt kan worden in de controller (staat boven een #method#).
+
+== Spring boot project starten
+
+Op de https://spring.io/guides/gs/spring-boot/[Spring boot website] kan je terugvinden hoe je een project kan starten.
+Dit komt neer op het toevoegen van een _parent_ in je maven pom.xml en enkele dependencies:
+
+* Als parent: *spring-boot-starter-parent*
+* In de build: *spring-boot-maven-plugin*
+* Als dependency: *spring-boot-starter-web* & *spring-boot-starter-data-jpa*
+* Een jdbc connector
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>spring-boot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-boot</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- Use MySQL Connector-J -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+			<dependency>
+			    <groupId>org.xerial</groupId>
+			    <artifactId>sqlite-jdbc</artifactId>
+			    <version>3.34.0</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.zsoltfabok/sqlite-dialect -->
+		<dependency>
+		    <groupId>com.zsoltfabok</groupId>
+		    <artifactId>sqlite-dialect</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+----
+
+Indien je deze dependencies hebt toegevoegd en een 'maven install' hebt uitgevoerd, zou de _autocomplete_ in Eclipse de annotaties moeten voorstellen:
+
+image::entityannotation.png[]
+
+
