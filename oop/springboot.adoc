@@ -148,4 +148,70 @@ Indien je deze dependencies hebt toegevoegd en een 'maven install' hebt uitgevoe
 
 image::entityannotation.png[]
 
+== De componenten van een Spring boot project
 
+* Entities: Java klassen die verwijzen naar tabellen in de databank.
++
+[source,java]
+----
+@Entity(name = "Artists")
+public class Artist {
+	@Id
+	@Column(name = "Artistid")
+	private Integer id;
+	
+	@Column(name = "Name")
+	private String name;
+	
+	public Integer getId() {
+		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setId(Integer Id) {
+		this.id = Id;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+}
+----
++
+* Repositories: Klassen waarmee de informatie uit de tabellen opgehaald kan worden (als instanties van Entitiy). Reposities extenden CrudRepository. Crud staat voor _create_ _read_ _update_ & _delete_. Dankzij deze superclass beschikt een crudrepository direct al over method die het lezen, opslaan, updaten en verwijderen van entities toelaten.
++
+[source,java]
+----
+@Repository
+public interface ArtistRepository extends CrudRepository<Artist, Integer>{
+	
+	@Query(value = "Select * from Artist", nativeQuery = true)
+	Iterable<Artist> getAllArtists();
+}
+----
++
+* Controllers: Klassen waarin in een method informatie uit repositories wordt opgehaald en beschikbaar wordt gesteld op een url.
++
+[source,java]
+----
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
+public class HelloController {
+
+	@Autowired
+	private ArtistRepository artistRep;
+	
+	@GetMapping("/")
+    public Iterable<Artist> index() {
+        return artistRep.findAll();
+    }
+	
+	@GetMapping("/byid")
+    public Artist byId(@RequestParam int id) {
+		return artistRep.findById(id);
+    }
+}
+----
