@@ -148,6 +148,15 @@ Indien je deze dependencies hebt toegevoegd en een 'maven install' hebt uitgevoe
 
 image::entityannotation.png[]
 
+=== Een spring boot project uitvoeren
+
+Via maven kan je de sping boot applicatie vervolgens uitvoeren:
+
+[source]
+----
+mvn spring-boot:run
+----
+
 == De componenten van een Spring boot project
 
 * Entities: Java klassen die verwijzen naar tabellen in de databank.
