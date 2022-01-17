@@ -21,7 +21,7 @@
 :toc: left
 :toclevels: 4
 
-Spring boot is een maven _dependency_ die het ontwikkelen van applicaties vereenvoudigd. Spring boot helpt de ontwikkelaar met, onder andere, de volgende zaken:
+https://spring.io/projects/spring-boot[Spring boot] is een maven _dependency_ die het ontwikkelen van applicaties vereenvoudigd. Spring boot helpt de ontwikkelaar met, onder andere, de volgende zaken:
 
 * Het aanmaken van database connecties
 * Het koppelen van tabellen
@@ -74,7 +74,7 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer>{
 ----
 
 Dan zorgt Spring boot ervoor dat er automatisch queries worden aangemaakt op de _Artist_ tabel (of _entity_ klasse).
-We kunnen via een method de queries oproepen:
+We kunnen via een method de volgende queries oproepen:
 
 . artistRepository.findAll() -> Krijg een lijst van alle artists.
 . artistRepository.save(artist) -> Sla een nieuw Artist instantie op in de database.
@@ -82,7 +82,12 @@ We kunnen via een method de queries oproepen:
 . artistRepository.delete(artist) -> Verwijder een bepaalde Artist instantie uit de database.
 . artistRepository.count() -> Tel hoeveel artists er in de database zitten.
 
-== Spring boot project starten
+=== De werking van Spring boot
+
+Hoe kan Spring boot nu autmatisch de queries toevoegen en servlets aanmaken?
+Doordat we annotaties toevoegen op onze klassen, geven we aan wat we willen bouwen. Bij het starten van de applicatie overloopt Spring alle klassen (via @ComponentScan) en leest alle annotaties in.
+
+== Een Spring boot project starten
 
 Op de https://spring.io/guides/gs/spring-boot/[Spring boot website] kan je terugvinden hoe je een project kan starten.
 Dit komt neer op het toevoegen van een _parent_ in je maven pom.xml en enkele dependencies:
