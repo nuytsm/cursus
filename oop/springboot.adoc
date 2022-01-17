@@ -255,3 +255,24 @@ public class HelloController {
     }
 }
 ----
+
+== Autowired
+
+In een Spring boot applicatie maken we niet zelf instanties aan:
+[source,java]
+----
+AlbumRpository albumsrepositoryinstantie = new AlbumRepository(); <1>
+----
+<1> Op deze manier doen we het niet.
+
+Spring boot overloop bij het starten alle klassen en leest alle annotaties in.
+Hierdoor kan Spring boot voor ons instanties maken indien we erom vragen.
+
+[source,java]
+----
+@Autowired <1>
+AlbumRpository albumsrepositoryinstantie; <2>
+----
+<1> Via de autowired annotatie vragen we aan spring om een instantie.
+<2> Spring vult de instantie van de variabele automatisch in.
+
