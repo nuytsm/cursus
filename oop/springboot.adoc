@@ -190,6 +190,23 @@ mvn spring-boot:run
 
 == De componenten van een Spring boot project
 
+* Een main application class: Dit vormt het startpunt van de applicatie.
++
+[source,java]
+----
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+  public static void main(String[] args) {
+    SpringApplication.run(Application.class, args);
+  }
+
+}
+----
++
 * Entities: Java klassen die verwijzen naar tabellen in de databank.
 +
 [source,java]
