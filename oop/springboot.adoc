@@ -255,6 +255,25 @@ public class HelloController {
     }
 }
 ----
++
+* application.properties: Deze file bevindt zich onder scr/main/resources deze bevat informatie over de databank die je gaat gebruiken, het dialect, de poort, ...
++
+----
+#server.port=81
+spring.datasource.url=jdbc:sqlite:chinook.db
+#spring.datasource.username=
+#spring.datasource.password=
+spring.datasource.username = admin
+spring.datasource.password = admin
+spring.jpa.hibernate.ddl-auto=none
+
+## Hibernate Properties
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.SQLiteDialect
+spring.jpa.hibernate.naming_startegy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+----
+
+
 
 == Autowired
 
