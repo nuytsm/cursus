@@ -31,7 +31,7 @@ Spring boot is een maven _dependency_ die het ontwikkelen van applicaties vereen
 
 == Spring boot annotaties
 
-Spring boot helpt bij het ontwikkelen van een applicatie die over een databank, servlets, dependencies, .. beschikt. Maar Spring boot heeft informatie nodig om te kunnen helpen. Via annotaties kunnen we aangeven aan Spring boot wat we juist willen bouwen.
+Spring boot helpt bij het ontwikkelen van een applicatie die over een databank, servlets, dependencies, .. beschikt. Maar Spring boot heeft informatie nodig om te kunnen helpen. Via #annotaties# kunnen we aangeven aan Spring boot wat we juist willen bouwen.
 
 Een annotatie wordt aangegeven met het _** @ **_ teken. Bijvoorbeeld:
 
@@ -44,8 +44,10 @@ public class Car { <2>
 ----
 <1> Een voorbeeld van een annotatie. Deze staat boven een klasse, dus deze zegt iets over de klasse.
 <2> De klasse die we aan het definiëren zijn.
-<3> Een voorbeeld van een annotatie. Deze staat boven een variabele, dus deze zegt iets over de variabele.
-
+<3> Een voorbeeld van een andere annotatie. Deze staat boven een variabele, dus deze zegt iets over de variabele.
+[INFO]
+.De gebruikte annotaties in Spring boot
+====
 De volgende annotaties gaan we gebruiken:
 
 * @Service -> Geeft aan dat de klasse gebruikt wordt door andere klassen in de applicatie.
@@ -55,6 +57,30 @@ De volgende annotaties gaan we gebruiken:
 * @Repository  -> Geeft aan dat deze klasse een bepaalde #tabel uit de database gaat inlezen#.
 * @Controller -> Geeft aan dat deze klasse een soort van #servlet# gaat zijn.
 * @RequestMapping -> Geeft aan welke #url# gebruikt kan worden in de controller (staat boven een #method#).
+
+====
+
+=== Waarom Spring boot?
+
+Indien we bovenstaande annotaties gebruiken op onze klassen om te verwijzen naar een database, zorgt Spring boot er *automatisch* voor dat er bepaalde queries worden geschreven. Ook _servlets_ kunnen automatisch worden voorzien. Dit bespaart een hele hoop werk.
+
+Indien we bijvoorbeeld de volgende interface hebben aangemaakt:
+
+[source,java]
+----
+@Repository
+public interface ArtistRepository extends CrudRepository<Artist, Integer>{
+}
+----
+
+Dan zorgt Spring boot ervoor dat er automatisch queries worden aangemaakt op de _Artist_ tabel (of _entity_ klasse).
+We kunnen via een method de queries oproepen:
+
+. artistRepository.findAll() -> Krijg een lijst van alle artists.
+. artistRepository.save(artist) -> Sla een nieuw Artist instantie op in de database.
+. artistRepository.findById(5) -> Haal een specifieke Artist op van de database via een id.
+. artistRepository.delete(artist) -> Verwijder een bepaalde Artist instantie uit de database.
+. artistRepository.count() -> Tel hoeveel artists er in de database zitten.
 
 == Spring boot project starten
 
