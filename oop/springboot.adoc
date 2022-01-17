@@ -288,6 +288,9 @@ spring.jpa.hibernate.ddl-auto=none
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
 spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.SQLiteDialect
 spring.jpa.hibernate.naming_startegy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+## MYSQL
+# spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+# spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
 ----
 
 
