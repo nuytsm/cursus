@@ -190,7 +190,7 @@ mvn spring-boot:run
 
 == De componenten van een Spring boot project
 
-* Een main application class: Dit vormt het startpunt van de applicatie.
+* Een main ##application class##: Dit vormt het startpunt van de applicatie.
 +
 [source,java]
 ----
@@ -207,7 +207,7 @@ public class Application {
 }
 ----
 +
-* Entities: Java klassen die verwijzen naar tabellen in de databank.
+* ##Entities##: Java klassen die verwijzen naar tabellen in de databank.
 +
 [source,java]
 ----
@@ -238,7 +238,7 @@ public class Artist {
 }
 ----
 +
-* Repositories: Klassen waarmee de informatie uit de tabellen opgehaald kan worden (als instanties van Entitiy). Reposities extenden CrudRepository. Crud staat voor _create_ _read_ _update_ & _delete_. Dankzij deze superclass beschikt een crudrepository direct al over method die het lezen, opslaan, updaten en verwijderen van entities toelaten.
+* ##Repositories##: Klassen waarmee de informatie uit de tabellen opgehaald kan worden (als instanties van Entitiy). Reposities extenden CrudRepository. Crud staat voor _create_ _read_ _update_ & _delete_. Dankzij deze superclass beschikt een crudrepository direct al over method die het lezen, opslaan, updaten en verwijderen van entities toelaten.
 +
 [source,java]
 ----
@@ -250,7 +250,7 @@ public interface ArtistRepository extends CrudRepository<Artist, Integer>{
 }
 ----
 +
-* Controllers: Klassen waarin in een method informatie uit repositories wordt opgehaald en beschikbaar wordt gesteld op een url.
+* ##Controllers##: Klassen waarin in een method informatie uit repositories wordt opgehaald en beschikbaar wordt gesteld op een url.
 +
 [source,java]
 ----
@@ -273,7 +273,7 @@ public class HelloController {
 }
 ----
 +
-* application.properties: Deze file bevindt zich onder scr/main/resources deze bevat informatie over de databank die je gaat gebruiken, het dialect, de poort, ...
+* ##application.properties##: Deze file bevindt zich onder scr/main/resources deze bevat informatie over de databank die je gaat gebruiken, het dialect, de poort, ...
 +
 ----
 #server.port=81
