@@ -1,0 +1,104 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Collections: Lists en Maps
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Tot nu toe hebben we enkel met arrays gewerkt om meerdere instanties of variabelen van eenzelfde datatype bij te houden. Een array heeft echter enkele nadelen:
+
+* We moeten op voorhand weten hoe groot de array gaat zijn.
+* We kunnen de grootte achteraf niet meer aanpassen.
+* Het is moeilijk te controleren of een array leeg is (we moeten dan via een for lus over de hele array lussen.
+
+De _Collections_ zijn enkele klassen die het omgaan met lijsten in Java eenvoudiger maken:
+
+* **List**: Een klasse die lijst kan bijhouden van een bepaald datatype. De lijst kan automatisch groter worden indien je elementen blijft toevoegen.
+* **Map**: Een klasse die __key -> Value__ paren bijhoudt. Een key kan maar eenmaal voorkomen in de map.
+
+== List en Map Interfaces
+
+De bovenstaande klassen zijn _interfaces_. Dit wil zeggen dat je er geen instantie van kan aanmaken, hiervoor dien je 1 van de subklassen uit te kiezen, bijvoorbeeld:
+
+[source,java]
+----
+List lijst1 = new ArrayList();<1>
+Map map1 = new HashMap();<2>
+----
+<1> ArrayList is een klasse die de List interface implementeerd en kan gebruikt worden alsof het van het List datatype is.
+<2> HashMap is een klasse die de Map interface implementeerd en kan gebruikt worden alsof het van het Map datatype is.
+
+Er zijn meerdere klassen die de List of Map interface oimplementeren, ze hebben elk hun voor en nadelen, maar de meest gangbare zijn:
+
+* ArrayList
+* HashMap
+
+== Gebruik maken van een List
+
+Hoe maak je nu juist gebruik van een List?
+
+Allereerst dien je een ##instantie van de List aan te maken##:
+[source,java]
+----
+List<Integer> list1 = new ArrayList<Integer>();<1>
+----
+<1> Tussen de groter en kleiner dan tekens geef je aan welk datatype in de lijst bijgehouden kan worden.
+
+Vervolgens kan je ##elementen toevoegen##:
+[source,java]
+----
+list1.add(1);
+list1.add(785);
+list1.add(500);<1>
+----
+<1> De lijst bevat nu de volgende getallen: 1,785,500.
+
+Dit kunnen we ##uitprinten naar de console##:
+
+[source,java]
+----
+System.out.println(list1);
+----
+Geeft de volgende output:
+----
+[1, 785, 500]
+----
+
+We kunnen een ##element verwijderen##:
+[source,java]
+----
+list1.remove(1);<1>
+----
+<1> Het 2de element (getal 785) wordt uit de lijst verwijderd.
+
+We kunnen de ##de grootte van de lijst opvragen##:
+[source,java]
+----
+list1.size();<1>
+----
+<1> De lengte van de lijst is op dit moment 2.
+
+Indien we een andere lijst hebben, kunnen we ##alle elementen uit een andere lijst## eraan toevoegen:
+
+[source,java]
+----
+List<Integer> list2 = new ArrayList<Integer>();
+list2.addAll(list1);<1>
+----
+<1> Lijst 2 bevat nu dezelfde elementen als list1.
