@@ -44,7 +44,7 @@ Map map1 = new HashMap();<2>
 <1> ArrayList is een klasse die de List interface implementeerd en kan gebruikt worden alsof het van het List datatype is.
 <2> HashMap is een klasse die de Map interface implementeerd en kan gebruikt worden alsof het van het Map datatype is.
 
-Er zijn meerdere klassen die de List of Map interface oimplementeren, ze hebben elk hun voor en nadelen, maar de meest gangbare zijn:
+Er zijn meerdere klassen die de List of Map interface implementeren, ze hebben elk hun voor en nadelen, maar de meest gangbare zijn:
 
 * ArrayList
 * HashMap
@@ -179,3 +179,28 @@ System.out.println(landenEnHoofdsteden.values());
 System.out.println(landenEnHoofdsteden.get("England"));
 ----
 
+= Set
+
+Een Set is vergelijkbaar met een List, met als onderscheid dat in de Set alle elementen uniek moeten zijn.
+In een list kan een bepaald element meerdere keren voorkomen.
+
+== Een instantie van een Set
+
+Ook Set is een interface, we zullen de HashSet klasse moeten gebruiken die de interface implementeerd:
+[source,java]
+----
+Set<Integer> set1 = new HashSet<Integer>(); 
+----
+
+== Elementen toevoegen aan een Set
+
+[source,java]
+----
+set1.add(500);<1>
+set1.add(250);
+set1.add(500);<2>
+System.out.println(set1.size());<3>
+----
+<1> We voegen een element (integer) toe.
+<2> Het getal 500 wordt voor de 2de keer toegevoegd. Dit maakt de lijst niet groter, identieke integers die al in de lijst staan, worden niet apart bijgehouden (in een list zou dit wel het geval zijn).
+<3> De lengte van de lijst is 2 (omdat enkel de unieke waarden worden bijgehouden).
