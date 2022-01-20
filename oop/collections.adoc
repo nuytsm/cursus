@@ -18,7 +18,7 @@
 = Collections: Lists en Maps
 //Author Mark Nuyts
 //v0.1
-:toc: left
+:toc: left 
 :toclevels: 4
 
 Tot nu toe hebben we enkel met arrays gewerkt om meerdere instanties of variabelen van eenzelfde datatype bij te houden. Een array heeft echter enkele nadelen:
@@ -53,12 +53,16 @@ Er zijn meerdere klassen die de List of Map interface oimplementeren, ze hebben 
 
 Hoe maak je nu juist gebruik van een List?
 
+=== Instantie aanmaken
+
 Allereerst dien je een ##instantie van de List aan te maken##:
 [source,java]
 ----
 List<Integer> list1 = new ArrayList<Integer>();<1>
 ----
 <1> Tussen de groter en kleiner dan tekens geef je aan welk datatype in de lijst bijgehouden kan worden.
+
+=== Elementen toevoegen
 
 Vervolgens kan je ##elementen toevoegen##:
 [source,java]
@@ -68,6 +72,8 @@ list1.add(785);
 list1.add(500);<1>
 ----
 <1> De lijst bevat nu de volgende getallen: 1,785,500.
+
+=== Uitprinten
 
 Dit kunnen we ##uitprinten naar de console##:
 
@@ -80,6 +86,8 @@ Geeft de volgende output:
 [1, 785, 500]
 ----
 
+=== Elementen verwijderen
+
 We kunnen een ##element verwijderen##:
 [source,java]
 ----
@@ -87,12 +95,16 @@ list1.remove(1);<1>
 ----
 <1> Het 2de element (getal 785) wordt uit de lijst verwijderd.
 
+=== De _size_ opvragen
+
 We kunnen de ##de grootte van de lijst opvragen##:
 [source,java]
 ----
 list1.size();<1>
 ----
 <1> De lengte van de lijst is op dit moment 2.
+
+===  Elementen uit een andere lijst toevoegen
 
 Indien we een andere lijst hebben, kunnen we ##alle elementen uit een andere lijst## eraan toevoegen:
 
@@ -102,3 +114,68 @@ List<Integer> list2 = new ArrayList<Integer>();
 list2.addAll(list1);<1>
 ----
 <1> Lijst 2 bevat nu dezelfde elementen als list1.
+
+== Gebruik maken van een Map
+
+Een Map houdt elementen bij volgens __ Key -> Value __ paren.
+
+|===
+|Key |Value
+
+|England
+|London
+
+|Belgium
+|Brussels
+
+|Spain
+|Madrid
+|===
+
+De Keys kunnen maar 1 maal voorkomen in de map. Dezelfde values kunnen meerdere keren voorkomen.
+
+=== Een instantie maken
+
+[source,java]
+----
+Map<String, String> landenEnHoofdsteden = new HashMap<String, String>(); <1>
+----
+<1> Bij het maken van een instantie van de map, dien je aan te geven welk datatype de key en de value zullen zijn.
+
+=== Elementen toevoegen
+
+[source,java]
+----
+landenEnHoofdsteden.put("England", "London");
+landenEnHoofdsteden.put("Spain", "Madrid");
+----
+
+=== De grootte afprinten
+
+[source,java]
+----
+System.out.println(landenEnHoofdsteden.size()); <1>
+----
+<1> De grootte is op dit moment 2 (key value paren)
+
+=== Alle _keys_ tonen
+
+[source,java]
+----
+System.out.println(landenEnHoofdsteden.keySet());
+----
+
+=== Alle _values_ tonen
+
+[source,java]
+----
+System.out.println(landenEnHoofdsteden.values());
+----
+
+=== Een value opvragen van een key
+
+[source,java]
+----
+System.out.println(landenEnHoofdsteden.get("England"));
+----
+
