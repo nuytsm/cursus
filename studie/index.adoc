@@ -93,7 +93,7 @@ Vervolgens ziet het overzicht er zo uit:
 
 image::schema3.png[]
 
-Met vinkes kunnen we makkelijk #aanduiden wat we al gedaan hebben (= beheersen)# en hoe ver we zitten in het leerproces:
+Met x'jes kunnen we makkelijk #aanduiden wat we al gedaan hebben (= beheersen)# en hoe ver we zitten in het leerproces:
 
 image::schema4.png[]
 
