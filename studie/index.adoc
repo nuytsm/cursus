@@ -24,39 +24,39 @@
 Bij het studeren van informaticavakken is het van belang de theorie te *begrijpen* en deze te kunnen *toepassen* in de praktijk.
 De theorie louter van buiten leren zal je onvoldoende inzicht geven om de oefeningen goed te kunnen aanvatten.
 
-We gaan het studieproces opsplitsen in enkele stappen: 
+We splitsen het studieproces op in enkele stappen: 
 
 [TIP]
 ====
-Het kan zijn dat jij dit impliciet al toepast, of dat bepaalde stappen je overbodig lijken. Dit is geen probleem indien je huidige systeem al voor je werkt. Indien dit niet het geval is (of je wilt het eens op een andere manier proberen), raad ik je aan deze methode eens te proberen.
+Het kan zijn dat jij dit impliciet al toepast, of dat bepaalde stappen je overbodig lijken. Dit is geen probleem indien je huidige systeem al voor je werkt. Indien dit niet het geval is, raad ik je aan deze methode eens te proberen.
 ====
 
 
 .Het opsplitsen van het leerproces in verschillende stappen.
-. Een overzicht van de leerstof maken
+. Maak een overzicht van de leerstof
     .. Lijst van te kennen onderwerpen
-    .. De categoriën van beheersing aangeven
+    .. Geef de categoriën van beheersing aan
 . Begrijpend lezen
-    .. Onbekende begrippen aanduiden
-    .. De onbekende begrippen opzoeken
-    .. Een schema of samenvatting maken van de theorie
+    .. Duid onbekende begrippen aan
+    .. Zoek de onbekende begrippen op
+    .. Maak een schema of samenvatting van de theorie
         ... MindMap
         ... Samenvatting
-. Een voorbeeld van een toepassing analyseren
-    .. Een conceptueel schema maken
-    .. De code regel per regel volgen
-. De leerstof zelf toepassen (oefeningen __her__maken)
-    .. Met te kijken naar een voorbeeld
+. Analyseer een voorbeeld van een toepassing
+    .. Maak een conceptueel schema
+    .. Volg de code regel per regel
+. Pas de leerstof zelf toe (oefeningen __her__maken)
+    .. Met een voorbeeld naast je
     .. Zonder een voorbeeld te gebruiken
-    .. Herhalen van vorige oefeningen
+    .. Herhaling van vorige oefeningen
 . Jezelf testen
-    .. De onbekende begrippen nagaan
-    .. Blind (zonder voorbeeld) een oefening maken
-    .. Lacunes aanduiden en herhalen
+    .. Ga de onbekende begrippen opnieuw na
+    .. Maak blind (zonder voorbeeld) een oefening
+    .. Duid Lacunes aan en herhaal
 
 == Overzicht van de leerstof
 
-Voor iedere toets of examen zal de leerkracht aangeven wat de te kennen leerstof is. Van hieruit gaan we vertrekken om het overzicht vorm te geven.
+Voor iedere toets of examen zal de leerkracht aangeven wat de te kennen leerstof is. Van hieruit vertrekken we om het overzicht vorm te geven.
 
 [NOTE]
 ====
@@ -69,23 +69,23 @@ Om ons overzicht vorm te geven, plaatsen we in een kolom de opgegeven onderwerpe
 
 image::schema1.png[]
 
-Dit overzicht is nog niet getailleerd genoeg en kan je als leerling zelf verder #opsplitsen# door onder ieder onderwerp enkele regels bij te maken die specifieker zijn:
+Dit overzicht is nog niet gedetailleerd genoeg en #splits je als leerling zelf verder op# door onder ieder onderwerp enkele nieuwe regels bij te plaatsen die specifieker zijn:
 
 image::schema2.png[]
 
-Het bovenstaande #opsplitsen# van de leerstof kan je toepassen #wanneer je de leerstof voor de eerste keer aan het lezen bent#.
+Het bovenstaande #opsplitsen# van de leerstof pas je al toe #wanneer je de leerstof voor de eerste keer aan het lezen bent#.
 
-=== De categoriën van beheersing aangeven
+=== Geef de categoriën van beheersing aan
 
 Nu we een overzicht hebben van #wat# we juist moeten kennen, geven we best ook nog aan #op welke manier we de leerstof beheersen#.
-Dit doen we door enkele kolommen toe te voegen die aangeven hoe we de leerstof al behandeld hebben:
+Voeg enkele kolommen toe die aangeven hoe we elk onderwerp behandelen:
 
-* Begrijpend gelezen?
+* Begrijpend lezen?
 * Onbekende begrippen opgezocht?
 * Schema of samenvatting gemaakt/aangevuld?
 * Voorbeeld nagekeken?
 * Oefening met voorbeeld gemaakt?
-* Oefening zelf gemaakt?
+* Oefening zonder voorbeeld gemaakt?
 * Lacunes aangeduid?
 * Herhaald?
 
@@ -93,7 +93,7 @@ Vervolgens ziet het overzicht er zo uit:
 
 image::schema3.png[]
 
-Met x'jes kunnen we makkelijk #aanduiden wat we al gedaan hebben (= beheersen)# en hoe ver we zitten in het leerproces:
+Met x'jes #duiden we aan wat we al gedaan hebben (= beheersen)# en hoe ver we zitten in het leerproces:
 
 image::schema4.png[]
 
@@ -108,14 +108,14 @@ Met kruisjes kan je aanduiden wat je volledig beheerst, met een '?' wat nog niet
 == Begrijpend lezen
 
 Voor de toets of het examen heeft de leerkracht een onderwerp (of hoofdstuk/pagina) opgegeven. 
-Deze leerstof kan je vervolgens nalezen in de cursus of verder opzoeken op bijvoorbeeld w3schools.
+Deze leerstof lees je vervolgens na in de cursus of zoek je verder op in w3schools.
 Bij het begrijpend lezen is het belangrijk dat je niet louter de tekst leest, maar dat je #de gedachtengang van de tekst volgt en tracht te begrijpen#.
 
 
 
 === Onbekende begrippen
 
-Tijdens het lezen hou je een lijstje bij van de verschillende #begrippen# in de tekst die je niet duidelijk zijn.
+Tijdens het lezen hou je een lijstje bij van de verschillende #begrippen# in de tekst die je niet volledig duidelijk zijn.
 Dit lijstje #zoek je vervolgens op# ( in de cursus, of op het internet, of door het aan de leerkracht te vragen).
 Indien je de uitleg gevonden (en begrepen) hebt, noteer je deze naast het begrip in kwestie.
 
@@ -128,7 +128,7 @@ Een mindmap is een #schema# dat zich per onderwerp opsplitst in onderliggende on
 image::mindmap.jpg[]
 
 
-Je kan een dergelijk schema maken op papier of in software. Freemind is een gratis mindmapping software die je kan downloaden: http://freemind.sourceforge.net/wiki/index.php/Download[Freemind software]
+Je kan een dergelijk schema maken op papier of in software. Freemind is een gratis mindmapping software die je hier kan downloaden: http://freemind.sourceforge.net/wiki/index.php/Download[Freemind software]
 
 
 === Samenvatting
@@ -137,7 +137,7 @@ Bij het maken van een samenvatting over een onderwerp of een tekst, is het belan
 Meer informatie: https://www.ting.nl/huiswerkcoaching/leren-leren/hoe-maak-ik-een-samenvatting[Hoe een samenvatting maken].
 
 
-== Een voorbeeld analyseren
+== Analyseer een voorbeeld
 
 Bij ieder onderwerp van de leerstof heb je in de les, op w3schools, of bij het zelfstandig maken van een oefening, #een voorbeeld van een toepassing van de theorie# gezien. Haal dit voorbeeld erbij om het te bestuderen.
 
@@ -159,7 +159,7 @@ public void lusOverDeArray(){
 
 === Conceptueel schema
 
-Om het voorbeeld te analyseren, gaan we eerst nagaan wat het voorbeeld juist wil doen of welke stappen het onderneemt. Dit kunnen we in een #schema of stappenplan# plaatsen. In het bovenstaande voorbeeld:
+Om het voorbeeld te analyseren, ga je eerst na wat het voorbeeld juist wil aantonen of welke stappen het onderneemt. Dit kunnen we in een #schema of stappenplan# plaatsen. In het bovenstaande voorbeeld:
 
 . Een array aanmaken
 . In een functie
@@ -167,9 +167,9 @@ Om het voorbeeld te analyseren, gaan we eerst nagaan wat het voorbeeld juist wil
     .. Ieder element uit de array naar de console afprinten
 
 
-=== De code regel per regel volgen
+=== Volg de code regel per regel
 
-Met het schema (of doel van het voorbeeld voor ogen), kunnen we de code regel per regel nagaan en voor onzelf noteren wat de code juist doet:
+Met het schema (of doel van het voorbeeld voor ogen), kan je de code regel per regel nagaan en voor jezelf noteren wat de code juist doet:
 
 [source,java]
 ----
@@ -198,22 +198,22 @@ public void lusOverDeArray(){ <2>
 #Zorg ervoor dat elke stap in de _code_ duidelijk voor je is#. Dat je goed begrijpt waarom deze _code_ nodig (of overbodig) is in het programma of voorbeeld.
 
 
-== Zelf een oefening maken
+== Maak zelf een oefening
 
 Nu je de theorie hebt doorgenomen en een voorbeeld hebt nagekeken, ben je klaar om zelf een oefening te maken.
 
 === Met voorbeeld
 
-Een eerste oefening maken we met een voorbeeld langst ons. Kijk gerust naar het voorbeeld indien je niet weet hoe je verder kan. Bekijk eventueel de code van het voorbeeld opnieuw regel per regel.
+Een eerste oefening maken we met een voorbeeld naast ons. Kijk gerust naar het voorbeeld indien je niet weet hoe je verder kan. Bekijk eventueel de code van het voorbeeld opnieuw regel per regel.
 
 === Zonder voorbeeld
 
-Indien het je gelukt is een oefening te maken met het voorbeeld langst je, probeer het dan nu een keer zonder voorbeeld (zonder naar oude oefeningen te gaan kijken).
+Indien het je gelukt is een oefening te maken met het voorbeeld naast je, probeer het dan nu een keer zonder voorbeeld (zonder naar oude oefeningen te gaan kijken).
 
 Het is belangrijk dat je:
 
 . #Weet wat de opdracht is# (wat wil je juist gaan doen)
-. #De stappen oplijst# die je nodig hebt om het gedaan te krijgen:
+. #De stappen oplijst# die je nodig hebt om de opdracht gedaan te krijgen:
 .. Een array aanmaken
 .. Een functie aanmaken
 .. Een lus aanmaken
@@ -222,21 +222,22 @@ Het is belangrijk dat je:
 [IMPORTANT]
 ====
 Indien het niet lukt, kan je gerust opnieuw naar het voorbeeld kijken, maar weet dat je deze stap (de oefening kunnen maken zonder voorbeeld) dan nog niet tot een goed einde hebt gebracht.
+Indien het nog steeds niet lukt, vraag dan *tijdig* hulp aan de leerkracht.
 ====
 
 == Jezelf testen
 
 Indien je een schema of samenvatting en enkele oefening hebt gemaakt, kan je jezelf nog eens testen. Indien je toch nog #onduidelijkheden vaststelt# of een variatie van de #oefening niet zelfstandig kan maken# zou je de leerstof #opnieuw moeten herhalen#.
 
-=== De onbekende begrippen nagaan
+=== Ga de onbekende begrippen opnieuw na
 
 Ken je alle begrippen nog? Dek je verklarende uitleg van de onbekende begrippen af: #Kan je elk begrip aan jezelf uitleggen#?
 
-=== Een variatie van een oefening maken
+=== Maak een variatie van een oefening
 
-Neem de opgave van een oefening voor je: #Maak de oefening nogmaals vanaf 0# (of verzin er een variatie op). Lukt het om de oefening blind (zonder voorbeeld) te maken?
+Neem de opgave van een oefening voor je: #Maak de oefening nogmaals vanaf nul# (of verzin er zelf een kleine variatie op). Lukt het om de oefening blind (zonder voorbeeld) te maken?
 
-== Lacunes aanduiden en herhalen
+== Duid Lacunes aan en herhaal
 
 Indien je vaststelt dat je enkele begrippen toch nog niet volledig kent, of de oefeningen errond niet blind kan maken: duid dit dan aan in het overzichtsschema!
 
@@ -245,4 +246,9 @@ Bijvoorbeeld:
 .Het maken van de for lus met de variabele lengte van de array lukt niet.
 image::schema5.png[]
 
-Volgens dit voorbeeld lukte het niet een for lus te maken die rekening houdt met de lengte van een array. Deze leerstof zou vervolgens herhaald moeten worden.
+Volgens dit voorbeeld lukte het niet een for lus te maken die rekening houdt met de lengte van een array. Deze leerstof herhaal je dus best.
+
+[IMPORTANT]
+====
+Indien je met vragen zit over de leerstof, aarzel dan niet de leerkracht *tijdig* om uitleg te vragen. Bij voorkeur tijdens een lesmoment.
+====
