@@ -141,7 +141,7 @@ Meer informatie: https://www.ting.nl/huiswerkcoaching/leren-leren/hoe-maak-ik-ee
 
 Bij ieder onderwerp van de leerstof heb je in de les, op w3schools, of bij het zelfstandig maken van een oefening, #een voorbeeld van een toepassing van de theorie# gezien. Haal dit voorbeeld erbij om het te bestuderen.
 
-Indien het onderwerp bijvoorbeeld 'het lussen over een array' was, hebben we het volgende voorbeeld:
+Indien het onderwerp bijvoorbeeld __'het lussen over een array'__ was, hebben we het volgende voorbeeld:
 
 [source,java]
 ----
@@ -187,13 +187,13 @@ public void lusOverDeArray(){ <2>
 
 }
 ----
-<1> Een nieuwe array declareren met het int datatype.
+<1> Een nieuwe _array_ declareren met het _int_ datatype.
 <2> Een functie aanmaken zonder return type (void).
-<3> Een for lus beginnen vanaf 0
+<3> Een _for_ lus beginnen vanaf 0
 <4> Het eindpunt van de for lus aangeven -> zo lang als de array is.
 <5> De lus naar de volgende stap brengen na elke uitvoering.
-<6> Printen naar de console.
-<7> Een getal uit de array selecteren, we gebruiken hier i omdat dit het variabele getal is in de for lus.
+<6> Printen naar de _console_.
+<7> Een getal uit de _array_ selecteren, we gebruiken hier _i_ omdat dit het variabele getal is in de _for_ lus.
 
 #Zorg ervoor dat elke stap in de _code_ duidelijk voor je is#. Dat je goed begrijpt waarom deze _code_ nodig (of overbodig) is in het programma of voorbeeld.
 
@@ -214,10 +214,10 @@ Het is belangrijk dat je:
 
 . #Weet wat de opdracht is# (wat wil je juist gaan doen)
 . #De stappen oplijst# die je nodig hebt om de opdracht gedaan te krijgen:
-.. Een array aanmaken
-.. Een functie aanmaken
-.. Een lus aanmaken
-.. Enz.
+.. -> Een array aanmaken
+.. -> Een functie aanmaken
+.. -> Een lus aanmaken
+.. -> Enz.
 
 [IMPORTANT]
 ====
@@ -243,10 +243,10 @@ Indien je vaststelt dat je enkele begrippen toch nog niet volledig kent, of de o
 
 Bijvoorbeeld:
 
-.Het maken van de for lus met de variabele lengte van de array lukt niet.
+.Het maken van de _for_ lus met de variabele lengte van de _array_ lukt niet.
 image::schema5.png[]
 
-Volgens dit voorbeeld lukte het niet een for lus te maken die rekening houdt met de lengte van een array. Deze leerstof herhaal je dus best.
+Volgens dit voorbeeld lukte het niet een _for_ lus te maken die rekening houdt met de lengte van een _array_. Deze leerstof herhaal je dus best.
 
 [IMPORTANT]
 ====
