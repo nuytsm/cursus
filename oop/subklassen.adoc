@@ -1,0 +1,78 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Subklassen
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+Een subklasse is een onderliggende klasse die de methods en variabelen van de bovenliggende klasse overneemt.
+De subklasse kan extra variabelen en methods voorzien.
+Ook kunnen methods van de bovenliggende (_super_) klasse overschreven worden (_override_).
+
+== De hiërarchie van klassen
+
+Via subklassen en bovenliggende klassen kan een hiërarchie of boomstructuur gemaakt worden:
+
+image::subclasstree.jpg[]
+
+In bovenstaand voorbeeld beschikken de kat en de hond klasse automatisch de variabele _eyeColor_, want de bovenliggende klasse _Mammal_ (zoogdier) heeft deze variabele gedefiniëerd.
+
+== Een subklasse definiëren
+
+We hebben de bovenliggende klasse aangemaakt:
+[source,java]
+====
+public class Mammal{
+  public int eyeColor = 0;
+  
+  public int getEyeColor(){
+    return this.eyeColor;
+   }
+}
+====
+
+Om een onderliggende klasse aan te maken, gebruiken we het #_extends_# keyword:
+
+[source,java]
+====
+public class Dog extends Mammal{ <1>
+  private int barkFrequency = 0; <2>
+  
+  public bark(){ <3>
+    System.out.println("Woef");
+  }
+}
+====
+<1> Via het extends keyword bepalen we dat de _Dog_ klasse **een Mammal is**.
+<2> Een extra variabele
+<3> Een extra method
+
+Indien we nu een instantie aanmaken van de _Dog_ klasse, zien we dat deze ook aan de variabelen en methods van de _superclass_ (Mammal) kan:
+[source,java]
+====
+Dog hernie = new Dog(); <1>
+hernie.getEyeColor; <2>
+hernie.eyeColor = 40; <3>
+hernie.bark(); <4>
+====
+<1> Een instanie van een _Dog_.
+<2> We kunnen aan de _public_ methods van _Mammal_.
+<3> We kunnen aan de _public_ variabelen van _Mammal_.
+<4> De extra methods in _Dog_ zijn uiteraard ook beschikbaar.
+
