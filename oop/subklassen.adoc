@@ -123,6 +123,6 @@ mammals.add(new Cat); <2>
 
 == Polymorfisme
 
-Zie: https://github.com/nuytsm/cursus/blob/main/oop/polymorfisme.adoc[polymorfisme]
+Zie: https://nuytsm.github.io/cursus/oop/polymorfisme[polymorfisme]
 
 
