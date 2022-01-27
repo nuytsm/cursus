@@ -36,6 +36,7 @@ In bovenstaand voorbeeld beschikken de kat en de hond klasse automatisch de vari
 == Een subklasse definiëren
 
 We hebben de bovenliggende klasse aangemaakt:
+
 [source,java]
 ====
 public class Mammal{
@@ -64,6 +65,7 @@ public class Dog extends Mammal{ <1>
 <3> Een extra method
 
 Indien we nu een instantie aanmaken van de _Dog_ klasse, zien we dat deze ook aan de variabelen en methods van de _superclass_ (Mammal) kan:
+
 [source,java]
 ====
 Dog hernie = new Dog(); <1>
