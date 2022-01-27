@@ -227,4 +227,19 @@ Nu kunnen we onmiddelijk een instantie aanmaken met een naam en hitpoints:
 GameUnit paladin = new GameUnit(300, "Garibaldi");
 ----
 
+== Een subklasse gebruiken in een lijst van de superklass
 
+Iedere subklasse *is een* uitbreiding van zijn superklass. De subklass instantie kan dus gebruikt worden alsof het om een instantie van de superklass ging:
+
+[source,java]
+----
+List<Mammal> mammals = new ArrayList<Mammal>();
+mammals.add(new Dog); <1>
+mammals.add(new Cat); <2>
+----
+<1> _Dog_ kan gebruikt worden als datatype voor _Mammal_, want het is een subklasse.
+<2> Idem voor elke subklasse van _Mammal_.
+
+== Polymorfisme
+
+Zie: https://github.com/nuytsm/cursus/blob/main/oop/polymorfisme.adoc[polymorfisme]
