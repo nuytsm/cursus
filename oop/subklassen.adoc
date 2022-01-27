@@ -38,7 +38,7 @@ In bovenstaand voorbeeld beschikken de kat en de hond klasse automatisch de vari
 We hebben de bovenliggende klasse aangemaakt:
 
 [source,java]
-====
+----
 public class Mammal{
   public int eyeColor = 0;
   
@@ -46,12 +46,12 @@ public class Mammal{
     return this.eyeColor;
    }
 }
-====
+----
 
 Om een onderliggende klasse aan te maken, gebruiken we het #_extends_# keyword:
 
 [source,java]
-====
+----
 public class Dog extends Mammal{ <1>
   private int barkFrequency = 0; <2>
   
@@ -59,7 +59,7 @@ public class Dog extends Mammal{ <1>
     System.out.println("Woef");
   }
 }
-====
+----
 <1> Via het extends keyword bepalen we dat de _Dog_ klasse **een Mammal is**.
 <2> Een extra variabele
 <3> Een extra method
@@ -67,12 +67,12 @@ public class Dog extends Mammal{ <1>
 Indien we nu een instantie aanmaken van de _Dog_ klasse, zien we dat deze ook aan de variabelen en methods van de _superclass_ (Mammal) kan:
 
 [source,java]
-====
+----
 Dog hernie = new Dog(); <1>
 hernie.getEyeColor; <2>
 hernie.eyeColor = 40; <3>
 hernie.bark(); <4>
-====
+----
 <1> Een instanie van een _Dog_.
 <2> We kunnen aan de _public_ methods van _Mammal_.
 <3> We kunnen aan de _public_ variabelen van _Mammal_.
