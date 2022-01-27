@@ -78,3 +78,51 @@ hernie.bark(); <4>
 <3> We kunnen aan de _public_ variabelen van _Mammal_.
 <4> De extra methods in _Dog_ zijn uiteraard ook beschikbaar.
 
+== Subklass van een subklass
+
+Een bepaalde subklasse kan gebruikt worden als superklasse van een nieuwe subklasse:
+
+[source,java]
+----
+public class Pekinees extends Dog{ <1>
+}
+----
+<1> Via _extends_ geven we aan welke klasse we willen gebruiken als superklasse.
+
+== Methods van de superklasse aanroepen
+
+In een subklasse kunnen we de bestaande methods van een superklasse aanroepen:
+
+[source,java]
+----
+public class Dog extends Mammal{ 
+  private int barkFrequency = 0; 
+  
+  public bark(){ 
+    super.getEyeColor(); <1>
+    System.out.println(super.eyeColor); <2>
+    System.out.println("Woef");
+  }
+}
+----
+<1> Via _super_ geven we aan dat we een method van de superklass willen aanroepen.
+<2> Ook aan variabelen van de superklass kunnen we indien we _super_ gebruiken.
+
+== Een subklasse gebruiken in een lijst van de superklass
+
+Iedere subklasse *is een* uitbreiding van zijn superklass. De subklass instantie kan dus gebruikt worden alsof het om een instantie van de superklass ging:
+
+[source,java]
+----
+List<Mammal> mammals = new ArrayList<Mammal>();
+mammals.add(new Dog); <1>
+mammals.add(new Cat); <2>
+----
+<1> _Dog_ kan gebruikt worden als datatype voor _Mammal_, want het is een subklasse.
+<2> Idem voor elke subklasse van _Mammal_.
+
+== Polymorfisme
+
+Zie: https://github.com/nuytsm/cursus/blob/main/oop/polymorfisme.adoc[polymorfisme]
+
+
