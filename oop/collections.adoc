@@ -179,7 +179,7 @@ System.out.println(landenEnHoofdsteden.values());
 System.out.println(landenEnHoofdsteden.get("England"));
 ----
 
-= Set
+== Set
 
 Een Set is vergelijkbaar met een List, met als onderscheid dat in de Set alle elementen uniek moeten zijn.
 In een list kan een bepaald element meerdere keren voorkomen.
@@ -192,7 +192,7 @@ Ook Set is een interface, we zullen de HashSet klasse moeten gebruiken die de in
 Set<Integer> set1 = new HashSet<Integer>(); 
 ----
 
-== Elementen toevoegen aan een Set
+=== Elementen toevoegen aan een Set
 
 [source,java]
 ----
