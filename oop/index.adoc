@@ -1,3 +1,5 @@
+ = Cursus OOP - Object-oriented programming
+
 include::datatypes.adoc[]
 include::ifelse.adoc[]
 include::loops.adoc[]
