@@ -9,3 +9,10 @@ include::constructors.adoc[]
 include::subklassen.adoc[]
 include::collections.adoc[]
 include::polymorfisme.adoc[]
+include::accessmodifiers.adoc[]
+
+= 6de Jaar
+
+include::maven.adoc[]
+include::servlets.adoc[]
+include::springboot.adoc[]
