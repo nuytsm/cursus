@@ -92,6 +92,35 @@ public class Starter {
 Deze {am} is actief indien we geen expliciete {am} toevoegen.
 #De variabelen of methods zijn toegankelijk vanuit klassen die in hetzelfde _package_ zitten#.
 
+[source,java]
+----
+package CARS;
+public class Car {
+  int pk = 400; <1>
+  void drive(){
+    System.out.println("driving the car at "+ pk +"HP"); 
+  }
+}
+
+package CARS;
+public class Engine {
+  public static void main(String[] args){
+    Car c = new Car();
+    c.pk; <2>
+  }
+}
+
+package USERS;
+public class Starter {
+  public static void main(String[] args){
+    Car c = new Car();
+    c.; <3>
+  }
+}
+----
+<1> De Access Modifier leeg laten -> Package private
+<2> Zichtbaar: in hetzelfde package.
+<3> Onzichtbaar: in een ander package.
 
 === Protected
 
