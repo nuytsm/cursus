@@ -171,9 +171,9 @@ Standaard wordt bij het instantiëren van een subklasse de constructor van de su
 In deze constructor wordt de constructor van de superclass opgeroepen via:
 
 [source,java]
----
+----
 super(); <1>
----
+----
 <1> De compiler voegt deze _method call_ naar de constructor van de superklasse automatisch toe aan de default constructor.
 
 === De superklasse geen default constructor
