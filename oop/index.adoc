@@ -1,5 +1,7 @@
  = Cursus OOP - Object-oriented programming
 
+:leveloffset: +1
+
 include::datatypes.adoc[]
 include::ifelse.adoc[]
 include::loops.adoc[]
@@ -13,8 +15,14 @@ include::collections.adoc[]
 include::polymorfisme.adoc[]
 include::accessmodifiers.adoc[]
 
+:leveloffset: -1
+
 = 6de Jaar
+
+:leveloffset: +1
 
 include::maven.adoc[]
 include::servlets.adoc[]
 include::springboot.adoc[]
+
+:leveloffset: -1
