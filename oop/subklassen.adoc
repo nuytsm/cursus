@@ -121,6 +121,52 @@ mammals.add(new Cat); <2>
 <1> _Dog_ kan gebruikt worden als datatype voor _Mammal_, want het is een subklasse.
 <2> Idem voor elke subklasse van _Mammal_.
 
+== Subklassen en constructors
+
+Indien we een subklasse instantiëren, wordt:
+
+* De constructor van de subklasse opgeroepen.
+* *En* deze van de superklasse.
+
+We hebben de volgende superklasse, met een default constructor:
+[source,java]
+----
+public class Superclass {
+	
+	public Superclass() {
+		System.out.println("constructor superklasse");
+	}	
+}
+----
+
+En een subklasse met een default constructor:
+[source,java]
+----
+public class Subclass extends Superclass{
+
+	public Subclass() {
+		System.out.println("Constructor subklasse");
+	}
+}
+----
+
+En we maken een instantie aan:
+[source,java]
+----
+public static void main(String[] args) {
+		Subclass x = new Subclass();
+	}
+----
+
+Dan krijgen we de volgende output:
+
+----
+constructor superklasse
+Constructor subklasse
+----
+
+
+
 == Polymorfisme
 
 Zie: https://nuytsm.github.io/cursus/oop/polymorfisme[polymorfisme]
