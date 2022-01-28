@@ -1,4 +1,4 @@
- = Cursus OOP - Object-oriented programming
+= Cursus OOP - Object-oriented programming
 
 :leveloffset: +1
 
