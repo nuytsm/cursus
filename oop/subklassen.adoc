@@ -165,7 +165,45 @@ constructor superklasse
 Constructor subklasse
 ----
 
+=== De superklasse een default constructor
 
+Standaard wordt bij het instantiëren van een subklasse de constructor van de subklasse opgroepen.
+In deze constructor wordt de constructor van de superclass opgeroepen via:
+
+[source,java]
+---
+super(); <1>
+---
+<1> De compiler voegt deze _method call_ naar de constructor van de superklasse automatisch toe aan de default constructor.
+
+=== De superklasse geen default constructor
+
+De superklasse heeft bijvoorbeeld een constructor die een int vraagt:
+
+[source,java]
+----
+public class Superclass {
+	
+	public Superclass(int a) { <1>
+		System.out.println("constructor superklasse");
+	}	
+}
+----
+<1> Constructor met parameter: de default constructor wordt door de compiler niet meer automatisch toegevoegd.
+
+Dan moeten we in de subklasse deze constructor ook expliciet aanroepen (de default super() _call_ zal niet meer werken, want de default constructor bestaat niet meer in de superklasse):
+
+[source,java]
+----
+public class Subclass extends Superclass{
+
+	public Subclass(int a) {
+		super(a); <1>
+		System.out.println("Constructor subklasse");
+	}
+}
+----
+<1> We geven de int parameter door aan de constructor van de superklasse.
 
 == Polymorfisme
 
