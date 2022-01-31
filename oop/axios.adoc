@@ -1,0 +1,65 @@
+= Van Javascript naar een Servlet
+
+Via het http get request kunnen we rechtstreeks _data_ opvragen van een _servlet_ (of van een Spring boot _controller_).
+Ook via javascript kunnen we _requests_ opmaken naar een servlet (of een bepaalde url).
+Met de https://github.com/axios/axios#readme[*Axios* javascript _library_] kunnen we eenvoudig deze requests opmaken.
+
+== Axios toevoegen
+
+Om _Axios_ toe te voegen aan je html file, dien je de script tag te gebruiken:
+
+[source, html]
+----
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+----
+
+Naast deze script tag, kan je je eigen _.js_ file toevoegen en hierin gebruik maken van de _Axios_ javascript functies:
+
+[source, html]
+----
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <1>
+<script src="myfile.js" defer="true"></script> <2>
+----
+<1> De Axios _library_
+<2> Eigen script file met de #defer# optie: dit zorgt ervoor dat onze js _file_ als laatste inlaadt (dus na het inladen van de Axios script _file_).
+
+== Axios _requests_ uitvoeren.
+
+=== HTTP Get
+
+In je eigen javascript file kan je nu gebruik maken van de _Axios library_:
+
+[source, js]
+----
+axios.get('http://localhost:8080/artistById?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+----
+
+=== HTTP Post 
+
+Ook http post kan uitgevoerd worden:
+
+[source, js]
+----
+axios.post('http://localhost:8080/artist', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+----
+
