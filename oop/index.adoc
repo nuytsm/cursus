@@ -41,4 +41,6 @@ include::servlets.adoc[]
 
 include::springboot.adoc[]
 
+include::axios.adoc[]
+
 :leveloffset: -1
