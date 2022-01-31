@@ -85,7 +85,7 @@ We kunnen via een method de volgende queries oproepen:
 === De werking van Spring boot
 
 Hoe kan Spring boot nu autmatisch de queries toevoegen en servlets aanmaken?
-Doordat we annotaties toevoegen op onze klassen, geven we aan wat we willen bouwen. Bij het starten van de applicatie overloopt Spring alle klassen (via @ComponentScan) en leest alle annotaties in.
+Doordat we annotaties toevoegen op onze klassen, geven we aan wat we willen bouwen. Bij het starten van de applicatie overloopt Spring alle klassen (via @ComponentScan) en leest alle annotaties in. Na het inlezen heeft Spring boot een overzicht gekregen van alle componenten die je wil aanmaken en welke tussenliggende afhankelijkheden ze hebben. Met deze informatie kan Spring boot vervolgens instanties aanmaken en alle configuratie uitvoeren.
 
 == Een Spring boot project starten
 
