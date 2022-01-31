@@ -15,7 +15,7 @@
 
 == Stappenplan
 
-Bij het programmeren doorlopen we de volgende stappen bij het oplossen van (deel)problemen:
+Wanneer we een programma willen schrijven, dien je eerst een voorbereiding te maken. We willen namelijk niet in het wilde weg beginnen programmeren. De verschillende stappen die we nodig hebben om tot een algoritme en vervolgens het programma te komen zijn als volgt:
 
 . Probleemdefinitie
 . Analyse
@@ -39,6 +39,7 @@ Ik wil de priemgetallen kleiner dan 1000 (maar groter dan 0) afprinten.
 Vervolgens proberen we dit probleem in kleinere deelproblemen op te splitsen (analyse van het probleem).
 
 We kunnen dit probleem opsplitsen in deelproblemen:
+
 * De getallen van 0 tot 1000 genereren.
 * Controleren of een getal een priemgetal is.
 * Een getal afprinten.
@@ -82,12 +83,9 @@ Al deze verschillende deelalgoritmen worden vervolgens geprogrammeerd in een pro
 
 Enkele voorbeelden van programmeertalen zijn:
 
-Javascript
-Java
-Python
-
-Stappen naar succes
-Wanneer we een programma willen schrijven, dien je eerst een voorbereiding te maken. We willen namelijk niet in het wilde weg beginnen programmeren. De verschillende stappen die we nodig hebben om tot een algoritme en vervolgens het programma te komen zijn als volgt:
+* Javascript
+* Java
+* Python
 
 === Testen
 
