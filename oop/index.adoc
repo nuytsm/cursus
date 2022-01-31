@@ -1,18 +1,32 @@
+:toc: left
+:toclevels: 5
+
 = Cursus OOP - Object-oriented programming
 
 :leveloffset: +1
 
 include::datatypes.adoc[]
+
 include::ifelse.adoc[]
+
 include::loops.adoc[]
+
 include::arrays.adoc[]
+
 include::functies.adoc[]
+
 include::klassen.adoc[]
+
 include::scanner.adoc[]
+
 include::constructors.adoc[]
+
 include::subklassen.adoc[]
+
 include::collections.adoc[]
+
 include::polymorfisme.adoc[]
+
 include::accessmodifiers.adoc[]
 
 :leveloffset: -1
@@ -22,7 +36,9 @@ include::accessmodifiers.adoc[]
 :leveloffset: +1
 
 include::maven.adoc[]
+
 include::servlets.adoc[]
+
 include::springboot.adoc[]
 
 :leveloffset: -1
