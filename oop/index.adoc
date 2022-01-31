@@ -1,3 +1,12 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
 :toc: left
 :toclevels: 5
 
