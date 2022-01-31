@@ -300,7 +300,7 @@ spring.jpa.hibernate.naming_startegy=org.hibernate.boot.model.naming.PhysicalNam
 In een Spring boot applicatie maken we niet zelf instanties aan:
 [source,java]
 ----
-AlbumRpository albumsrepositoryinstantie = new AlbumRepository(); <1>
+AlbumRepository albumsrepositoryinstantie = new AlbumRepository(); <1>
 ----
 <1> Op deze manier doen we het niet.
 
