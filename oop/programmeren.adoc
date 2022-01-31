@@ -149,6 +149,6 @@ Documentatie buiten de code:
  ** Welke methode of algoritme gebruik je om het probleem op te lossen
  ** Hoe gebruik je het programma?
 
-De documentatie is belangrijk om de _code_ begrijpbaar te maken voor anderen of voor jezelf (op een later tijdstip). Je _code_ kan immers al snel zeer complex worden.
+De documentatie is belangrijk om de _code_ #begrijpbaar te maken# **voor anderen** of **voor jezelf** (op een later tijdstip). Je _code_ kan immers al snel zeer complex worden.
 
 
