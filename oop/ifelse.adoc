@@ -32,7 +32,7 @@ Een boolean conditie is een _waar/niet-waar_ stelling:
 int getal = 5;
 boolean conditie = getal < 6; <1>
 ----
-Deze boolean wordt geëvalueerd naar _True_ want het getal 5 is kleiner dan 6.
+<1> Deze boolean wordt geëvalueerd naar _True_ want het getal 5 is kleiner dan 6.
 
 == If / else
 
