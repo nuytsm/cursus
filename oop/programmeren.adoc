@@ -48,6 +48,8 @@ Het is mogelijk dat we ieder deelprobleem nog verder kunnen opsplitsen in onderl
 
 In de probleemanalyse is het van belang rekening te houden met de #invoer -> verwerking -> uitvoer#:
 
+image::invoer.gif[]
+
 * Welke gegevens worden er ingevoerd door de gebruiker (wat is de *input*)? (bv. een geboortedatum, de straal van een cirkel, …)
 * Welke verwerking moet er gebeuren (*proces*)? (bv. Wat is de formule om de oppervlakte van een cirkel te berekenen?)
 * Wat moet er uitgevoerd/getoond worden (*output*)? (bv. de leeftijd van de gebruiker, de oppervlakte van de cirkel, …)
