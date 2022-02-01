@@ -40,6 +40,8 @@ include::polymorfisme.adoc[]
 
 include::accessmodifiers.adoc[]
 
+include::exceptions.adoc[]
+
 :leveloffset: -1
 
 = 6de Jaar
