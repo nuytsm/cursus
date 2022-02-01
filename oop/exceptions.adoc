@@ -1,0 +1,48 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Exceptions
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+_Exceptions_ zijn fouten, uitzonderingen of gebeurtenissen #die de normale werking van een programma onderbreken#. Over het algemeen is een _exception_ iets wat we #zoveel mogelijk willen vermijden# in een programma, maar waar we in veel gevallen toch rekening mee kunnen en moeten houden.
+Een voorbeeld is het inlezen van een bestand: dit loopt normaal gezien goed, maar wat als het bestand corrupt is? Of niet gevonden kan worden? In die gevallen spreken we van een _exception_.
+
+Er zijn 2 grote groepen van _Exceptions_, namelijk:
+
+* Checked exceptions
+* Unchecked exceptions
+
+== Checked exceptions
+
+Deze _exceptions_ zijn uitzonderingen die binnen de verwachtingen liggen en waarvan van de programmeur verwacht wordt dat hij er #op voorhand rekening mee houdt#.
+
+=== Exceptions opvangen
+
+Met behulp van een _try/catch_ statement kunnen we bepalen hoe het programma rekening moet houden met de _exception_.
+
+[source,java]
+----
+try {
+
+}
+----
+
+== Unchecked exceptions
+
+Deze _exceptions_ zijn subklassen van _runtime_ _exceptions_. Deze kunnen zich voordoen bij het draaien van het programma, maar hier verwacht de compiler niet dat je er op voorhand rekening mee houdt.
+
+== Throws / throw
+
+
+
+== Custom exception
+
