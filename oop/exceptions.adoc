@@ -13,13 +13,57 @@
 :toc: left
 :toclevels: 4
 
-_Exceptions_ zijn fouten, uitzonderingen of gebeurtenissen #die de normale werking van een programma onderbreken#. Over het algemeen is een _exception_ iets wat we #zoveel mogelijk willen vermijden# in een programma, maar waar we in veel gevallen toch rekening mee kunnen en moeten houden.
+Wanneer we Java _code_ uitvoeren kunnen zich verschillende fouten, uitzonderingen of gebeurtenissen voordoen #die de normale werking van een programma onderbreken#: fouten gemaakt door de programmeur, verkeerde _input_ of andere **onvoorziene zaken**.
+Over het algemeen is een _exception_ iets wat we #zoveel mogelijk willen vermijden# in een programma, maar waar we in veel gevallen toch rekening mee kunnen en moeten houden.
 Een voorbeeld is het inlezen van een bestand: dit loopt normaal gezien goed, maar wat als het bestand corrupt is? Of niet gevonden kan worden? In die gevallen spreken we van een _exception_.
+
+Wanneer er zich een _exception voordoet zal het Java programma normaal gezien stoppen met uitvoeren en een _error_ boodschap tonen. De term die hiervoor wordt gebruikt is: 
+
+====
+Java will *throw* an exception (throw an error).
+====
 
 Er zijn 2 grote groepen van _Exceptions_, namelijk:
 
-* Checked exceptions
-* Unchecked exceptions
+* *Checked* exceptions -> Deze fouten zijn verplicht op te vangen (de compiler controleert dit).
+* *Unchecked* exceptions -> De programmeur wordt niet verplicht met deze fouten rekening te houden.
+
+== Java try and catch
+
+Dankzij het **try/catch _statement_** kunnen we als programmeur omgaan met _exceptions_.
+Het __try statement__ laat het toe bepaalde code uit te voeren en een mogelijke fout op te vangen in het bijhorende __catch statement__.
+
+De _code_ in het __catch statement__ of __catch block__ wordt enkel uitgevoerd indien er zich een fout voordeed. Anders niet.
+
+[source,java]
+----
+try {
+  //  Block of code to try <1>
+} catch(Exception e) {
+  //  Block of code to handle errors <2>
+}
+----
+<1> De _code_ die men wil uitvoeren.
+<2> De _code_ die wordt uitgevoerd indien er zich een fout voordeed in de _code_ van het __try block__ (1).
+
+=== Finally
+
+Naast de try/catch kunnen we ook gebruik maken van de *optionele* _finally_. Dit is niet verplicht.
+De finally wordt altijd uitgevoerd na het doorlopen van de _try_ en de _catch_.
+Dus zowel indien er zich wel of geen fout heeft voorgedaan.
+
+[source,java]
+----
+try {
+  //  Block of code to try
+} catch(Exception e) {
+  //  Block of code to handle errors
+} finally { <1>
+  // Always executed 
+}
+----
+<1> De _finally_ wordt steeds uitgevoerd na de _try_ of de _catch_.
+
 
 == Checked exceptions
 
@@ -38,11 +82,40 @@ try {
 
 == Unchecked exceptions
 
-Deze _exceptions_ zijn subklassen van _runtime_ _exceptions_. Deze kunnen zich voordoen bij het draaien van het programma, maar hier verwacht de compiler niet dat je er op voorhand rekening mee houdt.
+Deze _exceptions_ zijn subklassen van #_runtime_ _exceptions_#. Deze kunnen zich voordoen bij het draaien van het programma, maar hier verwacht de compiler niet dat je er op voorhand rekening mee houdt.
 
 == Throws / throw
 
+=== Throw
 
+Met het _throw_ _keyword_ geven we aan dat we zelf een _exception_ aanmaken of lanceren:
+
+[source,java]
+----
+throw new Exception("De invoer is niet correct."); <1>
+----
+<1> We maken een nieuwe *instantie* aan van een exception en _throwen_ deze.
+
+=== Throws
+
+Wanneer we bovenstaande _code_ gebruiken in een _method_. 
+*Moet* de method aangeven dat er een _exception_ _gethrowed_ wordt:
+
+[source,java]
+----
+public void executeCode() throws Exception { <1>
+  throw new Exception("De invoer is niet correct."); <2>
+}
+----
+<1> Met *throws* geven we aan dat de _method_ *mogelijk* een _exception_ gaat _throwen_.
+<2> Een nieuwe instantie van een _exception_ wordt _gethrowed_.
+
+Indien je gebruik maakt van bovenstaande _method_, verplicht de compiler je om een __try/catch block__ te gebruiken om de mogelijke _exception_ op te vangen.
+
+[IMPORTANT]
+====
+Dit is **niet het geval voor subklassen van __runtime exceptions__**: dit zijn immers __unchecked exceptions__.
+====
 
 == Custom exception
 
