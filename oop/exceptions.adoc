@@ -69,20 +69,77 @@ try {
 
 Deze _exceptions_ zijn uitzonderingen die binnen de verwachtingen liggen en waarvan van de programmeur verwacht wordt dat hij er #op voorhand rekening mee houdt#.
 
-=== Exceptions opvangen
-
-Met behulp van een _try/catch_ statement kunnen we bepalen hoe het programma rekening moet houden met de _exception_.
+Bijvoorbeeld bij het inlezen van een bestand (_file_), geeft de _compiler_ onmiddelijk al aan dat er rekening moet worden gehouden met een _exception_ (het bestand kan mogelijk niet gevonden worden, of het bestand kan corrupt zijn):
 
 [source,java]
 ----
-try {
-
-}
+File bestand = new File("C:\temp\tekst.txt");
+Scanner s = new Scanner(bestand);
 ----
+
+image::scannerexception.png[]
+
+De _exception_ die heer verwacht wordt, is de FileNotFoundException.
+Dit is een subklasse van IOException, wat op zijn beurt een subklasse is van Exception.
+
+Om hiermee rekeing te houden in de _code_, verplicht de _compiler_ ons om een _try/catch_ toe te voegen:
+
+[source,java]
+----
+		File bestand = new File("C:\\temp\\tekst.txt");
+		try {
+			Scanner s = new Scanner(bestand);
+		} catch (FileNotFoundException e) { <1>
+			System.out.println("Spijtig, maar er iets iets mis met het bestand."); <2>
+			e.printStackTrace(); <3>
+		}
+----
+<1> De FileNotFoundException die we opvangen indien het zich voordoet.
+<2> Indien de fout zich voordoet, kunnen we een actie ondernemen (in dit geval een boodschap naar de console printen).
+<3> De _stacktrace_ geeft in detail weer hoe de fout zich heeft voorgedaan.
+
+Een voorbeeld van de _stacktrace_ :
+
+----
+java.io.FileNotFoundException: C:\temp\tekst.txt (Het systeem kan het opgegeven bestand niet vinden) <1>
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at java.base/java.util.Scanner.<init>(Scanner.java:639)
+	at Scannervoorbeeld.method1(Scannervoorbeeld.java:19)
+	at Scannervoorbeeld.main(Scannervoorbeeld.java:13)
+----
+<1> In een _stacktrace_ wordt meestal duidelijk aangegeven welke fout zich net voordeed.
+
 
 == Unchecked exceptions
 
-Deze _exceptions_ zijn subklassen van #_runtime_ _exceptions_#. Deze kunnen zich voordoen bij het draaien van het programma, maar hier verwacht de compiler niet dat je er op voorhand rekening mee houdt.
+Deze _exceptions_ zijn subklassen van #_runtime_ _exceptions_#. Deze kunnen zich voordoen bij het draaien van het programma, maar hier verwacht de _compiler_ niet dat je er op voorhand rekening mee houdt.
+
+Een veel voorkomend voorbeeld van een _runtime exception_ is de _NullPointerException_.
+Deze doet zich voor wanneer de waarde van een niet-geïnitialiseerde variabele wordt opgehaald:
+
+[source,java]
+----
+	public void method1() {
+		method2(null);
+	}
+	
+	public void method2(Integer a) {
+		a.intValue(); <1>
+	}
+----
+<1> Hier zal zich een nullpointer voordoen, want de Integer a is _null_.
+
+De _stacktrace_:
+
+----
+Exception in thread "main" java.lang.NullPointerException
+	at Scannervoorbeeld.method2(Scannervoorbeeld.java:21)
+	at Scannervoorbeeld.method1(Scannervoorbeeld.java:17)
+	at Scannervoorbeeld.main(Scannervoorbeeld.java:13)
+----
+
 
 == Throws / throw
 
@@ -119,3 +176,22 @@ Dit is **niet het geval voor subklassen van __runtime exceptions__**: dit zijn i
 
 == Custom exception
 
+We kunnen zelf een eigen subklasse van _exception_ maken:
+
+[source,java]
+----
+public class MijnException extends Exception{
+	public MijnException(String message) {
+        super(message);
+    }
+}
+----
+
+Deze kan vervolgens in je _code_ met een _throw_ en een _throws_ gebruikt worden:
+
+[source,java]
+----
+public void method1() throws MijnException {
+		throw new MijnException("fout");
+	}
+----
