@@ -20,13 +20,7 @@ Todo:
 ** Virtuele machine
 ** Syntax
 ** Compiler
-* Datatypes
-* If/else
-* Collections
-** Lists
-** Maps
-* Overerving
-* Constructors
-* Exceptions
+* File IO
+* JUnit
 * Interfaces
 
