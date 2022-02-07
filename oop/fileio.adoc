@@ -1,0 +1,65 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= File Input/Output
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+De Java __standard library__ voorziet enkele klassen om **met bestanden te werken**.
+Dit zijn de klassen onder het _package_ __java.io.*__ of __java.nio.*__ (deze laatste komt hier niet aan bod).
+
+== Bestanden
+
+Bestanden worden in Java voorgesteld door de _File_ klasse:
+
+[source,java]
+----
+File mijnbestand = new File("C:\\test.txt"); <1>
+----
+<1> Dubbele _backslash_ _(\\t)_, want de enkele _backslash_ t __(\t)__ geeft een tab weer (komt overeen met 4 spaties).
+
+Op deze bestanden kunnen we normale operaties toepassen:
+[source,java]
+----
+if (mijnbestand.exists()) { <1>
+			mijnbestand.delete();		<2>	
+		}
+----
+  <1> Nagaan of het bestand wel bestaat op de harde schijf.
+  <2> Het bestand verwijderen.
+  
+Met de _File_ klasse worden ook mappen of _directories_ voorgesteld:
+
+[source,java]
+----
+File folder = new File("C:\\");<1>
+boolean bestaat = folder.exists(); <2> 
+if (!bestaat){
+  folder.mkdir(); <3>
+ }
+----
+<1> Een mapje of folder.
+<2> Nagaan of de folder al bestaat.
+<3> De folder aanmaken op de harde schijf.
+
+== Inlezen
+
+Nu we weten hoe we bestanden of folders kunnen aanmaken of ernaar kunnen verwijzen, kunnen we proberen deze uit te lezen.
+
+== Wegschrijven
+
+== Streams
+
+
+
+
+
+
