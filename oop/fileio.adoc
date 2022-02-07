@@ -40,7 +40,7 @@ Met de _File_ klasse worden ook mappen of _directories_ voorgesteld:
 
 [source,java]
 ----
-File folder = new File("C:\\");<1>
+File folder = new File("C:\\mapje1");<1>
 boolean bestaat = folder.exists(); <2> 
 if (!bestaat){
   folder.mkdir(); <3>
@@ -54,9 +54,55 @@ if (!bestaat){
 
 Nu we weten hoe we bestanden of folders kunnen aanmaken of ernaar kunnen verwijzen, kunnen we proberen deze uit te lezen.
 
+In Java worden bestanden beschouwd als een stroom (_stream_) van karakters of van bytes:
+
+image::streams4.png[]
+
+Er zijn verschillende subklassen van _streams_. 
+Deze bepalen wat je juist wil inlezen:
+
+image::streams5.jpg[]
+
+Een bepaalde _stream_ kan ook gebruikt worden als bron voor een volgende _stream_.
+Je kan ze dus in de constructor meegeven om er gebruik van te maken:
+
+image::streams3.png[]
+
+=== Een voorbeeld
+
+
+=== Via de _Scanner_ klasse
+
+
+
+
+
+=== Mappen, _directories_ of _folders_
+
+Je kan van een bestaande map de onderliggende mapjes ophalen:
+
+[source,java]
+----
+	// create new file object
+        File file = new File("/tmp");
+
+        // array of files and directory
+        String[] paths = file.list(); <1>
+
+        // for each name in the path array
+        for(String path:paths) { <2>
+           // prints filename and directory name
+           System.out.println(path);
+        }
+----
+<1> De onderliggende mappen ophalen als een String[]
+<2> Met een __for each__ lus over de array gaan.
+
 == Wegschrijven
 
-== Streams
+
+
+
 
 
 
