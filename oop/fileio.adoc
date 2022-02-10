@@ -72,6 +72,44 @@ image::streams3.png[]
 
 === Via inputstreams
 
+De _**FileInputStream**_ leest een _File_ **byte per byte** in:
+
+[source,java]
+----
+ try{    
+   FileInputStream input  = new FileInputStream("D:\\testout.txt");     <1>
+   int i = 0;    
+   
+   while( (i = input.read()) != -1 ){  <2>
+              System.out.print((char)i);    <3>
+   }    
+   input.close();    <4>
+  }catch(Exception e){
+    System.out.println(e);
+  }      
+----
+<1> Een nieuwe _fileinpustream_ instantie. Aan de constructor geven we mee om welke (bestaande) _file_ het gaat.
+<2> In de _while loop_ conditie, gaan we na of elke byte die we inlezen niet -1 is (dit wil dan zeggen dat we het einde van de _file_ hebben bereikt).
+<3> We printen elke byte af als een karakter.
+<4> Na het inlezen sluiten we de _inputstream_.
+
+Met een _**bufferedinputstream**_ kunnen we een bestand sneller inlezen (meerdere bytes in een keer). Doordat onmiddelijk een volledig _block_ van bytes ingelezen wordt, is deze methode sneller:
+
+[source,java]
+----
+int bufferSize = 8 * 1024; <1>
+    
+BufferedInputStream bufferedInputStream = new BufferedInputStream(
+                      new FileInputStream("c:\\data\\input-file.txt"),
+                      bufferSize
+    );
+----
+<1> De grootte van de _buffer_.
+
+==== Via FileReader
+
+De _FileReader_ is een klasse die automatisch een __character encoding__ voorziet en geschikt is om tekstbestanden in te lezen:
+
 [source,java]
 ----
 File file = new File("C:\\Users\\gebruiker\\Desktop\\test.txt"); <1>
@@ -98,7 +136,7 @@ BufferedReader br = new BufferedReader(new FileReader(file)); <2>
 
 ==== Via Scanner
 
-Om gewone tekst in te lezen (dus karakters en geen puur binair bestand) kunnen we gebruik maken van de Scanner klasse:
+Om gewone tekst in te lezen (dus karakters en geen puur binair bestand) kunnen we ook gebruik maken van de Scanner klasse:
 
 [source,java]
 ----
