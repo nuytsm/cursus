@@ -68,9 +68,9 @@ Je kan ze dus in de constructor meegeven om er gebruik van te maken:
 
 image::streams3.png[]
 
-=== Een voorbeeld
+=== Enkele voorbeelden
 
-=== Via inputstreams
+==== Via inputstreams
 
 De _**FileInputStream**_ leest een _File_ **byte per byte** in:
 
