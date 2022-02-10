@@ -36,11 +36,15 @@ include::subklassen.adoc[]
 
 include::collections.adoc[]
 
+include::fileio.adoc[]
+
+include::exceptions.adoc[]
+
 include::polymorfisme.adoc[]
 
 include::accessmodifiers.adoc[]
 
-include::exceptions.adoc[]
+
 
 :leveloffset: -1
 
