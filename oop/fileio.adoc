@@ -98,7 +98,7 @@ BufferedReader br = new BufferedReader(new FileReader(file)); <2>
 
 ==== Via Scanner
 
-Om gewone tekst in te lezen kunnen we gebruik maken van de Scanner klasse:
+Om gewone tekst in te lezen (dus karakters en geen puur binair bestand) kunnen we gebruik maken van de Scanner klasse:
 
 [source,java]
 ----
