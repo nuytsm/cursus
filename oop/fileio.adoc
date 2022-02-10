@@ -70,11 +70,117 @@ image::streams3.png[]
 
 === Een voorbeeld
 
+=== Via inputstreams
 
-=== Via de _Scanner_ klasse
+[source,java]
+----
+File file = new File("C:\\Users\\gebruiker\\Desktop\\test.txt"); <1>
+         // Note:  Double backquote is to avoid compiler
+        // interpret words
+        // like \test as \t (ie. as a escape sequence)
+ 
+        // Creating an object of BufferedReader class
+BufferedReader br = new BufferedReader(new FileReader(file)); <2>
+ 
+        // Declaring a string variable
+        String st;
+        // Condition holds true till
+        // there is character in a string
+        while ((st = br.readLine()) != null){ <3>
+             // Print the string
+            System.out.println(st); <4>
+    	}
+----
+<1> We maken een _file_ of bestand instantie aan. **Deze kan verwijzen naar een bestaand bestand**.
+<2> We maken een nieuwe filereader instantie aan en gebruiken deze in de constructor van een bufferedreader (zodat we niet bye per byte moeten inlezen).
+<3> We vragen aan de bufferedreader of hij nog een volgende lijn heeft (indien niet, is deze _null_).
+<4> We printen de lijn af naar de console.
+
+==== Via Scanner
+
+Om gewone tekst in te lezen kunnen we gebruik maken van de Scanner klasse:
+
+[source,java]
+----
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+
+public class ReadFile {
+  public static void main(String[] args) {
+    try {
+      File myFile = new File("filename.txt"); <1>
+      Scanner myReader = new Scanner(myFile); <2>
+      while (myReader.hasNextLine()) {  <3>
+        String data = myReader.nextLine(); <4>
+        System.out.println(data);
+      }
+      myReader.close(); <5>
+    } catch (FileNotFoundException e) { <6>
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}
+----
+<1> We definiëren een file (of bestand).
+<2> Aan de _constructor_ van Scanner, geven we het bestand mee.
+<3> Aan de Scanner kunnen we nu vragen of er in de file een volgende lijn (met tekst) staat.
+<4> Indien de lijn aanwezig is, kunnen we deze ophalen en bijhouden in een tijdelijke variabele.
+<5> Na het inlezen in de for lus, kunnen we de Scanner afsluiten (zodat hij geen geheugen meer blijft innemen).
+<6> Indien er zich een fout voordeed (bestand niet gevonden bijvoorbeeld), komen we in de _catch_ terecht.
 
 
+=== Bestandsinfo inlezen
 
+[source,java]
+----
+public class GetFileInfo { 
+  public static void main(String[] args) {
+    File myObj = new File("filename.txt");
+    if (myObj.exists()) {
+      System.out.println("File name: " + myObj.getName()); <1>
+      System.out.println("Absolute path: " + myObj.getAbsolutePath()); <2> 
+      System.out.println("Writeable: " + myObj.canWrite()); <3>
+      System.out.println("Readable " + myObj.canRead()); <4>
+      System.out.println("File size in bytes " + myObj.length()); <5>
+    } else {
+      System.out.println("The file does not exist.");
+    }
+  }
+}
+----
+<1> Naam van het bestand.
+<2> Het _path_ of de mappenstructuur waarin het bestand staat.
+<3> Hebben we de rechten om te schrijven in het bestand?
+<4> Hebben we de rechten om te lezen uit het bestand?
+<5> Wat is de lengte (in bytes) van het bestand?
+
+=== Schrijven naar een bestand
+
+[source,java]
+----
+import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;  // Import the IOException class to handle errors
+
+public class WriteToFile {
+  public static void main(String[] args) {
+    try {
+      FileWriter myWriter = new FileWriter("filename.txt"); <1>
+      myWriter.write("Deze tekst schrijven we weg"); <2>
+      myWriter.close(); <3>
+      System.out.println("Successfully wrote to the file.");
+    } catch (IOException e) { <4>
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}
+----
+<1> We maken een instantie van een _FileWriter_ aan en geven aan de constructor mee wat de bestandsnaam is.
+<2> We schrijven tekst weg naar de file.
+<3> We sluiten de Filewriter (om geheugen terug vrij te maken).
+<4> Indien er zich een fout voordeed, komen we in de _catch_ terecht.
 
 
 === Mappen, _directories_ of _folders_
@@ -97,8 +203,6 @@ Je kan van een bestaande map de onderliggende mapjes ophalen:
 ----
 <1> De onderliggende mappen ophalen als een String[]
 <2> Met een __for each__ lus over de array gaan.
-
-== Wegschrijven
 
 
 
