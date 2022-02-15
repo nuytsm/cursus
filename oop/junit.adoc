@@ -28,6 +28,14 @@ Dankzij JUnit kunnen we klassen en methods volledig uittesten.
 
 == Waarom software testen?
 
+Een groot probleem waar alle programmeurs mee kampen zijn _bugs_ of fouten in software. Deze komen door onoplettendheid, foute veronderstellingen, input die niet verwacht werd, ...
+
+Software die vol zit met _bugs_ is niet goed te gebruiken. Gelukkig zijn een heel groot deel van de #_bugs_ vermijdbaar#. Dit dankzij het gebruik van goede software testen.
+
+Een software test beschermt je tegen foute veronderstellingen omdat je bij het schrijven van een Unit Test gedwongen wordt rekening te houden met alle (of de meeste) randcondities.
+
+Ook zorgen software test ervoor dat #veranderingen die je achteraf doorvoert in de code, geen verkeerde impact hebben#.
+
 == Hoe maak je een test?
 
 Om een test te schrijven heb je de volgende zaken nodig:
