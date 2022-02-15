@@ -122,7 +122,7 @@ In ons voorgaande voorbeeld, betekent dit dat we een deling door 0, een integer 
 
 Hierover verschillen de meningen onder programmeurs, er zijn verschillende scholen van denken: 
 
-* De aanhangers van https://nl.wikipedia.org/wiki/Test-driven_development[TDD (Test driven development)] zijn van mening dat er geen _code_ geschreven mag worden zonder dat er een unit test voor bestaat. Dit is heel strict, maar het leidt wel tot goede resultaten.
+* De aanhangers van https://nl.wikipedia.org/wiki/Test-driven_development[TDD (Test driven development)] zijn van mening dat er geen _code_ geschreven mag worden zonder dat er een unit test voor bestaat. Dit is heel strikt, maar het leidt wel tot goede resultaten.
 * Er zijn programmeurs die geen testen schrijven en volledig steunen op _bugreports_. Deze aanpak leidt spijtig genoeg tot meer _bugs_..
 * Een middenweg is het volledig uittesten van klassen waar complexiteit in voorkomt en voor de rest te steunen op _Integration tests_.
 
