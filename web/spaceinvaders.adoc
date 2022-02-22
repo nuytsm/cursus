@@ -36,8 +36,8 @@ De html file:
 <html>
 	<head>
 		<title>Space Invaders</title>
-		<link ref="stylesheet" src="invaders.css" >
-		<script src="invaders.js"/>
+		<link rel="stylesheet" href="invaders.css" >
+		<script src="invaders.js"></script>
 	</head>
 	<body>
 	
