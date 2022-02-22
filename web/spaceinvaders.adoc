@@ -106,3 +106,20 @@ html, body {
 }
 ----
 
+== Reageren op keyboardinput
+
+[source,html]
+----
+<body onkeydown="keydown(event)">
+----
+
+Bijhorende javascript functie die elk keyboard _event_ afprint naar de console.
+
+[source,js]
+----
+function keydown(event){
+	console.log(event.code)
+}
+----
+
+In deze functie kunnen we vervolgens if statement schrijven die rekening houden met de ArrowLeft of ArrowRight key.
