@@ -53,22 +53,56 @@ In het spel maken we gebruik van enkele afbeeldingen:
 
 * Het ruimteschip
 +
-image::Char.png[]
+image::Char.png[200,150]
 +
 * De vijand
 +
-image::Enemy.png[]
+image::Enemy.png[200,150]
 +
 * Een laserstraal
 +
-image::Shot.png[]
+image::Shot.png[200,150]
 +
 * Een explosie
 +
-image::explosion-gif.gif[]
+image::explosion-gif.gif[200,150]
 +
 * Een achtergrond (sterren)
 +
 image::stars.jpg[Stars,200,150]
 
+== De achergrond toepassen
+
+[source,css]
+----
+body{
+	background-image: url("stars.jpg");
+	background-size: cover;
+}
+html, body {
+    height: 100%;
+}
+----
+
+== Het ruimteschip
+
+[source,html]
+----
+<body>
+	<div id="char"></div>
+</body>
+----
+
+[source,css]
+----
+#char{
+	position:fixed;
+	background-image: url("Char.png");
+	background-size:cover;
+	height: 9.8%;
+	width: 2.5%;
+	left: 50%;
+	top: 90%;
+}
+----
 
