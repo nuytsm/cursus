@@ -1,0 +1,74 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:am: Access Modifier
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Space Invaders
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+In deze oefening gaan we stap voor stap het spel __Space Invaders__ namaken.
+
+== De bestanden
+
+We gaan het spel maken in een html file met gekoppelde javascript en css file.
+
+De html file:
+
+[source,html]
+----
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Space Invaders</title>
+		<link ref="stylesheet" src="invaders.css" >
+		<script src="invaders.js"/>
+	</head>
+	<body>
+	
+	</body>
+</html>
+----
+
+De css file en de javascript file zijn voorlopig leeg.
+
+== De afbeeldingen
+
+In het spel maken we gebruik van enkele afbeeldingen:
+
+* Het ruimteschip
++
+image::Char.png[]
++
+* De vijand
++
+image::Enemy.png[]
++
+* Een laserstraal
++
+image::Shot.png[]
++
+* Een explosie
++
+image::explosion-gif.gif[]
++
+* Een achtergrond (sterren)
++
+image::stars.jpg[Stars,200,150]
+
+
