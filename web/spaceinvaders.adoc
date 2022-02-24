@@ -89,13 +89,13 @@ html, body {
 [source,html]
 ----
 <body>
-	<div id="char"></div>
+	<div id="ruimteveer"></div>
 </body>
 ----
 
 [source,css]
 ----
-#char{
+#ruimteveer{
 	position:fixed;
 	background-image: url("Char.png");
 	background-size:cover;
@@ -123,3 +123,38 @@ function keydown(event){
 ----
 
 In deze functie kunnen we vervolgens if statement schrijven die rekening houden met de ArrowLeft of ArrowRight key.
+
+[source,js]
+----
+var positie = 50; // Het ruimteveer bevindt zich in het midden van het scherm
+function keydown(event){
+	if (event.code == 'ArrowLeft'){
+		beweegNaarLinks(); <1>
+	} else if (event.code == 'ArrowRight'){
+		beweegNaarRechts(); <2>
+	}	
+}
+function beweegNaarLinks(){
+	if (positie > 0){ <3>
+		positie = positie - 0.4; <4>		
+	}
+	beweeg(); <5>
+}
+function beweegNaarRechts(){
+	if (positie < 95){
+		positie = positie + 0.4;		
+	}
+	beweeg();
+}
+function beweeg(){
+	document.getElementById("ruimteveer").style.left = positie + "%"; <6>
+	// console.log(document.getElementById('ruimteveer').style.left)
+}
+----
+<1> Wanneer de keycode het pijltje naar links is, roepen we een functie op die het ruimteveer naar links laat bewegen.
+<2> Wanneer de keycode het pijltje naar rechts is, roepen we een functie op die het ruimteveer naar rechts laat bewegen.
+<3> In dit if statement kijken we na of het ruimteveer zich al helemaal links bevindt op het scherm (dat is de limiet)
+<4> Hier maken we de positie wat kleiner (dus meer naar links).
+<5> We roepen een functie op die de positie gaat wegschrijven op het div element.
+<6> Via de style (css) left van het div element schrijven we de positie weg (hoe ver van de linkerkant van het scherm dat het ruimteveer zich moet bevinden).
+
