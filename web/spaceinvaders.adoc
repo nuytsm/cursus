@@ -257,6 +257,6 @@ function removeimg(img){
 <7> Eens de schoten buiten het scherm vliegen, verwijderen we ze best uit de body (anders geraakt het geheugen uiteindelijk vol).
 <8> We vragen aan de parentNode van het img, om het img te verwijderen.
 
-Het resultaat:
+Het resultaat bij het drukken op de spatieknop:
 
 image::schieten.png[400,400]
