@@ -15,7 +15,7 @@
 
 == Stappenplan
 
-Wanneer we een programma willen schrijven, dien je eerst een voorbereiding te maken. We willen namelijk niet in het wilde weg beginnen programmeren. De verschillende stappen die we nodig hebben om tot een algoritme en vervolgens het programma te komen zijn als volgt:
+Wanneer je een programma wil schrijven, dien je eerst een voorbereiding te maken. We willen namelijk niet in het wilde weg beginnen programmeren. De verschillende stappen die je nodig hebt om tot een algoritme en vervolgens het programma te komen zijn als volgt:
 
 . Probleemdefinitie
 . Analyse
@@ -26,7 +26,7 @@ Wanneer we een programma willen schrijven, dien je eerst een voorbereiding te ma
 
 === Probleemdefinitie
 
-In eerste instantie gaan we voor onszelf verwoorden welk probleem we juist willen oplossen.
+In eerste instantie ga je voor onszelf verwoorden welk probleem je juist wil oplossen.
 
 Bijvoorbeeld:
 
