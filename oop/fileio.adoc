@@ -204,7 +204,7 @@ import java.io.IOException;  // Import the IOException class to handle errors
 public class WriteToFile {
   public static void main(String[] args) {
     try {
-      FileWriter myWriter = new FileWriter("filename.txt"); <1>
+      FileWriter myWriter = new FileWriter("filename.txt", true); <1>
       myWriter.write("Deze tekst schrijven we weg"); <2>
       myWriter.close(); <3>
       System.out.println("Successfully wrote to the file.");
@@ -215,7 +215,7 @@ public class WriteToFile {
   }
 }
 ----
-<1> We maken een instantie van een _FileWriter_ aan en geven aan de constructor mee wat de bestandsnaam is.
+<1> We maken een instantie van een _FileWriter_ aan en geven aan de constructor mee wat de bestandsnaam is. ##Met de true boolean wordt aangegeven of er tekst toegevoegd wordt aan de file, ofwel dat de bestaande tekst overschreven wordt (false)##.
 <2> We schrijven tekst weg naar de file.
 <3> We sluiten de Filewriter (om geheugen terug vrij te maken).
 <4> Indien er zich een fout voordeed, komen we in de _catch_ terecht.
