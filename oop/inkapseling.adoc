@@ -22,9 +22,9 @@
 :toc: left
 :toclevels: 4
 
-*Inkapseling* is het verbergen van details van een implementatie, enkel de zaken die relevant zijn voor de buitenwereld worden public geplaats.
-*Overriding* is een specifiekere implementatie maken van een method met dezelfde naam uit een bovenliggende klasse. Dankzij polymorfisme wordt steeds de method gebruikt die geschreven werd op de laagst gelegen klasse van de instantie.
-*Overloading* is een variant van een method voorzien die een ander aantal (of andere datatypes) van parameters aanvaard. Het gaat dus om een andere method, maar wel met dezelfde naam. De compiler weet welke method exact wordt aangeroepen dankzij het datatype van de parameters en het aantal ervan.
+* *Inkapseling* is het verbergen van details van een implementatie, enkel de zaken die relevant zijn voor de buitenwereld worden public geplaats.
+* *Overriding* is een specifiekere implementatie maken van een method met dezelfde naam uit een bovenliggende klasse. Dankzij polymorfisme wordt steeds de method gebruikt die geschreven werd op de laagst gelegen klasse van de instantie.
+* *Overloading* is een variant van een method voorzien die een ander aantal (of andere datatypes) van parameters aanvaard. Het gaat dus om een andere method, maar wel met dezelfde naam. De compiler weet welke method exact wordt aangeroepen dankzij het datatype van de parameters en het aantal ervan.
 
 == Inkapseling
 
@@ -57,7 +57,60 @@ Getters en setters zijn een standaard manier van werken binnen java en wordt bin
 
 == Overriding
 
+Via overrides kunnen we aangeven dat de method van een superklasse niet meer voldoet en dat we deze willen aanpassen in een subklasse. Bijvoorbeeld:
 
+[source, java]
+----
+public class Person{
+  String name;
+  
+  public void print(){
+    System.out.println("Person: " + name);
+  }
+
+}
+
+public class ExtendedPerson extends Person{
+  String name;
+  String hobbies;
+  
+  @Override
+  public void print(){
+    System.out.println("Person: " + name + " has the following hobbies: " + hobbies);
+  }
+
+}
+----
+
+Indien we een subklasse van person gebruiken, wordt dankzij polymorfisme automatisch de method met @override gebruikt in plaats van de bovenliggende method.
 
 == Overloading
 
+Met overloading gebruiken we meermaals dezelfde naam voor een method, maar voorzien we andere parameters (aantal of datatype).
+bijvoorbeeld:
+
+[source, java]
+----
+public void print() {
+		System.out.println(name);
+	}
+	
+	public void print(int a) {
+		System.out.println(name + a);
+	}
+	public void print(String a) {
+		System.out.println(name + a);
+	}
+	
+	public void print(String a, int b) {
+		System.out.println(name + a);
+	}
+ ----
+ De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
+ 
+ [source, java]
+----
+p.print(5);
+p.print("Naam", 10);
+p.print();
+----
