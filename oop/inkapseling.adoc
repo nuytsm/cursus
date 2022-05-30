@@ -1,0 +1,63 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:am: Access Modifier
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Inkapseling, overriding, overloading
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+*Inkapseling* is het verbergen van details van een implementatie, enkel de zaken die relevant zijn voor de buitenwereld worden public geplaats.
+*Overriding* is een specifiekere implementatie maken van een method met dezelfde naam uit een bovenliggende klasse. Dankzij polymorfisme wordt steeds de method gebruikt die geschreven werd op de laagst gelegen klasse van de instantie.
+*Overloading* is een variant van een method voorzien die een ander aantal (of andere datatypes) van parameters aanvaard. Het gaat dus om een andere method, maar wel met dezelfde naam. De compiler weet welke method exact wordt aangeroepen dankzij het datatype van de parameters en het aantal ervan.
+
+== Inkapseling
+
+[source,java]
+----
+public class Person {
+  private String name; // private = restricted access
+
+  // Getter
+  public String getName() {
+    return name;
+  }
+
+  // Setter
+  public void setName(String newName) {
+    if (!newName.contains('vloekwoord'){
+      this.name = newName;
+      }
+  }
+}
+----
+
+=== Getters en setters
+
+Getters zijn methods die via get**naam van de variabele** de waarde van een variabele teruggeven.
+
+Setters zijn methods die via set**naam van de variabele** de waarde van een variabele opslaan.
+
+Getters en setters zijn een standaard manier van werken binnen java en wordt binnen bijvoorbeeld spring boot vaak gebruikt bij *Entities*.
+
+== Overriding
+
+
+
+== Overloading
+
