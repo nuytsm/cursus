@@ -54,6 +54,8 @@ include::accessmodifiers.adoc[]
 
 include::equalshashcode.adoc[]
 
+include::inkapseling.adoc[]
+
 include::maven.adoc[]
 
 include::junit.adoc[]
