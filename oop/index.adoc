@@ -52,6 +52,8 @@ include::accessmodifiers.adoc[]
 
 :leveloffset: +1
 
+include::equalshashcode.adoc[]
+
 include::maven.adoc[]
 
 include::junit.adoc[]
