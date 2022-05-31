@@ -110,6 +110,7 @@ public void print(String a, int b) {
  
 De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
  
+ 
 [source, java]
 ----
 p.print(5);
