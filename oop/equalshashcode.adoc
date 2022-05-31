@@ -27,8 +27,10 @@ De controle op deze uniekheid gebeurt door 2 instanties met elkaar te vergelijke
 
 Dit kan op 2 manieren gebeuren:
 
-. De snelle manier, maar niet zo exact, via *hashcode*.
-. De iets tragere manier, maar exact, via *equals*.
+. Via *hashcode*.
+. Via *equals*.
+
+Het verschil tussen de twee, is dat _equals_ gebruikt wordt om 2 objecten te vegelijken, terwijl _hashCode_ gebruikt wordt om te beslissen of 2 objecten in dezelfde groep gecategoriseerd kunnen worden (als identiek beschouwd worden in bijvoorbeeld een lijst of map).
 
 == Equals en hashcode in een java klasse
 
@@ -118,26 +120,26 @@ class WrongVoucher extends Money {
 }
 ----
 
-At first glance, the Voucher class and its override for equals() seem to be correct. 
-And both equals() methods behave correctly as long as we compare Money to Money or Voucher to Voucher. 
-But what happens, if we compare these two objects:
+Op het eerste zicht lijkt de override voor de _equals()_ in de Voucher klasse correct.
+Dit is echter enkel het geval als we Money met Money vergelijken en Voucher met Voucher.
+Indien we Money met Voucher zouden vergelijken loopt het hier mis:
 
 [source,java]
 ----
 Money cash = new Money(42, "USD");
 WrongVoucher voucher = new WrongVoucher(42, "USD", "Amazon");
 
-voucher.equals(cash) => false // As expected.
-cash.equals(voucher) => true // That's wrong.
+voucher.equals(cash) => false // Zoals verwacht.
+cash.equals(voucher) => true // Dit is een foutief resultaat.
 ----
 
-That violates the symmetry criteria of the equals() contract.
+Dus aan de symmetrie vereiste is hier niet voldaan!
 
 === compositie in plaats van overerving
 
-To avoid this pitfall, we should favor composition over inheritance.
+Om deze fout te vermijden, kunnen we beter gebruik maken van _compositie_ in plaats van overerving.
 
-Instead of subclassing Money, let's create a Voucher class with a Money property:
+In plaats van een subklasse van Money te maken, zouden we een Voucher klasse met een Money variabele kunnen aanmaken:
 
 [source,java]
 ----
@@ -172,27 +174,24 @@ class Voucher {
 
 == Hashcode
 
-hashCode() returns an integer representing the current instance of the class. 
-We should calculate this value consistent with the definition of equality for the class. 
-Thus, if we override the equals() method, we also have to override hashCode().
+De _hashCode_ functie geeft een integer terug die uniek is voor de instantie.
+De waarde kunnen we berekenen op basis van de variabelen van de klasse en zou moeten overeenkomen met de uniekheid van de equals method. 
+indien de _equals()_ geoverride wordt, overriden we best ook de _hashCode_.
 
 === Het hashcode contract
 
-Java SE also defines a contract for the hashCode() method. A thorough look at it shows how closely related hashCode() and equals() are.
+Het contract van de _hashCode_ is gerelateerd aan deze van de _equals_ en moet aan de volgende zaken voldoen:
 
-All three criteria in the hashCode() contract mention the equals() method in some way:
-
-internal consistency: the value of hashCode() may only change if a property that is in equals() changes
-equals consistency: objects that are equal to each other must return the same hashCode
-collisions: unequal objects may have the same hashCode
+internal consistency: De waarde van de hashcode mag enkel veranderen indien een variabele veranderdt die ook in de equals opgenomen is.
+equals consistency: Objecten die volgens de equals gelijk zijn, moeten dezelfde hashcode teruggeven.
+collisions: objecten die volgens de equals niet gelijk zijn, mogen wel dezelfde hashcode hebben.
 
 === Hashcode en equals consistentie
 
-The second criteria of the hashCode methods contract has an important consequence: 
-If we override equals(), we must also override hashCode(). 
-This is by far the most widespread violation regarding the equals() and hashCode() methods contracts.
+De tweede vereiste van de _hashCode_ geeft aan dat: **de hashCode steeds override moet worden indien de equals aangepast werd**.
 
-Let's see such an example:
+
+Bijvoorbeeld:
 
 [source,java]
 ----
