@@ -91,23 +91,24 @@ bijvoorbeeld:
 
 [source, java]
 ----
-public void print() {
-		System.out.println(name);
-	}
+public void print() {		
+	System.out.println(name);
+}
 	
-	public void print(int a) {
-		System.out.println(name + a);
-	}
-	public void print(String a) {
-		System.out.println(name + a);
-	}
-	
-	public void print(String a, int b) {
-		System.out.println(name + a);
-	}
- ----
+public void print(int a) {
+	System.out.println(name + a);
+}
+
+public void print(String a) {
+	System.out.println(name + a);
+}
+
+public void print(String a, int b) {
+	System.out.println(name + a);
+}
+----
  
- De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
+De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
  
 [source, java]
 ----
