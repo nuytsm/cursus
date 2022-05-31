@@ -106,9 +106,10 @@ public void print() {
 		System.out.println(name + a);
 	}
  ----
+ 
  De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
  
- [source, java]
+[source, java]
 ----
 p.print(5);
 p.print("Naam", 10);
