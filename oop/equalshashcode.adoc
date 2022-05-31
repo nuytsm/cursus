@@ -213,7 +213,7 @@ This violates the second rule.
 
 Now, if we create two Team objects, both with city “New York” and department “marketing,” they will be equal, but they'll return different hashCodes.
 
-3.3. HashMap Key With an Inconsistent hashCode()
+HashMap Key With an Inconsistent hashCode()
 But why is the contract violation in our Team class a problem? Well, the trouble starts when some hash-based collections are involved. Let's try to use our Team class as a key of a HashMap:
 
 [source,java]
