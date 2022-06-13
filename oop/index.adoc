@@ -48,7 +48,7 @@ include::accessmodifiers.adoc[]
 
 :leveloffset: -1
 
-= 6de Jaar
+== 6de Jaar
 
 :leveloffset: +1
 

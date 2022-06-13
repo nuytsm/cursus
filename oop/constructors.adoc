@@ -142,7 +142,7 @@ Indien we nu een instantie zouden maken van een GameUnit, moeten we *verplicht* 
 [source,java]
 ----
 GameUnit paladin = new GameUnit(250);<1>
-System.out.println(paladin.hitpoints);
+System.out.println(paladin.hitpoints);<2>
 ----
 <1> We geven de nieuwe paladin onmiddelijk 250 hitpoints.
 <2> Dit zal 250 uitprinten naar de console.
