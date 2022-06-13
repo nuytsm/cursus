@@ -30,6 +30,7 @@
 
 [source,java]
 ----
+
 public class Person {
   private String name; // private = restricted access
 
@@ -45,6 +46,7 @@ public class Person {
       }
   }
 }
+
 ----
 
 === Getters en setters
@@ -59,7 +61,7 @@ Getters en setters zijn een standaard manier van werken binnen java en wordt bin
 
 Via overrides kunnen we aangeven dat de method van een superklasse niet meer voldoet en dat we deze willen aanpassen in een subklasse. Bijvoorbeeld:
 
-[source, java]
+[source,java]
 ----
 public class Person{
   String name;
@@ -89,8 +91,9 @@ Indien we een subklasse van person gebruiken, wordt dankzij polymorfisme automat
 Met overloading gebruiken we meermaals dezelfde naam voor een method, maar voorzien we andere parameters (aantal of datatype).
 bijvoorbeeld:
 
-[source, java]
+[source,java]
 ----
+
 public void print() {		
 	System.out.println(name);
 }
@@ -106,14 +109,17 @@ public void print(String a) {
 public void print(String a, int b) {
 	System.out.println(name + a);
 }
+
 ----
  
 De compiler kan telkens aan de hand van de parameters bekijken welke method juist bedoeld wordt:
  
  
-[source, java]
+[source,java]
 ----
+
 p.print(5);
 p.print("Naam", 10);
 p.print();
+
 ----
