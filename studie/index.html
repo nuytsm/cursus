@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Maven</title>
+<title>Hoe studeren voor de informaticavakken?</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -654,33 +654,43 @@ pre.rouge {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Maven</h1>
+<h1>Hoe studeren voor de informaticavakken?</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_custom_libraries"><em>Custom libraries</em></a>
+<li><a href="#_overzicht_van_de_leerstof">Overzicht van de leerstof</a>
 <ul class="sectlevel2">
-<li><a href="#_de_voordelen_van_samenwerking">De voordelen van samenwerking</a></li>
+<li><a href="#_lijst_van_te_kennen_onderwerpen">Lijst van te kennen onderwerpen</a></li>
+<li><a href="#_geef_de_categoriën_van_beheersing_aan">Geef de categoriën van beheersing aan</a></li>
 </ul>
 </li>
-<li><a href="#_maven_installeren">Maven installeren</a></li>
-<li><a href="#_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</a></li>
-<li><a href="#_maven_central">Maven central</a></li>
-<li><a href="#_structuur_van_een_maven_project">Structuur van een Maven project</a></li>
-<li><a href="#_pom_xml">POM.xml</a>
+<li><a href="#_begrijpend_lezen">Begrijpend lezen</a>
 <ul class="sectlevel2">
-<li><a href="#_de_syntax">De syntax</a></li>
-<li><a href="#_libraries_toevoegen"><em>Libraries</em> toevoegen</a></li>
-<li><a href="#_compiler_opties">Compiler opties</a></li>
+<li><a href="#_onbekende_begrippen">Onbekende begrippen</a></li>
+<li><a href="#_mindmap">MindMap</a></li>
+<li><a href="#_samenvatting">Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_maven_en_eclipse">Maven en Eclipse</a>
+<li><a href="#_analyseer_een_voorbeeld">Analyseer een voorbeeld</a>
 <ul class="sectlevel2">
-<li><a href="#_een_maven_project_aanmaken">Een maven project aanmaken</a></li>
-<li><a href="#_de_structuur_in_eclipse">De structuur in Eclipse</a></li>
-<li><a href="#_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</a></li>
+<li><a href="#_conceptueel_schema">Conceptueel schema</a></li>
+<li><a href="#_volg_de_code_regel_per_regel">Volg de code regel per regel</a></li>
 </ul>
 </li>
+<li><a href="#_maak_zelf_een_oefening">Maak zelf een oefening</a>
+<ul class="sectlevel2">
+<li><a href="#_met_voorbeeld">Met voorbeeld</a></li>
+<li><a href="#_zonder_voorbeeld">Zonder voorbeeld</a></li>
+</ul>
+</li>
+<li><a href="#_jezelf_testen">Jezelf testen</a>
+<ul class="sectlevel2">
+<li><a href="#_ga_de_onbekende_begrippen_opnieuw_na">Ga de onbekende begrippen opnieuw na</a></li>
+<li><a href="#_maak_een_variatie_van_een_oefening">Maak een variatie van een oefening</a></li>
+</ul>
+</li>
+<li><a href="#_duid_lacunes_aan_en_herhaal">Duid Lacunes aan en herhaal</a></li>
+<li><a href="#_kort_samengevat">Kort samengevat</a></li>
 </ul>
 </div>
 </div>
@@ -688,648 +698,537 @@ pre.rouge {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Apache Maven is een <em>commandline tool</em> die het beheren van <em>libraries</em> en het compileren van Java projecten automatiseert.</p>
+<p>Bij het studeren van informaticavakken is het van belang de theorie te <strong>begrijpen</strong> en deze te kunnen <strong>toepassen</strong> in de praktijk.
+De theorie louter van buiten leren zal je onvoldoende inzicht geven om de oefeningen goed te kunnen aanvatten.</p>
 </div>
 <div class="paragraph">
-<p>In de java virtuele machine zit een grote <em>library</em> ingebouwd (als bytecode in de <em>Java runtime environment</em> of <em>jre</em>).
-Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
-Dankzij deze <em>library</em> kunnen we gebruik maken van functies of klassen die reeds door anderen zijn geschreven.
-Een voorbeeld hiervan is de Math klasse.
-We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi .
-Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken.
-Deze method is immers al door iemand geschreven.</p>
+<p>We splitsen het studieproces op in enkele stappen:</p>
 </div>
-<div class="admonitionblock important">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>De standaard java <em>library</em> is groot, maar ze kan nooit alle <em>code</em> bevatten die ontwikkelaars, of groepen van ontwikkelaars, wensen te gebruiken.
-Zo kan de standaard library niet alle <em>jdbc drivers</em> in zijn standaard library opnemen.
-Of het kan dit proberen, maar wat dan met nieuwe soorten databases?
-De ontwikkeling van software staat immers nooit stil.
-Men wil ook vermijden dat de standaard <em>library</em> veel te groot wordt.</p>
+<p>Het kan zijn dat jij dit impliciet al toepast, of dat bepaalde stappen je overbodig lijken. Dit is geen probleem indien je huidige systeem al voor je werkt. Indien dit niet het geval is, raad ik je aan deze methode eens te proberen.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="olist arabic">
+<div class="title">Het opsplitsen van het leerproces in verschillende stappen.</div>
+<ol class="arabic">
+<li>
+<p>Maak een overzicht van de leerstof</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Lijst van te kennen onderwerpen</p>
+</li>
+<li>
+<p>Geef de categoriën van beheersing aan</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Begrijpend lezen</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Duid onbekende begrippen aan</p>
+</li>
+<li>
+<p>Zoek de onbekende begrippen op</p>
+</li>
+<li>
+<p>Maak een schema of samenvatting van de theorie</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>MindMap</p>
+</li>
+<li>
+<p>Samenvatting</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Analyseer een voorbeeld van een toepassing</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Maak een conceptueel schema</p>
+</li>
+<li>
+<p>Volg de code regel per regel</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Pas de leerstof zelf toe (oefeningen <em>her</em>maken)</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Met een voorbeeld naast je</p>
+</li>
+<li>
+<p>Zonder een voorbeeld te gebruiken</p>
+</li>
+<li>
+<p>Herhaling van vorige oefeningen</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Jezelf testen</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Ga de onbekende begrippen opnieuw na</p>
+</li>
+<li>
+<p>Maak blind (zonder voorbeeld) een oefening</p>
+</li>
+<li>
+<p>Duid Lacunes aan en herhaal</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_custom_libraries"><em>Custom libraries</em></h2>
+<h2 id="_overzicht_van_de_leerstof">Overzicht van de leerstof</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Java is het mogelijk gebruik te maken van <em>libraries</em> die niet in de <em>jre</em> vervat zijn.
-Andere Java ontwikkelaars kunnen software schrijven (klassen met functies) en deze op internet plaatsen in een <em>jar file</em>.
-Als software ontwikkelaar kan je deze <em>jar files</em> gebruiken in je projecten, instanties maken van de klassen, de functies oproepen,.. net alsof je ze zelf geschreven zou hebben.</p>
+<p>Voor iedere toets of examen zal de leerkracht aangeven wat de te kennen leerstof is. Van hieruit vertrekken we om het overzicht vorm te geven.</p>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Jar: Java archive file.</p>
-</div>
-<div class="paragraph">
-<p>Deze bevat de broncode en bytecode van de klassen in een gezipt formaat.</p>
+<p>Om het overzicht vorm te geven, gebruik ik Excel. Je kan dit echter ook op papier of in een andere software neerschrijven.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_de_voordelen_van_samenwerking">De voordelen van samenwerking</h3>
+<h3 id="_lijst_van_te_kennen_onderwerpen">Lijst van te kennen onderwerpen</h3>
 <div class="paragraph">
-<p>Het gebruik van <em>libraries</em> biedt veel voodelen, namelijk:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Minder <em>bugs</em>.
-Ontwikkelaars die fouten opmerken in een <em>library</em> kunnen dit rapporteren. De bug kan opgelost worden en bij de volgende update van de <em>library</em> beschikt iedere ontwikkelaar over de bugvrije <em>code</em>.</p>
-</li>
-<li>
-<p>Je kan gebruik maken van <em>code</em> van specialisten</p>
-</li>
-<li>
-<p>Verschillende ontwikkelaars kunnen samenwerken aan 1 grote <em>library</em></p>
-</li>
-<li>
-<p>Je eigen <em>code</em> in je project blijft beperkter en overzichtelijker.</p>
-</li>
-<li>
-<p>Het is gewoon makkelijker gebruik te maken van iemand anders zijn code, zonder dat je deze zelf hoeft te schrijven.</p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="title">Licenties</div>
-<div class="paragraph">
-<p>Het samenwerken tussen ontwikkelaars wordt gestimuleerd indien een <em>library</em> gebruik maakt van een <a href="https://nl.wikipedia.org/wiki/Open_source">Open-source licentie</a>.
-Dit type licentie garandeert dat de broncode vrij te gebruiken is (en het gebruik ervan geen rechten schendt).
-Bepaalde open-source licenties verplichten ontwikkelaars ertoe <em>code</em> terug te delen als ze verbeteringen of aanpassingen aanbrengen in het oorspronkelijke project. Op deze manier kan iedereen genieten van de inspanningen die geleverd werden (en blijven ze bijvoorbeeld niet vast binnen een commercieel bedrijf).</p>
-</div>
-<div class="paragraph">
-<p>Enkele voorbeelden van open-source licenties:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>GNU General Public License (GPL)</p>
-</li>
-<li>
-<p>Eclipse public license</p>
-</li>
-<li>
-<p>Apache license</p>
-</li>
-<li>
-<p>MIT license</p>
-</li>
-<li>
-<p>BSD license</p>
-</li>
-<li>
-<p>Lesser General Public License (LGPL)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_maven_installeren">Maven installeren</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Op de computers van onze school staat Maven standaard geinstalleerd.
-Ook in Eclipse is Maven standaard beschikbaar.
-Je hoeft deze installatie niet te doorlopen, tenzij je op je eigen computer in de <em>commandline</em> gebruik wil kunnen maken van Maven.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Op de <a href="https://maven.apache.org/">Maven website</a> kan je de Maven downloads terugvinden.
-Je kan kiezen voor een binary zip file of een zip met de source code. Voor ons gebruik volstaat deze met het binary bestand, zie: <a href="https://maven.apache.org/download.cgi" class="bare">https://maven.apache.org/download.cgi</a></p>
-</div>
-<div class="paragraph">
-<p>Dit bestand kan je uitpakken in een bepaalde folder op je harde schijf. Als je in de bin folder een commandline opent, kan je gebruik maken van het <strong>mvn</strong> commando.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Om in een willekeurige commandline (dus niet een commandline geopend in de <em>bin</em> folder) gebruik te kunnen maken van Maven, dien je het <strong>PATH</strong> van je computer aan te passen.</p>
-</div>
-<div class="paragraph">
-<p>Zie: <a href="https://mkyong.com/maven/how-to-install-maven-in-windows/">https://mkyong.com/maven/how-to-install-maven-in-windows/</a></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Maven kan uitgevoerd worden via het mvn commando. Dit commando heeft verschillende opties:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><mark>install</mark> &#8594; Dit compileerd een project en maakt er ook een jar file van.</p>
-</li>
-<li>
-<p>-v of --version &#8594; Toon de versie van Maven</p>
-</li>
-<li>
-<p>validate &#8594; Valideer of het project correct opgebouwd is</p>
-</li>
-<li>
-<p>compile &#8594; Compileer de broncode van het project</p>
-</li>
-<li>
-<p>test &#8594; Voer alle unit tests uit.</p>
-</li>
-<li>
-<p>..</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Een volledig overzicht kan hier gevonden worden: <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
-</div>
-<div class="paragraph">
-<p>Voor ons gebruik is de <em>install</em> de belangrijkste (deze voert autmatisch enkele andere <em>goals</em> uit (<em>verify, compile, test, package</em>)).</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld van de output van het mvn commando:</p>
+<p>Om ons overzicht vorm te geven, plaatsen we in een kolom de opgegeven onderwerpen:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="mvnoutput.png" alt="mvn output">
+<img src="schema1.png" alt="schema1">
 </div>
-<div class="title">Figure 1. Mvn output</div>
 </div>
 <div class="paragraph">
-<p>De <em>build success</em> geeft aan dat het project correct gecompileerd werd door Maven.</p>
+<p>Dit overzicht is nog niet gedetailleerd genoeg en <mark>splits je als leerling zelf verder op</mark> door onder ieder onderwerp enkele nieuwe regels bij te plaatsen die specifieker zijn:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="schema2.png" alt="schema2">
 </div>
-</div>
-<div class="sect1">
-<h2 id="_maven_central">Maven central</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In Java is het mogelijk gebruik te maken van extra jar <em>files</em>.
-Deze jar files kan je tijdens het compileren aangeven om gebruik te kunnen maken van de extra klassen en methods.
-In Eclipse is dit eenvoudiger gemaakt door referenties te leggen naar andere jar <em>files</em> (je voegt ze via de GUI toe aan het <em>classpath</em> (of build path)).</p>
 </div>
 <div class="paragraph">
-<p>Maven automatiseert het zoeken, downloaden en toevoegen aan het <em>classpath</em> van <em>libraries</em> of jar files.
-In Maven volstaat het aan te geven dat je gebruik wil maken van een bepaalde <em>library</em>.</p>
+<p>Het bovenstaande <mark>opsplitsen</mark> van de leerstof pas je al toe <mark>wanneer je de leerstof voor de eerste keer aan het lezen bent</mark>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_geef_de_categoriën_van_beheersing_aan">Geef de categoriën van beheersing aan</h3>
 <div class="paragraph">
-<p>Maven doet dan het volgende:</p>
+<p>Nu we een overzicht hebben van <mark>wat</mark> we juist moeten kennen, geven we best ook nog aan <mark>op welke manier we de leerstof beheersen</mark>.
+Voeg enkele kolommen toe die aangeven hoe we elk onderwerp behandelen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Zoekt de <em>library</em> in de Maven central repository</p>
+<p>Begrijpend lezen?</p>
 </li>
 <li>
-<p>Download het bestand</p>
+<p>Onbekende begrippen opgezocht?</p>
 </li>
 <li>
-<p>Plaatst het bestand op het <em>classpath</em></p>
+<p>Schema of samenvatting gemaakt/aangevuld?</p>
 </li>
 <li>
-<p>Compileerd de code van het project</p>
+<p>Voorbeeld nagekeken?</p>
+</li>
+<li>
+<p>Oefening met voorbeeld gemaakt?</p>
+</li>
+<li>
+<p>Oefening zonder voorbeeld gemaakt?</p>
+</li>
+<li>
+<p>Lacunes aangeduid?</p>
+</li>
+<li>
+<p>Herhaald?</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Vervolgens ziet het overzicht er zo uit:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="schema3.png" alt="schema3">
+</div>
+</div>
+<div class="paragraph">
+<p>Met x&#8217;jes <mark>duiden we aan wat we al gedaan hebben (= beheersen)</mark> en hoe ver we zitten in het leerproces:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="schema4.png" alt="schema4">
+</div>
+</div>
+<div class="paragraph">
+<p>Indien je overal vinkjes hebt staan (en je eerlijk bent geweest tegenover jezelf) kan je er wel van uitgaan dat je goed bent voorbereid op de toets of het examen.</p>
 </div>
 <div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Om een <em>library</em> te kunnen gebruiken, moet iemand deze <em>library</em> op de maven central repository (of een andere repository) geplaatst hebben.
-Om aan te geven om exact welke <em>jar file</em> het gaat, moet de volgende informatie aangegeven worden:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><mark>groupid</mark> &#8594; Wie heeft deze <em>library</em> ontwikkeld?</p>
-</li>
-<li>
-<p><mark>artifactid</mark> &#8594; De naam van de <em>library</em></p>
-</li>
-<li>
-<p><mark>version</mark> &#8594; Welke versie? (er bestaan er meerdere, de nummers geven <em>releases</em>, <em>minor releases</em>, <em>bugfixes</em>,..) aan.</p>
-</li>
-</ul>
+<p>Met kruisjes kan je aanduiden wat je volledig beheerst, met een '?' wat nog niet duidelijk is, met een aantal vinkjes 'xx' hoe duidelijk een oefening voor je was, enz.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Een <em>repository</em> is een plaats waar verschillende artifacten (bijvoorbeeld <em>jar files</em> of <em>libraries</em>) bijgehouden worden.</p>
-</div>
-<div class="paragraph">
-<p>Maven central is de meest gebruikte <em>repository</em>, maar er bestaan er ook andere. Een bedrijf kan bijvoorbeeld ook een aparte <em>repository</em> maken voor intern gebruik.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_structuur_van_een_maven_project">Structuur van een Maven project</h2>
+<h2 id="_begrijpend_lezen">Begrijpend lezen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Maven legt enkele eisen op aan het Java project:</p>
+<p>Voor de toets of het examen heeft de leerkracht een onderwerp (of hoofdstuk/pagina) opgegeven.
+Deze leerstof lees je vervolgens na in de cursus of zoek je verder op in w3schools.
+Bij het begrijpend lezen is het belangrijk dat je niet louter de tekst leest, maar dat je <mark>de gedachtengang van de tekst volgt en tracht te begrijpen</mark>.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Een vaste structuur (hiervan kan eventueel afgeweken worden, maar dit moet aangegeven worden in de <strong>pom.xml</strong> file, niet aan te raden).</p>
-</li>
-<li>
-<p>Het gebruik van een <strong>pom.xml</strong> file.</p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_onbekende_begrippen">Onbekende begrippen</h3>
+<div class="paragraph">
+<p>Tijdens het lezen hou je een lijstje bij van de verschillende <mark>begrippen</mark> in de tekst die je niet volledig duidelijk zijn.
+Dit lijstje <mark>zoek je vervolgens op</mark> ( in de cursus, of op het internet, of door het aan de leerkracht te vragen).
+Indien je de uitleg gevonden (en begrepen) hebt, noteer je deze naast het begrip in kwestie.</p>
 </div>
 <div class="paragraph">
-<p>De vaste structuur deelt de mappen van het project als volgt in:</p>
+<p>Tijdens het begrijpend lezen kan je een schema (mindmap) of een samenvatting bijhouden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mindmap">MindMap</h3>
+<div class="paragraph">
+<p>Een mindmap is een <mark>schema</mark> dat zich per onderwerp opsplitst in onderliggende onderwerpen:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="mindmap.jpg" alt="mindmap">
+</div>
+</div>
+<div class="paragraph">
+<p>Je kan een dergelijk schema maken op papier of in software. Freemind is een gratis mindmapping software die je hier kan downloaden: <a href="http://freemind.sourceforge.net/wiki/index.php/Download">Freemind software</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_samenvatting">Samenvatting</h3>
+<div class="paragraph">
+<p>Bij het maken van een samenvatting over een onderwerp of een tekst, is het belangrijk dat je <mark>zo kort mogelijk, maar toch nog duidelijk</mark>, neerschrijft waar de tekst juist over gaat.
+Meer informatie: <a href="https://www.ting.nl/huiswerkcoaching/leren-leren/hoe-maak-ik-een-samenvatting">Hoe een samenvatting maken</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_analyseer_een_voorbeeld">Analyseer een voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bij ieder onderwerp van de leerstof heb je in de les, op w3schools, of bij het zelfstandig maken van een oefening, <mark>een voorbeeld van een toepassing van de theorie</mark> gezien. Haal dit voorbeeld erbij om het te bestuderen.</p>
+</div>
+<div class="paragraph">
+<p>Indien het onderwerp bijvoorbeeld <em>'het lussen over een array'</em> was, hebben we het volgende voorbeeld:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>project-folder
-|-- pom.xml -&gt;xml beschrijving van het project, met verwijzingen naar libraries
-`-- src
-    |`-- main
-    |   `-- java
-    |       `-- Hier komen de packages en .java files van je project
-    |   `-- resources
-    |       `-- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
-     `-- test
-        `-- java
-            `-- Hier komen de unit test files (Zien we later in de lessen)</pre>
+<pre class="rouge highlight"><code data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">getallen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[];</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">lusOverDeArray</span><span class="o">(){</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">getallen</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getallen</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+
+
+<span class="o">}</span></code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_pom_xml">POM.xml</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_conceptueel_schema">Conceptueel schema</h3>
 <div class="paragraph">
-<p>Elk project, waarvoor je Maven wil gebruiken, moet een <mark>pom.xml</mark> hebben.
-Dit is een xml bestand dat beschrijft hoe het project eruit ziet, wat de <mark><em>dependencies</em></mark> (<em>libraries</em>) zijn, welke <mark>plugins</mark> gebruikt worden, etc.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>XML: Extensible Markup Language (XML) is een standaard van het World Wide Web Consortium voor de syntaxis van formele opmaaktalen waarmee men gestructureerde gegevens kan weergeven in de vorm van platte tekst. Deze presentatie is zowel machineleesbaar als leesbaar voor de mens.</p>
-</div>
-<div class="paragraph">
-<p>XML-talen gebruiken zogenaamde elementen en attributen om gegevens te structureren. De XML-specificatie definieert de syntaxis van elementen, attributen en de andere structuren die in XML-bestanden kunnen voorkomen. De XML-specificatie legt echter geen namen vast voor deze elementen en attributen, precies omdat deze keuze afhangt van het doel van het XML-bestand.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>De pom.xml heeft op zich een vaste structuur, namelijk:</p>
+<p>Om het voorbeeld te analyseren, ga je eerst na wat het voorbeeld juist wil aantonen of welke stappen het onderneemt. Dit kunnen we in een <mark>schema of stappenplan</mark> plaatsen. In het bovenstaande voorbeeld:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>de beschrijving van het project</p>
+<p>Een array aanmaken</p>
+</li>
+<li>
+<p>In een functie</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>groupid</p>
+<p>Een variabele for lus aanmaken</p>
 </li>
 <li>
-<p>artifactid</p>
-</li>
-<li>
-<p>version</p>
+<p>Ieder element uit de array naar de console afprinten</p>
 </li>
 </ol>
 </div>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_volg_de_code_regel_per_regel">Volg de code regel per regel</h3>
+<div class="paragraph">
+<p>Met het schema (of doel van het voorbeeld voor ogen), kan je de code regel per regel nagaan en voor jezelf noteren wat de code juist doet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">getallen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[];</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">lusOverDeArray</span><span class="o">(){</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+         <span class="n">i</span> <span class="o">&lt;</span> <span class="n">getallen</span><span class="o">.</span><span class="na">length</span><span class="o">;</span><i class="conum" data-value="4"></i><b>(4)</b>
+                 <span class="n">i</span><span class="o">++)</span> <span class="o">{</span> <i class="conum" data-value="5"></i><b>(5)</b>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <i class="conum" data-value="6"></i><b>(6)</b>
+            <span class="n">getallen</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <i class="conum" data-value="7"></i><b>(7)</b>
+            <span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Een nieuwe <em>array</em> declareren met het <em>int</em> datatype.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Een functie aanmaken zonder return type (void).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Een <em>for</em> lus beginnen vanaf 0</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Het eindpunt van de for lus aangeven &#8594; zo lang als de array is.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>De lus naar de volgende stap brengen na elke uitvoering.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Printen naar de <em>console</em>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Een getal uit de <em>array</em> selecteren, we gebruiken hier <em>i</em> omdat dit het variabele getal is in de <em>for</em> lus.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><mark>Zorg ervoor dat elke stap in de <em>code</em> duidelijk voor je is</mark>. Dat je goed begrijpt waarom deze <em>code</em> nodig (of overbodig) is in het programma of voorbeeld.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_maak_zelf_een_oefening">Maak zelf een oefening</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nu je de theorie hebt doorgenomen en een voorbeeld hebt nagekeken, ben je klaar om zelf een oefening te maken.</p>
+</div>
+<div class="sect2">
+<h3 id="_met_voorbeeld">Met voorbeeld</h3>
+<div class="paragraph">
+<p>Een eerste oefening maken we met een voorbeeld naast ons. Kijk gerust naar het voorbeeld indien je niet weet hoe je verder kan. Bekijk eventueel de code van het voorbeeld opnieuw regel per regel.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zonder_voorbeeld">Zonder voorbeeld</h3>
+<div class="paragraph">
+<p>Indien het je gelukt is een oefening te maken met het voorbeeld naast je, probeer het dan nu een keer zonder voorbeeld (zonder naar oude oefeningen te gaan kijken).</p>
+</div>
+<div class="paragraph">
+<p>Het is belangrijk dat je:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>de dependencies of <em>libraries</em> die het project wil gebruiken.</p>
+<p><mark>Weet wat de opdracht is</mark> (wat wil je juist gaan doen)</p>
 </li>
 <li>
-<p>plugins</p>
+<p><mark>De stappen oplijst</mark> die je nodig hebt om de opdracht gedaan te krijgen:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>bijvoorbeeld de compiler plugin om aan te geven dat we java versie 11 gebruiken.</p>
+<p>&#8594; Een array aanmaken</p>
+</li>
+<li>
+<p>&#8594; Een functie aanmaken</p>
+</li>
+<li>
+<p>&#8594; Een lus aanmaken</p>
+</li>
+<li>
+<p>&#8594; Enz.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="sect2">
-<h3 id="_de_syntax">De syntax</h3>
-<div class="paragraph">
-<p>De syntax is een xml syntax, je maakt hier dus gebruik van tags (net zoals in html) om elementen te definieren, groepen te maken en te sluiten.</p>
-</div>
-<div class="paragraph">
-<p>Dit is een voorbeeld van een pom.xml bestand:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="code"><pre>    <span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-      <span class="nt">&lt;groupId&gt;</span>com.mycompany.app<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>my-app<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-      <span class="nt">&lt;properties&gt;</span>
-        <span class="nt">&lt;maven.compiler.source&gt;</span>1.7<span class="nt">&lt;/maven.compiler.source&gt;</span>
-        <span class="nt">&lt;maven.compiler.target&gt;</span>1.7<span class="nt">&lt;/maven.compiler.target&gt;</span>
-      <span class="nt">&lt;/properties&gt;</span>
-
-      <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-          <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-          <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-          <span class="nt">&lt;version&gt;</span>4.12<span class="nt">&lt;/version&gt;</span>
-          <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-      <span class="nt">&lt;/dependencies&gt;</span>
-    <span class="nt">&lt;/project&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_libraries_toevoegen"><em>Libraries</em> toevoegen</h3>
-<div class="paragraph">
-<p>Om <em>libraries</em> toe te voegen, moeten we gebruik maken van de <em>&lt;dependencies&gt;</em> tag. In deze tag kunnen verschillende <em>&lt;dependency&gt;</em> tags gebruikt worden, die op hun beurt elk een <em>dependency</em> (of <em>library</em>) aangeven.</p>
-</div>
-<div class="paragraph">
-<p>Binnen een <em>&lt;dependency&gt;</em> tag kan een <em>library</em> gedefinieerd worden met de volgende info:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>naam uitgever (groupid)</p>
-</li>
-<li>
-<p>naam <em>library</em> (artifactid)</p>
-</li>
-<li>
-<p>versie (version)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.xerial<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>sqlite-jdbc<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>3.36.0.3<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
 </div>
 <div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Elke <em>dependency</em> moet binnen de <em>&lt;dependencies&gt;</em> tag geplaats worden. Net zoals <em>tags</em> in een <em>&lt;div&gt;</em> geplaatst kunnen worden in HTML.</p>
+<p>Indien het niet lukt, kan je gerust opnieuw naar het voorbeeld kijken, maar weet dat je deze stap (de oefening kunnen maken zonder voorbeeld) dan nog niet tot een goed einde hebt gebracht.
+Indien het nog steeds niet lukt, vraag dan <strong>tijdig</strong> hulp aan de leerkracht.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jezelf_testen">Jezelf testen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Indien je een schema of samenvatting en enkele oefening hebt gemaakt, kan je jezelf nog eens testen. Indien je toch nog <mark>onduidelijkheden vaststelt</mark> of een variatie van de <mark>oefening niet zelfstandig kan maken</mark> zou je de leerstof <mark>opnieuw moeten herhalen</mark>.</p>
+</div>
 <div class="sect2">
-<h3 id="_compiler_opties">Compiler opties</h3>
+<h3 id="_ga_de_onbekende_begrippen_opnieuw_na">Ga de onbekende begrippen opnieuw na</h3>
 <div class="paragraph">
-<p>Naast de <em>libraries</em> kan in de pom.xml ook aangegeven worden hoe het project gebouwd of gecompileerd moet worden.</p>
+<p>Ken je alle begrippen nog? Dek je verklarende uitleg van de onbekende begrippen af: <mark>Kan je elk begrip aan jezelf uitleggen</mark>?</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_maak_een_variatie_van_een_oefening">Maak een variatie van een oefening</h3>
 <div class="paragraph">
-<p>Dit gebeurt binnen de <em>&lt;build&gt;</em> tag.
-Hierin kunnen <em>plugins</em> gebruikt worden.</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld hiervan is de compiler <em>plugin</em>. Via deze <em>plugin</em> kunnen we aangeven naar welke versie van bytecode de compiler moet compileren ( Java 8, 9, 11, .. compatibele code).</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="title">compileren compatibel met bytecode versie 11</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-</pre></td><td class="code"><pre>    <span class="nt">&lt;build&gt;</span>
-            <span class="nt">&lt;plugins&gt;</span>
-                <span class="nt">&lt;plugin&gt;</span>
-                    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-                    <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                    <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-                    <span class="nt">&lt;configuration&gt;</span>
-                        <span class="nt">&lt;release&gt;</span>11<span class="nt">&lt;/release&gt;</span>
-                    <span class="nt">&lt;/configuration&gt;</span>
-                <span class="nt">&lt;/plugin&gt;</span>
-            <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/build&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
+<p>Neem de opgave van een oefening voor je: <mark>Maak de oefening nogmaals vanaf nul</mark> (of verzin er zelf een kleine variatie op). Lukt het om de oefening blind (zonder voorbeeld) te maken?</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_en_eclipse">Maven en Eclipse</h2>
+<h2 id="_duid_lacunes_aan_en_herhaal">Duid Lacunes aan en herhaal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Eclipse zit standaard ondersteuning voor Maven ingebouwd.
-Je kan er maven projecten mee aanmaken.
-De pom.xml wordt automatisch uitgelezen en <em>libraries</em> worden automatisch gedownload.
-De build van een Maven project (mvn install) kan via een gui opgeroepen worden.</p>
+<p>Indien je vaststelt dat je enkele begrippen toch nog niet volledig kent, of de oefeningen errond niet blind kan maken: duid dit dan aan in het overzichtsschema!</p>
 </div>
-<div class="sect2">
-<h3 id="_een_maven_project_aanmaken">Een maven project aanmaken</h3>
 <div class="paragraph">
-<p>Rechterklik in de <em>project explorer</em> van Eclipse om een nieuw project aan te maken.</p>
+<p>Bijvoorbeeld:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="newproject.jpg" alt="mvn project in eclipse">
+<img src="schema5.png" alt="schema5">
 </div>
-<div class="title">Figure 2. Nieuw mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Kies voor een Maven project.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 3. Mvn project in eclipse</div>
+<div class="title">Figure 1. Het maken van de <em>for</em> lus met de variabele lengte van de <em>array</em> lukt niet.</div>
 </div>
 <div class="paragraph">
-<p>Vink <em>skip archetype selection</em> aan.</p>
+<p>Volgens dit voorbeeld lukte het niet een <em>for</em> lus te maken die rekening houdt met de lengte van een <em>array</em>. Deze leerstof herhaal je dus best.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject2.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 4. Mvn project in eclipse</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Vul de vereiste velden in.
-Als artifactnaam wordt er verwacht dat je de naam van je project ingeeft.</p>
+<p>Indien je met vragen zit over de leerstof, aarzel dan niet de leerkracht <strong>tijdig</strong> om uitleg te vragen. Bij voorkeur tijdens een lesmoment.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject3.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 5. Mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Eenmaal je het project aangemaakt hebt, komt links in de <em>project explorer</em>
-het project zichtbaar.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_de_structuur_in_eclipse">De structuur in Eclipse</h3>
-<div class="imageblock">
-<div class="content">
-<img src="mvnstructuur.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 6. Mvn project structuur in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Zoals je ziet houdt dit project zich aan de maven mappenstructuur.
-Ook is er een <strong>pom.xml</strong> aanwezig.
-Deze file kan je vervolgens gebruiken om <em>dependecies</em> of <em>libraries</em> aan toe te voegen.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</h3>
-<div class="paragraph">
-<p>Om een maven project correct te compileren in Eclipse,
-dien je een <em>mvn install</em> uit te voeren.</p>
-</div>
-<div class="paragraph">
-<p>In de Eclipse GUI kan je dit doen door te rechterklikken op je project,
-te kiezen voor <em>run as</em> &#8594; <em>Maven install</em> .</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvninstall.jpg" alt="mvn install in eclipse">
-</div>
-<div class="title">Figure 7. Mvn project compileren in eclipse</div>
-</div>
-<div class="paragraph">
-<p>In de console zie je vervolgens de output van het mvn compilatie proces.
-Indien de build succesvol was, wordt dit aangegeven.
-Bij compilatiefouten is het belangrijk deze output te lezen om te weten te komen wat er misliep.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnoutput.jpg" alt="mvn install in eclipse">
-</div>
-<div class="title">Figure 8. Mvn output in eclipse</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
+<h1 id="_kort_samengevat" class="sect0">Kort samengevat</h1>
+<div class="ulist">
+<ul>
+<li>
+<p>Maak een <strong>overzicht</strong> van de leerstof</p>
+</li>
+<li>
+<p><strong>Lees</strong> alles door</p>
+</li>
+<li>
+<p>Maak de volgende documenten aan</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Een <strong>samenvatting</strong></p>
+</li>
+<li>
+<p>Een <strong>mindmap</strong></p>
+</li>
+<li>
+<p>Een lijst van onbekende of moeilijke <strong>begrippen</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Maak <strong>oefeningen</strong></p>
+</li>
+<li>
+<p><strong>Test</strong> jezelf</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Herhaal</strong> indien nodig</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </body>

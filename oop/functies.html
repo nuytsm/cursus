@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
-<title>Maven</title>
+<title>Functies en Methods</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -654,33 +654,25 @@ pre.rouge {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Maven</h1>
+<h1>Functies en Methods</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_custom_libraries"><em>Custom libraries</em></a>
+<li><a href="#_het_definiëren_van_een_functie">Het definiëren van een functie.</a></li>
+<li><a href="#_functies_oproepen">Functies oproepen</a></li>
+<li><a href="#_functies_met_parameters">Functies met parameters</a>
 <ul class="sectlevel2">
-<li><a href="#_de_voordelen_van_samenwerking">De voordelen van samenwerking</a></li>
+<li><a href="#_argumenten">Argumenten</a></li>
 </ul>
 </li>
-<li><a href="#_maven_installeren">Maven installeren</a></li>
-<li><a href="#_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</a></li>
-<li><a href="#_maven_central">Maven central</a></li>
-<li><a href="#_structuur_van_een_maven_project">Structuur van een Maven project</a></li>
-<li><a href="#_pom_xml">POM.xml</a>
+<li><a href="#_functies_oproepen_in_functies">Functies oproepen in functies</a></li>
+<li><a href="#_meerdere_parameters">Meerdere parameters</a></li>
+<li><a href="#_return_types">Return types</a>
 <ul class="sectlevel2">
-<li><a href="#_de_syntax">De syntax</a></li>
-<li><a href="#_libraries_toevoegen"><em>Libraries</em> toevoegen</a></li>
-<li><a href="#_compiler_opties">Compiler opties</a></li>
+<li><a href="#_gebruik_maken_van_functies_met_return_types">Gebruik maken van functies met return types</a></li>
 </ul>
 </li>
-<li><a href="#_maven_en_eclipse">Maven en Eclipse</a>
-<ul class="sectlevel2">
-<li><a href="#_een_maven_project_aanmaken">Een maven project aanmaken</a></li>
-<li><a href="#_de_structuur_in_eclipse">De structuur in Eclipse</a></li>
-<li><a href="#_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</a></li>
-</ul>
-</li>
+<li><a href="#_functies_combineren">Functies combineren</a></li>
 </ul>
 </div>
 </div>
@@ -688,30 +680,97 @@ pre.rouge {
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Apache Maven is een <em>commandline tool</em> die het beheren van <em>libraries</em> en het compileren van Java projecten automatiseert.</p>
+<p>Functies (of methods) zijn stukken code die een naam hebben gekregen.
+Ze worden buiten de <em>main</em> method geschreven.
+De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen.
+Als een programma (of de <em>main</em> method) veel dezelfde code bevat (herhaling),
+kan je de code die altijd hetzelfde is apart zetten in een functie en die functie telkens opnieuw oproepen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_het_definiëren_van_een_functie">Het definiëren van een functie.</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een functie wordt gedefiniëerd met behulp van enkele keywords:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>public</strong> : bepaalt of de functie overal bruikbaar is (dit kan gelimiteerd worden, hier komen we later in de cursus op terug).</p>
+</li>
+<li>
+<p><strong>static</strong> : er is geen instantie van de klasse nodig om deze functie te gebruiken.</p>
+</li>
+<li>
+<p><strong>void</strong> : het return type. Void (= leegte in het Engels), geeft aan dat er geen return type wordt gebruikt.</p>
+</li>
+<li>
+<p><strong>de functienaam</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="title">Een voorbeeld van een functie.</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <i class="conum" data-value="6"></i><b>(6)</b>
+	<span class="kd">static</span> <i class="conum" data-value="3"></i><b>(3)</b>
+		<span class="kt">void</span> <i class="conum" data-value="1"></i><b>(1)</b>
+			<span class="nf">voorbeeldFunctie</span><span class="o">()</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="o">{</span>  <i class="conum" data-value="5"></i><b>(5)</b>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="o">}</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Het datatype dat de functie teruggeeft. In dit geval <em>void</em> (een leegte), dus niets.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>De naam van de functie.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Static: geeft aan dat er geen instantie nodig is van de klasse om de functie uit te voeren.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>De code die in de functie wordt uitgevoerd (indien de functie aangeroepen wordt).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>De code binnen een functie, moet tussen accolades staan.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>De <em>access modifier</em> , dit komt later in de cursus aan bod, public wilt zeggen dat de functie oproepbaar is vanuit alle klassen.</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>In de java virtuele machine zit een grote <em>library</em> ingebouwd (als bytecode in de <em>Java runtime environment</em> of <em>jre</em>).
-Deze is ook aanwezig in de JDK (Java software development kit) als broncode, bijvoorbeeld in Eclipse.
-Dankzij deze <em>library</em> kunnen we gebruik maken van functies of klassen die reeds door anderen zijn geschreven.
-Een voorbeeld hiervan is de Math klasse.
-We hoeven het getal pi niet zelf meer te definieren, maar kunnen gebruik maken van Math.pi .
-Het verkrijgen van een random getal wordt voor ons opgelost door Math.random() te gebruiken.
-Deze method is immers al door iemand geschreven.</p>
+<p>Bovenstaande functie geeft een stuk <em>code</em> aan die een naam (of een noemer) heeft gekregen, namelijk <em>voorbeeldFunctie</em>.
+Dit stuk <em>code</em> kan meermaals aangeroepen worden.</p>
 </div>
 <div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>De standaard java <em>library</em> is groot, maar ze kan nooit alle <em>code</em> bevatten die ontwikkelaars, of groepen van ontwikkelaars, wensen te gebruiken.
-Zo kan de standaard library niet alle <em>jdbc drivers</em> in zijn standaard library opnemen.
-Of het kan dit proberen, maar wat dan met nieuwe soorten databases?
-De ontwikkeling van software staat immers nooit stil.
-Men wil ook vermijden dat de standaard <em>library</em> veel te groot wordt.</p>
+<p>Een speciale functie, of method, is de <em>main method</em>.
+Deze bepaalt het startpunt van een Java programma.
+De definitie van deze functie heeft een vaste structuur.</p>
+</div>
+<div class="listingblock">
+<div class="title">De main method.</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span></code></pre>
+</div>
 </div>
 </td>
 </tr>
@@ -720,613 +779,248 @@ Men wil ook vermijden dat de standaard <em>library</em> veel te groot wordt.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_custom_libraries"><em>Custom libraries</em></h2>
+<h2 id="_functies_oproepen">Functies oproepen</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Java is het mogelijk gebruik te maken van <em>libraries</em> die niet in de <em>jre</em> vervat zijn.
-Andere Java ontwikkelaars kunnen software schrijven (klassen met functies) en deze op internet plaatsen in een <em>jar file</em>.
-Als software ontwikkelaar kan je deze <em>jar files</em> gebruiken in je projecten, instanties maken van de klassen, de functies oproepen,.. net alsof je ze zelf geschreven zou hebben.</p>
+<p>Om een functie (en dus een stuk <em>code</em>) op te roepen, maak je gebruik van de naam van functie, gevolgd door ronde haken:
+.De voorbeeldfunctie aanroepen.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Jar: Java archive file.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">voorbeeldFunctie</span><span class="o">();</span>
+	<span class="o">}</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Deze bevat de broncode en bytecode van de klassen in een gezipt formaat.</p>
+<p>Iedere keer de main functie (of main method) aangeroepen wordt (dus iedere keer je het programma start), wordt ook bovenstaande functie op zijn beurt aangeroepen.
+De <em>code</em> in de functie wordt op dat moment uitgevoerd.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Als output krijg je dat er <em>"Hello world!"</em> naar de console wordt geprint.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_functies_met_parameters">Functies met parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Aan een functie kan je variabelen meegeven.
+Deze variabelen worden meegegeven bij het oproepen van de functie. Bijvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">zegHallo</span><span class="o">(</span><span class="s">"Erik"</span><span class="o">);</span>
+	<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zorgt ervoor dat in de volgende functie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">zegHallo</span><span class="o">(</span><span class="nc">String</span> <span class="n">naam</span><span class="o">){</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hallo "</span> <span class="o">+</span> <span class="n">naam</span><span class="o">);</span>
+	<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De tekst "Erik" wordt meegegeven als <em>naam</em>.
+Deze naam <em><strong>parameter</strong></em> (of tijdelijke variabele) kan gebruikt worden in de <em>code</em> van de functie.</p>
 </div>
 <div class="sect2">
-<h3 id="_de_voordelen_van_samenwerking">De voordelen van samenwerking</h3>
+<h3 id="_argumenten">Argumenten</h3>
 <div class="paragraph">
-<p>Het gebruik van <em>libraries</em> biedt veel voodelen, namelijk:</p>
+<p>Iedere keer dat de functie wordt opgeroepen kan de naam <strong>parameter</strong> anders ingevuld worden:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Minder <em>bugs</em>.
-Ontwikkelaars die fouten opmerken in een <em>library</em> kunnen dit rapporteren. De bug kan opgelost worden en bij de volgende update van de <em>library</em> beschikt iedere ontwikkelaar over de bugvrije <em>code</em>.</p>
-</li>
-<li>
-<p>Je kan gebruik maken van <em>code</em> van specialisten</p>
-</li>
-<li>
-<p>Verschillende ontwikkelaars kunnen samenwerken aan 1 grote <em>library</em></p>
-</li>
-<li>
-<p>Je eigen <em>code</em> in je project blijft beperkter en overzichtelijker.</p>
-</li>
-<li>
-<p>Het is gewoon makkelijker gebruik te maken van iemand anders zijn code, zonder dat je deze zelf hoeft te schrijven.</p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
+<div class="listingblock">
 <div class="content">
-<div class="title">Licenties</div>
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">zegHallo</span><span class="o">(</span><span class="s">"Dirk"</span><span class="o">);</span>
+		<span class="n">zegHallo</span><span class="o">(</span><span class="s">"Beethoven"</span><span class="o">);</span>
+		<span class="n">zegHallo</span><span class="o">(</span><span class="s">"Jennifer"</span><span class="o">);</span>
+	<span class="o">}</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Het samenwerken tussen ontwikkelaars wordt gestimuleerd indien een <em>library</em> gebruik maakt van een <a href="https://nl.wikipedia.org/wiki/Open_source">Open-source licentie</a>.
-Dit type licentie garandeert dat de broncode vrij te gebruiken is (en het gebruik ervan geen rechten schendt).
-Bepaalde open-source licenties verplichten ontwikkelaars ertoe <em>code</em> terug te delen als ze verbeteringen of aanpassingen aanbrengen in het oorspronkelijke project. Op deze manier kan iedereen genieten van de inspanningen die geleverd werden (en blijven ze bijvoorbeeld niet vast binnen een commercieel bedrijf).</p>
-</div>
-<div class="paragraph">
-<p>Enkele voorbeelden van open-source licenties:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>GNU General Public License (GPL)</p>
-</li>
-<li>
-<p>Eclipse public license</p>
-</li>
-<li>
-<p>Apache license</p>
-</li>
-<li>
-<p>MIT license</p>
-</li>
-<li>
-<p>BSD license</p>
-</li>
-<li>
-<p>Lesser General Public License (LGPL)</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Iedere keer dat deze functie wordt aangeroepen, wordt er een andere naam naar de console geschreven.
+Dit terwijl in de <em>code</em> van de functie onveranderd blijft.
+Er worden verschillende <strong>argumenten</strong> meegegeven aan de <strong>parameter</strong> van de functie.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_installeren">Maven installeren</h2>
+<h2 id="_functies_oproepen_in_functies">Functies oproepen in functies</h2>
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Op de computers van onze school staat Maven standaard geinstalleerd.
-Ook in Eclipse is Maven standaard beschikbaar.
-Je hoeft deze installatie niet te doorlopen, tenzij je op je eigen computer in de <em>commandline</em> gebruik wil kunnen maken van Maven.</p>
+<p>Tot nu toe hebben we functies altijd opgeroepen vanuit de main functie (of method).
+Dit hoeft echter niet.
+Je kan perfect iedere functie oproepen vanuit een andere functie.
+Bijvoorbeeld:</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">maakKaderMetNaam</span><span class="o">(</span><span class="nc">String</span> <span class="n">naam</span><span class="o">){</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-----------------"</span><span class="o">);</span>
+		<span class="n">zegHallo</span><span class="o">(</span><span class="n">naam</span><span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"-----------------"</span><span class="o">);</span>
+	<span class="o">}</span></code></pre>
 </div>
-<div class="paragraph">
-<p>Op de <a href="https://maven.apache.org/">Maven website</a> kan je de Maven downloads terugvinden.
-Je kan kiezen voor een binary zip file of een zip met de source code. Voor ons gebruik volstaat deze met het binary bestand, zie: <a href="https://maven.apache.org/download.cgi" class="bare">https://maven.apache.org/download.cgi</a></p>
-</div>
-<div class="paragraph">
-<p>Dit bestand kan je uitpakken in een bepaalde folder op je harde schijf. Als je in de bin folder een commandline opent, kan je gebruik maken van het <strong>mvn</strong> commando.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Om in een willekeurige commandline (dus niet een commandline geopend in de <em>bin</em> folder) gebruik te kunnen maken van Maven, dien je het <strong>PATH</strong> van je computer aan te passen.</p>
-</div>
-<div class="paragraph">
-<p>Zie: <a href="https://mkyong.com/maven/how-to-install-maven-in-windows/">https://mkyong.com/maven/how-to-install-maven-in-windows/</a></p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_uitvoeren_commandline">Maven uitvoeren ( <em>commandline</em> )</h2>
+<h2 id="_meerdere_parameters">Meerdere parameters</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Maven kan uitgevoerd worden via het mvn commando. Dit commando heeft verschillende opties:</p>
+<p>Je kan een functie meerdere parameters geven.
+Iedere keer dat de functie wordt opgroepen, moeten deze parameters ingevuld worden.
+Je gaat dus iedere keer argumenten moeten meegeven.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">zegHalloMetLeeftijd</span><span class="o">(</span><span class="nc">String</span> <span class="n">naam</span><span class="o">,</span> <span class="kt">int</span> <span class="n">leeftijd</span><span class="o">){</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hallo "</span> <span class="o">+</span> <span class="n">naam</span> <span class="o">+</span> <span class="s">", je bent "</span> <span class="o">+</span> <span class="n">leeftijd</span> <span class="o">+</span> <span class="s">" jaar oud."</span><span class="o">);</span>
+	<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bovenstaande functie kunnen we oproepen op de volgende manier:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="n">zegHalloMetLeeftijd</span><span class="o">(</span><span class="s">"Nathan"</span><span class="o">,</span> <span class="mi">17</span><span class="o">){</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_return_types">Return types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een return type geeft aan welk resultaat een functie teruggeeft als hij opgeroepen wordt.
+Tot nu toe werkten we met het <em>void</em> datatype. Dit geeft een leegte aan (dus niets werd er teruggegeven).
+We kunnen echter kiezen uit verschillende datatypes om terug te geven:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><mark>install</mark> &#8594; Dit compileerd een project en maakt er ook een jar file van.</p>
+<p>int : voor gehele getallen.</p>
 </li>
 <li>
-<p>-v of --version &#8594; Toon de versie van Maven</p>
+<p>String : voor tekst.</p>
 </li>
 <li>
-<p>validate &#8594; Valideer of het project correct opgebouwd is</p>
+<p>double : voor kommagetallen.</p>
 </li>
 <li>
-<p>compile &#8594; Compileer de broncode van het project</p>
+<p>Klassen : voor instanties van klassen (zien we later in de cursus)</p>
 </li>
 <li>
-<p>test &#8594; Voer alle unit tests uit.</p>
+<p>boolean : true/false (waar / niet waar).</p>
+</li>
+<li>
+<p>Arrays</p>
 </li>
 <li>
 <p>..</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Een volledig overzicht kan hier gevonden worden: <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
-</div>
-<div class="paragraph">
-<p>Voor ons gebruik is de <em>install</em> de belangrijkste (deze voert autmatisch enkele andere <em>goals</em> uit (<em>verify, compile, test, package</em>)).</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld van de output van het mvn commando:</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="mvnoutput.png" alt="mvn output">
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">berekenoppervlaktevancirkel</span><span class="o">(</span><span class="kt">int</span> <span class="n">straal</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">double</span> <span class="n">oppervlakte</span> <span class="o">=</span> <span class="mf">3.1415</span> <span class="o">*</span> <span class="n">straal</span> <span class="o">*</span> <span class="n">straal</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">oppervlakte</span><span class="o">;</span>
+	<span class="o">}</span></code></pre>
 </div>
-<div class="title">Figure 1. Mvn output</div>
 </div>
 <div class="paragraph">
-<p>De <em>build success</em> geeft aan dat het project correct gecompileerd werd door Maven.</p>
+<p>In het bovenstaande voorbeeld werd het <strong>return type</strong> datatype aangepast van <em>void</em> naar <em>double</em>.
+Dit verplicht de code in de functie een resultaat terug te geven of te <em>returnen</em>.
+Dit wordt aangegeven met het <strong>return</strong> <em>keyword</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">static</span>
+		<span class="kt">double</span> <i class="conum" data-value="1"></i><b>(1)</b>
+			<span class="nf">berekenoppervlaktevancirkel</span><span class="o">(</span><span class="kt">int</span> <span class="n">straal</span><span class="o">)</span> <span class="o">{</span>
+				<span class="kt">double</span> <span class="n">oppervlakte</span> <span class="o">=</span> <span class="mf">3.1415</span> <span class="o">*</span> <span class="n">straal</span> <span class="o">*</span> <span class="n">straal</span><span class="o">;</span><i class="conum" data-value="2"></i><b>(2)</b>
+				<span class="k">return</span> <span class="n">oppervlakte</span><span class="o">;</span><i class="conum" data-value="3"></i><b>(3)</b>
+			<span class="o">}</span></code></pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_maven_central">Maven central</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In Java is het mogelijk gebruik te maken van extra jar <em>files</em>.
-Deze jar files kan je tijdens het compileren aangeven om gebruik te kunnen maken van de extra klassen en methods.
-In Eclipse is dit eenvoudiger gemaakt door referenties te leggen naar andere jar <em>files</em> (je voegt ze via de GUI toe aan het <em>classpath</em> (of build path)).</p>
-</div>
-<div class="paragraph">
-<p>Maven automatiseert het zoeken, downloaden en toevoegen aan het <em>classpath</em> van <em>libraries</em> of jar files.
-In Maven volstaat het aan te geven dat je gebruik wil maken van een bepaalde <em>library</em>.</p>
-</div>
-<div class="paragraph">
-<p>Maven doet dan het volgende:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Zoekt de <em>library</em> in de Maven central repository</p>
-</li>
-<li>
-<p>Download het bestand</p>
-</li>
-<li>
-<p>Plaatst het bestand op het <em>classpath</em></p>
-</li>
-<li>
-<p>Compileerd de code van het project</p>
-</li>
-</ul>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Het <em>return type</em> : dit geeft aan welk datatype de functie zal teruggeven.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Een berekening van een variabele.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Het teruggeven of <em>returnen</em> van een variabele.</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-important" title="Important"></i>
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Om een <em>library</em> te kunnen gebruiken, moet iemand deze <em>library</em> op de maven central repository (of een andere repository) geplaatst hebben.
-Om aan te geven om exact welke <em>jar file</em> het gaat, moet de volgende informatie aangegeven worden:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><mark>groupid</mark> &#8594; Wie heeft deze <em>library</em> ontwikkeld?</p>
-</li>
-<li>
-<p><mark>artifactid</mark> &#8594; De naam van de <em>library</em></p>
-</li>
-<li>
-<p><mark>version</mark> &#8594; Welke versie? (er bestaan er meerdere, de nummers geven <em>releases</em>, <em>minor releases</em>, <em>bugfixes</em>,..) aan.</p>
-</li>
-</ul>
+<p>De variabele die wordt teruggegeven <strong>moet</strong> verplicht van hetzelfde datatype zijn als het <em>return type</em> van de functie.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Een <em>repository</em> is een plaats waar verschillende artifacten (bijvoorbeeld <em>jar files</em> of <em>libraries</em>) bijgehouden worden.</p>
-</div>
-<div class="paragraph">
-<p>Maven central is de meest gebruikte <em>repository</em>, maar er bestaan er ook andere. Een bedrijf kan bijvoorbeeld ook een aparte <em>repository</em> maken voor intern gebruik.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_structuur_van_een_maven_project">Structuur van een Maven project</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Maven legt enkele eisen op aan het Java project:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Een vaste structuur (hiervan kan eventueel afgeweken worden, maar dit moet aangegeven worden in de <strong>pom.xml</strong> file, niet aan te raden).</p>
-</li>
-<li>
-<p>Het gebruik van een <strong>pom.xml</strong> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>De vaste structuur deelt de mappen van het project als volgt in:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>project-folder
-|-- pom.xml -&gt;xml beschrijving van het project, met verwijzingen naar libraries
-`-- src
-    |`-- main
-    |   `-- java
-    |       `-- Hier komen de packages en .java files van je project
-    |   `-- resources
-    |       `-- Hier komen niet-.java bestanden, zoals afbeeldingen, tekst bestanden, ..
-     `-- test
-        `-- java
-            `-- Hier komen de unit test files (Zien we later in de lessen)</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_pom_xml">POM.xml</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Elk project, waarvoor je Maven wil gebruiken, moet een <mark>pom.xml</mark> hebben.
-Dit is een xml bestand dat beschrijft hoe het project eruit ziet, wat de <mark><em>dependencies</em></mark> (<em>libraries</em>) zijn, welke <mark>plugins</mark> gebruikt worden, etc.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>XML: Extensible Markup Language (XML) is een standaard van het World Wide Web Consortium voor de syntaxis van formele opmaaktalen waarmee men gestructureerde gegevens kan weergeven in de vorm van platte tekst. Deze presentatie is zowel machineleesbaar als leesbaar voor de mens.</p>
-</div>
-<div class="paragraph">
-<p>XML-talen gebruiken zogenaamde elementen en attributen om gegevens te structureren. De XML-specificatie definieert de syntaxis van elementen, attributen en de andere structuren die in XML-bestanden kunnen voorkomen. De XML-specificatie legt echter geen namen vast voor deze elementen en attributen, precies omdat deze keuze afhangt van het doel van het XML-bestand.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>De pom.xml heeft op zich een vaste structuur, namelijk:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>de beschrijving van het project</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>groupid</p>
-</li>
-<li>
-<p>artifactid</p>
-</li>
-<li>
-<p>version</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>de dependencies of <em>libraries</em> die het project wil gebruiken.</p>
-</li>
-<li>
-<p>plugins</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>bijvoorbeeld de compiler plugin om aan te geven dat we java versie 11 gebruiken.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
 </div>
 <div class="sect2">
-<h3 id="_de_syntax">De syntax</h3>
+<h3 id="_gebruik_maken_van_functies_met_return_types">Gebruik maken van functies met return types</h3>
 <div class="paragraph">
-<p>De syntax is een xml syntax, je maakt hier dus gebruik van tags (net zoals in html) om elementen te definieren, groepen te maken en te sluiten.</p>
-</div>
-<div class="paragraph">
-<p>Dit is een voorbeeld van een pom.xml bestand:</p>
+<p>Als je een functie oproept die een return type heeft, kan je het resultaat van de functie opslaan in een variabele.
+Deze variabele kan je achteraf verder gebruiken in je <em>code</em>.
+Het resultaat van het oproepen van een functie met een return type is een tijdelijke variabele van het type van het return type.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-</pre></td><td class="code"><pre>    <span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-      <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-      <span class="nt">&lt;groupId&gt;</span>com.mycompany.app<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>my-app<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-      <span class="nt">&lt;properties&gt;</span>
-        <span class="nt">&lt;maven.compiler.source&gt;</span>1.7<span class="nt">&lt;/maven.compiler.source&gt;</span>
-        <span class="nt">&lt;maven.compiler.target&gt;</span>1.7<span class="nt">&lt;/maven.compiler.target&gt;</span>
-      <span class="nt">&lt;/properties&gt;</span>
-
-      <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-          <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-          <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-          <span class="nt">&lt;version&gt;</span>4.12<span class="nt">&lt;/version&gt;</span>
-          <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-      <span class="nt">&lt;/dependencies&gt;</span>
-    <span class="nt">&lt;/project&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_libraries_toevoegen"><em>Libraries</em> toevoegen</h3>
-<div class="paragraph">
-<p>Om <em>libraries</em> toe te voegen, moeten we gebruik maken van de <em>&lt;dependencies&gt;</em> tag. In deze tag kunnen verschillende <em>&lt;dependency&gt;</em> tags gebruikt worden, die op hun beurt elk een <em>dependency</em> (of <em>library</em>) aangeven.</p>
-</div>
-<div class="paragraph">
-<p>Binnen een <em>&lt;dependency&gt;</em> tag kan een <em>library</em> gedefinieerd worden met de volgende info:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>naam uitgever (groupid)</p>
-</li>
-<li>
-<p>naam <em>library</em> (artifactid)</p>
-</li>
-<li>
-<p>versie (version)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.xerial<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>sqlite-jdbc<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>3.36.0.3<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
-</div>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Elke <em>dependency</em> moet binnen de <em>&lt;dependencies&gt;</em> tag geplaats worden. Net zoals <em>tags</em> in een <em>&lt;div&gt;</em> geplaatst kunnen worden in HTML.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_compiler_opties">Compiler opties</h3>
-<div class="paragraph">
-<p>Naast de <em>libraries</em> kan in de pom.xml ook aangegeven worden hoe het project gebouwd of gecompileerd moet worden.</p>
-</div>
-<div class="paragraph">
-<p>Dit gebeurt binnen de <em>&lt;build&gt;</em> tag.
-Hierin kunnen <em>plugins</em> gebruikt worden.</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld hiervan is de compiler <em>plugin</em>. Via deze <em>plugin</em> kunnen we aangeven naar welke versie van bytecode de compiler moet compileren ( Java 8, 9, 11, .. compatibele code).</p>
-</div>
-<div class="paragraph">
-<p>Een voorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="title">compileren compatibel met bytecode versie 11</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="xml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-</pre></td><td class="code"><pre>    <span class="nt">&lt;build&gt;</span>
-            <span class="nt">&lt;plugins&gt;</span>
-                <span class="nt">&lt;plugin&gt;</span>
-                    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
-                    <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                    <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-                    <span class="nt">&lt;configuration&gt;</span>
-                        <span class="nt">&lt;release&gt;</span>11<span class="nt">&lt;/release&gt;</span>
-                    <span class="nt">&lt;/configuration&gt;</span>
-                <span class="nt">&lt;/plugin&gt;</span>
-            <span class="nt">&lt;/plugins&gt;</span>
-    <span class="nt">&lt;/build&gt;</span>
-</pre></td></tr></tbody></table></code></pre>
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">double</span> <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">berekenoppervlaktevancirkel</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span>	
+	<span class="o">}</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_en_eclipse">Maven en Eclipse</h2>
+<h2 id="_functies_combineren">Functies combineren</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Eclipse zit standaard ondersteuning voor Maven ingebouwd.
-Je kan er maven projecten mee aanmaken.
-De pom.xml wordt automatisch uitgelezen en <em>libraries</em> worden automatisch gedownload.
-De build van een Maven project (mvn install) kan via een gui opgeroepen worden.</p>
+<p>Vanuit functies kan je andere functies oproepen.
+Dit maakt het mogelijk in een bepaalde functie gebruik te maken van andere functies die onderliggende (complexe) zaken voor hun rekening nemen.
+Hierdoor kan je functies schrijven die zich focussen op hun eigen taak.
+Zie het voorbeeld hieronder:</p>
 </div>
-<div class="sect2">
-<h3 id="_een_maven_project_aanmaken">Een maven project aanmaken</h3>
-<div class="paragraph">
-<p>Rechterklik in de <em>project explorer</em> van Eclipse om een nieuw project aan te maken.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="newproject.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 2. Nieuw mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Kies voor een Maven project.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 3. Mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Vink <em>skip archetype selection</em> aan.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject2.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 4. Mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Vul de vereiste velden in.
-Als artifactnaam wordt er verwacht dat je de naam van je project ingeeft.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnproject3.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 5. Mvn project in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Eenmaal je het project aangemaakt hebt, komt links in de <em>project explorer</em>
-het project zichtbaar.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_de_structuur_in_eclipse">De structuur in Eclipse</h3>
-<div class="imageblock">
-<div class="content">
-<img src="mvnstructuur.jpg" alt="mvn project in eclipse">
-</div>
-<div class="title">Figure 6. Mvn project structuur in eclipse</div>
-</div>
-<div class="paragraph">
-<p>Zoals je ziet houdt dit project zich aan de maven mappenstructuur.
-Ook is er een <strong>pom.xml</strong> aanwezig.
-Deze file kan je vervolgens gebruiken om <em>dependecies</em> of <em>libraries</em> aan toe te voegen.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_een_maven_project_compileren_in_eclipse">Een maven project compileren in Eclipse</h3>
-<div class="paragraph">
-<p>Om een maven project correct te compileren in Eclipse,
-dien je een <em>mvn install</em> uit te voeren.</p>
-</div>
-<div class="paragraph">
-<p>In de Eclipse GUI kan je dit doen door te rechterklikken op je project,
-te kiezen voor <em>run as</em> &#8594; <em>Maven install</em> .</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvninstall.jpg" alt="mvn install in eclipse">
-</div>
-<div class="title">Figure 7. Mvn project compileren in eclipse</div>
-</div>
-<div class="paragraph">
-<p>In de console zie je vervolgens de output van het mvn compilatie proces.
-Indien de build succesvol was, wordt dit aangegeven.
-Bij compilatiefouten is het belangrijk deze output te lezen om te weten te komen wat er misliep.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="mvnoutput.jpg" alt="mvn install in eclipse">
-</div>
-<div class="title">Figure 8. Mvn output in eclipse</div>
+<pre class="rouge highlight"><code data-lang="java">	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">berekeninhoudcylinder</span><span class="o">(</span><span class="kt">int</span> <span class="n">straal</span><span class="o">,</span> <span class="kt">int</span> <span class="n">hoogte</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">double</span> <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">berekenoppervlaktevancirkel</span><span class="o">(</span><span class="n">straal</span><span class="o">);</span>
+		<span class="kt">double</span> <span class="n">inhoud</span> <span class="o">=</span> <span class="n">oppervlakte</span> <span class="o">*</span> <span class="n">hoogte</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">inhoud</span><span class="o">;</span>
+		
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">berekenoppervlaktevancirkel</span><span class="o">(</span><span class="kt">int</span> <span class="n">straal</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">double</span> <span class="n">oppervlakte</span> <span class="o">=</span> <span class="mf">3.1415</span> <span class="o">*</span> <span class="n">straal</span> <span class="o">*</span> <span class="n">straal</span><span class="o">;</span>
+		<span class="k">return</span> <span class="n">oppervlakte</span><span class="o">;</span>
+	<span class="o">}</span></code></pre>
 </div>
 </div>
 </div>
