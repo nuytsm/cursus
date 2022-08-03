@@ -25,7 +25,7 @@
 
 === Opdrachten voor de computer
 
-Een computer is een logische machiene die we opdrachten kunnen geven.
+Een computer is een logische machine die we opdrachten kunnen geven.
 
 Voorbeelden van opdrachten:
 
@@ -142,14 +142,14 @@ Java moest dus:
 * Eenvoudiger zijn om te schrijven.
 * Multiplatform zijn.
 
-Java heeft deze 2 problemen opgelost door een tussenliggende ##virtuele machiene## te ontwikkelen.
-Deze JVM (Java virtuele machiene) is een processor die virtueel draait als een programma op je echte processor.
+Java heeft deze 2 problemen opgelost door een tussenliggende ##virtuele machine## te ontwikkelen.
+Deze JVM (Java virtuele machine) is een processor die virtueel draait als een programma op je echte processor.
 Dezelfde JVM kan men laten draaien op alle verschillende computerarchitecturen.
 
 image::jvm.png[]
 
 
-##Het volstaat dus 1x te compileren naar de instructieset van de virtuele machiene, deze heet **bytecode**##.
+##Het volstaat dus 1x te compileren naar de instructieset van de virtuele machine, deze heet **bytecode**##.
 Vervolgens kan elke computerarchitectuur deze JVM opstarten en het gecompileerde programma starten.
 
 Op de JVM draait periodiek (met een bepaald interval) een ##__garbage collector__## of een afvalopruimer.
@@ -279,12 +279,12 @@ public static void main(java.lang.String[]);
 
 [IMPORTANT]
 ----
-Bytecode is de machienetaal voor de Java virtuele machiene. Dit is geen leesbare taal (binaire instructies).
+Bytecode is de machinetaal voor de Java virtuele machine. Dit is geen leesbare taal (binaire instructies).
 ----
 
 image::java-virtual-machine.png[]
 
-=== Bytecode uitvoeren met de virtuele machiene
+=== Bytecode uitvoeren met de virtuele machine
 
 De JVM voert bytecode uit op de onderliggende CPU.
 Om gebruik te maken van de JVM, gebruiken we het __java__ commando op het .class (bytecode) bestand:
