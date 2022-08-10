@@ -14,6 +14,8 @@
 
 :leveloffset: +1
 
+include::java.adoc[]
+
 include::programmeren.adoc[]
 
 include::datatypes.adoc[]

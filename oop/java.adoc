@@ -40,14 +40,14 @@ De computer bestaat uit verschillende onderdelen. Het is de CPU of centrale reke
 
 image::motherboard.webp[De onderdelen van een moederbord.]
 
-Opdrachten geven aan een computer kan via een programma.
-Met een programmeertaal kan een programma geschreven worden.
+##Opdrachten geven aan een computer kan via een programma.
+Met een programmeertaal kan een programma geschreven worden.##
 
 
 
 === CPU Instructieset
 
-Iedere computer CPU heeft een bepaalde architectuur of ontwerp.
+Iedere computer **CPU** heeft een bepaalde **architectuur** of ontwerp.
 Hier zijn heel wat standaarden in: 
 
 * x86 (32bit)
@@ -73,7 +73,7 @@ image::mainframe1.jpg[mainframe]
 image::mainframe.jpg[modern mainframe]
 
 
-Aan deze standaarden van CPU's kunnen opdrachten gegeven worden via **de instructieset**, dit is de machinetaal.
+Aan deze architectuurstandaarden van CPU's kunnen opdrachten gegeven worden via **de instructieset**, dit is de ##machinetaal##.
 Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel een getal op, haal een waarde op van de ssd, ...)
 
 Deze opdrachten via de instructieset kunnen in een laag niveau computertaal worden voorgesteld, namelijk __assembly__:
@@ -90,31 +90,92 @@ Gelukkig zijn er hoog niveau programmeertalen ontwikkeld die het ons gemakkelijk
 
 Hoog niveau programmeertalen (die makkelijker zijn om te schrijven), kunnen via ##compilatie## automatisch omgezet worden naar machinetaal.
 
-**Tekst -> compilatie -> machinetaal voor een specifieke architectuur**
+**Tekst (Hogere programmeertaal) -> compilatie -> machinetaal voor een specifieke architectuur**
 
-De machinetaal wordt bijgehouden in een uitvoerbaar bestand of __executable (iets waarop je kan dubbelklikken om het programma te openen).
+De machinetaal wordt bijgehouden in een uitvoerbaar bestand of __executable__ (iets waarop je kan dubbelklikken om het programma te openen).
 
-=== Voorbeelden van computeropdrachten
+=== Voorbeelden __Hello World__ in enkele programmeertalen
 
-* assembly of machinetaal
-* Idem in C
-* Idem in Java
+* C
++
+[source]
+----
+#include <stdio.h>
+  
+int main()
+{
+    printf("Hello World");
+    return 0;
+}
+----
++
+* Cpp
++
+[source]
+----
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Hello World";
+    return 0;
+}
+----
++
+* Ruby
++
+[source]
+----
+puts "Hello World!"
+----
++
+* Java
++
+[source]
+----
+    class MyClass{  
+        public static void main(String args[]){  
+         System.out.println("Hello Java");  
+        }  
+    }  
+----
++
+* Python 3
++
+[source]
+----
+print("Hello, World!")
+----
++
+* C#
++
+[source]
+----
+using System;
+namespace HelloWorldApp {
+    class MyClass {
+        static void Main(string[] args) {
+            Console.WriteLine("Hello World!");
+            Console.ReadKey();
+        }
+    }
+}
+----
++
+* Fortran
++
+[source]
+----
+program hello
+  print *, 'Hello, World!'
+end program hello
+----
 
 
 == Programmeertalen: Een historisch overzicht
 
-image::History_of_object-oriented_programming_languages.svg[]
+image::ComputerLanguagesChart.png[]
 
-Mainframe
-c
-c++
-C#
-Java
-Kotlin, Groovy
-Perl
-Python
-Php
-Rust
 
 == Java
 
@@ -162,8 +223,8 @@ Het grote nadeel van deze aanpak is dat Java wat trager is dan C:
 
 === Java schrijven (of programmeren)
 
-{j} wordt geschreven in een tekst document.
-Dit tekst document heeft de .java extensie. 
+{j} wordt geschreven in een ##tekst document##.
+Dit tekst document heeft de ##.java extensie##. 
 Bijvoorbeeld: MijnJavaBestand.java .
 Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
 De tekst die je schrijft moet wel voldoen aan de ##syntax## van de taal.
@@ -196,26 +257,26 @@ public class HelloWorld {
 }
 ----
 
-Na het schrijven van een programma, dienen we het nog te compileren naar bytecode.
+Na het schrijven van een programma, dienen we het nog te *compileren* naar bytecode.
 De bytecode kan door de JVM ingelezen worden.
 
 Dit gaat als volgt te werk:
 
+* Compilatie:
++
 [source]
 ----
 javac Helloworld.java
 ----
-
++
 __java##c##__ is het commando voor de java ##c##ompiler.
-Dit proces produceert bytecode, bytecode staat altijd in een .class bestand:
-
-[source]
-----
-javac Helloworld.class
-----
-
++
+* Resultaat van de compilatie:
++
+Dit proces produceert bytecode, ##bytecode## staat altijd in een ##.class## bestand:
++
 Voorbeeld bytecode van de Helloworld.class:
-
++
 [source]
 ----
 Compiled from "HelloWorld.java"
@@ -276,12 +337,14 @@ public static void main(java.lang.String[]);
    line 10: 8
 }
 ----
-
++
 [IMPORTANT]
 ----
-Bytecode is de machinetaal voor de Java virtuele machine. Dit is geen leesbare taal (binaire instructies).
+Bytecode is de machinetaal voor de ##Java virtuele machine##. Dit is geen leesbare taal (binaire instructies).
 ----
-
++
+* De bytecode kan op een JVM draaien (op een bepaalde computerarchtitectuur):
++
 image::java-virtual-machine.png[]
 
 === Bytecode uitvoeren met de virtuele machine
