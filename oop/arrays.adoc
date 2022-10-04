@@ -24,7 +24,7 @@
 Arrays worden gebruikt om een reeks variabelen van een bepaald datatype bij te houden.
 
 Zo kan je in een array bijvoorbeeld een reeks van gehele getallen bijhouden.
-Zonder hiervoor 10 keer een verschillende veriabele te moeten voor aanmaken.
+Zonder hiervoor 10 keer een verschillende variabele te moeten voor aanmaken.
 Het voordeel hiervan is dat:
 
 * De reeks (of array) via 1 noemer benaderbaar is (alle verschillende namen van de getallen hoeven niet onthouden te worden).
