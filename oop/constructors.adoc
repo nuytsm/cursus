@@ -74,7 +74,7 @@ public class GameUnit {
   }
 }
 ----
-<1> Er is geen andere constructor aanwezig, de compiler voegt deze autmatisch toe, maar enkel #indien er geen andere constructor (met parameters) werd toegevoegd#.
+<1> Er is geen andere constructor aanwezig, de compiler voegt deze automatisch toe, maar enkel #indien er geen andere constructor (met parameters) werd toegevoegd#.
 
 === De default constructor gebruiken
 
