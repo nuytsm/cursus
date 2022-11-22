@@ -76,7 +76,7 @@ Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van iets, b
 
 image::teslablauwdruk.jpg[Tesla blauwdruk]
 
-Dit ontwerp beschrijft hoe auto eruit moet zien, wat het concept is:
+Dit ontwerp beschrijft hoe een auto eruit moet zien, wat het concept is:
 
 * De afmetingen
 * De buiging van de carosserie
