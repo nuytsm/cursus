@@ -1,0 +1,11 @@
+= Book Title
+:doctype: book
+
+include::./00-inhoudsopgave.adoc[]
+include::01-waarompython.adoc[]
+include::02-pythonvsjava.adoc[]
+include::03-vanPythonNaarProcessor.adoc[]
+include::variabelen.adoc[]
+include::conditionals.adoc[]
+include::functies.adoc[]
+include::lussen.adoc[]

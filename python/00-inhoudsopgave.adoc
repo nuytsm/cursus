@@ -1,0 +1,65 @@
+= Cursus Python voor Middelbare Scholieren
+
+== Inleiding tot Python
+* Wat is Python en waarom leren we het?
+* Installatie van Python en ontwikkelomgeving (IDE)
+* Eerste kennismaking met Python: Hello World!
+
+== Basisconcepten van Programmeren
+* Variabelen en datatypes: getallen, strings, booleans
+* Werken met opdrachten en expressies
+* Beslissingsstructuren: if-statements en vergelijkingsoperatoren
+
+== Lussen en Herhaling
+* While-lussen en for-lussen
+* Gebruik van bereik (range) en iteratie
+* Lusbeheersing met break en continue
+
+== Gegevensstructuren
+* Lijsten: maken, toegang krijgen, wijzigen
+* Tupels: onveranderlijke gegevensstructuren
+* Dictionaries: sleutel-waarde paren voor snelle toegang
+
+== Functies en Modulariteit
+* Definiëren en oproepen van functies
+* Parameters en retourwaarden
+* Modulair programmeren en functiebibliotheken
+
+== Bestandsbeheer
+* Tekstbestanden lezen en schrijven
+* Werken met bestandsobjecten en paden
+* Gegevens opslaan en herstellen met bestanden
+
+== Introductie tot Objectgeoriënteerd Programmeren (OOP)
+* Klassen en objecten: concepten van OOP
+* Eigenschappen (attributen) en methoden
+* Erven en klassenhiërarchieën
+
+== Foutafhandeling en Uitzonderingen
+* Begrijpen van foutmeldingen
+* Try-except blokken voor foutafhandeling
+* Eigen uitzonderingen definiëren
+
+== Geavanceerde Onderwerpen
+* Lambda-functies en anonieme functies
+* List comprehensions: compacte lijstopdrachten
+* Modules en externe bibliotheken
+
+== Project: Mini-Spel Ontwikkeling
+* Brainstormen en ontwerpen van een eenvoudig spel
+* Implementatie van het spel: logica en interactie
+* Testen, oplossen van problemen en verfijnen
+
+== Project: Toepassing van Python in het Echte Leven
+* Dataverwerking en analyse
+* Automatisering van taken
+* Basis web scraping (gegevens van websites halen)
+
+== Afsluiting en Volgende Stappen
+* Terugblik op wat we hebben geleerd
+* Hulpmiddelen en bronnen voor verdere studie
+* Mogelijke carrièrepaden met Python-programmering
+
+[NOTE]
+Let op: Deze inhoudsopgave is slechts een suggestie. De exacte inhoud en volgorde van de cursus kunnen worden aangepast aan de behoeften en het niveau van de deelnemende middelbare scholieren.
+

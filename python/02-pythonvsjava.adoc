@@ -1,0 +1,98 @@
+= Cursus Python voor Middelbare Scholieren
+
+== Inleiding tot Python
+
+=== Waarom Python kiezen in plaats van Java?
+
+Bij het kiezen van een programmeertaal, zoals Python of Java, rijst vaak de vraag welke het meest geschikt is. Hoewel beide talen krachtige tools zijn voor softwareontwikkeling, zijn er enkele overwegingen die Python tot een aantrekkelijke keuze maken, vooral voor beginners en middelbare scholieren.
+
+==== Leesbaarheid en Eenvoud
+
+Python onderscheidt zich door zijn eenvoudige en leesbare syntaxis. Dit betekent dat code in Python bijna als natuurlijke taal lijkt en gemakkelijk te begrijpen is, zelfs voor mensen zonder programmeerachtergrond. Laten we dit vergelijken met een eenvoudig voorbeeld in zowel Python als Java:
+
+[source,python]
+----
+# Python
+print("Hallo, wereld!")
+
+# Java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hallo, wereld!");
+    }
+}
+----
+
+Het verschil in leesbaarheid is duidelijk. De Python-code is korter, duidelijker en vereist minder syntactische overhead. Dit maakt het voor beginners veel gemakkelijker om te leren en zich te concentreren op de kern van het programmeren.
+
+==== Snel Prototypen en Snelle Ontwikkeling
+
+Python staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het vereist minder code om dezelfde functionaliteit te bereiken in vergelijking met talen zoals Java. Dit is vooral handig bij het maken van prototypes en het iteratief ontwikkelen van projecten. Laten we een vergelijking maken tussen een eenvoudige lijstverwerkingstaak in beide talen:
+
+[source,python]
+----
+# Python
+numbers = [1, 2, 3, 4, 5]
+squared = [num ** 2 for num in numbers]
+
+# Java
+import java.util.ArrayList;
+
+public class SquaredNumbers {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        ArrayList<Integer> squared = new ArrayList<>();
+        for (Integer num : numbers) {
+            squared.add(num * num);
+        }
+    }
+}
+----
+
+In dit voorbeeld toont Python zijn concieze syntaxis en vermogen om complexe operaties te vereenvoudigen. Dit kan leiden tot een productievere ontwikkeling en snellere resultaten, vooral voor beginners.
+
+==== Brede Toepassingsmogelijkheden
+
+Hoewel Java een krachtige taal is voor het bouwen van complexe systemen, biedt Python een breed scala aan toepassingen en domeinen. Python wordt gebruikt voor webontwikkeling, gegevensanalyse, machine learning, wetenschappelijke berekeningen en nog veel meer. Het is zelfs een populaire taal voor scripting en automatisering. Deze veelzijdigheid stelt ontwikkelaars in staat om hun vaardigheden over verschillende disciplines toe te passen zonder van taal te hoeven wisselen.
+
+==== Snelle Leercurve
+
+Python's eenvoudige syntaxis en leesbaarheid vertalen zich in een snelle leercurve. Middelbare scholieren kunnen sneller fundamentele concepten van programmeren begrijpen en beginnen met het bouwen van werkende toepassingen. Dit bevordert een positieve leerervaring en moedigt studenten aan om hun vaardigheden verder te ontwikkelen.
+
+==== Codevoorbeeld: Eenvoudige Berekening
+
+Laten we een eenvoudig voorbeeld bekijken om het verschil tussen Python en Java te illustreren bij het uitvoeren van een eenvoudige berekening, bijvoorbeeld het berekenen van de som van getallen van 1 tot 10.
+
+[source,python]
+----
+# Python
+total = sum(range(1, 11))
+print("De som is:", total)
+----
+
+[source,java]
+----
+// Java
+public class SumExample {
+    public static void main(String[] args) {
+        int total = 0;
+        for (int i = 1; i <= 10; i++) {
+            total += i;
+        }
+        System.out.println("De som is: " + total);
+    }
+}
+----
+
+Zoals je kunt zien, vereenvoudigt Python de berekening en resulteert in minder code.
+
+=== Conclusie
+
+Hoewel Java en Python beide waardevolle programmeertalen zijn, biedt Python enkele voordelen die het aantrekkelijk maken voor beginners en middelbare scholieren. De leesbaarheid, eenvoudige syntaxis, snelle ontwikkeling en brede toepassingsmogelijkheden maken Python een uitstekende keuze om te leren en te beginnen met programmeren. In deze cursus zullen we ons richten op Python vanwege zijn geschiktheid voor beginners en de kansen die het biedt voor het opbouwen van solide programmeervaardigheden.
+
