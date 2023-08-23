@@ -1,12 +1,10 @@
-= Cursus Python voor Middelbare Scholieren
+= Gebruik van Variabelen
 
-== Diepere Duik in Python: Gebruik van Variabelen
-
-=== Ontdekking van Variabelen in Python
+== Ontdekking van Variabelen in Python
 
 Variabelen vormen een kernconcept in programmeren, waardoor ontwikkelaars waarden kunnen opslaan en manipuleren voor gebruik in hun programma's. In Python zijn variabelen containers voor het opslaan van gegevens zoals getallen, tekst, lijsten, en meer. Laten we dieper ingaan op het gebruik van variabelen in Python.
 
-==== Datatypen en Variabelen
+=== Datatypen en Variabelen
 
 In Python zijn variabelen niet expliciet getypeerd, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.
 
@@ -19,7 +17,7 @@ leeftijd = 16
 
 In dit geval heeft Python automatisch het datatype van `leeftijd` ingesteld op integer.
 
-==== Variabelen Toewijzen en Waarden Bijwerken
+=== Variabelen Toewijzen en Waarden Bijwerken
 
 Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (`=`). De operator wijst een waarde toe aan een variabele.
 
@@ -40,7 +38,7 @@ groet = "Hallo, daar!"
 
 In dit voorbeeld heeft `groet` eerst de waarde "Hallo, wereld!" en wordt deze vervolgens bijgewerkt naar "Hallo, daar!".
 
-==== Variabelen en Scope
+=== Variabelen en Scope
 
 Variabelen hebben een bepaalde "scope" of bereik, wat aangeeft waar de variabele beschikbaar en geldig is. In Python kunnen variabelen lokaal (binnen een specifieke functie) of globaal (door het hele programma) zijn.
 
@@ -70,7 +68,7 @@ Globale variabele buiten functie: 10
 
 Hier zien we dat de variabele `lokale_variabele` alleen beschikbaar is binnen de functie waarin deze is gedefinieerd. De variabele `globale_variabele` kan zowel binnen als buiten de functie worden gebruikt, omdat deze een globale scope heeft.
 
-==== Variabelen en Gegevenstypen
+=== Variabelen en Gegevenstypen
 
 Python heeft verschillende ingebouwde gegevenstypen die je kunt gebruiken om variabelen van verschillende soorten gegevens op te slaan. Enkele van de veelgebruikte datatypen zijn:
 
@@ -90,11 +88,11 @@ waar = True    # bool
 ----
 
 
-=== Verkennen van Gegevenstypes in Python
+== Gegevenstypes in Python
 
 Gegevenstypes zijn fundamentele bouwstenen in programmeren en stellen ontwikkelaars in staat om verschillende soorten gegevens te representeren en te manipuleren. In Python zijn gegevenstypes ingebouwd en flexibel, wat de taal krachtig en veelzijdig maakt. Laten we dieper ingaan op enkele belangrijke gegevenstypes in Python.
 
-==== Integer (int)
+=== Integer (int)
 
 Het gegevenstype `int` staat voor gehele getallen, zoals 5, -10 en 100. Integer-waarden worden gebruikt voor wiskundige bewerkingen en numerieke berekeningen. Python staat toe om positieve en negatieve gehele getallen te gebruiken, evenals getallen met en zonder decimale punten.
 
@@ -107,7 +105,7 @@ temperatuur = -5
 aantal_studenten = 30
 ----
 
-==== Float (Komma-getal)
+=== Float (Komma-getal)
 
 Het gegevenstype `float` vertegenwoordigt komma-getallen, ook wel bekend als zwevendekomma-getallen. Dit omvat getallen met decimale punten, zoals 3.14, -0.5 en 2.0. Float-waarden worden gebruikt voor nauwkeurige berekeningen met reële getallen.
 
@@ -120,7 +118,7 @@ geldbedrag = 123.45
 hoogte = -10.5
 ----
 
-==== String (str)
+=== String (str)
 
 Het gegevenstype `str` staat voor tekstuele gegevens, zoals woorden, zinnen of karakters. Tekst in Python wordt omringd door enkele aanhalingstekens (`'`) of dubbele aanhalingstekens (`"`).
 
@@ -143,7 +141,7 @@ volledige_naam = voornaam + " " + achternaam
 print(volledige_naam) # Output: John Doe
 ----
 
-==== Boolean (bool)
+=== Boolean (bool)
 
 Het gegevenstype `bool` vertegenwoordigt booleaanse waarden, namelijk `True` (waar) of `False` (onwaar). Booleaanse waarden worden veel gebruikt in logische bewerkingen en beslissingsstructuren, zoals `if`-voorwaarden.
 
@@ -165,7 +163,7 @@ b = 10
 resultaat = a < b # True, want 5 is kleiner dan 10
 ----
 
-==== Type Conversie
+=== Type Conversie
 
 Soms is het nodig om gegevens van het ene type naar het andere te converteren. Python biedt functies om dit te doen. Bijvoorbeeld, om een getal om te zetten naar een string, kun je de functie `str()` gebruiken:
 
@@ -175,7 +173,7 @@ leeftijd = 16
 leeftijd_als_string = str(leeftijd)
 ----
 
-==== Dynamische Typing
+=== Dynamische Typing
 
 Python staat ook bekend om zijn dynamische typen, wat betekent dat het datatype van een variabele kan veranderen terwijl het programma wordt uitgevoerd. Dit in tegenstelling tot sterk getypeerde talen waar het datatype strikt moet worden gedefinieerd en behouden.
 
@@ -188,12 +186,12 @@ a = "Hallo"
 a = True
 ----
 
-=== Conclusie
+== Conclusie
 
 De verscheidenheid aan gegevenstypes in Python, waaronder integer, float, string en boolean, biedt ontwikkelaars flexibiliteit bij het manipuleren van verschillende soorten gegevens. Het begrijpen van deze gegevenstypes en hun toepassingen is essentieel voor het schrijven van effectieve en veelzijdige Python-programma's.
 
 
-==== Variabelen en Expressies
+== Variabelen en Expressies
 
 Variabelen kunnen worden gebruikt in wiskundige en logische expressies om complexere berekeningen uit te voeren. Bijvoorbeeld:
 

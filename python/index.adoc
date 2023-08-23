@@ -1,9 +1,14 @@
-= Book Title
-:doctype: book
+:source-highlighter: rouge
 
-include::./00-inhoudsopgave.adoc[]
+:toc: left
+:toclevels: 5
+
+= Cursus OOP - Object-oriented programming
+
+:leveloffset: +1
+
+//include::./00-inhoudsopgave.adoc[]
 include::intro.adoc[]
-include::01-waarompython.adoc[]
 include::02-pythonvsjava.adoc[]
 include::03-vanPythonNaarProcessor.adoc[]
 include::variabelen.adoc[]

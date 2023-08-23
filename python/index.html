@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Book Title</title>
+<title>Cursus OOP - Object-oriented programming</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,245 +436,357 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
-<body class="book">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Book Title</h1>
+<h1>Cursus OOP - Object-oriented programming</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_programmeertaal_programmeren">Programmeertaal &amp; Programmeren</a>
+<ul class="sectlevel2">
+<li><a href="#_opdrachten_voor_de_computer">Opdrachten voor de computer</a></li>
+<li><a href="#_cpu_instructieset">CPU Instructieset</a></li>
+<li><a href="#_hoog_niveau_programmeertalen">Hoog niveau programmeertalen</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</a></li>
+</ul>
+</li>
+<li><a href="#_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</a></li>
+<li><a href="#_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</a></li>
+<li><a href="#_cursus_programmeren_met_python">Cursus Programmeren met Python</a></li>
+<li><a href="#_de_ontwikkeling_van_python">De Ontwikkeling van Python</a>
+<ul class="sectlevel3">
+<li><a href="#_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</a></li>
+<li><a href="#_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</a></li>
+</ul>
+</li>
+<li><a href="#_python_schrijven_of_programmeren">Python schrijven (of programmeren)</a>
+<ul class="sectlevel3">
+<li><a href="#_de_syntax">De syntax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_inleiding_tot_python">Inleiding tot Python</a>
+<ul class="sectlevel2">
+<li><a href="#_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</a>
+<ul class="sectlevel3">
+<li><a href="#_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</a></li>
+<li><a href="#_snel_prototypen_en_snelle_ontwikkeling">Snel Prototypen en Snelle Ontwikkeling</a></li>
+<li><a href="#_brede_toepassingsmogelijkheden">Brede Toepassingsmogelijkheden</a></li>
+</ul>
+</li>
+<li><a href="#_conclusie">Conclusie</a></li>
+</ul>
+</li>
+<li><a href="#_van_code_naar_uitvoering_op_de_cpu">Van Code naar Uitvoering op de CPU</a>
+<ul class="sectlevel2">
+<li><a href="#_de_rol_van_de_interpreter">De Rol van de Interpreter</a></li>
+<li><a href="#_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</a></li>
+<li><a href="#_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</a></li>
+<li><a href="#_compilatie_en_uitvoering">Compilatie en Uitvoering</a></li>
+<li><a href="#_samenvatting">Samenvatting</a></li>
+</ul>
+</li>
+<li><a href="#_gebruik_van_variabelen">Gebruik van Variabelen</a>
+<ul class="sectlevel2">
+<li><a href="#_ontdekking_van_variabelen_in_python">Ontdekking van Variabelen in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_datatypen_en_variabelen">Datatypen en Variabelen</a></li>
+<li><a href="#_variabelen_toewijzen_en_waarden_bijwerken">Variabelen Toewijzen en Waarden Bijwerken</a></li>
+<li><a href="#_variabelen_en_scope">Variabelen en Scope</a></li>
+<li><a href="#_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</a></li>
+</ul>
+</li>
+<li><a href="#_gegevenstypes_in_python">Gegevenstypes in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_integer_int">Integer (int)</a></li>
+<li><a href="#_float_komma_getal">Float (Komma-getal)</a></li>
+<li><a href="#_string_str">String (str)</a></li>
+<li><a href="#_boolean_bool">Boolean (bool)</a></li>
+<li><a href="#_type_conversie">Type Conversie</a></li>
+<li><a href="#_dynamische_typing">Dynamische Typing</a></li>
+</ul>
+</li>
+<li><a href="#_conclusie_2">Conclusie</a></li>
+<li><a href="#_variabelen_en_expressies">Variabelen en Expressies</a>
+<ul class="sectlevel3">
+<li><a href="#_conclusie_3">Conclusie</a></li>
+</ul>
+</li>
+<li><a href="#_diepere_duik_in_python_functies_en_herbruikbaarheid_van_code">Diepere Duik in Python: Functies en Herbruikbaarheid van Code</a>
+<ul class="sectlevel3">
+<li><a href="#_het_belang_van_functies_in_python">Het Belang van Functies in Python</a>
+<ul class="sectlevel4">
+<li><a href="#_functies_definiëren_en_oproepen">Functies Definiëren en Oproepen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_cursus_python_voor_middelbare_scholieren">Cursus Python voor Middelbare Scholieren</a>
+<ul class="sectlevel2">
+<li><a href="#_diepere_duik_in_python_parameters_in_functies">Diepere Duik in Python: Parameters in Functies</a>
+<ul class="sectlevel3">
+<li><a href="#_het_belang_van_parameters_in_functies">Het Belang van Parameters in Functies</a>
+<ul class="sectlevel4">
+<li><a href="#_positionele_parameters">Positionele Parameters</a></li>
+<li><a href="#_standaardwaarden_voor_parameters">Standaardwaarden voor Parameters</a></li>
+<li><a href="#_args_en_kwargs">args en kwargs</a></li>
+</ul>
+</li>
+<li><a href="#_conclusie_4">Conclusie</a>
+<ul class="sectlevel4">
+<li><a href="#_documentatie_van_functies">Documentatie van Functies</a></li>
+<li><a href="#_herbruikbaarheid_van_code">Herbruikbaarheid van Code</a></li>
+<li><a href="#_return_statements">Return Statements</a></li>
+<li><a href="#_functies_met_meerdere_parameters">Functies met Meerdere Parameters</a></li>
+<li><a href="#_scope_en_lokale_variabelen">Scope en Lokale Variabelen</a></li>
+<li><a href="#_ingebouwde_en_aangepaste_functies">Ingebouwde en Aangepaste Functies</a></li>
+<li><a href="#_functies_als_objecten">Functies als Objecten</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<h1 id="_cursus_python_voor_middelbare_scholieren" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
 <div class="sect1">
-<h2 id="_inleiding_tot_python">Inleiding tot Python</h2>
+<h2 id="_programmeertaal_programmeren">Programmeertaal &amp; Programmeren</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Wat is Python en waarom leren we het?</p>
-</li>
-<li>
-<p>Installatie van Python en ontwikkelomgeving (IDE)</p>
-</li>
-<li>
-<p>Eerste kennismaking met Python: Hello World!</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Een programma bepaald hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/invoer-uitvoer.gif" alt="invoer uitvoer">
 </div>
 </div>
+<div class="paragraph">
+<p>Excel werkt met bepaalde invoer (bijvoorbeeld cijfergegevens) en kan deze verwerken naar een bepaalde uitvoer (bijvoorbeeld een grafiek).
+Excel is dus het programma dat de verwerking uitvoert. Gebruikers kunnen verschillende programma&#8217;s gebruiken of installeren. Dit om met andere invoer te werken of de verwerking anders uit te voeren.
+Als programmeur kan je echter het programma maken dat de uitvoer doet.</p>
 </div>
-<div class="sect1">
-<h2 id="_basisconcepten_van_programmeren">Basisconcepten van Programmeren</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Variabelen en datatypes: getallen, strings, booleans</p>
-</li>
-<li>
-<p>Werken met opdrachten en expressies</p>
-</li>
-<li>
-<p>Beslissingsstructuren: if-statements en vergelijkingsoperatoren</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_lussen_en_herhaling">Lussen en Herhaling</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>While-lussen en for-lussen</p>
-</li>
-<li>
-<p>Gebruik van bereik (range) en iteratie</p>
-</li>
-<li>
-<p>Lusbeheersing met break en continue</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_gegevensstructuren">Gegevensstructuren</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Lijsten: maken, toegang krijgen, wijzigen</p>
-</li>
-<li>
-<p>Tupels: onveranderlijke gegevensstructuren</p>
-</li>
-<li>
-<p>Dictionaries: sleutel-waarde paren voor snelle toegang</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_functies_en_modulariteit">Functies en Modulariteit</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Definiëren en oproepen van functies</p>
-</li>
-<li>
-<p>Parameters en retourwaarden</p>
-</li>
-<li>
-<p>Modulair programmeren en functiebibliotheken</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_bestandsbeheer">Bestandsbeheer</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Tekstbestanden lezen en schrijven</p>
-</li>
-<li>
-<p>Werken met bestandsobjecten en paden</p>
-</li>
-<li>
-<p>Gegevens opslaan en herstellen met bestanden</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_introductie_tot_objectgeoriënteerd_programmeren_oop">Introductie tot Objectgeoriënteerd Programmeren (OOP)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Klassen en objecten: concepten van OOP</p>
-</li>
-<li>
-<p>Eigenschappen (attributen) en methoden</p>
-</li>
-<li>
-<p>Erven en klassenhiërarchieën</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_foutafhandeling_en_uitzonderingen">Foutafhandeling en Uitzonderingen</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Begrijpen van foutmeldingen</p>
-</li>
-<li>
-<p>Try-except blokken voor foutafhandeling</p>
-</li>
-<li>
-<p>Eigen uitzonderingen definiëren</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_geavanceerde_onderwerpen">Geavanceerde Onderwerpen</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Lambda-functies en anonieme functies</p>
-</li>
-<li>
-<p>List comprehensions: compacte lijstopdrachten</p>
-</li>
-<li>
-<p>Modules en externe bibliotheken</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_project_mini_spel_ontwikkeling">Project: Mini-Spel Ontwikkeling</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Brainstormen en ontwerpen van een eenvoudig spel</p>
-</li>
-<li>
-<p>Implementatie van het spel: logica en interactie</p>
-</li>
-<li>
-<p>Testen, oplossen van problemen en verfijnen</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_project_toepassing_van_python_in_het_echte_leven">Project: Toepassing van Python in het Echte Leven</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Dataverwerking en analyse</p>
-</li>
-<li>
-<p>Automatisering van taken</p>
-</li>
-<li>
-<p>Basis web scraping (gegevens van websites halen)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_afsluiting_en_volgende_stappen">Afsluiting en Volgende Stappen</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Terugblik op wat we hebben geleerd</p>
-</li>
-<li>
-<p>Hulpmiddelen en bronnen voor verdere studie</p>
-</li>
-<li>
-<p>Mogelijke carrièrepaden met Python-programmering</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Let op: Deze inhoudsopgave is slechts een suggestie. De exacte inhoud en volgorde van de cursus kunnen worden aangepast aan de behoeften en het niveau van de deelnemende middelbare scholieren.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<h1 id="_programmeren" class="sect0">Programmeren</h1>
-<div class="sect1">
-<h2 id="_programmeertaal">Programmeertaal</h2>
-<div class="sectionbody">
 <div class="sect2">
 <h3 id="_opdrachten_voor_de_computer">Opdrachten voor de computer</h3>
 <div class="paragraph">
@@ -704,11 +816,11 @@ Let op: Deze inhoudsopgave is slechts een suggestie. De exacte inhoud en volgord
 </div>
 <div class="paragraph">
 <p>Opdrachten worden gegeven via een programma.
-De computer bestaat uit verschillende onderdelen. Het is de CPU of centrale rekeneenheid die het programma interpreteerd.</p>
+De computer bestaat uit verschillende onderdelen. Het is de CPU, processor of centrale rekeneenheid die het programma interpreteert.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="motherboard.webp" alt="De onderdelen van een moederbord.">
+<img src="images/motherboard-drawing-53.png" alt="De onderdelen van een moederbord.">
 </div>
 </div>
 <div class="paragraph">
@@ -725,26 +837,26 @@ Hier zijn heel wat standaarden in:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>x86 (32bit)</p>
+<p>x86 (32bit), ontwikkeld door Intel</p>
 <div class="imageblock">
 <div class="content">
-<img src="x86.jpg" alt="x86 cpu" width="30%" height="auto">
+<img src="images/x86.jpg" alt="x86 cpu" width="30%" height="auto">
 </div>
 </div>
 </li>
 <li>
-<p>x64 (64bit)</p>
+<p>x64 (64bit), de modernere variant ontwikkeld door AMD</p>
 <div class="imageblock">
 <div class="content">
-<img src="AMD_Opteron_146_Venus,_2005.jpg" alt="x64 cpu" width="30%" height="auto">
+<img src="images/AMD_Opteron_146_Venus,_2005.jpg" alt="x64 cpu" width="30%" height="auto">
 </div>
 </div>
 </li>
 <li>
-<p>ARM</p>
+<p>ARM, een zuinigere architectuur, deze zit bijna iedere smartphone.</p>
 <div class="imageblock">
 <div class="content">
-<img src="arm.webp" alt="ARM cpu" width="30%" height="auto">
+<img src="images/arm.webp" alt="ARM cpu" width="30%" height="auto">
 </div>
 </div>
 </li>
@@ -752,7 +864,7 @@ Hier zijn heel wat standaarden in:</p>
 <p>RISC</p>
 <div class="imageblock">
 <div class="content">
-<img src="KL_Sun_UltraSparc.jpg" alt="SUN Sparc RISC cpu" width="30%" height="auto">
+<img src="images/KL_Sun_UltraSparc.jpg" alt="SUN Sparc RISC cpu" width="30%" height="auto">
 </div>
 </div>
 </li>
@@ -760,19 +872,19 @@ Hier zijn heel wat standaarden in:</p>
 <p>Mainframe</p>
 <div class="imageblock">
 <div class="content">
-<img src="mainframe1.jpg" alt="mainframe" width="400px" height="auto">
+<img src="images/mainframe1.jpg" alt="mainframe" width="400px" height="auto">
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="mainframe.jpg" alt="modern mainframe" width="400px" height="auto">
+<img src="images/mainframe.jpg" alt="modern mainframe" width="400px" height="auto">
 </div>
 </div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Aan deze architectuurstandaarden van CPU&#8217;s kunnen opdrachten gegeven worden via <strong>de instructieset</strong>, dit is de <mark>machinetaal</mark>.
+<p>Aan deze architectuurstandaarden van CPU&#8217;s kunnen opdrachten gegeven worden via <strong>de instructieset</strong>, dit is de <mark>machinetaal</mark> van de processor.
 Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel een getal op, haal een waarde op van de ssd, &#8230;&#8203;)</p>
 </div>
 <div class="paragraph">
@@ -780,7 +892,7 @@ Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel e
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="assembly.jpeg" alt="Assembly en machinetaal">
+<img src="images/assembly.jpeg" alt="Assembly en machinetaal">
 </div>
 </div>
 <div class="paragraph">
@@ -801,16 +913,15 @@ Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel e
 <div class="paragraph">
 <p>De machinetaal wordt bijgehouden in een uitvoerbaar bestand of <em>executable</em> (iets waarop je kan dubbelklikken om het programma te openen).</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</h3>
+<div class="sect3">
+<h4 id="_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</h4>
 <div class="ulist">
 <ul>
 <li>
 <p>C</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>#include &lt;stdio.h&gt;
+<pre class="rouge highlight"><code>#include &lt;stdio.h&gt;
 
 int main()
 {
@@ -824,7 +935,7 @@ int main()
 <p>Cpp</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>#include &lt;iostream&gt;
+<pre class="rouge highlight"><code>#include &lt;iostream&gt;
 using namespace std;
 int main()
 {
@@ -838,7 +949,7 @@ int main()
 <p>Ruby</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>puts "Hello World!"</code></pre>
+<pre class="rouge highlight"><code>puts "Hello World!"</code></pre>
 </div>
 </div>
 </li>
@@ -846,7 +957,7 @@ int main()
 <p>Java</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>    class MyClass{
+<pre class="rouge highlight"><code>    class MyClass{
         public static void main(String args[]){
          System.out.println("Hello Java");
         }
@@ -858,7 +969,7 @@ int main()
 <p>Python 3</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>print("Hello, World!")</code></pre>
+<pre class="rouge highlight"><code>print("Hello, World!")</code></pre>
 </div>
 </div>
 </li>
@@ -866,7 +977,7 @@ int main()
 <p>C#</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>using System;
+<pre class="rouge highlight"><code>using System;
 namespace HelloWorldApp {
     class MyClass {
         static void Main(string[] args) {
@@ -882,7 +993,7 @@ namespace HelloWorldApp {
 <p>Fortran</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>program hello
+<pre class="rouge highlight"><code>program hello
   print *, 'Hello, World!'
 end program hello</code></pre>
 </div>
@@ -892,42 +1003,67 @@ end program hello</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</h3>
 <div class="imageblock">
 <div class="content">
-<img src="ComputerLanguagesChart.png" alt="ComputerLanguagesChart">
+<img src="images/ComputerLanguagesChart.png" alt="ComputerLanguagesChart">
 </div>
 </div>
+<div class="paragraph">
+<p>Er zijn voortdurend nieuwe ontwikkelingen in programmeertalen. Nieuwe talen worden ontwikkeld. Ze kunnen populair worden, bijna niet gebruikt worden of andere talen beïnvloeden met hun nieuwe ideeën.
+Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het verschil tussen python versie 1 en versie 3.11 is enorm groot. Hoewel het om dezelfde programmeertaal gaat, zal een programma ontwikkeld voor pyhton 3, niet meer werken op python 1.</p>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_cursus_programmeren_met_python">Cursus Programmeren met Python</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</h3>
+<div class="paragraph">
+<p>De geschiedenis van programmeertalen is een evolutie gedreven door innovatie om aan steeds veranderende softwarebehoeften te voldoen. Laten we enkele belangrijke mijlpalen in de geschiedenis van programmeertalen nader bekijken:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>1940s-1950s:</strong> De allereerste programmeertalen, zoals Assembly en Fortran, waren voornamelijk gericht op machinetaal en technische details.</p>
+</li>
+<li>
+<p><strong>1950s-1960s:</strong> Talen zoals COBOL en ALGOL introduceerden hogere abstractie en leesbaarheid, wat programmeren toegankelijker maakte.</p>
+</li>
+<li>
+<p><strong>1960s-1970s:</strong> De opkomst van talen zoals C en Pascal bracht gestructureerd programmeren en modulariteit naar voren.</p>
+</li>
+<li>
+<p><strong>1980s-1990s:</strong> Objectgeoriënteerde talen zoals C++ en Java versterkten concepten zoals herbruikbaarheid en complexe softwareontwikkeling.</p>
+</li>
+<li>
+<p><strong>2000s-heden:</strong> Moderne talen zoals Python leggen de nadruk op leesbaarheid, productiviteit en veelzijdigheid, waardoor ze geschikt zijn voor diverse toepassingen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cursus_programmeren_met_python">Cursus Programmeren met Python</h3>
 <div class="paragraph">
 <p>In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Python is open source, wat betekent dat je het gratis kunt gebruiken zonder licentiekosten.</p>
+<p>Python is <strong>open source</strong>, wat betekent dat je het gratis kunt gebruiken zonder licentiekosten.</p>
 </li>
 <li>
-<p>Python is een krachtige programmeertaal.</p>
+<p>Python is een <strong>krachtige programmeertaal</strong>.</p>
 </li>
 <li>
-<p>Het is een objectgeoriënteerde taal en werkt met klassen naast functies.</p>
+<p>Het is een <strong>objectgeoriënteerde</strong> taal en werkt met klassen naast functies.</p>
 </li>
 <li>
-<p>Python is een multiplatform programmeertaal. Zodra de code is geschreven, werkt deze op Windows, Linux, MacOSX, en meer.</p>
+<p>Python is een <strong>multiplatform</strong> programmeertaal. Zodra de code is geschreven, werkt deze op Windows, Linux, MacOSX, en meer.</p>
 </li>
 <li>
 <p>Python heeft een functionele programmeerstijl, naast het objectgeoriënteerde aspect (waardoor het een meervoudige paradigma-taal is).</p>
 </li>
 <li>
-<p>Python is populair in het bedrijfsleven en in diverse sectoren.</p>
+<p>Python is <strong>populair</strong> in het bedrijfsleven en in diverse sectoren.</p>
 </li>
 <li>
 <p>Python maakt gebruik van veel concepten die ook in andere programmeertalen voorkomen. Als je eenmaal Python beheerst, kun je gemakkelijk overstappen naar andere talen.</p>
@@ -935,40 +1071,32 @@ end program hello</code></pre>
 </ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_de_ontwikkeling_van_python">De Ontwikkeling van Python</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_de_ontwikkeling_van_python">De Ontwikkeling van Python</h3>
 <div class="paragraph">
-<p>Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en doelstellingen die de unieke kenmerken van de taal hebben beïnvloed.</p>
-</div>
-<div class="paragraph">
-<p>Python werd ontwikkeld met de volgende belangrijkste doelen:</p>
+<p>Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en die de kenmerken van de taal hebben beïnvloed:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Vereenvoudigde Leesbaarheid: Python streefde naar een duidelijke en begrijpelijke syntaxis om code leesbaarder te maken.</p>
+<p>Leesbaarheid en Eenvoud: Guido van Rossum streefde ernaar om een programmeertaal te maken met een <strong>duidelijke en elegante syntaxis</strong>, zodat ontwikkelaars gemakkelijk code konden schrijven en begrijpen.</p>
 </li>
 <li>
-<p>Verhoogde Productiviteit: Het doel was om ontwikkelaars in staat te stellen code sneller en efficiënter te schrijven.</p>
+<p>Productiviteit: Hij wilde een taal creëren die ontwikkelaars in staat zou stellen <strong>sneller en efficiënter</strong> code te schrijven, zonder zich te veel bezig te houden met technische details.</p>
 </li>
 <li>
-<p>Modulaire Herbruikbaarheid: Python promootte modulaire programmering en herbruikbare code met functies en klassen.</p>
+<p>Modulariteit en Herbruikbaarheid: Python moedigt modulaire programmering aan, wat betekent dat ontwikkelaars code in <strong>kleine, herbruikbare modules</strong> kunnen organiseren. Dit maakt het eenvoudiger om complexe problemen aan te pakken.</p>
 </li>
 <li>
-<p>Cross-platform Compatibiliteit: Het beoogde een platformonafhankelijke uitvoering van code zonder grote wijzigingen.</p>
+<p>Diversiteit aan Toepassingen: Guido van Rossum wilde een taal ontwerpen die geschikt was voor <strong>verschillende toepassingsgebieden</strong>, waaronder webontwikkeling, data-analyse, wetenschappelijke berekeningen en meer.</p>
 </li>
 <li>
-<p>Gemeenschapsgerichtheid: Python werd open source om samenwerking en bijdragen te bevorderen.</p>
-</li>
-<li>
-<p>Diversiteit van Toepassingen: Python wilde een veelzijdige taal zijn voor webontwikkeling, data-analyse, AI en meer.</p>
+<p>Gemeenschap en Samenwerking: Guido heeft Python als <strong>open-sourceproject</strong> beschikbaar gesteld, wat heeft bijgedragen aan het ontstaan van een actieve en betrokken gemeenschap van ontwikkelaars.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Deze doelen hebben geleid tot de ontwikkeling van Python als een krachtige, leesbare en veelzijdige programmeertaal. In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.</p>
+<p>In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.</p>
 </div>
 <div class="paragraph">
 <p>Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals C++ en Java:</p>
@@ -990,26 +1118,23 @@ end program hello</code></pre>
 <li>
 <p>Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.</p>
 </li>
-<li>
-<p>Community Samenwerking: De Python-community heeft bijgedragen aan een uitgebreid scala aan modules en tools die wereldwijd beschikbaar zijn voor ontwikkelaars.</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.</p>
 </div>
-<div class="sect2">
-<h3 id="_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</h3>
+<div class="sect3">
+<h4 id="_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</h4>
 <div class="paragraph">
 <p>Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Snelheid: Python kan trager zijn dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.</p>
+<p>Snelheid: Python <strong>kan trager zijn</strong> dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.</p>
 </li>
 <li>
-<p>Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in multi-threaded applicaties kan beperken.</p>
+<p>Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in <strong>multi-threaded</strong> applicaties kan beperken.</p>
 </li>
 <li>
 <p>Mobiele Ontwikkeling: Voor mobiele app-ontwikkeling is Python minder gangbaar dan talen zoals Java (voor Android) en Swift (voor iOS).</p>
@@ -1026,8 +1151,8 @@ end program hello</code></pre>
 <p>Ondanks deze nadelen wordt Python nog steeds breed gebruikt vanwege zijn veelzijdigheid en leesbaarheid.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_de_snelheid_van_python">De snelheid van Python</h3>
+<div class="sect3">
+<h4 id="_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</h4>
 <div class="paragraph">
 <p>Python kan trager zijn dan C++ om verschillende redenen:</p>
 </div>
@@ -1055,10 +1180,8 @@ end program hello</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_python_schrijven_of_programmeren">Python schrijven (of programmeren)</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_python_schrijven_of_programmeren">Python schrijven (of programmeren)</h3>
 <div class="paragraph">
 <p>Python wordt geschreven in een <mark>tekst document</mark>.
 Dit tekst document heeft de <mark>.py extensie</mark>.
@@ -1066,8 +1189,8 @@ Bijvoorbeeld: MijnPythonBestand.py .
 Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
 De tekst die je schrijft moet wel voldoen aan de <mark>syntax</mark> van de taal.</p>
 </div>
-<div class="sect2">
-<h3 id="_de_syntax">De syntax</h3>
+<div class="sect3">
+<h4 id="_de_syntax">De syntax</h4>
 <div class="paragraph">
 <p>Iedere programmeertaal bestaat uit een syntax.
 Dit zijn een reeks afspraken van de taal:</p>
@@ -1075,24 +1198,24 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Welke woorden kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.</p>
+<p><strong>Welke woorden</strong> kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.</p>
 </li>
 <li>
-<p>welke woorden zijn gereserveerd door de programmeertaal? Bijvoorbeeld het <em>return</em> woord.</p>
+<p>welke woorden zijn <strong>gereserveerd</strong> door de programmeertaal? Bijvoorbeeld het <em>return</em> woord.</p>
 </li>
 <li>
-<p>Op welke plaats mogen deze woorden staan?</p>
+<p>Op welke <strong>plaats</strong> mogen deze woorden staan?</p>
 </li>
 <li>
-<p>Welke scheidingskarakters worden toegestaan of verplicht? Python verplicht bijvoorbeeld <em>:</em> na een for lus.</p>
+<p>Welke <strong>scheidingskarakters</strong> worden toegestaan of verplicht? Python verplicht bijvoorbeeld <em>:</em> na een for lus.</p>
 </li>
 <li>
-<p>Hoe belangrijk is indentatie?</p>
+<p>Hoe belangrijk is <strong>indentatie</strong>?</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Om succesvol te programmeren dien je de syntax van een taal te kennen.</p>
+<p><mark>Om succesvol te programmeren dien je de syntax van een taal te kennen</mark>.</p>
 </div>
 <div class="paragraph">
 <p>De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.</p>
@@ -1100,34 +1223,31 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 </div>
-<h1 id="_cursus_python_voor_middelbare_scholieren_2" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
+</div>
 <div class="sect1">
-<h2 id="_inleiding_tot_python_2">Inleiding tot Python</h2>
+<h2 id="_inleiding_tot_python">Inleiding tot Python</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_wat_is_python_en_waarom_leren_we_het">Wat is Python en waarom leren we het?</h3>
+<h3 id="_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</h3>
 <div class="paragraph">
-<p>Python is een dynamische, veelzijdige en gebruiksvriendelijke programmeertaal die wereldwijd wordt gebruikt voor een breed scala aan toepassingen. De taal is ontwikkeld door Guido van Rossum en werd voor het eerst uitgebracht in 1991. Sindsdien heeft Python een enorme populariteit en acceptatie bereikt in de softwareontwikkelingsgemeenschap vanwege zijn leesbare syntaxis en rijke functionaliteit.</p>
-</div>
-<div class="paragraph">
-<p>Python blinkt uit in leesbaarheid en expressiviteit, wat betekent dat de code bijna als natuurlijke taal lijkt. Dit maakt het gemakkelijker voor beginners om te leren en begrijpen, zelfs zonder voorkennis van programmeren. Laten we eens dieper ingaan op waarom Python zo&#8217;n geschikte taal is voor middelbare scholieren om te leren.</p>
+<p>Bij het kiezen van een programmeertaal, zoals Python of Java, rijst vaak de vraag welke het meest geschikt is. Hoewel beide talen krachtige tools zijn voor softwareontwikkeling, zijn er enkele overwegingen die Python tot een aantrekkelijke keuze maken, vooral voor beginners en middelbare scholieren.</p>
 </div>
 <div class="sect3">
-<h4 id="_eenvoudige_en_leesbare_syntax">Eenvoudige en Leesbare Syntax</h4>
+<h4 id="_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</h4>
 <div class="paragraph">
-<p>De syntaxis van Python is ontworpen om zo dicht mogelijk bij alledaagse taal te blijven. Hierdoor kunnen ontwikkelaars hun gedachten gemakkelijk omzetten in code zonder zich zorgen te maken over complexe syntaxregels. Laten we een vergelijking maken tussen een eenvoudige opdracht in Python en dezelfde opdracht in een andere taal, zoals Java:</p>
+<p>Python onderscheidt zich door zijn eenvoudige en leesbare syntaxis. Dit betekent dat code in Python bijna als natuurlijke taal lijkt en gemakkelijk te begrijpen is, zelfs voor mensen zonder programmeerachtergrond. Laten we dit vergelijken met een eenvoudig voorbeeld in zowel Python als Java:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Python
-print("Hallo, wereld!")
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Python
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
 
-# Java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hallo, wereld!");
-    }
-}</code></pre>
+<span class="c1"># Java
+</span><span class="n">public</span> <span class="k">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1135,9 +1255,71 @@ public class HelloWorld {
 </div>
 </div>
 <div class="sect3">
+<h4 id="_snel_prototypen_en_snelle_ontwikkeling">Snel Prototypen en Snelle Ontwikkeling</h4>
+<div class="paragraph">
+<p>Python staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het vereist minder code om dezelfde functionaliteit te bereiken in vergelijking met talen zoals Java. Dit is vooral handig bij het maken van prototypes en het iteratief ontwikkelen van projecten. Laten we een vergelijking maken tussen een eenvoudige lijstverwerkingstaak in beide talen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Python
+</span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+
+<span class="c1"># Java
+</span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">SquaredNumbers</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">squared</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Integer</span> <span class="n">num</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">squared</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld toont Python zijn beknopte syntaxis en vermogen om complexe operaties te vereenvoudigen. Dit kan leiden tot een productievere ontwikkeling en snellere resultaten, vooral voor beginners.</p>
+</div>
+<div class="paragraph">
+<p>Laten we nog een eenvoudig voorbeeld bekijken om het verschil tussen Python en Java te illustreren bij het uitvoeren van een eenvoudige berekening, bijvoorbeeld het berekenen van de som van getallen van 1 tot 10.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Python
+</span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"De som is:"</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="c1">// Java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SumExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"De som is: "</span> <span class="o">+</span> <span class="n">total</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Zoals je kunt zien, vereenvoudigt Python de berekening en resulteert in minder code.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_brede_toepassingsmogelijkheden">Brede Toepassingsmogelijkheden</h4>
 <div class="paragraph">
-<p>Python wordt gebruikt in een breed scala aan domeinen, waaronder:</p>
+<p>Hoewel Java een krachtige taal is voor het bouwen van complexe systemen, biedt Python een breed scala aan toepassingen en domeinen. Python wordt gebruikt voor webontwikkeling, gegevensanalyse, machine learning, wetenschappelijke berekeningen en nog veel meer. Het is zelfs een populaire taal voor scripting en automatisering. Deze veelzijdigheid stelt ontwikkelaars in staat om hun vaardigheden over verschillende disciplines toe te passen zonder van taal te hoeven wisselen.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1159,148 +1341,6 @@ public class HelloWorld {
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_waarom_middelbare_scholieren_python_zouden_moeten_leren">Waarom Middelbare Scholieren Python Zouden Moeten Leren</h4>
-<div class="paragraph">
-<p>Het leren van Python biedt middelbare scholieren een reeks waardevolle voordelen:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Eenvoudig te Leren:</strong> De leesbare syntaxis maakt Python toegankelijk voor beginners. Middelbare scholieren kunnen snel fundamentele concepten van programmeren begrijpen en toepassen.</p>
-</li>
-<li>
-<p><strong>Creativiteit en Probleemoplossing:</strong> Python stelt studenten in staat om hun creativiteit te uiten door software-oplossingen te ontwerpen voor reële problemen. Ze kunnen hun ideeën omzetten in werkende code.</p>
-</li>
-<li>
-<p><strong>Bouwstenen voor de Toekomst:</strong> Python vormt een sterke basis voor het leren van andere programmeertalen. De concepten die in Python worden begrepen, zijn van toepassing op veel andere talen.</p>
-</li>
-<li>
-<p><strong>Carrièremogelijkheden:</strong> Programmeervaardigheden zijn zeer gewild in de moderne arbeidsmarkt. Python-skills openen deuren naar toekomstige carrièremogelijkheden.</p>
-</li>
-<li>
-<p><strong>Diverse Toepassingen:</strong> Python kan worden gebruikt in verschillende contexten, van wetenschappelijk onderzoek tot het ontwikkelen van apps. Dit maakt het een waardevolle vaardigheid voor verschillende interesses.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Door Python te leren, zullen middelbare scholieren niet alleen praktische programmeervaardigheden ontwikkelen, maar ook cognitieve vaardigheden verbeteren, zoals logisch denken, probleemoplossing en analytische vaardigheden. Bovendien zullen ze een solide basis leggen voor verdere studie en hun kennisgebieden verbreden.</p>
-</div>
-<div class="paragraph">
-<p>In de komende secties van deze cursus zullen we dieper ingaan op de fundamenten van Python-programmering. We beginnen met de basisconcepten en werken stap voor stap door naar meer geavanceerde onderwerpen. Tegen het einde van de cursus zullen deelnemers in staat zijn om eenvoudige programma&#8217;s te schrijven, kleine projecten te bouwen en hun leertraject in programmeren voort te zetten.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<h1 id="_cursus_python_voor_middelbare_scholieren_3" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
-<div class="sect1">
-<h2 id="_inleiding_tot_python_3">Inleiding tot Python</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</h3>
-<div class="paragraph">
-<p>Bij het kiezen van een programmeertaal, zoals Python of Java, rijst vaak de vraag welke het meest geschikt is. Hoewel beide talen krachtige tools zijn voor softwareontwikkeling, zijn er enkele overwegingen die Python tot een aantrekkelijke keuze maken, vooral voor beginners en middelbare scholieren.</p>
-</div>
-<div class="sect3">
-<h4 id="_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</h4>
-<div class="paragraph">
-<p>Python onderscheidt zich door zijn eenvoudige en leesbare syntaxis. Dit betekent dat code in Python bijna als natuurlijke taal lijkt en gemakkelijk te begrijpen is, zelfs voor mensen zonder programmeerachtergrond. Laten we dit vergelijken met een eenvoudig voorbeeld in zowel Python als Java:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Python
-print("Hallo, wereld!")
-
-# Java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hallo, wereld!");
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Het verschil in leesbaarheid is duidelijk. De Python-code is korter, duidelijker en vereist minder syntactische overhead. Dit maakt het voor beginners veel gemakkelijker om te leren en zich te concentreren op de kern van het programmeren.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_snel_prototypen_en_snelle_ontwikkeling">Snel Prototypen en Snelle Ontwikkeling</h4>
-<div class="paragraph">
-<p>Python staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het vereist minder code om dezelfde functionaliteit te bereiken in vergelijking met talen zoals Java. Dit is vooral handig bij het maken van prototypes en het iteratief ontwikkelen van projecten. Laten we een vergelijking maken tussen een eenvoudige lijstverwerkingstaak in beide talen:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Python
-numbers = [1, 2, 3, 4, 5]
-squared = [num ** 2 for num in numbers]
-
-# Java
-import java.util.ArrayList;
-
-public class SquaredNumbers {
-    public static void main(String[] args) {
-        ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;&gt;();
-        numbers.add(1);
-        numbers.add(2);
-        numbers.add(3);
-        numbers.add(4);
-        numbers.add(5);
-
-        ArrayList&lt;Integer&gt; squared = new ArrayList&lt;&gt;();
-        for (Integer num : numbers) {
-            squared.add(num * num);
-        }
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In dit voorbeeld toont Python zijn concieze syntaxis en vermogen om complexe operaties te vereenvoudigen. Dit kan leiden tot een productievere ontwikkeling en snellere resultaten, vooral voor beginners.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_brede_toepassingsmogelijkheden_2">Brede Toepassingsmogelijkheden</h4>
-<div class="paragraph">
-<p>Hoewel Java een krachtige taal is voor het bouwen van complexe systemen, biedt Python een breed scala aan toepassingen en domeinen. Python wordt gebruikt voor webontwikkeling, gegevensanalyse, machine learning, wetenschappelijke berekeningen en nog veel meer. Het is zelfs een populaire taal voor scripting en automatisering. Deze veelzijdigheid stelt ontwikkelaars in staat om hun vaardigheden over verschillende disciplines toe te passen zonder van taal te hoeven wisselen.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_snelle_leercurve">Snelle Leercurve</h4>
-<div class="paragraph">
-<p>Python&#8217;s eenvoudige syntaxis en leesbaarheid vertalen zich in een snelle leercurve. Middelbare scholieren kunnen sneller fundamentele concepten van programmeren begrijpen en beginnen met het bouwen van werkende toepassingen. Dit bevordert een positieve leerervaring en moedigt studenten aan om hun vaardigheden verder te ontwikkelen.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_codevoorbeeld_eenvoudige_berekening">Codevoorbeeld: Eenvoudige Berekening</h4>
-<div class="paragraph">
-<p>Laten we een eenvoudig voorbeeld bekijken om het verschil tussen Python en Java te illustreren bij het uitvoeren van een eenvoudige berekening, bijvoorbeeld het berekenen van de som van getallen van 1 tot 10.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Python
-total = sum(range(1, 11))
-print("De som is:", total)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">// Java
-public class SumExample {
-    public static void main(String[] args) {
-        int total = 0;
-        for (int i = 1; i &lt;= 10; i++) {
-            total += i;
-        }
-        System.out.println("De som is: " + total);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Zoals je kunt zien, vereenvoudigt Python de berekening en resulteert in minder code.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_conclusie">Conclusie</h3>
@@ -1310,142 +1350,100 @@ public class SumExample {
 </div>
 </div>
 </div>
-<h1 id="_cursus_python_voor_middelbare_scholieren_4" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
 <div class="sect1">
-<h2 id="_dieper_duiken_in_python_van_code_naar_uitvoering">Dieper Duiken in Python: Van Code naar Uitvoering</h2>
+<h2 id="_van_code_naar_uitvoering_op_de_cpu">Van Code naar Uitvoering op de CPU</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Deze python code print een tekst naar de console:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'Hello world!'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maar toch wordt deze codeopdracht niet rechtstreeks uitgevoerd op de CPU. De CPU werkt immers enkel op machinecode instructies.</p>
+</div>
+<div class="paragraph">
+<p>Er worden dus enkele tussenliggende stappen uitgevoerd.</p>
+</div>
 <div class="sect2">
-<h3 id="_het_traject_van_python_code_naar_uitvoering_op_de_cpu">Het Traject van Python Code naar Uitvoering op de CPU</h3>
+<h3 id="_de_rol_van_de_interpreter">De Rol van de Interpreter</h3>
 <div class="paragraph">
-<p>Het proces van het omzetten van Python-code naar uitvoering op de CPU is een intrigerende reis door verschillende tussenliggende stappen. Laten we deze stappen in nauwkeuriger detail bekijken.</p>
+<p>Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de <mark>Python-interpreter</mark>.</p>
 </div>
-<div class="sect3">
-<h4 id="_de_rol_van_de_interpreter">De Rol van de Interpreter</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/pythonvirtualmachine.png" alt="pythonvirtualmachine">
+</div>
+</div>
 <div class="paragraph">
-<p>Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de Python-interpreter.</p>
+<p>De Python-interpreter vertaalt de menselijk leesbare Python-code naar een vorm van tussentaal die bekend staat als <mark>bytecode</mark>. Bytecode is een reeks instructies die specifiek zijn ontworpen om te worden uitgevoerd door de <mark>Python Virtual Machine (PVM)</mark>. Dit virtuele uitvoeringssysteem fungeert als een brug tussen de abstracte code en de werkelijke uitvoering op de CPU.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/python-virtual-machine.webp" alt="python virtual machine">
+</div>
 </div>
 <div class="paragraph">
-<p>De Python-interpreter vertaalt de menselijk leesbare Python-code naar een vorm van tussentaal die bekend staat als bytecode. Bytecode is een reeks instructies die specifiek zijn ontworpen om te worden uitgevoerd door de Python Virtual Machine (PVM). Dit virtuele uitvoeringssysteem fungeert als een brug tussen de abstracte code en de werkelijke uitvoering op de CPU.</p>
+<p>Dit is bijvoorbeeld de gegenereerde bytecode van het 'Hello world' programma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>\00\00\00\00\EA\D5\E5d\00\00\00\E3\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00@\00\00\00s\00\00\00e\00d\00\83\00dS\00)zHello world!N)\DAprint\A9\00r\00\00\00r\00\00\00\FAR/home/mark/Documents/python/liclipse-workspace/pythontest/pythoncode/helloworld.py\DA&lt;module&gt;\00\00\00s\00\00\00\00\00</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</h4>
+<div class="paragraph">
+<p>Voor ons is dit moeilijk leesbaar, maar de Python virtual machine kan dit perfect lezen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</h3>
 <div class="paragraph">
 <p>Machinecode is de laagste niveau van instructies die de CPU direct begrijpt. Echter, voordat de machinecode wordt bereikt, wordt de bytecode verwerkt door de PVM, die het omzet in instructies die kunnen worden uitgevoerd door de fysieke CPU van de computer.</p>
 </div>
 <div class="paragraph">
-<p>De PVM is in feite een interpreter voor bytecode die ervoor zorgt dat de code wordt uitgevoerd op verschillende platforms zonder dat het nodig is om dezelfde code te herschrijven voor elk platform. Dit maakt Python een platformonafhankelijke taal.</p>
+<p>De PVM is in feite een interpreter voor bytecode die ervoor zorgt dat de code wordt uitgevoerd op verschillende platforms (Windows, Linux, MacOSX, &#8230;&#8203; , maar ook de processor op dit systeem: x86, ARM, x64, RISC,..) zonder dat het nodig is om dezelfde code te herschrijven voor elk platform. Dit maakt Python een platformonafhankelijke taal.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</h4>
+<div class="sect2">
+<h3 id="_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</h3>
 <div class="paragraph">
-<p>Voordat de code wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze correct is en voldoet aan specifieke coderingsstandaarden. Een linter is een hulpmiddel dat de code analyseert op fouten, inconsistenties en afwijkingen van de conventies.</p>
+<p>Voordat de <mark>code</mark> wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze <mark>correct is en voldoet aan specifieke coderingsstandaarden</mark>. Een linter is een hulpmiddel dat de code <mark>analyseert op fouten, inconsistenties en afwijkingen van de conventies</mark>.</p>
 </div>
 <div class="paragraph">
 <p>Laten we dit illustreren met een voorbeeld van een stukje Python-code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Onjuiste naamgeving van variabelen
-Var = 42
-prinT(var)</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Onjuiste naamgeving van variabelen
+</span><span class="n">Var</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">prinT</span><span class="p">(</span><span class="n">var</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Een linter zou hier waarschuwingen genereren voor onjuiste naamgeving van variabelen en een functie die niet correct is gespeld.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_compilatie_en_uitvoering">Compilatie en Uitvoering</h4>
+<div class="sect2">
+<h3 id="_compilatie_en_uitvoering">Compilatie en Uitvoering</h3>
 <div class="paragraph">
-<p>Python wordt beschouwd als een geïnterpreteerde taal, wat betekent dat de code regel voor regel wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een compilatieproces voordat deze wordt uitgevoerd.</p>
+<p>Python wordt beschouwd als een geïnterpreteerde taal, wat betekent dat de code <mark>regel voor regel</mark> wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een compilatieproces voordat deze wordt uitgevoerd.</p>
 </div>
 <div class="paragraph">
 <p>Echter, Python maakt gebruik van compilatie op verschillende niveaus. Nadat de bytecode is gegenereerd door de interpreter, kan de PVM ervoor kiezen om deze bytecode te compileren naar machinecode op het niveau van de hostcomputer. Deze vorm van compilatie staat bekend als Just-In-Time (JIT) compilatie en draagt bij aan de snelheid van uitvoering van Python-programma&#8217;s.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_een_diepere_duik_in_de_geschiedenis_van_programmeertalen">Een Diepere Duik in de Geschiedenis van Programmeertalen</h4>
-<div class="paragraph">
-<p>De geschiedenis van programmeertalen is een fascinerende reis door evolutie en innovatie om aan steeds veranderende softwarebehoeften te voldoen. Laten we enkele belangrijke mijlpalen in de geschiedenis van programmeertalen nader bekijken:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>1940s-1950s:</strong> De allereerste programmeertalen, zoals Assembly en Fortran, waren voornamelijk gericht op machinetaal en technische details.</p>
-</li>
-<li>
-<p><strong>1950s-1960s:</strong> Talen zoals COBOL en ALGOL introduceerden hogere abstractie en leesbaarheid, wat programmeren toegankelijker maakte.</p>
-</li>
-<li>
-<p><strong>1960s-1970s:</strong> De opkomst van talen zoals C en Pascal bracht gestructureerd programmeren en modulariteit naar voren.</p>
-</li>
-<li>
-<p><strong>1980s-1990s:</strong> Objectgeoriënteerde talen zoals C++ en Java versterkten concepten zoals herbruikbaarheid en complexe softwareontwikkeling.</p>
-</li>
-<li>
-<p><strong>2000s-heden:</strong> Moderne talen zoals Python leggen de nadruk op leesbaarheid, productiviteit en veelzijdigheid, waardoor ze geschikt zijn voor diverse toepassingen.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_codevoorbeeld_berekening_van_fibonacci_getallen">Codevoorbeeld: Berekening van Fibonacci-getallen</h4>
-<div class="paragraph">
-<p>Laten we de voorgaande inzichten toepassen op een bekend probleem: de berekening van Fibonacci-getallen. We vergelijken hier de implementatie in Assembly en Python, twee talen met uiteenlopende niveaus van abstractie.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-assembly" data-lang="assembly">; Assembly
-section .text
-    global _start
-
-_start:
-    mov eax, 0       ; n-2
-    mov ebx, 1       ; n-1
-    mov ecx, 10      ; aantal termen
-loop:
-    add eax, ebx
-    mov ebx, eax
-    call print_eax
-    loop loop
-
-print_eax:
-    ; Implementatie om eax te printen
-    ret</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python"># Python
-def fibonacci(n):
-    fib = [0, 1]
-    for i in range(2, n):
-        fib.append(fib[i-1] + fib[i-2])
-    return fib
-
-n = 10
-result = fibonacci(n)
-print(result)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Dit voorbeeld illustreert duidelijk hoe Python de complexiteit van de berekening abstraheert en leesbaarder maakt, in tegenstelling tot de technische aard van Assembly.</p>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="_samenvatting">Samenvatting</h3>
 <div class="paragraph">
-<p>Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode. Het begrijpen van dit proces helpt bij het waarderen van Python&#8217;s kracht als een veelzijdige, leesbare en productieve programmeertaal.</p>
+<p>Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode.</p>
 </div>
 </div>
 </div>
 </div>
-<h1 id="_cursus_python_voor_middelbare_scholieren_5" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
 <div class="sect1">
-<h2 id="_diepere_duik_in_python_gebruik_van_variabelen">Diepere Duik in Python: Gebruik van Variabelen</h2>
+<h2 id="_gebruik_van_variabelen">Gebruik van Variabelen</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_ontdekking_van_variabelen_in_python">Ontdekking van Variabelen in Python</h3>
@@ -1462,7 +1460,7 @@ print(result)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">leeftijd = 16</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">leeftijd</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1479,7 +1477,7 @@ print(result)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">groet = "Hallo, wereld!"</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, wereld!"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1487,8 +1485,8 @@ print(result)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">groet = "Hallo, wereld!"
-groet = "Hallo, daar!"</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, wereld!"</span>
+<span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, daar!"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1505,16 +1503,16 @@ groet = "Hallo, daar!"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">globale_variabele = 10
+<pre class="rouge highlight"><code data-lang="python"><span class="n">globale_variabele</span> <span class="o">=</span> <span class="mi">10</span>
 
-def functie():
-    lokale_variabele = 5
-    print("Lokale variabele:", lokale_variabele)
-    print("Globale variabele binnen functie:", globale_variabele)
+<span class="k">def</span> <span class="nf">functie</span><span class="p">():</span>
+    <span class="n">lokale_variabele</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele binnen functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
 
-functie()
+<span class="n">functie</span><span class="p">()</span>
 
-print("Globale variabele buiten functie:", globale_variabele)</code></pre>
+<span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele buiten functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1557,16 +1555,16 @@ Globale variabele buiten functie: 10</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">a = 5          # int
-b = 3.14       # float
-naam = "Alice" # str
-waar = True    # bool</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>          <span class="c1"># int
+</span><span class="n">b</span> <span class="o">=</span> <span class="mf">3.14</span>       <span class="c1"># float
+</span><span class="n">naam</span> <span class="o">=</span> <span class="s">"Alice"</span> <span class="c1"># str
+</span><span class="n">waar</span> <span class="o">=</span> <span class="bp">True</span>    <span class="c1"># bool</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verkennen_van_gegevenstypes_in_python">Verkennen van Gegevenstypes in Python</h3>
+<h3 id="_gegevenstypes_in_python">Gegevenstypes in Python</h3>
 <div class="paragraph">
 <p>Gegevenstypes zijn fundamentele bouwstenen in programmeren en stellen ontwikkelaars in staat om verschillende soorten gegevens te representeren en te manipuleren. In Python zijn gegevenstypes ingebouwd en flexibel, wat de taal krachtig en veelzijdig maakt. Laten we dieper ingaan op enkele belangrijke gegevenstypes in Python.</p>
 </div>
@@ -1580,9 +1578,9 @@ waar = True    # bool</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">leeftijd = 16
-temperatuur = -5
-aantal_studenten = 30</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">leeftijd</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">temperatuur</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">aantal_studenten</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
 </div>
 </div>
 </div>
@@ -1596,9 +1594,9 @@ aantal_studenten = 30</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">pi = 3.14159
-geldbedrag = 123.45
-hoogte = -10.5</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">geldbedrag</span> <span class="o">=</span> <span class="mf">123.45</span>
+<span class="n">hoogte</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.5</span></code></pre>
 </div>
 </div>
 </div>
@@ -1612,9 +1610,9 @@ hoogte = -10.5</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">naam = "Alice"
-bericht = 'Hallo, wereld!'
-label = "Productcode: 12345"</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">naam</span> <span class="o">=</span> <span class="s">"Alice"</span>
+<span class="n">bericht</span> <span class="o">=</span> <span class="s">'Hallo, wereld!'</span>
+<span class="n">label</span> <span class="o">=</span> <span class="s">"Productcode: 12345"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1622,10 +1620,10 @@ label = "Productcode: 12345"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">voornaam = "John"
-achternaam = "Doe"
-volledige_naam = voornaam + " " + achternaam
-print(volledige_naam) # Output: John Doe</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">voornaam</span> <span class="o">=</span> <span class="s">"John"</span>
+<span class="n">achternaam</span> <span class="o">=</span> <span class="s">"Doe"</span>
+<span class="n">volledige_naam</span> <span class="o">=</span> <span class="n">voornaam</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">achternaam</span>
+<span class="k">print</span><span class="p">(</span><span class="n">volledige_naam</span><span class="p">)</span> <span class="c1"># Output: John Doe</span></code></pre>
 </div>
 </div>
 </div>
@@ -1639,9 +1637,9 @@ print(volledige_naam) # Output: John Doe</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">is_student = True
-heeft_toegang = False
-is_regenachtig = True</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">is_student</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">heeft_toegang</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">is_regenachtig</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1649,9 +1647,9 @@ is_regenachtig = True</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">a = 5
-b = 10
-resultaat = a &lt; b # True, want 5 is kleiner dan 10</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="c1"># True, want 5 is kleiner dan 10</span></code></pre>
 </div>
 </div>
 </div>
@@ -1662,8 +1660,8 @@ resultaat = a &lt; b # True, want 5 is kleiner dan 10</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">leeftijd = 16
-leeftijd_als_string = str(leeftijd)</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">leeftijd</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">leeftijd_als_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">leeftijd</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -1677,9 +1675,9 @@ leeftijd_als_string = str(leeftijd)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">a = 5
-a = "Hallo"
-a = True</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s">"Hallo"</span>
+<span class="n">a</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
 </div>
 </div>
 </div>
@@ -1689,42 +1687,39 @@ a = True</code></pre>
 <div class="paragraph">
 <p>De verscheidenheid aan gegevenstypes in Python, waaronder integer, float, string en boolean, biedt ontwikkelaars flexibiliteit bij het manipuleren van verschillende soorten gegevens. Het begrijpen van deze gegevenstypes en hun toepassingen is essentieel voor het schrijven van effectieve en veelzijdige Python-programma&#8217;s.</p>
 </div>
-<div class="sect3">
-<h4 id="_variabelen_en_expressies">Variabelen en Expressies</h4>
+</div>
+<div class="sect2">
+<h3 id="_variabelen_en_expressies">Variabelen en Expressies</h3>
 <div class="paragraph">
 <p>Variabelen kunnen worden gebruikt in wiskundige en logische expressies om complexere berekeningen uit te voeren. Bijvoorbeeld:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">lengte = 10
-breedte = 5
-oppervlakte = lengte * breedte
-print("Oppervlakte:", oppervlakte)</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">lengte</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">breedte</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">lengte</span> <span class="o">*</span> <span class="n">breedte</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Oppervlakte:"</span><span class="p">,</span> <span class="n">oppervlakte</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In dit voorbeeld wordt de variabele <code>oppervlakte</code> berekend door de waarden van de variabelen <code>lengte</code> en <code>breedte</code> met elkaar te vermenigvuldigen.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_conclusie_3">Conclusie</h3>
+<div class="sect3">
+<h4 id="_conclusie_3">Conclusie</h4>
 <div class="paragraph">
 <p>Variabelen zijn een essentieel concept in Python-programmering, waardoor ontwikkelaars gegevens kunnen opslaan, manipuleren en gebruiken in hun</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_diepere_duik_in_python_functies_en_herbruikbaarheid_van_code">Diepere Duik in Python: Functies en Herbruikbaarheid van Code</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_het_belang_van_functies_in_python">Het Belang van Functies in Python</h3>
+<h3 id="_diepere_duik_in_python_functies_en_herbruikbaarheid_van_code">Diepere Duik in Python: Functies en Herbruikbaarheid van Code</h3>
+<div class="sect3">
+<h4 id="_het_belang_van_functies_in_python">Het Belang van Functies in Python</h4>
 <div class="paragraph">
 <p>Functies zijn een essentieel concept in Python en programmeren in het algemeen. Ze stellen ontwikkelaars in staat om logica te groeperen en te structureren, waardoor code modulair en herbruikbaar wordt. Door functies te gebruiken, kun je complexe problemen opdelen in kleinere, beheersbare stappen, waardoor het gemakkelijker wordt om de functionaliteit van een programma te begrijpen, te onderhouden en uit te breiden.</p>
 </div>
-<div class="sect3">
-<h4 id="_functies_definiëren_en_oproepen">Functies Definiëren en Oproepen</h4>
+<div class="sect4">
+<h5 id="_functies_definiëren_en_oproepen">Functies Definiëren en Oproepen</h5>
 <div class="paragraph">
 <p>Het definiëren van een functie begint met het <code>def</code>-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.</p>
 </div>
@@ -1733,15 +1728,15 @@ print("Oppervlakte:", oppervlakte)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def optellen(a, b):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie telt twee getallen op en geeft het resultaat terug.
     :param a: Het eerste getal.
     :param b: Het tweede getal.
     :return: Het resultaat van de optelling.
-    """
-    resultaat = a + b
-    return resultaat</code></pre>
+    """</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1749,25 +1744,27 @@ print("Oppervlakte:", oppervlakte)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">som = optellen(5, 3)
-print(som) # Output: 8</code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">som</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<h1 id="_cursus_python_voor_middelbare_scholieren_6" class="sect0">Cursus Python voor Middelbare Scholieren</h1>
+</div>
 <div class="sect1">
-<h2 id="_diepere_duik_in_python_parameters_in_functies">Diepere Duik in Python: Parameters in Functies</h2>
+<h2 id="_cursus_python_voor_middelbare_scholieren">Cursus Python voor Middelbare Scholieren</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_het_belang_van_parameters_in_functies">Het Belang van Parameters in Functies</h3>
+<h3 id="_diepere_duik_in_python_parameters_in_functies">Diepere Duik in Python: Parameters in Functies</h3>
+<div class="sect3">
+<h4 id="_het_belang_van_parameters_in_functies">Het Belang van Parameters in Functies</h4>
 <div class="paragraph">
 <p>Parameters zijn een cruciaal concept bij het definiëren en aanroepen van functies in Python. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd. Laten we dieper ingaan op verschillende aspecten van het gebruik van parameters in functies.</p>
 </div>
-<div class="sect3">
-<h4 id="_positionele_parameters">Positionele Parameters</h4>
+<div class="sect4">
+<h5 id="_positionele_parameters">Positionele Parameters</h5>
 <div class="paragraph">
 <p>Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.</p>
 </div>
@@ -1776,23 +1773,23 @@ print(som) # Output: 8</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def optellen(a, b):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie telt twee getallen op.
     :param a: Het eerste getal.
     :param b: Het tweede getal.
     :return: Het resultaat van de optelling.
-    """
-    resultaat = a + b
-    return resultaat
+    """</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
 
-som = optellen(5, 3)
-print(som) # Output: 8</code></pre>
+<span class="n">som</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_standaardwaarden_voor_parameters">Standaardwaarden voor Parameters</h4>
+<div class="sect4">
+<h5 id="_standaardwaarden_voor_parameters">Standaardwaarden voor Parameters</h5>
 <div class="paragraph">
 <p>Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.</p>
 </div>
@@ -1801,20 +1798,20 @@ print(som) # Output: 8</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def begroeten(naam="Vriend"):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">begroeten</span><span class="p">(</span><span class="n">naam</span><span class="o">=</span><span class="s">"Vriend"</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie begroet een persoon met een optionele naam.
     :param naam: De naam van de persoon (standaard is "Vriend").
-    """
-    print(f"Hallo, {naam}!")
+    """</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Hallo, </span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s">!"</span><span class="p">)</span>
 
-begroeten()         # Output: Hallo, Vriend!
-begroeten("Alice")  # Output: Hallo, Alice!</code></pre>
+<span class="n">begroeten</span><span class="p">()</span>         <span class="c1"># Output: Hallo, Vriend!
+</span><span class="n">begroeten</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">)</span>  <span class="c1"># Output: Hallo, Alice!</span></code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_args_en_kwargs">args en kwargs</h4>
+<div class="sect4">
+<h5 id="_args_en_kwargs">args en kwargs</h5>
 <div class="paragraph">
 <p>In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie <code>args</code> en <code>kwargs</code> staan dit toe.</p>
 </div>
@@ -1833,17 +1830,17 @@ begroeten("Alice")  # Output: Hallo, Alice!</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def optellen_met_args(*args):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie telt een variabel aantal getallen op.
     :param args: Een tuple van getallen om op te tellen.
     :return: Het resultaat van de optelling.
-    """
-    resultaat = sum(args)
-    return resultaat
+    """</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
 
-totaal = optellen_met_args(5, 10, 15)
-print(totaal) # Output: 30</code></pre>
+<span class="n">totaal</span> <span class="o">=</span> <span class="n">optellen_met_args</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">totaal</span><span class="p">)</span> <span class="c1"># Output: 30</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1851,35 +1848,35 @@ print(totaal) # Output: 30</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def afdrukken_met_kwargs(**kwargs):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie drukt genoemde argumenten af.
     :param kwargs: Een dictionary van genoemde argumenten.
-    """
-    for sleutel, waarde in kwargs.items():
-        print(f"{sleutel}: {waarde}")
+    """</span>
+    <span class="k">for</span> <span class="n">sleutel</span><span class="p">,</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">sleutel</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">waarde</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
 
-afdrukken_met_kwargs(voornaam="Alice", leeftijd=25)
-# Output:
+<span class="n">afdrukken_met_kwargs</span><span class="p">(</span><span class="n">voornaam</span><span class="o">=</span><span class="s">"Alice"</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1"># Output:
 # voornaam: Alice
-# leeftijd: 25</code></pre>
+# leeftijd: 25</span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_conclusie_4">Conclusie</h3>
+<div class="sect3">
+<h4 id="_conclusie_4">Conclusie</h4>
 <div class="paragraph">
 <p>Parameters zijn een krachtig instrument om functies in Python aanpasbaar en herbruikbaar te maken. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor je code flexibel wordt en verschillende scenario&#8217;s kunt ondersteunen zonder duplicatie van code. Het begrijpen van positionele parameters, standaardwaarden, 'args' en 'kwargs' geeft je meer controle en flexibiliteit bij het definiëren en aanroepen van functies.</p>
 </div>
-<div class="sect3">
-<h4 id="_documentatie_van_functies">Documentatie van Functies</h4>
+<div class="sect4">
+<h5 id="_documentatie_van_functies">Documentatie van Functies</h5>
 <div class="paragraph">
 <p>Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_herbruikbaarheid_van_code">Herbruikbaarheid van Code</h4>
+<div class="sect4">
+<h5 id="_herbruikbaarheid_van_code">Herbruikbaarheid van Code</h5>
 <div class="paragraph">
 <p>Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.</p>
 </div>
@@ -1888,22 +1885,22 @@ afdrukken_met_kwargs(voornaam="Alice", leeftijd=25)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def optellen(a, b):
-    resultaat = a + b
-    return resultaat
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
 
-som1 = optellen(5, 3)
-som2 = optellen(10, 7)
-som3 = optellen(2, 2)
+<span class="n">som1</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">som2</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">som3</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-print(som1) # Output: 8
-print(som2) # Output: 17
-print(som3) # Output: 4</code></pre>
+<span class="k">print</span><span class="p">(</span><span class="n">som1</span><span class="p">)</span> <span class="c1"># Output: 8
+</span><span class="k">print</span><span class="p">(</span><span class="n">som2</span><span class="p">)</span> <span class="c1"># Output: 17
+</span><span class="k">print</span><span class="p">(</span><span class="n">som3</span><span class="p">)</span> <span class="c1"># Output: 4</span></code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_return_statements">Return Statements</h4>
+<div class="sect4">
+<h5 id="_return_statements">Return Statements</h5>
 <div class="paragraph">
 <p>Het <code>return</code>-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.</p>
 </div>
@@ -1912,22 +1909,22 @@ print(som3) # Output: 4</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def kwadraat(x):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie berekent het kwadraat van een getal.
     :param x: Het getal waarvan het kwadraat wordt berekend.
     :return: Het kwadraat van het gegeven getal.
-    """
-    return x * x
+    """</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 
-getal = 5
-kwadraat_van_getal = kwadraat(getal)
-print(kwadraat_van_getal) # Output: 25</code></pre>
+<span class="n">getal</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kwadraat_van_getal</span> <span class="o">=</span> <span class="n">kwadraat</span><span class="p">(</span><span class="n">getal</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">kwadraat_van_getal</span><span class="p">)</span> <span class="c1"># Output: 25</span></code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_functies_met_meerdere_parameters">Functies met Meerdere Parameters</h4>
+<div class="sect4">
+<h5 id="_functies_met_meerdere_parameters">Functies met Meerdere Parameters</h5>
 <div class="paragraph">
 <p>Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.</p>
 </div>
@@ -1936,37 +1933,37 @@ print(kwadraat_van_getal) # Output: 25</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-python" data-lang="python">def oppervlakte_rechthoek(breedte, lengte):
-    """
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">):</span>
+    <span class="s">"""
     Deze functie berekent de oppervlakte van een rechthoek.
     :param breedte: De breedte van de rechthoek.
     :param lengte: De lengte van de rechthoek.
     :return: De oppervlakte van de rechthoek.
-    """
-    oppervlakte = breedte * lengte
-    return oppervlakte
+    """</span>
+    <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">breedte</span> <span class="o">*</span> <span class="n">lengte</span>
+    <span class="k">return</span> <span class="n">oppervlakte</span>
 
-breedte = 4
-lengte = 7
-opp = oppervlakte_rechthoek(breedte, lengte)
-print(opp) # Output: 28</code></pre>
+<span class="n">breedte</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">lengte</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">opp</span> <span class="o">=</span> <span class="n">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">opp</span><span class="p">)</span> <span class="c1"># Output: 28</span></code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_scope_en_lokale_variabelen">Scope en Lokale Variabelen</h4>
+<div class="sect4">
+<h5 id="_scope_en_lokale_variabelen">Scope en Lokale Variabelen</h5>
 <div class="paragraph">
 <p>Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_ingebouwde_en_aangepaste_functies">Ingebouwde en Aangepaste Functies</h4>
+<div class="sect4">
+<h5 id="_ingebouwde_en_aangepaste_functies">Ingebouwde en Aangepaste Functies</h5>
 <div class="paragraph">
 <p>Python biedt een breed scala aan ingebouwde functies, zoals <code>print()</code>, <code>len()</code>, <code>str()</code>, <code>int()</code>, <code>float()</code>, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_functies_als_objecten">Functies als Objecten</h4>
+<div class="sect4">
+<h5 id="_functies_als_objecten">Functies als Objecten</h5>
 <div class="paragraph">
 <p>In Python zijn functies "first-class citizens", wat betekent dat ze kunnen worden behandeld als objecten. Dit stelt je in staat om functies als argumenten aan andere functies door te geven, ze in variabelen op te slaan en</p>
 </div>
@@ -1975,9 +1972,10 @@ print(opp) # Output: 28</code></pre>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-22 20:45:34 +0200
+Last updated 2023-08-23 10:55:15 +0200
 </div>
 </div>
 </body>

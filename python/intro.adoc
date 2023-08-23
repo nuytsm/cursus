@@ -15,15 +15,20 @@
 :warning-caption: :warning:
 //endif::[]
 
-= Programmeren
-//Author Mark Nuyts
-//v0.1
 :toc: left
 :toclevels: 4
 
-== Programmeertaal
+= Programmeertaal & Programmeren
 
-=== Opdrachten voor de computer
+Een programma bepaald hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.
+
+image::images/invoer-uitvoer.gif[]
+
+Excel werkt met bepaalde invoer (bijvoorbeeld cijfergegevens) en kan deze verwerken naar een bepaalde uitvoer (bijvoorbeeld een grafiek).
+Excel is dus het programma dat de verwerking uitvoert. Gebruikers kunnen verschillende programma's gebruiken of installeren. Dit om met andere invoer te werken of de verwerking anders uit te voeren.
+Als programmeur kan je echter het programma maken dat de uitvoer doet.
+
+== Opdrachten voor de computer
 
 Een computer is een logische machine die we opdrachten kunnen geven.
 
@@ -36,57 +41,56 @@ Voorbeelden van opdrachten:
 * Tel 2 getallen op en sla het op in een variabele x.
 
 Opdrachten worden gegeven via een programma.
-De computer bestaat uit verschillende onderdelen. Het is de CPU of centrale rekeneenheid die het programma interpreteerd.
+De computer bestaat uit verschillende onderdelen. Het is de CPU, processor of centrale rekeneenheid die het programma interpreteert.
 
-image::motherboard.webp[De onderdelen van een moederbord.]
+image::images/motherboard-drawing-53.png[De onderdelen van een moederbord.]
 
 ##Opdrachten geven aan een computer kan via een programma.
 Met een programmeertaal kan een programma geschreven worden.##
 
 
-
-=== CPU Instructieset
+== CPU Instructieset
 
 Iedere computer **CPU** heeft een bepaalde **architectuur** of ontwerp.
 Hier zijn heel wat standaarden in: 
 
-* x86 (32bit)
+* x86 (32bit), ontwikkeld door Intel
 +
-image::x86.jpg[x86 cpu,width=30%, height=auto]
+image::images/x86.jpg[x86 cpu,width=30%, height=auto]
 +
-* x64 (64bit)
+* x64 (64bit), de modernere variant ontwikkeld door AMD
 +
-image::AMD_Opteron_146_Venus,_2005.jpg[x64 cpu,width=30%, height=auto]
+image::images/AMD_Opteron_146_Venus,_2005.jpg[x64 cpu,width=30%, height=auto]
 +
-* ARM
+* ARM, een zuinigere architectuur, deze zit bijna iedere smartphone.
 +
-image::arm.webp[ARM cpu,width=30%, height=auto]
+image::images/arm.webp[ARM cpu,width=30%, height=auto]
 +
 * RISC
 +
-image::KL_Sun_UltraSparc.jpg[SUN Sparc RISC cpu,width=30%, height=auto]
+image::images/KL_Sun_UltraSparc.jpg[SUN Sparc RISC cpu,width=30%, height=auto]
 +
 * Mainframe
 +
-image::mainframe1.jpg[mainframe,width=400px, height=auto]
+image::images/mainframe1.jpg[mainframe,width=400px, height=auto]
 +
-image::mainframe.jpg[modern mainframe,width=400px, height=auto]
+image::images/mainframe.jpg[modern mainframe,width=400px, height=auto]
 
 
-Aan deze architectuurstandaarden van CPU's kunnen opdrachten gegeven worden via **de instructieset**, dit is de ##machinetaal##.
+Aan deze architectuurstandaarden van CPU's kunnen opdrachten gegeven worden via **de instructieset**, dit is de ##machinetaal## van de processor.
 Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel een getal op, haal een waarde op van de ssd, ...)
 
 Deze opdrachten via de instructieset kunnen in een laag niveau computertaal worden voorgesteld, namelijk __assembly__:
 
 
-image::assembly.jpeg[Assembly en machinetaal]
+image::images/assembly.jpeg[Assembly en machinetaal]
 
 Dit is een **zeer ingewikkelde manier om te programmeren**.
 
 Gelukkig zijn er hoog niveau programmeertalen ontwikkeld die het ons gemakkelijker maken.
 
 
-=== Hoog niveau programmeertalen
+== Hoog niveau programmeertalen
 
 Hoog niveau programmeertalen (die makkelijker zijn om te schrijven), kunnen via ##compilatie## automatisch omgezet worden naar machinetaal.
 
@@ -174,40 +178,49 @@ end program hello
 
 == Programmeertalen: Een historisch overzicht
 
-image::ComputerLanguagesChart.png[]
+image::images/ComputerLanguagesChart.png[]
 
+Er zijn voortdurend nieuwe ontwikkelingen in programmeertalen. Nieuwe talen worden ontwikkeld. Ze kunnen populair worden, bijna niet gebruikt worden of andere talen beïnvloeden met hun nieuwe ideeën.
+Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het verschil tussen python versie 1 en versie 3.11 is enorm groot. Hoewel het om dezelfde programmeertaal gaat, zal een programma ontwikkeld voor pyhton 3, niet meer werken op python 1.
+
+== De Geschiedenis van Programmeertalen
+
+De geschiedenis van programmeertalen is een evolutie gedreven door innovatie om aan steeds veranderende softwarebehoeften te voldoen. Laten we enkele belangrijke mijlpalen in de geschiedenis van programmeertalen nader bekijken:
+
+- **1940s-1950s:** De allereerste programmeertalen, zoals Assembly en Fortran, waren voornamelijk gericht op machinetaal en technische details.
+- **1950s-1960s:** Talen zoals COBOL en ALGOL introduceerden hogere abstractie en leesbaarheid, wat programmeren toegankelijker maakte.
+- **1960s-1970s:** De opkomst van talen zoals C en Pascal bracht gestructureerd programmeren en modulariteit naar voren.
+- **1980s-1990s:** Objectgeoriënteerde talen zoals C++ en Java versterkten concepten zoals herbruikbaarheid en complexe softwareontwikkeling.
+- **2000s-heden:** Moderne talen zoals Python leggen de nadruk op leesbaarheid, productiviteit en veelzijdigheid, waardoor ze geschikt zijn voor diverse toepassingen.
 
 == Cursus Programmeren met Python
 
 In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:
 
-* Python is open source, wat betekent dat je het gratis kunt gebruiken zonder licentiekosten.
-* Python is een krachtige programmeertaal.
-* Het is een objectgeoriënteerde taal en werkt met klassen naast functies.
-* Python is een multiplatform programmeertaal. Zodra de code is geschreven, werkt deze op Windows, Linux, MacOSX, en meer.
+* Python is **open source**, wat betekent dat je het gratis kunt gebruiken zonder licentiekosten.
+* Python is een **krachtige programmeertaal**.
+* Het is een **objectgeoriënteerde** taal en werkt met klassen naast functies.
+* Python is een **multiplatform** programmeertaal. Zodra de code is geschreven, werkt deze op Windows, Linux, MacOSX, en meer.
 * Python heeft een functionele programmeerstijl, naast het objectgeoriënteerde aspect (waardoor het een meervoudige paradigma-taal is).
-* Python is populair in het bedrijfsleven en in diverse sectoren.
+* Python is **populair** in het bedrijfsleven en in diverse sectoren.
 * Python maakt gebruik van veel concepten die ook in andere programmeertalen voorkomen. Als je eenmaal Python beheerst, kun je gemakkelijk overstappen naar andere talen.
 
 == De Ontwikkeling van Python
 
-Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en doelstellingen die de unieke kenmerken van de taal hebben beïnvloed.
+Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en die de kenmerken van de taal hebben beïnvloed:
 
-Python werd ontwikkeld met de volgende belangrijkste doelen:
+* Leesbaarheid en Eenvoud: Guido van Rossum streefde ernaar om een programmeertaal te maken met een **duidelijke en elegante syntaxis**, zodat ontwikkelaars gemakkelijk code konden schrijven en begrijpen.
 
-* Vereenvoudigde Leesbaarheid: Python streefde naar een duidelijke en begrijpelijke syntaxis om code leesbaarder te maken.
+* Productiviteit: Hij wilde een taal creëren die ontwikkelaars in staat zou stellen **sneller en efficiënter** code te schrijven, zonder zich te veel bezig te houden met technische details.
 
-* Verhoogde Productiviteit: Het doel was om ontwikkelaars in staat te stellen code sneller en efficiënter te schrijven.
+* Modulariteit en Herbruikbaarheid: Python moedigt modulaire programmering aan, wat betekent dat ontwikkelaars code in **kleine, herbruikbare modules** kunnen organiseren. Dit maakt het eenvoudiger om complexe problemen aan te pakken.
 
-* Modulaire Herbruikbaarheid: Python promootte modulaire programmering en herbruikbare code met functies en klassen.
+* Diversiteit aan Toepassingen: Guido van Rossum wilde een taal ontwerpen die geschikt was voor **verschillende toepassingsgebieden**, waaronder webontwikkeling, data-analyse, wetenschappelijke berekeningen en meer.
 
-* Cross-platform Compatibiliteit: Het beoogde een platformonafhankelijke uitvoering van code zonder grote wijzigingen.
+* Gemeenschap en Samenwerking: Guido heeft Python als **open-sourceproject** beschikbaar gesteld, wat heeft bijgedragen aan het ontstaan van een actieve en betrokken gemeenschap van ontwikkelaars.
 
-* Gemeenschapsgerichtheid: Python werd open source om samenwerking en bijdragen te bevorderen.
+In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.
 
-* Diversiteit van Toepassingen: Python wilde een veelzijdige taal zijn voor webontwikkeling, data-analyse, AI en meer.
-
-Deze doelen hebben geleid tot de ontwikkeling van Python als een krachtige, leesbare en veelzijdige programmeertaal. In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.
 
 Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals C++ en Java:
 
@@ -221,17 +234,15 @@ Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals
 
 * Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.
 
-* Community Samenwerking: De Python-community heeft bijgedragen aan een uitgebreid scala aan modules en tools die wereldwijd beschikbaar zijn voor ontwikkelaars.
-
 Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.
 
 === Nadelen van Python ten opzichte van Andere Talen
 
 Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:
 
-* Snelheid: Python kan trager zijn dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.
+* Snelheid: Python **kan trager zijn** dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.
 
-* Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in multi-threaded applicaties kan beperken.
+* Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in **multi-threaded** applicaties kan beperken.
 
 * Mobiele Ontwikkeling: Voor mobiele app-ontwikkeling is Python minder gangbaar dan talen zoals Java (voor Android) en Swift (voor iOS).
 
@@ -241,7 +252,7 @@ Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte va
 
 Ondanks deze nadelen wordt Python nog steeds breed gebruikt vanwege zijn veelzijdigheid en leesbaarheid.
 
-=== De snelheid van Python
+=== De snelheid of traagheid van Python
 
 Python kan trager zijn dan C++ om verschillende redenen:
 
@@ -272,13 +283,13 @@ De tekst die je schrijft moet wel voldoen aan de ##syntax## van de taal.
 Iedere programmeertaal bestaat uit een syntax.
 Dit zijn een reeks afspraken van de taal:
 
-. Welke woorden kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.
-. welke woorden zijn gereserveerd door de programmeertaal? Bijvoorbeeld het __return__ woord.
-. Op welke plaats mogen deze woorden staan?
-. Welke scheidingskarakters worden toegestaan of verplicht? Python verplicht bijvoorbeeld _:_ na een for lus.
-. Hoe belangrijk is indentatie?
+. **Welke woorden** kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.
+. welke woorden zijn **gereserveerd** door de programmeertaal? Bijvoorbeeld het __return__ woord.
+. Op welke **plaats** mogen deze woorden staan?
+. Welke **scheidingskarakters** worden toegestaan of verplicht? Python verplicht bijvoorbeeld _:_ na een for lus.
+. Hoe belangrijk is **indentatie**?
 
-Om succesvol te programmeren dien je de syntax van een taal te kennen.
+##Om succesvol te programmeren dien je de syntax van een taal te kennen##.
 
 De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.
 

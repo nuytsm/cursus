@@ -1,26 +1,44 @@
-= Cursus Python voor Middelbare Scholieren
+= Van Code naar Uitvoering op de CPU
 
-== Dieper Duiken in Python: Van Code naar Uitvoering
+Deze python code print een tekst naar de console:
 
-=== Het Traject van Python Code naar Uitvoering op de CPU
+[source,python]
+----
+print('Hello world!')
+----
 
-Het proces van het omzetten van Python-code naar uitvoering op de CPU is een intrigerende reis door verschillende tussenliggende stappen. Laten we deze stappen in nauwkeuriger detail bekijken.
+Maar toch wordt deze codeopdracht niet rechtstreeks uitgevoerd op de CPU. De CPU werkt immers enkel op machinecode instructies.
 
-==== De Rol van de Interpreter
+Er worden dus enkele tussenliggende stappen uitgevoerd.
 
-Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de Python-interpreter.
+== De Rol van de Interpreter
 
-De Python-interpreter vertaalt de menselijk leesbare Python-code naar een vorm van tussentaal die bekend staat als bytecode. Bytecode is een reeks instructies die specifiek zijn ontworpen om te worden uitgevoerd door de Python Virtual Machine (PVM). Dit virtuele uitvoeringssysteem fungeert als een brug tussen de abstracte code en de werkelijke uitvoering op de CPU.
+Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de ##Python-interpreter##.
 
-==== Van Bytecode naar Machinecode
+image::images/pythonvirtualmachine.png[]
+
+De Python-interpreter vertaalt de menselijk leesbare Python-code naar een vorm van tussentaal die bekend staat als ##bytecode##. Bytecode is een reeks instructies die specifiek zijn ontworpen om te worden uitgevoerd door de ##Python Virtual Machine (PVM)##. Dit virtuele uitvoeringssysteem fungeert als een brug tussen de abstracte code en de werkelijke uitvoering op de CPU.
+
+image::images/python-virtual-machine.webp[]
+
+Dit is bijvoorbeeld de gegenereerde bytecode van het 'Hello world' programma:
+
+[source]
+----
+\00\00\00\00\EA\D5\E5d\00\00\00\E3\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00@\00\00\00s\00\00\00e\00d\00\83\00dS\00)zHello world!N)\DAprint\A9\00r\00\00\00r\00\00\00\FAR/home/mark/Documents/python/liclipse-workspace/pythontest/pythoncode/helloworld.py\DA<module>\00\00\00s\00\00\00\00\00
+----
+
+Voor ons is dit moeilijk leesbaar, maar de Python virtual machine kan dit perfect lezen.
+
+== Van Bytecode naar Machinecode
 
 Machinecode is de laagste niveau van instructies die de CPU direct begrijpt. Echter, voordat de machinecode wordt bereikt, wordt de bytecode verwerkt door de PVM, die het omzet in instructies die kunnen worden uitgevoerd door de fysieke CPU van de computer.
 
-De PVM is in feite een interpreter voor bytecode die ervoor zorgt dat de code wordt uitgevoerd op verschillende platforms zonder dat het nodig is om dezelfde code te herschrijven voor elk platform. Dit maakt Python een platformonafhankelijke taal.
+De PVM is in feite een interpreter voor bytecode die ervoor zorgt dat de code wordt uitgevoerd op verschillende platforms (Windows, Linux, MacOSX, ... , maar ook de processor op dit systeem: x86, ARM, x64, RISC,..) zonder dat het nodig is om dezelfde code te herschrijven voor elk platform. Dit maakt Python een platformonafhankelijke taal.
 
-==== Linter: Codekwaliteit en Conventies
+== Linter: Codekwaliteit en Conventies
 
-Voordat de code wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze correct is en voldoet aan specifieke coderingsstandaarden. Een linter is een hulpmiddel dat de code analyseert op fouten, inconsistenties en afwijkingen van de conventies.
+Voordat de ##code## wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze ##correct is en voldoet aan specifieke coderingsstandaarden##. Een linter is een hulpmiddel dat de code ##analyseert op fouten, inconsistenties en afwijkingen van de conventies##.
 
 Laten we dit illustreren met een voorbeeld van een stukje Python-code:
 
@@ -33,64 +51,13 @@ prinT(var)
 
 Een linter zou hier waarschuwingen genereren voor onjuiste naamgeving van variabelen en een functie die niet correct is gespeld.
 
-==== Compilatie en Uitvoering
+== Compilatie en Uitvoering
 
-Python wordt beschouwd als een geïnterpreteerde taal, wat betekent dat de code regel voor regel wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een compilatieproces voordat deze wordt uitgevoerd.
+Python wordt beschouwd als een geïnterpreteerde taal, wat betekent dat de code ##regel voor regel## wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een compilatieproces voordat deze wordt uitgevoerd.
 
 Echter, Python maakt gebruik van compilatie op verschillende niveaus. Nadat de bytecode is gegenereerd door de interpreter, kan de PVM ervoor kiezen om deze bytecode te compileren naar machinecode op het niveau van de hostcomputer. Deze vorm van compilatie staat bekend als Just-In-Time (JIT) compilatie en draagt bij aan de snelheid van uitvoering van Python-programma's.
 
-==== Een Diepere Duik in de Geschiedenis van Programmeertalen
+== Samenvatting
 
-De geschiedenis van programmeertalen is een fascinerende reis door evolutie en innovatie om aan steeds veranderende softwarebehoeften te voldoen. Laten we enkele belangrijke mijlpalen in de geschiedenis van programmeertalen nader bekijken:
-
-- **1940s-1950s:** De allereerste programmeertalen, zoals Assembly en Fortran, waren voornamelijk gericht op machinetaal en technische details.
-- **1950s-1960s:** Talen zoals COBOL en ALGOL introduceerden hogere abstractie en leesbaarheid, wat programmeren toegankelijker maakte.
-- **1960s-1970s:** De opkomst van talen zoals C en Pascal bracht gestructureerd programmeren en modulariteit naar voren.
-- **1980s-1990s:** Objectgeoriënteerde talen zoals C++ en Java versterkten concepten zoals herbruikbaarheid en complexe softwareontwikkeling.
-- **2000s-heden:** Moderne talen zoals Python leggen de nadruk op leesbaarheid, productiviteit en veelzijdigheid, waardoor ze geschikt zijn voor diverse toepassingen.
-
-==== Codevoorbeeld: Berekening van Fibonacci-getallen
-
-Laten we de voorgaande inzichten toepassen op een bekend probleem: de berekening van Fibonacci-getallen. We vergelijken hier de implementatie in Assembly en Python, twee talen met uiteenlopende niveaus van abstractie.
-
-[source,assembly]
-----
-; Assembly
-section .text
-    global _start
-
-_start:
-    mov eax, 0       ; n-2
-    mov ebx, 1       ; n-1
-    mov ecx, 10      ; aantal termen
-loop:
-    add eax, ebx
-    mov ebx, eax
-    call print_eax
-    loop loop
-
-print_eax:
-    ; Implementatie om eax te printen
-    ret
-----
-
-[source,python]
-----
-# Python
-def fibonacci(n):
-    fib = [0, 1]
-    for i in range(2, n):
-        fib.append(fib[i-1] + fib[i-2])
-    return fib
-
-n = 10
-result = fibonacci(n)
-print(result)
-----
-
-Dit voorbeeld illustreert duidelijk hoe Python de complexiteit van de berekening abstraheert en leesbaarder maakt, in tegenstelling tot de technische aard van Assembly.
-
-=== Samenvatting
-
-Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode. Het begrijpen van dit proces helpt bij het waarderen van Python's kracht als een veelzijdige, leesbare en productieve programmeertaal.
+Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode.
 
