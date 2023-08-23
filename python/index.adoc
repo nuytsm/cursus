@@ -2,6 +2,7 @@
 :doctype: book
 
 include::./00-inhoudsopgave.adoc[]
+include::intro.adoc[]
 include::01-waarompython.adoc[]
 include::02-pythonvsjava.adoc[]
 include::03-vanPythonNaarProcessor.adoc[]

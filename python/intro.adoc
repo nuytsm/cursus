@@ -1,0 +1,285 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+//ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+//endif::[]
+
+= Programmeren
+//Author Mark Nuyts
+//v0.1
+:toc: left
+:toclevels: 4
+
+== Programmeertaal
+
+=== Opdrachten voor de computer
+
+Een computer is een logische machine die we opdrachten kunnen geven.
+
+Voorbeelden van opdrachten:
+
+* Schrijf iets weg naar een bestand op de ssd.
+* Krijg een lijst van de bestanden op de hdd.
+* Toon iets op het scherm.
+* Haal een pagina op van het internet via het ethernet netwerk.
+* Tel 2 getallen op en sla het op in een variabele x.
+
+Opdrachten worden gegeven via een programma.
+De computer bestaat uit verschillende onderdelen. Het is de CPU of centrale rekeneenheid die het programma interpreteerd.
+
+image::motherboard.webp[De onderdelen van een moederbord.]
+
+##Opdrachten geven aan een computer kan via een programma.
+Met een programmeertaal kan een programma geschreven worden.##
+
+
+
+=== CPU Instructieset
+
+Iedere computer **CPU** heeft een bepaalde **architectuur** of ontwerp.
+Hier zijn heel wat standaarden in: 
+
+* x86 (32bit)
++
+image::x86.jpg[x86 cpu,width=30%, height=auto]
++
+* x64 (64bit)
++
+image::AMD_Opteron_146_Venus,_2005.jpg[x64 cpu,width=30%, height=auto]
++
+* ARM
++
+image::arm.webp[ARM cpu,width=30%, height=auto]
++
+* RISC
++
+image::KL_Sun_UltraSparc.jpg[SUN Sparc RISC cpu,width=30%, height=auto]
++
+* Mainframe
++
+image::mainframe1.jpg[mainframe,width=400px, height=auto]
++
+image::mainframe.jpg[modern mainframe,width=400px, height=auto]
+
+
+Aan deze architectuurstandaarden van CPU's kunnen opdrachten gegeven worden via **de instructieset**, dit is de ##machinetaal##.
+Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel een getal op, haal een waarde op van de ssd, ...)
+
+Deze opdrachten via de instructieset kunnen in een laag niveau computertaal worden voorgesteld, namelijk __assembly__:
+
+
+image::assembly.jpeg[Assembly en machinetaal]
+
+Dit is een **zeer ingewikkelde manier om te programmeren**.
+
+Gelukkig zijn er hoog niveau programmeertalen ontwikkeld die het ons gemakkelijker maken.
+
+
+=== Hoog niveau programmeertalen
+
+Hoog niveau programmeertalen (die makkelijker zijn om te schrijven), kunnen via ##compilatie## automatisch omgezet worden naar machinetaal.
+
+**Tekst (Hogere programmeertaal) -> compilatie -> machinetaal voor een specifieke architectuur**
+
+De machinetaal wordt bijgehouden in een uitvoerbaar bestand of __executable__ (iets waarop je kan dubbelklikken om het programma te openen).
+
+=== Voorbeelden __Hello World__ in enkele programmeertalen
+
+* C
++
+[source]
+----
+#include <stdio.h>
+  
+int main()
+{
+    printf("Hello World");
+    return 0;
+}
+----
++
+* Cpp
++
+[source]
+----
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Hello World";
+    return 0;
+}
+----
++
+* Ruby
++
+[source]
+----
+puts "Hello World!"
+----
++
+* Java
++
+[source]
+----
+    class MyClass{  
+        public static void main(String args[]){  
+         System.out.println("Hello Java");  
+        }  
+    }  
+----
++
+* Python 3
++
+[source]
+----
+print("Hello, World!")
+----
++
+* C#
++
+[source]
+----
+using System;
+namespace HelloWorldApp {
+    class MyClass {
+        static void Main(string[] args) {
+            Console.WriteLine("Hello World!");
+            Console.ReadKey();
+        }
+    }
+}
+----
++
+* Fortran
++
+[source]
+----
+program hello
+  print *, 'Hello, World!'
+end program hello
+----
+
+
+== Programmeertalen: Een historisch overzicht
+
+image::ComputerLanguagesChart.png[]
+
+
+== Cursus Programmeren met Python
+
+In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:
+
+* Python is open source, wat betekent dat je het gratis kunt gebruiken zonder licentiekosten.
+* Python is een krachtige programmeertaal.
+* Het is een objectgeoriënteerde taal en werkt met klassen naast functies.
+* Python is een multiplatform programmeertaal. Zodra de code is geschreven, werkt deze op Windows, Linux, MacOSX, en meer.
+* Python heeft een functionele programmeerstijl, naast het objectgeoriënteerde aspect (waardoor het een meervoudige paradigma-taal is).
+* Python is populair in het bedrijfsleven en in diverse sectoren.
+* Python maakt gebruik van veel concepten die ook in andere programmeertalen voorkomen. Als je eenmaal Python beheerst, kun je gemakkelijk overstappen naar andere talen.
+
+== De Ontwikkeling van Python
+
+Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en doelstellingen die de unieke kenmerken van de taal hebben beïnvloed.
+
+Python werd ontwikkeld met de volgende belangrijkste doelen:
+
+* Vereenvoudigde Leesbaarheid: Python streefde naar een duidelijke en begrijpelijke syntaxis om code leesbaarder te maken.
+
+* Verhoogde Productiviteit: Het doel was om ontwikkelaars in staat te stellen code sneller en efficiënter te schrijven.
+
+* Modulaire Herbruikbaarheid: Python promootte modulaire programmering en herbruikbare code met functies en klassen.
+
+* Cross-platform Compatibiliteit: Het beoogde een platformonafhankelijke uitvoering van code zonder grote wijzigingen.
+
+* Gemeenschapsgerichtheid: Python werd open source om samenwerking en bijdragen te bevorderen.
+
+* Diversiteit van Toepassingen: Python wilde een veelzijdige taal zijn voor webontwikkeling, data-analyse, AI en meer.
+
+Deze doelen hebben geleid tot de ontwikkeling van Python als een krachtige, leesbare en veelzijdige programmeertaal. In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.
+
+Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals C++ en Java:
+
+* Eenvoudigere Syntax: Python biedt een eenvoudige en leesbare syntax in vergelijking met Java, wat resulteert in minder boilerplate-code en gemakkelijker te begrijpen code.
+
+* REPL: De Python REPL (Read-Eval-Print Loop) is een interactieve omgeving waarin je direct Python-code kunt invoeren, die vervolgens wordt geëvalueerd en het resultaat onmiddellijk wordt weergegeven. Het biedt een directe manier om codefragmenten te testen, concepten te verkennen en te experimenteren zonder een volledig script te schrijven.
+
+* Platformonafhankelijkheid: Python's code is vaak direct uitvoerbaar op verschillende platforms, terwijl C++ aanpassingen nodig heeft voor optimale prestaties op verschillende systemen.
+
+* Leesbaarheid en Productiviteit: Python benadrukt leesbaarheid en efficiëntie, wat kan leiden tot snellere ontwikkeling en onderhoud van code in vergelijking met Java en C++.
+
+* Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.
+
+* Community Samenwerking: De Python-community heeft bijgedragen aan een uitgebreid scala aan modules en tools die wereldwijd beschikbaar zijn voor ontwikkelaars.
+
+Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.
+
+=== Nadelen van Python ten opzichte van Andere Talen
+
+Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:
+
+* Snelheid: Python kan trager zijn dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.
+
+* Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in multi-threaded applicaties kan beperken.
+
+* Mobiele Ontwikkeling: Voor mobiele app-ontwikkeling is Python minder gangbaar dan talen zoals Java (voor Android) en Swift (voor iOS).
+
+* Applicatiegrootte: Python-apps kunnen groter zijn vanwege de noodzaak om de Python-runtime op te nemen.
+
+* Toegang tot Laag Niveau: Voor laag-niveau programmering, zoals systeemniveau taken, is Python minder geschikt dan talen zoals C.
+
+Ondanks deze nadelen wordt Python nog steeds breed gebruikt vanwege zijn veelzijdigheid en leesbaarheid.
+
+=== De snelheid van Python
+
+Python kan trager zijn dan C++ om verschillende redenen:
+
+* Interpretatie vs. Compilatie: Python wordt geïnterpreteerd, wat betekent dat de code tijdens de uitvoering wordt vertaald naar machine-instructies. Dit kan resulteren in langzamere uitvoering in vergelijking met C++, waar code vooraf wordt gecompileerd tot direct uitvoerbare machinecode.
+
+* Dynamische Typing: Python staat bekend om zijn dynamische typering, waarbij variabelen geen expliciete typen hebben en hun typen pas tijdens runtime worden bepaald. Hoewel dit flexibiliteit biedt, kan het interpreteren van variabele typen extra tijd kosten in vergelijking met statisch getypeerde talen zoals C++.
+
+* Gegevensstructuren: Python biedt algemenere gegevensstructuren, terwijl C++ meer mogelijkheden biedt om gegevensstructuren te optimaliseren voor specifieke gebruiksscenario's. Dit kan resulteren in efficiëntere gegevensverwerking in C++.
+
+* Global Interpreter Lock (GIL): CPython, de standaardimplementatie van Python, heeft een GIL die ervoor zorgt dat slechts één thread tegelijk Python-code kan uitvoeren. Dit kan de prestaties beïnvloeden bij multi-threaded toepassingen, aangezien meerdere threads niet parallel Python-code kunnen uitvoeren.
+
+* Runtime Overhead: Python heeft overhead vanwege zijn dynamische aard, objectgeoriënteerde karakter en __garbage collection__. Deze overhead kan leiden tot langzamere prestaties in vergelijking met C++, vooral bij rekenintensieve taken.
+
+Hoewel Python over het algemeen trager is dan C++, biedt het andere voordelen, zoals verbeterde leesbaarheid en verhoogde productiviteit, wat de keuze voor Python in veel gevallen rechtvaardigt.
+
+
+
+== Python schrijven (of programmeren)
+
+Python wordt geschreven in een ##tekst document##.
+Dit tekst document heeft de ##.py extensie##. 
+Bijvoorbeeld: MijnPythonBestand.py .
+Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
+De tekst die je schrijft moet wel voldoen aan de ##syntax## van de taal.
+
+=== De syntax
+
+Iedere programmeertaal bestaat uit een syntax.
+Dit zijn een reeks afspraken van de taal:
+
+. Welke woorden kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.
+. welke woorden zijn gereserveerd door de programmeertaal? Bijvoorbeeld het __return__ woord.
+. Op welke plaats mogen deze woorden staan?
+. Welke scheidingskarakters worden toegestaan of verplicht? Python verplicht bijvoorbeeld _:_ na een for lus.
+. Hoe belangrijk is indentatie?
+
+Om succesvol te programmeren dien je de syntax van een taal te kennen.
+
+De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.
+
+
