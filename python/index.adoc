@@ -1,5 +1,5 @@
 :source-highlighter: rouge
-
+:rouge-style: thankful_eyes
 :toc: left
 :toclevels: 5
 
