@@ -313,10 +313,8 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 <li><a href="#_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</a></li>
 <li><a href="#_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</a></li>
-<li><a href="#_cursus_programmeren_met_python">Cursus Programmeren met Python</a></li>
-<li><a href="#_de_ontwikkeling_van_python">De Ontwikkeling van Python</a>
+<li><a href="#_cursus_programmeren_met_python">Cursus Programmeren met Python</a>
 <ul class="sectlevel3">
-<li><a href="#_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</a></li>
 <li><a href="#_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</a></li>
 </ul>
 </li>
@@ -354,6 +352,10 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <ul class="sectlevel3">
 <li><a href="#_datatypen_en_variabelen">Datatypen en Variabelen</a></li>
 <li><a href="#_variabelen_toewijzen_en_waarden_bijwerken">Variabelen Toewijzen en Waarden Bijwerken</a></li>
+</ul>
+</li>
+<li><a href="#_waarden_bijwerken">Waarden Bijwerken</a>
+<ul class="sectlevel3">
 <li><a href="#_variabelen_en_scope">Variabelen en Scope</a></li>
 <li><a href="#_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</a></li>
 </ul>
@@ -714,86 +716,8 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_de_ontwikkeling_van_python">De Ontwikkeling van Python</h3>
-<div class="paragraph">
-<p>Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en die de kenmerken van de taal hebben beïnvloed:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Leesbaarheid en Eenvoud: Guido van Rossum streefde ernaar om een programmeertaal te maken met een <strong>duidelijke en elegante syntaxis</strong>, zodat ontwikkelaars gemakkelijk code konden schrijven en begrijpen.</p>
-</li>
-<li>
-<p>Productiviteit: Hij wilde een taal creëren die ontwikkelaars in staat zou stellen <strong>sneller en efficiënter</strong> code te schrijven, zonder zich te veel bezig te houden met technische details.</p>
-</li>
-<li>
-<p>Modulariteit en Herbruikbaarheid: Python moedigt modulaire programmering aan, wat betekent dat ontwikkelaars code in <strong>kleine, herbruikbare modules</strong> kunnen organiseren. Dit maakt het eenvoudiger om complexe problemen aan te pakken.</p>
-</li>
-<li>
-<p>Diversiteit aan Toepassingen: Guido van Rossum wilde een taal ontwerpen die geschikt was voor <strong>verschillende toepassingsgebieden</strong>, waaronder webontwikkeling, data-analyse, wetenschappelijke berekeningen en meer.</p>
-</li>
-<li>
-<p>Gemeenschap en Samenwerking: Guido heeft Python als <strong>open-sourceproject</strong> beschikbaar gesteld, wat heeft bijgedragen aan het ontstaan van een actieve en betrokken gemeenschap van ontwikkelaars.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.</p>
-</div>
-<div class="paragraph">
-<p>Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals C++ en Java:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Eenvoudigere Syntax: Python biedt een eenvoudige en leesbare syntax in vergelijking met Java, wat resulteert in minder boilerplate-code en gemakkelijker te begrijpen code.</p>
-</li>
-<li>
-<p>REPL: De Python REPL (Read-Eval-Print Loop) is een interactieve omgeving waarin je direct Python-code kunt invoeren, die vervolgens wordt geëvalueerd en het resultaat onmiddellijk wordt weergegeven. Het biedt een directe manier om codefragmenten te testen, concepten te verkennen en te experimenteren zonder een volledig script te schrijven.</p>
-</li>
-<li>
-<p>Platformonafhankelijkheid: Python&#8217;s code is vaak direct uitvoerbaar op verschillende platforms, terwijl C++ aanpassingen nodig heeft voor optimale prestaties op verschillende systemen.</p>
-</li>
-<li>
-<p>Leesbaarheid en Productiviteit: Python benadrukt leesbaarheid en efficiëntie, wat kan leiden tot snellere ontwikkeling en onderhoud van code in vergelijking met Java en C++.</p>
-</li>
-<li>
-<p>Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.</p>
-</div>
-<div class="sect3">
-<h4 id="_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</h4>
-<div class="paragraph">
-<p>Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Snelheid: Python <strong>kan trager zijn</strong> dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.</p>
-</li>
-<li>
-<p>Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in <strong>multi-threaded</strong> applicaties kan beperken.</p>
-</li>
-<li>
-<p>Mobiele Ontwikkeling: Voor mobiele app-ontwikkeling is Python minder gangbaar dan talen zoals Java (voor Android) en Swift (voor iOS).</p>
-</li>
-<li>
-<p>Applicatiegrootte: Python-apps kunnen groter zijn vanwege de noodzaak om de Python-runtime op te nemen.</p>
-</li>
-<li>
-<p>Toegang tot Laag Niveau: Voor laag-niveau programmering, zoals systeemniveau taken, is Python minder geschikt dan talen zoals C.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Ondanks deze nadelen wordt Python nog steeds breed gebruikt vanwege zijn veelzijdigheid en leesbaarheid.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</h4>
@@ -821,6 +745,9 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </div>
 <div class="paragraph">
 <p>Hoewel Python over het algemeen trager is dan C++, biedt het andere voordelen, zoals verbeterde leesbaarheid en verhoogde productiviteit, wat de keuze voor Python in veel gevallen rechtvaardigt.</p>
+</div>
+<div class="paragraph">
+<p>Meer informatie kan je <a href="extra/pythonplusminus.html">hier</a> terugvinden (dit behoort niet tot de te kennen leerstof).</p>
 </div>
 </div>
 </div>
@@ -1100,6 +1027,9 @@ Dit zijn een reeks afspraken van de taal:</p>
 <p>In Python zijn variabelen niet expliciet getypeerd, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.</p>
 </div>
 <div class="paragraph">
+<p>Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (<code>=</code>). De operator wijst een waarde toe aan een variabele.</p>
+</div>
+<div class="paragraph">
 <p>Bijvoorbeeld, om een integer (geheel getal) op te slaan in een variabele genaamd <code>leeftijd</code>, hoef je alleen maar deze toewijzing uit te voeren:</p>
 </div>
 <div class="listingblock">
@@ -1108,34 +1038,44 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In dit geval heeft Python automatisch het datatype van <code>leeftijd</code> ingesteld op integer.</p>
+<p>In dit geval heeft Python automatisch het datatype van <code>leeftijd</code> ingesteld op een integer met waarde 16.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_variabelen_toewijzen_en_waarden_bijwerken">Variabelen Toewijzen en Waarden Bijwerken</h4>
 <div class="paragraph">
-<p>Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (<code>=</code>). De operator wijst een waarde toe aan een variabele.</p>
+<p>Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de <em>health</em> van een speler in een game bijhouden:</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, om de tekst "Hallo, wereld!" op te slaan in een variabele genaamd <code>groet</code>, kun je het volgende doen:</p>
+<p>python</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, wereld!"</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Player health in Counter-Strike
+</span><span class="n">player_health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Huidige gezondheid:"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Variabelen kunnen op elk moment van waarde veranderen. Je kunt dezelfde variabele bijwerken met een nieuwe waarde:</p>
+<p>In dit voorbeeld wordt de variabele player_health aangemaakt en toegewezen met de waarde 100. We kunnen de naam van de variabele gebruiken om later de opgeslagen waarde te manipuleren.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_waarden_bijwerken">Waarden Bijwerken</h3>
+<div class="paragraph">
+<p>Variabelen kunnen op elk moment worden bijgewerkt door er simpelweg een nieuwe waarde aan toe te wijzen. Bijvoorbeeld, als de speler schade oploopt:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, wereld!"</span>
-<span class="n">groet</span> <span class="o">=</span> <span class="s">"Hallo, daar!"</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Schade oplopen
+</span><span class="n">damage_taken</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">player_health</span> <span class="o">-=</span> <span class="n">damage_taken</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Nieuwe gezondheid na geraakt te zijn:"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In dit voorbeeld heeft <code>groet</code> eerst de waarde "Hallo, wereld!" en wordt deze vervolgens bijgewerkt naar "Hallo, daar!".</p>
-</div>
+<p>Hier wordt de variabele damage_taken gemaakt en toegewezen met de waarde 25. Vervolgens verminderen we de gezondheid van de speler door damage_taken van player_health af te trekken.</p>
 </div>
 <div class="sect3">
 <h4 id="_variabelen_en_scope">Variabelen en Scope</h4>
@@ -1164,9 +1104,9 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>Lokale variabele: 5
-Globale variabele binnen functie: 10
-Globale variabele buiten functie: 10</pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">Lokale</span> <span class="n">variabele</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">Globale</span> <span class="n">variabele</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Globale</span> <span class="n">variabele</span> <span class="n">buiten</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1619,7 +1559,7 @@ Globale variabele buiten functie: 10</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-24 19:13:32 +0200
+Last updated 2023-08-25 12:25:45 +0200
 </div>
 </div>
 </body>

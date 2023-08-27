@@ -1,3 +1,6 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+
 = Gebruik van Variabelen
 
 == Ontdekking van Variabelen in Python
@@ -8,6 +11,8 @@ Variabelen vormen een kernconcept in programmeren, waardoor ontwikkelaars waarde
 
 In Python zijn variabelen niet expliciet getypeerd, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.
 
+Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (`=`). De operator wijst een waarde toe aan een variabele.
+
 Bijvoorbeeld, om een integer (geheel getal) op te slaan in een variabele genaamd `leeftijd`, hoef je alleen maar deze toewijzing uit te voeren:
 
 [source,python]
@@ -15,28 +20,36 @@ Bijvoorbeeld, om een integer (geheel getal) op te slaan in een variabele genaamd
 leeftijd = 16
 ----
 
-In dit geval heeft Python automatisch het datatype van `leeftijd` ingesteld op integer.
+In dit geval heeft Python automatisch het datatype van `leeftijd` ingesteld op een integer met waarde 16.
 
 === Variabelen Toewijzen en Waarden Bijwerken
 
-Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (`=`). De operator wijst een waarde toe aan een variabele.
+Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de __health__ van een speler in een game bijhouden:
 
-Bijvoorbeeld, om de tekst "Hallo, wereld!" op te slaan in een variabele genaamd `groet`, kun je het volgende doen:
-
-[source,python]
-----
-groet = "Hallo, wereld!"
-----
-
-Variabelen kunnen op elk moment van waarde veranderen. Je kunt dezelfde variabele bijwerken met een nieuwe waarde:
+python
 
 [source,python]
 ----
-groet = "Hallo, wereld!"
-groet = "Hallo, daar!"
+# Player health in Counter-Strike
+player_health = 100
+print("Huidige gezondheid:", player_health)
 ----
 
-In dit voorbeeld heeft `groet` eerst de waarde "Hallo, wereld!" en wordt deze vervolgens bijgewerkt naar "Hallo, daar!".
+In dit voorbeeld wordt de variabele player_health aangemaakt en toegewezen met de waarde 100. We kunnen de naam van de variabele gebruiken om later de opgeslagen waarde te manipuleren.
+
+== Waarden Bijwerken
+
+Variabelen kunnen op elk moment worden bijgewerkt door er simpelweg een nieuwe waarde aan toe te wijzen. Bijvoorbeeld, als de speler schade oploopt:
+
+[source,python]
+----
+# Schade oplopen
+damage_taken = 25
+player_health -= damage_taken
+print("Nieuwe gezondheid na geraakt te zijn:", player_health)
+----
+
+Hier wordt de variabele damage_taken gemaakt en toegewezen met de waarde 25. Vervolgens verminderen we de gezondheid van de speler door damage_taken van player_health af te trekken.
 
 === Variabelen en Scope
 
@@ -60,6 +73,7 @@ print("Globale variabele buiten functie:", globale_variabele)
 
 Uitvoer:
 
+[source,python]
 ----
 Lokale variabele: 5
 Globale variabele binnen functie: 10

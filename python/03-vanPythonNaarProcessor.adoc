@@ -1,3 +1,6 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+
 = Van Code naar Uitvoering op de CPU
 
 Deze python code print een tekst naar de console:

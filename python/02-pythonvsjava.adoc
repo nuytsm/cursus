@@ -1,3 +1,6 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+
 = Inleiding tot Python
 
 == Waarom Python kiezen in plaats van Java?

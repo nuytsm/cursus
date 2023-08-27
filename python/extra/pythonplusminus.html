@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>De Ontwikkeling van Python</title>
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+
+@import url(//fonts.googleapis.com/css?family=Noto+Sans);
+@import url(https://cdn.jsdelivr.net/gh/asciidoctor/asciidoctor@2.0/data/stylesheets/asciidoctor-default.css); /* Default asciidoc style framework - important */
+
+/* CUSTOMISATIONS */
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+:root{
+--maincolor:#282c34;
+--primarycolor:#f39c12;
+--secondarycolor:#03a9f4;
+--tertiarycolor:#4db6ac;
+--sidebarbackground:#21252b;
+--linkcolor:#f44336;
+--linkcoloralternate:#ff9800;
+--white:#FFFFFF;
+}
+
+/* Text styles */
+
+body{font-family: "Noto Sans",sans-serif;background-color: var(--maincolor);color:var(--white);}
+
+h1{color:var(--primarycolor) !important;font-family:"Noto Sans",sans-serif;}
+h2,h3,h4,h5,h6{color:var(--secondarycolor) !important;font-family:"Noto Sans",sans-serif;}
+.title{color:var(--white) !important;font-family:"Noto Sans",sans-serif;font-style: normal; font-weight: normal;}
+p{font-family: "Noto Sans",sans-serif ! important}
+#toc.toc2 a:link{color:var(--linkcolor);}
+blockquote{color:var(--tertiarycolor) !important}
+.quoteblock{color:var(--white)}
+code{color:var(--linkcoloralternate);background-color: var(--sidebarbackground) !important}
+
+
+/* Table styles */
+th{background-color: var(--maincolor);color:var(--white) !important;}
+td{background-color: var(--maincolor);color: var(--linkcoloralternate) !important}
+
+
+#toc.toc2{background-color:var(--sidebarbackground);}
+#toctitle{color:var(--white);}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+  table {
+    width: 55vw!important;
+    font-size: 3vw;
+  }
+}
+
+.exampleblock > .content {
+  background-color: var(--maincolor);
+}
+
+a {
+  color: var(--secondarycolor);
+}
+
+.admonitionblock td.icon .icon-tip::before {
+  text-shadow: none;
+  color: var(--white);
+}
+.admonitionblock td.icon .icon-note::before {
+  color: var(--tertiarycolor);
+}
+.admonitionblock td.icon .icon-important::before {
+  color: var(--linkcolor);
+}
+/*.admonitionblock td.icon .icon-caution::before {
+  color: var(--linkcoloralternate);
+}*/
+.admonitionblock td.icon .icon-warning::before {
+  color: var(--primarycolor);
+}
+
+#preamble > .sectionbody > .paragraph:first-of-type p {
+  color: var(--white);
+}
+
+.quoteblock blockquote::before {
+  color: var(--primarycolor);
+}
+.quoteblock .attribution cite, .verseblock .attribution cite {
+  color: var(--white);
+}
+.verseblock pre {
+  color: var(--white);
+}
+.quoteblock blockquote, .quoteblock blockquote p {
+  color: var(--white);
+}
+
+.sidebarblock {
+  background: var(--sidebarbackground);
+}
+.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
+  background: var(--sidebarbackground);
+  color: var(--white);
+}
+
+#header .details {
+  color: var(--white);
+}
+#header .details span.email a {
+  color: var(--linkcoloralternate);
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_de_ontwikkeling_van_python">De Ontwikkeling van Python</a>
+<ul class="sectlevel2">
+<li><a href="#_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_de_ontwikkeling_van_python">De Ontwikkeling van Python</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en die de kenmerken van de taal hebben beïnvloed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Leesbaarheid en Eenvoud: Guido van Rossum streefde ernaar om een programmeertaal te maken met een <strong>duidelijke en elegante syntaxis</strong>, zodat ontwikkelaars gemakkelijk code konden schrijven en begrijpen.</p>
+</li>
+<li>
+<p>Productiviteit: Hij wilde een taal creëren die ontwikkelaars in staat zou stellen <strong>sneller en efficiënter</strong> code te schrijven, zonder zich te veel bezig te houden met technische details.</p>
+</li>
+<li>
+<p>Modulariteit en Herbruikbaarheid: Python moedigt modulaire programmering aan, wat betekent dat ontwikkelaars code in <strong>kleine, herbruikbare modules</strong> kunnen organiseren. Dit maakt het eenvoudiger om complexe problemen aan te pakken.</p>
+</li>
+<li>
+<p>Diversiteit aan Toepassingen: Guido van Rossum wilde een taal ontwerpen die geschikt was voor <strong>verschillende toepassingsgebieden</strong>, waaronder webontwikkeling, data-analyse, wetenschappelijke berekeningen en meer.</p>
+</li>
+<li>
+<p>Gemeenschap en Samenwerking: Guido heeft Python als <strong>open-sourceproject</strong> beschikbaar gesteld, wat heeft bijgedragen aan het ontstaan van een actieve en betrokken gemeenschap van ontwikkelaars.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In de loop der jaren heeft Python zijn plaats veroverd als een van de meest populaire programmeertalen ter wereld, deels dankzij de nadruk op leesbaarheid, eenvoud en gemeenschapsgerichtheid.</p>
+</div>
+<div class="paragraph">
+<p>Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals C++ en Java:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eenvoudigere Syntax: Python biedt een eenvoudige en leesbare syntax in vergelijking met Java, wat resulteert in minder boilerplate-code en gemakkelijker te begrijpen code.</p>
+</li>
+<li>
+<p>REPL: De Python REPL (Read-Eval-Print Loop) is een interactieve omgeving waarin je direct Python-code kunt invoeren, die vervolgens wordt geëvalueerd en het resultaat onmiddellijk wordt weergegeven. Het biedt een directe manier om codefragmenten te testen, concepten te verkennen en te experimenteren zonder een volledig script te schrijven.</p>
+</li>
+<li>
+<p>Platformonafhankelijkheid: Python&#8217;s code is vaak direct uitvoerbaar op verschillende platforms, terwijl C++ aanpassingen nodig heeft voor optimale prestaties op verschillende systemen.</p>
+</li>
+<li>
+<p>Leesbaarheid en Productiviteit: Python benadrukt leesbaarheid en efficiëntie, wat kan leiden tot snellere ontwikkeling en onderhoud van code in vergelijking met Java en C++.</p>
+</li>
+<li>
+<p>Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_nadelen_van_python_ten_opzichte_van_andere_talen">Nadelen van Python ten opzichte van Andere Talen</h3>
+<div class="paragraph">
+<p>Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Snelheid: Python <strong>kan trager zijn</strong> dan gecompileerde talen zoals C++ vanwege zijn interpretatie en dynamische aard.</p>
+</li>
+<li>
+<p>Global Interpreter Lock (GIL): In CPython (standaardimplementatie) kan de GIL het gelijktijdig uitvoeren van meerdere threads belemmeren, wat de prestaties in <strong>multi-threaded</strong> applicaties kan beperken.</p>
+</li>
+<li>
+<p>Mobiele Ontwikkeling: Voor mobiele app-ontwikkeling is Python minder gangbaar dan talen zoals Java (voor Android) en Swift (voor iOS).</p>
+</li>
+<li>
+<p>Applicatiegrootte: Python-apps kunnen groter zijn vanwege de noodzaak om de Python-runtime op te nemen.</p>
+</li>
+<li>
+<p>Toegang tot Laag Niveau: Voor laag-niveau programmering, zoals systeemniveau taken, is Python minder geschikt dan talen zoals C.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ondanks deze nadelen wordt Python nog steeds breed gebruikt vanwege zijn veelzijdigheid en leesbaarheid.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-08-25 12:26:02 +0200
+</div>
+</div>
+</body>
+</html>
