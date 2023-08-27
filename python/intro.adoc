@@ -22,7 +22,7 @@
 
 = Programmeertaal & Programmeren
 
-Een programma bepaald hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.
+Een programma bepaalt hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.
 
 image::images/invoer-uitvoer.gif[]
 
