@@ -20,7 +20,7 @@
 :toc: left
 :toclevels: 4
 
-= Programmeertaal & Programmeren
+= Hoofdstuk 1: Programmeertalen & Programmeren
 
 Een programma bepaalt hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.
 
@@ -195,7 +195,7 @@ De geschiedenis van programmeertalen is een evolutie gedreven door innovatie om 
 - **1980s-1990s:** Objectgeoriënteerde talen zoals C++ en Java versterkten concepten zoals herbruikbaarheid en complexe softwareontwikkeling.
 - **2000s-heden:** Moderne talen zoals Python leggen de nadruk op leesbaarheid, productiviteit en veelzijdigheid, waardoor ze geschikt zijn voor diverse toepassingen.
 
-== Cursus Programmeren met Python
+== De programmeertaal Python
 
 In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:
 
@@ -210,45 +210,7 @@ In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn v
 Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.
 
 
-=== De snelheid of traagheid van Python
-
-Python kan trager zijn dan C++ om verschillende redenen:
-
-* Interpretatie vs. Compilatie: Python wordt geïnterpreteerd, wat betekent dat de code tijdens de uitvoering wordt vertaald naar machine-instructies. Dit kan resulteren in langzamere uitvoering in vergelijking met C++, waar code vooraf wordt gecompileerd tot direct uitvoerbare machinecode.
-
-* Dynamische Typing: Python staat bekend om zijn dynamische typering, waarbij variabelen geen expliciete typen hebben en hun typen pas tijdens runtime worden bepaald. Hoewel dit flexibiliteit biedt, kan het interpreteren van variabele typen extra tijd kosten in vergelijking met statisch getypeerde talen zoals C++.
-
-* Gegevensstructuren: Python biedt algemenere gegevensstructuren, terwijl C++ meer mogelijkheden biedt om gegevensstructuren te optimaliseren voor specifieke gebruiksscenario's. Dit kan resulteren in efficiëntere gegevensverwerking in C++.
-
-* Global Interpreter Lock (GIL): CPython, de standaardimplementatie van Python, heeft een GIL die ervoor zorgt dat slechts één thread tegelijk Python-code kan uitvoeren. Dit kan de prestaties beïnvloeden bij multi-threaded toepassingen, aangezien meerdere threads niet parallel Python-code kunnen uitvoeren.
-
-* Runtime Overhead: Python heeft overhead vanwege zijn dynamische aard, objectgeoriënteerde karakter en __garbage collection__. Deze overhead kan leiden tot langzamere prestaties in vergelijking met C++, vooral bij rekenintensieve taken.
-
-Hoewel Python over het algemeen trager is dan C++, biedt het andere voordelen, zoals verbeterde leesbaarheid en verhoogde productiviteit, wat de keuze voor Python in veel gevallen rechtvaardigt.
-
 Meer informatie kan je link:extra/pythonplusminus.html[hier] terugvinden (dit behoort niet tot de te kennen leerstof).
 
-== Python schrijven (of programmeren)
-
-Python wordt geschreven in een ##tekst document##.
-Dit tekst document heeft de ##.py extensie##. 
-Bijvoorbeeld: MijnPythonBestand.py .
-Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
-De tekst die je schrijft moet wel voldoen aan de ##syntax## van de taal.
-
-=== De syntax
-
-Iedere programmeertaal bestaat uit een syntax.
-Dit zijn een reeks afspraken van de taal:
-
-. **Welke woorden** kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.
-. welke woorden zijn **gereserveerd** door de programmeertaal? Bijvoorbeeld het __return__ woord.
-. Op welke **plaats** mogen deze woorden staan?
-. Welke **scheidingskarakters** worden toegestaan of verplicht? Python verplicht bijvoorbeeld _:_ na een for lus.
-. Hoe belangrijk is **indentatie**?
-
-##Om succesvol te programmeren dien je de syntax van een taal te kennen##.
-
-De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.
 
 

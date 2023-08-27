@@ -12,6 +12,22 @@
 :toc: left
 :toclevels: 4
 
+== De snelheid of traagheid van Python
+
+Python kan trager zijn dan C++ om verschillende redenen:
+
+* Interpretatie vs. Compilatie: Python wordt geïnterpreteerd, wat betekent dat de code tijdens de uitvoering wordt vertaald naar machine-instructies. Dit kan resulteren in langzamere uitvoering in vergelijking met C++, waar code vooraf wordt gecompileerd tot direct uitvoerbare machinecode.
+
+* Dynamische Typing: Python staat bekend om zijn dynamische typering, waarbij variabelen geen expliciete typen hebben en hun typen pas tijdens runtime worden bepaald. Hoewel dit flexibiliteit biedt, kan het interpreteren van variabele typen extra tijd kosten in vergelijking met statisch getypeerde talen zoals C++.
+
+* Gegevensstructuren: Python biedt algemenere gegevensstructuren, terwijl C++ meer mogelijkheden biedt om gegevensstructuren te optimaliseren voor specifieke gebruiksscenario's. Dit kan resulteren in efficiëntere gegevensverwerking in C++.
+
+* Global Interpreter Lock (GIL): CPython, de standaardimplementatie van Python, heeft een GIL die ervoor zorgt dat slechts één thread tegelijk Python-code kan uitvoeren. Dit kan de prestaties beïnvloeden bij multi-threaded toepassingen, aangezien meerdere threads niet parallel Python-code kunnen uitvoeren.
+
+* Runtime Overhead: Python heeft overhead vanwege zijn dynamische aard, objectgeoriënteerde karakter en __garbage collection__. Deze overhead kan leiden tot langzamere prestaties in vergelijking met C++, vooral bij rekenintensieve taken.
+
+Hoewel Python over het algemeen trager is dan C++, biedt het andere voordelen, zoals verbeterde leesbaarheid en verhoogde productiviteit, wat de keuze voor Python in veel gevallen rechtvaardigt.
+
 == De Ontwikkeling van Python
 
 Python is een programmeertaal die in de late jaren 80 en vroege jaren 90 is ontwikkeld door Guido van Rossum, een Nederlands programmeur. De ontwikkeling van Python werd gemotiveerd door verschillende overwegingen en die de kenmerken van de taal hebben beïnvloed:
@@ -41,7 +57,7 @@ Python heeft verschillende problemen aangepakt die werden ervaren in talen zoals
 
 * Uitgebreid Ecosysteem: Python heeft een breed scala aan bibliotheken en frameworks voor verschillende toepassingsgebieden, waardoor het gemakkelijker is om taken uit te voeren zonder alles zelf te hoeven schrijven. Java is hier ook zeer sterk in.
 
-=== Nadelen van Python ten opzichte van Andere Talen
+== Nadelen van Python ten opzichte van Andere Talen
 
 Hoewel Python vele voordelen heeft, heeft het ook enkele nadelen ten opzichte van andere talen:
 

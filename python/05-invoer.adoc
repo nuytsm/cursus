@@ -1,0 +1,94 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:stylesheet: dark.css
+
+= Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen
+
+In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.
+
+== Gegevensinvoer
+
+Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.
+
+Tekstinvoer Verzamelen:
+
+[source,python]
+----
+player_name = input("Voer je naam in: ")
+print("Welkom, " + player_name + "!")
+----
+
+Met dit voorbeeld vragen we de speler om hun naam in te voeren en gebruiken we deze input om een persoonlijk welkomstbericht te genereren.
+
+[source,python]
+----
+choice = input("Wil je naar links of rechts gaan? ")
+print("Je hebt gekozen om naar " + choice + " te gaan.")
+----
+
+Hiermee kunnen spelers eenvoudige keuzes maken binnen je game en wordt de uitvoer aangepast op basis van hun invoer.
+
+== Expressies en Berekeningen
+
+Het vermogen om expressies en berekeningen te gebruiken, opent een wereld van mogelijkheden in game-ontwikkeling. Hiermee kun je wiskundige en logische bewerkingen uitvoeren op basis van variabele waarden, invoer van spelers of gamegebeurtenissen.
+
+Gevechtsberekening:
+
+Stel je een RPG-game voor waarin spelers vijanden schade toebrengen. Hier is een voorbeeld van hoe je dit kunt aanpakken:
+
+[source,python]
+----
+player_damage = int(input("Voer je schade in: "))
+enemy_health = 100
+remaining_health = enemy_health - player_damage
+
+if remaining_health <= 0:
+    print("De vijand is verslagen!")
+else:
+    print("De vijand heeft nog", remaining_health, "gezondheid over.")
+----
+
+Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.
+
+Deze code gebruikt de invoer van de speler om de resterende gezondheid van een vijand na het toebrengen van schade te berekenen.
+
+Attribuutberekening:
+
+Stel je voor dat je een rollenspel maakt waarbij spelers de kracht en behendigheid van hun personage kunnen aanpassen:
+
+[source,python]
+----
+player_name = input("Creëer je personage. Geef een naam: ")
+player_strength = int(input("Voer de krachtwaarde in (1-10): "))
+player_agility = int(input("Voer de behendigheidswaarde in (1-10): "))
+total_points = player_strength + player_agility
+
+print(player_name + "'s attributen:")
+print("Kracht:", player_strength)
+print("Behendigheid:", player_agility)
+print("Totaal punten:", total_points)
+----
+
+Met dit voorbeeld verzamel je gegevens van spelers en gebruik je expressies om totaalpunten te berekenen op basis van kracht en behendigheid.
+
+== Verrijking van Gameplay via Interactie
+
+Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren die diep en meeslepend zijn. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:
+
+[source,python]
+----
+player_name = input("Voer je naam in: ")
+print("Welkom, " + player_name + "!")
+print("Je staat voor een oud landhuis. Wat wil je onderzoeken?")
+choice = input("1. De voordeur 2. Het zijraam: ")
+
+if choice == "1":
+    print("Je betreedt het landhuis via de voordeur en voelt een koude windvlaag.")
+else:
+    print("Je glijdt door het zijraam naar binnen en landt behendig op de vloer.")
+
+print("Je onderzoek begint...")
+----
+

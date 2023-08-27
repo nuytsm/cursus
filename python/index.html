@@ -302,7 +302,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_programmeertaal_programmeren">Programmeertaal &amp; Programmeren</a>
+<li><a href="#_hoofdstuk_1_programmeertalen_programmeren">Hoofdstuk 1: Programmeertalen &amp; Programmeren</a>
 <ul class="sectlevel2">
 <li><a href="#_opdrachten_voor_de_computer">Opdrachten voor de computer</a></li>
 <li><a href="#_cpu_instructieset">CPU Instructieset</a></li>
@@ -313,20 +313,12 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 <li><a href="#_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</a></li>
 <li><a href="#_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</a></li>
-<li><a href="#_cursus_programmeren_met_python">Cursus Programmeren met Python</a>
-<ul class="sectlevel3">
-<li><a href="#_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</a></li>
-</ul>
-</li>
+<li><a href="#_de_programmeertaal_python">De programmeertaal Python</a></li>
 <li><a href="#_python_schrijven_of_programmeren">Python schrijven (of programmeren)</a>
 <ul class="sectlevel3">
 <li><a href="#_de_syntax">De syntax</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#_inleiding_tot_python">Inleiding tot Python</a>
-<ul class="sectlevel2">
 <li><a href="#_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</a>
 <ul class="sectlevel3">
 <li><a href="#_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</a></li>
@@ -337,80 +329,84 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_conclusie">Conclusie</a></li>
 </ul>
 </li>
-<li><a href="#_van_code_naar_uitvoering_op_de_cpu">Van Code naar Uitvoering op de CPU</a>
+<li><a href="#_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">Hoofdstuk 2: Van Code naar Uitvoering op de CPU</a>
 <ul class="sectlevel2">
 <li><a href="#_de_rol_van_de_interpreter">De Rol van de Interpreter</a></li>
 <li><a href="#_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</a></li>
 <li><a href="#_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</a></li>
-<li><a href="#_compilatie_en_uitvoering">Compilatie en Uitvoering</a></li>
+<li><a href="#_compilatie_en_uitvoering">Compilatie en Uitvoering</a>
+<ul class="sectlevel3">
+<li><a href="#_het_interpreterproces_van_de_interpreter">Het Interpreterproces van de interpreter</a></li>
+<li><a href="#_een_voorbeeld">Een voorbeeld</a></li>
+<li><a href="#_just_in_time_jit_compiler_in_python">Just-In-Time (JIT) Compiler in Python</a>
+<ul class="sectlevel4">
+<li><a href="#_hoe_werkt_de_jit_compiler">Hoe Werkt de JIT-Compiler?</a></li>
+<li><a href="#_voorbeeld">Voorbeeld</a></li>
+<li><a href="#_voordelen_in_gaming">Voordelen in Gaming</a></li>
+</ul>
+</li>
+<li><a href="#_voordelen_en_nadelen">Voordelen en Nadelen</a></li>
+</ul>
+</li>
 <li><a href="#_samenvatting">Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_gebruik_van_variabelen">Gebruik van Variabelen</a>
+<li><a href="#_hoofdstuk_3_gebruik_van_variabelen">Hoofdstuk 3: Gebruik van Variabelen</a>
 <ul class="sectlevel2">
-<li><a href="#_ontdekking_van_variabelen_in_python">Ontdekking van Variabelen in Python</a>
+<li><a href="#_variabelen_in_python">Variabelen in Python</a>
 <ul class="sectlevel3">
-<li><a href="#_datatypen_en_variabelen">Datatypen en Variabelen</a></li>
-<li><a href="#_variabelen_toewijzen_en_waarden_bijwerken">Variabelen Toewijzen en Waarden Bijwerken</a></li>
+<li><a href="#_variabelen_toewijzen">Variabelen Toewijzen</a></li>
+<li><a href="#_naamgeving_van_variabelen">Naamgeving van Variabelen</a></li>
+<li><a href="#_regels_voor_naamgeving_van_variabelen_in_python">Regels voor Naamgeving van Variabelen in Python</a></li>
 </ul>
 </li>
-<li><a href="#_waarden_bijwerken">Waarden Bijwerken</a>
+<li><a href="#_datatypen_en_variabelen">Datatypen en Variabelen</a>
 <ul class="sectlevel3">
+<li><a href="#_waarden_bijwerken">Waarden Bijwerken</a></li>
 <li><a href="#_variabelen_en_scope">Variabelen en Scope</a></li>
-<li><a href="#_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</a></li>
 </ul>
 </li>
-<li><a href="#_gegevenstypes_in_python">Gegevenstypes in Python</a>
+<li><a href="#_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</a>
 <ul class="sectlevel3">
 <li><a href="#_integer_int">Integer (int)</a></li>
 <li><a href="#_float_komma_getal">Float (Komma-getal)</a></li>
 <li><a href="#_string_str">String (str)</a></li>
 <li><a href="#_boolean_bool">Boolean (bool)</a></li>
+</ul>
+</li>
+<li><a href="#_lijst_gegevenstype">Lijst Gegevenstype</a></li>
+<li><a href="#_tuple_gegevenstype">Tuple Gegevenstype</a></li>
+<li><a href="#_dictionary_gegevenstype">Dictionary Gegevenstype</a>
+<ul class="sectlevel3">
 <li><a href="#_type_conversie">Type Conversie</a></li>
 <li><a href="#_dynamische_typing">Dynamische Typing</a></li>
+<li><a href="#_variabelen_vs_expressies">Variabelen vs Expressies</a></li>
 </ul>
 </li>
 <li><a href="#_conclusie_2">Conclusie</a></li>
-<li><a href="#_variabelen_en_expressies">Variabelen en Expressies</a>
-<ul class="sectlevel3">
-<li><a href="#_conclusie_3">Conclusie</a></li>
 </ul>
 </li>
-<li><a href="#_diepere_duik_in_python_functies_en_herbruikbaarheid_van_code">Diepere Duik in Python: Functies en Herbruikbaarheid van Code</a>
-<ul class="sectlevel3">
-<li><a href="#_het_belang_van_functies_in_python">Het Belang van Functies in Python</a>
-<ul class="sectlevel4">
-<li><a href="#_functies_definiëren_en_oproepen">Functies Definiëren en Oproepen</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_cursus_python_voor_middelbare_scholieren">Cursus Python voor Middelbare Scholieren</a>
+<li><a href="#_hoofdstuk_4_beslissingsstructuren">Hoofdstuk 4: Beslissingsstructuren</a>
 <ul class="sectlevel2">
-<li><a href="#_diepere_duik_in_python_parameters_in_functies">Diepere Duik in Python: Parameters in Functies</a>
-<ul class="sectlevel3">
-<li><a href="#_het_belang_van_parameters_in_functies">Het Belang van Parameters in Functies</a>
-<ul class="sectlevel4">
-<li><a href="#_positionele_parameters">Positionele Parameters</a></li>
-<li><a href="#_standaardwaarden_voor_parameters">Standaardwaarden voor Parameters</a></li>
-<li><a href="#_args_en_kwargs">args en kwargs</a></li>
+<li><a href="#_het_belang_van_beslissingsstructuren">Het Belang van Beslissingsstructuren</a></li>
+<li><a href="#_if_else_beslissingsstructuur">If-Else Beslissingsstructuur</a></li>
+<li><a href="#_if_elif_else_structuur">If-Elif-Else Structuur</a></li>
+<li><a href="#_geneste_beslissingsstructuren">Geneste Beslissingsstructuren</a></li>
 </ul>
 </li>
-<li><a href="#_conclusie_4">Conclusie</a>
-<ul class="sectlevel4">
-<li><a href="#_documentatie_van_functies">Documentatie van Functies</a></li>
-<li><a href="#_herbruikbaarheid_van_code">Herbruikbaarheid van Code</a></li>
-<li><a href="#_return_statements">Return Statements</a></li>
-<li><a href="#_functies_met_meerdere_parameters">Functies met Meerdere Parameters</a></li>
-<li><a href="#_scope_en_lokale_variabelen">Scope en Lokale Variabelen</a></li>
-<li><a href="#_ingebouwde_en_aangepaste_functies">Ingebouwde en Aangepaste Functies</a></li>
-<li><a href="#_functies_als_objecten">Functies als Objecten</a></li>
+<li><a href="#_het_belang_van_indentatie_in_python">Het Belang van Indentatie in Python</a>
+<ul class="sectlevel2">
+<li><a href="#_duidelijkheid_en_leesbaarheid">Duidelijkheid en Leesbaarheid</a></li>
+<li><a href="#_logische_structurering">Logische Structurering</a></li>
+<li><a href="#_foutpreventie">Foutpreventie</a></li>
+<li><a href="#_samenvatting_2">Samenvatting</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a href="#_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</a>
+<ul class="sectlevel2">
+<li><a href="#_gegevensinvoer">Gegevensinvoer</a></li>
+<li><a href="#_expressies_en_berekeningen">Expressies en Berekeningen</a></li>
+<li><a href="#_verrijking_van_gameplay_via_interactie">Verrijking van Gameplay via Interactie</a></li>
 </ul>
 </li>
 </ul>
@@ -418,10 +414,10 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_programmeertaal_programmeren">Programmeertaal &amp; Programmeren</h2>
+<h2 id="_hoofdstuk_1_programmeertalen_programmeren">Hoofdstuk 1: Programmeertalen &amp; Programmeren</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Een programma bepaald hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.</p>
+<p>Een programma bepaalt hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -687,7 +683,7 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cursus_programmeren_met_python">Cursus Programmeren met Python</h3>
+<h3 id="_de_programmeertaal_python">De programmeertaal Python</h3>
 <div class="paragraph">
 <p>In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:</p>
 </div>
@@ -719,36 +715,8 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 <div class="paragraph">
 <p>Hoewel Python over het algemeen minder snel is dan Java vanwege zijn dynamische aard, heeft het voortdurende optimalisaties en externe modules die de prestaties kunnen verbeteren, wat de snelheidskloof in veel gevallen verkleint.</p>
 </div>
-<div class="sect3">
-<h4 id="_de_snelheid_of_traagheid_van_python">De snelheid of traagheid van Python</h4>
-<div class="paragraph">
-<p>Python kan trager zijn dan C++ om verschillende redenen:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Interpretatie vs. Compilatie: Python wordt geïnterpreteerd, wat betekent dat de code tijdens de uitvoering wordt vertaald naar machine-instructies. Dit kan resulteren in langzamere uitvoering in vergelijking met C++, waar code vooraf wordt gecompileerd tot direct uitvoerbare machinecode.</p>
-</li>
-<li>
-<p>Dynamische Typing: Python staat bekend om zijn dynamische typering, waarbij variabelen geen expliciete typen hebben en hun typen pas tijdens runtime worden bepaald. Hoewel dit flexibiliteit biedt, kan het interpreteren van variabele typen extra tijd kosten in vergelijking met statisch getypeerde talen zoals C++.</p>
-</li>
-<li>
-<p>Gegevensstructuren: Python biedt algemenere gegevensstructuren, terwijl C meer mogelijkheden biedt om gegevensstructuren te optimaliseren voor specifieke gebruiksscenario's. Dit kan resulteren in efficiëntere gegevensverwerking in C.</p>
-</li>
-<li>
-<p>Global Interpreter Lock (GIL): CPython, de standaardimplementatie van Python, heeft een GIL die ervoor zorgt dat slechts één thread tegelijk Python-code kan uitvoeren. Dit kan de prestaties beïnvloeden bij multi-threaded toepassingen, aangezien meerdere threads niet parallel Python-code kunnen uitvoeren.</p>
-</li>
-<li>
-<p>Runtime Overhead: Python heeft overhead vanwege zijn dynamische aard, objectgeoriënteerde karakter en <em>garbage collection</em>. Deze overhead kan leiden tot langzamere prestaties in vergelijking met C++, vooral bij rekenintensieve taken.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Hoewel Python over het algemeen trager is dan C++, biedt het andere voordelen, zoals verbeterde leesbaarheid en verhoogde productiviteit, wat de keuze voor Python in veel gevallen rechtvaardigt.</p>
-</div>
 <div class="paragraph">
 <p>Meer informatie kan je <a href="extra/pythonplusminus.html">hier</a> terugvinden (dit behoort niet tot de te kennen leerstof).</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -793,11 +761,6 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_inleiding_tot_python">Inleiding tot Python</h2>
-<div class="sectionbody">
 <div class="sect2">
 <h3 id="_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</h3>
 <div class="paragraph">
@@ -922,7 +885,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_van_code_naar_uitvoering_op_de_cpu">Van Code naar Uitvoering op de CPU</h2>
+<h2 id="_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">Hoofdstuk 2: Van Code naar Uitvoering op de CPU</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Deze python code print een tekst naar de console:</p>
@@ -999,10 +962,109 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="sect2">
 <h3 id="_compilatie_en_uitvoering">Compilatie en Uitvoering</h3>
 <div class="paragraph">
-<p>Python wordt beschouwd als een geïnterpreteerde taal, wat betekent dat de code <mark>regel voor regel</mark> wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een compilatieproces voordat deze wordt uitgevoerd.</p>
+<p>Python wordt beschouwd als een <mark>geïnterpreteerde taal</mark>, wat betekent dat de code <mark>regel voor regel</mark> wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een <strong>compilatieproces</strong> voordat deze wordt uitgevoerd.</p>
+</div>
+<div class="sect3">
+<h4 id="_het_interpreterproces_van_de_interpreter">Het Interpreterproces van de interpreter</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/lexer.webp" alt="lexer">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Tokenizing (lexer): De broncode wordt <strong>opgesplitst in elementaire eenheden</strong>, tokens genaamd. Deze tokens omvatten sleutelwoorden, symbolen, variabelen en getallen.</p>
+</li>
+<li>
+<p>Parsing: De tokens worden <strong>geanalyseerd</strong> om de <strong>syntactische structuur</strong> van het programma te begrijpen. Hierbij wordt gecontroleerd of de code voldoet aan de grammaticaregels van Python.</p>
+</li>
+<li>
+<p>Vertalen: De geparste code wordt omgezet in <strong>tussentijdse bytecode</strong>. Dit is een binair formaat dat de computer begrijpt en dat sneller kan worden uitgevoerd dan de originele broncode.</p>
+</li>
+<li>
+<p>Uitvoering: De bytecode wordt uitgevoerd door de <strong>Python-runtime</strong>. Tijdens deze stap worden variabelen gemaakt, waarden toegewezen, bewerkingen uitgevoerd en resultaten gegenereerd.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Echter, Python maakt gebruik van compilatie op verschillende niveaus. Nadat de bytecode is gegenereerd door de interpreter, kan de PVM ervoor kiezen om deze bytecode te compileren naar machinecode op het niveau van de hostcomputer. Deze vorm van compilatie staat bekend als Just-In-Time (JIT) compilatie en draagt bij aan de snelheid van uitvoering van Python-programma&#8217;s.</p>
+<p>Deze 4 stappen zijn een voortdurende lus, die bij iedere regel (dus regel per regel) wordt uitgevoerd.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_een_voorbeeld">Een voorbeeld</h4>
+<div class="paragraph">
+<p>Stel je voor dat je een Python-script hebt dat de beweging van een speler in een game simuleert:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">initial_position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span> <span class="o">+</span> <span class="n">movement_speed</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Nieuwe positie van de speler:"</span><span class="p">,</span> <span class="n">new_position</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bij het uitvoeren van dit script zal de interpreter de variabelen initial_position en movement_speed aanmaken en waarden toewijzen. Vervolgens wordt de positie van de speler berekend door movement_speed op te tellen bij initial_position. Het resultaat wordt afgedrukt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_just_in_time_jit_compiler_in_python">Just-In-Time (JIT) Compiler in Python</h4>
+<div class="paragraph">
+<p>De Just-In-Time (JIT) compiler is een techniek die wordt gebruikt om de uitvoeringssnelheid van code te verbeteren door delen van de code tijdens de uitvoering te compileren naar machinecode. Hoewel Python een geïnterpreteerde taal is, kan de JIT-compiler de prestaties aanzienlijk verbeteren door bepaalde stukken code te compileren op het moment dat ze worden uitgevoerd.</p>
+</div>
+<div class="sect4">
+<h5 id="_hoe_werkt_de_jit_compiler">Hoe Werkt de JIT-Compiler?</h5>
+<div class="paragraph">
+<p>Normaal gesproken wordt Python-code geïnterpreteerd en vertaald naar tussentijdse bytecode. Bij gebruik van een JIT-compiler worden sommige delen van de code, die vaak worden uitgevoerd, tijdens de uitvoering gecompileerd naar directe machinecode. Dit maakt de uitvoering sneller omdat machinecode direct door de computer kan worden uitgevoerd zonder interpretatie.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_voorbeeld">Voorbeeld</h5>
+<div class="paragraph">
+<p>Stel je voor dat je een eenvoudig Python-script hebt voor het simuleren van de beweging van een speler in een game:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">):</span>
+    <span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">new_position</span> <span class="o">+=</span> <span class="n">movement_speed</span>
+    <span class="k">return</span> <span class="n">new_position</span>
+
+<span class="n">initial_position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">final_position</span> <span class="o">=</span> <span class="n">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Laatste positie van de speler:"</span><span class="p">,</span> <span class="n">final_position</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de functie simulate_movement herhaaldelijk (meerdere keren per seconde) opgeroepen om de beweging van een speler te simuleren. Python kan na een aantal uitvoeringen ervoor kiezen om de simulate_movement-functie te optimaliseren door het om te zetten in efficiënte machinecode (via de JIT compiler).</p>
+</div>
+<div class="paragraph">
+<p>Dit proces gebeurt automatisch, hier heb je als programmeur geen invloed op.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_voordelen_in_gaming">Voordelen in Gaming</h5>
+<div class="paragraph">
+<p>In de context van gaming kan de JIT-compiler de prestaties van Python-code verbeteren, vooral voor onderdelen van het spel die veelvuldig worden gebruikt, zoals fysica-simulaties, beeldverwerking of AI-berekeningen. Dit kan leiden tot soepelere en responsievere spelervaringen.</p>
+</div>
+<div class="paragraph">
+<p>Hoewel JIT-compilatie Python niet zo snel maakt als strikt gecompileerde talen, kan het aanzienlijke prestatieverbeteringen bieden.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voordelen_en_nadelen">Voordelen en Nadelen</h4>
+<div class="paragraph">
+<p>Python&#8217;s interpretatieproces biedt voordelen zoals <strong>directe feedback</strong> en gemakkelijke debugging. Echter, omdat elke regel code wordt geïnterpreteerd wanneer deze wordt uitgevoerd, kan Python trager zijn dan gecompileerde talen voor intensieve berekeningen in games.</p>
+</div>
+<div class="paragraph">
+<p>Ondanks enige <strong>snelheidsbeperkingen</strong> blijft Python een veelgebruikte taal in de game-ontwikkeling vanwege zijn flexibiliteit, eenvoudige syntax en uitgebreide bibliotheken.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1014,35 +1076,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_gebruik_van_variabelen">Gebruik van Variabelen</h2>
+<h2 id="_hoofdstuk_3_gebruik_van_variabelen">Hoofdstuk 3: Gebruik van Variabelen</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ontdekking_van_variabelen_in_python">Ontdekking van Variabelen in Python</h3>
+<h3 id="_variabelen_in_python">Variabelen in Python</h3>
 <div class="paragraph">
-<p>Variabelen vormen een kernconcept in programmeren, waardoor ontwikkelaars waarden kunnen opslaan en manipuleren voor gebruik in hun programma&#8217;s. In Python zijn variabelen containers voor het opslaan van gegevens zoals getallen, tekst, lijsten, en meer. Laten we dieper ingaan op het gebruik van variabelen in Python.</p>
+<p>Variabelen vormen een kernconcept in programmeren, waardoor softwareontwikkelaars waarden kunnen opslaan en manipuleren voor gebruik in hun programma&#8217;s. In Python zijn variabelen <mark>containers voor het opslaan van gegevens</mark> zoals getallen, tekst, lijsten, en meer.</p>
 </div>
 <div class="sect3">
-<h4 id="_datatypen_en_variabelen">Datatypen en Variabelen</h4>
-<div class="paragraph">
-<p>In Python zijn variabelen niet expliciet getypeerd, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.</p>
-</div>
-<div class="paragraph">
-<p>Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (<code>=</code>). De operator wijst een waarde toe aan een variabele.</p>
-</div>
-<div class="paragraph">
-<p>Bijvoorbeeld, om een integer (geheel getal) op te slaan in een variabele genaamd <code>leeftijd</code>, hoef je alleen maar deze toewijzing uit te voeren:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">leeftijd</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In dit geval heeft Python automatisch het datatype van <code>leeftijd</code> ingesteld op een integer met waarde 16.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_variabelen_toewijzen_en_waarden_bijwerken">Variabelen Toewijzen en Waarden Bijwerken</h4>
+<h4 id="_variabelen_toewijzen">Variabelen Toewijzen</h4>
 <div class="paragraph">
 <p>Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de <em>health</em> van een speler in een game bijhouden:</p>
 </div>
@@ -1060,9 +1102,67 @@ Dit zijn een reeks afspraken van de taal:</p>
 <p>In dit voorbeeld wordt de variabele player_health aangemaakt en toegewezen met de waarde 100. We kunnen de naam van de variabele gebruiken om later de opgeslagen waarde te manipuleren.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_naamgeving_van_variabelen">Naamgeving van Variabelen</h4>
+<div class="paragraph">
+<p>In Python is het benoemen van variabelen van groot belang om duidelijke en begrijpelijke code te schrijven. Door een consistente en zinvolle naamgeving te hanteren, maak je niet alleen je code leesbaarder, maar vergemakkelijk je ook het onderhoud en de samenwerking aan projecten. Hier zijn enkele belangrijke regels en tips voor het benoemen van variabelen in Python:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_regels_voor_naamgeving_van_variabelen_in_python">Regels voor Naamgeving van Variabelen in Python</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Geldigheid: Variabelen moeten met een letter (a-z, A-Z) of een underscore (_) beginnen. Ze kunnen ook cijfers (0-9) bevatten, maar niet als eerste teken. Bijvoorbeeld: player_score, _health, level1.</p>
+</li>
+<li>
+<p>Hoofdlettergevoeligheid: Python is hoofdlettergevoelig, wat betekent dat variabelen met verschillende hoofdletters als verschillende namen worden beschouwd. score en Score zouden bijvoorbeeld twee verschillende variabelen zijn.</p>
+</li>
+<li>
+<p>Spaties en Speciale Tekens: Spaties en speciale tekens zoals @, $, en % zijn niet toegestaan in variabelennamen.</p>
+</li>
+<li>
+<p>Spaties Vermijden: In plaats van spaties worden underscores vaak gebruikt om woorden in variabelennamen te scheiden, wat de leesbaarheid verbetert. Bijvoorbeeld: player_name, health_points.</p>
+</li>
+<li>
+<p>Betekenisvolle Namen: Geef je variabelen namen die hun functie of betekenis in de context aangeven. Een naam als player_health is duidelijker dan een generieke naam zoals x.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_waarden_bijwerken">Waarden Bijwerken</h3>
+<h3 id="_datatypen_en_variabelen">Datatypen en Variabelen</h3>
+<div class="paragraph">
+<p>In Python zijn variabelen <strong>niet expliciet getypeerd</strong>, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.</p>
+</div>
+<div class="paragraph">
+<p>Dit maakt van Python een dynamisch getypeerde taal.</p>
+</div>
+<div class="paragraph">
+<p>Variabelen in Python worden toegewezen met behulp van de toewijzingsoperator (<code>=</code>). De operator wijst een waarde toe aan een variabele.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, om een integer (geheel getal) op te slaan in een variabele genaamd <code>bullet_damage</code>, hoef je alleen maar deze toewijzing uit te voeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bullet_damage</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit geval heeft Python automatisch het datatype van <code>bullet_damage</code> ingesteld op een integer met waarde 16.</p>
+</div>
+<div class="paragraph">
+<p>In bijvoorbeeld Java, moet je het gegevenstype wel expliciet meegegeven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kt">int</span> <span class="n">bullet_damage</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_waarden_bijwerken">Waarden Bijwerken</h4>
 <div class="paragraph">
 <p>Variabelen kunnen op elk moment worden bijgewerkt door er simpelweg een nieuwe waarde aan toe te wijzen. Bijvoorbeeld, als de speler schade oploopt:</p>
 </div>
@@ -1077,10 +1177,11 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="paragraph">
 <p>Hier wordt de variabele damage_taken gemaakt en toegewezen met de waarde 25. Vervolgens verminderen we de gezondheid van de speler door damage_taken van player_health af te trekken.</p>
 </div>
+</div>
 <div class="sect3">
 <h4 id="_variabelen_en_scope">Variabelen en Scope</h4>
 <div class="paragraph">
-<p>Variabelen hebben een bepaalde "scope" of bereik, wat aangeeft waar de variabele beschikbaar en geldig is. In Python kunnen variabelen lokaal (binnen een specifieke functie) of globaal (door het hele programma) zijn.</p>
+<p>Variabelen hebben een bepaalde <mark>"scope" of bereik, wat aangeeft waar de variabele beschikbaar en geldig is</mark>. In Python kunnen variabelen lokaal (binnen een specifieke functie) of globaal (door het hele programma) zijn.</p>
 </div>
 <div class="paragraph">
 <p>Laten we een voorbeeld bekijken om het concept van scope te illustreren:</p>
@@ -1089,14 +1190,18 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">globale_variabele</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="k">def</span> <span class="nf">functie</span><span class="p">():</span>
+<span class="c1"># definitie van een functie
+</span><span class="k">def</span> <span class="nf">functie</span><span class="p">():</span>
     <span class="n">lokale_variabele</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele binnen functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, binnen functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele, binnen functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
 
-<span class="n">functie</span><span class="p">()</span>
+<span class="c1"># nu voeren we de functie uit
+</span><span class="n">functie</span><span class="p">()</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele buiten functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span></code></pre>
+<span class="c1"># En we voeren enkele print statements uit
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1104,19 +1209,48 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">Lokale</span> <span class="n">variabele</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">Globale</span> <span class="n">variabele</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span>
-<span class="n">Globale</span> <span class="n">variabele</span> <span class="n">buiten</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">Lokale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">5</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="n">Globale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="n">Globale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">buiten</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="n">File</span> <span class="s">"test.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">14</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
+<span class="nb">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">'lokale_variabele'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s">'globale_variabele'</span><span class="err">?</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>De python interpreter zit in de functie, lokale variabele gevonden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>De python interpreter zit in de functie, globale variabele gevonden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>De python interpreter zit buiten de functie, globale variabele gevonden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>De python interpreter zit buiten de functie, lokale variabele NIET gevonden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Python probeert zelfs een juiste oplossing voor te stellen. Het blijft aan de ontwikkelaar om iets met deze suggestie te doen.</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Hier zien we dat de variabele <code>lokale_variabele</code> alleen beschikbaar is binnen de functie waarin deze is gedefinieerd. De variabele <code>globale_variabele</code> kan zowel binnen als buiten de functie worden gebruikt, omdat deze een globale scope heeft.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</h4>
+</div>
+<div class="sect2">
+<h3 id="_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</h3>
 <div class="paragraph">
-<p>Python heeft verschillende ingebouwde gegevenstypen die je kunt gebruiken om variabelen van verschillende soorten gegevens op te slaan. Enkele van de veelgebruikte datatypen zijn:</p>
+<p>Python heeft verschillende ingebouwde gegevenstypes die je kunt gebruiken om variabelen van verschillende soorten gegevens op te slaan. Enkele van de veelgebruikte datatypen zijn:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1145,12 +1279,17 @@ Dit zijn een reeks afspraken van de taal:</p>
 </span><span class="n">waar</span> <span class="o">=</span> <span class="bp">True</span>    <span class="c1"># bool</span></code></pre>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/python-data-types.jpg" alt="python data types">
 </div>
+<div class="title">Figure 1. De standaard Python gegevenstypen</div>
 </div>
-<div class="sect2">
-<h3 id="_gegevenstypes_in_python">Gegevenstypes in Python</h3>
 <div class="paragraph">
-<p>Gegevenstypes zijn fundamentele bouwstenen in programmeren en stellen ontwikkelaars in staat om verschillende soorten gegevens te representeren en te manipuleren. In Python zijn gegevenstypes ingebouwd en flexibel, wat de taal krachtig en veelzijdig maakt. Laten we dieper ingaan op enkele belangrijke gegevenstypes in Python.</p>
+<p>Gegevenstypes bepalen hoe de computer gegevens opslaat, bewerkt en weergeeft. In een gamingcontext kunnen gegevenstypes worden gebruikt om informatie zoals spelergezondheid, scores, positie en meer vast te leggen.</p>
+</div>
+<div class="paragraph">
+<p>Laten we de belangrijkste gegevenstypes eens overlopen:</p>
 </div>
 <div class="sect3">
 <h4 id="_integer_int">Integer (int)</h4>
@@ -1229,12 +1368,56 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="paragraph">
 <p>Booleaanse waarden zijn ook het resultaat van vergelijkingsoperatoren, zoals <code>==</code> (gelijk aan), <code>!=</code> (niet gelijk aan), <code>&lt;</code> (kleiner dan), <code>&gt;</code> (groter dan), etc.</p>
 </div>
+<div class="paragraph">
+<p>Stel je voor dat we een script hebben dat controleert of een speler voldoende gezondheid heeft om een bepaalde taak uit te voeren:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="c1"># True, want 5 is kleiner dan 10</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">minimum_health_required</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">is_healthy_enough</span> <span class="o">=</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="n">minimum_health_required</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Is de speler gezond genoeg?"</span><span class="p">,</span> <span class="n">is_healthy_enough</span><span class="p">)</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld vergelijken we de gezondheid van de speler (player_health) met de vereiste minimale gezondheid (minimum_health_required). Als de gezondheid van de speler groter is dan het minimum, zal is_healthy_enough de waarde True krijgen. Anders zal het de waarde False krijgen.</p>
+</div>
+<div class="paragraph">
+<p>Booleaanse waarden zijn krachtige hulpmiddelen in games omdat ze de besluitvorming en logica binnen je code mogelijk maken. Je kunt ze gebruiken om te bepalen of een speler een bepaald level heeft bereikt, of een missie is voltooid, of dat bepaalde acties kunnen worden uitgevoerd op basis van bepaalde voorwaarden.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lijst_gegevenstype">Lijst Gegevenstype</h3>
+<div class="paragraph">
+<p>list: Een geordende verzameling van waarden, zoals de inventaris van een speler.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">inventory</span> <span class="o">=</span> <span class="p">[</span><span class="s">"sword"</span><span class="p">,</span> <span class="s">"shield"</span><span class="p">,</span> <span class="s">"potion"</span><span class="p">]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tuple_gegevenstype">Tuple Gegevenstype</h3>
+<div class="paragraph">
+<p>tuple: Een onveranderlijke verzameling van waarden, zoals de positie van een speler.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dictionary_gegevenstype">Dictionary Gegevenstype</h3>
+<div class="paragraph">
+<p>dict: Een verzameling van sleutel-waardeparen, zoals attributen van een speler.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"John"</span><span class="p">,</span> <span class="s">"health"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"armor"</span><span class="p">:</span> <span class="s">"plate"</span><span class="p">}</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -1252,7 +1435,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="sect3">
 <h4 id="_dynamische_typing">Dynamische Typing</h4>
 <div class="paragraph">
-<p>Python staat ook bekend om zijn dynamische typen, wat betekent dat het datatype van een variabele kan veranderen terwijl het programma wordt uitgevoerd. Dit in tegenstelling tot sterk getypeerde talen waar het datatype strikt moet worden gedefinieerd en behouden.</p>
+<p>Python staat ook bekend om 'dynamic typed' te zijn, wat betekent dat <mark>het datatype van een variabele kan veranderen terwijl het programma wordt uitgevoerd</mark>. Dit in tegenstelling tot sterk getypeerde talen waar het datatype strikt moet worden gedefinieerd en behouden.</p>
 </div>
 <div class="paragraph">
 <p>Bijvoorbeeld:</p>
@@ -1264,6 +1447,40 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">a</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Dit houdt een groot risico voor <em>bugs</em> in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_variabelen_vs_expressies">Variabelen vs Expressies</h4>
+<div class="paragraph">
+<p><strong>Een expressie</strong> is een combinatie van waarden, operatoren en/of functies die een resultaat oplevert wanneer deze wordt geëvalueerd. Expressies kunnen variëren van eenvoudige wiskundige bewerkingen tot complexere berekeningen. Ze kunnen ook variabelen bevatten.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">damage</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">remaining_health</span> <span class="o">=</span> <span class="n">health</span> <span class="o">-</span> <span class="n">damage</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld is health - damage een expressie die wordt geëvalueerd tot het resterende gezondheidsniveau van een speler na het oplopen van schade.</p>
+</div>
+<div class="paragraph">
+<p><strong>Een variabele</strong> is een naam die wordt gebruikt om een geheugenlocatie aan te duiden waarin gegevens kunnen worden opgeslagen. Variabelen worden gebruikt om waarden op te slaan en te bewaren, zodat ze later kunnen worden gebruikt in berekeningen, operaties en expressies.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">player_name</span> <span class="o">=</span> <span class="s">"Alice"</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier worden player_health en player_name als variabelen gebruikt om respectievelijk de gezondheid van een speler en de naam van een speler op te slaan.</p>
+</div>
+<div class="paragraph">
+<p>Het onderscheid tussen expressies en variabelen is dat <mark>expressies berekeningen uitvoeren en resultaten opleveren</mark>, terwijl <mark>variabelen dienen als namen voor opgeslagen gegevens</mark>. Variabelen kunnen in expressies worden gebruikt om bewerkingen uit te voeren en nieuwe waarden te genereren.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1272,285 +1489,312 @@ Dit zijn een reeks afspraken van de taal:</p>
 <p>De verscheidenheid aan gegevenstypes in Python, waaronder integer, float, string en boolean, biedt ontwikkelaars flexibiliteit bij het manipuleren van verschillende soorten gegevens. Het begrijpen van deze gegevenstypes en hun toepassingen is essentieel voor het schrijven van effectieve en veelzijdige Python-programma&#8217;s.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_variabelen_en_expressies">Variabelen en Expressies</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hoofdstuk_4_beslissingsstructuren">Hoofdstuk 4: Beslissingsstructuren</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Variabelen kunnen worden gebruikt in wiskundige en logische expressies om complexere berekeningen uit te voeren. Bijvoorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">lengte</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">breedte</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">lengte</span> <span class="o">*</span> <span class="n">breedte</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Oppervlakte:"</span><span class="p">,</span> <span class="n">oppervlakte</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In dit voorbeeld wordt de variabele <code>oppervlakte</code> berekend door de waarden van de variabelen <code>lengte</code> en <code>breedte</code> met elkaar te vermenigvuldigen.</p>
-</div>
-<div class="sect3">
-<h4 id="_conclusie_3">Conclusie</h4>
-<div class="paragraph">
-<p>Variabelen zijn een essentieel concept in Python-programmering, waardoor ontwikkelaars gegevens kunnen opslaan, manipuleren en gebruiken in hun</p>
-</div>
-</div>
+<p>Beslissingsstructuren stellen ons in staat om de logica van ons programma of spel aan te passen op basis van voorwaarden en situaties.</p>
 </div>
 <div class="sect2">
-<h3 id="_diepere_duik_in_python_functies_en_herbruikbaarheid_van_code">Diepere Duik in Python: Functies en Herbruikbaarheid van Code</h3>
-<div class="sect3">
-<h4 id="_het_belang_van_functies_in_python">Het Belang van Functies in Python</h4>
+<h3 id="_het_belang_van_beslissingsstructuren">Het Belang van Beslissingsstructuren</h3>
 <div class="paragraph">
-<p>Functies zijn een essentieel concept in Python en programmeren in het algemeen. Ze stellen ontwikkelaars in staat om logica te groeperen en te structureren, waardoor code modulair en herbruikbaar wordt. Door functies te gebruiken, kun je complexe problemen opdelen in kleinere, beheersbare stappen, waardoor het gemakkelijker wordt om de functionaliteit van een programma te begrijpen, te onderhouden en uit te breiden.</p>
-</div>
-<div class="sect4">
-<h5 id="_functies_definiëren_en_oproepen">Functies Definiëren en Oproepen</h5>
-<div class="paragraph">
-<p>Het definiëren van een functie begint met het <code>def</code>-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.</p>
+<p>Beslissingsstructuren zijn van cruciaal belang in het creëren van interactieve games. Ze stellen ons in staat om verschillende paden in het spel te volgen op basis van specifieke voorwaarden. Hierdoor kunnen we scenario&#8217;s creëren waarin de uitkomst afhangt van de beslissingen van de speler.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, laten we een eenvoudige functie definiëren om twee getallen op te tellen:</p>
+<p><strong>Keuzes in een Tekstavontuur:</strong></p>
+</div>
+<div class="paragraph">
+<p>Stel je voor dat je een tekstgebaseerde RPG ontwikkelt waarin spelers een verlaten kasteel verkennen. Beslissingsstructuren kunnen worden gebruikt om verschillende resultaten te genereren op basis van keuzes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie telt twee getallen op en geeft het resultaat terug.
-    :param a: Het eerste getal.
-    :param b: Het tweede getal.
-    :return: Het resultaat van de optelling.
-    """</span>
-    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="k">return</span> <span class="n">resultaat</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Je staat voor een deur. Wat wil je doen?"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="s">"1"</span>  <span class="c1"># Stel dat de speler "1" invoert
+</span>
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je opent de deur en vindt een oude sleutel."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je doorzoekt de kamer verder maar vindt niets van belang."</span><span class="p">)</span></code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_if_else_beslissingsstructuur">If-Else Beslissingsstructuur</h3>
+<div class="paragraph">
+<p>Python biedt de <code>if-else</code>-structuur om beslissingen te nemen op basis van één enkele voorwaarde. Als de voorwaarde waar is, wordt de code binnen het <code>if</code>-blok uitgevoerd. Anders wordt de code binnen het <code>else</code>-blok uitgevoerd.</p>
 </div>
 <div class="paragraph">
-<p>Om deze functie op te roepen, verstrekken we argumenten die overeenkomen met de parameters:</p>
+<p><strong>Beslissen of een Vijand Verslagen is:</strong></p>
+</div>
+<div class="paragraph">
+<p>Laten we een gevechtsscenario overwegen waarin de speler een vijand moet verslaan. Met een <code>if-else</code>-structuur kunnen we bepalen of de vijand verslagen is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">som</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">player_damage</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="k">if</span> <span class="n">player_damage</span> <span class="o">&gt;=</span> <span class="n">enemy_health</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt de vijand verslagen!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand heeft nog"</span><span class="p">,</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span><span class="p">,</span> <span class="s">"gezondheid over."</span><span class="p">)</span></code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_if_elif_else_structuur">If-Elif-Else Structuur</h3>
+<div class="paragraph">
+<p>In complexere situaties waarin meerdere voorwaarden moeten worden geëvalueerd, biedt de <code>if-elif-else</code>-structuur uitkomst. Deze structuur stelt ons in staat om verschillende mogelijke uitkomsten te behandelen.</p>
+</div>
+<div class="paragraph">
+<p><strong>Beslissen over Spelerattributen:</strong></p>
+</div>
+<div class="paragraph">
+<p>Laten we een situatie aannemen waarin we de prestaties van een speler evalueren op basis van hun attributen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">player_strength</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">player_agility</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="k">if</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je bent in goede conditie."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt wat herstel nodig."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je gezondheid is laag. Voorzichtig blijven!"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geneste_beslissingsstructuren">Geneste Beslissingsstructuren</h3>
+<div class="paragraph">
+<p>Beslissingsstructuren kunnen ook genest zijn, wat betekent dat je een beslissing neemt binnen een ander beslissingsblok. Dit is nuttig om complexere logica te implementeren.</p>
+</div>
+<div class="paragraph">
+<p><strong>Keuzes in een Mysterieus Bos:</strong></p>
+</div>
+<div class="paragraph">
+<p>Stel je een game voor waarin spelers een mysterieus bos verkennen. Binnen dit bos kunnen ze verschillende paden kiezen, elk met hun eigen consequenties:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Je staat in een bos en ziet een splitsing."</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="s">"links"</span>  <span class="c1"># Stel dat de speler "links" invoert
+</span>
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"links"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je volgt het pad en vindt een verborgen schat!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je gaat een andere richting op en hoort vreemde geluiden."</span><span class="p">)</span>
+    <span class="n">second_choice</span> <span class="o">=</span> <span class="s">"doorgaan"</span>  <span class="c1"># Stel dat de speler "doorgaan" invoert
+</span>    <span class="k">if</span> <span class="n">second_choice</span> <span class="o">==</span> <span class="s">"doorgaan"</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Je ontdekt een verlaten huis."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Je besluit om snel terug te keren en het enge gebied te verlaten."</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cursus_python_voor_middelbare_scholieren">Cursus Python voor Middelbare Scholieren</h2>
+<h2 id="_het_belang_van_indentatie_in_python">Het Belang van Indentatie in Python</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Indentatie is een fundamenteel concept in Python-programmering en speelt een cruciale rol in het structureren van je code. In tegenstelling tot veel andere programmeertalen, waar accolades of sleutelwoorden worden gebruikt om codeblokken te definiëren, gebruikt Python indentatie om de structuur van het programma aan te geven. Dit kan van invloed zijn op leesbaarheid, logica en werking van je code.</p>
+</div>
 <div class="sect2">
-<h3 id="_diepere_duik_in_python_parameters_in_functies">Diepere Duik in Python: Parameters in Functies</h3>
-<div class="sect3">
-<h4 id="_het_belang_van_parameters_in_functies">Het Belang van Parameters in Functies</h4>
+<h3 id="_duidelijkheid_en_leesbaarheid">Duidelijkheid en Leesbaarheid</h3>
 <div class="paragraph">
-<p>Parameters zijn een cruciaal concept bij het definiëren en aanroepen van functies in Python. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd. Laten we dieper ingaan op verschillende aspecten van het gebruik van parameters in functies.</p>
-</div>
-<div class="sect4">
-<h5 id="_positionele_parameters">Positionele Parameters</h5>
-<div class="paragraph">
-<p>Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.</p>
+<p>Indentatie helpt om de structuur van je code visueel te benadrukken. Het geeft aan welke regels bij elkaar horen en vormt de basis van codeblokken. Een consistent gebruik van indentatie maakt het voor zowel jou als andere ontwikkelaars gemakkelijker om te begrijpen hoe de code is gestructureerd en welke delen met elkaar zijn verbonden.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, laten we een functie definiëren die twee getallen optelt met behulp van positionele parameters:</p>
+<p><strong>Duidelijke Identatie:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie telt twee getallen op.
-    :param a: Het eerste getal.
-    :param b: Het tweede getal.
-    :return: Het resultaat van de optelling.
-    """</span>
-    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="k">return</span> <span class="n">resultaat</span>
-
-<span class="n">som</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Geweldig werk!"</span><span class="p">)</span>
+    <span class="n">player_level</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je bent nu level"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_standaardwaarden_voor_parameters">Standaardwaarden voor Parameters</h5>
-<div class="paragraph">
-<p>Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, laten we een functie definiëren die een bericht afdrukt met een standaardgroet als er geen naam wordt opgegeven:</p>
+<p><strong>Onjuiste Identatie:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">begroeten</span><span class="p">(</span><span class="n">naam</span><span class="o">=</span><span class="s">"Vriend"</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie begroet een persoon met een optionele naam.
-    :param naam: De naam van de persoon (standaard is "Vriend").
-    """</span>
-    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Hallo, </span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s">!"</span><span class="p">)</span>
-
-<span class="n">begroeten</span><span class="p">()</span>         <span class="c1"># Output: Hallo, Vriend!
-</span><span class="n">begroeten</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">)</span>  <span class="c1"># Output: Hallo, Alice!</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Geweldig werk!"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Je bent nu level"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_args_en_kwargs">args en kwargs</h5>
-<div class="paragraph">
-<p>In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie <code>args</code> en <code>kwargs</code> staan dit toe.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>args</code> staat voor "arguments" en verzamelt positionele argumenten in een tuple.</p>
-</li>
-<li>
-<p><code>kwargs</code> staat voor "keyword arguments" en verzamelt genoemde argumenten in een dictionary.</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, laten we een functie definiëren die een variabel aantal getallen kan optellen:</p>
+<p>In het eerste voorbeeld wordt de tweede en derde regel uitgevoerd als de voorwaarde waar is. In het tweede voorbeeld wordt de derde regel altijd uitgevoerd, ongeacht de voorwaarde.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logische_structurering">Logische Structurering</h3>
+<div class="paragraph">
+<p>De juiste indentatie zorgt ervoor dat je code correct wordt uitgevoerd volgens de gewenste logica. Indentatie scheidt codeblokken, zoals loops, functies en conditionele statements, van elkaar. Het stelt Python in staat om de scope van variabelen en de uitvoering van instructies op de juiste manier te interpreteren.</p>
+</div>
+<div class="paragraph">
+<p><strong>Loop met Correcte Identatie:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie telt een variabel aantal getallen op.
-    :param args: Een tuple van getallen om op te tellen.
-    :return: Het resultaat van de optelling.
-    """</span>
-    <span class="n">resultaat</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">resultaat</span>
-
-<span class="n">totaal</span> <span class="o">=</span> <span class="n">optellen_met_args</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">totaal</span><span class="p">)</span> <span class="c1"># Output: 30</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Dit is een iteratie van de loop."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"De loop is voltooid."</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Je kunt ook genoemde argumenten doorgeven met <code>kwargs</code>:</p>
+<p><strong>Loop met Onjuiste Identatie:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie drukt genoemde argumenten af.
-    :param kwargs: Een dictionary van genoemde argumenten.
-    """</span>
-    <span class="k">for</span> <span class="n">sleutel</span><span class="p">,</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">sleutel</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">waarde</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-
-<span class="n">afdrukken_met_kwargs</span><span class="p">(</span><span class="n">voornaam</span><span class="o">=</span><span class="s">"Alice"</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<span class="c1"># Output:
-# voornaam: Alice
-# leeftijd: 25</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Dit is een iteratie van de loop."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"De loop is voltooid."</span><span class="p">)</span></code></pre>
 </div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_conclusie_4">Conclusie</h4>
-<div class="paragraph">
-<p>Parameters zijn een krachtig instrument om functies in Python aanpasbaar en herbruikbaar te maken. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor je code flexibel wordt en verschillende scenario&#8217;s kunt ondersteunen zonder duplicatie van code. Het begrijpen van positionele parameters, standaardwaarden, 'args' en 'kwargs' geeft je meer controle en flexibiliteit bij het definiëren en aanroepen van functies.</p>
-</div>
-<div class="sect4">
-<h5 id="_documentatie_van_functies">Documentatie van Functies</h5>
-<div class="paragraph">
-<p>Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_herbruikbaarheid_van_code">Herbruikbaarheid van Code</h5>
-<div class="paragraph">
-<p>Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, stel dat we dezelfde optelling op meerdere plaatsen in ons programma moeten uitvoeren. Met een functie kunnen we dit efficiënt doen:</p>
+<p>In het eerste voorbeeld worden de eerste twee regels binnen elke iteratie van de loop uitgevoerd. In het tweede voorbeeld worden deze regels na de voltooiing van de loop uitgevoerd, wat resulteert in een ander gedrag.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_foutpreventie">Foutpreventie</h3>
+<div class="paragraph">
+<p>Foutieve indentatie kan leiden tot syntaxisfouten en logische fouten in je code. Python zal een foutmelding genereren als de indentatie niet correct is. Dit helpt je om snel fouten op te sporen en te corrigeren.</p>
+</div>
+<div class="paragraph">
+<p><strong>Indentatiefout:</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-    <span class="k">return</span> <span class="n">resultaat</span>
-
-<span class="n">som1</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">som2</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="n">som3</span> <span class="o">=</span> <span class="n">optellen</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">som1</span><span class="p">)</span> <span class="c1"># Output: 8
-</span><span class="k">print</span><span class="p">(</span><span class="n">som2</span><span class="p">)</span> <span class="c1"># Output: 17
-</span><span class="k">print</span><span class="p">(</span><span class="n">som3</span><span class="p">)</span> <span class="c1"># Output: 4</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">health</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Je leeft nog!"</span><span class="p">)</span></code></pre>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_return_statements">Return Statements</h5>
-<div class="paragraph">
-<p>Het <code>return</code>-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld:</p>
+<p>Python zal hier een foutmelding genereren omdat de code na de <code>if</code>-verklaring niet correct is ingesprongen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_samenvatting_2">Samenvatting</h3>
+<div class="paragraph">
+<p>Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.</p>
+</div>
+<div class="sect2">
+<h3 id="_gegevensinvoer">Gegevensinvoer</h3>
+<div class="paragraph">
+<p>Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.</p>
+</div>
+<div class="paragraph">
+<p>Tekstinvoer Verzamelen:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie berekent het kwadraat van een getal.
-    :param x: Het getal waarvan het kwadraat wordt berekend.
-    :return: Het kwadraat van het gegeven getal.
-    """</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="n">getal</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">kwadraat_van_getal</span> <span class="o">=</span> <span class="n">kwadraat</span><span class="p">(</span><span class="n">getal</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">kwadraat_van_getal</span><span class="p">)</span> <span class="c1"># Output: 25</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer je naam in: "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Welkom, "</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span></code></pre>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_functies_met_meerdere_parameters">Functies met Meerdere Parameters</h5>
-<div class="paragraph">
-<p>Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.</p>
 </div>
 <div class="paragraph">
-<p>Bijvoorbeeld, een functie om de oppervlakte van een rechthoek te berekenen:</p>
+<p>Met dit voorbeeld vragen we de speler om hun naam in te voeren en gebruiken we deze input om een persoonlijk welkomstbericht te genereren.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">):</span>
-    <span class="s">"""
-    Deze functie berekent de oppervlakte van een rechthoek.
-    :param breedte: De breedte van de rechthoek.
-    :param lengte: De lengte van de rechthoek.
-    :return: De oppervlakte van de rechthoek.
-    """</span>
-    <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">breedte</span> <span class="o">*</span> <span class="n">lengte</span>
-    <span class="k">return</span> <span class="n">oppervlakte</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Wil je naar links of rechts gaan? "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Je hebt gekozen om naar "</span> <span class="o">+</span> <span class="n">choice</span> <span class="o">+</span> <span class="s">" te gaan."</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hiermee kunnen spelers eenvoudige keuzes maken binnen je game en wordt de uitvoer aangepast op basis van hun invoer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expressies_en_berekeningen">Expressies en Berekeningen</h3>
+<div class="paragraph">
+<p>Het vermogen om expressies en berekeningen te gebruiken, opent een wereld van mogelijkheden in game-ontwikkeling. Hiermee kun je wiskundige en logische bewerkingen uitvoeren op basis van variabele waarden, invoer van spelers of gamegebeurtenissen.</p>
+</div>
+<div class="paragraph">
+<p>Gevechtsberekening:</p>
+</div>
+<div class="paragraph">
+<p>Stel je een RPG-game voor waarin spelers vijanden schade toebrengen. Hier is een voorbeeld van hoe je dit kunt aanpakken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer je schade in: "</span><span class="p">))</span>
+<span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">remaining_health</span> <span class="o">=</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span>
 
-<span class="n">breedte</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">lengte</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="n">opp</span> <span class="o">=</span> <span class="n">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">opp</span><span class="p">)</span> <span class="c1"># Output: 28</span></code></pre>
+<span class="k">if</span> <span class="n">remaining_health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand is verslagen!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand heeft nog"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="s">"gezondheid over."</span><span class="p">)</span></code></pre>
 </div>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_scope_en_lokale_variabelen">Scope en Lokale Variabelen</h5>
 <div class="paragraph">
-<p>Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.</p>
+<p>Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_ingebouwde_en_aangepaste_functies">Ingebouwde en Aangepaste Functies</h5>
 <div class="paragraph">
-<p>Python biedt een breed scala aan ingebouwde functies, zoals <code>print()</code>, <code>len()</code>, <code>str()</code>, <code>int()</code>, <code>float()</code>, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.</p>
+<p>Deze code gebruikt de invoer van de speler om de resterende gezondheid van een vijand na het toebrengen van schade te berekenen.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_functies_als_objecten">Functies als Objecten</h5>
 <div class="paragraph">
-<p>In Python zijn functies "first-class citizens", wat betekent dat ze kunnen worden behandeld als objecten. Dit stelt je in staat om functies als argumenten aan andere functies door te geven, ze in variabelen op te slaan en</p>
+<p>Attribuutberekening:</p>
 </div>
+<div class="paragraph">
+<p>Stel je voor dat je een rollenspel maakt waarbij spelers de kracht en behendigheid van hun personage kunnen aanpassen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Creëer je personage. Geef een naam: "</span><span class="p">)</span>
+<span class="n">player_strength</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer de krachtwaarde in (1-10): "</span><span class="p">))</span>
+<span class="n">player_agility</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer de behendigheidswaarde in (1-10): "</span><span class="p">))</span>
+<span class="n">total_points</span> <span class="o">=</span> <span class="n">player_strength</span> <span class="o">+</span> <span class="n">player_agility</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="s">"'s attributen:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Kracht:"</span><span class="p">,</span> <span class="n">player_strength</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Behendigheid:"</span><span class="p">,</span> <span class="n">player_agility</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Totaal punten:"</span><span class="p">,</span> <span class="n">total_points</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Met dit voorbeeld verzamel je gegevens van spelers en gebruik je expressies om totaalpunten te berekenen op basis van kracht en behendigheid.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verrijking_van_gameplay_via_interactie">Verrijking van Gameplay via Interactie</h3>
+<div class="paragraph">
+<p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren die diep en meeslepend zijn. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer je naam in: "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Welkom, "</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Je staat voor een oud landhuis. Wat wil je onderzoeken?"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"1. De voordeur 2. Het zijraam: "</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je betreedt het landhuis via de voordeur en voelt een koude windvlaag."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je glijdt door het zijraam naar binnen en landt behendig op de vloer."</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Je onderzoek begint..."</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -1559,7 +1803,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-25 12:25:45 +0200
+Last updated 2023-08-27 17:01:22 +0200
 </div>
 </div>
 </body>

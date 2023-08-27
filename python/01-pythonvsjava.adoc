@@ -1,7 +1,29 @@
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
 
-= Inleiding tot Python
+== Python schrijven (of programmeren)
+
+Python wordt geschreven in een ##tekst document##.
+Dit tekst document heeft de ##.py extensie##. 
+Bijvoorbeeld: MijnPythonBestand.py .
+Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
+De tekst die je schrijft moet wel voldoen aan de ##syntax## van de taal.
+
+=== De syntax
+
+Iedere programmeertaal bestaat uit een syntax.
+Dit zijn een reeks afspraken van de taal:
+
+. **Welke woorden** kunnen gebruikt worden? In Python mag een woord bijvoorbeeld niet beginnen met een cijfer.
+. welke woorden zijn **gereserveerd** door de programmeertaal? Bijvoorbeeld het __return__ woord.
+. Op welke **plaats** mogen deze woorden staan?
+. Welke **scheidingskarakters** worden toegestaan of verplicht? Python verplicht bijvoorbeeld _:_ na een for lus.
+. Hoe belangrijk is **indentatie**?
+
+##Om succesvol te programmeren dien je de syntax van een taal te kennen##.
+
+De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.
+
 
 == Waarom Python kiezen in plaats van Java?
 

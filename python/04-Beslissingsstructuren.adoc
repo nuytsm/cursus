@@ -1,0 +1,167 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:stylesheet: dark.css
+
+= Hoofdstuk 4: Beslissingsstructuren
+
+Beslissingsstructuren stellen ons in staat om de logica van ons programma of spel aan te passen op basis van voorwaarden en situaties.
+
+== Het Belang van Beslissingsstructuren
+
+Beslissingsstructuren zijn van cruciaal belang in het creëren van interactieve games. Ze stellen ons in staat om verschillende paden in het spel te volgen op basis van specifieke voorwaarden. Hierdoor kunnen we scenario's creëren waarin de uitkomst afhangt van de beslissingen van de speler.
+
+**Keuzes in een Tekstavontuur:**
+
+Stel je voor dat je een tekstgebaseerde RPG ontwikkelt waarin spelers een verlaten kasteel verkennen. Beslissingsstructuren kunnen worden gebruikt om verschillende resultaten te genereren op basis van keuzes:
+
+[source,python]
+----
+print("Je staat voor een deur. Wat wil je doen?")
+choice = "1"  # Stel dat de speler "1" invoert
+
+if choice == "1":
+    print("Je opent de deur en vindt een oude sleutel.")
+else:
+    print("Je doorzoekt de kamer verder maar vindt niets van belang.")
+----
+
+== If-Else Beslissingsstructuur
+
+Python biedt de `if-else`-structuur om beslissingen te nemen op basis van één enkele voorwaarde. Als de voorwaarde waar is, wordt de code binnen het `if`-blok uitgevoerd. Anders wordt de code binnen het `else`-blok uitgevoerd.
+
+**Beslissen of een Vijand Verslagen is:**
+
+Laten we een gevechtsscenario overwegen waarin de speler een vijand moet verslaan. Met een `if-else`-structuur kunnen we bepalen of de vijand verslagen is:
+
+[source,python]
+----
+enemy_health = 30
+player_damage = 25
+
+if player_damage >= enemy_health:
+    print("Je hebt de vijand verslagen!")
+else:
+    print("De vijand heeft nog", enemy_health - player_damage, "gezondheid over.")
+----
+
+== If-Elif-Else Structuur
+
+In complexere situaties waarin meerdere voorwaarden moeten worden geëvalueerd, biedt de `if-elif-else`-structuur uitkomst. Deze structuur stelt ons in staat om verschillende mogelijke uitkomsten te behandelen.
+
+**Beslissen over Spelerattributen:**
+
+Laten we een situatie aannemen waarin we de prestaties van een speler evalueren op basis van hun attributen:
+
+[source,python]
+----
+player_health = 75
+player_strength = 8
+player_agility = 6
+
+if player_health > 70:
+    print("Je bent in goede conditie.")
+elif player_health > 40:
+    print("Je hebt wat herstel nodig.")
+else:
+    print("Je gezondheid is laag. Voorzichtig blijven!")
+----
+
+== Geneste Beslissingsstructuren
+
+Beslissingsstructuren kunnen ook genest zijn, wat betekent dat je een beslissing neemt binnen een ander beslissingsblok. Dit is nuttig om complexere logica te implementeren.
+
+**Keuzes in een Mysterieus Bos:**
+
+Stel je een game voor waarin spelers een mysterieus bos verkennen. Binnen dit bos kunnen ze verschillende paden kiezen, elk met hun eigen consequenties:
+
+[source,python]
+----
+print("Je staat in een bos en ziet een splitsing.")
+choice = "links"  # Stel dat de speler "links" invoert
+
+if choice == "links":
+    print("Je volgt het pad en vindt een verborgen schat!")
+else:
+    print("Je gaat een andere richting op en hoort vreemde geluiden.")
+    second_choice = "doorgaan"  # Stel dat de speler "doorgaan" invoert
+    if second_choice == "doorgaan":
+        print("Je ontdekt een verlaten huis.")
+    else:
+        print("Je besluit om snel terug te keren en het enge gebied te verlaten.")
+----
+
+= Het Belang van Indentatie in Python
+
+Indentatie is een fundamenteel concept in Python-programmering en speelt een cruciale rol in het structureren van je code. In tegenstelling tot veel andere programmeertalen, waar accolades of sleutelwoorden worden gebruikt om codeblokken te definiëren, gebruikt Python indentatie om de structuur van het programma aan te geven. Dit kan van invloed zijn op leesbaarheid, logica en werking van je code.
+
+== Duidelijkheid en Leesbaarheid
+
+Indentatie helpt om de structuur van je code visueel te benadrukken. Het geeft aan welke regels bij elkaar horen en vormt de basis van codeblokken. Een consistent gebruik van indentatie maakt het voor zowel jou als andere ontwikkelaars gemakkelijker om te begrijpen hoe de code is gestructureerd en welke delen met elkaar zijn verbonden.
+
+**Duidelijke Identatie:**
+
+[source,python]
+----
+if score > 100:
+    print("Geweldig werk!")
+    player_level += 1
+    print("Je bent nu level", player_level)
+----
+
+**Onjuiste Identatie:**
+
+[source,python]
+----
+if score > 100:
+    print("Geweldig werk!")
+print("Je bent nu level", player_level)
+----
+
+In het eerste voorbeeld wordt de tweede en derde regel uitgevoerd als de voorwaarde waar is. In het tweede voorbeeld wordt de derde regel altijd uitgevoerd, ongeacht de voorwaarde.
+
+== Logische Structurering
+
+De juiste indentatie zorgt ervoor dat je code correct wordt uitgevoerd volgens de gewenste logica. Indentatie scheidt codeblokken, zoals loops, functies en conditionele statements, van elkaar. Het stelt Python in staat om de scope van variabelen en de uitvoering van instructies op de juiste manier te interpreteren.
+
+**Loop met Correcte Identatie:**
+
+[source,python]
+----
+for i in range(5):
+    print(i)
+    print("Dit is een iteratie van de loop.")
+print("De loop is voltooid.")
+----
+
+**Loop met Onjuiste Identatie:**
+
+[source,python]
+----
+for i in range(5):
+    print(i)
+print("Dit is een iteratie van de loop.")
+print("De loop is voltooid.")
+----
+
+In het eerste voorbeeld worden de eerste twee regels binnen elke iteratie van de loop uitgevoerd. In het tweede voorbeeld worden deze regels na de voltooiing van de loop uitgevoerd, wat resulteert in een ander gedrag.
+
+== Foutpreventie
+
+Foutieve indentatie kan leiden tot syntaxisfouten en logische fouten in je code. Python zal een foutmelding genereren als de indentatie niet correct is. Dit helpt je om snel fouten op te sporen en te corrigeren.
+
+**Indentatiefout:**
+
+[source,python]
+----
+if health > 0:
+print("Je leeft nog!")
+----
+
+Python zal hier een foutmelding genereren omdat de code na de `if`-verklaring niet correct is ingesprongen.
+
+== Samenvatting
+
+Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.
+
