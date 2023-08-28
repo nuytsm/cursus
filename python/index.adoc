@@ -10,6 +10,7 @@
 
 //include::./00-inhoudsopgave.adoc[]
 include::01-intro.adoc[]
+
 include::01-pythonvsjava.adoc[]
 include::02-vanPythonNaarProcessor.adoc[]
 include::03-variabelen.adoc[]
