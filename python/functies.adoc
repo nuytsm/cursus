@@ -1,14 +1,17 @@
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:stylesheet: dark.css
 
 
-== Diepere Duik in Python: Functies en Herbruikbaarheid van Code
+= Hoofdstuk 7: Functies en Herbruikbaarheid van Code
 
-=== Het Belang van Functies in Python
+== Het Belang van Functies in Python
 
 Functies zijn een essentieel concept in Python en programmeren in het algemeen. Ze stellen ontwikkelaars in staat om logica te groeperen en te structureren, waardoor code modulair en herbruikbaar wordt. Door functies te gebruiken, kun je complexe problemen opdelen in kleinere, beheersbare stappen, waardoor het gemakkelijker wordt om de functionaliteit van een programma te begrijpen, te onderhouden en uit te breiden.
 
-==== Functies Definiëren en Oproepen
+=== Functies Definiëren en Oproepen
 
 Het definiëren van een functie begint met het `def`-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.
 
@@ -35,15 +38,13 @@ som = optellen(5, 3)
 print(som) # Output: 8
 ----
 
-= Cursus Python voor Middelbare Scholieren
-
-== Diepere Duik in Python: Parameters in Functies
+== Parameters in Functies
 
 === Het Belang van Parameters in Functies
 
 Parameters zijn een cruciaal concept bij het definiëren en aanroepen van functies in Python. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd. Laten we dieper ingaan op verschillende aspecten van het gebruik van parameters in functies.
 
-==== Positionele Parameters
+=== Positionele Parameters
 
 Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.
 
@@ -65,7 +66,7 @@ som = optellen(5, 3)
 print(som) # Output: 8
 ----
 
-==== Standaardwaarden voor Parameters
+=== Standaardwaarden voor Parameters
 
 Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.
 
@@ -84,7 +85,7 @@ begroeten()         # Output: Hallo, Vriend!
 begroeten("Alice")  # Output: Hallo, Alice!
 ----
 
-==== args en kwargs
+=== args en kwargs
 
 In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie `args` en `kwargs` staan dit toe.
 
@@ -126,17 +127,17 @@ afdrukken_met_kwargs(voornaam="Alice", leeftijd=25)
 # leeftijd: 25
 ----
 
-=== Conclusie
+== Conclusie
 
 Parameters zijn een krachtig instrument om functies in Python aanpasbaar en herbruikbaar te maken. Ze stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor je code flexibel wordt en verschillende scenario's kunt ondersteunen zonder duplicatie van code. Het begrijpen van positionele parameters, standaardwaarden, 'args' en 'kwargs' geeft je meer controle en flexibiliteit bij het definiëren en aanroepen van functies.
 
 
 
-==== Documentatie van Functies
+=== Documentatie van Functies
 
 Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.
 
-==== Herbruikbaarheid van Code
+=== Herbruikbaarheid van Code
 
 Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.
 
@@ -157,7 +158,7 @@ print(som2) # Output: 17
 print(som3) # Output: 4
 ----
 
-==== Return Statements
+=== Return Statements
 
 Het `return`-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.
 
@@ -178,7 +179,7 @@ kwadraat_van_getal = kwadraat(getal)
 print(kwadraat_van_getal) # Output: 25
 ----
 
-==== Functies met Meerdere Parameters
+=== Functies met Meerdere Parameters
 
 Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.
 
@@ -202,15 +203,15 @@ opp = oppervlakte_rechthoek(breedte, lengte)
 print(opp) # Output: 28
 ----
 
-==== Scope en Lokale Variabelen
+=== Scope en Lokale Variabelen
 
 Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.
 
-==== Ingebouwde en Aangepaste Functies
+=== Ingebouwde en Aangepaste Functies
 
 Python biedt een breed scala aan ingebouwde functies, zoals `print()`, `len()`, `str()`, `int()`, `float()`, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.
 
-==== Functies als Objecten
+=== Functies als Objecten
 
 In Python zijn functies "first-class citizens", wat betekent dat ze kunnen worden behandeld als objecten. Dit stelt je in staat om functies als argumenten aan andere functies door te geven, ze in variabelen op te slaan en
 

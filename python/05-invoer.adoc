@@ -12,6 +12,8 @@ In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en b
 
 Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.
 
+image::images/pythoninput.png[]
+
 Tekstinvoer Verzamelen:
 
 [source,python]

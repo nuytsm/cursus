@@ -31,6 +31,8 @@ else:
 
 Python biedt de `if-else`-structuur om beslissingen te nemen op basis van één enkele voorwaarde. Als de voorwaarde waar is, wordt de code binnen het `if`-blok uitgevoerd. Anders wordt de code binnen het `else`-blok uitgevoerd.
 
+image::images/python-if-else.png[]
+
 **Beslissen of een Vijand Verslagen is:**
 
 Laten we een gevechtsscenario overwegen waarin de speler een vijand moet verslaan. Met een `if-else`-structuur kunnen we bepalen of de vijand verslagen is:
@@ -49,6 +51,8 @@ else:
 == If-Elif-Else Structuur
 
 In complexere situaties waarin meerdere voorwaarden moeten worden geëvalueerd, biedt de `if-elif-else`-structuur uitkomst. Deze structuur stelt ons in staat om verschillende mogelijke uitkomsten te behandelen.
+
+image::images/python-elif.png[]
 
 **Beslissen over Spelerattributen:**
 
@@ -267,6 +271,9 @@ if has_key and not door_unlocked:
 In dit voorbeeld wordt de 'not' operator gebruikt in samenwerking met de 'and' operator. De 'and' operator controleert of de speler zowel een sleutel heeft als de deur niet ontgrendeld is. Als aan beide voorwaarden is voldaan (speler heeft een sleutel en de deur is niet ontgrendeld), wordt de melding weergegeven om de deur te ontgrendelen.
 
 == Het Gebruik van Haakjes
+
+
+image::images/booleanlogic.png[width:400px]
 
 Bij het combineren van 'and' en 'or' operatoren is het vaak handig om haakjes te gebruiken om de volgorde van evaluatie te bepalen.
 

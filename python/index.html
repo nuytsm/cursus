@@ -886,6 +886,17 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_duidelijkheid_en_leesbaarheid">Duidelijkheid en Leesbaarheid</a></li>
 <li><a href="#_logische_structurering">Logische Structurering</a></li>
 <li><a href="#_foutpreventie">Foutpreventie</a></li>
+<li><a href="#_indentatie_samenvatting">Indentatie Samenvatting</a></li>
+</ul>
+</li>
+<li><a href="#_boolean_logica_en_combinaties">Boolean Logica en Combinaties</a>
+<ul class="sectlevel2">
+<li><a href="#_and_operator_samenvoegen_van_voorwaarden">'and' Operator: Samenvoegen van Voorwaarden</a></li>
+<li><a href="#_or_operator_alternatieve_voorwaarden">'or' Operator: Alternatieve Voorwaarden</a></li>
+<li><a href="#_combinatie_van_and_en_or_complexe_voorwaarden">Combinatie van 'and' en 'or': Complexe Voorwaarden</a></li>
+<li><a href="#_de_not_operator_negatie_van_voorwaarden">De 'not' Operator: Negatie van Voorwaarden</a></li>
+<li><a href="#_gebruik_in_samenwerking_met_and_en_or">Gebruik in Samenwerking met 'and' en 'or'</a></li>
+<li><a href="#_het_gebruik_van_haakjes">Het Gebruik van Haakjes</a></li>
 <li><a href="#_samenvatting_2">Samenvatting</a></li>
 </ul>
 </li>
@@ -903,6 +914,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_het_gebruik_van_for_lussen">Het Gebruik van 'For'-Lussen</a></li>
 <li><a href="#_geavanceerd_gebruik_van_lussen">Geavanceerd Gebruik van Lussen</a></li>
 <li><a href="#_oneindige_lussen_voorkomen">Oneindige Lussen Voorkomen</a></li>
+<li><a href="#_geneste_lussen_of_dubbele_lussen">Geneste lussen of dubbele lussen</a></li>
 <li><a href="#_lussen_en_efficiëntie">Lussen en Efficiëntie</a></li>
 <li><a href="#_samenvatting_3">Samenvatting</a></li>
 </ul>
@@ -2020,6 +2032,11 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="paragraph">
 <p>Python biedt de <code>if-else</code>-structuur om beslissingen te nemen op basis van één enkele voorwaarde. Als de voorwaarde waar is, wordt de code binnen het <code>if</code>-blok uitgevoerd. Anders wordt de code binnen het <code>else</code>-blok uitgevoerd.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/python-if-else.png" alt="python if else">
+</div>
+</div>
 <div class="paragraph">
 <p><strong>Beslissen of een Vijand Verslagen is:</strong></p>
 </div>
@@ -2042,6 +2059,11 @@ Dit zijn een reeks afspraken van de taal:</p>
 <h3 id="_if_elif_else_structuur">If-Elif-Else Structuur</h3>
 <div class="paragraph">
 <p>In complexere situaties waarin meerdere voorwaarden moeten worden geëvalueerd, biedt de <code>if-elif-else</code>-structuur uitkomst. Deze structuur stelt ons in staat om verschillende mogelijke uitkomsten te behandelen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/python-elif.png" alt="python elif">
+</div>
 </div>
 <div class="paragraph">
 <p><strong>Beslissen over Spelerattributen:</strong></p>
@@ -2180,9 +2202,168 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_samenvatting_2">Samenvatting</h3>
+<h3 id="_indentatie_samenvatting">Indentatie Samenvatting</h3>
 <div class="paragraph">
 <p>Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_boolean_logica_en_combinaties">Boolean Logica en Combinaties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Boolean logica stelt ons in staat om complexe situaties in programma&#8217;s of games te modelleren, waarbij we meerdere voorwaarden combineren om beslissingen te nemen en interacties te bepalen. De 'and' en 'or' operatoren spelen hierbij een cruciale rol.</p>
+</div>
+<div class="sect2">
+<h3 id="_and_operator_samenvoegen_van_voorwaarden">'and' Operator: Samenvoegen van Voorwaarden</h3>
+<div class="paragraph">
+<p>De 'and' operator combineert twee of meer voorwaarden en retourneert 'True' <mark>als alle voorwaarden 'True' zijn</mark>.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Speler Gezondheid en Wapen Beschikbaarheid:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">weapon_available</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">weapon_available</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt genoeg gezondheid en een wapen om de strijd aan te gaan!"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de 'and' operator gebruikt om te controleren of de speler genoeg gezondheid heeft <strong>en</strong> of er een wapen beschikbaar is om de strijd aan te gaan.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_or_operator_alternatieve_voorwaarden">'or' Operator: Alternatieve Voorwaarden</h3>
+<div class="paragraph">
+<p>De 'or' operator combineert twee of meer voorwaarden en retourneert 'True' als <mark>minstens één van de voorwaarden waar is</mark>.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Toegang tot Geheime Deur:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">has_key</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">has_unlock_code</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">has_key</span> <span class="ow">or</span> <span class="n">has_unlock_code</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt toegang tot de geheime deur!"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt de 'or' operator gebruikt om te controleren of de speler geen gezondheid meer heeft of geen levens meer over heeft.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_combinatie_van_and_en_or_complexe_voorwaarden">Combinatie van 'and' en 'or': Complexe Voorwaarden</h3>
+<div class="paragraph">
+<p>We kunnen 'and' en 'or' operatoren combineren om complexere voorwaarden te maken.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Overleven in een Gevaarlijke Zone:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">ammo_available</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">player_armor</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">or</span> <span class="n">player_armor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ammo_available</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je kunt veilig navigeren in de gevaarlijke zone!"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een complexe voorwaarde gecontroleerd. De 'or' operator controleert of de speler genoeg gezondheid heeft of een bepaald niveau van bepantsering heeft. De 'and' operator combineert deze voorwaarde met de beschikbaarheid van munitie. Alleen als aan beide voorwaarden is voldaan, zal de speler veilig kunnen navigeren in de gevaarlijke zone.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_not_operator_negatie_van_voorwaarden">De 'not' Operator: Negatie van Voorwaarden</h3>
+<div class="paragraph">
+<p>In Python (en andere programmeertalen) hebben we de 'not' operator, die wordt gebruikt om de negatie van een voorwaarde uit te voeren. Dit betekent dat als een voorwaarde True is, 'not' ervoor zal zorgen dat deze wordt geëvalueerd als False, en als een voorwaarde False is, zal 'not' ervoor zorgen dat deze wordt geëvalueerd als True.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Schuilplaats Status:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_hiding</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">player_hiding</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"De speler is niet aan het schuilen."</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de 'not' operator gebruikt om de status van de speler te controleren. Als de speler niet aan het schuilen is (wat waar is), zal de code binnen de 'if' verklaring worden uitgevoerd.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Toegang tot Geblokkeerd Gebied:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">has_key</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">has_key</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt geen sleutel, je kunt het geblokkeerde gebied niet betreden."</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt de 'not' operator gebruikt om te controleren of de speler geen sleutel heeft. Als de speler geen sleutel heeft (wat waar is), wordt de melding weergegeven dat ze het geblokkeerde gebied niet kunnen betreden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gebruik_in_samenwerking_met_and_en_or">Gebruik in Samenwerking met 'and' en 'or'</h3>
+<div class="paragraph">
+<p>De 'not' operator kan worden gecombineerd met de 'and' en 'or' operatoren om complexere voorwaarden te creëren.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Dubbele Ontgrendeling:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">has_key</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">door_unlocked</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="k">if</span> <span class="n">has_key</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">door_unlocked</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je kunt de deur ontgrendelen met je sleutel."</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de 'not' operator gebruikt in samenwerking met de 'and' operator. De 'and' operator controleert of de speler zowel een sleutel heeft als de deur niet ontgrendeld is. Als aan beide voorwaarden is voldaan (speler heeft een sleutel en de deur is niet ontgrendeld), wordt de melding weergegeven om de deur te ontgrendelen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_gebruik_van_haakjes">Het Gebruik van Haakjes</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/booleanlogic.png" alt="width:400px">
+</div>
+</div>
+<div class="paragraph">
+<p>Bij het combineren van 'and' en 'or' operatoren is het vaak handig om haakjes te gebruiken om de volgorde van evaluatie te bepalen.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Prioriteit van Haakjes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">shield_available</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">sword_available</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">shield_available</span> <span class="ow">or</span> <span class="n">sword_available</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">shield_available</span> <span class="ow">and</span> <span class="n">sword_available</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt ofwel een schild, ofwel een zwaard, maar niet beide."</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld worden haakjes gebruikt om duidelijk te maken dat de 'not' operator wordt toegepast op de combinatie van het hebben van zowel een schild als een zwaard.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_samenvatting_2">Samenvatting</h3>
+<div class="paragraph">
+<p>Het gebruik van 'and' en 'or' operatoren in games stelt ontwikkelaars in staat om complexe voorwaarden te controleren. Dit kan variëren van het bepalen van interacties tussen personages tot het regelen van toegang tot verschillende delen van een spelwereld.</p>
 </div>
 </div>
 </div>
@@ -2197,6 +2378,11 @@ Dit zijn een reeks afspraken van de taal:</p>
 <h3 id="_gegevensinvoer">Gegevensinvoer</h3>
 <div class="paragraph">
 <p>Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pythoninput.png" alt="pythoninput">
+</div>
 </div>
 <div class="paragraph">
 <p>Tekstinvoer Verzamelen:</p>
@@ -2309,6 +2495,11 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="paragraph">
 <p>In games moeten we vaak herhaalde taken uitvoeren, zoals het updaten van spelersposities, het controleren van game-over voorwaarden, of het weergeven van meerdere vijanden op het scherm. Lussen stellen ons in staat om deze taken efficiënt en gecontroleerd uit te voeren.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loop.png" alt="loop">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2466,6 +2657,100 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="paragraph">
 <p>De lus zal nooit stoppen, er is immers <mark>geen code voorzien</mark> om de player_position onder 0 te krijgen <mark>zodat de loop zou stoppen</mark>. Probeer het maar eens uit te voeren op je computer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geneste_lussen_of_dubbele_lussen">Geneste lussen of dubbele lussen</h3>
+<div class="paragraph">
+<p><mark>Een geneste 'for'-lus is een lus die zich binnenin een andere 'for'-lus bevindt</mark>. Hiermee kun je complexe patronen en herhalingen in je code creëren.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Nestedloop.png" alt="Nestedloop">
+</div>
+</div>
+<div class="paragraph">
+<p>Voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="mi">1</span> <span class="mi">4</span>
+<span class="mi">1</span> <span class="mi">5</span>
+<span class="mi">2</span> <span class="mi">4</span>
+<span class="mi">2</span> <span class="mi">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Geneste 'for'-lussen zijn handig om patronen van tekens of getallen te maken.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Driehoek van Getallen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld creëren we een geneste 'for'-lus om een driehoek van getallen af te drukken. De buitenste lus controleert het aantal rijen en de binnenste lus bepaalt welke getallen in elke rij worden afgedrukt.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld - Tafel van vermenigvuldiging:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"*"</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">"="</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="mi">2</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">

@@ -234,6 +234,8 @@ list: Een geordende verzameling van waarden, zoals de inventaris van een speler.
 inventory = ["sword", "shield", "potion"]
 ----
 
+image::images/Python-Lists.png[]
+
 == Tuple Gegevenstype
 
 tuple: Een onveranderlijke verzameling van waarden, zoals de positie van een speler.

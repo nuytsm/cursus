@@ -1,3 +1,10 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:stylesheet: dark.css
+
+
 = Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie
 
 Welkom bij hoofdstuk 6, waarin we diep duiken in het concept van lussen in Python. Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.
@@ -8,6 +15,8 @@ Herhaling is een kernprincipe in programmeren, vooral in game-ontwikkeling, waar
 Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voeren, waardoor we taken kunnen automatiseren en efficiënte code kunnen schrijven.
 
 In games moeten we vaak herhaalde taken uitvoeren, zoals het updaten van spelersposities, het controleren van game-over voorwaarden, of het weergeven van meerdere vijanden op het scherm. Lussen stellen ons in staat om deze taken efficiënt en gecontroleerd uit te voeren.
+
+image::images/loop.png[]
 
 == Het Gebruik van 'While'-Lussen
 
@@ -130,6 +139,87 @@ while player_position > 0:
 
 De lus zal nooit stoppen, er is immers ##geen code voorzien## om de player_position onder 0 te krijgen ##zodat de loop zou stoppen##. Probeer het maar eens uit te voeren op je computer.
 
+== Geneste lussen of dubbele lussen
+
+##Een geneste 'for'-lus is een lus die zich binnenin een andere 'for'-lus bevindt##. Hiermee kun je complexe patronen en herhalingen in je code creëren. 
+
+image::images/Nestedloop.png[]
+
+Voorbeeld:
+
+[source,python]
+----
+x = [1, 2]
+y = [4, 5]
+ 
+for i in x:
+  for j in y:
+    print(i, j)
+----
+
+Output:
+
+[source,python]
+----
+1 4
+1 5
+2 4
+2 5
+----
+
+Geneste 'for'-lussen zijn handig om patronen van tekens of getallen te maken.
+
+Voorbeeld - Driehoek van Getallen:
+
+[source,python]
+----
+for i in range(5):
+    for j in range(i + 1):
+        print(j + 1, end=" ")
+    print()
+----
+
+Output:
+
+[source,python]
+----
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+----
+
+In dit voorbeeld creëren we een geneste 'for'-lus om een driehoek van getallen af te drukken. De buitenste lus controleert het aantal rijen en de binnenste lus bepaalt welke getallen in elke rij worden afgedrukt.
+
+Voorbeeld - Tafel van vermenigvuldiging:
+
+[source,python]
+----
+for i in range(2, 4):
+
+    for j in range(1, 11):
+        print(i, "*", j, "=", i*j)
+  
+    print()
+----
+
+
+Output:
+
+[source,python]
+----
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+2 * 5 = 10
+2 * 6 = 12
+2 * 7 = 14
+2 * 8 = 16
+2 * 9 = 18
+2 * 10 = 20
+----
 
 == Lussen en Efficiëntie
 
