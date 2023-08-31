@@ -161,7 +161,89 @@ print("Je leeft nog!")
 
 Python zal hier een foutmelding genereren omdat de code na de `if`-verklaring niet correct is ingesprongen.
 
-== Samenvatting
+== Indentatie Samenvatting
 
 Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.
+
+= Boolean Logica en Combinaties
+
+Boolean logica stelt ons in staat om complexe situaties in programma's of games te modelleren, waarbij we meerdere voorwaarden combineren om beslissingen te nemen en interacties te bepalen. De 'and' en 'or' operatoren spelen hierbij een cruciale rol.
+
+== 'and' Operator: Samenvoegen van Voorwaarden
+
+De 'and' operator combineert twee of meer voorwaarden en retourneert 'True' ##als alle voorwaarden 'True' zijn##.
+
+Voorbeeld - Speler Gezondheid en Wapen Beschikbaarheid:
+
+[source,python]
+----
+player_health = 70
+weapon_available = True
+
+if player_health > 50 and weapon_available:
+    print("Je hebt genoeg gezondheid en een wapen om de strijd aan te gaan!")
+----
+
+In dit voorbeeld wordt de 'and' operator gebruikt om te controleren of de speler genoeg gezondheid heeft **en** of er een wapen beschikbaar is om de strijd aan te gaan.
+
+== 'or' Operator: Alternatieve Voorwaarden
+
+De 'or' operator combineert twee of meer voorwaarden en retourneert 'True' als ##minstens één van de voorwaarden waar is##.
+
+Voorbeeld - Toegang tot Geheime Deur:
+
+[source,python]
+----
+has_key = False
+has_unlock_code = True
+
+if has_key or has_unlock_code:
+    print("Je hebt toegang tot de geheime deur!")
+----
+
+Hier wordt de 'or' operator gebruikt om te controleren of de speler geen gezondheid meer heeft of geen levens meer over heeft.
+
+== Combinatie van 'and' en 'or': Complexe Voorwaarden
+
+We kunnen 'and' en 'or' operatoren combineren om complexere voorwaarden te maken.
+
+Voorbeeld - Overleven in een Gevaarlijke Zone:
+
+[source,python]
+----
+player_health = 40
+ammo_available = True
+player_armor = 20
+
+if (player_health > 30 or player_armor > 0) and ammo_available:
+    print("Je kunt veilig navigeren in de gevaarlijke zone!")
+----
+
+Hier wordt een complexe voorwaarde gecontroleerd. De 'or' operator controleert of de speler genoeg gezondheid heeft of een bepaald niveau van bepantsering heeft. De 'and' operator combineert deze voorwaarde met de beschikbaarheid van munitie. Alleen als aan beide voorwaarden is voldaan, zal de speler veilig kunnen navigeren in de gevaarlijke zone.
+
+== Het Gebruik van Haakjes
+
+Bij het combineren van 'and' en 'or' operatoren is het vaak handig om haakjes te gebruiken om de volgorde van evaluatie te bepalen.
+
+Voorbeeld - Prioriteit van Haakjes:
+
+[source,python]
+----
+shield_available = False
+sword_available = True
+
+if (shield_available or sword_available) and not (shield_available and sword_available):
+    print("Je hebt ofwel een schild, ofwel een zwaard, maar niet beide.")
+----
+
+In dit voorbeeld worden haakjes gebruikt om duidelijk te maken dat de 'not' operator wordt toegepast op de combinatie van het hebben van zowel een schild als een zwaard.
+
+== Complexiteit en Spelontwerp
+
+Het gebruik van 'and' en 'or' operatoren in games stelt ontwikkelaars in staat om complexe gameplay-situaties te creëren op basis van meerdere voorwaarden. Dit kan variëren van het bepalen van interacties tussen personages tot het regelen van toegang tot verschillende delen van een spelwereld.
+
+== Samenvatting
+
+Dit hoofdstuk heeft ons door de wereld van boolean logica en de 'and' en 'or' operatoren geleid. We hebben gezien hoe we deze operatoren kunnen gebruiken om voorwaarden te combineren en complexe beslissingsstructuren te creëren in Python.
+
 

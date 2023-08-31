@@ -893,7 +893,18 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <ul class="sectlevel2">
 <li><a href="#_gegevensinvoer">Gegevensinvoer</a></li>
 <li><a href="#_expressies_en_berekeningen">Expressies en Berekeningen</a></li>
-<li><a href="#_verrijking_van_gameplay_via_interactie">Verrijking van Gameplay via Interactie</a></li>
+<li><a href="#_interactie">Interactie</a></li>
+</ul>
+</li>
+<li><a href="#_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</a>
+<ul class="sectlevel2">
+<li><a href="#_de_essentie_van_herhaling">De Essentie van Herhaling</a></li>
+<li><a href="#_het_gebruik_van_while_lussen">Het Gebruik van 'While'-Lussen</a></li>
+<li><a href="#_het_gebruik_van_for_lussen">Het Gebruik van 'For'-Lussen</a></li>
+<li><a href="#_geavanceerd_gebruik_van_lussen">Geavanceerd Gebruik van Lussen</a></li>
+<li><a href="#_oneindige_lussen_voorkomen">Oneindige Lussen Voorkomen</a></li>
+<li><a href="#_lussen_en_efficiëntie">Lussen en Efficiëntie</a></li>
+<li><a href="#_samenvatting_3">Samenvatting</a></li>
 </ul>
 </li>
 </ul>
@@ -1574,9 +1585,6 @@ Dit zijn een reeks afspraken van de taal:</p>
 <h4 id="_variabelen_toewijzen">Variabelen Toewijzen</h4>
 <div class="paragraph">
 <p>Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de <em>health</em> van een speler in een game bijhouden:</p>
-</div>
-<div class="paragraph">
-<p>python</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2265,9 +2273,9 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verrijking_van_gameplay_via_interactie">Verrijking van Gameplay via Interactie</h3>
+<h3 id="_interactie">Interactie</h3>
 <div class="paragraph">
-<p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren die diep en meeslepend zijn. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
+<p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2287,10 +2295,197 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welkom bij hoofdstuk 6, waarin we diep duiken in het concept van lussen in Python. Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.</p>
+</div>
+<div class="sect2">
+<h3 id="_de_essentie_van_herhaling">De Essentie van Herhaling</h3>
+<div class="paragraph">
+<p>Herhaling is een kernprincipe in programmeren, vooral in game-ontwikkeling, waarin talloze taken moeten worden herhaald om de gewenste resultaten te bereiken.
+Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voeren, waardoor we taken kunnen automatiseren en efficiënte code kunnen schrijven.</p>
+</div>
+<div class="paragraph">
+<p>In games moeten we vaak herhaalde taken uitvoeren, zoals het updaten van spelersposities, het controleren van game-over voorwaarden, of het weergeven van meerdere vijanden op het scherm. Lussen stellen ons in staat om deze taken efficiënt en gecontroleerd uit te voeren.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_gebruik_van_while_lussen">Het Gebruik van 'While'-Lussen</h3>
+<div class="paragraph">
+<p>Een van de fundamentele lusstructuren in Python is de 'while'-lus. Deze lus voert een set instructies uit zolang een bepaalde voorwaarde <strong>True</strong> is (True is 1 van de 2 mogelijke Boolean waarden, naast False).</p>
+</div>
+<div class="paragraph">
+<p>Een Eenvoudige 'While'-Lus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Dit is iteratie"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>De <em>counter &lt; 5</em>  expressie wordt geëvalueerd naar een boolean &#8594; True of False</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Indien de boolean <em>True</em> was, wordt het print statement uitgevoerd.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>En wordt vervolgens 1 bij de counter opgeteld. Dit is hetzelfde als: 'counter = counter + 1'</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Hier wordt de code binnen de 'while'-lus herhaaldelijk uitgevoerd zolang counter kleiner is dan 5. De waarde van counter wordt bij elke iteratie met 1 verhoogd.</p>
+</div>
+<div class="paragraph">
+<p>Een 'while'-lus is ideaal voor het creëren van interactieve game-loops, waarbij het spel doorgaat zolang aan bepaalde voorwaarden is voldaan.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">player_position</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="n">player_position</span> <span class="o">+=</span> <span class="mi">10</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"De speler is nu op positie"</span><span class="p">,</span> <span class="n">player_position</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de 'while'-lus gebruikt om de positie van de speler te updaten totdat deze een bepaalde positie bereikt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_gebruik_van_for_lussen">Het Gebruik van 'For'-Lussen</h3>
+<div class="paragraph">
+<p>De 'for'-lus is een andere belangrijke lus in Python en wordt vaak gebruikt om door een reeks elementen te itereren.</p>
+</div>
+<div class="paragraph">
+<p>Itereren over een Lijst (zoals vijanden, power-ups of levels):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">enemies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"alien"</span><span class="p">,</span> <span class="s">"robot"</span><span class="p">,</span> <span class="s">"zombie"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">enemies</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Een"</span><span class="p">,</span> <span class="n">enemy</span><span class="p">,</span> <span class="s">"verschijnt!"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier zien we hoe een 'for'-lus gebruikt wordt om door de lijst van vijandennamen te itereren en een melding weer te geven voor elk type vijand.</p>
+</div>
+<div class="paragraph">
+<p>Animatie van een Personage:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"frame1.png"</span><span class="p">,</span> <span class="s">"frame2.png"</span><span class="p">,</span> <span class="s">"frame3.png"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Wacht voor een vloeiende animatie</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een 'for'-lus gebruikt om door de lijst van frames van een animatie te itereren en elk frame op het scherm weer te geven met een kleine wachttijd voor vloeiende animatie.</p>
+</div>
+<div class="paragraph">
+<p><strong>Itereren met 'range()':</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Iteratie nummer:"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De range()-functie genereert een reeks getallen, die perfect is voor 'for'-lussen. In dit voorbeeld wordt de 'for'-lus vijf keer herhaald, waarbij i achtereenvolgens 0, 1, 2, 3 en 4 wordt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geavanceerd_gebruik_van_lussen">Geavanceerd Gebruik van Lussen</h3>
+<div class="paragraph">
+<p>Lussen kunnen worden gebruikt voor complexere taken, zoals het doorzoeken van gegevens, het uitvoeren van berekeningen en het implementeren van logica.</p>
+</div>
+<div class="paragraph">
+<p>Berekenen van Gemiddelde Score:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">score</span>
+<span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Het gemiddelde is:"</span><span class="p">,</span> <span class="n">average</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een 'for'-lus gebruikt om door de lijst van scores te itereren en het gemiddelde ervan te berekenen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_oneindige_lussen_voorkomen">Oneindige Lussen Voorkomen</h3>
+<div class="paragraph">
+<p>Een potentieel risico bij while-lussen is dat ze oneindig kunnen doorgaan als de boolean voorwaarde nooit wordt voldaan. Dit kan leiden tot een programma dat vastloopt. Zorg ervoor dat je altijd een mechanisme hebt om de lus te beëindigen.</p>
+</div>
+<div class="paragraph">
+<p>Veilige 'While'-Lus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer het wachtwoord in: "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="s">"geheim"</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Toegang verleend."</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Toegang geweigerd. Probeer opnieuw."</span><span class="p">)</span>
+        <span class="n">attempts</span> <span class="o">+=</span> <span class="mi">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de 'while'-lus beëindigd na drie mislukte pogingen.</p>
+</div>
+<div class="paragraph">
+<p>Eeuwig lopende 'While'-lus (= vastlopend programma):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_position</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">player_position</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'moving forward'</span><span class="p">)</span>
+    <span class="n">player_position</span> <span class="o">+=</span> <span class="mi">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De lus zal nooit stoppen, er is immers <mark>geen code voorzien</mark> om de player_position onder 0 te krijgen <mark>zodat de loop zou stoppen</mark>. Probeer het maar eens uit te voeren op je computer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lussen_en_efficiëntie">Lussen en Efficiëntie</h3>
+<div class="paragraph">
+<p>Hoewel lussen krachtig zijn, moeten we rekening houden met de efficiëntie van onze code. <mark>Te veel iteraties kunnen leiden tot vertraging</mark> in je programma of game. Het is belangrijk om de beste lus voor een specifieke taak te kiezen en optimalisaties toe te passen wanneer dat nodig is.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_samenvatting_3">Samenvatting</h3>
+<div class="paragraph">
+<p>In dit hoofdstuk hebben we lussen verkend als een cruciaal hulpmiddel voor herhaling in Python. We hebben 'while'- en 'for'-lussen behandeld. Door lussen op de juiste manier te gebruiken, kun je herhalende taken automatiseren, iteraties door gegevens uitvoeren.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-28 15:59:51 +0200
+Last updated 2023-08-31 11:07:26 +0200
 </div>
 </div>
 </body>

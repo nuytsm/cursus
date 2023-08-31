@@ -11,8 +11,6 @@ Variabelen vormen een kernconcept in programmeren, waardoor softwareontwikkelaar
 
 Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de __health__ van een speler in een game bijhouden:
 
-python
-
 [source,python]
 ----
 # Player health in Counter-Strike

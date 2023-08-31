@@ -73,9 +73,9 @@ print("Totaal punten:", total_points)
 
 Met dit voorbeeld verzamel je gegevens van spelers en gebruik je expressies om totaalpunten te berekenen op basis van kracht en behendigheid.
 
-== Verrijking van Gameplay via Interactie
+== Interactie
 
-Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren die diep en meeslepend zijn. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:
+Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:
 
 [source,python]
 ----
