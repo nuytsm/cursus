@@ -7,7 +7,7 @@
 :icons: font
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
-:stylesheet: dark.css
+//:stylesheet: dark.css
 
 //ifdef::env-github[]
 :tip-caption: :bulb:

@@ -1,0 +1,244 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+
+
+= Hoofdstuk 7: Functies en Herbruikbaarheid van Code
+
+== Wat is een functie
+
+Functies (of methods) zijn stukken code die een naam hebben gekregen.
+Met de naam te gebruiken (en er () achter te voegen), kan het stuk code opgeroepen worden.
+De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen. 
+Als een programma veel dezelfde code bevat (herhaling),
+kan je de code die altijd hetzelfde is, apart zetten in een functie en die functie telkens opnieuw oproepen.
+
+=== Functies Definiëren en Oproepen
+
+Het definiëren van een functie begint met het `def`-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.
+
+Bijvoorbeeld, laten we een eenvoudige functie definiëren om twee getallen op te tellen:
+
+[source,python]
+----
+def optellen(a, b):
+    """
+    Deze functie telt twee getallen op en geeft het resultaat terug.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    """
+    resultaat = a + b
+    return resultaat
+----
+
+Om deze functie op te roepen, verstrekken we argumenten die overeenkomen met de parameters:
+
+[source,python]
+----
+som = optellen(5, 3)
+print(som) # Output: 8
+----
+
+=== Herbruikbaarheid van Code
+
+Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.
+
+Bijvoorbeeld, stel dat we dezelfde optelling op meerdere plaatsen in ons programma moeten uitvoeren. Met een functie kunnen we dit efficiënt doen:
+
+[source,python]
+----
+def optellen(a, b):
+    resultaat = a + b
+    return resultaat
+
+som1 = optellen(5, 3)
+som2 = optellen(10, 7)
+som3 = optellen(2, 2)
+
+print(som1) # Output: 8
+print(som2) # Output: 17
+print(som3) # Output: 4
+----
+
+=== Return Statements
+
+Het `return`-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.
+
+Bijvoorbeeld:
+
+[source,python]
+----
+def kwadraat(x):
+    """
+    Deze functie berekent het kwadraat van een getal.
+    :param x: Het getal waarvan het kwadraat wordt berekend.
+    :return: Het kwadraat van het gegeven getal.
+    """
+    return x * x
+
+getal = 5
+kwadraat_van_getal = kwadraat(getal)
+print(kwadraat_van_getal) # Output: 25
+----
+
+=== Functies met Meerdere Parameters
+
+Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.
+
+Bijvoorbeeld, een functie om de oppervlakte van een rechthoek te berekenen:
+
+[source,python]
+----
+def oppervlakte_rechthoek(breedte, lengte):
+    """
+    Deze functie berekent de oppervlakte van een rechthoek.
+    :param breedte: De breedte van de rechthoek.
+    :param lengte: De lengte van de rechthoek.
+    :return: De oppervlakte van de rechthoek.
+    """
+    oppervlakte = breedte * lengte
+    return oppervlakte
+
+breedte = 4
+lengte = 7
+opp = oppervlakte_rechthoek(breedte, lengte)
+print(opp) # Output: 28
+----
+
+=== Scope en Lokale Variabelen
+
+Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.
+
+=== Ingebouwde en Aangepaste Functies
+
+Python biedt een breed scala aan ingebouwde functies, zoals `print()`, `len()`, `str()`, `int()`, `float()`, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.
+
+== Parameters in Functies
+
+=== Het Belang van Parameters in Functies
+
+Parameters stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd.
+
+=== Positionele Parameters
+
+Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.
+
+Bijvoorbeeld, laten we een functie definiëren die twee getallen optelt met behulp van positionele parameters:
+
+[source,python]
+----
+def optellen(a, b):
+    """
+    Deze functie telt twee getallen op.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    """
+    resultaat = a + b
+    return resultaat
+
+som = optellen(5, 3)
+print(som) # Output: 8
+----
+
+=== Standaardwaarden voor Parameters
+
+Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.
+
+Bijvoorbeeld, laten we een functie definiëren die een bericht afdrukt met een standaardgroet als er geen naam wordt opgegeven:
+
+[source,python]
+----
+def begroeten(naam="Vriend"):
+    """
+    Deze functie begroet een persoon met een optionele naam.
+    :param naam: De naam van de persoon (standaard is "Vriend").
+    """
+    print(f"Hallo, {naam}!")
+
+begroeten()         # Output: Hallo, Vriend!
+begroeten("Alice")  # Output: Hallo, Alice!
+----
+
+=== args en kwargs
+
+In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie `args` en `kwargs` staan dit toe.
+
+- `args` staat voor "arguments" en verzamelt positionele argumenten in een tuple.
+- `kwargs` staat voor "keyword arguments" en verzamelt genoemde argumenten in een dictionary.
+
+Bijvoorbeeld, laten we een functie definiëren die een variabel aantal getallen kan optellen:
+
+[source,python]
+----
+def optellen_met_args(*args):
+    """
+    Deze functie telt een variabel aantal getallen op.
+    :param args: Een tuple van getallen om op te tellen.
+    :return: Het resultaat van de optelling.
+    """
+    resultaat = sum(args)
+    return resultaat
+
+totaal = optellen_met_args(5, 10, 15)
+print(totaal) # Output: 30
+----
+
+Je kunt ook genoemde argumenten doorgeven met `kwargs`:
+
+[source,python]
+----
+def afdrukken_met_kwargs(**kwargs):
+    """
+    Deze functie drukt genoemde argumenten af.
+    :param kwargs: Een dictionary van genoemde argumenten.
+    """
+    for sleutel, waarde in kwargs.items():
+        print(f"{sleutel}: {waarde}")
+
+afdrukken_met_kwargs(voornaam="Alice", leeftijd=25)
+# Output:
+# voornaam: Alice
+# leeftijd: 25
+----
+
+
+=== Documentatie van Functies
+
+Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.
+
+Een docstring (documentatiestring) in Python is een manier om documentatie aan een functie, klasse, module of methode toe te voegen. Het is een meer uitgebreide beschrijving van wat de code doet, en het is een goede gewoonte om docstrings te gebruiken om je code gemakkelijk te begrijpen en te onderhouden. Hier is een voorbeeld van het gebruik van een docstring:
+
+[source,python]
+----
+def greet(name):
+    """
+    Deze functie begroet de gebruiker.
+
+    Args:
+        name (str): De naam van de persoon die begroet moet worden.
+
+    Returns:
+        str: Een begroetingsbericht.
+
+    Voorbeeld:
+        >>> greet("Alice")
+        'Hallo, Alice! Welkom terug.'
+    """
+    return f'Hallo, {name}! Welkom terug.'
+----
+
+Laten we de bovenstaande docstring uitleggen:
+
+* De docstring begint met drie dubbele aanhalingstekens `"""` en eindigt met drie dubbele aanhalingstekens `"""`. Hierdoor kan de docstring meerdere regels tekst bevatten.
+* De eerste regel van de docstring bevat een korte beschrijving van wat de functie doet.
+* De `Args` sectie beschrijft de argumenten (parameters) die de functie accepteert. In dit geval accepteert de functie één argument genaamd `name`, dat een string (str) moet zijn.
+* De `Returns` sectie beschrijft wat de functie retourneert. Hier retourneert de functie een string (str).
+* Onder de docstring wordt vaak een voorbeeld gegeven van hoe de functie kan worden gebruikt. Dit is handig voor andere ontwikkelaars die de functie willen begrijpen en gebruiken.
+
+Met deze docstring kunnen andere ontwikkelaars snel zien hoe de functie werkt, welke argumenten deze verwacht en wat deze retourneert. Bovendien kunnen hulpmiddelen zoals docstring-generatoren deze informatie automatisch extraheren om documentatie te genereren. Het gebruik van docstrings is dus een goede gewoonte om je code goed gedocumenteerd en onderhoudbaar te houden.
+
+image::images/autocomplete.gif[Autocomplete voorbeeld in vscode. Deze maakt gebruik van de docstrings in de standard library.]
+
