@@ -8,7 +8,7 @@
 
 == Wat is een functie
 
-Functies (of methods) zijn stukken code die een naam hebben gekregen.
+Functies (of methods) zijn ##stukken code die een naam hebben gekregen##.
 Met de naam te gebruiken (en er () achter te voegen), kan het stuk code opgeroepen worden.
 De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen. 
 Als een programma veel dezelfde code bevat (herhaling),
@@ -109,7 +109,7 @@ print(opp) # Output: 28
 
 === Scope en Lokale Variabelen
 
-Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.
+Functies introduceren ook het concept van "scope", wat aangeeft ##waar variabelen beschikbaar en geldig zijn##. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.
 
 === Ingebouwde en Aangepaste Functies
 
