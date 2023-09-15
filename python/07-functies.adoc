@@ -240,5 +240,5 @@ Laten we de bovenstaande docstring uitleggen:
 
 Met deze docstring kunnen andere ontwikkelaars snel zien hoe de functie werkt, welke argumenten deze verwacht en wat deze retourneert. Bovendien kunnen hulpmiddelen zoals docstring-generatoren deze informatie automatisch extraheren om documentatie te genereren. Het gebruik van docstrings is dus een goede gewoonte om je code goed gedocumenteerd en onderhoudbaar te houden.
 
-image::images/autocomplete.gif["Autocomplete voorbeeld in vscode. Deze maakt gebruik van de docstrings in de standard library.", 400]
+image::images/autocomplete.gif["Autocomplete voorbeeld in vscode. Deze maakt gebruik van de docstrings in de standard library.", 600]
 

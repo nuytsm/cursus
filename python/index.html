@@ -4,76 +4,10 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>Cursus OOP - Object-oriented programming</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
-/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
-
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr6DRAW_0.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr4TRAW_0.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* devanagari */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr5DRAW_0.woff2) format('woff2');
-  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
-}
-/* greek-ext */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr6TRAW_0.woff2) format('woff2');
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr5jRAW_0.woff2) format('woff2');
-  unicode-range: U+0370-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr6jRAW_0.woff2) format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr6zRAW_0.woff2) format('woff2');
-  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Noto Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/notosans/v30/o-0IIpQlx3QUlC5A4PNr5TRA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
 /* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
@@ -497,112 +431,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer{background:none}
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
-
-
-/* CUSTOMISATIONS */
-/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
-:root{
---maincolor:#282c34;
---primarycolor:#f39c12;
---secondarycolor:#03a9f4;
---tertiarycolor:#4db6ac;
---sidebarbackground:#21252b;
---linkcolor:#f44336;
---linkcoloralternate:#ff9800;
---white:#FFFFFF;
-}
-
-/* Text styles */
-
-body{font-family: "Noto Sans",sans-serif;background-color: var(--maincolor);color:var(--white);}
-
-h1{color:var(--primarycolor) !important;font-family:"Noto Sans",sans-serif;}
-h2,h3,h4,h5,h6{color:var(--secondarycolor) !important;font-family:"Noto Sans",sans-serif;}
-.title{color:var(--white) !important;font-family:"Noto Sans",sans-serif;font-style: normal; font-weight: normal;}
-p{font-family: "Noto Sans",sans-serif ! important}
-#toc.toc2 a:link{color:var(--linkcolor);}
-blockquote{color:var(--tertiarycolor) !important}
-.quoteblock{color:var(--white)}
-code{color:var(--linkcoloralternate);background-color: var(--sidebarbackground) !important}
-
-
-/* Table styles */
-th{background-color: var(--maincolor);color:var(--white) !important;}
-td{background-color: var(--maincolor);color: var(--linkcoloralternate) !important}
-
-
-#toc.toc2{background-color:var(--sidebarbackground);}
-#toctitle{color:var(--white);}
-
-/* Responsiveness fixes */
-video {
-  max-width: 100%;
-}
-
-@media all and (max-width: 600px) {
-  table {
-    width: 55vw!important;
-    font-size: 3vw;
-  }
-}
-
-.exampleblock > .content {
-  background-color: var(--maincolor);
-}
-
-a {
-  color: var(--secondarycolor);
-}
-
-.admonitionblock td.icon .icon-tip::before {
-  text-shadow: none;
-  color: var(--white);
-}
-.admonitionblock td.icon .icon-note::before {
-  color: var(--tertiarycolor);
-}
-.admonitionblock td.icon .icon-important::before {
-  color: var(--linkcolor);
-}
-/*.admonitionblock td.icon .icon-caution::before {
-  color: var(--linkcoloralternate);
-}*/
-.admonitionblock td.icon .icon-warning::before {
-  color: var(--primarycolor);
-}
-
-#preamble > .sectionbody > .paragraph:first-of-type p {
-  color: var(--white);
-}
-
-.quoteblock blockquote::before {
-  color: var(--primarycolor);
-}
-.quoteblock .attribution cite, .verseblock .attribution cite {
-  color: var(--white);
-}
-.verseblock pre {
-  color: var(--white);
-}
-.quoteblock blockquote, .quoteblock blockquote p {
-  color: var(--white);
-}
-
-.sidebarblock {
-  background: var(--sidebarbackground);
-}
-.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
-  background: var(--sidebarbackground);
-  color: var(--white);
-}
-
-#header .details {
-  color: var(--white);
-}
-#header .details span.email a {
-  color: var(--linkcoloralternate);
-}
-
 </style>
 <style>
 pre.rouge table td { padding: 5px; }
@@ -789,134 +617,157 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_hoofdstuk_1_programmeertalen_programmeren">Hoofdstuk 1: Programmeertalen &amp; Programmeren</a>
+<li><a href="#_hoofdstuk_1_programmeertalen_programmeren">1. Hoofdstuk 1: Programmeertalen &amp; Programmeren</a>
 <ul class="sectlevel2">
-<li><a href="#_opdrachten_voor_de_computer">Opdrachten voor de computer</a></li>
-<li><a href="#_cpu_instructieset">CPU Instructieset</a></li>
-<li><a href="#_hoog_niveau_programmeertalen">Hoog niveau programmeertalen</a>
+<li><a href="#_opdrachten_voor_de_computer">1.1. Opdrachten voor de computer</a></li>
+<li><a href="#_cpu_instructieset">1.2. CPU Instructieset</a></li>
+<li><a href="#_hoog_niveau_programmeertalen">1.3. Hoog niveau programmeertalen</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</a></li>
+<li><a href="#_voorbeelden_hello_world_in_enkele_programmeertalen">1.3.1. Voorbeelden <em>Hello World</em> in enkele programmeertalen</a></li>
 </ul>
 </li>
-<li><a href="#_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</a></li>
-<li><a href="#_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</a></li>
-<li><a href="#_de_programmeertaal_python">De programmeertaal Python</a></li>
-<li><a href="#_python_schrijven_of_programmeren">Python schrijven (of programmeren)</a>
+<li><a href="#_programmeertalen_een_historisch_overzicht">1.4. Programmeertalen: Een historisch overzicht</a></li>
+<li><a href="#_de_geschiedenis_van_programmeertalen">1.5. De Geschiedenis van Programmeertalen</a></li>
+<li><a href="#_de_programmeertaal_python">1.6. De programmeertaal Python</a></li>
+<li><a href="#_python_schrijven_of_programmeren">1.7. Python schrijven (of programmeren)</a>
 <ul class="sectlevel3">
-<li><a href="#_de_syntax">De syntax</a></li>
+<li><a href="#_de_syntax">1.7.1. De syntax</a></li>
 </ul>
 </li>
-<li><a href="#_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</a>
+<li><a href="#_waarom_python_kiezen_in_plaats_van_java">1.8. Waarom Python kiezen in plaats van Java?</a>
 <ul class="sectlevel3">
-<li><a href="#_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</a></li>
-<li><a href="#_snel_prototypen_en_snelle_ontwikkeling">Snel Prototypen en Snelle Ontwikkeling</a></li>
-<li><a href="#_brede_toepassingsmogelijkheden">Brede Toepassingsmogelijkheden</a></li>
+<li><a href="#_leesbaarheid_en_eenvoud">1.8.1. Leesbaarheid en Eenvoud</a></li>
+<li><a href="#_snel_prototypen_en_snelle_ontwikkeling">1.8.2. Snel Prototypen en Snelle Ontwikkeling</a></li>
+<li><a href="#_brede_toepassingsmogelijkheden">1.8.3. Brede Toepassingsmogelijkheden</a></li>
 </ul>
 </li>
-<li><a href="#_conclusie">Conclusie</a></li>
+<li><a href="#_conclusie">1.9. Conclusie</a></li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">Hoofdstuk 2: Van Code naar Uitvoering op de CPU</a>
+<li><a href="#_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">2. Hoofdstuk 2: Van Code naar Uitvoering op de CPU</a>
 <ul class="sectlevel2">
-<li><a href="#_de_rol_van_de_interpreter">De Rol van de Interpreter</a></li>
-<li><a href="#_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</a></li>
-<li><a href="#_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</a></li>
-<li><a href="#_compilatie_en_uitvoering">Compilatie en Uitvoering</a>
+<li><a href="#_de_rol_van_de_interpreter">2.1. De Rol van de Interpreter</a></li>
+<li><a href="#_van_bytecode_naar_machinecode">2.2. Van Bytecode naar Machinecode</a></li>
+<li><a href="#_linter_codekwaliteit_en_conventies">2.3. Linter: Codekwaliteit en Conventies</a></li>
+<li><a href="#_compilatie_en_uitvoering">2.4. Compilatie en Uitvoering</a>
 <ul class="sectlevel3">
-<li><a href="#_het_interpreterproces_van_de_interpreter">Het Interpreterproces van de interpreter</a></li>
-<li><a href="#_een_voorbeeld">Een voorbeeld</a></li>
-<li><a href="#_just_in_time_jit_compiler_in_python">Just-In-Time (JIT) Compiler in Python</a>
+<li><a href="#_het_interpreterproces_van_de_interpreter">2.4.1. Het Interpreterproces van de interpreter</a></li>
+<li><a href="#_een_voorbeeld">2.4.2. Een voorbeeld</a></li>
+<li><a href="#_just_in_time_jit_compiler_in_python">2.4.3. Just-In-Time (JIT) Compiler in Python</a>
 <ul class="sectlevel4">
 <li><a href="#_hoe_werkt_de_jit_compiler">Hoe Werkt de JIT-Compiler?</a></li>
 <li><a href="#_voorbeeld">Voorbeeld</a></li>
 <li><a href="#_voordelen_in_gaming">Voordelen in Gaming</a></li>
 </ul>
 </li>
-<li><a href="#_voordelen_en_nadelen">Voordelen en Nadelen</a></li>
+<li><a href="#_voordelen_en_nadelen">2.4.4. Voordelen en Nadelen</a></li>
 </ul>
 </li>
-<li><a href="#_samenvatting">Samenvatting</a></li>
+<li><a href="#_samenvatting">2.5. Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_3_gebruik_van_variabelen">Hoofdstuk 3: Gebruik van Variabelen</a>
+<li><a href="#_hoofdstuk_3_gebruik_van_variabelen">3. Hoofdstuk 3: Gebruik van Variabelen</a>
 <ul class="sectlevel2">
-<li><a href="#_variabelen_in_python">Variabelen in Python</a>
+<li><a href="#_variabelen_in_python">3.1. Variabelen in Python</a>
 <ul class="sectlevel3">
-<li><a href="#_variabelen_toewijzen">Variabelen Toewijzen</a></li>
-<li><a href="#_naamgeving_van_variabelen">Naamgeving van Variabelen</a></li>
-<li><a href="#_regels_voor_naamgeving_van_variabelen_in_python">Regels voor Naamgeving van Variabelen in Python</a></li>
+<li><a href="#_variabelen_toewijzen">3.1.1. Variabelen Toewijzen</a></li>
+<li><a href="#_naamgeving_van_variabelen">3.1.2. Naamgeving van Variabelen</a></li>
+<li><a href="#_regels_voor_naamgeving_van_variabelen_in_python">3.1.3. Regels voor Naamgeving van Variabelen in Python</a></li>
 </ul>
 </li>
-<li><a href="#_datatypen_en_variabelen">Datatypen en Variabelen</a>
+<li><a href="#_datatypen_en_variabelen">3.2. Datatypen en Variabelen</a>
 <ul class="sectlevel3">
-<li><a href="#_waarden_bijwerken">Waarden Bijwerken</a></li>
-<li><a href="#_variabelen_en_scope">Variabelen en Scope</a></li>
+<li><a href="#_waarden_bijwerken">3.2.1. Waarden Bijwerken</a></li>
+<li><a href="#_variabelen_en_scope">3.2.2. Variabelen en Scope</a></li>
 </ul>
 </li>
-<li><a href="#_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</a>
+<li><a href="#_variabelen_en_gegevenstypen">3.3. Variabelen en Gegevenstypen</a>
 <ul class="sectlevel3">
-<li><a href="#_integer_int">Integer (int)</a></li>
-<li><a href="#_float_komma_getal">Float (Komma-getal)</a></li>
-<li><a href="#_string_str">String (str)</a></li>
-<li><a href="#_boolean_bool">Boolean (bool)</a></li>
+<li><a href="#_integer_int">3.3.1. Integer (int)</a></li>
+<li><a href="#_float_komma_getal">3.3.2. Float (Komma-getal)</a></li>
+<li><a href="#_string_str">3.3.3. String (str)</a></li>
+<li><a href="#_boolean_bool">3.3.4. Boolean (bool)</a></li>
 </ul>
 </li>
-<li><a href="#_lijst_gegevenstype">Lijst Gegevenstype</a></li>
-<li><a href="#_tuple_gegevenstype">Tuple Gegevenstype</a></li>
-<li><a href="#_dictionary_gegevenstype">Dictionary Gegevenstype</a>
+<li><a href="#_lijst_gegevenstype">3.4. Lijst Gegevenstype</a></li>
+<li><a href="#_tuple_gegevenstype">3.5. Tuple Gegevenstype</a></li>
+<li><a href="#_dictionary_gegevenstype">3.6. Dictionary Gegevenstype</a>
 <ul class="sectlevel3">
-<li><a href="#_type_conversie">Type Conversie</a></li>
-<li><a href="#_dynamische_typing">Dynamische Typing</a></li>
-<li><a href="#_variabelen_vs_expressies">Variabelen vs Expressies</a></li>
+<li><a href="#_type_conversie">3.6.1. Type Conversie</a></li>
+<li><a href="#_dynamische_typing">3.6.2. Dynamische Typing</a></li>
+<li><a href="#_variabelen_vs_expressies">3.6.3. Variabelen vs Expressies</a></li>
 </ul>
 </li>
-<li><a href="#_conclusie_2">Conclusie</a></li>
+<li><a href="#_conclusie_2">3.7. Conclusie</a></li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_4_beslissingsstructuren">Hoofdstuk 4: Beslissingsstructuren</a>
+<li><a href="#_hoofdstuk_4_beslissingsstructuren">4. Hoofdstuk 4: Beslissingsstructuren</a>
 <ul class="sectlevel2">
-<li><a href="#_het_belang_van_beslissingsstructuren">Het Belang van Beslissingsstructuren</a></li>
-<li><a href="#_if_else_beslissingsstructuur">If-Else Beslissingsstructuur</a></li>
-<li><a href="#_if_elif_else_structuur">If-Elif-Else Structuur</a></li>
-<li><a href="#_geneste_beslissingsstructuren">Geneste Beslissingsstructuren</a></li>
+<li><a href="#_het_belang_van_beslissingsstructuren">4.1. Het Belang van Beslissingsstructuren</a></li>
+<li><a href="#_if_else_beslissingsstructuur">4.2. If-Else Beslissingsstructuur</a></li>
+<li><a href="#_if_elif_else_structuur">4.3. If-Elif-Else Structuur</a></li>
+<li><a href="#_geneste_beslissingsstructuren">4.4. Geneste Beslissingsstructuren</a></li>
+<li><a href="#_het_belang_van_indentatie_in_python">4.5. Het Belang van Indentatie in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_duidelijkheid_en_leesbaarheid">4.5.1. Duidelijkheid en Leesbaarheid</a></li>
+<li><a href="#_logische_structurering">4.5.2. Logische Structurering</a></li>
+<li><a href="#_foutpreventie">4.5.3. Foutpreventie</a></li>
+<li><a href="#_indentatie_samenvatting">4.5.4. Indentatie Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_het_belang_van_indentatie_in_python">Het Belang van Indentatie in Python</a>
-<ul class="sectlevel2">
-<li><a href="#_duidelijkheid_en_leesbaarheid">Duidelijkheid en Leesbaarheid</a></li>
-<li><a href="#_logische_structurering">Logische Structurering</a></li>
-<li><a href="#_foutpreventie">Foutpreventie</a></li>
-<li><a href="#_indentatie_samenvatting">Indentatie Samenvatting</a></li>
+<li><a href="#_boolean_logica_en_combinaties">4.6. Boolean Logica en Combinaties</a>
+<ul class="sectlevel3">
+<li><a href="#_and_operator_samenvoegen_van_voorwaarden">4.6.1. 'and' Operator: Samenvoegen van Voorwaarden</a></li>
+<li><a href="#_or_operator_alternatieve_voorwaarden">4.6.2. 'or' Operator: Alternatieve Voorwaarden</a></li>
+<li><a href="#_combinatie_van_and_en_or_complexe_voorwaarden">4.6.3. Combinatie van 'and' en 'or': Complexe Voorwaarden</a></li>
+<li><a href="#_de_not_operator_negatie_van_voorwaarden">4.6.4. De 'not' Operator: Negatie van Voorwaarden</a></li>
+<li><a href="#_gebruik_in_samenwerking_met_and_en_or">4.6.5. Gebruik in Samenwerking met 'and' en 'or'</a></li>
+<li><a href="#_het_gebruik_van_haakjes">4.6.6. Het Gebruik van Haakjes</a></li>
+<li><a href="#_samenvatting_2">4.6.7. Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_boolean_logica_en_combinaties">Boolean Logica en Combinaties</a>
-<ul class="sectlevel2">
-<li><a href="#_and_operator_samenvoegen_van_voorwaarden">'and' Operator: Samenvoegen van Voorwaarden</a></li>
-<li><a href="#_or_operator_alternatieve_voorwaarden">'or' Operator: Alternatieve Voorwaarden</a></li>
-<li><a href="#_combinatie_van_and_en_or_complexe_voorwaarden">Combinatie van 'and' en 'or': Complexe Voorwaarden</a></li>
-<li><a href="#_de_not_operator_negatie_van_voorwaarden">De 'not' Operator: Negatie van Voorwaarden</a></li>
-<li><a href="#_gebruik_in_samenwerking_met_and_en_or">Gebruik in Samenwerking met 'and' en 'or'</a></li>
-<li><a href="#_het_gebruik_van_haakjes">Het Gebruik van Haakjes</a></li>
-<li><a href="#_samenvatting_2">Samenvatting</a></li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</a>
+<li><a href="#_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">5. Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</a>
 <ul class="sectlevel2">
-<li><a href="#_gegevensinvoer">Gegevensinvoer</a></li>
-<li><a href="#_expressies_en_berekeningen">Expressies en Berekeningen</a></li>
-<li><a href="#_interactie">Interactie</a></li>
+<li><a href="#_gegevensinvoer">5.1. Gegevensinvoer</a></li>
+<li><a href="#_expressies_en_berekeningen">5.2. Expressies en Berekeningen</a></li>
+<li><a href="#_interactie">5.3. Interactie</a></li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</a>
+<li><a href="#_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">6. Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</a>
 <ul class="sectlevel2">
-<li><a href="#_de_essentie_van_herhaling">De Essentie van Herhaling</a></li>
-<li><a href="#_het_gebruik_van_while_lussen">Het Gebruik van 'While'-Lussen</a></li>
-<li><a href="#_het_gebruik_van_for_lussen">Het Gebruik van 'For'-Lussen</a></li>
-<li><a href="#_geavanceerd_gebruik_van_lussen">Geavanceerd Gebruik van Lussen</a></li>
-<li><a href="#_oneindige_lussen_voorkomen">Oneindige Lussen Voorkomen</a></li>
-<li><a href="#_geneste_lussen_of_dubbele_lussen">Geneste lussen of dubbele lussen</a></li>
-<li><a href="#_lussen_en_efficiëntie">Lussen en Efficiëntie</a></li>
-<li><a href="#_samenvatting_3">Samenvatting</a></li>
+<li><a href="#_de_essentie_van_herhaling">6.1. De Essentie van Herhaling</a></li>
+<li><a href="#_het_gebruik_van_while_lussen">6.2. Het Gebruik van 'While'-Lussen</a></li>
+<li><a href="#_het_gebruik_van_for_lussen">6.3. Het Gebruik van 'For'-Lussen</a></li>
+<li><a href="#_geavanceerd_gebruik_van_lussen">6.4. Geavanceerd Gebruik van Lussen</a></li>
+<li><a href="#_oneindige_lussen_voorkomen">6.5. Oneindige Lussen Voorkomen</a></li>
+<li><a href="#_geneste_lussen_of_dubbele_lussen">6.6. Geneste lussen of dubbele lussen</a></li>
+<li><a href="#_lussen_en_efficiëntie">6.7. Lussen en Efficiëntie</a></li>
+<li><a href="#_samenvatting_3">6.8. Samenvatting</a></li>
+</ul>
+</li>
+<li><a href="#_hoofdstuk_7_functies_en_herbruikbaarheid_van_code">7. Hoofdstuk 7: Functies en Herbruikbaarheid van Code</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_een_functie">7.1. Wat is een functie</a>
+<ul class="sectlevel3">
+<li><a href="#_functies_definiëren_en_oproepen">7.1.1. Functies Definiëren en Oproepen</a></li>
+<li><a href="#_herbruikbaarheid_van_code">7.1.2. Herbruikbaarheid van Code</a></li>
+<li><a href="#_return_statements">7.1.3. Return Statements</a></li>
+<li><a href="#_functies_met_meerdere_parameters">7.1.4. Functies met Meerdere Parameters</a></li>
+<li><a href="#_scope_en_lokale_variabelen">7.1.5. Scope en Lokale Variabelen</a></li>
+<li><a href="#_ingebouwde_en_aangepaste_functies">7.1.6. Ingebouwde en Aangepaste Functies</a></li>
+</ul>
+</li>
+<li><a href="#_parameters_in_functies">7.2. Parameters in Functies</a>
+<ul class="sectlevel3">
+<li><a href="#_het_belang_van_parameters_in_functies">7.2.1. Het Belang van Parameters in Functies</a></li>
+<li><a href="#_positionele_parameters">7.2.2. Positionele Parameters</a></li>
+<li><a href="#_standaardwaarden_voor_parameters">7.2.3. Standaardwaarden voor Parameters</a></li>
+<li><a href="#_args_en_kwargs">7.2.4. args en kwargs</a></li>
+<li><a href="#_documentatie_van_functies">7.2.5. Documentatie van Functies</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -924,7 +775,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_hoofdstuk_1_programmeertalen_programmeren">Hoofdstuk 1: Programmeertalen &amp; Programmeren</h2>
+<h2 id="_hoofdstuk_1_programmeertalen_programmeren">1. Hoofdstuk 1: Programmeertalen &amp; Programmeren</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Een programma bepaalt hoe we met invoer een bepaalde uitvoer kunnen verkrijgen.</p>
@@ -940,7 +791,7 @@ Excel is dus het programma dat de verwerking uitvoert. Gebruikers kunnen verschi
 Als programmeur kan je echter het programma maken dat de uitvoer doet.</p>
 </div>
 <div class="sect2">
-<h3 id="_opdrachten_voor_de_computer">Opdrachten voor de computer</h3>
+<h3 id="_opdrachten_voor_de_computer">1.1. Opdrachten voor de computer</h3>
 <div class="paragraph">
 <p>Een computer is een logische machine die we opdrachten kunnen geven.</p>
 </div>
@@ -981,7 +832,7 @@ Met een programmeertaal kan een programma geschreven worden.</mark></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_cpu_instructieset">CPU Instructieset</h3>
+<h3 id="_cpu_instructieset">1.2. CPU Instructieset</h3>
 <div class="paragraph">
 <p>Iedere computer <strong>CPU</strong> heeft een bepaalde <strong>architectuur</strong> of ontwerp.
 Hier zijn heel wat standaarden in:</p>
@@ -1055,7 +906,7 @@ Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel e
 </div>
 </div>
 <div class="sect2">
-<h3 id="_hoog_niveau_programmeertalen">Hoog niveau programmeertalen</h3>
+<h3 id="_hoog_niveau_programmeertalen">1.3. Hoog niveau programmeertalen</h3>
 <div class="paragraph">
 <p>Hoog niveau programmeertalen (die makkelijker zijn om te schrijven), kunnen via <mark>compilatie</mark> automatisch omgezet worden naar machinetaal.</p>
 </div>
@@ -1066,7 +917,7 @@ Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel e
 <p>De machinetaal wordt bijgehouden in een uitvoerbaar bestand of <em>executable</em> (iets waarop je kan dubbelklikken om het programma te openen).</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</h4>
+<h4 id="_voorbeelden_hello_world_in_enkele_programmeertalen">1.3.1. Voorbeelden <em>Hello World</em> in enkele programmeertalen</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1156,7 +1007,7 @@ end program hello</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</h3>
+<h3 id="_programmeertalen_een_historisch_overzicht">1.4. Programmeertalen: Een historisch overzicht</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ComputerLanguagesChart.png" alt="ComputerLanguagesChart">
@@ -1168,7 +1019,7 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_de_geschiedenis_van_programmeertalen">De Geschiedenis van Programmeertalen</h3>
+<h3 id="_de_geschiedenis_van_programmeertalen">1.5. De Geschiedenis van Programmeertalen</h3>
 <div class="paragraph">
 <p>De geschiedenis van programmeertalen is een evolutie gedreven door innovatie om aan steeds veranderende softwarebehoeften te voldoen. Laten we enkele belangrijke mijlpalen in de geschiedenis van programmeertalen nader bekijken:</p>
 </div>
@@ -1193,7 +1044,7 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_de_programmeertaal_python">De programmeertaal Python</h3>
+<h3 id="_de_programmeertaal_python">1.6. De programmeertaal Python</h3>
 <div class="paragraph">
 <p>In deze cursus programmeren werken we met de programmeertaal Python. Hier zijn verschillende redenen voor:</p>
 </div>
@@ -1230,7 +1081,7 @@ Iedere bestaande taal, zoals Python, wordt ook verder doorontwikkeld. Het versch
 </div>
 </div>
 <div class="sect2">
-<h3 id="_python_schrijven_of_programmeren">Python schrijven (of programmeren)</h3>
+<h3 id="_python_schrijven_of_programmeren">1.7. Python schrijven (of programmeren)</h3>
 <div class="paragraph">
 <p>Python wordt geschreven in een <mark>tekst document</mark>.
 Dit tekst document heeft de <mark>.py extensie</mark>.
@@ -1239,7 +1090,7 @@ Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
 De tekst die je schrijft moet wel voldoen aan de <mark>syntax</mark> van de taal.</p>
 </div>
 <div class="sect3">
-<h4 id="_de_syntax">De syntax</h4>
+<h4 id="_de_syntax">1.7.1. De syntax</h4>
 <div class="paragraph">
 <p>Iedere programmeertaal bestaat uit een syntax.
 Dit zijn een reeks afspraken van de taal:</p>
@@ -1272,24 +1123,24 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_waarom_python_kiezen_in_plaats_van_java">Waarom Python kiezen in plaats van Java?</h3>
+<h3 id="_waarom_python_kiezen_in_plaats_van_java">1.8. Waarom Python kiezen in plaats van Java?</h3>
 <div class="paragraph">
 <p>Bij het kiezen van een programmeertaal, zoals Python of Java, rijst vaak de vraag welke het meest geschikt is. Hoewel beide talen krachtige tools zijn voor softwareontwikkeling, zijn er enkele overwegingen die Python tot een aantrekkelijke keuze maken, vooral voor beginners en middelbare scholieren.</p>
 </div>
 <div class="sect3">
-<h4 id="_leesbaarheid_en_eenvoud">Leesbaarheid en Eenvoud</h4>
+<h4 id="_leesbaarheid_en_eenvoud">1.8.1. Leesbaarheid en Eenvoud</h4>
 <div class="paragraph">
 <p>Python onderscheidt zich door zijn eenvoudige en leesbare syntaxis. Dit betekent dat code in Python bijna als natuurlijke taal lijkt en gemakkelijk te begrijpen is, zelfs voor mensen zonder programmeerachtergrond. Laten we dit vergelijken met een eenvoudig voorbeeld in zowel Python als Java:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Python
-</span><span class="k">print</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello, world!</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="c1"># Java
 </span><span class="n">public</span> <span class="k">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">);</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello, world!</span><span class="sh">"</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 </div>
@@ -1299,7 +1150,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_snel_prototypen_en_snelle_ontwikkeling">Snel Prototypen en Snelle Ontwikkeling</h4>
+<h4 id="_snel_prototypen_en_snelle_ontwikkeling">1.8.2. Snel Prototypen en Snelle Ontwikkeling</h4>
 <div class="paragraph">
 <p>Python staat bekend om zijn snelle ontwikkelingsmogelijkheden. Het vereist minder code om dezelfde functionaliteit te bereiken in vergelijking met talen zoals Java. Dit is vooral handig bij het maken van prototypes en het iteratief ontwikkelen van projecten. Laten we een vergelijking maken tussen een eenvoudige lijstverwerkingstaak in beide talen:</p>
 </div>
@@ -1310,20 +1161,20 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">squared</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
 
 <span class="c1"># Java
-</span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span class="kn">import</span> <span class="n">java.util.ArrayList</span><span class="p">;</span>
 
 <span class="n">public</span> <span class="k">class</span> <span class="nc">SquaredNumbers</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-        <span class="n">numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+        <span class="n">numbers</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 
         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">squared</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">Integer</span> <span class="n">num</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">squared</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">);</span>
+        <span class="nf">for </span><span class="p">(</span><span class="n">Integer</span> <span class="n">num</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">squared</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
@@ -1338,8 +1189,8 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Python
-</span><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"De som is:"</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></code></pre>
+</span><span class="n">total</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De som is:</span><span class="sh">"</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1361,7 +1212,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_brede_toepassingsmogelijkheden">Brede Toepassingsmogelijkheden</h4>
+<h4 id="_brede_toepassingsmogelijkheden">1.8.3. Brede Toepassingsmogelijkheden</h4>
 <div class="paragraph">
 <p>Hoewel Java een krachtige taal is voor het bouwen van complexe systemen, biedt Python een breed scala aan toepassingen en domeinen. Python wordt gebruikt voor webontwikkeling, gegevensanalyse, machine learning, wetenschappelijke berekeningen en nog veel meer. Het is zelfs een populaire taal voor scripting en automatisering. Deze veelzijdigheid stelt ontwikkelaars in staat om hun vaardigheden over verschillende disciplines toe te passen zonder van taal te hoeven wisselen.</p>
 </div>
@@ -1387,7 +1238,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conclusie">Conclusie</h3>
+<h3 id="_conclusie">1.9. Conclusie</h3>
 <div class="paragraph">
 <p>Hoewel Java en Python beide waardevolle programmeertalen zijn, biedt Python enkele voordelen die het aantrekkelijk maken voor beginners en middelbare scholieren. De leesbaarheid, eenvoudige syntaxis, snelle ontwikkeling en brede toepassingsmogelijkheden maken Python een uitstekende keuze om te leren en te beginnen met programmeren. In deze cursus zullen we ons richten op Python vanwege zijn geschiktheid voor beginners en de kansen die het biedt voor het opbouwen van solide programmeervaardigheden.</p>
 </div>
@@ -1395,14 +1246,14 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">Hoofdstuk 2: Van Code naar Uitvoering op de CPU</h2>
+<h2 id="_hoofdstuk_2_van_code_naar_uitvoering_op_de_cpu">2. Hoofdstuk 2: Van Code naar Uitvoering op de CPU</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Deze python code print een tekst naar de console:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'Hello world!'</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello world!</span><span class="sh">'</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1412,7 +1263,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <p>Er worden dus enkele tussenliggende stappen uitgevoerd.</p>
 </div>
 <div class="sect2">
-<h3 id="_de_rol_van_de_interpreter">De Rol van de Interpreter</h3>
+<h3 id="_de_rol_van_de_interpreter">2.1. De Rol van de Interpreter</h3>
 <div class="paragraph">
 <p>Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de <mark>Python-interpreter</mark>.</p>
 </div>
@@ -1442,7 +1293,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_van_bytecode_naar_machinecode">Van Bytecode naar Machinecode</h3>
+<h3 id="_van_bytecode_naar_machinecode">2.2. Van Bytecode naar Machinecode</h3>
 <div class="paragraph">
 <p>Machinecode is de laagste niveau van instructies die de CPU direct begrijpt. Echter, voordat de machinecode wordt bereikt, wordt de bytecode verwerkt door de PVM, die het omzet in instructies die kunnen worden uitgevoerd door de fysieke CPU van de computer.</p>
 </div>
@@ -1451,7 +1302,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_linter_codekwaliteit_en_conventies">Linter: Codekwaliteit en Conventies</h3>
+<h3 id="_linter_codekwaliteit_en_conventies">2.3. Linter: Codekwaliteit en Conventies</h3>
 <div class="paragraph">
 <p>Voordat de <mark>code</mark> wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze <mark>correct is en voldoet aan specifieke coderingsstandaarden</mark>. Een linter is een hulpmiddel dat de code <mark>analyseert op fouten, inconsistenties en afwijkingen van de conventies</mark>.</p>
 </div>
@@ -1462,7 +1313,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Onjuiste naamgeving van variabelen
 </span><span class="n">Var</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">prinT</span><span class="p">(</span><span class="n">var</span><span class="p">)</span></code></pre>
+<span class="nf">prinT</span><span class="p">(</span><span class="n">var</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1470,12 +1321,12 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_compilatie_en_uitvoering">Compilatie en Uitvoering</h3>
+<h3 id="_compilatie_en_uitvoering">2.4. Compilatie en Uitvoering</h3>
 <div class="paragraph">
 <p>Python wordt beschouwd als een <mark>geïnterpreteerde taal</mark>, wat betekent dat de code <mark>regel voor regel</mark> wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een <strong>compilatieproces</strong> voordat deze wordt uitgevoerd.</p>
 </div>
 <div class="sect3">
-<h4 id="_het_interpreterproces_van_de_interpreter">Het Interpreterproces van de interpreter</h4>
+<h4 id="_het_interpreterproces_van_de_interpreter">2.4.1. Het Interpreterproces van de interpreter</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/lexer.webp" alt="lexer">
@@ -1502,7 +1353,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_een_voorbeeld">Een voorbeeld</h4>
+<h4 id="_een_voorbeeld">2.4.2. Een voorbeeld</h4>
 <div class="paragraph">
 <p>Stel je voor dat je een Python-script hebt dat de beweging van een speler in een game simuleert:</p>
 </div>
@@ -1512,7 +1363,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span> <span class="o">+</span> <span class="n">movement_speed</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Nieuwe positie van de speler:"</span><span class="p">,</span> <span class="n">new_position</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Nieuwe positie van de speler:</span><span class="sh">"</span><span class="p">,</span> <span class="n">new_position</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1520,7 +1371,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_just_in_time_jit_compiler_in_python">Just-In-Time (JIT) Compiler in Python</h4>
+<h4 id="_just_in_time_jit_compiler_in_python">2.4.3. Just-In-Time (JIT) Compiler in Python</h4>
 <div class="paragraph">
 <p>De Just-In-Time (JIT) compiler is een techniek die wordt gebruikt om de uitvoeringssnelheid van code te verbeteren door delen van de code tijdens de uitvoering te compileren naar machinecode. Hoewel Python een geïnterpreteerde taal is, kan de JIT-compiler de prestaties aanzienlijk verbeteren door bepaalde stukken code te compileren op het moment dat ze worden uitgevoerd.</p>
 </div>
@@ -1539,15 +1390,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">):</span>
     <span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
         <span class="n">new_position</span> <span class="o">+=</span> <span class="n">movement_speed</span>
     <span class="k">return</span> <span class="n">new_position</span>
 
 <span class="n">initial_position</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="n">final_position</span> <span class="o">=</span> <span class="n">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Laatste positie van de speler:"</span><span class="p">,</span> <span class="n">final_position</span><span class="p">)</span></code></pre>
+<span class="n">final_position</span> <span class="o">=</span> <span class="nf">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Laatste positie van de speler:</span><span class="sh">"</span><span class="p">,</span> <span class="n">final_position</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1568,7 +1419,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_voordelen_en_nadelen">Voordelen en Nadelen</h4>
+<h4 id="_voordelen_en_nadelen">2.4.4. Voordelen en Nadelen</h4>
 <div class="paragraph">
 <p>Python&#8217;s interpretatieproces biedt voordelen zoals <strong>directe feedback</strong> en gemakkelijke debugging. Echter, omdat elke regel code wordt geïnterpreteerd wanneer deze wordt uitgevoerd, kan Python trager zijn dan gecompileerde talen voor intensieve berekeningen in games.</p>
 </div>
@@ -1578,7 +1429,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_samenvatting">Samenvatting</h3>
+<h3 id="_samenvatting">2.5. Samenvatting</h3>
 <div class="paragraph">
 <p>Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode.</p>
 </div>
@@ -1586,15 +1437,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_3_gebruik_van_variabelen">Hoofdstuk 3: Gebruik van Variabelen</h2>
+<h2 id="_hoofdstuk_3_gebruik_van_variabelen">3. Hoofdstuk 3: Gebruik van Variabelen</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_variabelen_in_python">Variabelen in Python</h3>
+<h3 id="_variabelen_in_python">3.1. Variabelen in Python</h3>
 <div class="paragraph">
 <p>Variabelen vormen een kernconcept in programmeren, waardoor softwareontwikkelaars waarden kunnen opslaan en manipuleren voor gebruik in hun programma&#8217;s. In Python zijn variabelen <mark>containers voor het opslaan van gegevens</mark> zoals getallen, tekst, lijsten, en meer.</p>
 </div>
 <div class="sect3">
-<h4 id="_variabelen_toewijzen">Variabelen Toewijzen</h4>
+<h4 id="_variabelen_toewijzen">3.1.1. Variabelen Toewijzen</h4>
 <div class="paragraph">
 <p>Variabelen in Python worden gemaakt door een naam toe te wijzen aan een waarde. Hier is een voorbeeld waarin we de <em>health</em> van een speler in een game bijhouden:</p>
 </div>
@@ -1602,7 +1453,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Player health in Counter-Strike
 </span><span class="n">player_health</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Huidige gezondheid:"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Huidige gezondheid:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1610,13 +1461,13 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_naamgeving_van_variabelen">Naamgeving van Variabelen</h4>
+<h4 id="_naamgeving_van_variabelen">3.1.2. Naamgeving van Variabelen</h4>
 <div class="paragraph">
 <p>In Python is het benoemen van variabelen van groot belang om duidelijke en begrijpelijke code te schrijven. Door een consistente en zinvolle naamgeving te hanteren, maak je niet alleen je code leesbaarder, maar vergemakkelijk je ook het onderhoud en de samenwerking aan projecten. Hier zijn enkele belangrijke regels en tips voor het benoemen van variabelen in Python:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_regels_voor_naamgeving_van_variabelen_in_python">Regels voor Naamgeving van Variabelen in Python</h4>
+<h4 id="_regels_voor_naamgeving_van_variabelen_in_python">3.1.3. Regels voor Naamgeving van Variabelen in Python</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1639,7 +1490,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_datatypen_en_variabelen">Datatypen en Variabelen</h3>
+<h3 id="_datatypen_en_variabelen">3.2. Datatypen en Variabelen</h3>
 <div class="paragraph">
 <p>In Python zijn variabelen <strong>niet expliciet getypeerd</strong>, wat betekent dat je geen datatype hoeft op te geven wanneer je een variabele declareert. Python bepaalt automatisch het datatype op basis van de waarde die aan de variabele wordt toegewezen.</p>
 </div>
@@ -1669,7 +1520,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_waarden_bijwerken">Waarden Bijwerken</h4>
+<h4 id="_waarden_bijwerken">3.2.1. Waarden Bijwerken</h4>
 <div class="paragraph">
 <p>Variabelen kunnen op elk moment worden bijgewerkt door er simpelweg een nieuwe waarde aan toe te wijzen. Bijvoorbeeld, als de speler schade oploopt:</p>
 </div>
@@ -1678,7 +1529,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Schade oplopen
 </span><span class="n">damage_taken</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">player_health</span> <span class="o">-=</span> <span class="n">damage_taken</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Nieuwe gezondheid na geraakt te zijn:"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Nieuwe gezondheid na geraakt te zijn:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_health</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1686,7 +1537,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_variabelen_en_scope">Variabelen en Scope</h4>
+<h4 id="_variabelen_en_scope">3.2.2. Variabelen en Scope</h4>
 <div class="paragraph">
 <p>Variabelen hebben een bepaalde <mark>"scope" of bereik, wat aangeeft waar de variabele beschikbaar en geldig is</mark>. In Python kunnen variabelen lokaal (binnen een specifieke functie) of globaal (door het hele programma) zijn.</p>
 </div>
@@ -1700,15 +1551,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="c1"># definitie van een functie
 </span><span class="k">def</span> <span class="nf">functie</span><span class="p">():</span>
     <span class="n">lokale_variabele</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, binnen functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele, binnen functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Lokale variabele, binnen functie:</span><span class="sh">"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Globale variabele, binnen functie:</span><span class="sh">"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
 
 <span class="c1"># nu voeren we de functie uit
-</span><span class="n">functie</span><span class="p">()</span>
+</span><span class="nf">functie</span><span class="p">()</span>
 
 <span class="c1"># En we voeren enkele print statements uit
-</span><span class="k">print</span><span class="p">(</span><span class="s">"Globale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span></code></pre>
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Globale variabele, buiten functie:</span><span class="sh">"</span><span class="p">,</span> <span class="n">globale_variabele</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Lokale variabele, buiten functie:</span><span class="sh">"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1719,10 +1570,10 @@ Dit zijn een reeks afspraken van de taal:</p>
 <pre class="rouge highlight"><code data-lang="python"><span class="n">Lokale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">5</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="n">Globale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">binnen</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="n">Globale</span> <span class="n">variabele</span><span class="p">,</span> <span class="n">buiten</span> <span class="n">functie</span><span class="p">:</span> <span class="mi">10</span> <i class="conum" data-value="3"></i><b>(3)</b>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span> <i class="conum" data-value="4"></i><b>(4)</b>
-  <span class="n">File</span> <span class="s">"test.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">14</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Lokale variabele, buiten functie:"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
-<span class="nb">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">'lokale_variabele'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="s">'globale_variabele'</span><span class="err">?</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+<span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span> <i class="conum" data-value="4"></i><b>(4)</b>
+  <span class="n">File</span> <span class="sh">"</span><span class="s">test.py</span><span class="sh">"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">14</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Lokale variabele, buiten functie:</span><span class="sh">"</span><span class="p">,</span> <span class="n">lokale_variabele</span><span class="p">)</span>
+<span class="nb">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="sh">'</span><span class="s">lokale_variabele</span><span class="sh">'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Did</span> <span class="n">you</span> <span class="n">mean</span><span class="p">:</span> <span class="sh">'</span><span class="s">globale_variabele</span><span class="sh">'</span><span class="err">?</span> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1755,7 +1606,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_variabelen_en_gegevenstypen">Variabelen en Gegevenstypen</h3>
+<h3 id="_variabelen_en_gegevenstypen">3.3. Variabelen en Gegevenstypen</h3>
 <div class="paragraph">
 <p>Python heeft verschillende ingebouwde gegevenstypes die je kunt gebruiken om variabelen van verschillende soorten gegevens op te slaan. Enkele van de veelgebruikte datatypen zijn:</p>
 </div>
@@ -1782,7 +1633,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>          <span class="c1"># int
 </span><span class="n">b</span> <span class="o">=</span> <span class="mf">3.14</span>       <span class="c1"># float
-</span><span class="n">naam</span> <span class="o">=</span> <span class="s">"Alice"</span> <span class="c1"># str
+</span><span class="n">naam</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span> <span class="c1"># str
 </span><span class="n">waar</span> <span class="o">=</span> <span class="bp">True</span>    <span class="c1"># bool</span></code></pre>
 </div>
 </div>
@@ -1799,7 +1650,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <p>Laten we de belangrijkste gegevenstypes eens overlopen:</p>
 </div>
 <div class="sect3">
-<h4 id="_integer_int">Integer (int)</h4>
+<h4 id="_integer_int">3.3.1. Integer (int)</h4>
 <div class="paragraph">
 <p>Het gegevenstype <code>int</code> staat voor gehele getallen, zoals 5, -10 en 100. Integer-waarden worden gebruikt voor wiskundige bewerkingen en numerieke berekeningen. Python staat toe om positieve en negatieve gehele getallen te gebruiken, evenals getallen met en zonder decimale punten.</p>
 </div>
@@ -1815,7 +1666,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_float_komma_getal">Float (Komma-getal)</h4>
+<h4 id="_float_komma_getal">3.3.2. Float (Komma-getal)</h4>
 <div class="paragraph">
 <p>Het gegevenstype <code>float</code> vertegenwoordigt komma-getallen, ook wel bekend als zwevendekomma-getallen. Dit omvat getallen met decimale punten, zoals 3.14, -0.5 en 2.0. Float-waarden worden gebruikt voor nauwkeurige berekeningen met reële getallen.</p>
 </div>
@@ -1831,7 +1682,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_string_str">String (str)</h4>
+<h4 id="_string_str">3.3.3. String (str)</h4>
 <div class="paragraph">
 <p>Het gegevenstype <code>str</code> staat voor tekstuele gegevens, zoals woorden, zinnen of karakters. Tekst in Python wordt omringd door enkele aanhalingstekens (<code>'</code>) of dubbele aanhalingstekens (<code>"</code>).</p>
 </div>
@@ -1840,9 +1691,9 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">naam</span> <span class="o">=</span> <span class="s">"Alice"</span>
-<span class="n">bericht</span> <span class="o">=</span> <span class="s">'Hallo, wereld!'</span>
-<span class="n">label</span> <span class="o">=</span> <span class="s">"Productcode: 12345"</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">naam</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span>
+<span class="n">bericht</span> <span class="o">=</span> <span class="sh">'</span><span class="s">Hallo, wereld!</span><span class="sh">'</span>
+<span class="n">label</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Productcode: 12345</span><span class="sh">"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1850,15 +1701,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">voornaam</span> <span class="o">=</span> <span class="s">"John"</span>
-<span class="n">achternaam</span> <span class="o">=</span> <span class="s">"Doe"</span>
-<span class="n">volledige_naam</span> <span class="o">=</span> <span class="n">voornaam</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">achternaam</span>
-<span class="k">print</span><span class="p">(</span><span class="n">volledige_naam</span><span class="p">)</span> <span class="c1"># Output: John Doe</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">voornaam</span> <span class="o">=</span> <span class="sh">"</span><span class="s">John</span><span class="sh">"</span>
+<span class="n">achternaam</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Doe</span><span class="sh">"</span>
+<span class="n">volledige_naam</span> <span class="o">=</span> <span class="n">voornaam</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> </span><span class="sh">"</span> <span class="o">+</span> <span class="n">achternaam</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volledige_naam</span><span class="p">)</span> <span class="c1"># Output: John Doe</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_boolean_bool">Boolean (bool)</h4>
+<h4 id="_boolean_bool">3.3.4. Boolean (bool)</h4>
 <div class="paragraph">
 <p>Het gegevenstype <code>bool</code> vertegenwoordigt booleaanse waarden, namelijk <code>True</code> (waar) of <code>False</code> (onwaar). Booleaanse waarden worden veel gebruikt in logische bewerkingen en beslissingsstructuren, zoals <code>if</code>-voorwaarden.</p>
 </div>
@@ -1884,7 +1735,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">minimum_health_required</span> <span class="o">=</span> <span class="mi">50</span>
 
 <span class="n">is_healthy_enough</span> <span class="o">=</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="n">minimum_health_required</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Is de speler gezond genoeg?"</span><span class="p">,</span> <span class="n">is_healthy_enough</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Is de speler gezond genoeg?</span><span class="sh">"</span><span class="p">,</span> <span class="n">is_healthy_enough</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1896,18 +1747,23 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_lijst_gegevenstype">Lijst Gegevenstype</h3>
+<h3 id="_lijst_gegevenstype">3.4. Lijst Gegevenstype</h3>
 <div class="paragraph">
 <p>list: Een geordende verzameling van waarden, zoals de inventaris van een speler.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">inventory</span> <span class="o">=</span> <span class="p">[</span><span class="s">"sword"</span><span class="p">,</span> <span class="s">"shield"</span><span class="p">,</span> <span class="s">"potion"</span><span class="p">]</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">inventory</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">sword</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">shield</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">potion</span><span class="sh">"</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Python-Lists.png" alt="Python Lists">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tuple_gegevenstype">Tuple Gegevenstype</h3>
+<h3 id="_tuple_gegevenstype">3.5. Tuple Gegevenstype</h3>
 <div class="paragraph">
 <p>tuple: Een onveranderlijke verzameling van waarden, zoals de positie van een speler.</p>
 </div>
@@ -1918,29 +1774,29 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dictionary_gegevenstype">Dictionary Gegevenstype</h3>
+<h3 id="_dictionary_gegevenstype">3.6. Dictionary Gegevenstype</h3>
 <div class="paragraph">
 <p>dict: Een verzameling van sleutel-waardeparen, zoals attributen van een speler.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"John"</span><span class="p">,</span> <span class="s">"health"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"armor"</span><span class="p">:</span> <span class="s">"plate"</span><span class="p">}</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">John</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">health</span><span class="sh">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="sh">"</span><span class="s">armor</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">plate</span><span class="sh">"</span><span class="p">}</span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_type_conversie">Type Conversie</h4>
+<h4 id="_type_conversie">3.6.1. Type Conversie</h4>
 <div class="paragraph">
 <p>Soms is het nodig om gegevens van het ene type naar het andere te converteren. Python biedt functies om dit te doen. Bijvoorbeeld, om een getal om te zetten naar een string, kun je de functie <code>str()</code> gebruiken:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">leeftijd</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">leeftijd_als_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">leeftijd</span><span class="p">)</span></code></pre>
+<span class="n">leeftijd_als_string</span> <span class="o">=</span> <span class="nf">str</span><span class="p">(</span><span class="n">leeftijd</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_dynamische_typing">Dynamische Typing</h4>
+<h4 id="_dynamische_typing">3.6.2. Dynamische Typing</h4>
 <div class="paragraph">
 <p>Python staat ook bekend om 'dynamic typed' te zijn, wat betekent dat <mark>het datatype van een variabele kan veranderen terwijl het programma wordt uitgevoerd</mark>. Dit in tegenstelling tot sterk getypeerde talen waar het datatype strikt moet worden gedefinieerd en behouden.</p>
 </div>
@@ -1950,7 +1806,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s">"Hallo"</span>
+<span class="n">a</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Hallo</span><span class="sh">"</span>
 <span class="n">a</span> <span class="o">=</span> <span class="bp">True</span></code></pre>
 </div>
 </div>
@@ -1959,7 +1815,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_variabelen_vs_expressies">Variabelen vs Expressies</h4>
+<h4 id="_variabelen_vs_expressies">3.6.3. Variabelen vs Expressies</h4>
 <div class="paragraph">
 <p><strong>Een expressie</strong> is een combinatie van waarden, operatoren en/of functies die een resultaat oplevert wanneer deze wordt geëvalueerd. Expressies kunnen variëren van eenvoudige wiskundige bewerkingen tot complexere berekeningen. Ze kunnen ook variabelen bevatten.</p>
 </div>
@@ -1979,7 +1835,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">player_health</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">player_name</span> <span class="o">=</span> <span class="s">"Alice"</span></code></pre>
+<span class="n">player_name</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1991,7 +1847,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conclusie_2">Conclusie</h3>
+<h3 id="_conclusie_2">3.7. Conclusie</h3>
 <div class="paragraph">
 <p>De verscheidenheid aan gegevenstypes in Python, waaronder integer, float, string en boolean, biedt ontwikkelaars flexibiliteit bij het manipuleren van verschillende soorten gegevens. Het begrijpen van deze gegevenstypes en hun toepassingen is essentieel voor het schrijven van effectieve en veelzijdige Python-programma&#8217;s.</p>
 </div>
@@ -1999,13 +1855,13 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_4_beslissingsstructuren">Hoofdstuk 4: Beslissingsstructuren</h2>
+<h2 id="_hoofdstuk_4_beslissingsstructuren">4. Hoofdstuk 4: Beslissingsstructuren</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Beslissingsstructuren stellen ons in staat om de logica van ons programma of spel aan te passen op basis van voorwaarden en situaties.</p>
 </div>
 <div class="sect2">
-<h3 id="_het_belang_van_beslissingsstructuren">Het Belang van Beslissingsstructuren</h3>
+<h3 id="_het_belang_van_beslissingsstructuren">4.1. Het Belang van Beslissingsstructuren</h3>
 <div class="paragraph">
 <p>Beslissingsstructuren zijn van cruciaal belang in het creëren van interactieve games. Ze stellen ons in staat om verschillende paden in het spel te volgen op basis van specifieke voorwaarden. Hierdoor kunnen we scenario&#8217;s creëren waarin de uitkomst afhangt van de beslissingen van de speler.</p>
 </div>
@@ -2017,18 +1873,18 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Je staat voor een deur. Wat wil je doen?"</span><span class="p">)</span>
-<span class="n">choice</span> <span class="o">=</span> <span class="s">"1"</span>  <span class="c1"># Stel dat de speler "1" invoert
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je staat voor een deur. Wat wil je doen?</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span>  <span class="c1"># Stel dat de speler "1" invoert
 </span>
-<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je opent de deur en vindt een oude sleutel."</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je opent de deur en vindt een oude sleutel.</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je doorzoekt de kamer verder maar vindt niets van belang."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je doorzoekt de kamer verder maar vindt niets van belang.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_if_else_beslissingsstructuur">If-Else Beslissingsstructuur</h3>
+<h3 id="_if_else_beslissingsstructuur">4.2. If-Else Beslissingsstructuur</h3>
 <div class="paragraph">
 <p>Python biedt de <code>if-else</code>-structuur om beslissingen te nemen op basis van één enkele voorwaarde. Als de voorwaarde waar is, wordt de code binnen het <code>if</code>-blok uitgevoerd. Anders wordt de code binnen het <code>else</code>-blok uitgevoerd.</p>
 </div>
@@ -2049,14 +1905,14 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">player_damage</span> <span class="o">=</span> <span class="mi">25</span>
 
 <span class="k">if</span> <span class="n">player_damage</span> <span class="o">&gt;=</span> <span class="n">enemy_health</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt de vijand verslagen!"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt de vijand verslagen!</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand heeft nog"</span><span class="p">,</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span><span class="p">,</span> <span class="s">"gezondheid over."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand heeft nog</span><span class="sh">"</span><span class="p">,</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid over.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_if_elif_else_structuur">If-Elif-Else Structuur</h3>
+<h3 id="_if_elif_else_structuur">4.3. If-Elif-Else Structuur</h3>
 <div class="paragraph">
 <p>In complexere situaties waarin meerdere voorwaarden moeten worden geëvalueerd, biedt de <code>if-elif-else</code>-structuur uitkomst. Deze structuur stelt ons in staat om verschillende mogelijke uitkomsten te behandelen.</p>
 </div>
@@ -2078,16 +1934,16 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">player_agility</span> <span class="o">=</span> <span class="mi">6</span>
 
 <span class="k">if</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je bent in goede conditie."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je bent in goede conditie.</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt wat herstel nodig."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt wat herstel nodig.</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je gezondheid is laag. Voorzichtig blijven!"</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je gezondheid is laag. Voorzichtig blijven!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geneste_beslissingsstructuren">Geneste Beslissingsstructuren</h3>
+<h3 id="_geneste_beslissingsstructuren">4.4. Geneste Beslissingsstructuren</h3>
 <div class="paragraph">
 <p>Beslissingsstructuren kunnen ook genest zijn, wat betekent dat je een beslissing neemt binnen een ander beslissingsblok. Dit is nuttig om complexere logica te implementeren.</p>
 </div>
@@ -2099,31 +1955,28 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">"Je staat in een bos en ziet een splitsing."</span><span class="p">)</span>
-<span class="n">choice</span> <span class="o">=</span> <span class="s">"links"</span>  <span class="c1"># Stel dat de speler "links" invoert
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je staat in een bos en ziet een splitsing.</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="sh">"</span><span class="s">links</span><span class="sh">"</span>  <span class="c1"># Stel dat de speler "links" invoert
 </span>
-<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"links"</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je volgt het pad en vindt een verborgen schat!"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">links</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je volgt het pad en vindt een verborgen schat!</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je gaat een andere richting op en hoort vreemde geluiden."</span><span class="p">)</span>
-    <span class="n">second_choice</span> <span class="o">=</span> <span class="s">"doorgaan"</span>  <span class="c1"># Stel dat de speler "doorgaan" invoert
-</span>    <span class="k">if</span> <span class="n">second_choice</span> <span class="o">==</span> <span class="s">"doorgaan"</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Je ontdekt een verlaten huis."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je gaat een andere richting op en hoort vreemde geluiden.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">second_choice</span> <span class="o">=</span> <span class="sh">"</span><span class="s">doorgaan</span><span class="sh">"</span>  <span class="c1"># Stel dat de speler "doorgaan" invoert
+</span>    <span class="k">if</span> <span class="n">second_choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">doorgaan</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je ontdekt een verlaten huis.</span><span class="sh">"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Je besluit om snel terug te keren en het enge gebied te verlaten."</span><span class="p">)</span></code></pre>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je besluit om snel terug te keren en het enge gebied te verlaten.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_het_belang_van_indentatie_in_python">Het Belang van Indentatie in Python</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_het_belang_van_indentatie_in_python">4.5. Het Belang van Indentatie in Python</h3>
 <div class="paragraph">
 <p>Indentatie is een fundamenteel concept in Python-programmering en speelt een cruciale rol in het structureren van je code. In tegenstelling tot veel andere programmeertalen, waar accolades of sleutelwoorden worden gebruikt om codeblokken te definiëren, gebruikt Python indentatie om de structuur van het programma aan te geven. Dit kan van invloed zijn op leesbaarheid, logica en werking van je code.</p>
 </div>
-<div class="sect2">
-<h3 id="_duidelijkheid_en_leesbaarheid">Duidelijkheid en Leesbaarheid</h3>
+<div class="sect3">
+<h4 id="_duidelijkheid_en_leesbaarheid">4.5.1. Duidelijkheid en Leesbaarheid</h4>
 <div class="paragraph">
 <p>Indentatie helpt om de structuur van je code visueel te benadrukken. Het geeft aan welke regels bij elkaar horen en vormt de basis van codeblokken. Een consistent gebruik van indentatie maakt het voor zowel jou als andere ontwikkelaars gemakkelijker om te begrijpen hoe de code is gestructureerd en welke delen met elkaar zijn verbonden.</p>
 </div>
@@ -2133,9 +1986,9 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Geweldig werk!"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Geweldig werk!</span><span class="sh">"</span><span class="p">)</span>
     <span class="n">player_level</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je bent nu level"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je bent nu level</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2144,16 +1997,16 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Geweldig werk!"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Je bent nu level"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Geweldig werk!</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je bent nu level</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_level</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In het eerste voorbeeld wordt de tweede en derde regel uitgevoerd als de voorwaarde waar is. In het tweede voorbeeld wordt de derde regel altijd uitgevoerd, ongeacht de voorwaarde.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_logische_structurering">Logische Structurering</h3>
+<div class="sect3">
+<h4 id="_logische_structurering">4.5.2. Logische Structurering</h4>
 <div class="paragraph">
 <p>De juiste indentatie zorgt ervoor dat je code correct wordt uitgevoerd volgens de gewenste logica. Indentatie scheidt codeblokken, zoals loops, functies en conditionele statements, van elkaar. Het stelt Python in staat om de scope van variabelen en de uitvoering van instructies op de juiste manier te interpreteren.</p>
 </div>
@@ -2162,10 +2015,10 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Dit is een iteratie van de loop."</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"De loop is voltooid."</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Dit is een iteratie van de loop.</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De loop is voltooid.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2173,18 +2026,18 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Dit is een iteratie van de loop."</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"De loop is voltooid."</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Dit is een iteratie van de loop.</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De loop is voltooid.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In het eerste voorbeeld worden de eerste twee regels binnen elke iteratie van de loop uitgevoerd. In het tweede voorbeeld worden deze regels na de voltooiing van de loop uitgevoerd, wat resulteert in een ander gedrag.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_foutpreventie">Foutpreventie</h3>
+<div class="sect3">
+<h4 id="_foutpreventie">4.5.3. Foutpreventie</h4>
 <div class="paragraph">
 <p>Foutieve indentatie kan leiden tot syntaxisfouten en logische fouten in je code. Python zal een foutmelding genereren als de indentatie niet correct is. Dit helpt je om snel fouten op te sporen en te corrigeren.</p>
 </div>
@@ -2194,29 +2047,27 @@ Dit zijn een reeks afspraken van de taal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">health</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Je leeft nog!"</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je leeft nog!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Python zal hier een foutmelding genereren omdat de code na de <code>if</code>-verklaring niet correct is ingesprongen.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_indentatie_samenvatting">Indentatie Samenvatting</h3>
+<div class="sect3">
+<h4 id="_indentatie_samenvatting">4.5.4. Indentatie Samenvatting</h4>
 <div class="paragraph">
 <p>Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_boolean_logica_en_combinaties">Boolean Logica en Combinaties</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_boolean_logica_en_combinaties">4.6. Boolean Logica en Combinaties</h3>
 <div class="paragraph">
 <p>Boolean logica stelt ons in staat om complexe situaties in programma&#8217;s of games te modelleren, waarbij we meerdere voorwaarden combineren om beslissingen te nemen en interacties te bepalen. De 'and' en 'or' operatoren spelen hierbij een cruciale rol.</p>
 </div>
-<div class="sect2">
-<h3 id="_and_operator_samenvoegen_van_voorwaarden">'and' Operator: Samenvoegen van Voorwaarden</h3>
+<div class="sect3">
+<h4 id="_and_operator_samenvoegen_van_voorwaarden">4.6.1. 'and' Operator: Samenvoegen van Voorwaarden</h4>
 <div class="paragraph">
 <p>De 'and' operator combineert twee of meer voorwaarden en retourneert 'True' <mark>als alle voorwaarden 'True' zijn</mark>.</p>
 </div>
@@ -2229,15 +2080,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">weapon_available</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="k">if</span> <span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">weapon_available</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt genoeg gezondheid en een wapen om de strijd aan te gaan!"</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt genoeg gezondheid en een wapen om de strijd aan te gaan!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In dit voorbeeld wordt de 'and' operator gebruikt om te controleren of de speler genoeg gezondheid heeft <strong>en</strong> of er een wapen beschikbaar is om de strijd aan te gaan.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_or_operator_alternatieve_voorwaarden">'or' Operator: Alternatieve Voorwaarden</h3>
+<div class="sect3">
+<h4 id="_or_operator_alternatieve_voorwaarden">4.6.2. 'or' Operator: Alternatieve Voorwaarden</h4>
 <div class="paragraph">
 <p>De 'or' operator combineert twee of meer voorwaarden en retourneert 'True' als <mark>minstens één van de voorwaarden waar is</mark>.</p>
 </div>
@@ -2250,15 +2101,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">has_unlock_code</span> <span class="o">=</span> <span class="bp">True</span>
 
 <span class="k">if</span> <span class="n">has_key</span> <span class="ow">or</span> <span class="n">has_unlock_code</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt toegang tot de geheime deur!"</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt toegang tot de geheime deur!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Hier wordt de 'or' operator gebruikt om te controleren of de speler geen gezondheid meer heeft of geen levens meer over heeft.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_combinatie_van_and_en_or_complexe_voorwaarden">Combinatie van 'and' en 'or': Complexe Voorwaarden</h3>
+<div class="sect3">
+<h4 id="_combinatie_van_and_en_or_complexe_voorwaarden">4.6.3. Combinatie van 'and' en 'or': Complexe Voorwaarden</h4>
 <div class="paragraph">
 <p>We kunnen 'and' en 'or' operatoren combineren om complexere voorwaarden te maken.</p>
 </div>
@@ -2271,16 +2122,16 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">ammo_available</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">player_armor</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">or</span> <span class="n">player_armor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ammo_available</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je kunt veilig navigeren in de gevaarlijke zone!"</span><span class="p">)</span></code></pre>
+<span class="nf">if </span><span class="p">(</span><span class="n">player_health</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">or</span> <span class="n">player_armor</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ammo_available</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je kunt veilig navigeren in de gevaarlijke zone!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Hier wordt een complexe voorwaarde gecontroleerd. De 'or' operator controleert of de speler genoeg gezondheid heeft of een bepaald niveau van bepantsering heeft. De 'and' operator combineert deze voorwaarde met de beschikbaarheid van munitie. Alleen als aan beide voorwaarden is voldaan, zal de speler veilig kunnen navigeren in de gevaarlijke zone.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_de_not_operator_negatie_van_voorwaarden">De 'not' Operator: Negatie van Voorwaarden</h3>
+<div class="sect3">
+<h4 id="_de_not_operator_negatie_van_voorwaarden">4.6.4. De 'not' Operator: Negatie van Voorwaarden</h4>
 <div class="paragraph">
 <p>In Python (en andere programmeertalen) hebben we de 'not' operator, die wordt gebruikt om de negatie van een voorwaarde uit te voeren. Dit betekent dat als een voorwaarde True is, 'not' ervoor zal zorgen dat deze wordt geëvalueerd als False, en als een voorwaarde False is, zal 'not' ervoor zorgen dat deze wordt geëvalueerd als True.</p>
 </div>
@@ -2292,7 +2143,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 <pre class="rouge highlight"><code data-lang="python"><span class="n">player_hiding</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">player_hiding</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"De speler is niet aan het schuilen."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De speler is niet aan het schuilen.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2306,15 +2157,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <pre class="rouge highlight"><code data-lang="python"><span class="n">has_key</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">has_key</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt geen sleutel, je kunt het geblokkeerde gebied niet betreden."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt geen sleutel, je kunt het geblokkeerde gebied niet betreden.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Hier wordt de 'not' operator gebruikt om te controleren of de speler geen sleutel heeft. Als de speler geen sleutel heeft (wat waar is), wordt de melding weergegeven dat ze het geblokkeerde gebied niet kunnen betreden.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_gebruik_in_samenwerking_met_and_en_or">Gebruik in Samenwerking met 'and' en 'or'</h3>
+<div class="sect3">
+<h4 id="_gebruik_in_samenwerking_met_and_en_or">4.6.5. Gebruik in Samenwerking met 'and' en 'or'</h4>
 <div class="paragraph">
 <p>De 'not' operator kan worden gecombineerd met de 'and' en 'or' operatoren om complexere voorwaarden te creëren.</p>
 </div>
@@ -2327,15 +2178,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="n">door_unlocked</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="k">if</span> <span class="n">has_key</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">door_unlocked</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je kunt de deur ontgrendelen met je sleutel."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je kunt de deur ontgrendelen met je sleutel.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In dit voorbeeld wordt de 'not' operator gebruikt in samenwerking met de 'and' operator. De 'and' operator controleert of de speler zowel een sleutel heeft als de deur niet ontgrendeld is. Als aan beide voorwaarden is voldaan (speler heeft een sleutel en de deur is niet ontgrendeld), wordt de melding weergegeven om de deur te ontgrendelen.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_het_gebruik_van_haakjes">Het Gebruik van Haakjes</h3>
+<div class="sect3">
+<h4 id="_het_gebruik_van_haakjes">4.6.6. Het Gebruik van Haakjes</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/booleanlogic.png" alt="width:400px">
@@ -2352,30 +2203,31 @@ Dit zijn een reeks afspraken van de taal:</p>
 <pre class="rouge highlight"><code data-lang="python"><span class="n">shield_available</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="n">sword_available</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">shield_available</span> <span class="ow">or</span> <span class="n">sword_available</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">shield_available</span> <span class="ow">and</span> <span class="n">sword_available</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je hebt ofwel een schild, ofwel een zwaard, maar niet beide."</span><span class="p">)</span></code></pre>
+<span class="nf">if </span><span class="p">(</span><span class="n">shield_available</span> <span class="ow">or</span> <span class="n">sword_available</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">shield_available</span> <span class="ow">and</span> <span class="n">sword_available</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt ofwel een schild, ofwel een zwaard, maar niet beide.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>In dit voorbeeld worden haakjes gebruikt om duidelijk te maken dat de 'not' operator wordt toegepast op de combinatie van het hebben van zowel een schild als een zwaard.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_samenvatting_2">Samenvatting</h3>
+<div class="sect3">
+<h4 id="_samenvatting_2">4.6.7. Samenvatting</h4>
 <div class="paragraph">
 <p>Het gebruik van 'and' en 'or' operatoren in games stelt ontwikkelaars in staat om complexe voorwaarden te controleren. Dit kan variëren van het bepalen van interacties tussen personages tot het regelen van toegang tot verschillende delen van een spelwereld.</p>
 </div>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</h2>
+<h2 id="_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">5. Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.</p>
 </div>
 <div class="sect2">
-<h3 id="_gegevensinvoer">Gegevensinvoer</h3>
+<h3 id="_gegevensinvoer">5.1. Gegevensinvoer</h3>
 <div class="paragraph">
 <p>Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.</p>
 </div>
@@ -2389,8 +2241,8 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer je naam in: "</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Welkom, "</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2398,8 +2250,8 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Wil je naar links of rechts gaan? "</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Je hebt gekozen om naar "</span> <span class="o">+</span> <span class="n">choice</span> <span class="o">+</span> <span class="s">" te gaan."</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Wil je naar links of rechts gaan? </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt gekozen om naar </span><span class="sh">"</span> <span class="o">+</span> <span class="n">choice</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> te gaan.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2407,7 +2259,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_expressies_en_berekeningen">Expressies en Berekeningen</h3>
+<h3 id="_expressies_en_berekeningen">5.2. Expressies en Berekeningen</h3>
 <div class="paragraph">
 <p>Het vermogen om expressies en berekeningen te gebruiken, opent een wereld van mogelijkheden in game-ontwikkeling. Hiermee kun je wiskundige en logische bewerkingen uitvoeren op basis van variabele waarden, invoer van spelers of gamegebeurtenissen.</p>
 </div>
@@ -2419,14 +2271,14 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer je schade in: "</span><span class="p">))</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je schade in: </span><span class="sh">"</span><span class="p">))</span>
 <span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">remaining_health</span> <span class="o">=</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span>
 
 <span class="k">if</span> <span class="n">remaining_health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand is verslagen!"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand is verslagen!</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"De vijand heeft nog"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="s">"gezondheid over."</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand heeft nog</span><span class="sh">"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid over.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2443,15 +2295,15 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Creëer je personage. Geef een naam: "</span><span class="p">)</span>
-<span class="n">player_strength</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer de krachtwaarde in (1-10): "</span><span class="p">))</span>
-<span class="n">player_agility</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Voer de behendigheidswaarde in (1-10): "</span><span class="p">))</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Creëer je personage. Geef een naam: </span><span class="sh">"</span><span class="p">)</span>
+<span class="n">player_strength</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de krachtwaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
+<span class="n">player_agility</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de behendigheidswaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
 <span class="n">total_points</span> <span class="o">=</span> <span class="n">player_strength</span> <span class="o">+</span> <span class="n">player_agility</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="s">"'s attributen:"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Kracht:"</span><span class="p">,</span> <span class="n">player_strength</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Behendigheid:"</span><span class="p">,</span> <span class="n">player_agility</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Totaal punten:"</span><span class="p">,</span> <span class="n">total_points</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="sh">"'</span><span class="s">s attributen:</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Kracht:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_strength</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Behendigheid:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_agility</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Totaal punten:</span><span class="sh">"</span><span class="p">,</span> <span class="n">total_points</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2459,36 +2311,36 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_interactie">Interactie</h3>
+<h3 id="_interactie">5.3. Interactie</h3>
 <div class="paragraph">
 <p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer je naam in: "</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Welkom, "</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Je staat voor een oud landhuis. Wat wil je onderzoeken?"</span><span class="p">)</span>
-<span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"1. De voordeur 2. Het zijraam: "</span><span class="p">)</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je staat voor een oud landhuis. Wat wil je onderzoeken?</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">1. De voordeur 2. Het zijraam: </span><span class="sh">"</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je betreedt het landhuis via de voordeur en voelt een koude windvlaag."</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je betreedt het landhuis via de voordeur en voelt een koude windvlaag.</span><span class="sh">"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Je glijdt door het zijraam naar binnen en landt behendig op de vloer."</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je glijdt door het zijraam naar binnen en landt behendig op de vloer.</span><span class="sh">"</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">"Je onderzoek begint..."</span><span class="p">)</span></code></pre>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je onderzoek begint...</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</h2>
+<h2 id="_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">6. Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Welkom bij hoofdstuk 6, waarin we diep duiken in het concept van lussen in Python. Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.</p>
 </div>
 <div class="sect2">
-<h3 id="_de_essentie_van_herhaling">De Essentie van Herhaling</h3>
+<h3 id="_de_essentie_van_herhaling">6.1. De Essentie van Herhaling</h3>
 <div class="paragraph">
 <p>Herhaling is een kernprincipe in programmeren, vooral in game-ontwikkeling, waarin talloze taken moeten worden herhaald om de gewenste resultaten te bereiken.
 Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voeren, waardoor we taken kunnen automatiseren en efficiënte code kunnen schrijven.</p>
@@ -2503,7 +2355,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_gebruik_van_while_lussen">Het Gebruik van 'While'-Lussen</h3>
+<h3 id="_het_gebruik_van_while_lussen">6.2. Het Gebruik van 'While'-Lussen</h3>
 <div class="paragraph">
 <p>Een van de fundamentele lusstructuren in Python is de 'while'-lus. Deze lus voert een set instructies uit zolang een bepaalde voorwaarde <strong>True</strong> is (True is 1 van de 2 mogelijke Boolean waarden, naast False).</p>
 </div>
@@ -2514,7 +2366,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Dit is iteratie"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Dit is iteratie</span><span class="sh">"</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
     <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
@@ -2545,7 +2397,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 <pre class="rouge highlight"><code data-lang="python"><span class="n">player_position</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">player_position</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
     <span class="n">player_position</span> <span class="o">+=</span> <span class="mi">10</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"De speler is nu op positie"</span><span class="p">,</span> <span class="n">player_position</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De speler is nu op positie</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_position</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2553,7 +2405,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_gebruik_van_for_lussen">Het Gebruik van 'For'-Lussen</h3>
+<h3 id="_het_gebruik_van_for_lussen">6.3. Het Gebruik van 'For'-Lussen</h3>
 <div class="paragraph">
 <p>De 'for'-lus is een andere belangrijke lus in Python en wordt vaak gebruikt om door een reeks elementen te itereren.</p>
 </div>
@@ -2562,9 +2414,9 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">enemies</span> <span class="o">=</span> <span class="p">[</span><span class="s">"alien"</span><span class="p">,</span> <span class="s">"robot"</span><span class="p">,</span> <span class="s">"zombie"</span><span class="p">]</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">enemies</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">alien</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">robot</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">zombie</span><span class="sh">"</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">enemy</span> <span class="ow">in</span> <span class="n">enemies</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Een"</span><span class="p">,</span> <span class="n">enemy</span><span class="p">,</span> <span class="s">"verschijnt!"</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Een</span><span class="sh">"</span><span class="p">,</span> <span class="n">enemy</span><span class="p">,</span> <span class="sh">"</span><span class="s">verschijnt!</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2575,10 +2427,10 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"frame1.png"</span><span class="p">,</span> <span class="s">"frame2.png"</span><span class="p">,</span> <span class="s">"frame3.png"</span><span class="p">]</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">frame1.png</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">frame2.png</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">frame3.png</span><span class="sh">"</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-    <span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Wacht voor een vloeiende animatie</span></code></pre>
+    <span class="nf">display</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+    <span class="nf">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Wacht voor een vloeiende animatie</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2589,8 +2441,8 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Iteratie nummer:"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Iteratie nummer:</span><span class="sh">"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2598,7 +2450,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geavanceerd_gebruik_van_lussen">Geavanceerd Gebruik van Lussen</h3>
+<h3 id="_geavanceerd_gebruik_van_lussen">6.4. Geavanceerd Gebruik van Lussen</h3>
 <div class="paragraph">
 <p>Lussen kunnen worden gebruikt voor complexere taken, zoals het doorzoeken van gegevens, het uitvoeren van berekeningen en het implementeren van logica.</p>
 </div>
@@ -2611,8 +2463,8 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="n">score</span>
-<span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">"Het gemiddelde is:"</span><span class="p">,</span> <span class="n">average</span><span class="p">)</span></code></pre>
+<span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="nf">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Het gemiddelde is:</span><span class="sh">"</span><span class="p">,</span> <span class="n">average</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2620,7 +2472,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_oneindige_lussen_voorkomen">Oneindige Lussen Voorkomen</h3>
+<h3 id="_oneindige_lussen_voorkomen">6.5. Oneindige Lussen Voorkomen</h3>
 <div class="paragraph">
 <p>Een potentieel risico bij while-lussen is dat ze oneindig kunnen doorgaan als de boolean voorwaarde nooit wordt voldaan. Dit kan leiden tot een programma dat vastloopt. Zorg ervoor dat je altijd een mechanisme hebt om de lus te beëindigen.</p>
 </div>
@@ -2631,12 +2483,12 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Voer het wachtwoord in: "</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="s">"geheim"</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Toegang verleend."</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer het wachtwoord in: </span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="sh">"</span><span class="s">geheim</span><span class="sh">"</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Toegang verleend.</span><span class="sh">"</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Toegang geweigerd. Probeer opnieuw."</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Toegang geweigerd. Probeer opnieuw.</span><span class="sh">"</span><span class="p">)</span>
         <span class="n">attempts</span> <span class="o">+=</span> <span class="mi">1</span></code></pre>
 </div>
 </div>
@@ -2651,7 +2503,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 <pre class="rouge highlight"><code data-lang="python"><span class="n">player_position</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="k">while</span> <span class="n">player_position</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'moving forward'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">moving forward</span><span class="sh">'</span><span class="p">)</span>
     <span class="n">player_position</span> <span class="o">+=</span> <span class="mi">1</span></code></pre>
 </div>
 </div>
@@ -2660,7 +2512,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geneste_lussen_of_dubbele_lussen">Geneste lussen of dubbele lussen</h3>
+<h3 id="_geneste_lussen_of_dubbele_lussen">6.6. Geneste lussen of dubbele lussen</h3>
 <div class="paragraph">
 <p><mark>Een geneste 'for'-lus is een lus die zich binnenin een andere 'for'-lus bevindt</mark>. Hiermee kun je complexe patronen en herhalingen in je code creëren.</p>
 </div>
@@ -2679,7 +2531,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span></code></pre>
+    <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2701,10 +2553,10 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">()</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2727,12 +2579,12 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
 
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s">"*"</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">"="</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="sh">"</span><span class="s">*</span><span class="sh">"</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="sh">"</span><span class="s">=</span><span class="sh">"</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span>
 
-    <span class="k">print</span><span class="p">()</span></code></pre>
+    <span class="nf">print</span><span class="p">()</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2754,15 +2606,319 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_lussen_en_efficiëntie">Lussen en Efficiëntie</h3>
+<h3 id="_lussen_en_efficiëntie">6.7. Lussen en Efficiëntie</h3>
 <div class="paragraph">
 <p>Hoewel lussen krachtig zijn, moeten we rekening houden met de efficiëntie van onze code. <mark>Te veel iteraties kunnen leiden tot vertraging</mark> in je programma of game. Het is belangrijk om de beste lus voor een specifieke taak te kiezen en optimalisaties toe te passen wanneer dat nodig is.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_samenvatting_3">Samenvatting</h3>
+<h3 id="_samenvatting_3">6.8. Samenvatting</h3>
 <div class="paragraph">
-<p>In dit hoofdstuk hebben we lussen verkend als een cruciaal hulpmiddel voor herhaling in Python. We hebben 'while'- en 'for'-lussen behandeld. Door lussen op de juiste manier te gebruiken, kun je herhalende taken automatiseren, iteraties door gegevens uitvoeren.</p>
+<p>In dit hoofdstuk hebben we lussen verkend als een cruciaal hulpmiddel voor herhaling in Python. We hebben 'while'- en 'for'-lussen behandeld. Door lussen op de juiste manier te gebruiken, kun je herhalende taken automatiseren, iteraties door gegevens uitvoeren.
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hoofdstuk_7_functies_en_herbruikbaarheid_van_code">7. Hoofdstuk 7: Functies en Herbruikbaarheid van Code</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_wat_is_een_functie">7.1. Wat is een functie</h3>
+<div class="paragraph">
+<p>Functies (of methods) zijn stukken code die een naam hebben gekregen.
+Met de naam te gebruiken (en er () achter te voegen), kan het stuk code opgeroepen worden.
+De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen.
+Als een programma veel dezelfde code bevat (herhaling),
+kan je de code die altijd hetzelfde is, apart zetten in een functie en die functie telkens opnieuw oproepen.</p>
+</div>
+<div class="sect3">
+<h4 id="_functies_definiëren_en_oproepen">7.1.1. Functies Definiëren en Oproepen</h4>
+<div class="paragraph">
+<p>Het definiëren van een functie begint met het <code>def</code>-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een eenvoudige functie definiëren om twee getallen op te tellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt twee getallen op en geeft het resultaat terug.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Om deze functie op te roepen, verstrekken we argumenten die overeenkomen met de parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">som</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_herbruikbaarheid_van_code">7.1.2. Herbruikbaarheid van Code</h4>
+<div class="paragraph">
+<p>Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, stel dat we dezelfde optelling op meerdere plaatsen in ons programma moeten uitvoeren. Met een functie kunnen we dit efficiënt doen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">som1</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">som2</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">som3</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">som1</span><span class="p">)</span> <span class="c1"># Output: 8
+</span><span class="nf">print</span><span class="p">(</span><span class="n">som2</span><span class="p">)</span> <span class="c1"># Output: 17
+</span><span class="nf">print</span><span class="p">(</span><span class="n">som3</span><span class="p">)</span> <span class="c1"># Output: 4</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_return_statements">7.1.3. Return Statements</h4>
+<div class="paragraph">
+<p>Het <code>return</code>-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie berekent het kwadraat van een getal.
+    :param x: Het getal waarvan het kwadraat wordt berekend.
+    :return: Het kwadraat van het gegeven getal.
+    </span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">getal</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kwadraat_van_getal</span> <span class="o">=</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">getal</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">kwadraat_van_getal</span><span class="p">)</span> <span class="c1"># Output: 25</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_functies_met_meerdere_parameters">7.1.4. Functies met Meerdere Parameters</h4>
+<div class="paragraph">
+<p>Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, een functie om de oppervlakte van een rechthoek te berekenen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie berekent de oppervlakte van een rechthoek.
+    :param breedte: De breedte van de rechthoek.
+    :param lengte: De lengte van de rechthoek.
+    :return: De oppervlakte van de rechthoek.
+    </span><span class="sh">"""</span>
+    <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">breedte</span> <span class="o">*</span> <span class="n">lengte</span>
+    <span class="k">return</span> <span class="n">oppervlakte</span>
+
+<span class="n">breedte</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">lengte</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">opp</span> <span class="o">=</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">opp</span><span class="p">)</span> <span class="c1"># Output: 28</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scope_en_lokale_variabelen">7.1.5. Scope en Lokale Variabelen</h4>
+<div class="paragraph">
+<p>Functies introduceren ook het concept van "scope", wat aangeeft waar variabelen beschikbaar en geldig zijn. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ingebouwde_en_aangepaste_functies">7.1.6. Ingebouwde en Aangepaste Functies</h4>
+<div class="paragraph">
+<p>Python biedt een breed scala aan ingebouwde functies, zoals <code>print()</code>, <code>len()</code>, <code>str()</code>, <code>int()</code>, <code>float()</code>, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parameters_in_functies">7.2. Parameters in Functies</h3>
+<div class="sect3">
+<h4 id="_het_belang_van_parameters_in_functies">7.2.1. Het Belang van Parameters in Functies</h4>
+<div class="paragraph">
+<p>Parameters stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_positionele_parameters">7.2.2. Positionele Parameters</h4>
+<div class="paragraph">
+<p>Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die twee getallen optelt met behulp van positionele parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt twee getallen op.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">som</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_standaardwaarden_voor_parameters">7.2.3. Standaardwaarden voor Parameters</h4>
+<div class="paragraph">
+<p>Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die een bericht afdrukt met een standaardgroet als er geen naam wordt opgegeven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">begroeten</span><span class="p">(</span><span class="n">naam</span><span class="o">=</span><span class="sh">"</span><span class="s">Vriend</span><span class="sh">"</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie begroet een persoon met een optionele naam.
+    :param naam: De naam van de persoon (standaard is </span><span class="sh">"</span><span class="s">Vriend</span><span class="sh">"</span><span class="s">).
+    </span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Hallo, </span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">begroeten</span><span class="p">()</span>         <span class="c1"># Output: Hallo, Vriend!
+</span><span class="nf">begroeten</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># Output: Hallo, Alice!</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_args_en_kwargs">7.2.4. args en kwargs</h4>
+<div class="paragraph">
+<p>In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie <code>args</code> en <code>kwargs</code> staan dit toe.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>args</code> staat voor "arguments" en verzamelt positionele argumenten in een tuple.</p>
+</li>
+<li>
+<p><code>kwargs</code> staat voor "keyword arguments" en verzamelt genoemde argumenten in een dictionary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die een variabel aantal getallen kan optellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt een variabel aantal getallen op.
+    :param args: Een tuple van getallen om op te tellen.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">totaal</span> <span class="o">=</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">totaal</span><span class="p">)</span> <span class="c1"># Output: 30</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je kunt ook genoemde argumenten doorgeven met <code>kwargs</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie drukt genoemde argumenten af.
+    :param kwargs: Een dictionary van genoemde argumenten.
+    </span><span class="sh">"""</span>
+    <span class="k">for</span> <span class="n">sleutel</span><span class="p">,</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">sleutel</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">waarde</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="n">voornaam</span><span class="o">=</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1"># Output:
+# voornaam: Alice
+# leeftijd: 25</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_documentatie_van_functies">7.2.5. Documentatie van Functies</h4>
+<div class="paragraph">
+<p>Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.</p>
+</div>
+<div class="paragraph">
+<p>Een docstring (documentatiestring) in Python is een manier om documentatie aan een functie, klasse, module of methode toe te voegen. Het is een meer uitgebreide beschrijving van wat de code doet, en het is een goede gewoonte om docstrings te gebruiken om je code gemakkelijk te begrijpen en te onderhouden. Hier is een voorbeeld van het gebruik van een docstring:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie begroet de gebruiker.
+
+    Args:
+        name (str): De naam van de persoon die begroet moet worden.
+
+    Returns:
+        str: Een begroetingsbericht.
+
+    Voorbeeld:
+</span><span class="gp">        &gt;&gt;&gt;</span> <span class="nf">greet</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+        <span class="sh">'</span><span class="s">Hallo, Alice! Welkom terug.</span><span class="sh">'</span>
+    <span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">'</span><span class="s">Hallo, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">! Welkom terug.</span><span class="sh">'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Laten we de bovenstaande docstring uitleggen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De docstring begint met drie dubbele aanhalingstekens <code>"""</code> en eindigt met drie dubbele aanhalingstekens <code>"""</code>. Hierdoor kan de docstring meerdere regels tekst bevatten.</p>
+</li>
+<li>
+<p>De eerste regel van de docstring bevat een korte beschrijving van wat de functie doet.</p>
+</li>
+<li>
+<p>De <code>Args</code> sectie beschrijft de argumenten (parameters) die de functie accepteert. In dit geval accepteert de functie één argument genaamd <code>name</code>, dat een string (str) moet zijn.</p>
+</li>
+<li>
+<p>De <code>Returns</code> sectie beschrijft wat de functie retourneert. Hier retourneert de functie een string (str).</p>
+</li>
+<li>
+<p>Onder de docstring wordt vaak een voorbeeld gegeven van hoe de functie kan worden gebruikt. Dit is handig voor andere ontwikkelaars die de functie willen begrijpen en gebruiken.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Met deze docstring kunnen andere ontwikkelaars snel zien hoe de functie werkt, welke argumenten deze verwacht en wat deze retourneert. Bovendien kunnen hulpmiddelen zoals docstring-generatoren deze informatie automatisch extraheren om documentatie te genereren. Het gebruik van docstrings is dus een goede gewoonte om je code goed gedocumenteerd en onderhoudbaar te houden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/autocomplete.gif" alt="Autocomplete voorbeeld in vscode. Deze maakt gebruik van de docstrings in de standard library." width="600">
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2770,7 +2926,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-08-31 11:07:26 +0200
+Last updated 2023-09-15 07:34:19 +0200
 </div>
 </div>
 </body>

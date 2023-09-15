@@ -96,11 +96,11 @@ else:
         print("Je besluit om snel terug te keren en het enge gebied te verlaten.")
 ----
 
-= Het Belang van Indentatie in Python
+== Het Belang van Indentatie in Python
 
 Indentatie is een fundamenteel concept in Python-programmering en speelt een cruciale rol in het structureren van je code. In tegenstelling tot veel andere programmeertalen, waar accolades of sleutelwoorden worden gebruikt om codeblokken te definiëren, gebruikt Python indentatie om de structuur van het programma aan te geven. Dit kan van invloed zijn op leesbaarheid, logica en werking van je code.
 
-== Duidelijkheid en Leesbaarheid
+=== Duidelijkheid en Leesbaarheid
 
 Indentatie helpt om de structuur van je code visueel te benadrukken. Het geeft aan welke regels bij elkaar horen en vormt de basis van codeblokken. Een consistent gebruik van indentatie maakt het voor zowel jou als andere ontwikkelaars gemakkelijker om te begrijpen hoe de code is gestructureerd en welke delen met elkaar zijn verbonden.
 
@@ -125,7 +125,7 @@ print("Je bent nu level", player_level)
 
 In het eerste voorbeeld wordt de tweede en derde regel uitgevoerd als de voorwaarde waar is. In het tweede voorbeeld wordt de derde regel altijd uitgevoerd, ongeacht de voorwaarde.
 
-== Logische Structurering
+=== Logische Structurering
 
 De juiste indentatie zorgt ervoor dat je code correct wordt uitgevoerd volgens de gewenste logica. Indentatie scheidt codeblokken, zoals loops, functies en conditionele statements, van elkaar. Het stelt Python in staat om de scope van variabelen en de uitvoering van instructies op de juiste manier te interpreteren.
 
@@ -151,7 +151,7 @@ print("De loop is voltooid.")
 
 In het eerste voorbeeld worden de eerste twee regels binnen elke iteratie van de loop uitgevoerd. In het tweede voorbeeld worden deze regels na de voltooiing van de loop uitgevoerd, wat resulteert in een ander gedrag.
 
-== Foutpreventie
+=== Foutpreventie
 
 Foutieve indentatie kan leiden tot syntaxisfouten en logische fouten in je code. Python zal een foutmelding genereren als de indentatie niet correct is. Dit helpt je om snel fouten op te sporen en te corrigeren.
 
@@ -165,15 +165,15 @@ print("Je leeft nog!")
 
 Python zal hier een foutmelding genereren omdat de code na de `if`-verklaring niet correct is ingesprongen.
 
-== Indentatie Samenvatting
+=== Indentatie Samenvatting
 
 Indentatie is niet alleen een esthetisch aspect van Python-programmering, maar ook een fundamenteel onderdeel van hoe de taal werkt. Het zorgt voor leesbare, logische en foutvrije code. Door consequent de juiste indentatieregels te volgen, structureer je je code op een manier die gemakkelijk te begrijpen en te onderhouden is. Een goede indentatiepraktijk bevordert niet alleen jouw codebase, maar ook samenwerking met andere ontwikkelaars en het creëren van betrouwbare software.
 
-= Boolean Logica en Combinaties
+== Boolean Logica en Combinaties
 
 Boolean logica stelt ons in staat om complexe situaties in programma's of games te modelleren, waarbij we meerdere voorwaarden combineren om beslissingen te nemen en interacties te bepalen. De 'and' en 'or' operatoren spelen hierbij een cruciale rol.
 
-== 'and' Operator: Samenvoegen van Voorwaarden
+=== 'and' Operator: Samenvoegen van Voorwaarden
 
 De 'and' operator combineert twee of meer voorwaarden en retourneert 'True' ##als alle voorwaarden 'True' zijn##.
 
@@ -190,7 +190,7 @@ if player_health > 50 and weapon_available:
 
 In dit voorbeeld wordt de 'and' operator gebruikt om te controleren of de speler genoeg gezondheid heeft **en** of er een wapen beschikbaar is om de strijd aan te gaan.
 
-== 'or' Operator: Alternatieve Voorwaarden
+=== 'or' Operator: Alternatieve Voorwaarden
 
 De 'or' operator combineert twee of meer voorwaarden en retourneert 'True' als ##minstens één van de voorwaarden waar is##.
 
@@ -207,7 +207,7 @@ if has_key or has_unlock_code:
 
 Hier wordt de 'or' operator gebruikt om te controleren of de speler geen gezondheid meer heeft of geen levens meer over heeft.
 
-== Combinatie van 'and' en 'or': Complexe Voorwaarden
+=== Combinatie van 'and' en 'or': Complexe Voorwaarden
 
 We kunnen 'and' en 'or' operatoren combineren om complexere voorwaarden te maken.
 
@@ -225,7 +225,7 @@ if (player_health > 30 or player_armor > 0) and ammo_available:
 
 Hier wordt een complexe voorwaarde gecontroleerd. De 'or' operator controleert of de speler genoeg gezondheid heeft of een bepaald niveau van bepantsering heeft. De 'and' operator combineert deze voorwaarde met de beschikbaarheid van munitie. Alleen als aan beide voorwaarden is voldaan, zal de speler veilig kunnen navigeren in de gevaarlijke zone.
 
-== De 'not' Operator: Negatie van Voorwaarden
+=== De 'not' Operator: Negatie van Voorwaarden
 
 In Python (en andere programmeertalen) hebben we de 'not' operator, die wordt gebruikt om de negatie van een voorwaarde uit te voeren. Dit betekent dat als een voorwaarde True is, 'not' ervoor zal zorgen dat deze wordt geëvalueerd als False, en als een voorwaarde False is, zal 'not' ervoor zorgen dat deze wordt geëvalueerd als True.
 
@@ -253,7 +253,7 @@ if not has_key:
 
 Hier wordt de 'not' operator gebruikt om te controleren of de speler geen sleutel heeft. Als de speler geen sleutel heeft (wat waar is), wordt de melding weergegeven dat ze het geblokkeerde gebied niet kunnen betreden.
 
-== Gebruik in Samenwerking met 'and' en 'or'
+=== Gebruik in Samenwerking met 'and' en 'or'
 
 De 'not' operator kan worden gecombineerd met de 'and' en 'or' operatoren om complexere voorwaarden te creëren.
 
@@ -270,7 +270,7 @@ if has_key and not door_unlocked:
 
 In dit voorbeeld wordt de 'not' operator gebruikt in samenwerking met de 'and' operator. De 'and' operator controleert of de speler zowel een sleutel heeft als de deur niet ontgrendeld is. Als aan beide voorwaarden is voldaan (speler heeft een sleutel en de deur is niet ontgrendeld), wordt de melding weergegeven om de deur te ontgrendelen.
 
-== Het Gebruik van Haakjes
+=== Het Gebruik van Haakjes
 
 
 image::images/booleanlogic.png[width:400px]
@@ -290,7 +290,7 @@ if (shield_available or sword_available) and not (shield_available and sword_ava
 
 In dit voorbeeld worden haakjes gebruikt om duidelijk te maken dat de 'not' operator wordt toegepast op de combinatie van het hebben van zowel een schild als een zwaard.
 
-== Samenvatting
+=== Samenvatting
 
 Het gebruik van 'and' en 'or' operatoren in games stelt ontwikkelaars in staat om complexe voorwaarden te controleren. Dit kan variëren van het bepalen van interacties tussen personages tot het regelen van toegang tot verschillende delen van een spelwereld.
 
