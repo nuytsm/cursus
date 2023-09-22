@@ -42,7 +42,7 @@ Stel je een RPG-game voor waarin spelers vijanden schade toebrengen. Hier is een
 
 [source,python]
 ----
-player_damage = int(input("Voer je schade in: "))
+player_damage = int(input("Voer je schade in: ")) <1>
 enemy_health = 100
 remaining_health = enemy_health - player_damage
 
@@ -51,6 +51,7 @@ if remaining_health <= 0:
 else:
     print("De vijand heeft nog", remaining_health, "gezondheid over.")
 ----
+<1> De invoer wordt hier omgezet naar een integer. Zodoende kan hiermee gerekend worden, dit zou met het text datatype niet kunnen.
 
 Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.
 
@@ -93,4 +94,123 @@ else:
 
 print("Je onderzoek begint...")
 ----
+
+
+== Bestandsinvoer en -uitvoer in Python
+
+In dit onderdeel zullen we bespreken hoe je gegevens van bestanden op de harde schijf kunt lezen en schrijven in Python.
+
+=== Bestanden Openen
+
+Voordat je gegevens kunt lezen of schrijven naar een bestand, moet je het bestand openen met de ingebouwde `open()`-functie. Hier is een basisvoorbeeld:
+
+[source,python]
+----
+# Het bestand 'voorbeeld.txt' openen om te schrijven (wissen als het al bestaat)
+bestand = open('voorbeeld.txt', 'w')
+----
+
+In dit voorbeeld wordt het bestand 'voorbeeld.txt' geopend **om te schrijven ('w')**. De 'w'-modus betekent dat het ##bestand wordt gewist als het al bestaat##, en anders wordt het aangemaakt.
+
+=== Schrijven naar een Bestand
+
+Nu we een bestand hebben geopend om te schrijven, kunnen we gegevens naar dat bestand schrijven met de `write()`-methode:
+
+[source,python]
+----
+bestand.write('Dit is een voorbeeldzin.')
+bestand.write('Dit is een andere zin.')
+----
+
+Deze code schrijft twee zinnen naar het geopende bestand.
+
+=== Schrijven zonder te wissen
+
+Om naar een bestand te schrijven zonder de bestaande inhoud te wissen, kun je het bestand openen in de ##'append'-modus ('a')## in plaats van de 'write'-modus ('w'). Hier is hoe je dit doet:
+
+[source,python]
+----
+# Bestand openen in 'append'-modus ('a')
+bestand = open('bestaand_bestand.txt', 'a')
+
+# Schrijf nieuwe inhoud naar het bestand
+bestand.write('Dit is nieuwe inhoud die aan het bestand wordt toegevoegd.\n')
+----
+
+In dit voorbeeld wordt het bestand 'bestaand_bestand.txt' geopend in de 'append'-modus. De 'append'-modus voegt nieuwe inhoud toe aan het einde van het bestand zonder de bestaande inhoud te overschrijven. De `\n` wordt gebruikt om een nieuwe regel toe te voegen, zodat elke toegevoegde regel op een nieuwe regel begint.
+
+Als 'bestaand_bestand.txt' bijvoorbeeld al enkele regels tekst bevatte en je dit script uitvoerde, zou de nieuwe inhoud worden toegevoegd aan het einde van het bestand zonder de bestaande inhoud te wissen.
+
+=== Sluiten van een Bestand
+
+Het is belangrijk om bestanden te sluiten nadat je klaar bent met lezen of schrijven. Dit kan worden gedaan met de `close()`-methode:
+
+[source,python]
+----
+bestand.close()
+----
+
+Het ##sluiten## van een bestand is belangrijk omdat het ##resources vrijgeeft## en eventuele ##wijzigingen## die je hebt aangebracht in het bestand ##opslaat##.
+
+=== Lezen van een Bestand
+
+Om gegevens uit een bestand te lezen, open je het bestand in de **leesmodus ('r')** en gebruik je de `read()`-methode:
+
+[source,python]
+----
+bestand = open('voorbeeld.txt', 'r')
+inhoud = bestand.read()
+bestand.close()
+
+print(inhoud)
+----
+
+Dit voorbeeld opent het bestand 'voorbeeld.txt', leest de inhoud ervan en slaat deze op in de variabele `inhoud`. Vervolgens wordt de inhoud afgedrukt.
+
+=== Itereren door een Bestand
+
+Je kunt ook door een bestand itereren om het regel voor regel te lezen met een `for`-lus:
+
+[source,python]
+----
+bestand = open('voorbeeld.txt', 'r')
+
+for regel in bestand:
+    print(regel)
+
+bestand.close()
+----
+
+Hier wordt elke regel van het bestand afzonderlijk gelezen en afgedrukt.
+
+=== Met een Bestand Werken via een 'with'-verklaring
+
+Een handige manier om met bestanden te werken is met behulp van een 'with'-verklaring. ##Dit zorgt ervoor dat het bestand automatisch wordt gesloten wanneer je klaar bent met werken##:
+
+[source,python]
+----
+with open('voorbeeld.txt', 'r') as bestand:
+    inhoud = bestand.read()
+    # Voer hier bewerkingen uit op de inhoud
+
+# Het bestand is nu automatisch gesloten buiten de 'with'-verklaring
+----
+
+==== Bestanden Maken en Schrijven
+
+Om een nieuw bestand te maken en gegevens naar dat bestand te schrijven, open je het bestand in de schrijfmodus ('w'). Als het bestand al bestaat, wordt het gewist en opnieuw aangemaakt.
+
+[source,python]
+----
+with open('nieuw_bestand.txt', 'w') as bestand:
+    bestand.write('Dit is een nieuw bestand.')
+----
+
+Dit voorbeeld maakt een nieuw bestand genaamd 'nieuw_bestand.txt' en schrijft de opgegeven tekst erin.
+
+=== Handige Bestandsbewerkingen
+
+* **Bestand verplaatsen of hernoemen:** Dit kan worden gedaan met de `os`-module.
+* **Bestand kopiëren:** Dit kan ook worden gedaan met de `os`-module.
+* **Bestand verwijderen:** Gebruik de `os.remove()`-functie om een bestand te verwijderen.
 

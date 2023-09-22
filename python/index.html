@@ -733,6 +733,22 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_gegevensinvoer">5.1. Gegevensinvoer</a></li>
 <li><a href="#_expressies_en_berekeningen">5.2. Expressies en Berekeningen</a></li>
 <li><a href="#_interactie">5.3. Interactie</a></li>
+<li><a href="#_bestandsinvoer_en_uitvoer_in_python">5.4. Bestandsinvoer en -uitvoer in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_bestanden_openen">5.4.1. Bestanden Openen</a></li>
+<li><a href="#_schrijven_naar_een_bestand">5.4.2. Schrijven naar een Bestand</a></li>
+<li><a href="#_schrijven_zonder_te_wissen">5.4.3. Schrijven zonder te wissen</a></li>
+<li><a href="#_sluiten_van_een_bestand">5.4.4. Sluiten van een Bestand</a></li>
+<li><a href="#_lezen_van_een_bestand">5.4.5. Lezen van een Bestand</a></li>
+<li><a href="#_itereren_door_een_bestand">5.4.6. Itereren door een Bestand</a></li>
+<li><a href="#_met_een_bestand_werken_via_een_with_verklaring">5.4.7. Met een Bestand Werken via een 'with'-verklaring</a>
+<ul class="sectlevel4">
+<li><a href="#_bestanden_maken_en_schrijven">Bestanden Maken en Schrijven</a></li>
+</ul>
+</li>
+<li><a href="#_handige_bestandsbewerkingen">5.4.8. Handige Bestandsbewerkingen</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">6. Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</a>
@@ -2290,7 +2306,7 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je schade in: </span><span class="sh">"</span><span class="p">))</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je schade in: </span><span class="sh">"</span><span class="p">))</span> <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">remaining_health</span> <span class="o">=</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span>
 
@@ -2299,6 +2315,14 @@ Dit zijn een reeks afspraken van de taal:</p>
 <span class="k">else</span><span class="p">:</span>
     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand heeft nog</span><span class="sh">"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid over.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>De invoer wordt hier omgezet naar een integer. Zodoende kan hiermee gerekend worden, dit zou met het text datatype niet kunnen.</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.</p>
@@ -2347,6 +2371,160 @@ Dit zijn een reeks afspraken van de taal:</p>
     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je glijdt door het zijraam naar binnen en landt behendig op de vloer.</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je onderzoek begint...</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bestandsinvoer_en_uitvoer_in_python">5.4. Bestandsinvoer en -uitvoer in Python</h3>
+<div class="paragraph">
+<p>In dit onderdeel zullen we bespreken hoe je gegevens van bestanden op de harde schijf kunt lezen en schrijven in Python.</p>
+</div>
+<div class="sect3">
+<h4 id="_bestanden_openen">5.4.1. Bestanden Openen</h4>
+<div class="paragraph">
+<p>Voordat je gegevens kunt lezen of schrijven naar een bestand, moet je het bestand openen met de ingebouwde <code>open()</code>-functie. Hier is een basisvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Het bestand 'voorbeeld.txt' openen om te schrijven (wissen als het al bestaat)
+</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt het bestand 'voorbeeld.txt' geopend <strong>om te schrijven ('w')</strong>. De 'w'-modus betekent dat het <mark>bestand wordt gewist als het al bestaat</mark>, en anders wordt het aangemaakt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_schrijven_naar_een_bestand">5.4.2. Schrijven naar een Bestand</h4>
+<div class="paragraph">
+<p>Nu we een bestand hebben geopend om te schrijven, kunnen we gegevens naar dat bestand schrijven met de <code>write()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een voorbeeldzin.</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een andere zin.</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze code schrijft twee zinnen naar het geopende bestand.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_schrijven_zonder_te_wissen">5.4.3. Schrijven zonder te wissen</h4>
+<div class="paragraph">
+<p>Om naar een bestand te schrijven zonder de bestaande inhoud te wissen, kun je het bestand openen in de <mark>'append'-modus ('a')</mark> in plaats van de 'write'-modus ('w'). Hier is hoe je dit doet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bestand openen in 'append'-modus ('a')
+</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">bestaand_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Schrijf nieuwe inhoud naar het bestand
+</span><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is nieuwe inhoud die aan het bestand wordt toegevoegd.</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt het bestand 'bestaand_bestand.txt' geopend in de 'append'-modus. De 'append'-modus voegt nieuwe inhoud toe aan het einde van het bestand zonder de bestaande inhoud te overschrijven. De <code>\n</code> wordt gebruikt om een nieuwe regel toe te voegen, zodat elke toegevoegde regel op een nieuwe regel begint.</p>
+</div>
+<div class="paragraph">
+<p>Als 'bestaand_bestand.txt' bijvoorbeeld al enkele regels tekst bevatte en je dit script uitvoerde, zou de nieuwe inhoud worden toegevoegd aan het einde van het bestand zonder de bestaande inhoud te wissen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sluiten_van_een_bestand">5.4.4. Sluiten van een Bestand</h4>
+<div class="paragraph">
+<p>Het is belangrijk om bestanden te sluiten nadat je klaar bent met lezen of schrijven. Dit kan worden gedaan met de <code>close()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het <mark>sluiten</mark> van een bestand is belangrijk omdat het <mark>resources vrijgeeft</mark> en eventuele <mark>wijzigingen</mark> die je hebt aangebracht in het bestand <mark>opslaat</mark>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lezen_van_een_bestand">5.4.5. Lezen van een Bestand</h4>
+<div class="paragraph">
+<p>Om gegevens uit een bestand te lezen, open je het bestand in de <strong>leesmodus ('r')</strong> en gebruik je de <code>read()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">inhoud</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld opent het bestand 'voorbeeld.txt', leest de inhoud ervan en slaat deze op in de variabele <code>inhoud</code>. Vervolgens wordt de inhoud afgedrukt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_itereren_door_een_bestand">5.4.6. Itereren door een Bestand</h4>
+<div class="paragraph">
+<p>Je kunt ook door een bestand itereren om het regel voor regel te lezen met een <code>for</code>-lus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">regel</span> <span class="ow">in</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">regel</span><span class="p">)</span>
+
+<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt elke regel van het bestand afzonderlijk gelezen en afgedrukt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_met_een_bestand_werken_via_een_with_verklaring">5.4.7. Met een Bestand Werken via een 'with'-verklaring</h4>
+<div class="paragraph">
+<p>Een handige manier om met bestanden te werken is met behulp van een 'with'-verklaring. <mark>Dit zorgt ervoor dat het bestand automatisch wordt gesloten wanneer je klaar bent met werken</mark>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+    <span class="c1"># Voer hier bewerkingen uit op de inhoud
+</span>
+<span class="c1"># Het bestand is nu automatisch gesloten buiten de 'with'-verklaring</span></code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_bestanden_maken_en_schrijven">Bestanden Maken en Schrijven</h5>
+<div class="paragraph">
+<p>Om een nieuw bestand te maken en gegevens naar dat bestand te schrijven, open je het bestand in de schrijfmodus ('w'). Als het bestand al bestaat, wordt het gewist en opnieuw aangemaakt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">nieuw_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een nieuw bestand.</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld maakt een nieuw bestand genaamd 'nieuw_bestand.txt' en schrijft de opgegeven tekst erin.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_handige_bestandsbewerkingen">5.4.8. Handige Bestandsbewerkingen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bestand verplaatsen of hernoemen:</strong> Dit kan worden gedaan met de <code>os</code>-module.</p>
+</li>
+<li>
+<p><strong>Bestand kopiëren:</strong> Dit kan ook worden gedaan met de <code>os</code>-module.</p>
+</li>
+<li>
+<p><strong>Bestand verwijderen:</strong> Gebruik de <code>os.remove()</code>-functie om een bestand te verwijderen.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -3391,7 +3569,7 @@ Deze bevat enkele constanten (onveranderbare variabelen), zoals het getal PI.</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-15 08:06:06 +0200
+Last updated 2023-09-15 08:15:51 +0200
 </div>
 </div>
 </body>
