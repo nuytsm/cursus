@@ -728,79 +728,131 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">5. Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</a>
+<li><a href="#_hoofdstuk_5_lussen_in_python_van_herhaling_tot_efficiëntie">5. Hoofdstuk 5: Lussen in Python: Van Herhaling tot Efficiëntie</a>
 <ul class="sectlevel2">
-<li><a href="#_gegevensinvoer">5.1. Gegevensinvoer</a></li>
-<li><a href="#_expressies_en_berekeningen">5.2. Expressies en Berekeningen</a></li>
-<li><a href="#_interactie">5.3. Interactie</a></li>
-<li><a href="#_bestandsinvoer_en_uitvoer_in_python">5.4. Bestandsinvoer en -uitvoer in Python</a>
+<li><a href="#_de_essentie_van_herhaling">5.1. De Essentie van Herhaling</a></li>
+<li><a href="#_het_gebruik_van_while_lussen">5.2. Het Gebruik van 'While'-Lussen</a></li>
+<li><a href="#_het_gebruik_van_for_lussen">5.3. Het Gebruik van 'For'-Lussen</a></li>
+<li><a href="#_geavanceerd_gebruik_van_lussen">5.4. Geavanceerd Gebruik van Lussen</a></li>
+<li><a href="#_oneindige_lussen_voorkomen">5.5. Oneindige Lussen Voorkomen</a></li>
+<li><a href="#_geneste_lussen_of_dubbele_lussen">5.6. Geneste lussen of dubbele lussen</a></li>
+<li><a href="#_lussen_en_efficiëntie">5.7. Lussen en Efficiëntie</a></li>
+<li><a href="#_samenvatting_3">5.8. Samenvatting</a></li>
+</ul>
+</li>
+<li><a href="#_hoofdstuk_6_functies_en_herbruikbaarheid_van_code">6. Hoofdstuk 6: Functies en Herbruikbaarheid van Code</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_een_functie">6.1. Wat is een functie</a>
 <ul class="sectlevel3">
-<li><a href="#_bestanden_openen">5.4.1. Bestanden Openen</a></li>
-<li><a href="#_schrijven_naar_een_bestand">5.4.2. Schrijven naar een Bestand</a></li>
-<li><a href="#_schrijven_zonder_te_wissen">5.4.3. Schrijven zonder te wissen</a></li>
-<li><a href="#_sluiten_van_een_bestand">5.4.4. Sluiten van een Bestand</a></li>
-<li><a href="#_lezen_van_een_bestand">5.4.5. Lezen van een Bestand</a></li>
-<li><a href="#_itereren_door_een_bestand">5.4.6. Itereren door een Bestand</a></li>
-<li><a href="#_met_een_bestand_werken_via_een_with_verklaring">5.4.7. Met een Bestand Werken via een 'with'-verklaring</a>
+<li><a href="#_functies_definiëren_en_oproepen">6.1.1. Functies Definiëren en Oproepen</a></li>
+<li><a href="#_parameters_vs_argumenten">6.1.2. Parameters vs argumenten</a></li>
+<li><a href="#_herbruikbaarheid_van_code">6.1.3. Herbruikbaarheid van Code</a></li>
+<li><a href="#_return_statements">6.1.4. Return Statements</a></li>
+<li><a href="#_functies_met_meerdere_parameters">6.1.5. Functies met Meerdere Parameters</a></li>
+<li><a href="#_scope_en_lokale_variabelen">6.1.6. Scope en Lokale Variabelen</a></li>
+<li><a href="#_ingebouwde_en_aangepaste_functies">6.1.7. Ingebouwde en Aangepaste Functies</a></li>
+</ul>
+</li>
+<li><a href="#_parameters_in_functies">6.2. Parameters in Functies</a>
+<ul class="sectlevel3">
+<li><a href="#_het_belang_van_parameters_in_functies">6.2.1. Het Belang van Parameters in Functies</a></li>
+<li><a href="#_positionele_parameters">6.2.2. Positionele Parameters</a></li>
+<li><a href="#_standaardwaarden_voor_parameters">6.2.3. Standaardwaarden voor Parameters</a></li>
+<li><a href="#_args_en_kwargs">6.2.4. args en kwargs</a></li>
+<li><a href="#_documentatie_van_functies">6.2.5. Documentatie van Functies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_hoofdstuk_7_dictionaries_lists_en_tuples">7. Hoofdstuk 7: Dictionaries, Lists en Tuples</a>
+<ul class="sectlevel2">
+<li><a href="#_lists_lijsten">7.1. Lists (Lijsten)</a>
+<ul class="sectlevel3">
+<li><a href="#_basisconcepten">7.1.1. Basisconcepten</a></li>
+<li><a href="#_lijsten_aanmaken">7.1.2. Lijsten Aanmaken</a></li>
+<li><a href="#_elementen_toevoegen">7.1.3. Elementen Toevoegen</a></li>
+<li><a href="#_elementen_invoegen">7.1.4. Elementen Invoegen</a></li>
+<li><a href="#_elementen_verwijderen">7.1.5. Elementen Verwijderen</a></li>
+<li><a href="#_lijstlengte">7.1.6. Lijstlengte</a></li>
+<li><a href="#_elementen_vervangen">7.1.7. Elementen Vervangen</a></li>
+<li><a href="#_sorteren">7.1.8. Sorteren</a></li>
+<li><a href="#_lijsten_samenvoegen">7.1.9. Lijsten Samenvoegen</a></li>
+</ul>
+</li>
+<li><a href="#_indexering_en_slicing">7.2. Indexering en Slicing</a>
+<ul class="sectlevel3">
+<li><a href="#_basis_slicing">7.2.1. Basis Slicing</a></li>
+<li><a href="#_stapgrootte">7.2.2. Stapgrootte</a></li>
+<li><a href="#_negatieve_indexen">7.2.3. Negatieve Indexen</a></li>
+<li><a href="#_slicing_zonder_start_of_stop">7.2.4. Slicing zonder <code>start</code> of <code>stop</code></a></li>
+<li><a href="#_lijstmethoden">7.2.5. Lijstmethoden</a></li>
+</ul>
+</li>
+<li><a href="#_tuples_tupels">7.3. Tuples (Tupels)</a>
+<ul class="sectlevel3">
+<li><a href="#_basisconcepten_2">7.3.1. Basisconcepten</a></li>
+<li><a href="#_toegang_tot_elementen">7.3.2. Toegang tot Elementen</a></li>
+<li><a href="#_unpacking_tupels">7.3.3. Unpacking Tupels</a></li>
+<li><a href="#_tuple_als_returnwaarde">7.3.4. Tuple als Returnwaarde</a></li>
+<li><a href="#_tuples_in_gaming">7.3.5. Tuples in Gaming</a></li>
+<li><a href="#_tuples_vs_lijsten">7.3.6. Tuples vs. Lijsten</a></li>
+</ul>
+</li>
+<li><a href="#_dictionaries_woordenboeken">7.4. Dictionaries (Woordenboeken)</a>
+<ul class="sectlevel3">
+<li><a href="#_basisconcepten_3">7.4.1. Basisconcepten</a></li>
+<li><a href="#_dictionary_methoden">7.4.2. Dictionary-methoden</a></li>
+<li><a href="#_dictionary_aanmaken">7.4.3. Dictionary Aanmaken</a></li>
+<li><a href="#_waarden_ophalen">7.4.4. Waarden Ophalen</a></li>
+<li><a href="#_waarden_wijzigen">7.4.5. Waarden Wijzigen</a></li>
+<li><a href="#_nieuwe_waarden_toevoegen">7.4.6. Nieuwe Waarden Toevoegen</a></li>
+<li><a href="#_sleutels_verwijderen">7.4.7. Sleutels Verwijderen</a></li>
+<li><a href="#_controle_op_sleutels">7.4.8. Controle op Sleutels</a></li>
+<li><a href="#_looping_door_een_dictionary">7.4.9. Looping door een Dictionary</a></li>
+<li><a href="#_dictionaries_in_gaming">7.4.10. Dictionaries in Gaming</a></li>
+</ul>
+</li>
+<li><a href="#_geavanceerd_gebruik">7.5. Geavanceerd Gebruik</a></li>
+</ul>
+</li>
+<li><a href="#_hoofdstuk_8_gegevensinvoer_expressies_en_berekeningen">8. Hoofdstuk 8: Gegevensinvoer, Expressies en Berekeningen</a>
+<ul class="sectlevel2">
+<li><a href="#_gegevensinvoer">8.1. Gegevensinvoer</a></li>
+<li><a href="#_expressies_en_berekeningen">8.2. Expressies en Berekeningen</a></li>
+<li><a href="#_interactie">8.3. Interactie</a></li>
+<li><a href="#_bestandsinvoer_en_uitvoer_in_python">8.4. Bestandsinvoer en -uitvoer in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_bestanden_openen">8.4.1. Bestanden Openen</a></li>
+<li><a href="#_schrijven_naar_een_bestand">8.4.2. Schrijven naar een Bestand</a></li>
+<li><a href="#_schrijven_zonder_te_wissen">8.4.3. Schrijven zonder te wissen</a></li>
+<li><a href="#_sluiten_van_een_bestand">8.4.4. Sluiten van een Bestand</a></li>
+<li><a href="#_lezen_van_een_bestand">8.4.5. Lezen van een Bestand</a></li>
+<li><a href="#_itereren_door_een_bestand">8.4.6. Itereren door een Bestand</a></li>
+<li><a href="#_met_een_bestand_werken_via_een_with_verklaring">8.4.7. Met een Bestand Werken via een 'with'-verklaring</a>
 <ul class="sectlevel4">
 <li><a href="#_bestanden_maken_en_schrijven">Bestanden Maken en Schrijven</a></li>
 </ul>
 </li>
-<li><a href="#_handige_bestandsbewerkingen">5.4.8. Handige Bestandsbewerkingen</a></li>
+<li><a href="#_handige_bestandsbewerkingen">8.4.8. Handige Bestandsbewerkingen</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">6. Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</a>
+<li><a href="#_klassen">9. Klassen</a>
 <ul class="sectlevel2">
-<li><a href="#_de_essentie_van_herhaling">6.1. De Essentie van Herhaling</a></li>
-<li><a href="#_het_gebruik_van_while_lussen">6.2. Het Gebruik van 'While'-Lussen</a></li>
-<li><a href="#_het_gebruik_van_for_lussen">6.3. Het Gebruik van 'For'-Lussen</a></li>
-<li><a href="#_geavanceerd_gebruik_van_lussen">6.4. Geavanceerd Gebruik van Lussen</a></li>
-<li><a href="#_oneindige_lussen_voorkomen">6.5. Oneindige Lussen Voorkomen</a></li>
-<li><a href="#_geneste_lussen_of_dubbele_lussen">6.6. Geneste lussen of dubbele lussen</a></li>
-<li><a href="#_lussen_en_efficiëntie">6.7. Lussen en Efficiëntie</a></li>
-<li><a href="#_samenvatting_3">6.8. Samenvatting</a></li>
-</ul>
-</li>
-<li><a href="#_hoofdstuk_7_functies_en_herbruikbaarheid_van_code">7. Hoofdstuk 7: Functies en Herbruikbaarheid van Code</a>
-<ul class="sectlevel2">
-<li><a href="#_wat_is_een_functie">7.1. Wat is een functie</a>
+<li><a href="#_voorbeeld_van_een_klasse">9.1. Voorbeeld van een klasse</a></li>
+<li><a href="#_de_code_om_een_klasse_te_definiëren">9.2. De <em>code</em> om een klasse te definiëren</a></li>
+<li><a href="#_instanties">9.3. Instanties</a>
 <ul class="sectlevel3">
-<li><a href="#_functies_definiëren_en_oproepen">7.1.1. Functies Definiëren en Oproepen</a></li>
-<li><a href="#_herbruikbaarheid_van_code">7.1.2. Herbruikbaarheid van Code</a></li>
-<li><a href="#_return_statements">7.1.3. Return Statements</a></li>
-<li><a href="#_functies_met_meerdere_parameters">7.1.4. Functies met Meerdere Parameters</a></li>
-<li><a href="#_scope_en_lokale_variabelen">7.1.5. Scope en Lokale Variabelen</a></li>
-<li><a href="#_ingebouwde_en_aangepaste_functies">7.1.6. Ingebouwde en Aangepaste Functies</a></li>
+<li><a href="#_variabelen_en_geheugengebruik">9.3.1. Variabelen en geheugengebruik</a></li>
+<li><a href="#_variabelen">9.3.2. Variabelen</a></li>
+<li><a href="#_methods_functies">9.3.3. Methods (functies)</a></li>
+<li><a href="#_lists_en_tuples">9.3.4. Lists en Tuples</a></li>
 </ul>
 </li>
-<li><a href="#_parameters_in_functies">7.2. Parameters in Functies</a>
+<li><a href="#_gebruik_van_bestaande_klassen">9.4. Gebruik van bestaande klassen</a>
 <ul class="sectlevel3">
-<li><a href="#_het_belang_van_parameters_in_functies">7.2.1. Het Belang van Parameters in Functies</a></li>
-<li><a href="#_positionele_parameters">7.2.2. Positionele Parameters</a></li>
-<li><a href="#_standaardwaarden_voor_parameters">7.2.3. Standaardwaarden voor Parameters</a></li>
-<li><a href="#_args_en_kwargs">7.2.4. args en kwargs</a></li>
-<li><a href="#_documentatie_van_functies">7.2.5. Documentatie van Functies</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_klassen">8. Klassen</a>
-<ul class="sectlevel2">
-<li><a href="#_voorbeeld_van_een_klasse">8.1. Voorbeeld van een klasse</a></li>
-<li><a href="#_de_code_om_een_klasse_te_definiëren">8.2. De <em>code</em> om een klasse te definiëren</a></li>
-<li><a href="#_instanties">8.3. Instanties</a>
-<ul class="sectlevel3">
-<li><a href="#_variabelen_en_geheugengebruik">8.3.1. Variabelen en geheugengebruik</a></li>
-<li><a href="#_variabelen">8.3.2. Variabelen</a></li>
-<li><a href="#_methods_functies">8.3.3. Methods (functies)</a></li>
-<li><a href="#_lists_en_tuples">8.3.4. Lists en Tuples</a></li>
-</ul>
-</li>
-<li><a href="#_gebruik_van_bestaande_klassen">8.4. Gebruik van bestaande klassen</a>
-<ul class="sectlevel3">
-<li><a href="#_random">8.4.1. Random</a></li>
+<li><a href="#_random">9.4.1. Random</a></li>
 </ul>
 </li>
 </ul>
@@ -2256,288 +2308,13 @@ Dit zijn een reeks afspraken van de taal:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_5_gegevensinvoer_expressies_en_berekeningen">5. Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.</p>
-</div>
-<div class="sect2">
-<h3 id="_gegevensinvoer">5.1. Gegevensinvoer</h3>
-<div class="paragraph">
-<p>Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/pythoninput.png" alt="pythoninput">
-</div>
-</div>
-<div class="paragraph">
-<p>Tekstinvoer Verzamelen:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Met dit voorbeeld vragen we de speler om hun naam in te voeren en gebruiken we deze input om een persoonlijk welkomstbericht te genereren.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Wil je naar links of rechts gaan? </span><span class="sh">"</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt gekozen om naar </span><span class="sh">"</span> <span class="o">+</span> <span class="n">choice</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> te gaan.</span><span class="sh">"</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Hiermee kunnen spelers eenvoudige keuzes maken binnen je game en wordt de uitvoer aangepast op basis van hun invoer.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_expressies_en_berekeningen">5.2. Expressies en Berekeningen</h3>
-<div class="paragraph">
-<p>Het vermogen om expressies en berekeningen te gebruiken, opent een wereld van mogelijkheden in game-ontwikkeling. Hiermee kun je wiskundige en logische bewerkingen uitvoeren op basis van variabele waarden, invoer van spelers of gamegebeurtenissen.</p>
-</div>
-<div class="paragraph">
-<p>Gevechtsberekening:</p>
-</div>
-<div class="paragraph">
-<p>Stel je een RPG-game voor waarin spelers vijanden schade toebrengen. Hier is een voorbeeld van hoe je dit kunt aanpakken:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je schade in: </span><span class="sh">"</span><span class="p">))</span> <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">remaining_health</span> <span class="o">=</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span>
-
-<span class="k">if</span> <span class="n">remaining_health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand is verslagen!</span><span class="sh">"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand heeft nog</span><span class="sh">"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid over.</span><span class="sh">"</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>De invoer wordt hier omgezet naar een integer. Zodoende kan hiermee gerekend worden, dit zou met het text datatype niet kunnen.</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.</p>
-</div>
-<div class="paragraph">
-<p>Deze code gebruikt de invoer van de speler om de resterende gezondheid van een vijand na het toebrengen van schade te berekenen.</p>
-</div>
-<div class="paragraph">
-<p>Attribuutberekening:</p>
-</div>
-<div class="paragraph">
-<p>Stel je voor dat je een rollenspel maakt waarbij spelers de kracht en behendigheid van hun personage kunnen aanpassen:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Creëer je personage. Geef een naam: </span><span class="sh">"</span><span class="p">)</span>
-<span class="n">player_strength</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de krachtwaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
-<span class="n">player_agility</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de behendigheidswaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
-<span class="n">total_points</span> <span class="o">=</span> <span class="n">player_strength</span> <span class="o">+</span> <span class="n">player_agility</span>
-
-<span class="nf">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="sh">"'</span><span class="s">s attributen:</span><span class="sh">"</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Kracht:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_strength</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Behendigheid:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_agility</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Totaal punten:</span><span class="sh">"</span><span class="p">,</span> <span class="n">total_points</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Met dit voorbeeld verzamel je gegevens van spelers en gebruik je expressies om totaalpunten te berekenen op basis van kracht en behendigheid.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_interactie">5.3. Interactie</h3>
-<div class="paragraph">
-<p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je staat voor een oud landhuis. Wat wil je onderzoeken?</span><span class="sh">"</span><span class="p">)</span>
-<span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">1. De voordeur 2. Het zijraam: </span><span class="sh">"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je betreedt het landhuis via de voordeur en voelt een koude windvlaag.</span><span class="sh">"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je glijdt door het zijraam naar binnen en landt behendig op de vloer.</span><span class="sh">"</span><span class="p">)</span>
-
-<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je onderzoek begint...</span><span class="sh">"</span><span class="p">)</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_bestandsinvoer_en_uitvoer_in_python">5.4. Bestandsinvoer en -uitvoer in Python</h3>
-<div class="paragraph">
-<p>In dit onderdeel zullen we bespreken hoe je gegevens van bestanden op de harde schijf kunt lezen en schrijven in Python.</p>
-</div>
-<div class="sect3">
-<h4 id="_bestanden_openen">5.4.1. Bestanden Openen</h4>
-<div class="paragraph">
-<p>Voordat je gegevens kunt lezen of schrijven naar een bestand, moet je het bestand openen met de ingebouwde <code>open()</code>-functie. Hier is een basisvoorbeeld:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Het bestand 'voorbeeld.txt' openen om te schrijven (wissen als het al bestaat)
-</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In dit voorbeeld wordt het bestand 'voorbeeld.txt' geopend <strong>om te schrijven ('w')</strong>. De 'w'-modus betekent dat het <mark>bestand wordt gewist als het al bestaat</mark>, en anders wordt het aangemaakt.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_schrijven_naar_een_bestand">5.4.2. Schrijven naar een Bestand</h4>
-<div class="paragraph">
-<p>Nu we een bestand hebben geopend om te schrijven, kunnen we gegevens naar dat bestand schrijven met de <code>write()</code>-methode:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een voorbeeldzin.</span><span class="sh">'</span><span class="p">)</span>
-<span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een andere zin.</span><span class="sh">'</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Deze code schrijft twee zinnen naar het geopende bestand.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_schrijven_zonder_te_wissen">5.4.3. Schrijven zonder te wissen</h4>
-<div class="paragraph">
-<p>Om naar een bestand te schrijven zonder de bestaande inhoud te wissen, kun je het bestand openen in de <mark>'append'-modus ('a')</mark> in plaats van de 'write'-modus ('w'). Hier is hoe je dit doet:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bestand openen in 'append'-modus ('a')
-</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">bestaand_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">)</span>
-
-<span class="c1"># Schrijf nieuwe inhoud naar het bestand
-</span><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is nieuwe inhoud die aan het bestand wordt toegevoegd.</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In dit voorbeeld wordt het bestand 'bestaand_bestand.txt' geopend in de 'append'-modus. De 'append'-modus voegt nieuwe inhoud toe aan het einde van het bestand zonder de bestaande inhoud te overschrijven. De <code>\n</code> wordt gebruikt om een nieuwe regel toe te voegen, zodat elke toegevoegde regel op een nieuwe regel begint.</p>
-</div>
-<div class="paragraph">
-<p>Als 'bestaand_bestand.txt' bijvoorbeeld al enkele regels tekst bevatte en je dit script uitvoerde, zou de nieuwe inhoud worden toegevoegd aan het einde van het bestand zonder de bestaande inhoud te wissen.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_sluiten_van_een_bestand">5.4.4. Sluiten van een Bestand</h4>
-<div class="paragraph">
-<p>Het is belangrijk om bestanden te sluiten nadat je klaar bent met lezen of schrijven. Dit kan worden gedaan met de <code>close()</code>-methode:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Het <mark>sluiten</mark> van een bestand is belangrijk omdat het <mark>resources vrijgeeft</mark> en eventuele <mark>wijzigingen</mark> die je hebt aangebracht in het bestand <mark>opslaat</mark>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_lezen_van_een_bestand">5.4.5. Lezen van een Bestand</h4>
-<div class="paragraph">
-<p>Om gegevens uit een bestand te lezen, open je het bestand in de <strong>leesmodus ('r')</strong> en gebruik je de <code>read()</code>-methode:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
-<span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
-<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
-
-<span class="nf">print</span><span class="p">(</span><span class="n">inhoud</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Dit voorbeeld opent het bestand 'voorbeeld.txt', leest de inhoud ervan en slaat deze op in de variabele <code>inhoud</code>. Vervolgens wordt de inhoud afgedrukt.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_itereren_door_een_bestand">5.4.6. Itereren door een Bestand</h4>
-<div class="paragraph">
-<p>Je kunt ook door een bestand itereren om het regel voor regel te lezen met een <code>for</code>-lus:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">regel</span> <span class="ow">in</span> <span class="n">bestand</span><span class="p">:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="n">regel</span><span class="p">)</span>
-
-<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Hier wordt elke regel van het bestand afzonderlijk gelezen en afgedrukt.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_met_een_bestand_werken_via_een_with_verklaring">5.4.7. Met een Bestand Werken via een 'with'-verklaring</h4>
-<div class="paragraph">
-<p>Een handige manier om met bestanden te werken is met behulp van een 'with'-verklaring. <mark>Dit zorgt ervoor dat het bestand automatisch wordt gesloten wanneer je klaar bent met werken</mark>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
-    <span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
-    <span class="c1"># Voer hier bewerkingen uit op de inhoud
-</span>
-<span class="c1"># Het bestand is nu automatisch gesloten buiten de 'with'-verklaring</span></code></pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_bestanden_maken_en_schrijven">Bestanden Maken en Schrijven</h5>
-<div class="paragraph">
-<p>Om een nieuw bestand te maken en gegevens naar dat bestand te schrijven, open je het bestand in de schrijfmodus ('w'). Als het bestand al bestaat, wordt het gewist en opnieuw aangemaakt.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">nieuw_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
-    <span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een nieuw bestand.</span><span class="sh">'</span><span class="p">)</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Dit voorbeeld maakt een nieuw bestand genaamd 'nieuw_bestand.txt' en schrijft de opgegeven tekst erin.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_handige_bestandsbewerkingen">5.4.8. Handige Bestandsbewerkingen</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Bestand verplaatsen of hernoemen:</strong> Dit kan worden gedaan met de <code>os</code>-module.</p>
-</li>
-<li>
-<p><strong>Bestand kopiëren:</strong> Dit kan ook worden gedaan met de <code>os</code>-module.</p>
-</li>
-<li>
-<p><strong>Bestand verwijderen:</strong> Gebruik de <code>os.remove()</code>-functie om een bestand te verwijderen.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_hoofdstuk_6_lussen_in_python_van_herhaling_tot_efficiëntie">6. Hoofdstuk 6: Lussen in Python: Van Herhaling tot Efficiëntie</h2>
+<h2 id="_hoofdstuk_5_lussen_in_python_van_herhaling_tot_efficiëntie">5. Hoofdstuk 5: Lussen in Python: Van Herhaling tot Efficiëntie</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Welkom bij hoofdstuk 6, waarin we diep duiken in het concept van lussen in Python. Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.</p>
 </div>
 <div class="sect2">
-<h3 id="_de_essentie_van_herhaling">6.1. De Essentie van Herhaling</h3>
+<h3 id="_de_essentie_van_herhaling">5.1. De Essentie van Herhaling</h3>
 <div class="paragraph">
 <p>Herhaling is een kernprincipe in programmeren, vooral in game-ontwikkeling, waarin talloze taken moeten worden herhaald om de gewenste resultaten te bereiken.
 Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voeren, waardoor we taken kunnen automatiseren en efficiënte code kunnen schrijven.</p>
@@ -2552,7 +2329,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_gebruik_van_while_lussen">6.2. Het Gebruik van 'While'-Lussen</h3>
+<h3 id="_het_gebruik_van_while_lussen">5.2. Het Gebruik van 'While'-Lussen</h3>
 <div class="paragraph">
 <p>Een van de fundamentele lusstructuren in Python is de 'while'-lus. Deze lus voert een set instructies uit zolang een bepaalde voorwaarde <strong>True</strong> is (True is 1 van de 2 mogelijke Boolean waarden, naast False).</p>
 </div>
@@ -2602,7 +2379,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_gebruik_van_for_lussen">6.3. Het Gebruik van 'For'-Lussen</h3>
+<h3 id="_het_gebruik_van_for_lussen">5.3. Het Gebruik van 'For'-Lussen</h3>
 <div class="paragraph">
 <p>De 'for'-lus is een andere belangrijke lus in Python en wordt vaak gebruikt om door een reeks elementen te itereren.</p>
 </div>
@@ -2647,7 +2424,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geavanceerd_gebruik_van_lussen">6.4. Geavanceerd Gebruik van Lussen</h3>
+<h3 id="_geavanceerd_gebruik_van_lussen">5.4. Geavanceerd Gebruik van Lussen</h3>
 <div class="paragraph">
 <p>Lussen kunnen worden gebruikt voor complexere taken, zoals het doorzoeken van gegevens, het uitvoeren van berekeningen en het implementeren van logica.</p>
 </div>
@@ -2669,7 +2446,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_oneindige_lussen_voorkomen">6.5. Oneindige Lussen Voorkomen</h3>
+<h3 id="_oneindige_lussen_voorkomen">5.5. Oneindige Lussen Voorkomen</h3>
 <div class="paragraph">
 <p>Een potentieel risico bij while-lussen is dat ze oneindig kunnen doorgaan als de boolean voorwaarde nooit wordt voldaan. Dit kan leiden tot een programma dat vastloopt. Zorg ervoor dat je altijd een mechanisme hebt om de lus te beëindigen.</p>
 </div>
@@ -2709,7 +2486,7 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geneste_lussen_of_dubbele_lussen">6.6. Geneste lussen of dubbele lussen</h3>
+<h3 id="_geneste_lussen_of_dubbele_lussen">5.6. Geneste lussen of dubbele lussen</h3>
 <div class="paragraph">
 <p><mark>Een geneste 'for'-lus is een lus die zich binnenin een andere 'for'-lus bevindt</mark>. Hiermee kun je complexe patronen en herhalingen in je code creëren.</p>
 </div>
@@ -2803,13 +2580,13 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect2">
-<h3 id="_lussen_en_efficiëntie">6.7. Lussen en Efficiëntie</h3>
+<h3 id="_lussen_en_efficiëntie">5.7. Lussen en Efficiëntie</h3>
 <div class="paragraph">
 <p>Hoewel lussen krachtig zijn, moeten we rekening houden met de efficiëntie van onze code. <mark>Te veel iteraties kunnen leiden tot vertraging</mark> in je programma of game. Het is belangrijk om de beste lus voor een specifieke taak te kiezen en optimalisaties toe te passen wanneer dat nodig is.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_samenvatting_3">6.8. Samenvatting</h3>
+<h3 id="_samenvatting_3">5.8. Samenvatting</h3>
 <div class="paragraph">
 <p>In dit hoofdstuk hebben we lussen verkend als een cruciaal hulpmiddel voor herhaling in Python. We hebben 'while'- en 'for'-lussen behandeld. Door lussen op de juiste manier te gebruiken, kun je herhalende taken automatiseren, iteraties door gegevens uitvoeren.
 :source-highlighter: rouge
@@ -2821,10 +2598,10 @@ Lussen stellen ons in staat om een reeks instructies meerdere keren uit te voere
 </div>
 </div>
 <div class="sect1">
-<h2 id="_hoofdstuk_7_functies_en_herbruikbaarheid_van_code">7. Hoofdstuk 7: Functies en Herbruikbaarheid van Code</h2>
+<h2 id="_hoofdstuk_6_functies_en_herbruikbaarheid_van_code">6. Hoofdstuk 6: Functies en Herbruikbaarheid van Code</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_wat_is_een_functie">7.1. Wat is een functie</h3>
+<h3 id="_wat_is_een_functie">6.1. Wat is een functie</h3>
 <div class="paragraph">
 <p>Functies (of methods) zijn <mark>stukken code die een naam hebben gekregen</mark>.
 Met de naam te gebruiken (en er () achter te voegen), kan het stuk code opgeroepen worden.
@@ -2833,7 +2610,7 @@ Als een programma veel dezelfde code bevat (herhaling),
 kan je de code die altijd hetzelfde is, apart zetten in een functie en die functie telkens opnieuw oproepen.</p>
 </div>
 <div class="sect3">
-<h4 id="_functies_definiëren_en_oproepen">7.1.1. Functies Definiëren en Oproepen</h4>
+<h4 id="_functies_definiëren_en_oproepen">6.1.1. Functies Definiëren en Oproepen</h4>
 <div class="paragraph">
 <p>Het definiëren van een functie begint met het <code>def</code>-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.</p>
 </div>
@@ -2864,7 +2641,15 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_herbruikbaarheid_van_code">7.1.2. Herbruikbaarheid van Code</h4>
+<h4 id="_parameters_vs_argumenten">6.1.2. Parameters vs argumenten</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/paraargs.png" alt="paraargs" width="400">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_herbruikbaarheid_van_code">6.1.3. Herbruikbaarheid van Code</h4>
 <div class="paragraph">
 <p>Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.</p>
 </div>
@@ -2888,7 +2673,7 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_return_statements">7.1.3. Return Statements</h4>
+<h4 id="_return_statements">6.1.4. Return Statements</h4>
 <div class="paragraph">
 <p>Het <code>return</code>-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.</p>
 </div>
@@ -2912,7 +2697,7 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_functies_met_meerdere_parameters">7.1.4. Functies met Meerdere Parameters</h4>
+<h4 id="_functies_met_meerdere_parameters">6.1.5. Functies met Meerdere Parameters</h4>
 <div class="paragraph">
 <p>Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.</p>
 </div>
@@ -2939,28 +2724,28 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_scope_en_lokale_variabelen">7.1.5. Scope en Lokale Variabelen</h4>
+<h4 id="_scope_en_lokale_variabelen">6.1.6. Scope en Lokale Variabelen</h4>
 <div class="paragraph">
 <p>Functies introduceren ook het concept van "scope", wat aangeeft <mark>waar variabelen beschikbaar en geldig zijn</mark>. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ingebouwde_en_aangepaste_functies">7.1.6. Ingebouwde en Aangepaste Functies</h4>
+<h4 id="_ingebouwde_en_aangepaste_functies">6.1.7. Ingebouwde en Aangepaste Functies</h4>
 <div class="paragraph">
 <p>Python biedt een breed scala aan ingebouwde functies, zoals <code>print()</code>, <code>len()</code>, <code>str()</code>, <code>int()</code>, <code>float()</code>, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_parameters_in_functies">7.2. Parameters in Functies</h3>
+<h3 id="_parameters_in_functies">6.2. Parameters in Functies</h3>
 <div class="sect3">
-<h4 id="_het_belang_van_parameters_in_functies">7.2.1. Het Belang van Parameters in Functies</h4>
+<h4 id="_het_belang_van_parameters_in_functies">6.2.1. Het Belang van Parameters in Functies</h4>
 <div class="paragraph">
 <p>Parameters stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_positionele_parameters">7.2.2. Positionele Parameters</h4>
+<h4 id="_positionele_parameters">6.2.2. Positionele Parameters</h4>
 <div class="paragraph">
 <p>Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.</p>
 </div>
@@ -2985,7 +2770,7 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_standaardwaarden_voor_parameters">7.2.3. Standaardwaarden voor Parameters</h4>
+<h4 id="_standaardwaarden_voor_parameters">6.2.3. Standaardwaarden voor Parameters</h4>
 <div class="paragraph">
 <p>Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.</p>
 </div>
@@ -3007,7 +2792,7 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_args_en_kwargs">7.2.4. args en kwargs</h4>
+<h4 id="_args_en_kwargs">6.2.4. args en kwargs</h4>
 <div class="paragraph">
 <p>In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie <code>args</code> en <code>kwargs</code> staan dit toe.</p>
 </div>
@@ -3060,7 +2845,7 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect3">
-<h4 id="_documentatie_van_functies">7.2.5. Documentatie van Functies</h4>
+<h4 id="_documentatie_van_functies">6.2.5. Documentatie van Functies</h4>
 <div class="paragraph">
 <p>Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.</p>
 </div>
@@ -3121,7 +2906,861 @@ kan je de code die altijd hetzelfde is, apart zetten in een functie en die funct
 </div>
 </div>
 <div class="sect1">
-<h2 id="_klassen">8. Klassen</h2>
+<h2 id="_hoofdstuk_7_dictionaries_lists_en_tuples">7. Hoofdstuk 7: Dictionaries, Lists en Tuples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dit hoofdstuk richt zich op het begrijpen en toepassen van de fundamentele gegevensstructuren in Python - dictionaries, lists en tuples. We zullen beginnen met eenvoudige concepten en geleidelijk overgaan naar complexere voorbeelden om de kracht van deze gegevensstructuren te demonstreren.</p>
+</div>
+<div class="sect2">
+<h3 id="_lists_lijsten">7.1. Lists (Lijsten)</h3>
+<div class="sect3">
+<h4 id="_basisconcepten">7.1.1. Basisconcepten</h4>
+<div class="paragraph">
+<p>Lijsten zijn dynamische, geordende verzamelingen. Je kunt ze gebruiken om objecten, karakters, munitie, power-ups en nog veel meer bij te houden.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een lijst van spelers
+</span><span class="n">spelers</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">Speler 1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Speler 2</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Speler 3</span><span class="sh">"</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In deze lijst worden de namen van drie spelers opgeslagen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">munitie</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier worden de hoeveelheden munitie voor verschillende wapens opgeslagen.</p>
+</div>
+<div class="paragraph">
+<p>Lijsten in Python zijn dynamische gegevensstructuren, wat betekent dat <mark>ze kunnen groeien en krimpen</mark> naarmate je meer gegevens toevoegt of verwijdert. Laten we in deze uitgebreide uitleg kijken hoe je lijsten kunt laten groeien, items kunt toevoegen, verwijderen en andere handige bewerkingen kunt uitvoeren.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lijsten_aanmaken">7.1.2. Lijsten Aanmaken</h4>
+<div class="paragraph">
+<p>Je kunt een lege lijst maken door gewoon een paar vierkante haken <code>[]</code> te gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mijn_lijst</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of je kunt een lijst met enkele initiële elementen maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_elementen_toevoegen">7.1.3. Elementen Toevoegen</h4>
+<div class="paragraph">
+<p>Om een element aan het einde van een lijst toe te voegen, kun je de <code>append()</code> methode gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mijn_lijst</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="sh">"</span><span class="s">nieuw_element</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt het element "nieuw_element" toe aan het einde van de lijst.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_elementen_invoegen">7.1.4. Elementen Invoegen</h4>
+<div class="paragraph">
+<p>Je kunt een element op een specifieke positie in de lijst invoegen met de <code>insert()</code> methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mijn_lijst</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sh">"</span><span class="s">tweede_element</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt het element "tweede_element" in op positie 1 (het tweede element in de lijst).
+Het eerste element staat op positie 0.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_elementen_verwijderen">7.1.5. Elementen Verwijderen</h4>
+<div class="paragraph">
+<p>Er zijn verschillende manieren om elementen uit een lijst te verwijderen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Met de <code>remove()</code> methode kun je een specifiek element verwijderen op basis van de waarde:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mijn_lijst</span><span class="p">.</span><span class="nf">remove</span><span class="p">(</span><span class="sh">"</span><span class="s">element_om_te_verwijderen</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Met de <code>pop()</code> methode kun je een element verwijderen op basis van de index en de verwijderde waarde retourneren:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">verwijderd_element</span> <span class="o">=</span> <span class="n">mijn_lijst</span><span class="p">.</span><span class="nf">pop</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Als je het element niet kent maar de index, kun je de <code>del</code> instructie gebruiken:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">del</span> <span class="n">mijn_lijst</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lijstlengte">7.1.6. Lijstlengte</h4>
+<div class="paragraph">
+<p>Je kunt de lengte van een lijst opvragen met de <code>len()</code> functie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">aantal_elementen</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">mijn_lijst</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_elementen_vervangen">7.1.7. Elementen Vervangen</h4>
+<div class="paragraph">
+<p>Je kunt een bestaand element in de lijst vervangen door simpelweg toegang te krijgen tot dat element via de index en het nieuwe element toe te wijzen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">mijn_lijst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sh">"</span><span class="s">vervangen_element</span><span class="sh">"</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sorteren">7.1.8. Sorteren</h4>
+<div class="paragraph">
+<p>Je kunt de elementen in een lijst sorteren met de <code>sort()</code> methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span><span class="p">.</span><span class="nf">sort</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit sorteert de lijst van laag naar hoog. Je kunt ook de parameter <code>reverse=True</code> toevoegen om van hoog naar laag te sorteren.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lijsten_samenvoegen">7.1.9. Lijsten Samenvoegen</h4>
+<div class="paragraph">
+<p>Je kunt twee lijsten samenvoegen door de <code>+</code> operator te gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">lijst1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">lijst2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">samengevoegde_lijst</span> <span class="o">=</span> <span class="n">lijst1</span> <span class="o">+</span> <span class="n">lijst2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit resulteert in <code>samengevoegde_lijst</code> met alle elementen van <code>lijst1</code> gevolgd door die van <code>lijst2</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_indexering_en_slicing">7.2. Indexering en Slicing</h3>
+<div class="paragraph">
+<p>Een van de krachtige functies van lijsten is indexering. Hiermee kun je individuele elementen ophalen op basis van hun positie in de lijst.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Het eerste element (index 0) ophalen
+</span><span class="n">eerste_speler</span> <span class="o">=</span> <span class="n">spelers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je kunt ook een reeks elementen ophalen met behulp van slicing.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># De eerste twee spelers ophalen
+</span><span class="n">eerste_twee_spelers</span> <span class="o">=</span> <span class="n">spelers</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Slicing is een krachtige techniek om specifieke delen van een lijst in Python te selecteren. Het stelt je in staat om meerdere elementen op te halen of een deel van een lijst te kopiëren op basis van hun positie binnen de lijst. Laten we dieper ingaan op slicing.</p>
+</div>
+<div class="sect3">
+<h4 id="_basis_slicing">7.2.1. Basis Slicing</h4>
+<div class="paragraph">
+<p>Slicing wordt gedaan met behulp van de <code>:</code> operator binnen vierkante haken <code>[]</code>. De syntaxis is als volgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">lijst</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>start</code> is de index waarop het slicen begint (inclusief).</p>
+</li>
+<li>
+<p><code>stop</code> is de index waarop het slicen eindigt (exclusief).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Hier zijn enkele voorbeelden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Vanaf index 1 tot index 4 (elementen 1, 2 en 3)
+</span><span class="n">deel_lijst</span> <span class="o">=</span> <span class="n">getallen</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Resultaat: [1, 2, 3]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Merk op dat het element op de <code>stop</code>-index niet is opgenomen in het resultaat.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stapgrootte">7.2.2. Stapgrootte</h4>
+<div class="paragraph">
+<p>Je kunt ook een stapgrootte opgeven om elementen over te slaan tijdens het slicen. De syntaxis is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">lijst</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">:</span><span class="n">stap</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier is een voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Vanaf index 0 tot index 4, met een stapgrootte van 2 (elementen 0 en 2)
+</span><span class="n">deel_lijst</span> <span class="o">=</span> <span class="n">getallen</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Resultaat: [0, 2]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_negatieve_indexen">7.2.3. Negatieve Indexen</h4>
+<div class="paragraph">
+<p>Je kunt ook negatieve indexen gebruiken om elementen vanaf het einde van de lijst te tellen. <code>-1</code> staat voor het laatste element, <code>-2</code> voor het op één na laatste, enzovoort.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Vanaf het derde element van het einde tot het tweede element van het einde
+</span><span class="n">deel_lijst</span> <span class="o">=</span> <span class="n">getallen</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Resultaat: [3, 4]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_slicing_zonder_start_of_stop">7.2.4. Slicing zonder <code>start</code> of <code>stop</code></h4>
+<div class="paragraph">
+<p>Als je <code>start</code> of <code>stop</code> niet opgeeft, neemt Python automatisch het begin of einde van de lijst aan, afhankelijk van de context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">getallen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Alles vanaf het begin tot index 3 (elementen 0, 1 en 2)
+</span><span class="n">deel_lijst1</span> <span class="o">=</span> <span class="n">getallen</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># Resultaat: [0, 1, 2]
+</span>
+<span class="c1"># Alles vanaf index 2 (elementen 2, 3, 4 en 5)
+</span><span class="n">deel_lijst2</span> <span class="o">=</span> <span class="n">getallen</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>  <span class="c1"># Resultaat: [2, 3, 4, 5]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lijstmethoden">7.2.5. Lijstmethoden</h4>
+<div class="paragraph">
+<p>Lijsten bieden handige methoden voor het wijzigen, toevoegen en verwijderen van elementen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>append(element)</code>: Voegt een element toe aan het einde van de lijst.</p>
+</li>
+<li>
+<p><code>insert(index, element)</code>: Voegt een element toe op een specifieke index.</p>
+</li>
+<li>
+<p><code>remove(element)</code>: Verwijdert het eerste voorkomen van een element.</p>
+</li>
+<li>
+<p><code>pop(index)</code>: Verwijdert en retourneert het element op de opgegeven index.</p>
+</li>
+<li>
+<p><code>len()</code>: Geeft het aantal elementen in de lijst terug.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tuples_tupels">7.3. Tuples (Tupels)</h3>
+<div class="sect3">
+<h4 id="_basisconcepten_2">7.3.1. Basisconcepten</h4>
+<div class="paragraph">
+<p>Tupels zijn <mark>geordende, <strong>onveranderlijke</strong> gegevensstructuren</mark> die handig zijn om gegevens te beschermen tegen wijzigingen. Ze worden vaak gebruikt om coördinaten, kleuren en andere <mark>statische gegevens</mark> in games op te slaan.</p>
+</div>
+<div class="paragraph">
+<p>Tupels worden gedefinieerd met behulp van ronde haken <code>()</code>. Hier is een eenvoudig voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler_positie</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit maakt een tuple genaamd <code>speler_positie</code> met twee elementen: de x- en y-coördinaten van een spelerpositie in een game.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_toegang_tot_elementen">7.3.2. Toegang tot Elementen</h4>
+<div class="paragraph">
+<p>Je kunt de elementen in een tuple op dezelfde manier benaderen als bij lijsten, door gebruik te maken van indexering:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">x_coördinaat</span> <span class="o">=</span> <span class="n">speler_positie</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Geeft 100 terug
+</span><span class="n">y_coördinaat</span> <span class="o">=</span> <span class="n">speler_positie</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Geeft 50 terug</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unpacking_tupels">7.3.3. Unpacking Tupels</h4>
+<div class="paragraph">
+<p>Een krachtige eigenschap van tupels is "unpacking". Hiermee kun je de elementen van een tuple toewijzen aan afzonderlijke variabelen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">speler_positie</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nu zijn <code>x</code> en <code>y</code> gelijk aan respectievelijk 100 en 50.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tuple_als_returnwaarde">7.3.4. Tuple als Returnwaarde</h4>
+<div class="paragraph">
+<p>Tupels zijn handig bij het retourneren van meerdere waarden uit een functie. Dit is vaak het geval in gaming, waar je bijvoorbeeld zowel de nieuwe positie als de gezondheid van een speler wilt retourneren na een beweging.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">beweeg_speler</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># Bereken nieuwe positie
+</span>    <span class="n">nieuwe_x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="n">nieuwe_y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">5</span>
+
+    <span class="c1"># Retourneer nieuwe positie en gezondheid
+</span>    <span class="nf">return </span><span class="p">(</span><span class="n">nieuwe_x</span><span class="p">,</span> <span class="n">nieuwe_y</span><span class="p">),</span> <span class="mi">90</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld retourneert de functie een tuple met de nieuwe positie en een gezondheidswaarde van 90.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tuples_in_gaming">7.3.5. Tuples in Gaming</h4>
+<div class="paragraph">
+<p>Tupels worden vaak gebruikt in gaming om gegevens te beschermen tegen onopzettelijke wijzigingen. Bijvoorbeeld, als je de positie van een speler hebt opgeslagen in een tuple, kun je erop vertrouwen dat die positie niet per ongeluk wordt gewijzigd tijdens het spel.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler_positie</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tuples_vs_lijsten">7.3.6. Tuples vs. Lijsten</h4>
+<div class="paragraph">
+<p>Het belangrijkste onderscheid tussen tupels en lijsten is dat <mark>tupels onveranderlijk zijn (immutable) en lijsten veranderlijk (mutable)</mark>. Als je gegevens hebt die niet mogen worden gewijzigd, gebruik dan een tuple. Als je gegevens wilt kunnen toevoegen, verwijderen of wijzigen, gebruik dan een lijst.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dictionaries_woordenboeken">7.4. Dictionaries (Woordenboeken)</h3>
+<div class="sect3">
+<h4 id="_basisconcepten_3">7.4.1. Basisconcepten</h4>
+<div class="paragraph">
+<p>Dictionaries, of woordenboeken, zijn handig om gegevens op te slaan als Key-Value paren (sleutel - waarde). Ze zijn perfect voor het bijhouden van spelerstatistieken, inventarissen en configuraties.
+Ze stellen je in staat om gegevens op te slaan en op te halen met behulp van sleutels in plaats van indexen.</p>
+</div>
+<div class="paragraph">
+<p><mark>Keys (sleutels) moeten uniek zijn in de dictionary.
+Values (waarden) kunnen wel meermaals voorkomen.</mark></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dictionary_methoden">7.4.2. Dictionary-methoden</h4>
+<div class="paragraph">
+<p>Dictionaries bieden krachtige methoden om gegevens te beheren.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get(key)</code>: Retourneert de waarde die overeenkomt met de opgegeven sleutel.</p>
+</li>
+<li>
+<p><code>keys()</code>: Geeft een lijst van alle sleutels terug.</p>
+</li>
+<li>
+<p><code>values()</code>: Geeft een lijst van alle waarden terug.</p>
+</li>
+<li>
+<p><code>items()</code>: Geeft een lijst van sleutel-waardeparen terug.</p>
+</li>
+<li>
+<p><code>len()</code>: Geeft het aantal sleutels terug.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dictionary_aanmaken">7.4.3. Dictionary Aanmaken</h4>
+<div class="paragraph">
+<p>Een dictionary wordt gedefinieerd met behulp van accolades <code>{}</code> of met de ingebouwde <code>dict()</code> functie. Hier is een voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">John</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid</span><span class="sh">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit maakt een dictionary genaamd <code>speler</code> met drie sleutel-waardeparen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_waarden_ophalen">7.4.4. Waarden Ophalen</h4>
+<div class="paragraph">
+<p>Je kunt de waarden in een dictionary ophalen door de bijbehorende sleutel te gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">naam</span> <span class="o">=</span> <span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">]</span>  <span class="c1"># Geeft "John" terug
+</span><span class="n">gezondheid</span> <span class="o">=</span> <span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">gezondheid</span><span class="sh">"</span><span class="p">]</span>  <span class="c1"># Geeft 100 terug</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_waarden_wijzigen">7.4.5. Waarden Wijzigen</h4>
+<div class="paragraph">
+<p>Je kunt de waarden in een dictionary wijzigen door de sleutel te gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">gezondheid</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># Gezondheid wordt gewijzigd naar 80</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_nieuwe_waarden_toevoegen">7.4.6. Nieuwe Waarden Toevoegen</h4>
+<div class="paragraph">
+<p>Je kunt nieuwe sleutel-waardeparen toevoegen aan een bestaande dictionary:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">snelheid</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Voegt een nieuwe sleutel "snelheid" toe met waarde 5</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sleutels_verwijderen">7.4.7. Sleutels Verwijderen</h4>
+<div class="paragraph">
+<p>Je kunt sleutel-waardeparen verwijderen met de <code>del</code> instructie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">del</span> <span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">]</span>  <span class="c1"># Verwijdert de sleutel "munitie" en de bijbehorende waarde</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_controle_op_sleutels">7.4.8. Controle op Sleutels</h4>
+<div class="paragraph">
+<p>Je kunt controleren of een bepaalde sleutel in een dictionary aanwezig is met behulp van de <code>in</code> operator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="sh">"</span><span class="s">snelheid</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">speler</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Snelheid is aanwezig in de dictionary.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_looping_door_een_dictionary">7.4.9. Looping door een Dictionary</h4>
+<div class="paragraph">
+<p>Je kunt door alle sleutels in een dictionary lopen met behulp van een <code>for</code> lus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">sleutel</span> <span class="ow">in</span> <span class="n">speler</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">sleutel</span><span class="p">,</span> <span class="n">speler</span><span class="p">[</span><span class="n">sleutel</span><span class="p">])</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal elk sleutel-waardepaar in de dictionary afdrukken.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dictionaries_in_gaming">7.4.10. Dictionaries in Gaming</h4>
+<div class="paragraph">
+<p>Dictionaries zijn waardevol in gaming omdat ze je in staat stellen om gegevens duidelijk te organiseren. Bijvoorbeeld, je kunt een dictionary gebruiken om de eigenschappen van een speler (naam, gezondheid, munitie) op te slaan en eenvoudig toegang te krijgen tot deze eigenschappen wanneer je ze nodig hebt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">speler</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">John</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid</span><span class="sh">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+
+<span class="c1"># Toegang tot spelergegevens
+</span><span class="n">naam</span> <span class="o">=</span> <span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">gezondheid</span> <span class="o">=</span> <span class="n">speler</span><span class="p">[</span><span class="sh">"</span><span class="s">gezondheid</span><span class="sh">"</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit is vooral handig wanneer je complexe objecten in een game wilt bijhouden, zoals spelers, vijanden, wapens en hun respectievelijke eigenschappen.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_geavanceerd_gebruik">7.5. Geavanceerd Gebruik</h3>
+<div class="paragraph">
+<p>Nu we de basisbegrippen hebben behandeld, laten we enkele geavanceerde toepassingen verkennen. Bijvoorbeeld, het combineren van deze gegevensstructuren om complexere gegevens te modelleren, zoals het bijhouden van meerdere spelers met hun statistieken, inventarissen en locaties.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een lijst van spelers, elk met een dictionary van statistieken
+</span><span class="n">spelers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">levenspunten</span><span class="sh">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 2</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">levenspunten</span><span class="sh">"</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 3</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">levenspunten</span><span class="sh">"</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="sh">"</span><span class="s">munitie</span><span class="sh">"</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld toont een lijst van spelers, waarbij elke speler wordt vertegenwoordigd door een dictionary met hun naam, levenspunten en munitie.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een voorbeeld van een lijst in een dictionary die zich in een andere lijst bevindt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een lijst van spelers met hun gegevens
+</span><span class="n">spelers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 1</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">scores</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">80</span><span class="p">]},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 2</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">scores</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">95</span><span class="p">]},</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">naam</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Speler 3</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">scores</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">75</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="c1"># Toegang tot de scores van Speler 2
+</span><span class="n">scores_speler_2</span> <span class="o">=</span> <span class="n">spelers</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="sh">"</span><span class="s">scores</span><span class="sh">"</span><span class="p">]</span>  <span class="c1"># Geeft [120, 110, 95] terug</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld is <code>spelers</code> een lijst van dictionaries, waarbij elke dictionary de naam van een speler en een lijst van scores bevat. We halen de scores van "Speler 2" op door eerst naar de juiste dictionary te navigeren met de index <code>[1]</code> en vervolgens toegang te krijgen tot de "scores" lijst in die dictionary.</p>
+</div>
+<div class="paragraph">
+<p>Dit kan handig zijn bij het bijhouden van complexe gegevensstructuren in games, waarin je spelers en hun bijbehorende gegevens wilt organiseren en beheren.
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hoofdstuk_8_gegevensinvoer_expressies_en_berekeningen">8. Hoofdstuk 8: Gegevensinvoer, Expressies en Berekeningen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.</p>
+</div>
+<div class="sect2">
+<h3 id="_gegevensinvoer">8.1. Gegevensinvoer</h3>
+<div class="paragraph">
+<p>Het vragen van gegevens van spelers of gebruikers is essentieel om je programma interactief te maken. Python biedt de input()-functie, die je in staat stelt om tekstuele invoer van spelers te verzamelen. Met deze functie kun je vragen stellen, keuzes aanbieden en spelers de mogelijkheid geven om direct met je game of programma te communiceren.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pythoninput.png" alt="pythoninput">
+</div>
+</div>
+<div class="paragraph">
+<p>Tekstinvoer Verzamelen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Met dit voorbeeld vragen we de speler om hun naam in te voeren en gebruiken we deze input om een persoonlijk welkomstbericht te genereren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Wil je naar links of rechts gaan? </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je hebt gekozen om naar </span><span class="sh">"</span> <span class="o">+</span> <span class="n">choice</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> te gaan.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hiermee kunnen spelers eenvoudige keuzes maken binnen je game en wordt de uitvoer aangepast op basis van hun invoer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expressies_en_berekeningen">8.2. Expressies en Berekeningen</h3>
+<div class="paragraph">
+<p>Het vermogen om expressies en berekeningen te gebruiken, opent een wereld van mogelijkheden in game-ontwikkeling. Hiermee kun je wiskundige en logische bewerkingen uitvoeren op basis van variabele waarden, invoer van spelers of gamegebeurtenissen.</p>
+</div>
+<div class="paragraph">
+<p>Gevechtsberekening:</p>
+</div>
+<div class="paragraph">
+<p>Stel je een RPG-game voor waarin spelers vijanden schade toebrengen. Hier is een voorbeeld van hoe je dit kunt aanpakken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_damage</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je schade in: </span><span class="sh">"</span><span class="p">))</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="n">enemy_health</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">remaining_health</span> <span class="o">=</span> <span class="n">enemy_health</span> <span class="o">-</span> <span class="n">player_damage</span>
+
+<span class="k">if</span> <span class="n">remaining_health</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand is verslagen!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand heeft nog</span><span class="sh">"</span><span class="p">,</span> <span class="n">remaining_health</span><span class="p">,</span> <span class="sh">"</span><span class="s">gezondheid over.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>De invoer wordt hier omgezet naar een integer. Zodoende kan hiermee gerekend worden, dit zou met het text datatype niet kunnen.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Deze code gebruikt input() om de schade van de speler te vragen, en de berekening controleert of de vijand is verslagen of nog steeds in leven is.</p>
+</div>
+<div class="paragraph">
+<p>Deze code gebruikt de invoer van de speler om de resterende gezondheid van een vijand na het toebrengen van schade te berekenen.</p>
+</div>
+<div class="paragraph">
+<p>Attribuutberekening:</p>
+</div>
+<div class="paragraph">
+<p>Stel je voor dat je een rollenspel maakt waarbij spelers de kracht en behendigheid van hun personage kunnen aanpassen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Creëer je personage. Geef een naam: </span><span class="sh">"</span><span class="p">)</span>
+<span class="n">player_strength</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de krachtwaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
+<span class="n">player_agility</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer de behendigheidswaarde in (1-10): </span><span class="sh">"</span><span class="p">))</span>
+<span class="n">total_points</span> <span class="o">=</span> <span class="n">player_strength</span> <span class="o">+</span> <span class="n">player_agility</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">player_name</span> <span class="o">+</span> <span class="sh">"'</span><span class="s">s attributen:</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Kracht:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_strength</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Behendigheid:</span><span class="sh">"</span><span class="p">,</span> <span class="n">player_agility</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Totaal punten:</span><span class="sh">"</span><span class="p">,</span> <span class="n">total_points</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Met dit voorbeeld verzamel je gegevens van spelers en gebruik je expressies om totaalpunten te berekenen op basis van kracht en behendigheid.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interactie">8.3. Interactie</h3>
+<div class="paragraph">
+<p>Door de kracht van gegevensinvoer en berekeningen te combineren, kun je gameplay-ervaringen creëren. Stel je voor dat je een avonturenspel ontwikkelt waarin spelers een mysterie moeten oplossen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">player_name</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Voer je naam in: </span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Welkom, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">player_name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je staat voor een oud landhuis. Wat wil je onderzoeken?</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">1. De voordeur 2. Het zijraam: </span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je betreedt het landhuis via de voordeur en voelt een koude windvlaag.</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je glijdt door het zijraam naar binnen en landt behendig op de vloer.</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Je onderzoek begint...</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bestandsinvoer_en_uitvoer_in_python">8.4. Bestandsinvoer en -uitvoer in Python</h3>
+<div class="paragraph">
+<p>In dit onderdeel zullen we bespreken hoe je gegevens van bestanden op de harde schijf kunt lezen en schrijven in Python.</p>
+</div>
+<div class="sect3">
+<h4 id="_bestanden_openen">8.4.1. Bestanden Openen</h4>
+<div class="paragraph">
+<p>Voordat je gegevens kunt lezen of schrijven naar een bestand, moet je het bestand openen met de ingebouwde <code>open()</code>-functie. Hier is een basisvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Het bestand 'voorbeeld.txt' openen om te schrijven (wissen als het al bestaat)
+</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt het bestand 'voorbeeld.txt' geopend <strong>om te schrijven ('w')</strong>. De 'w'-modus betekent dat het <mark>bestand wordt gewist als het al bestaat</mark>, en anders wordt het aangemaakt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_schrijven_naar_een_bestand">8.4.2. Schrijven naar een Bestand</h4>
+<div class="paragraph">
+<p>Nu we een bestand hebben geopend om te schrijven, kunnen we gegevens naar dat bestand schrijven met de <code>write()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een voorbeeldzin.</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een andere zin.</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze code schrijft twee zinnen naar het geopende bestand.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_schrijven_zonder_te_wissen">8.4.3. Schrijven zonder te wissen</h4>
+<div class="paragraph">
+<p>Om naar een bestand te schrijven zonder de bestaande inhoud te wissen, kun je het bestand openen in de <mark>'append'-modus ('a')</mark> in plaats van de 'write'-modus ('w'). Hier is hoe je dit doet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bestand openen in 'append'-modus ('a')
+</span><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">bestaand_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">a</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Schrijf nieuwe inhoud naar het bestand
+</span><span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is nieuwe inhoud die aan het bestand wordt toegevoegd.</span><span class="se">\n</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt het bestand 'bestaand_bestand.txt' geopend in de 'append'-modus. De 'append'-modus voegt nieuwe inhoud toe aan het einde van het bestand zonder de bestaande inhoud te overschrijven. De <code>\n</code> wordt gebruikt om een nieuwe regel toe te voegen, zodat elke toegevoegde regel op een nieuwe regel begint.</p>
+</div>
+<div class="paragraph">
+<p>Als 'bestaand_bestand.txt' bijvoorbeeld al enkele regels tekst bevatte en je dit script uitvoerde, zou de nieuwe inhoud worden toegevoegd aan het einde van het bestand zonder de bestaande inhoud te wissen.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sluiten_van_een_bestand">8.4.4. Sluiten van een Bestand</h4>
+<div class="paragraph">
+<p>Het is belangrijk om bestanden te sluiten nadat je klaar bent met lezen of schrijven. Dit kan worden gedaan met de <code>close()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het <mark>sluiten</mark> van een bestand is belangrijk omdat het <mark>resources vrijgeeft</mark> en eventuele <mark>wijzigingen</mark> die je hebt aangebracht in het bestand <mark>opslaat</mark>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lezen_van_een_bestand">8.4.5. Lezen van een Bestand</h4>
+<div class="paragraph">
+<p>Om gegevens uit een bestand te lezen, open je het bestand in de <strong>leesmodus ('r')</strong> en gebruik je de <code>read()</code>-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">inhoud</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld opent het bestand 'voorbeeld.txt', leest de inhoud ervan en slaat deze op in de variabele <code>inhoud</code>. Vervolgens wordt de inhoud afgedrukt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_itereren_door_een_bestand">8.4.6. Itereren door een Bestand</h4>
+<div class="paragraph">
+<p>Je kunt ook door een bestand itereren om het regel voor regel te lezen met een <code>for</code>-lus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">bestand</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">regel</span> <span class="ow">in</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">regel</span><span class="p">)</span>
+
+<span class="n">bestand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt elke regel van het bestand afzonderlijk gelezen en afgedrukt.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_met_een_bestand_werken_via_een_with_verklaring">8.4.7. Met een Bestand Werken via een 'with'-verklaring</h4>
+<div class="paragraph">
+<p>Een handige manier om met bestanden te werken is met behulp van een 'with'-verklaring. <mark>Dit zorgt ervoor dat het bestand automatisch wordt gesloten wanneer je klaar bent met werken</mark>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">voorbeeld.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="n">inhoud</span> <span class="o">=</span> <span class="n">bestand</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+    <span class="c1"># Voer hier bewerkingen uit op de inhoud
+</span>
+<span class="c1"># Het bestand is nu automatisch gesloten buiten de 'with'-verklaring</span></code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_bestanden_maken_en_schrijven">Bestanden Maken en Schrijven</h5>
+<div class="paragraph">
+<p>Om een nieuw bestand te maken en gegevens naar dat bestand te schrijven, open je het bestand in de schrijfmodus ('w'). Als het bestand al bestaat, wordt het gewist en opnieuw aangemaakt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">nieuw_bestand.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">bestand</span><span class="p">:</span>
+    <span class="n">bestand</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een nieuw bestand.</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld maakt een nieuw bestand genaamd 'nieuw_bestand.txt' en schrijft de opgegeven tekst erin.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_handige_bestandsbewerkingen">8.4.8. Handige Bestandsbewerkingen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bestand verplaatsen of hernoemen:</strong> Dit kan worden gedaan met de <code>os</code>-module.</p>
+</li>
+<li>
+<p><strong>Bestand kopiëren:</strong> Dit kan ook worden gedaan met de <code>os</code>-module.</p>
+</li>
+<li>
+<p><strong>Bestand verwijderen:</strong> Gebruik de <code>os.remove()</code>-functie om een bestand te verwijderen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_klassen">9. Klassen</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Een <strong>klasse</strong> in een object georiënteerde taal is een concept dat een blauwdruk vormt.
@@ -3139,7 +3778,7 @@ Een klasse bestaat uit:</p>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_voorbeeld_van_een_klasse">8.1. Voorbeeld van een klasse</h3>
+<h3 id="_voorbeeld_van_een_klasse">9.1. Voorbeeld van een klasse</h3>
 <div class="paragraph">
 <p>Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
 In computerspellen wordt veel gebruik gemaakt van klassen.</p>
@@ -3173,7 +3812,7 @@ Dit komt omdat er van deze ruiter klasse <strong>meerdere instanties</strong> we
 </div>
 </div>
 <div class="sect2">
-<h3 id="_de_code_om_een_klasse_te_definiëren">8.2. De <em>code</em> om een klasse te definiëren</h3>
+<h3 id="_de_code_om_een_klasse_te_definiëren">9.2. De <em>code</em> om een klasse te definiëren</h3>
 <div class="paragraph">
 <p>De ruiter klasse uit bovenstaande <em>screenshot</em> zou als volgt geprogrameerd kunnen zijn:</p>
 </div>
@@ -3228,7 +3867,7 @@ Dit komt omdat er van deze ruiter klasse <strong>meerdere instanties</strong> we
 </div>
 </div>
 <div class="sect2">
-<h3 id="_instanties">8.3. Instanties</h3>
+<h3 id="_instanties">9.3. Instanties</h3>
 <div class="paragraph">
 <p>Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van iets, bijvoorbeeld van een auto.</p>
 </div>
@@ -3303,7 +3942,7 @@ Om het te gaan gebruiken zal je een instantie moeten maken (een echte auto van d
 <p><strong>Zo lang het werkgeheugen (RAM) niet vol is, kan je instanties blijven aanmaken.</strong></p>
 </div>
 <div class="sect3">
-<h4 id="_variabelen_en_geheugengebruik">8.3.1. Variabelen en geheugengebruik</h4>
+<h4 id="_variabelen_en_geheugengebruik">9.3.1. Variabelen en geheugengebruik</h4>
 <div class="paragraph">
 <p>Iedere instantie van een klasse neemt een deel van het geheugen in.
 <mark>Voor iedere instantie worden immers de waarden van de verschillende variabelen apart bijgehouden.</mark></p>
@@ -3323,7 +3962,7 @@ De hitpoints van de andere ruiters behouden hun eigen waarden.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_variabelen">8.3.2. Variabelen</h4>
+<h4 id="_variabelen">9.3.2. Variabelen</h4>
 <div class="paragraph">
 <p>Om de variabele van instanties aan te passen kunnen we via de <em>dot notatie</em> (punt notatie) aan de variabelen van een instantie:</p>
 </div>
@@ -3367,7 +4006,7 @@ De hitpoints van de andere ruiters behouden hun eigen waarden.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_methods_functies">8.3.3. Methods (functies)</h4>
+<h4 id="_methods_functies">9.3.3. Methods (functies)</h4>
 <div class="paragraph">
 <p>In een klasse kunnen methods (of functies) geschreven worden.
 Deze methods kunnen aangeroepen worden op de instantie van een klasse.</p>
@@ -3427,7 +4066,7 @@ Bij het aanroepen van de method op een instantie is het immers duidelijk welke v
 </div>
 </div>
 <div class="sect3">
-<h4 id="_lists_en_tuples">8.3.4. Lists en Tuples</h4>
+<h4 id="_lists_en_tuples">9.3.4. Lists en Tuples</h4>
 <div class="paragraph">
 <p>Instanties van klassen kunnen in een list (of Tuple of dictionary) worden geplaatst, net zoals andere datatypes.
 De gehele getallen 4, 5, 6, 7, .. zijn immers ook maar instanties van een integer datatype.
@@ -3507,7 +4146,7 @@ In het screenshot kan je zien dat enkele <em>units</em> meer schade hebben opgel
 </div>
 </div>
 <div class="sect2">
-<h3 id="_gebruik_van_bestaande_klassen">8.4. Gebruik van bestaande klassen</h3>
+<h3 id="_gebruik_van_bestaande_klassen">9.4. Gebruik van bestaande klassen</h3>
 <div class="paragraph">
 <p>In de <em>standard library</em> van Python (die wordt meegeinstalleerd bij het installeren van Python) zijn veel bestaande klassen aanwezig.
 Deze kan je gebruiken zonder ze zelf vanaf 0 te hoeven schrijven.</p>
@@ -3531,7 +4170,7 @@ Deze bevat enkele constanten (onveranderbare variabelen), zoals het getal PI.</p
 <p>Ook bevat deze klasse enkele methods zoals het berekenen van het gemiddelde, maximum, minimum,.. Kortom veel zaken die in de wiskunde van pas kunnen komen.</p>
 </div>
 <div class="sect3">
-<h4 id="_random">8.4.1. Random</h4>
+<h4 id="_random">9.4.1. Random</h4>
 <div class="paragraph">
 <p>Om een willekeurig getal te genereren in Python, kun je de <code>random</code>-module gebruiken. Hier is een voorbeeld van hoe je een willekeurig getal kunt maken:</p>
 </div>
@@ -3569,7 +4208,7 @@ Deze bevat enkele constanten (onveranderbare variabelen), zoals het getal PI.</p
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-15 08:15:51 +0200
+Last updated 2023-09-22 10:45:28 +0200
 </div>
 </div>
 </body>

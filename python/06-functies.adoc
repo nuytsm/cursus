@@ -4,7 +4,7 @@
 :toclevels: 5
 
 
-= Hoofdstuk 7: Functies en Herbruikbaarheid van Code
+= Hoofdstuk 6: Functies en Herbruikbaarheid van Code
 
 == Wat is een functie
 
@@ -40,6 +40,10 @@ Om deze functie op te roepen, verstrekken we argumenten die overeenkomen met de 
 som = optellen(5, 3)
 print(som) # Output: 8
 ----
+
+=== Parameters vs argumenten
+
+image::images/paraargs.png[width=400]
 
 === Herbruikbaarheid van Code
 

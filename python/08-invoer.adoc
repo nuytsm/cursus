@@ -4,7 +4,7 @@
 :toclevels: 5
 //:stylesheet: dark.css
 
-= Hoofdstuk 5: Gegevensinvoer, Expressies en Berekeningen
+= Hoofdstuk 8: Gegevensinvoer, Expressies en Berekeningen
 
 In dit hoofdstuk gaan we in op gegevensinvoer en het gebruik van expressies en berekeningen.
 
