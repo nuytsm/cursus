@@ -1,0 +1,88 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+
+= Hoofdstuk 9: Exceptions (Uitzonderingen) - Hanteren van fouten
+
+Fouten zijn onvermijdelijk tijdens het schrijven van programma's. 
+Python biedt een mechanisme genaamd **exceptions** om met deze fouten om te gaan. 
+In dit hoofdstuk zullen we bespreken wat uitzonderingen zijn, hoe ze worden gegenereerd en hoe je ze kunt hanteren.
+
+== Wat zijn Uitzonderingen?
+
+Een __exception__ is een gebeurtenis die optreedt tijdens de uitvoering van een programma en ##die het normale verloop van het programma onderbreekt##. 
+Wanneer een fout optreedt, wordt er een __exception__ gegenereerd. Dit kan bijvoorbeeld gebeuren wanneer je probeert te delen door nul, een bestand probeert te openen dat niet bestaat, of probeert toegang te krijgen tot een element dat niet in een lijst staat.
+
+== Het Try-Except Blok
+
+Om met uitzonderingen om te gaan, gebruiken we het `try` en `except` blok. Het idee is om de code die mogelijk een uitzondering genereert binnen het `try` blok te plaatsen. 
+Als er een __exception__ optreedt, wordt de bijbehorende `except` blokcode uitgevoerd.
+
+[source,python]
+----
+try:
+    # Code die mogelijk een uitzondering genereert
+    leeftijd = int(input("Voer je leeftijd in: "))
+except ValueError:
+    # Code die wordt uitgevoerd als een ValueError optreedt
+    print("Ongeldige invoer voor leeftijd. Voer een getal in.")
+----
+
+In dit voorbeeld wordt de `ValueError` __exception__ afgehandeld. Als de gebruiker iets anders dan een getal invoert, zal de `ValueError` worden gegenereerd en wordt de bijbehorende `except` blokcode uitgevoerd.
+
+== Verschillende __exceptions__ behandelen
+
+Je kunt meerdere `except` blokken hebben om verschillende soorten __exceptions__ af ​​te handelen.
+
+[source,python]
+----
+try:
+    num = int(input("Voer een getal in: "))
+    resultaat = 10 / num
+except ValueError:
+    print("Ongeldige invoer. Voer een getal in.")
+except ZeroDivisionError:
+    print("Je kunt niet door nul delen.")
+except Exception as e:
+    print(f"Er is een fout opgetreden: {e}")
+----
+
+In dit voorbeeld wordt eerst gecontroleerd op een `ValueError`, vervolgens op een `ZeroDivisionError` en tot slot op algemene `Exception`. Het is belangrijk om zo specifiek mogelijk te zijn bij het afhandelen van uitzonderingen.
+
+## 8.5.4 Het Finally Blok
+
+Het `finally` blok wordt altijd uitgevoerd, ongeacht of er een __exception__ is opgetreden of niet. Het wordt vaak gebruikt om bronnen vrij te geven, zoals bestanden of netwerkverbindingen.
+
+[source,python]
+----
+try:
+    bestand = open("bestand.txt", "r")
+    # Code om met het bestand te werken
+except FileNotFoundError:
+    print("Het bestand is niet gevonden.")
+finally:
+    bestand.close()  # Het bestand wordt altijd gesloten, zelfs als er een __exception__ optreedt
+----
+
+== Aangepaste __exceptions__
+
+Je kunt ook je eigen __exceptions__ maken voor situaties die specifiek zijn voor je programma.
+
+[source,python]
+----
+class TeJongError(Exception):
+    pass
+
+leeftijd = 15
+
+try:
+    if leeftijd < 18:
+        raise TeJongError("Je bent te jong voor deze activiteit.")
+except TeJongError as e:
+    print(e)
+----
+
+Hier wordt een aangepaste `TeJongError` gegenereerd en afgehandeld als de leeftijd minder is dan 18.
+
+Het correct omgaan met uitzonderingen is essentieel voor het schrijven van robuuste en fouttolerante programma's. Het stelt je in staat om elegant te reageren op onverwachte omstandigheden en de gebruiker te voorzien van zinvolle foutmeldingen.
