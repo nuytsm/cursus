@@ -1,0 +1,131 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Constructors
+
+In Python, net als in veel andere objectgeoriënteerde programmeertalen, worden constructors gebruikt om objecten initialiseren (instanties van klassen te maken). 
+Constructors worden aangeroepen wanneer een object (of instanitie) van een klasse wordt gemaakt, en ze bieden de mogelijkheid om de initiële toestand van dat object in te stellen. 
+
+== Wat is een Constructor?
+
+Een constructor is een speciale methode (functie) in een klasse die wordt aangeroepen wanneer een object van die klasse wordt gemaakt. In Python wordt de constructor gemarkeerd door de methode `__init__`. Het doel van de constructor is om de initiële staat van een object in te stellen.
+
+[source, python]
+----
+class Auto:
+    def __init__(self, merk, model):
+        self.merk = merk
+        self.model = model
+----
+
+Hier heeft de klasse `Auto` een constructor `__init__` die twee parameters, `merk` en `model`, accepteert. ##De `self` parameter verwijst naar het object dat wordt gemaakt##. 
+Wanneer een object van deze klasse wordt gemaakt, wordt de constructor automatisch aangeroepen.
+
+[source, python]
+----
+# Een instantie van de klasse Auto maken
+auto1 = Auto("Toyota", "Camry")
+print(auto1.merk)  # Output: Toyota
+print(auto1.model)  # Output: Camry
+----
+
+== Defaultwaarden en Optionele Parameters
+
+Constructors kunnen parameters hebben met standaardwaarden, waardoor ze optioneel worden bij het maken van een object.
+
+[source, python]
+----
+class Persoon:
+    def __init__(self, naam, leeftijd=18):
+        self.naam = naam
+        self.leeftijd = leeftijd
+----
+
+Hier heeft de parameter `leeftijd` een standaardwaarde van 18. Als de gebruiker geen leeftijd opgeeft bij het maken van een object, wordt automatisch 18 gebruikt.
+
+[source, python]
+----
+# Voorbeelden van het maken van objecten van de klasse Persoon
+persoon1 = Persoon("Alice")
+persoon2 = Persoon("Bob", 25)
+print(persoon1.leeftijd)  # Output: 18
+print(persoon2.leeftijd)  # Output: 25
+----
+
+== Initialisatiecode
+
+In de constructor kun je naast het instellen van attributen ook andere initialisatiecode plaatsen.
+
+[source, python]
+----
+class Bankrekening:
+    rentevoet = 0.02
+
+    def __init__(self, eigenaar, saldo=0):
+        self.eigenaar = eigenaar
+        self.saldo = saldo + (saldo * self.rentevoet)
+----
+
+Hier wordt de rente automatisch toegevoegd aan het saldo wanneer een bankrekening wordt gemaakt.
+
+[source, python]
+----
+# Een instantie van de klasse Bankrekening maken
+rekening1 = Bankrekening("Bob", 1000)
+print(rekening1.saldo)  # Output: 1020.0
+----
+
+== Meerdere Constructors - __Overloading__
+
+Python heeft geen traditionele __methodoverloading__ zoals sommige andere talen. Maar je kunt optionele parameters gebruiken om verschillende gedragingen te simuleren.
+
+[source, python]
+----
+class Driehoek:
+    def __init__(self, zijde1, zijde2, zijde3=None):
+        self.zijde1 = zijde1
+        self.zijde2 = zijde2
+        self.zijde3 = zijde3 if zijde3 is not None else zijde1 + zijde2
+----
+
+Hier kan de gebruiker ofwel drie zijden opgeven, of slechts twee, waarbij de derde zijde automatisch wordt berekend.
+
+[source, python]
+----
+# Voorbeelden van het maken van objecten van de klasse Driehoek
+driehoek1 = Driehoek(3, 4)
+driehoek2 = Driehoek(3, 4, 5)
+print(driehoek1.zijde3)  # Output: 7
+print(driehoek2.zijde3)  # Output: 5
+----
+
+== Initialisatie van Objecten
+
+Het initialiseren van objecten gebeurt door een instantie van de klasse te maken:
+
+[source, python]
+----
+auto1 = Auto("Toyota", "Camry")
+persoon1 = Persoon("Alice")
+rekening1 = Bankrekening("Bob", 1000)
+driehoek1 = Driehoek(3, 4)
+----
+
+Wanneer je een object van een klasse maakt, wordt automatisch de bijbehorende constructor aangeroepen en worden de attributen geïnitialiseerd.
+
+== Toegang tot Attributen
+
+Na initialisatie zijn de attributen van een object toegankelijk met behulp van de dot-notatie:
+
+[source, python]
+----
+print(auto1.merk)  # Output: Toyota
+print(persoon1.leeftijd)  # Output: 18
+print(rekening1.saldo)  # Output: 1020.0
+print(driehoek1.zijde3)  # Output: 7
+----

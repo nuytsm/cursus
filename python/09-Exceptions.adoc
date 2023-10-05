@@ -50,7 +50,7 @@ except Exception as e:
 
 In dit voorbeeld wordt eerst gecontroleerd op een `ValueError`, vervolgens op een `ZeroDivisionError` en tot slot op algemene `Exception`. Het is belangrijk om zo specifiek mogelijk te zijn bij het afhandelen van uitzonderingen.
 
-## 8.5.4 Het Finally Blok
+== Het Finally Blok
 
 Het `finally` blok wordt altijd uitgevoerd, ongeacht of er een __exception__ is opgetreden of niet. Het wordt vaak gebruikt om bronnen vrij te geven, zoals bestanden of netwerkverbindingen.
 
@@ -64,6 +64,53 @@ except FileNotFoundError:
 finally:
     bestand.close()  # Het bestand wordt altijd gesloten, zelfs als er een __exception__ optreedt
 ----
+
+== Hiërarchie van Exceptions
+De meeste uitzonderingen in Python erven (zijn subklassen) van de basisException __BaseException__. Dit is de hoogste klasse in de uitzonderingshiërarchie. Enkele belangrijke uitzonderingsklassen zijn:
+
+* Exception: Basis voor bijna alle ingebouwde uitzonderingen.
+* ArithmeticError: Basis voor uitzonderingen die optreden bij wiskundige berekeningen.
+* LookupError: Basis voor uitzonderingen die optreden bij ongeldige sleutels of indices.
+* FileNotFoundError: Een specifieke uitzondering voor het niet kunnen vinden van een bestand.
+
+[source, python]
+----
+try:
+    # Code die mogelijk een exception kan veroorzaken
+    resultaat = deling(x, y)
+except ArithmeticError as e:
+    # Code die wordt uitgevoerd als er een wiskundige fout optreedt
+    print(f"Wiskundige fout: {e}")
+except LookupError as e:
+    # Code die wordt uitgevoerd als er een fout optreedt bij het zoeken
+    print(f"Fout bij opzoeken: {e}")
+except Exception as e:
+    # Code die wordt uitgevoerd voor alle andere exceptions
+    print(f"Andere fout: {e}")
+----
+
+image::images/exception_hierarchy.png[]
+
+=== Het Opvangen van Bovenliggende Exceptions
+
+Soms wil je verschillende uitzonderingen opvangen, maar ook een meer algemene bovenliggende uitzondering omvatten om brede foutafhandeling mogelijk te maken. Dit kan worden bereikt door een bovenliggende `Exception`-klasse op te vangen voordat je specifieke uitzonderingen afhandelt. Hier is hoe je dit kunt doen:
+
+[source, python]
+----
+try:
+    # Code die mogelijk een exception kan veroorzaken
+    resultaat = deling(x, y)
+except (Exception, AnotherException) as e:
+    # Code die wordt uitgevoerd als een algemene of specifieke exception wordt gevangen
+    print(f"Fout opgetreden: {e}")
+except YetAnotherException as e:
+    # Code die wordt uitgevoerd als YetAnotherException wordt gevangen
+    print(f"Nog een andere fout: {e}")
+----
+
+In dit voorbeeld worden zowel `Exception` als `AnotherException` opgevangen voordat specifieke uitzonderingen worden behandeld. Hierdoor kun je een meer algemene foutafhandeling implementeren voordat je specifieke uitzonderingen afzonderlijk behandelt.
+
+Dit patroon is handig wanneer je een brede foutafhandeling wilt toevoegen, maar ook enkele specifieke uitzonderingen gedetailleerder wilt afhandelen. Het is echter belangrijk om te weten dat het opvangen van te brede uitzonderingen de leesbaarheid van je code kan verminderen, omdat het moeilijker wordt om specifieke fouten te identificeren en te begrijpen. Gebruik het met zorg en zorg ervoor dat de uitzonderingen die je opvangt, logisch samenhangen.
 
 == Aangepaste __exceptions__
 

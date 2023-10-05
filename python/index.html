@@ -843,8 +843,64 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_wat_zijn_uitzonderingen">9.1. Wat zijn Uitzonderingen?</a></li>
 <li><a href="#_het_try_except_blok">9.2. Het Try-Except Blok</a></li>
 <li><a href="#_verschillende_exceptions_behandelen">9.3. Verschillende <em>exceptions</em> behandelen</a></li>
-<li><a href="#_8_5_4_het_finally_blok">9.4. 8.5.4 Het Finally Blok</a></li>
-<li><a href="#_aangepaste_exceptions">9.5. Aangepaste <em>exceptions</em></a></li>
+<li><a href="#_het_finally_blok">9.4. Het Finally Blok</a></li>
+<li><a href="#_hiërarchie_van_exceptions">9.5. Hiërarchie van Exceptions</a>
+<ul class="sectlevel3">
+<li><a href="#_het_opvangen_van_bovenliggende_exceptions">9.5.1. Het Opvangen van Bovenliggende Exceptions</a></li>
+</ul>
+</li>
+<li><a href="#_aangepaste_exceptions">9.6. Aangepaste <em>exceptions</em></a></li>
+</ul>
+</li>
+<li><a href="#_klassen">10. Klassen</a>
+<ul class="sectlevel2">
+<li><a href="#_voorbeeld_van_een_klasse">10.1. Voorbeeld van een klasse</a></li>
+<li><a href="#_de_code_om_een_klasse_te_definiëren">10.2. De <em>code</em> om een klasse te definiëren</a></li>
+<li><a href="#_instanties">10.3. Instanties</a>
+<ul class="sectlevel3">
+<li><a href="#_variabelen_en_geheugengebruik">10.3.1. Variabelen en geheugengebruik</a></li>
+<li><a href="#_variabelen">10.3.2. Variabelen</a></li>
+<li><a href="#_methods_functies">10.3.3. Methods (functies)</a></li>
+<li><a href="#_lists_en_tuples">10.3.4. Lists en Tuples</a></li>
+</ul>
+</li>
+<li><a href="#_gebruik_van_bestaande_klassen">10.4. Gebruik van bestaande klassen</a>
+<ul class="sectlevel3">
+<li><a href="#_random">10.4.1. Random</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_constructors">11. Constructors</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_een_constructor">11.1. Wat is een Constructor?</a></li>
+<li><a href="#_defaultwaarden_en_optionele_parameters">11.2. Defaultwaarden en Optionele Parameters</a></li>
+<li><a href="#_initialisatiecode">11.3. Initialisatiecode</a></li>
+<li><a href="#_meerdere_constructors_overloading">11.4. Meerdere Constructors - <em>Overloading</em></a></li>
+<li><a href="#_initialisatie_van_objecten">11.5. Initialisatie van Objecten</a></li>
+<li><a href="#_toegang_tot_attributen">11.6. Toegang tot Attributen</a></li>
+</ul>
+</li>
+<li><a href="#_subklassen_en_overerving">12. Subklassen en Overerving</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_overerving">12.1. Wat is Overerving?</a></li>
+<li><a href="#_toepassingen_in_gaming">12.2. Toepassingen in Gaming</a></li>
+<li><a href="#_overerving_en_meerdere_subklassen">12.3. Overerving en meerdere Subklassen</a></li>
+<li><a href="#_polymorfisme">12.4. Polymorfisme</a>
+<ul class="sectlevel3">
+<li><a href="#_subklassen_met_verschillende_methoden">12.4.1. Subklassen met Verschillende Methoden</a></li>
+<li><a href="#_veelvoudige_overerving_multiple_inheritance">12.4.2. Veelvoudige Overerving (Multiple inheritance)</a></li>
+<li><a href="#_polymorfisme_in_actie">12.4.3. Polymorfisme in Actie</a></li>
+</ul>
+</li>
+<li><a href="#_interfaces">12.5. Interfaces</a>
+<ul class="sectlevel3">
+<li><a href="#_wat_zijn_interfaces">12.5.1. Wat zijn Interfaces?</a></li>
+<li><a href="#_abstract_baseclass">12.5.2. Abstract Baseclass</a></li>
+<li><a href="#_duck_typing_en_interfaces">12.5.3. Duck Typing en Interfaces</a></li>
+<li><a href="#_toepassing_op_game_interfaces">12.5.4. Toepassing op Game-Interfaces</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3807,7 +3863,7 @@ Als er een <em>exception</em> optreedt, wordt de bijbehorende <code>except</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="_8_5_4_het_finally_blok">9.4. 8.5.4 Het Finally Blok</h3>
+<h3 id="_het_finally_blok">9.4. Het Finally Blok</h3>
 <div class="paragraph">
 <p>Het <code>finally</code> blok wordt altijd uitgevoerd, ongeacht of er een <em>exception</em> is opgetreden of niet. Het wordt vaak gebruikt om bronnen vrij te geven, zoals bestanden of netwerkverbindingen.</p>
 </div>
@@ -3824,7 +3880,75 @@ Als er een <em>exception</em> optreedt, wordt de bijbehorende <code>except</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="_aangepaste_exceptions">9.5. Aangepaste <em>exceptions</em></h3>
+<h3 id="_hiërarchie_van_exceptions">9.5. Hiërarchie van Exceptions</h3>
+<div class="paragraph">
+<p>De meeste uitzonderingen in Python erven (zijn subklassen) van de basisException <em>BaseException</em>. Dit is de hoogste klasse in de uitzonderingshiërarchie. Enkele belangrijke uitzonderingsklassen zijn:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Exception: Basis voor bijna alle ingebouwde uitzonderingen.</p>
+</li>
+<li>
+<p>ArithmeticError: Basis voor uitzonderingen die optreden bij wiskundige berekeningen.</p>
+</li>
+<li>
+<p>LookupError: Basis voor uitzonderingen die optreden bij ongeldige sleutels of indices.</p>
+</li>
+<li>
+<p>FileNotFoundError: Een specifieke uitzondering voor het niet kunnen vinden van een bestand.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Code die mogelijk een exception kan veroorzaken
+</span>    <span class="n">resultaat</span> <span class="o">=</span> <span class="nf">deling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">ArithmeticError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Code die wordt uitgevoerd als er een wiskundige fout optreedt
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Wiskundige fout: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">LookupError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Code die wordt uitgevoerd als er een fout optreedt bij het zoeken
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Fout bij opzoeken: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Code die wordt uitgevoerd voor alle andere exceptions
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Andere fout: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/exception_hierarchy.png" alt="exception hierarchy">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_het_opvangen_van_bovenliggende_exceptions">9.5.1. Het Opvangen van Bovenliggende Exceptions</h4>
+<div class="paragraph">
+<p>Soms wil je verschillende uitzonderingen opvangen, maar ook een meer algemene bovenliggende uitzondering omvatten om brede foutafhandeling mogelijk te maken. Dit kan worden bereikt door een bovenliggende <code>Exception</code>-klasse op te vangen voordat je specifieke uitzonderingen afhandelt. Hier is hoe je dit kunt doen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Code die mogelijk een exception kan veroorzaken
+</span>    <span class="n">resultaat</span> <span class="o">=</span> <span class="nf">deling</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nf">except </span><span class="p">(</span><span class="nb">Exception</span><span class="p">,</span> <span class="n">AnotherException</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Code die wordt uitgevoerd als een algemene of specifieke exception wordt gevangen
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Fout opgetreden: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">YetAnotherException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Code die wordt uitgevoerd als YetAnotherException wordt gevangen
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Nog een andere fout: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld worden zowel <code>Exception</code> als <code>AnotherException</code> opgevangen voordat specifieke uitzonderingen worden behandeld. Hierdoor kun je een meer algemene foutafhandeling implementeren voordat je specifieke uitzonderingen afzonderlijk behandelt.</p>
+</div>
+<div class="paragraph">
+<p>Dit patroon is handig wanneer je een brede foutafhandeling wilt toevoegen, maar ook enkele specifieke uitzonderingen gedetailleerder wilt afhandelen. Het is echter belangrijk om te weten dat het opvangen van te brede uitzonderingen de leesbaarheid van je code kan verminderen, omdat het moeilijker wordt om specifieke fouten te identificeren en te begrijpen. Gebruik het met zorg en zorg ervoor dat de uitzonderingen die je opvangt, logisch samenhangen.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aangepaste_exceptions">9.6. Aangepaste <em>exceptions</em></h3>
 <div class="paragraph">
 <p>Je kunt ook je eigen <em>exceptions</em> maken voor situaties die specifiek zijn voor je programma.</p>
 </div>
@@ -3846,7 +3970,946 @@ Als er een <em>exception</em> optreedt, wordt de bijbehorende <code>except</code
 <p>Hier wordt een aangepaste <code>TeJongError</code> gegenereerd en afgehandeld als de leeftijd minder is dan 18.</p>
 </div>
 <div class="paragraph">
-<p>Het correct omgaan met uitzonderingen is essentieel voor het schrijven van robuuste en fouttolerante programma&#8217;s. Het stelt je in staat om elegant te reageren op onverwachte omstandigheden en de gebruiker te voorzien van zinvolle foutmeldingen.</p>
+<p>Het correct omgaan met uitzonderingen is essentieel voor het schrijven van robuuste en fouttolerante programma&#8217;s. Het stelt je in staat om elegant te reageren op onverwachte omstandigheden en de gebruiker te voorzien van zinvolle foutmeldingen.
+:lib: <em>library</em>
+:libs: <em>libraries</em>
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_klassen">10. Klassen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een <strong>klasse</strong> in een object georiënteerde taal is een concept dat een blauwdruk vormt.
+Van deze blauwdruk kunnen verschillende <strong>instanties</strong> aangemaakt worden.
+Een klasse bestaat uit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>variabelen</p>
+</li>
+<li>
+<p>methods (functies die in een klasse geschreven zijn)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_voorbeeld_van_een_klasse">10.1. Voorbeeld van een klasse</h3>
+<div class="paragraph">
+<p>Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
+In computerspellen wordt veel gebruik gemaakt van klassen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ages.png" alt="Game characters">
+</div>
+<div class="title">Figure 2. Klassen en instanties in Age of Empires 2</div>
+</div>
+<div class="paragraph">
+<p>In de afbeelding hierboven (uit het computerspel <em>Age of Empires</em>) kunnen we verschillende klassen aan het werk zien:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Een ruiter (deze komt meerdere keren voor &#8594; meerdere instanties)</p>
+</li>
+<li>
+<p>Een kameel (ook deze komt meerdere keren voor &#8594; meerdere instanties)</p>
+</li>
+<li>
+<p>Een kasteel (komt 1x voor &#8594; slechts 1 instantie)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Een ruiter is als <strong>klasse</strong> in dit computerspel slechts <strong>eenmaal gedefiniëerd</strong>.
+Toch zien we meerdere ruiters.
+Dit komt omdat er van deze ruiter klasse <strong>meerdere instanties</strong> werden aangemaakt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_code_om_een_klasse_te_definiëren">10.2. De <em>code</em> om een klasse te definiëren</h3>
+<div class="paragraph">
+<p>De ruiter klasse uit bovenstaande <em>screenshot</em> zou als volgt geprogrameerd kunnen zijn:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Ruiter</span><span class="p">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="n">self</span><span class="p">.</span><span class="n">totalhitpoints</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">armour</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">positionX</span> <span class="o">=</span> <span class="mi">485</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">positionY</span> <span class="o">=</span> <span class="mi">312</span>
+
+    <span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>We definiëren een Python-klasse genaamd <code>Ruiter</code>. De definitie van de klasse.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Binnen de klasse <code>Ruiter</code> definiëren we enkele attributen zoals <code>totalhitpoints</code>, <code>health</code>, <code>speed</code>, <code>armour</code>, <code>positionX</code>, en <code>positionY</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>We definiëren een methode genaamd <code>hit()</code>, die de gezondheid (<code>health</code>) van de ruiter verlaagt wanneer deze wordt aangeroepen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>De code in de functie werkt op de variabelen uit de klasse.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title=":heavy_exclamation_mark:"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><mark>Een klasse begint steeds met een hoofdletter</mark>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instanties">10.3. Instanties</h3>
+<div class="paragraph">
+<p>Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van iets, bijvoorbeeld van een auto.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/teslablauwdruk.jpg" alt="Tesla blauwdruk">
+</div>
+</div>
+<div class="paragraph">
+<p>Dit ontwerp beschrijft hoe een auto eruit moet zien, wat het concept is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De afmetingen</p>
+</li>
+<li>
+<p>De buiging van de carosserie</p>
+</li>
+<li>
+<p>Het aantal zetels</p>
+</li>
+<li>
+<p>De maat van de velgen</p>
+</li>
+<li>
+<p>Paardenkracht van de motor</p>
+</li>
+<li>
+<p>..</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Maar het is (nog) geen auto die je kan gebruiken.
+Om het te gaan gebruiken zal je een instantie moeten maken (een echte auto van de fabrieksband laten rollen).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/teslas.webp" alt="Tesla fabriek">
+</div>
+<div class="title">Figure 3. In de fabriek worden instanties van Teslas aangemaakt.</div>
+</div>
+<div class="paragraph">
+<p>Het aanmaken van instanties in Python gebeurt door de naam van de klasse te geven, gevolgd door de ronde haken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter1</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">();</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Merk op dat de klasse met een hoofdletter wordt geschreven en de instantie met een kleine letter.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Het is mogelijk meerdere instanties aan te maken van dezelfde klasse:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter2</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">();</span>
+<span class="n">ruiter3</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">();</span>
+<span class="n">ruiter4</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">();</span>
+<span class="n">ruiter5</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">();</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Zo lang het werkgeheugen (RAM) niet vol is, kan je instanties blijven aanmaken.</strong></p>
+</div>
+<div class="sect3">
+<h4 id="_variabelen_en_geheugengebruik">10.3.1. Variabelen en geheugengebruik</h4>
+<div class="paragraph">
+<p>Iedere instantie van een klasse neemt een deel van het geheugen in.
+<mark>Voor iedere instantie worden immers de waarden van de verschillende variabelen apart bijgehouden.</mark></p>
+</div>
+<div class="paragraph">
+<p>Als de hitpoints van 1 ruiter verminderen doordat hij aangevallen werd, geldt dit enkel voor deze ruiter.
+De hitpoints van de andere ruiters behouden hun eigen waarden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health2.jpg" alt="Game health">
+</div>
+<div class="title">Figure 4. Geselecteerde <em>units</em> en hun <em>health bar</em> in Age of Empires.</div>
+</div>
+<div class="paragraph">
+<p>Al deze informatie moet (voor iedere instantie) in het werkgeheugen bijgehouden worden.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_variabelen">10.3.2. Variabelen</h4>
+<div class="paragraph">
+<p>Om de variabele van instanties aan te passen kunnen we via de <em>dot notatie</em> (punt notatie) aan de variabelen van een instantie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="n">ruiter1</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>  <span class="c1"># Geeft de gezondheid van 'ruiter1' weer (200)
+</span><span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">positionX</span><span class="p">)</span>  <span class="c1"># Geeft de X-positie van 'ruiter2' weer (485)
+</span>
+<span class="n">ruiter2</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span>  <span class="c1"># Roept de 'hit' methode aan voor 'ruiter2', verlaagt de gezondheid met 10
+</span><span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>  <span class="c1"># Geeft de bijgewerkte gezondheid van 'ruiter2' weer (190)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Initieel hebben deze variabelen een standaardwaarde. Deze werd in de klasse bepaald, namelijk 200.</p>
+</div>
+<div class="paragraph">
+<p>Als we de hit() method (functie in een klasse) uitvoeren op de 3de instantie, zal van deze instantie 10 hitpoints afgetrokken worden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">health</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nf">print</span><span class="p">(</span><span class="n">ruiter3</span><span class="p">.</span><span class="n">health</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Het uitvoeren van de hit() method op de 3de instantie (via de <em>dot notatie</em>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Het afprinten van de <em>health</em> van ruiter 2: 200</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Het afprinten van de <em>health</em> van ruiter 3. Dit is nu: 190</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_methods_functies">10.3.3. Methods (functies)</h4>
+<div class="paragraph">
+<p>In een klasse kunnen methods (of functies) geschreven worden.
+Deze methods kunnen aangeroepen worden op de instantie van een klasse.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Een dergelijke method kan gedefinieerd worden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Identieke methods kunnen niet voorkomen in een klasse, tenzij de parameters verschillend zijn.
+Het volgende is dus niet mogelijk:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">20</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit maakt 2 maal dezelfde method (naam) aan, dit geeft de compiler aan als een fout.
+Wat wel kan is andere <em>parameters</em> gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">damage</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">damage</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kan de compiler een duidelijk onderscheid maken tussen de 2 methods.
+Bij het aanroepen van de method op een instantie is het immers duidelijk welke van de 2 bedoeld wordt door te kijken naar de parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+<span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">();</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De eerste zal de hit() method oproepen die parameters bevat.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lists_en_tuples">10.3.4. Lists en Tuples</h4>
+<div class="paragraph">
+<p>Instanties van klassen kunnen in een list (of Tuple of dictionary) worden geplaatst, net zoals andere datatypes.
+De gehele getallen 4, 5, 6, 7, .. zijn immers ook maar instanties van een integer datatype.
+Ruiter1, ruiter2, .. zijn instanties van het Ruiter datatype.</p>
+</div>
+<div class="paragraph">
+<p>Om een list aan te maken van Ruiters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Maak een lijst van Ruiter-instanties
+</span><span class="n">ruiters</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Voeg instanties toe aan de lijst
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg een nieuwe Ruiter-instantie toe
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg nog een Ruiter-instantie toe
+</span>
+<span class="c1"># Je kunt zoveel instanties toevoegen als je nodig hebt
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg nog een Ruiter-instantie toe
+</span>
+<span class="c1"># Toegang tot individuele ruiters in de lijst
+</span><span class="n">eerste_ruiter</span> <span class="o">=</span> <span class="n">ruiters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tweede_ruiter</span> <span class="o">=</span> <span class="n">ruiters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Roep methoden aan voor individuele ruiters
+</span><span class="n">eerste_ruiter</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Pas schade toe op de eerste ruiter
+</span><span class="n">tweede_ruiter</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># Pas schade toe op de tweede ruiter
+</span>
+<span class="c1"># Controleer de gezondheid van individuele ruiters
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Gezondheid van de eerste ruiter:</span><span class="sh">"</span><span class="p">,</span> <span class="n">eerste_ruiter</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Gezondheid van de tweede ruiter:</span><span class="sh">"</span><span class="p">,</span> <span class="n">tweede_ruiter</span><span class="p">.</span><span class="n">health</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Games</em> maken veel gebruik van lijsten van instanties.
+Hieronder kan je een voorbeeld zien van een selectie van <em>units</em> in een strategiespel.
+De speler heeft via de muis zijn leger van <em>units</em> geselecteerd.
+Deze selectie is zichtbaar door de kadertjes die rond de units zijn getrokken.
+De groene balk geeft vervolgens de hitpoints aan van de individuele <em>units</em> in de selectie list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health.png" alt="Game selectie">
+</div>
+<div class="title">Figure 5. Geselecteerde <em>units</em> en hun <em>health bar</em> in Tiberian Sun.</div>
+</div>
+<div class="paragraph">
+<p>Ieder <em>unit</em> in het spel is een instantie van een klasse.
+<mark>Voor iedere instantie worden de variabelen apart bijgehouden.</mark>
+In het screenshot kan je zien dat enkele <em>units</em> meer schade hebben opgelopen dan anderen.</p>
+</div>
+<div class="paragraph">
+<p>Voor de bommenwerpers (de vliegtuigen onderaan op het screenshots) kan je zien aan de hand van de gele blokjes, hoeveel bommen ze nog dragen.</p>
+</div>
+<div class="paragraph">
+<p>In Python code zouden we de array als volgt kunnen voorstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Unit</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">hitpoints</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Maak een lijst van Unit-objecten met een maximum van 100 eenheden
+</span><span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Bereken het gezondheidspercentage van elke eenheid en druk dit af
+</span><span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">unit</span><span class="p">.</span><span class="n">hitpoints</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">health_percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">unit</span><span class="p">.</span><span class="n">health</span> <span class="o">/</span> <span class="n">unit</span><span class="p">.</span><span class="n">hitpoints</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">health_percentage</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Deze eenheid heeft geen hitpoints, dus het gezondheidspercentage kan niet worden berekend.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gebruik_van_bestaande_klassen">10.4. Gebruik van bestaande klassen</h3>
+<div class="paragraph">
+<p>In de <em>standard library</em> van Python (die wordt meegeinstalleerd bij het installeren van Python) zijn veel bestaande klassen aanwezig.
+Deze kan je gebruiken zonder ze zelf vanaf 0 te hoeven schrijven.</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld hiervan is de <em>math</em> klasse.
+Deze bevat enkele constanten (onveranderbare variabelen), zoals het getal PI.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">math</span>
+
+<span class="c1"># Gebruik de math.pi constante om de waarde van pi te verkrijgen
+</span><span class="n">pi_value</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span>
+
+<span class="c1"># Druk de waarde van pi af
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De waarde van pi is:</span><span class="sh">"</span><span class="p">,</span> <span class="n">pi_value</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ook bevat deze klasse enkele methods zoals het berekenen van het gemiddelde, maximum, minimum,.. Kortom veel zaken die in de wiskunde van pas kunnen komen.</p>
+</div>
+<div class="sect3">
+<h4 id="_random">10.4.1. Random</h4>
+<div class="paragraph">
+<p>Om een willekeurig getal te genereren in Python, kun je de <code>random</code>-module gebruiken. Hier is een voorbeeld van hoe je een willekeurig getal kunt maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Genereer een willekeurig geheel getal tussen 1 en 10 (inclusief 1 en 10)
+</span><span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Druk het willekeurige getal af
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Willekeurig getal tussen 1 en 10:</span><span class="sh">"</span><span class="p">,</span> <span class="n">random_number</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We importeren eerst de <code>random</code>-module, die functionaliteit biedt om willekeurige getallen te genereren.</p>
+</li>
+<li>
+<p>Met <code>random.randint(a, b)</code> kunnen we een willekeurig geheel getal genereren tussen <code>a</code> (inclusief) en <code>b</code> (inclusief). In het bovenstaande voorbeeld genereren we een willekeurig getal tussen 1 en 10 en slaan dit op in de variabele <code>random_number</code>.</p>
+</li>
+<li>
+<p>We drukken het willekeurige getal af met <code>print()</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Telkens wanneer je dit script uitvoert, wordt een ander willekeurig getal tussen 1 en 10 gegenereerd. Je kunt de bereikwaarden (<code>1</code> en <code>10</code> in dit voorbeeld) aanpassen aan je specifieke behoeften.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_constructors">11. Constructors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Python, net als in veel andere objectgeoriënteerde programmeertalen, worden constructors gebruikt om objecten initialiseren (instanties van klassen te maken).
+Constructors worden aangeroepen wanneer een object (of instanitie) van een klasse wordt gemaakt, en ze bieden de mogelijkheid om de initiële toestand van dat object in te stellen.</p>
+</div>
+<div class="sect2">
+<h3 id="_wat_is_een_constructor">11.1. Wat is een Constructor?</h3>
+<div class="paragraph">
+<p>Een constructor is een speciale methode (functie) in een klasse die wordt aangeroepen wanneer een object van die klasse wordt gemaakt. In Python wordt de constructor gemarkeerd door de methode <code><em>init</em></code>. Het doel van de constructor is om de initiële staat van een object in te stellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Auto</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">merk</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">merk</span> <span class="o">=</span> <span class="n">merk</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier heeft de klasse <code>Auto</code> een constructor <code><em>init</em></code> die twee parameters, <code>merk</code> en <code>model</code>, accepteert. <mark>De <code>self</code> parameter verwijst naar het object dat wordt gemaakt</mark>.
+Wanneer een object van deze klasse wordt gemaakt, wordt de constructor automatisch aangeroepen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een instantie van de klasse Auto maken
+</span><span class="n">auto1</span> <span class="o">=</span> <span class="nc">Auto</span><span class="p">(</span><span class="sh">"</span><span class="s">Toyota</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Camry</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">merk</span><span class="p">)</span>  <span class="c1"># Output: Toyota
+</span><span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># Output: Camry</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_defaultwaarden_en_optionele_parameters">11.2. Defaultwaarden en Optionele Parameters</h3>
+<div class="paragraph">
+<p>Constructors kunnen parameters hebben met standaardwaarden, waardoor ze optioneel worden bij het maken van een object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Persoon</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">leeftijd</span> <span class="o">=</span> <span class="n">leeftijd</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier heeft de parameter <code>leeftijd</code> een standaardwaarde van 18. Als de gebruiker geen leeftijd opgeeft bij het maken van een object, wordt automatisch 18 gebruikt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeelden van het maken van objecten van de klasse Persoon
+</span><span class="n">persoon1</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">persoon2</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">persoon1</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 18
+</span><span class="nf">print</span><span class="p">(</span><span class="n">persoon2</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 25</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initialisatiecode">11.3. Initialisatiecode</h3>
+<div class="paragraph">
+<p>In de constructor kun je naast het instellen van attributen ook andere initialisatiecode plaatsen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Bankrekening</span><span class="p">:</span>
+    <span class="n">rentevoet</span> <span class="o">=</span> <span class="mf">0.02</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">eigenaar</span><span class="p">,</span> <span class="n">saldo</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">eigenaar</span> <span class="o">=</span> <span class="n">eigenaar</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span> <span class="o">+</span> <span class="p">(</span><span class="n">saldo</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">rentevoet</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt de rente automatisch toegevoegd aan het saldo wanneer een bankrekening wordt gemaakt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een instantie van de klasse Bankrekening maken
+</span><span class="n">rekening1</span> <span class="o">=</span> <span class="nc">Bankrekening</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rekening1</span><span class="p">.</span><span class="n">saldo</span><span class="p">)</span>  <span class="c1"># Output: 1020.0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_meerdere_constructors_overloading">11.4. Meerdere Constructors - <em>Overloading</em></h3>
+<div class="paragraph">
+<p>Python heeft geen traditionele <em>methodoverloading</em> zoals sommige andere talen. Maar je kunt optionele parameters gebruiken om verschillende gedragingen te simuleren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Driehoek</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">zijde1</span><span class="p">,</span> <span class="n">zijde2</span><span class="p">,</span> <span class="n">zijde3</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde1</span> <span class="o">=</span> <span class="n">zijde1</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde2</span> <span class="o">=</span> <span class="n">zijde2</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde3</span> <span class="o">=</span> <span class="n">zijde3</span> <span class="k">if</span> <span class="n">zijde3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">zijde1</span> <span class="o">+</span> <span class="n">zijde2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kan de gebruiker ofwel drie zijden opgeven, of slechts twee, waarbij de derde zijde automatisch wordt berekend.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeelden van het maken van objecten van de klasse Driehoek
+</span><span class="n">driehoek1</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">driehoek2</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">driehoek1</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 7
+</span><span class="nf">print</span><span class="p">(</span><span class="n">driehoek2</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 5</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initialisatie_van_objecten">11.5. Initialisatie van Objecten</h3>
+<div class="paragraph">
+<p>Het initialiseren van objecten gebeurt door een instantie van de klasse te maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">auto1</span> <span class="o">=</span> <span class="nc">Auto</span><span class="p">(</span><span class="sh">"</span><span class="s">Toyota</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Camry</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">persoon1</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">rekening1</span> <span class="o">=</span> <span class="nc">Bankrekening</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">driehoek1</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wanneer je een object van een klasse maakt, wordt automatisch de bijbehorende constructor aangeroepen en worden de attributen geïnitialiseerd.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_toegang_tot_attributen">11.6. Toegang tot Attributen</h3>
+<div class="paragraph">
+<p>Na initialisatie zijn de attributen van een object toegankelijk met behulp van de dot-notatie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">merk</span><span class="p">)</span>  <span class="c1"># Output: Toyota
+</span><span class="nf">print</span><span class="p">(</span><span class="n">persoon1</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 18
+</span><span class="nf">print</span><span class="p">(</span><span class="n">rekening1</span><span class="p">.</span><span class="n">saldo</span><span class="p">)</span>  <span class="c1"># Output: 1020.0
+</span><span class="nf">print</span><span class="p">(</span><span class="n">driehoek1</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 7</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subklassen_en_overerving">12. Subklassen en Overerving</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Overerving stelt je in staat om bestaande klassen uit te breiden en opnieuw te gebruiken,
+wat leidt tot een efficiënter en beter georganiseerd ontwerp van je code.</p>
+</div>
+<div class="sect2">
+<h3 id="_wat_is_overerving">12.1. Wat is Overerving?</h3>
+<div class="paragraph">
+<p>Overerving is een belangrijk concept in objectgeoriënteerd programmeren, waaronder Python.
+Het stelt je in staat om een nieuwe klasse te maken, die bekend staat als de subklasse, door kenmerken van een bestaande klasse, de bovenliggende klasse, over te nemen.
+<mark>De subklasse erft eigenschappen en methoden van de bovenliggende klasse en kan deze aanvullen of aanpassen.</mark></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Karakter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">=</span> <span class="n">gezondheid</span>
+
+    <span class="k">def</span> <span class="nf">take_damage</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">hoeveelheid</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">-=</span> <span class="n">hoeveelheid</span>
+
+<span class="k">class</span> <span class="nc">Speler</span><span class="p">(</span><span class="n">Karakter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+
+    <span class="k">def</span> <span class="nf">upgrade_level</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld heeft <strong><code>Speler</code> de <code>Karakter</code>-klasse uitgebreid</strong>. Het erft de <code><em>init</em></code>-methode van <code>Karakter</code> door <code>super().<em>init</em>(naam, gezondheid)</code> te gebruiken en voegt een extra methode toe, <code>upgrade_level</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_toepassingen_in_gaming">12.2. Toepassingen in Gaming</h3>
+<div class="paragraph">
+<p>In gaming-scenario&#8217;s is overerving nuttig omdat het je in staat stelt om gemeenschappelijke kenmerken en gedragingen van personages, objecten of vijanden te delen. Stel je voor dat je een game hebt met verschillende soorten vijanden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Vijand</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">aanvalskracht</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">=</span> <span class="n">gezondheid</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">aanvalskracht</span> <span class="o">=</span> <span class="n">aanvalskracht</span>
+
+    <span class="k">def</span> <span class="nf">val_aan</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">doelwit</span><span class="p">):</span>
+        <span class="n">doelwit</span><span class="p">.</span><span class="nf">neem_damage</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">aanvalskracht</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Zombie</span><span class="p">(</span><span class="n">Vijand</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">aanvalskracht</span><span class="p">,</span> <span class="n">infectiegraad</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">aanvalskracht</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">infectiegraad</span> <span class="o">=</span> <span class="n">infectiegraad</span>
+
+    <span class="k">def</span> <span class="nf">bijt</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">doelwit</span><span class="p">):</span>
+        <span class="n">doelwit</span><span class="p">.</span><span class="n">wordt_geïnfecteerd</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">infectiegraad</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier erft de <code>Zombie</code>-klasse van de <code>Vijand</code>-klasse. Het erft de eigenschappen en methoden van <code>Vijand</code> en voegt een nieuwe methode toe, <code>bijt</code>. Dit stelt je in staat om specifieke kenmerken van zombies te modelleren zonder de gemeenschappelijke kenmerken van vijanden opnieuw te hoeven implementeren.
+De zombie is een subklasse van vijand. Vijand is de <strong>superklasse</strong> van zombie.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_overerving_en_meerdere_subklassen">12.3. Overerving en meerdere Subklassen</h3>
+<div class="paragraph">
+<p>Een klasse kan door meerdere subklassen worden uitgebreid, wat bekend staat als veelvoudige overerving. Dit kan krachtig zijn, maar het moet voorzichtig worden gebruikt om verwarring en conflicten te voorkomen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Vogel</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">vleugelspanwijdte</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">vleugelspanwijdte</span> <span class="o">=</span> <span class="n">vleugelspanwijdte</span>
+
+    <span class="k">def</span> <span class="nf">vlieg</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> vliegt.</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Pinguïn</span><span class="p">(</span><span class="n">Vogel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">vleugelspanwijdte</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">vleugelspanwijdte</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">vlieg</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> kan niet vliegen. Hij zwemt liever.</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Valk</span><span class="p">(</span><span class="n">Vogel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">vleugelspanwijdte</span><span class="p">,</span> <span class="n">snelheid</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">vleugelspanwijdte</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">snelheid</span> <span class="o">=</span> <span class="n">snelheid</span>
+
+    <span class="k">def</span> <span class="nf">val_aan</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">prooi</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> valt de prooi aan met een snelheid van </span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">snelheid</span><span class="si">}</span><span class="s"> km/u.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld hebben zowel <code>Pinguïn</code> als <code>Valk</code> de eigenschappen van de <code>Vogel</code>-klasse geërfd. Beide hebben echter hun eigen implementatie van de <code>vlieg</code>-methode.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_polymorfisme">12.4. Polymorfisme</h3>
+<div class="paragraph">
+<p>Overerving leidt tot het concept van polymorfisme, wat betekent "veel vormen". In Python betekent dit dat objecten van verschillende klassen dezelfde methode kunnen delen, maar <mark>deze op hun eigen manier implementeren</mark>.</p>
+</div>
+<div class="paragraph">
+<p>Laten we beginnen met een eenvoudig voorbeeld van een algemene Personage-klasse en een specifieke subklasse, Held, voor een gametekstscenario:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Personage</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">=</span> <span class="n">gezondheid</span>
+
+    <span class="k">def</span> <span class="nf">toon_info</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> (Gezondheid: </span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">gezondheid</span><span class="si">}</span><span class="s">)</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Held</span><span class="p">(</span><span class="n">Personage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">kracht</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">kracht</span> <span class="o">=</span> <span class="n">kracht</span>
+
+    <span class="k">def</span> <span class="nf">voer_aanval_uit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">vijand</span><span class="p">):</span>
+        <span class="n">vijand</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">-=</span> <span class="n">self</span><span class="p">.</span><span class="n">kracht</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> valt </span><span class="si">{</span><span class="n">vijand</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> aan met kracht </span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">kracht</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier is een eenvoudige implementatie van overerving. Held erft van Personage, waardoor het alle eigenschappen van Personage behoudt en specifieke eigenschappen zoals kracht kan toevoegen.</p>
+</div>
+<div class="sect3">
+<h4 id="_subklassen_met_verschillende_methoden">12.4.1. Subklassen met Verschillende Methoden</h4>
+<div class="paragraph">
+<p>In gaming heb je vaak verschillende soorten acties voor verschillende personages. Laten we een Dief-subklasse maken die de methode steek heeft:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Dief</span><span class="p">(</span><span class="n">Personage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">lenigheid</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">lenigheid</span> <span class="o">=</span> <span class="n">lenigheid</span>
+
+    <span class="k">def</span> <span class="nf">voer_aanval_uit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">vijand</span><span class="p">):</span>
+        <span class="nf">steek</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">vijand</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">steek</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">slachtoffer</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">lenigheid</span> <span class="o">&gt;</span> <span class="n">slachtoffer</span><span class="p">.</span><span class="n">lenigheid</span><span class="p">:</span>
+            <span class="n">slachtoffer</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">-=</span> <span class="mi">10</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> steelt snel en steekt </span><span class="si">{</span><span class="n">slachtoffer</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> probeerde te steken, maar miste.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier zie je dat de Dief-subklasse een andere methode heeft dan de Held-subklasse, wat aantoont hoe verschillende subklassen specifieke acties kunnen hebben.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_veelvoudige_overerving_multiple_inheritance">12.4.2. Veelvoudige Overerving (Multiple inheritance)</h4>
+<div class="paragraph">
+<p>Laten we nu een voorbeeld bekijken van veelvoudige overerving, waarbij een klasse van meerdere andere klassen erft. Stel dat we een Magiër-klasse willen maken die zowel magische als fysieke aanvallen kan uitvoeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Magiër</span><span class="p">(</span><span class="n">Held</span><span class="p">,</span> <span class="n">Dief</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">kracht</span><span class="p">,</span> <span class="n">lenigheid</span><span class="p">,</span> <span class="n">magie</span><span class="p">):</span>
+        <span class="n">Held</span><span class="p">.</span><span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">kracht</span><span class="p">)</span>
+        <span class="n">Dief</span><span class="p">.</span><span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">gezondheid</span><span class="p">,</span> <span class="n">lenigheid</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">magie</span> <span class="o">=</span> <span class="n">magie</span>
+
+    <span class="k">def</span> <span class="nf">voer_aanval_uit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">doelwit</span><span class="p">):</span>
+        <span class="n">doelwit</span><span class="p">.</span><span class="n">gezondheid</span> <span class="o">-=</span> <span class="n">self</span><span class="p">.</span><span class="n">magie</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> gebruikt magie en valt </span><span class="si">{</span><span class="n">doelwit</span><span class="p">.</span><span class="n">naam</span><span class="si">}</span><span class="s"> aan met magie </span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">magie</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier erft Magiër van zowel Held als Dief, wat betekent dat het zowel de methode voer_aanval_uit van Held als steek van Dief erft. Het kan ook specifieke methoden toevoegen, zoals voer_magische_aanval_uit.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_polymorfisme_in_actie">12.4.3. Polymorfisme in Actie</h4>
+<div class="paragraph">
+<p>Polymorfisme betekent dat verschillende klassen dezelfde methode kunnen hebben, maar op hun eigen manier implementeren. In een gameomgeving kan dit betekenen dat verschillende personages dezelfde soort actie kunnen uitvoeren, maar met verschillende effecten.</p>
+</div>
+<div class="paragraph">
+<p>Laten we een voorbeeld bekijken met de voer_aanval_uit-methode:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">voer_aanval_uit_en_toon_info</span><span class="p">(</span><span class="n">personage</span><span class="p">):</span>
+    <span class="n">personage</span><span class="p">.</span><span class="nf">voer_aanval_uit</span><span class="p">()</span>
+    <span class="n">personage</span><span class="p">.</span><span class="nf">toon_info</span><span class="p">()</span>
+
+<span class="n">held</span> <span class="o">=</span> <span class="nc">Held</span><span class="p">(</span><span class="sh">"</span><span class="s">Arthur</span><span class="sh">"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">dief</span> <span class="o">=</span> <span class="nc">Dief</span><span class="p">(</span><span class="sh">"</span><span class="s">Sly</span><span class="sh">"</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">magiër</span> <span class="o">=</span> <span class="n">Magiër</span><span class="p">(</span><span class="sh">"</span><span class="s">Gandalf</span><span class="sh">"</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+
+<span class="nf">voer_aanval_uit_en_toon_info</span><span class="p">(</span><span class="n">held</span><span class="p">)</span>
+<span class="nf">voer_aanval_uit_en_toon_info</span><span class="p">(</span><span class="n">dief</span><span class="p">)</span>
+<span class="nf">voer_aanval_uit_en_toon_info</span><span class="p">(</span><span class="n">magiër</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kan dezelfde functie worden gebruikt voor verschillende typen personages. Het resultaat is verschillend voor elke klasse, wat het polymorfe karakter illustreert.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interfaces">12.5. Interfaces</h3>
+<div class="paragraph">
+<p>In Python zijn er geen expliciete interfaces zoals in sommige andere programmeertalen, maar het concept van interfaces kan geïmplementeerd worden met behulp van <strong>abstract baseclasses</strong> en duck typing.</p>
+</div>
+<div class="sect3">
+<h4 id="_wat_zijn_interfaces">12.5.1. Wat zijn Interfaces?</h4>
+<div class="paragraph">
+<p>In programmeertalen zoals Java en C#, is <mark>een interface een contract dat aangeeft welke methoden een klasse <strong>moet</strong> implementeren</mark>. In Python, waar dynamische typering en duck typing domineren, wordt het idee van interfaces meer benaderd dan afgedwongen.</p>
+</div>
+<div class="paragraph">
+<p>Een interface definieert een set methoden die door een klasse moeten worden geïmplementeerd. Het biedt een manier om code te organiseren, ervoor te zorgen dat bepaalde methoden beschikbaar zijn, en het vergemakkelijkt het gebruik van klassen indien je weet dat bepaalde functies zeker aanwezig zullen zijn.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_abstract_baseclass">12.5.2. Abstract Baseclass</h4>
+<div class="paragraph">
+<p>Een manier om interfaces in Python te benaderen, is door gebruik te maken van abstract baseclasses (ABC&#8217;s) uit het <code>abc</code>-module. Hiermee kun je abstracte methoden definiëren die <mark>moeten worden geïmplementeerd door subklassen</mark>.</p>
+</div>
+<div class="paragraph">
+<p>Laten we een voorbeeld bekijken van een <code>Beweging</code>-interface voor gamepersonages:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Beweging</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">ga_vooruit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">ga_achteruit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">pass</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hierin is <code>Beweging</code> een abstracte basisklasse met de abstracte methoden <code>ga_vooruit</code> en <code>ga_achteruit</code>. Klassen die <code>Beweging</code> willen implementeren, moeten deze methoden definiëren.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_duck_typing_en_interfaces">12.5.3. Duck Typing en Interfaces</h4>
+<div class="paragraph">
+<p>Python maakt gebruik van duck typing, wat betekent dat de geschiktheid van een object voor een bepaalde rol wordt bepaald door zijn gedrag in plaats van door expliciete implementaties of interfaces. Als een object loopt als een eend en kwaakt als een eend, dan is het een eend.</p>
+</div>
+<div class="paragraph">
+<p>Laten we een voorbeeld bekijken met een abstracte klasse <code>Vliegbaar</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Vliegbaar</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">vlieg</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Vogel</span><span class="p">(</span><span class="n">Vliegbaar</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">vlieg</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vogel vliegt door de lucht.</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Vliegtuig</span><span class="p">(</span><span class="n">Vliegbaar</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">vlieg</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Het vliegtuig stijgt op en vliegt hoog in de lucht.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit geval is <code>Vogel</code> en <code>Vliegtuig</code> vliegbaar omdat ze de methode <code>vlieg</code> implementeren. Duck typing in actie!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_toepassing_op_game_interfaces">12.5.4. Toepassing op Game-Interfaces</h4>
+<div class="paragraph">
+<p>Laten we nu deze concepten toepassen op game-interfaces. Stel je voor dat we een <code>GamePersonage</code>-interface willen maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">GamePersonage</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">aanval</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">verdedig</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">pass</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kunnen verschillende klassen, zoals <code>Held</code>, <code>Vijand</code> en <code>NPC</code>, deze interface implementeren. De interface zorgt ervoor dat elk gamepersonage de nodige methoden heeft om aan te vallen en zich te verdedigen, maar het staat vrij voor de klassen om deze op hun eigen manier in te vullen.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld 1: Implementatie voor een Held</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Held</span><span class="p">(</span><span class="n">GamePersonage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">aanval</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De held valt aan met zijn zwaard!</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">verdedig</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De held gebruikt zijn schild om zich te verdedigen.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voorbeeld 2: Implementatie voor een Vijand</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Vijand</span><span class="p">(</span><span class="n">GamePersonage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">aanval</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand lanceert een vuurbal naar zijn tegenstander!</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">verdedig</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De vijand ontwijkt de aanval en bereidt zich voor op een tegenaanval.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voorbeeld 3: Implementatie voor een NPC (Non-Playable Character)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">NPC</span><span class="p">(</span><span class="n">GamePersonage</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">aanval</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De NPC helpt de speler met strategische adviezen.</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">verdedig</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De NPC zoekt dekking en vermijdt directe confrontaties.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3854,7 +4917,7 @@ Als er een <em>exception</em> optreedt, wordt de bijbehorende <code>except</code
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-05 09:06:56 +0200
+Last updated 2023-10-05 09:39:15 +0200
 </div>
 </div>
 </body>
