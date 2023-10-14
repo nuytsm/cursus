@@ -1,0 +1,330 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Python-modules
+
+Een module in Python is een bestand dat Python-code bevat. Een module kan definities bevatten voor functies, klassen en variabelen, evenals uitvoerbare code. Modules zijn handig omdat ze ons in staat stellen code te organiseren en te hergebruiken.
+
+== Wat is een module?
+
+In Python is een module simpelweg een bestand met Python-code. Het kan functies, klassen en variabelen bevatten, evenals uitvoerbare code. De naam van het bestand is de naam van de module met de extensie .py verwijderd.
+
+== Waarom modules gebruiken?
+
+Modules zijn nuttig om verschillende redenen. Ten eerste helpen ze om de code georganiseerd te houden. Door gerelateerde code in dezelfde module te plaatsen, wordt het gemakkelijker om de code te vinden en te begrijpen.
+
+Ten tweede maken modules het mogelijk om code te hergebruiken. Als je een functie of een klasse hebt die in meerdere scripts wordt gebruikt, kun je deze in een module plaatsen en deze module in elk script importeren.
+
+== Hoe maak je een module?
+
+Het maken van een module is eenvoudig. Je hoeft alleen maar een nieuw Python-bestand te maken en de code die je wilt opnemen in de module in dit bestand te plaatsen.
+
+Laten we bijvoorbeeld een eenvoudige module maken die een Speler-klasse definieert voor een game.
+
+[source, python]
+----
+# speler.py
+class Speler:
+    def __init__(self, naam):
+        self.naam = naam
+        self.hp = 100
+
+    def neem_schade(self, schade):
+        self.hp -= schade
+----
+
+In dit voorbeeld hebben we een Speler-klasse gedefinieerd met twee methoden: __init__ en neem_schade. We kunnen deze Speler-klasse nu in andere scripts gebruiken door de speler-module te importeren.
+
+== Hoe importeer je een module?
+
+Het importeren van een module in Python is eenvoudig. Je gebruikt gewoon het import-statement gevolgd door de naam van de module.
+
+[source, python]
+----
+# game.py
+import speler
+
+def start_game():
+    speler1 = speler.Speler("Held")
+    print(f"{speler1.naam} begint het spel met {speler1.hp} HP.")
+----
+
+In dit voorbeeld importeren we de speler-module die we eerder hebben gemaakt. We kunnen nu de Speler-klasse uit deze module gebruiken om nieuwe spelers te maken.
+
+== Modules en namespaces
+
+Een belangrijk concept om te begrijpen bij het werken met modules is het idee van namespaces. Een namespace is gewoon ##een systeem om ervoor te zorgen dat namen uniek zijn om conflicten te voorkomen##.
+
+Wanneer je een module importeert, worden alle functies, klassen en variabelen gedefinieerd in die module beschikbaar in hun eigen namespace. In ons voorbeeld is Speler beschikbaar als speler.Speler.
+
+Dit betekent dat als we een andere module hadden die ook een Speler-klasse definieert, we beide klassen kunnen gebruiken zonder verwarring omdat ze in verschillende namespaces zijn.
+
+Python-modules zijn dus een krachtig hulpmiddel voor het organiseren en hergebruiken van code. Ze stellen ons in staat om onze code op te splitsen in logische, beheersbare stukken en maken onze programma’s gemakkelijker te begrijpen en te onderhouden.
+
+Een voorbeeld:
+
+[source, python]
+----
+# bestand1.py
+def foo():
+    print("foo van bestand1")
+
+# bestand2.py
+def foo():
+    print("foo van bestand2")
+
+# hoofdbestand.py
+import bestand1
+import bestand2
+
+bestand1.foo()  # Outputs: foo van bestand1
+bestand2.foo()  # Outputs: foo van bestand2
+----
+
+In dit voorbeeld hebben we twee verschillende modules, bestand1 en bestand2, die beide een functie foo definiëren. In hoofdbestand.py importeren we beide modules en roepen we foo aan vanuit elk van hen.
+
+Omdat de functies in hun respectievelijke namespaces zijn (de naam van de module), ##kunnen ze dezelfde naam foo hebben zonder conflicten##. Wanneer we ze aanroepen, moeten we de naam van de namespace specificeren (dat wil zeggen bestand1.foo() en bestand2.foo()), zodat Python weet welke we bedoelen.
+
+Dit is de kracht van namespaces. Ze stellen ons in staat om dezelfde namen te gebruiken in verschillende delen van ons programma zonder verwarring of conflicten. Dit is vooral handig in grote programma’s of **wanneer we modules gebruiken die door anderen zijn geschreven**.
+
+== Gebruik van standaard modules
+
+Python wordt geleverd met een rijke set ingebouwde modules die verschillende functionaliteiten bieden, variërend van wiskunde tot bestandsbeheer. Hieronder volgen enkele veelgebruikte ingebouwde modules, samen met voorbeelden van hoe je ze kunt gebruiken.
+
+=== `math` Module
+
+De `math`-module biedt wiskundige functies en constanten. Hier is een voorbeeld:
+
+[source, python]
+----
+import math
+
+# Voorbeeld 1: Vierkantswortel
+getal = 25
+vierkantswortel = math.sqrt(getal)
+print(f"Vierkantswortel van {getal} is {vierkantswortel}")
+
+# Voorbeeld 2: Afronden naar het dichtstbijzijnde gehele getal
+getal_met_decimaal = 4.56
+afgerond_getal = round(getal_met_decimaal)
+print(f"Afgerond getal: {afgerond_getal}")
+
+# Voorbeeld 3: Constanten
+print(f"Pi: {math.pi}, Eulers getal: {math.e}")
+----
+
+=== `datetime` Module
+
+De `datetime`-module is handig voor werken met datums en tijden.
+
+[source, python]
+----
+from datetime import datetime, timedelta
+
+# Voorbeeld 1: Huidige datum en tijd
+nu = datetime.now()
+print(f"Huidige datum en tijd: {nu}")
+
+# Voorbeeld 2: Formatteren van datum en tijd
+geformatteerd_nu = nu.strftime("%Y-%m-%d %H:%M:%S")
+print(f"Geformatteerde datum en tijd: {geformatteerd_nu}")
+
+# Voorbeeld 3: Datum en tijd in de toekomst
+toekomst = nu + timedelta(days=7)
+print(f"Datum en tijd over een week: {toekomst}")
+----
+
+=== `random` Module
+
+De `random`-module biedt functies voor het genereren van willekeurige getallen.
+
+[source, python]
+----
+import random
+
+# Voorbeeld 1: Willekeurig getal tussen 1 en 10
+willekeurig_getal = random.randint(1, 10)
+print(f"Willekeurig getal: {willekeurig_getal}")
+
+# Voorbeeld 2: Willekeurige keuze uit een lijst
+kleuren = ["rood", "blauw", "groen"]
+willekeurige_kleur = random.choice(kleuren)
+print(f"Willekeurige kleur: {willekeurige_kleur}")
+----
+
+=== `os` Module
+
+De `os`-module biedt functies voor interactie met het besturingssysteem.
+
+[source, python]
+----
+import os
+
+# Voorbeeld 1: Huidige werkmap
+huidige_map = os.getcwd()
+print(f"Huidige werkmap: {huidige_map}")
+
+# Voorbeeld 2: Lijst van bestanden in een map
+bestanden = os.listdir(huidige_map)
+print(f"Bestanden in de map: {bestanden}")
+----
+
+=== `json` Module
+
+De `json`-module wordt gebruikt voor het werken met JSON-gegevens.
+
+[source, python]
+----
+import json
+
+# Voorbeeld 1: JSON naar Python-dict
+json_data = '{"naam": "John", "leeftijd": 30, "stad": "New York"}'
+python_dict = json.loads(json_data)
+print(f"Python-dict: {python_dict}")
+
+# Voorbeeld 2: Python-dict naar JSON
+nieuw_json_data = json.dumps(python_dict)
+print(f"Nieuwe JSON-data: {nieuw_json_data}")
+----
+
+Dit zijn slechts enkele voorbeelden van de vele ingebouwde modules die Python biedt. Deze modules kunnen je helpen bij uiteenlopende taken, van wiskundige berekeningen tot het manipuleren van bestanden en gegevens. Raadpleeg de [Python-documentatie](https://docs.python.org/3/library/index.html) voor meer informatie over ingebouwde modules en hun functionaliteiten.
+
+Python beschikt over heel wat ingebouwde modules:
+
+image::images/list-of-Python-modules-using-help-function-example.jpg[]
+
+
+== Installatie van externe modules
+
+In Python kun je eenvoudig externe modules installeren om extra functionaliteit aan je programma's toe te voegen. Dit wordt gedaan met behulp van een pakketbeheerder genaamd `pip`.
+
+Externe modules in Python zijn als gereedschapskisten die je aan je basisgereedschap (de ingebouwde modules) kunt toevoegen. Deze externe modules zijn gespecialiseerd in bepaalde taken, waardoor je efficiënter en gerichter kunt werken. Het houdt de basisversie van Python licht en gemakkelijk te onderhouden. Door modules toe te voegen wanneer je ze nodig hebt, blijft Python flexibel en past het beter bij verschillende projecten, zonder onnodige complexiteit voor iedereen.
+
+=== Wat is `pip`?
+
+`pip` is het standaardpakketbeheersysteem voor Python. Het wordt gebruikt om Python-pakketten van het Python Package Index (PyPI) te installeren. PyPI is een opslagplaats van softwarepakketten geschreven in Python.
+
+=== Hoe werkt het?
+
+Om een Python-module te installeren met `pip`, open je een terminal of opdrachtprompt en voer je het volgende commando in:
+
+[source, python]
+----
+pip install module_naam
+----
+
+Vervang `module_naam` door de naam van de module die je wilt installeren.
+
+==== Voorbeeld: Matplotlib Module
+
+Laten we bijvoorbeeld de populaire `Matplotlib`-module installeren, die wordt gebruikt voor het verzenden van HTTP-verzoeken.
+
+[source, python]
+----
+pip install Matplotlib
+----
+
+Dit commando zal de `Matplotlib`-module downloaden en installeren.
+
+=== Versie Opgeven
+
+Je kunt ook een specifieke versie van een module installeren door de versienummer toe te voegen.
+
+[source, python]
+----
+pip install module_naam==versie_nummer
+----
+
+Bijvoorbeeld:
+
+[source, python]
+----
+pip install Matplotlib==2.26.0
+----
+
+Hiermee wordt versie 2.26.0 van de `Matplotlib`-module geïnstalleerd.
+
+=== __requirements__ Uit Een Bestand Installeren
+
+Soms wil je mogelijk alle modules installeren die in een __requirements__ bestand zijn gespecificeerd. Maak een bestand met de naam `requirements.txt` met daarin de namen van de modules en hun versies, en gebruik dan het volgende commando:
+
+[source, python]
+----
+pip install -r requirements.txt
+----
+
+=== Virtuele Omgevingen
+
+Het wordt sterk aanbevolen om modules binnen een virtuele omgeving te installeren om conflicten met andere projecten te voorkomen. Maak een virtuele omgeving met:
+
+[source, python]
+----
+python -m venv venv
+----
+
+Activeer de virtuele omgeving:
+
+- Voor Windows:
+
+[source, python]
+----
+  .\venv\Scripts\activate
+----
+
+- Voor MacOS/Linux:
+
+[source, python]
+----
+  source venv/bin/activate
+----
+
+Nu kun je modules installeren zonder invloed te hebben op het systeemwijd geïnstalleerde Python.
+
+=== Samenvatting
+
+Het installeren van Python-modules is een eenvoudig proces dankzij `pip`. Of je nu een enkele module of een hele lijst met vereisten installeert, het gebruik van `pip` maakt het beheer van externe bibliotheken in Python-projecten zeer efficiënt.
+
+image::images/modules.jpg[]
+
+== Enkele voorbeelden van populaire python modules
+
+* NumPy: NumPy is een bibliotheek voor de Python-programmeertaal, die ondersteuning biedt voor grote, multi-dimensionale arrays en matrices, samen met een grote verzameling wiskundige functies om mee te werken op deze arrays.
+
+Voorbeeld:
+
+[source, python]
+----
+import numpy as np
+a = np.array([1, 2, 3])
+print(a)
+----
+
+* Pandas: Pandas is een softwarebibliotheek geschreven voor de Python-programmeertaal voor gegevensmanipulatie en -analyse. In het bijzonder biedt het gegevensstructuren en bewerkingen voor het manipuleren van numerieke tabellen en tijdreeksen.
+
+Voorbeeld:
+
+[source, python]
+----
+import pandas as pd
+data = {'Name': ['John', 'Anna'], 'Age': [23, 24]}
+df = pd.DataFrame(data)
+print(df)
+----
+
+* Matplotlib: Matplotlib is een plotbibliotheek voor de Python-programmeertaal en zijn numerieke wiskundige extensie NumPy. Het biedt een objectgeoriënteerde API om in te bedden in applicaties met behulp van algemene GUI-toolkits zoals Tkinter, wxPython, Qt of GTK.
+
+[source, python]
+----
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some numbers')
+plt.show()
+----
+
+
+
