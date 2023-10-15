@@ -1,0 +1,178 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= Tkinter: Grafische Gebruikersinterface
+
+Tkinter is een krachtige bibliotheek in Python waarmee je snel en eenvoudig grafische gebruikersinterfaces (GUI's) kunt bouwen. GUI's stellen gebruikers in staat om interactief met programma's te communiceren door middel van visuele elementen zoals knoppen, tekstvakken en vensters.
+
+== Wat is Tkinter?
+
+Tkinter is de standaard GUI-bibliotheek voor Python en wordt meegeleverd met de Python-installatie. Het is gebaseerd op het Tk GUI-toolkit, dat oorspronkelijk is ontwikkeld voor het Tcl-programmeerplatform. Tkinter biedt een set widgets (grafische elementen) en hulpmiddelen om GUI's te maken met een minimale hoeveelheid code.
+
+== Hoe Werkt Tkinter?
+
+Tkinter volgt een gebeurtenisgestuurde programmeerstijl. Hier zijn de basisstappen om een Tkinter-toepassing te maken:
+
+. **Importeer Tkinter:** Begin met het importeren van de Tkinter-module in je Python-script.
++
+[source, python]
+----
+    import tkinter as tk
+----
+
+. **Creëer het Hoofdvenster:** Maak een instantie van het Tk-klasse-object om het hoofdvenster van je toepassing te definiëren.
++
+[source, python]
+----
+    venster = tk.Tk()
+----
+
+. **Voeg Widgets Toe:** Voeg verschillende widgets toe aan het hoofdvenster, zoals knoppen, labels, invoervelden, enz.
++
+[source, python]
+----
+    label = tk.Label(venster, text="Welkom bij Tkinter!")
+    knop = tk.Button(venster, text="Klik hier")
+----
+
+. **Lay-out Organiseren:** Organiseer de lay-out van de widgets, bijvoorbeeld met behulp van frames of rasterindelingen.
++
+[source, python]
+----
+    label.pack()
+    knop.pack()
+----
+
+. **Definieer Functies:** Definieer functies die moeten worden uitgevoerd wanneer bepaalde gebeurtenissen optreden, zoals het klikken op een knop.
++
+[source, python]
+----
+    def begroet():
+        print("Hallo, Tkinter!")
+----
+
+. **Koppel Functies aan Widgets:** Koppel de gedefinieerde functies aan de bijbehorende widgets.
++
+[source, python]
+----
+    knop.config(command=begroet)
+----
+
+. **Start de Tkinter Event Loop:** Start de oneindige event loop om de GUI actief te houden en te reageren op gebruikersinteractie.
++
+[source, python]
+----
+    venster.mainloop()
+----
+
+== Tkinter Voorbeeld
+
+Laten we beginnen met een basisvoorbeeld dat een venster met een knop weergeeft:
+
+[source, python]
+----
+import tkinter as tk
+
+def begroet():
+    label.config(text="Hallo, " + invoer.get())
+
+# Creëer het hoofdvenster
+venster = tk.Tk()
+venster.title("Mijn Eerste Tkinter Toepassing")
+
+# Voeg een label toe
+label = tk.Label(venster, text="Voer je naam in:")
+label.pack()
+
+# Voeg een invoerveld toe
+invoer = tk.Entry(venster)
+invoer.pack()
+
+# Voeg een knop toe die een functie uitvoert wanneer erop wordt geklikt
+knop = tk.Button(venster, text="Begroet", command=begroet)
+knop.pack()
+
+# Start de Tkinter-eventloop
+venster.mainloop()
+----
+
+Dit voorbeeld toont een venster met een label, een invoerveld en een knop. Wanneer je je naam invoert en op de knop klikt, wordt een begroetingsbericht weergegeven.
+
+== Toevoegen van Complexiteit - Berichtvenster
+
+Laten we nu een berichtvenster toevoegen dat verschijnt wanneer op de begroetingsknop wordt geklikt:
+
+[source, python]
+----
+from tkinter import messagebox
+
+def begroet():
+    gebruikersnaam = invoer.get()
+    if gebruikersnaam:
+        messagebox.showinfo("Begroeting", "Hallo, " + gebruikersnaam)
+    else:
+        messagebox.showwarning("Waarschuwing", "Voer eerst je naam in!")
+
+# Rest van de code blijft hetzelfde
+----
+
+Nu wordt een berichtvenster getoond wanneer de begroetingsknop wordt ingedrukt, wat de gebruiker informeert of waarschuwt, afhankelijk van of er wel of geen naam is ingevoerd.
+
+== Geavanceerde Lay-out - Frames
+
+Laten we de lay-out verbeteren door frames toe te voegen:
+
+[source, python]
+----
+def begroet():
+    gebruikersnaam = invoer.get()
+    if gebruikersnaam:
+        messagebox.showinfo("Begroeting", "Hallo, " + gebruikersnaam)
+    else:
+        messagebox.showwarning("Waarschuwing", "Voer eerst je naam in!")
+
+# Creëer een frame voor invoer en knop
+frame_invoer = tk.Frame(venster)
+frame_invoer.pack()
+
+# Voeg een invoerveld toe aan het frame
+invoer = tk.Entry(frame_invoer)
+invoer.pack(side="left")
+
+# Voeg een knop toe aan het frame
+knop = tk.Button(frame_invoer, text="Begroet", command=begroet)
+knop.pack(side="left")
+
+# Rest van de code blijft hetzelfde
+----
+
+Hier voegen we een frame toe voor het invoerveld en de begroetingsknop om de lay-out te organiseren en te verbeteren.
+
+== Gebruik van Stijlen en Thema's
+
+Laten we de visuele stijl van onze GUI verbeteren door het gebruik van stijlen en thema's:
+
+[source, python]
+----
+from tkinter import ttk
+
+# Creëer een stijl en gebruik het thema 'clam'
+stijl = ttk.Style()
+stijl.theme_use("clam")
+
+# Pas de stijl toe op de knop
+knop = ttk.Button(frame_invoer, text="Begroet", command=begroet)
+knop.pack(side="left")
+
+# Rest van de code blijft hetzelfde
+----
+
+Hier passen we een stijl toe op de begroetingsknop met behulp van het `ttk` (themed tkinter) subpakket om een moderner uiterlijk te krijgen.
+
+Meer informatie in de tkinter tutorial: https://www.pythontutorial.net/tkinter/tkinter-hello-world/
+
