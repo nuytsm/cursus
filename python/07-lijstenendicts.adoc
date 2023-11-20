@@ -439,3 +439,4 @@ scores_speler_2 = spelers[1]["scores"]  # Geeft [120, 110, 95] terug
 In dit voorbeeld is `spelers` een lijst van dictionaries, waarbij elke dictionary de naam van een speler en een lijst van scores bevat. We halen de scores van "Speler 2" op door eerst naar de juiste dictionary te navigeren met de index `[1]` en vervolgens toegang te krijgen tot de "scores" lijst in die dictionary.
 
 Dit kan handig zijn bij het bijhouden van complexe gegevensstructuren in games, waarin je spelers en hun bijbehorende gegevens wilt organiseren en beheren.
+
