@@ -76,7 +76,7 @@ year = input("Enter a year (from 1996): ")
 
 Vervolgens kunnen we beginnen filteren.
 De dictreader maakt een lijst van rows (waar we over kunnen lussen).
-Elke row wordt voorgestelt als een dictionary (waarvan we een __key__ kunnen opvragen).
+Elke row wordt voorgesteld als een dictionary (waarvan we een __key__ kunnen opvragen).
 
 Filteren doen we door te aan de dictionary een bepaalde key te vragen voor elke row:
 
