@@ -7,7 +7,7 @@
 
 = Hoofdstuk 5: Lussen in Python: Van Herhaling tot Efficiëntie
 
-Welkom bij hoofdstuk 6, waarin we diep duiken in het concept van lussen in Python. Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.
+Lussen zijn een krachtig hulpmiddel om herhalende taken uit te voeren en iteraties door gegevens (lijsten, reeksen,..) te maken. In dit hoofdstuk zullen we lussen vanuit de basis opbouwen, voorbeelden bekijken en verkennen hoe ze kunnen worden toegepast.
 
 == De Essentie van Herhaling
 
