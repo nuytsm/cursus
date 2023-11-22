@@ -54,6 +54,8 @@ plt.show()
 
 Dit zal een eenvoudige lijnplot genereren met punten verbonden door lijnen.
 
+image::images/lijnplot.png[]
+
 == Scatterplot
 
 Een scatterplot is handig om individuele punten weer te geven:
@@ -75,6 +77,8 @@ plt.show()
 
 Dit genereert een scatterplot met punten zonder lijnen.
 
+image::images/scatterplot.png[]
+
 == Histogram
 
 Matplotlib kan ook histogrammen maken:
@@ -94,6 +98,8 @@ plt.show()
 ----
 
 Dit geeft een histogram weer met vijf delen.
+
+image::images/histplot.png[]
 
 == Balkgrafiek
 
@@ -115,6 +121,8 @@ plt.show()
 ----
 
 Dit geeft een eenvoudige balkgrafiek weer.
+
+image::images/barplot.png[]
 
 == Aanpassen van Grafieken
 
@@ -140,6 +148,8 @@ plt.show()
 ----
 
 Dit laat zien hoe je labels, een legende en aangepaste opmaak kunt toevoegen.
+
+image::images/legendplot.png[]
 
 == Opslaan van Grafieken
 
