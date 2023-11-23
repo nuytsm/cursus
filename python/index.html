@@ -956,6 +956,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_het_volledige_project">15.5. Het volledige project</a></li>
 </ul>
 </li>
+<li><a href="#_project_pong">16. Project Pong</a></li>
 </ul>
 </div>
 </div>
@@ -5823,11 +5824,102 @@ readcsv_from_file()</span></code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_project_pong">16. Project Pong</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gegeven begincode van het spel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">arcade</span>
+
+<span class="n">SCREEN_WIDTH</span> <span class="o">=</span> <span class="mi">640</span>
+<span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">480</span>
+<span class="n">MOVEMENT_SPEED</span> <span class="o">=</span> <span class="mi">3</span>
+
+
+<span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">position_x</span><span class="p">,</span> <span class="n">position_y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_x</span> <span class="o">=</span> <span class="n">position_x</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_y</span> <span class="o">=</span> <span class="n">position_y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">change_x</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">change_y</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Draw the balls with the instance variables we have. </span><span class="sh">"""</span>
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">draw_circle_filled</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">position_x</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">position_y</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">radius</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Move the ball
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">position_y</span> <span class="o">+=</span> <span class="n">self</span><span class="p">.</span><span class="n">change_y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_x</span> <span class="o">+=</span> <span class="n">self</span><span class="p">.</span><span class="n">change_x</span>
+
+
+<span class="k">class</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+
+        <span class="c1"># Call the parent class's init function
+</span>        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+
+        <span class="c1"># Make the mouse disappear when it is over the window.
+</span>        <span class="c1"># So we just see our object, not the pointer.
+</span>        <span class="n">self</span><span class="p">.</span><span class="nf">set_mouse_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">set_background_color</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">BLACK</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ball</span> <span class="o">=</span> <span class="nc">Ball</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">AUBURN</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever we need to draw the window. </span><span class="sh">"""</span>
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">start_render</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ball</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">delta_time</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">ball</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_key_press</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever the user presses a key. </span><span class="sh">"""</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">UP</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">up ingeduwd</span><span class="sh">"</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">on_key_release</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever a user releases a key. </span><span class="sh">"""</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">UP</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">DOWN</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">up of down losgelaten</span><span class="sh">"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">,</span> <span class="sh">"</span><span class="s">Drawing Example</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">arcade</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+
+<span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-11-21 15:28:40 +0100
+Last updated 2023-11-23 09:19:13 +0100
 </div>
 </div>
+<!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K061L13YN"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-3K061L13YN');
+      </script>
+      
 </body>
 </html>
