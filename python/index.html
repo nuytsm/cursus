@@ -5903,6 +5903,110 @@ readcsv_from_file()</span></code></pre>
 <span class="nf">main</span><span class="p">()</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Code om een explosie te laten zien op de plaats waar met de muis geklikt wordt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">arcade</span>
+
+<span class="c1"># Set constants for the screen dimensions
+</span><span class="n">SCREEN_WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">600</span>
+
+<span class="k">class</span> <span class="nc">Explosion</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Sprite</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s"> This class creates an explosion animation </span><span class="sh">"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">texture_list</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Start at the first frame
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">textures</span> <span class="o">=</span> <span class="n">texture_list</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Update to the next frame of the animation. If we are at the end
+</span>        <span class="c1"># of our frames, then delete this sprite.
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">textures</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">set_texture</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">current_texture</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">remove_from_sprite_lists</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Window</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+        <span class="c1"># Set the background color
+</span>        <span class="n">arcade</span><span class="p">.</span><span class="nf">set_background_color</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">AMAZON</span><span class="p">)</span>
+
+        <span class="c1"># Create a variable to hold the textures from the sprite sheet
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Create a variable to hold the current frame index
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_frame</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Load the sprite sheet image containing multiple sprites
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">sprite_sheet</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nf">load_texture</span><span class="p">(</span><span class="sh">"</span><span class="s">TestPython/src/arcade/spritesheets/exp2_0.png</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Slice the sprite sheet into individual textures
+</span>        <span class="n">sprite_width</span> <span class="o">=</span> <span class="mi">64</span>
+        <span class="n">sprite_height</span> <span class="o">=</span> <span class="mi">64</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Number of columns in the sprite sheet
+</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nf">load_spritesheet</span><span class="p">(</span><span class="sh">"</span><span class="s">TestPython/src/arcade/spritesheets/exp2_0.png</span><span class="sh">"</span><span class="p">,</span> <span class="n">sprite_width</span><span class="p">,</span> <span class="n">sprite_height</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nc">SpriteList</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">clear</span><span class="p">()</span>
+        <span class="c1"># Start rendering the screen
+</span>        <span class="n">arcade</span><span class="p">.</span><span class="nf">start_render</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_mouse_press</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="c1"># Make an explosion
+</span>        <span class="n">explosion</span> <span class="o">=</span> <span class="nc">Explosion</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span><span class="p">)</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">center_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">center_y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">explosion</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">delta_time</span><span class="p">):</span>
+
+
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create the game window
+</span>    <span class="n">window</span> <span class="o">=</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">)</span>
+
+    <span class="c1"># Call the setup method to initialize the game
+</span>    <span class="n">window</span><span class="p">.</span><span class="nf">setup</span><span class="p">()</span>
+
+    <span class="c1"># Run the game
+</span>    <span class="n">arcade</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De explosie is een Sprite. Een Sprite maakt gebruik van een Texture (of Texture list).
+Voor elke explosie lussen we door een texture list die de verschillende frames van de explosie laat zien.</p>
+</div>
+<div class="paragraph">
+<p>Dit is de afbeelding die gebruikt wordt met de verschillende explosion frames:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/exp2_0.png" alt="exp2 0">
+</div>
+</div>
+<div class="paragraph">
+<p>Deze kan je ook op de volgende pagina terugvinden: <a href="https://opengameart.org/content/explosion" class="bare">https://opengameart.org/content/explosion</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -5911,15 +6015,5 @@ readcsv_from_file()</span></code></pre>
 Last updated 2023-11-23 09:19:13 +0100
 </div>
 </div>
-<!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K061L13YN"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-      
-        gtag('config', 'G-3K061L13YN');
-      </script>
-      
 </body>
 </html>

@@ -83,3 +83,103 @@ def main():
 main()
 ----
 
+
+Code om een explosie te laten zien op de plaats waar met de muis geklikt wordt:
+
+[source, python]
+----
+import arcade
+
+# Set constants for the screen dimensions
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+class Explosion(arcade.Sprite):
+    """ This class creates an explosion animation """
+
+    def __init__(self, texture_list):
+        super().__init__()
+
+        # Start at the first frame
+        self.current_texture = 0
+        self.textures = texture_list
+
+    def update(self):
+        # Update to the next frame of the animation. If we are at the end
+        # of our frames, then delete this sprite.
+        self.current_texture += 1
+        if self.current_texture < len(self.textures):
+            self.set_texture(self.current_texture)
+        else:
+            self.remove_from_sprite_lists()
+
+class MyGame(arcade.Window):
+    def __init__(self, width, height):
+        super().__init__(width, height)
+
+        # Set the background color
+        arcade.set_background_color(arcade.color.AMAZON)
+
+        # Create a variable to hold the textures from the sprite sheet
+        self.explosion_texture_list = []
+
+        # Create a variable to hold the current frame index
+        self.current_frame = 0
+
+        # Load the sprite sheet image containing multiple sprites
+        self.sprite_sheet = arcade.load_texture("TestPython/src/arcade/spritesheets/exp2_0.png")
+
+    def setup(self):
+        # Slice the sprite sheet into individual textures
+        sprite_width = 64
+        sprite_height = 64
+        columns = 4  # Number of columns in the sprite sheet
+
+        self.explosion_texture_list = arcade.load_spritesheet("TestPython/src/arcade/spritesheets/exp2_0.png", sprite_width, sprite_height, columns, 16)
+        self.explosions_list = arcade.SpriteList()
+        
+
+    def on_draw(self):
+        self.clear()
+        # Start rendering the screen
+        arcade.start_render()
+        self.explosions_list.draw()
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        # Make an explosion
+        explosion = Explosion(self.explosion_texture_list)
+        explosion.center_x = x
+        explosion.center_y = y
+        self.explosions_list.append(explosion)
+
+    def update(self, delta_time):
+         
+
+        self.explosions_list.update()
+
+
+def main():
+    # Create the game window
+    window = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+
+    # Call the setup method to initialize the game
+    window.setup()
+
+    # Run the game
+    arcade.run()
+
+if __name__ == "__main__":
+    main()
+----
+
+De explosie is een Sprite. Een Sprite maakt gebruik van een Texture (of Texture list).
+Voor elke explosie lussen we door een texture list die de verschillende frames van de explosie laat zien.
+
+Dit is de afbeelding die gebruikt wordt met de verschillende explosion frames:
+
+image::images/exp2_0.png[]
+
+Deze kan je ook op de volgende pagina terugvinden: https://opengameart.org/content/explosion
+
+
+
