@@ -92,7 +92,7 @@ Het aanmaken van instanties in Python gebeurt door de naam van de klasse te geve
 
 [source,python]
 ----
-ruiter1 = Ruiter(); <1>
+ruiter1 = Ruiter() <1>
 ----
 
 <1> Merk op dat de klasse met een hoofdletter wordt geschreven en de instantie met een kleine letter.
@@ -101,10 +101,10 @@ Het is mogelijk meerdere instanties aan te maken van dezelfde klasse:
 
 [source,python]
 ----
-ruiter2 = Ruiter();
-ruiter3 = Ruiter();
-ruiter4 = Ruiter();
-ruiter5 = Ruiter();
+ruiter2 = Ruiter()
+ruiter3 = Ruiter()
+ruiter4 = Ruiter()
+ruiter5 = Ruiter()
 ----
 
 **Zo lang het werkgeheugen (RAM) niet vol is, kan je instanties blijven aanmaken.**
@@ -196,8 +196,8 @@ Bij het aanroepen van de method op een instantie is het immers duidelijk welke v
 
 [source,python]
 ----
-ruiter3.hit(8);
-ruiter3.hit();
+ruiter3.hit(8)
+ruiter3.hit()
 ----
 
 De eerste zal de hit() method oproepen die parameters bevat.
