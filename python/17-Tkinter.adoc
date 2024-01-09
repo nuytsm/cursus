@@ -101,7 +101,7 @@ knop.pack()
 venster.mainloop()
 ----
 
-Het restultaat:
+Het resultaat:
 
 image::images/tkinter.PNG[]
 
