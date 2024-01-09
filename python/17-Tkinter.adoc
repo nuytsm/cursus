@@ -101,6 +101,10 @@ knop.pack()
 venster.mainloop()
 ----
 
+Het restultaat:
+
+image::images/tkinter.PNG[]
+
 Dit voorbeeld toont een venster met een label, een invoerveld en een knop. Wanneer je je naam invoert en op de knop klikt, wordt een begroetingsbericht weergegeven.
 
 == Toevoegen van Complexiteit - Berichtvenster
@@ -120,6 +124,10 @@ def begroet():
 
 # Rest van de code blijft hetzelfde
 ----
+
+Het resultaat:
+
+image::images/tkbegroeting.PNG[]
 
 Nu wordt een berichtvenster getoond wanneer de begroetingsknop wordt ingedrukt, wat de gebruiker informeert of waarschuwt, afhankelijk van of er wel of geen naam is ingevoerd.
 
@@ -151,6 +159,10 @@ knop.pack(side="left")
 # Rest van de code blijft hetzelfde
 ----
 
+Het resultaat:
+
+image::images/tkframes.PNG[]
+
 Hier voegen we een frame toe voor het invoerveld en de begroetingsknop om de lay-out te organiseren en te verbeteren.
 
 == Gebruik van Stijlen en Thema's
@@ -171,6 +183,10 @@ knop.pack(side="left")
 
 # Rest van de code blijft hetzelfde
 ----
+
+Het resultaat:
+
+image::images/tkstiijl.PNG[]
 
 Hier passen we een stijl toe op de begroetingsknop met behulp van het `ttk` (themed tkinter) subpakket om een moderner uiterlijk te krijgen.
 
