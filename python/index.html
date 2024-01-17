@@ -967,6 +967,23 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_gebruik_van_stijlen_en_themas">17.6. Gebruik van Stijlen en Thema&#8217;s</a></li>
 </ul>
 </li>
+<li><a href="#_sql_basisprincipes_en_querying">18. SQL: Basisprincipes en Querying</a>
+<ul class="sectlevel2">
+<li><a href="#_1_inleiding_tot_databanken_en_tabellen">18.1. 1. Inleiding tot Databanken en Tabellen</a></li>
+<li><a href="#_2_het_gebruiken_van_sqlite">18.2. 2. Het Gebruiken van SQLite</a></li>
+<li><a href="#_3_het_select_statement_basisquery">18.3. 3. Het SELECT-Statement: Basisquery</a></li>
+<li><a href="#_4_filteren_van_resultaten_met_where">18.4. 4. Filteren van Resultaten met WHERE</a></li>
+<li><a href="#_5_sorteren_van_resultaten_met_order_by">18.5. 5. Sorteren van Resultaten met ORDER BY</a></li>
+<li><a href="#_6_aggregatiefuncties_count_sum_avg">18.6. 6. Aggregatiefuncties: COUNT, SUM, AVG</a></li>
+<li><a href="#_primary_key_en_foreign_key_in_sql">18.7. Primary Key en Foreign Key in SQL</a>
+<ul class="sectlevel3">
+<li><a href="#_primary_key">18.7.1. Primary Key</a></li>
+</ul>
+</li>
+<li><a href="#_foreign_key">18.8. Foreign Key</a></li>
+<li><a href="#_7_joins_het_combineren_van_tabellen">18.9. 7. Joins: Het Combineren van Tabellen</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -6133,7 +6150,7 @@ Voor elke explosie lussen we door een texture list die de verschillende frames v
 </div>
 </div>
 <div class="paragraph">
-<p>Het restultaat:</p>
+<p>Het resultaat:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -6253,10 +6270,181 @@ Voor elke explosie lussen we door een texture list die de verschillende frames v
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_sql_basisprincipes_en_querying">18. SQL: Basisprincipes en Querying</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_inleiding_tot_databanken_en_tabellen">18.1. 1. Inleiding tot Databanken en Tabellen</h3>
+<div class="paragraph">
+<p>Een database is een gestructureerde verzameling gegevens die op een systematische manier is georganiseerd en gemakkelijk toegankelijk is. Databases gebruiken tabellen om gegevens op te slaan. Deze tabellen kunnen onderlinge relaties hebben.</p>
+</div>
+<div class="paragraph">
+<p>Een tabel bestaat uit kolommen en rijen. Elke kolom (of veld) kan een bepaald datatype bevatten.In één veld/kolom (data-element) staan gegevens van dezelfde soort, bijvoorbeeld de velden
+naam, adres, leeftijd.
+Elke rij (of record) in de tabel stelt een ingave in de tabel voor. Meerdere personen met elk een naam, adres en leeftijd, houden we bij in aparte rijen.</p>
+</div>
+<div class="paragraph">
+<p>Elk veld (of kolom) in de tabel is van een bepaald datatype. Bijvoorbeeld integer, string, date, float, …
+Bijvoorbeeld een naam is een string, de leeftijd is een integer, de geboortedatum is een date. Dit is vergelijkbaar met Python, toch kunnen de datatypes iets anders zijn.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_het_gebruiken_van_sqlite">18.2. 2. Het Gebruiken van SQLite</h3>
+<div class="paragraph">
+<p>SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. Laten we beginnen met het verkennen van de Chinook-database.
+We gebruiken hiervoor de <a href="https://dbeaver.io/download/">DBeaver software</a>. Deze software is open source en gratis te gebruiken.</p>
+</div>
+<div class="paragraph">
+<p>In de software is de <em>'Sample database'</em> reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_het_select_statement_basisquery">18.3. 3. Het SELECT-Statement: Basisquery</h3>
+<div class="paragraph">
+<p>Het meest fundamentele SQL-statement is het SELECT-statement. Hiermee kun je gegevens uit een tabel ophalen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>SELECT * FROM artists;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit geeft alle records en kolommen van de 'artists'-tabel weer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_filteren_van_resultaten_met_where">18.4. 4. Filteren van Resultaten met WHERE</h3>
+<div class="paragraph">
+<p>Om specifieke resultaten te verkrijgen, gebruiken we de WHERE-clausule.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Selecteer artiesten met een specifieke naam uit de 'artists' tabel
+SELECT * FROM artists WHERE Name = 'Queen';</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit geeft alleen de artiest 'Queen' weer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_sorteren_van_resultaten_met_order_by">18.5. 5. Sorteren van Resultaten met ORDER BY</h3>
+<div class="paragraph">
+<p>Met ORDER BY kun je resultaten sorteren op basis van een kolom.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Selecteer alle tracks en sorteer ze op naam
+SELECT * FROM tracks ORDER BY Name;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit toont alle tracks gesorteerd op naam.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_aggregatiefuncties_count_sum_avg">18.6. 6. Aggregatiefuncties: COUNT, SUM, AVG</h3>
+<div class="paragraph">
+<p>Aggregatiefuncties vatten gegevens samen. Bijvoorbeeld, het aantal tracks per album:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Tel het aantal tracks per album
+SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit geeft het aantal tracks per album weer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primary_key_en_foreign_key_in_sql">18.7. Primary Key en Foreign Key in SQL</h3>
+<div class="paragraph">
+<p>In SQL-databases spelen de begrippen "Primary Key" en "Foreign Key" een cruciale rol bij het structureren van gegevens en het definiëren van relaties tussen tabellen.</p>
+</div>
+<div class="sect3">
+<h4 id="_primary_key">18.7.1. Primary Key</h4>
+<div class="paragraph">
+<p>Een <strong>Primary Key</strong> is een unieke identificatie voor een record in een tabel. Deze sleutel zorgt ervoor dat elke rij in de tabel eenduidig kan worden geïdentificeerd. De Primary Key moet uniek zijn voor elke rij en kan niet null (leeg) zijn.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld Chinook Database:</p>
+</div>
+<div class="paragraph">
+<p>In de 'artists'-tabel van de Chinook-database is het veld 'ArtistId' een voorbeeld van een Primary Key. Hiermee wordt elke artiest uniek geïdentificeerd.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Voorbeeld van een Primary Key in de 'artists'-tabel
+[cols="2,3"]
+|===
+| ArtistId | Name
+| 1        | AC/DC
+| 2        | Accept
+| 3        | Aerosmith
+|...
+|===</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_foreign_key">18.8. Foreign Key</h3>
+<div class="paragraph">
+<p>Een <strong>Foreign Key</strong> is een veld in een tabel dat verwijst naar de Primary Key in een andere tabel. Het wordt gebruikt om relaties tussen tabellen tot stand te brengen. De Foreign Key zorgt ervoor dat de waarden in dat veld overeenkomen met de waarden van de Primary Key in de gerelateerde tabel.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld Chinook Database:</p>
+</div>
+<div class="paragraph">
+<p>In de 'albums'-tabel van de Chinook-database verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel. Hiermee wordt een relatie tussen de twee tabellen gevestigd.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Voorbeeld van een Foreign Key in de 'albums'-tabel
+[cols="3,2"]
+|===
+| AlbumId | Title                         | ArtistId
+| 1       | For Those About To Rock We Salute You | 1
+| 2       | Balls to the Wall             | 2
+| 3       | Restless and Wild             | 2
+|...
+|===</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel, waardoor een relatie ontstaat tussen de artiesten en de albums in de database.</p>
+</div>
+<div class="paragraph">
+<p>Het gebruik van Primary en Foreign Keys is essentieel voor het handhaven van data-integriteit en het opzetten van betekenisvolle relaties tussen verschillende tabellen in een database.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_joins_het_combineren_van_tabellen">18.9. 7. Joins: Het Combineren van Tabellen</h3>
+<div class="paragraph">
+<p>Een JOIN combineert gegevens uit verschillende tabellen op basis van een bepaalde kolom, de <em>Foreign key (FK)</em> die verwijst naar een kolom in een andere tabel, de <em>Primary key (PK)</em> van die tabel.</p>
+</div>
+<div class="paragraph">
+<p>Met een <em>Join</em> geven we aan welke FK overeenkomt met welke PK.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- Haal tracks op met bijbehorende albuminformatie
+SELECT tracks.TrackId, tracks.Name AS TrackNaam, albums.Title AS AlbumTitel
+FROM tracks
+JOIN albums ON tracks.AlbumId = albums.AlbumId;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit toont tracks met bijbehorende albuminformatie.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-01-09 11:50:22 +0100
+Last updated 2024-01-17 11:58:13 +0100
 </div>
 </div>
 </body>
