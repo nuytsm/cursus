@@ -1,60 +1,75 @@
 = SQL: Basisprincipes en Querying
 
 
-== 1. Inleiding tot Databanken en Tabellen
+== Inleiding tot Databanken en Tabellen
 
 Een database is een gestructureerde verzameling gegevens die op een systematische manier is georganiseerd en gemakkelijk toegankelijk is. Databases gebruiken tabellen om gegevens op te slaan. Deze tabellen kunnen onderlinge relaties hebben.
 
-Een tabel bestaat uit kolommen en rijen. Elke kolom (of veld) kan een bepaald datatype bevatten.In één veld/kolom (data-element) staan gegevens van dezelfde soort, bijvoorbeeld de velden
-naam, adres, leeftijd.  
-Elke rij (of record) in de tabel stelt een ingave in de tabel voor. Meerdere personen met elk een naam, adres en leeftijd, houden we bij in aparte rijen.
+Bijvoorbeeld:
+
+image::images/chinookdb.png["De chinook databank."]
+
+Een tabel bestaat uit kolommen en rijen. Elke kolom (of veld) kan een bepaald datatype bevatten.In één veld/kolom (data-element) staan gegevens van dezelfde soort. In de "Album" tabel van de chinook database, staan bijvoorbeeld de velden:
+albumid, Title, Artistid.  
+
+image::images/albumtabel.PNG[]
+
+Elke rij (of record) in de tabel stelt een ingave in de tabel voor. Meerdere albums (CD's) met elk een _Title_ en _Artist_ , houden we bij in aparte rijen.
 
 Elk veld (of kolom) in de tabel is van een bepaald datatype. Bijvoorbeeld integer, string, date, float, …
-Bijvoorbeeld een naam is een string, de leeftijd is een integer, de geboortedatum is een date. Dit is vergelijkbaar met Python, toch kunnen de datatypes iets anders zijn.
+Bijvoorbeeld een _Title_ is een string, de _ArtistId_ is een integer, een geboortedatum is een date. Dit is vergelijkbaar met Python, toch kunnen de datatypes net iets anders zijn:
 
-== 2. Het Gebruiken van SQLite
+image::images/sqldatatypes.PNG[]
 
-SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. Laten we beginnen met het verkennen van de Chinook-database.
-We gebruiken hiervoor de link:https://dbeaver.io/download/[DBeaver software]. Deze software is open source en gratis te gebruiken.
+== Het Gebruiken van SQLite
 
-In de software is de __'Sample database'__ reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.
+SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. De Chinook-database is een kleine SQLite databank.
+De software die we gaan gebruiken om de database te queriën (ondervragen) is DBeaver. Deze kan je hier downloaden: https://dbeaver.io/download/[DBeaver software]. Deze __community edition__ software is open source en gratis te gebruiken.
 
-== 3. Het SELECT-Statement: Basisquery
+In de software is de __'Sample Chinook database'__ reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.
+
+== Het SELECT-Statement: Basisquery
 
 Het meest fundamentele SQL-statement is het SELECT-statement. Hiermee kun je gegevens uit een tabel ophalen.
 
 [code, sql]
 ----
-SELECT * FROM artists;
+SELECT * FROM artist;
 ----
 
-Dit geeft alle records en kolommen van de 'artists'-tabel weer.
+Dit geeft alle records en kolommen van de 'artists'-tabel weer:
 
-== 4. Filteren van Resultaten met WHERE
+image::images/dbresult.PNG[]
+
+== Filteren van Resultaten met WHERE
 
 Om specifieke resultaten te verkrijgen, gebruiken we de WHERE-clausule.
 
 [code, sql]
 ----
 -- Selecteer artiesten met een specifieke naam uit de 'artists' tabel
-SELECT * FROM artists WHERE Name = 'Queen';
+SELECT * FROM artist WHERE Name = 'Queen';
 ----
 
-Dit geeft alleen de artiest 'Queen' weer.
+Dit geeft alleen de artiest 'Queen' weer:
 
-== 5. Sorteren van Resultaten met ORDER BY
+image::images/selectwhere.PNG[]
+
+== Sorteren van Resultaten met ORDER BY
 
 Met ORDER BY kun je resultaten sorteren op basis van een kolom.
 
 [code, sql]
 ----
--- Selecteer alle tracks en sorteer ze op naam
-SELECT * FROM tracks ORDER BY Name;
+-- Selecteer alle genres en sorteer ze op naam, maar descending (van Z naar A)
+SELECT * FROM genre ORDER BY Name DESC;
 ----
 
-Dit toont alle tracks gesorteerd op naam.
+Dit toont alle genres gesorteerd op naam:
 
-== 6. Aggregatiefuncties: COUNT, SUM, AVG
+image::images/genres.PNG[]
+
+== Aggregatiefuncties: COUNT, SUM, AVG
 
 Aggregatiefuncties vatten gegevens samen. Bijvoorbeeld, het aantal tracks per album:
 
@@ -77,7 +92,7 @@ Een **Primary Key** is een unieke identificatie voor een record in een tabel. De
 
 Voorbeeld Chinook Database:
 
-In de 'artists'-tabel van de Chinook-database is het veld 'ArtistId' een voorbeeld van een Primary Key. Hiermee wordt elke artiest uniek geïdentificeerd.
+In de 'artists'-tabel van de Chinook-database is het veld 'ArtistId' een voorbeeld van een Primary Key. Hiermee wordt elke artiest #uniek geïdentificeerd#. Een bepaald primary key nummer kan dus maar 1 keer voorkomen in een tabel.
 
 [code, sql]
 ----
@@ -113,11 +128,19 @@ In de 'albums'-tabel van de Chinook-database verwijst het veld 'ArtistId' naar d
 |===
 ----
 
-In dit voorbeeld verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel, waardoor een relatie ontstaat tussen de artiesten en de albums in de database.
+In dit voorbeeld verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel, waardoor een **relatie ontstaat** tussen de artiesten en de albums in de database.
 
-Het gebruik van Primary en Foreign Keys is essentieel voor het handhaven van data-integriteit en het opzetten van betekenisvolle relaties tussen verschillende tabellen in een database.
+== FK en PK: Referentiële integriteit
 
-== 7. Joins: Het Combineren van Tabellen
+Het correct gebruik van Primary en Foreign Keys waarborgt data-integriteit door:
+
+* **Unieke Identificatie**: Elke rij heeft een unieke identificatie met de Primary Key.
+* **Consistente Relaties**: Foreign Keys zorgen ervoor dat alleen geldige verwijzingen naar bestaande Primary Key-waarden zijn toegestaan.
+* **Voorkomen van Dode Verwijzingen**: Het is niet toegestaan om een Foreign Key te hebben met een waarde die niet overeenkomt met een bestaande Primary Key.
+
+bij het verwijderen van gegevens uit de databank moet er dus steeds opgelet worden dat je niets verwijderd waar een FK naar verwijst. De referentie (FK naar PK) mag niet verstoord worden. Voor het verwijderen zal je de FK-PK verwijzing eerst moeten opheffen of verwijderen. Dit is de referentiële integriteit.
+
+== Joins: Het Combineren van Tabellen
 
 Een JOIN combineert gegevens uit verschillende tabellen op basis van een bepaalde kolom, de __Foreign key (FK)__ die verwijst naar een kolom in een andere tabel, de __Primary key (PK)__ van die tabel.
 
@@ -126,9 +149,12 @@ Met een __Join__ geven we aan welke FK overeenkomt met welke PK.
 [code, sql]
 ----
 -- Haal tracks op met bijbehorende albuminformatie
-SELECT tracks.TrackId, tracks.Name AS TrackNaam, albums.Title AS AlbumTitel
-FROM tracks
-JOIN albums ON tracks.AlbumId = albums.AlbumId;
+SELECT track.TrackId, track.Name AS TrackNaam, album.Title AS AlbumTitel
+FROM track
+JOIN album ON track.AlbumId = album.AlbumId;
 ----
 
-Dit toont tracks met bijbehorende albuminformatie.
+Dit toont tracks met bijbehorende albuminformatie:
+
+image::images/trackjoin.PNG[]
+
