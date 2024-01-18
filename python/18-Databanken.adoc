@@ -32,7 +32,7 @@ In de software is de __'Sample Chinook database'__ reeds aanwezig. Deze kunnen w
 
 Het meest fundamentele SQL-statement is het SELECT-statement. Hiermee kun je gegevens uit een tabel ophalen.
 
-[code, sql]
+[source, sql]
 ----
 SELECT * FROM artist;
 ----
@@ -45,7 +45,7 @@ image::images/dbresult.PNG[]
 
 Om specifieke resultaten te verkrijgen, gebruiken we de WHERE-clausule.
 
-[code, sql]
+[source, sql]
 ----
 -- Selecteer artiesten met een specifieke naam uit de 'artists' tabel
 SELECT * FROM artist WHERE Name = 'Queen';
@@ -59,7 +59,7 @@ image::images/selectwhere.PNG[]
 
 Met ORDER BY kun je resultaten sorteren op basis van een kolom.
 
-[code, sql]
+[source, sql]
 ----
 -- Selecteer alle genres en sorteer ze op naam, maar descending (van Z naar A)
 SELECT * FROM genre ORDER BY Name DESC;
@@ -73,7 +73,7 @@ image::images/genres.PNG[]
 
 Aggregatiefuncties vatten gegevens samen. Bijvoorbeeld, het aantal tracks per album:
 
-[coe, sql]
+[source, sql]
 ----
 -- Tel het aantal tracks per album
 SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;
@@ -94,10 +94,9 @@ Voorbeeld Chinook Database:
 
 In de 'artists'-tabel van de Chinook-database is het veld 'ArtistId' een voorbeeld van een Primary Key. Hiermee wordt elke artiest #uniek geïdentificeerd#. Een bepaald primary key nummer kan dus maar 1 keer voorkomen in een tabel.
 
-[code, sql]
+[source, sql]
 ----
 -- Voorbeeld van een Primary Key in de 'artists'-tabel
-[cols="2,3"]
 |===
 | ArtistId | Name
 | 1        | AC/DC
@@ -115,10 +114,9 @@ Voorbeeld Chinook Database:
 
 In de 'albums'-tabel van de Chinook-database verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel. Hiermee wordt een relatie tussen de twee tabellen gevestigd.
 
-[code, sql]
+[source, sql]
 ----
 -- Voorbeeld van een Foreign Key in de 'albums'-tabel
-[cols="3,2"]
 |===
 | AlbumId | Title                         | ArtistId
 | 1       | For Those About To Rock We Salute You | 1
@@ -146,7 +144,7 @@ Een JOIN combineert gegevens uit verschillende tabellen op basis van een bepaald
 
 Met een __Join__ geven we aan welke FK overeenkomt met welke PK.
 
-[code, sql]
+[source, sql]
 ----
 -- Haal tracks op met bijbehorende albuminformatie
 SELECT track.TrackId, track.Name AS TrackNaam, album.Title AS AlbumTitel

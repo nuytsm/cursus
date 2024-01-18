@@ -6313,7 +6313,7 @@ Bijvoorbeeld een <em>Title</em> is een string, de <em>ArtistId</em> is een integ
 <h3 id="_het_gebruiken_van_sqlite">18.2. Het Gebruiken van SQLite</h3>
 <div class="paragraph">
 <p>SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. De Chinook-database is een kleine SQLite databank.
-De software die we gaan gebruiken om de database te queriën (ondervragen) is DBeaver. Deze kan je hier downloaden: <a href="https://dbeaver.io/download/">DBeaver software</a>. Deze software is open source en gratis te gebruiken.</p>
+De software die we gaan gebruiken om de database te queriën (ondervragen) is DBeaver. Deze kan je hier downloaden: <a href="https://dbeaver.io/download/">DBeaver software</a>. Deze <em>community edition</em> software is open source en gratis te gebruiken.</p>
 </div>
 <div class="paragraph">
 <p>In de software is de <em>'Sample Chinook database'</em> reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.</p>
@@ -6326,7 +6326,7 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>SELECT * FROM artist;</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">artist</span><span class="p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6345,8 +6345,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Selecteer artiesten met een specifieke naam uit de 'artists' tabel
-SELECT * FROM artist WHERE Name = 'Queen';</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Selecteer artiesten met een specifieke naam uit de 'artists' tabel</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">artist</span> <span class="k">WHERE</span> <span class="n">Name</span> <span class="o">=</span> <span class="s1">'Queen'</span><span class="p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6365,8 +6365,8 @@ SELECT * FROM artist WHERE Name = 'Queen';</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Selecteer alle genres en sorteer ze op naam, maar descending (van Z naar A)
-SELECT * FROM genre ORDER BY Name DESC;</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Selecteer alle genres en sorteer ze op naam, maar descending (van Z naar A)</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">genre</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Name</span> <span class="k">DESC</span><span class="p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6385,8 +6385,8 @@ SELECT * FROM genre ORDER BY Name DESC;</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Tel het aantal tracks per album
-SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Tel het aantal tracks per album</span>
+<span class="k">SELECT</span> <span class="n">AlbumId</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">TrackId</span><span class="p">)</span> <span class="k">AS</span> <span class="n">AantalTracks</span> <span class="k">FROM</span> <span class="n">tracks</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">AlbumId</span><span class="p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6411,15 +6411,14 @@ SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;</pr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Voorbeeld van een Primary Key in de 'artists'-tabel
-[cols="2,3"]
-|===
-| ArtistId | Name
-| 1        | AC/DC
-| 2        | Accept
-| 3        | Aerosmith
-|...
-|===</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Voorbeeld van een Primary Key in de 'artists'-tabel</span>
+<span class="o">|===</span>
+<span class="o">|</span> <span class="n">ArtistId</span> <span class="o">|</span> <span class="n">Name</span>
+<span class="o">|</span> <span class="mi">1</span>        <span class="o">|</span> <span class="n">AC</span><span class="o">/</span><span class="n">DC</span>
+<span class="o">|</span> <span class="mi">2</span>        <span class="o">|</span> <span class="n">Accept</span>
+<span class="o">|</span> <span class="mi">3</span>        <span class="o">|</span> <span class="n">Aerosmith</span>
+<span class="o">|</span><span class="p">...</span>
+<span class="o">|===</span></code></pre>
 </div>
 </div>
 </div>
@@ -6437,15 +6436,14 @@ SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;</pr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Voorbeeld van een Foreign Key in de 'albums'-tabel
-[cols="3,2"]
-|===
-| AlbumId | Title                         | ArtistId
-| 1       | For Those About To Rock We Salute You | 1
-| 2       | Balls to the Wall             | 2
-| 3       | Restless and Wild             | 2
-|...
-|===</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Voorbeeld van een Foreign Key in de 'albums'-tabel</span>
+<span class="o">|===</span>
+<span class="o">|</span> <span class="n">AlbumId</span> <span class="o">|</span> <span class="n">Title</span>                         <span class="o">|</span> <span class="n">ArtistId</span>
+<span class="o">|</span> <span class="mi">1</span>       <span class="o">|</span> <span class="k">For</span> <span class="n">Those</span> <span class="n">About</span> <span class="k">To</span> <span class="n">Rock</span> <span class="n">We</span> <span class="n">Salute</span> <span class="n">You</span> <span class="o">|</span> <span class="mi">1</span>
+<span class="o">|</span> <span class="mi">2</span>       <span class="o">|</span> <span class="n">Balls</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Wall</span>             <span class="o">|</span> <span class="mi">2</span>
+<span class="o">|</span> <span class="mi">3</span>       <span class="o">|</span> <span class="n">Restless</span> <span class="k">and</span> <span class="n">Wild</span>             <span class="o">|</span> <span class="mi">2</span>
+<span class="o">|</span><span class="p">...</span>
+<span class="o">|===</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6484,10 +6482,10 @@ SELECT AlbumId, COUNT(TrackId) AS AantalTracks FROM tracks GROUP BY AlbumId;</pr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>-- Haal tracks op met bijbehorende albuminformatie
-SELECT track.TrackId, track.Name AS TrackNaam, album.Title AS AlbumTitel
-FROM track
-JOIN album ON track.AlbumId = album.AlbumId;</pre>
+<pre class="rouge highlight"><code data-lang="sql"><span class="c1">-- Haal tracks op met bijbehorende albuminformatie</span>
+<span class="k">SELECT</span> <span class="n">track</span><span class="p">.</span><span class="n">TrackId</span><span class="p">,</span> <span class="n">track</span><span class="p">.</span><span class="n">Name</span> <span class="k">AS</span> <span class="n">TrackNaam</span><span class="p">,</span> <span class="n">album</span><span class="p">.</span><span class="n">Title</span> <span class="k">AS</span> <span class="n">AlbumTitel</span>
+<span class="k">FROM</span> <span class="n">track</span>
+<span class="k">JOIN</span> <span class="n">album</span> <span class="k">ON</span> <span class="n">track</span><span class="p">.</span><span class="n">AlbumId</span> <span class="o">=</span> <span class="n">album</span><span class="p">.</span><span class="n">AlbumId</span><span class="p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
