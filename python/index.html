@@ -969,20 +969,46 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 <li><a href="#_sql_basisprincipes_en_querying">18. SQL: Basisprincipes en Querying</a>
 <ul class="sectlevel2">
-<li><a href="#_inleiding_tot_databanken_en_tabellen">18.1. Inleiding tot Databanken en Tabellen</a></li>
-<li><a href="#_het_gebruiken_van_sqlite">18.2. Het Gebruiken van SQLite</a></li>
-<li><a href="#_het_select_statement_basisquery">18.3. Het SELECT-Statement: Basisquery</a></li>
-<li><a href="#_filteren_van_resultaten_met_where">18.4. Filteren van Resultaten met WHERE</a></li>
-<li><a href="#_sorteren_van_resultaten_met_order_by">18.5. Sorteren van Resultaten met ORDER BY</a></li>
-<li><a href="#_aggregatiefuncties_count_sum_avg">18.6. Aggregatiefuncties: COUNT, SUM, AVG</a></li>
-<li><a href="#_primary_key_en_foreign_key_in_sql">18.7. Primary Key en Foreign Key in SQL</a>
+<li><a href="#_inleiding_tot_databanken_en_tabellen">18.1. Inleiding tot Databanken en Tabellen</a>
 <ul class="sectlevel3">
-<li><a href="#_primary_key">18.7.1. Primary Key</a></li>
+<li><a href="#_de_sql_standaard">18.1.1. De SQL standaard</a>
+<ul class="sectlevel4">
+<li><a href="#_mysql">MySQL</a></li>
+<li><a href="#_postgresql">PostgreSQL</a></li>
+<li><a href="#_microsoft_sql_server_t_sql">Microsoft SQL Server (T-SQL)</a></li>
+<li><a href="#_sqlite">SQLite</a></li>
 </ul>
 </li>
-<li><a href="#_foreign_key">18.8. Foreign Key</a></li>
-<li><a href="#_fk_en_pk_referentiële_integriteit">18.9. FK en PK: Referentiële integriteit</a></li>
-<li><a href="#_joins_het_combineren_van_tabellen">18.10. Joins: Het Combineren van Tabellen</a></li>
+</ul>
+</li>
+<li><a href="#_het_gebruiken_van_sqlite">18.2. Het Gebruiken van SQLite</a></li>
+<li><a href="#_sql_queries">18.3. SQL queries</a>
+<ul class="sectlevel3">
+<li><a href="#_het_select_statement_basisquery">18.3.1. Het SELECT-Statement: Basisquery</a></li>
+<li><a href="#_filteren_van_resultaten_met_where">18.3.2. Filteren van Resultaten met WHERE</a></li>
+<li><a href="#_sorteren_van_resultaten_met_order_by">18.3.3. Sorteren van Resultaten met ORDER BY</a></li>
+<li><a href="#_aggregatiefuncties_count_sum_avg">18.3.4. Aggregatiefuncties: COUNT, SUM, AVG</a></li>
+</ul>
+</li>
+<li><a href="#_primary_key_en_foreign_key_in_sql">18.4. Primary Key en Foreign Key in SQL</a>
+<ul class="sectlevel3">
+<li><a href="#_primary_key">18.4.1. Primary Key</a></li>
+<li><a href="#_foreign_key">18.4.2. Foreign Key</a></li>
+<li><a href="#_fk_en_pk_referentiële_integriteit">18.4.3. FK en PK: Referentiële integriteit</a></li>
+</ul>
+</li>
+<li><a href="#_joins_het_combineren_van_tabellen">18.5. Joins: Het Combineren van Tabellen</a></li>
+<li><a href="#_verbinding_maken_en_queryen_naar_mysql_database_in_python">18.6. Verbinding maken en Queryen naar MySQL Database in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_installatie_van_de_mysql_connector">18.6.1. Installatie van de MySQL-Connector</a></li>
+</ul>
+</li>
+<li><a href="#_verbinding_maken_met_de_mysql_database">18.7. Verbinding maken met de MySQL-database</a>
+<ul class="sectlevel3">
+<li><a href="#_een_eenvoudige_query_uitvoeren">18.7.1. Een eenvoudige query uitvoeren</a></li>
+<li><a href="#_geavanceerde_query_met_parameters">18.7.2. Geavanceerde Query met Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -6308,6 +6334,39 @@ Bijvoorbeeld een <em>Title</em> is een string, de <em>ArtistId</em> is een integ
 <img src="images/sqldatatypes.PNG" alt="sqldatatypes">
 </div>
 </div>
+<div class="sect3">
+<h4 id="_de_sql_standaard">18.1.1. De SQL standaard</h4>
+<div class="paragraph">
+<p>Hoewel er een algemene SQL-standaard bestaat, staat deze standaard bepaalde variabiliteit toe, waardoor verschillende databasesystemen verschillende dialecten kunnen hebben.</p>
+</div>
+<div class="paragraph">
+<p>Hier volgt een overzicht van enkele veelvoorkomende SQL-dialecten en databasesystemen:</p>
+</div>
+<div class="sect4">
+<h5 id="_mysql">MySQL</h5>
+<div class="paragraph">
+<p>MySQL is een veelgebruikt opensource-databasesysteem dat bekend staat om zijn snelheid en betrouwbaarheid. Het ondersteunt de ANSI SQL-standaard, maar heeft ook specifieke syntaxis en functies.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_postgresql">PostgreSQL</h5>
+<div class="paragraph">
+<p>PostgreSQL is een krachtig opensource relationeel databasesysteem met een sterke focus op uitbreidbaarheid en conformiteit aan de SQL-standaard. Het biedt geavanceerde functies en ondersteunt complexe query&#8217;s.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_microsoft_sql_server_t_sql">Microsoft SQL Server (T-SQL)</h5>
+<div class="paragraph">
+<p>Microsoft SQL Server maakt gebruik van Transact-SQL (T-SQL), een uitbreiding van SQL met specifieke syntaxis en functies die zijn geoptimaliseerd voor gebruik met SQL Server-databases. Het is nauw geïntegreerd met de Microsoft-stack.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sqlite">SQLite</h5>
+<div class="paragraph">
+<p>SQLite is een lichtgewicht, zelfstandig databasesysteem dat geen server nodig heeft. Het wordt vaak ingebed in applicaties en apparaten. SQLite volgt de SQL-standaard, maar heeft enkele beperkingen vanwege zijn lichte karakter.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_het_gebruiken_van_sqlite">18.2. Het Gebruiken van SQLite</h3>
@@ -6315,12 +6374,19 @@ Bijvoorbeeld een <em>Title</em> is een string, de <em>ArtistId</em> is een integ
 <p>SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. De Chinook-database is een kleine SQLite databank.
 De software die we gaan gebruiken om de database te queriën (ondervragen) is DBeaver. Deze kan je hier downloaden: <a href="https://dbeaver.io/download/">DBeaver software</a>. Deze <em>community edition</em> software is open source en gratis te gebruiken.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/data_edit-450x220.png" alt="data edit 450x220">
+</div>
+</div>
 <div class="paragraph">
 <p>In de software is de <em>'Sample Chinook database'</em> reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_select_statement_basisquery">18.3. Het SELECT-Statement: Basisquery</h3>
+<h3 id="_sql_queries">18.3. SQL queries</h3>
+<div class="sect3">
+<h4 id="_het_select_statement_basisquery">18.3.1. Het SELECT-Statement: Basisquery</h4>
 <div class="paragraph">
 <p>Het meest fundamentele SQL-statement is het SELECT-statement. Hiermee kun je gegevens uit een tabel ophalen.</p>
 </div>
@@ -6338,8 +6404,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_filteren_van_resultaten_met_where">18.4. Filteren van Resultaten met WHERE</h3>
+<div class="sect3">
+<h4 id="_filteren_van_resultaten_met_where">18.3.2. Filteren van Resultaten met WHERE</h4>
 <div class="paragraph">
 <p>Om specifieke resultaten te verkrijgen, gebruiken we de WHERE-clausule.</p>
 </div>
@@ -6358,8 +6424,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_sorteren_van_resultaten_met_order_by">18.5. Sorteren van Resultaten met ORDER BY</h3>
+<div class="sect3">
+<h4 id="_sorteren_van_resultaten_met_order_by">18.3.3. Sorteren van Resultaten met ORDER BY</h4>
 <div class="paragraph">
 <p>Met ORDER BY kun je resultaten sorteren op basis van een kolom.</p>
 </div>
@@ -6378,8 +6444,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_aggregatiefuncties_count_sum_avg">18.6. Aggregatiefuncties: COUNT, SUM, AVG</h3>
+<div class="sect3">
+<h4 id="_aggregatiefuncties_count_sum_avg">18.3.4. Aggregatiefuncties: COUNT, SUM, AVG</h4>
 <div class="paragraph">
 <p>Aggregatiefuncties vatten gegevens samen. Bijvoorbeeld, het aantal tracks per album:</p>
 </div>
@@ -6393,13 +6459,14 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 <p>Dit geeft het aantal tracks per album weer.</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_primary_key_en_foreign_key_in_sql">18.7. Primary Key en Foreign Key in SQL</h3>
+<h3 id="_primary_key_en_foreign_key_in_sql">18.4. Primary Key en Foreign Key in SQL</h3>
 <div class="paragraph">
 <p>In SQL-databases spelen de begrippen "Primary Key" en "Foreign Key" een cruciale rol bij het structureren van gegevens en het definiëren van relaties tussen tabellen.</p>
 </div>
 <div class="sect3">
-<h4 id="_primary_key">18.7.1. Primary Key</h4>
+<h4 id="_primary_key">18.4.1. Primary Key</h4>
 <div class="paragraph">
 <p>Een <strong>Primary Key</strong> is een unieke identificatie voor een record in een tabel. Deze sleutel zorgt ervoor dat elke rij in de tabel eenduidig kan worden geïdentificeerd. De Primary Key moet uniek zijn voor elke rij en kan niet null (leeg) zijn.</p>
 </div>
@@ -6422,9 +6489,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_foreign_key">18.8. Foreign Key</h3>
+<div class="sect3">
+<h4 id="_foreign_key">18.4.2. Foreign Key</h4>
 <div class="paragraph">
 <p>Een <strong>Foreign Key</strong> is een veld in een tabel dat verwijst naar de Primary Key in een andere tabel. Het wordt gebruikt om relaties tussen tabellen tot stand te brengen. De Foreign Key zorgt ervoor dat de waarden in dat veld overeenkomen met de waarden van de Primary Key in de gerelateerde tabel.</p>
 </div>
@@ -6450,8 +6516,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 <p>In dit voorbeeld verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel, waardoor een <strong>relatie ontstaat</strong> tussen de artiesten en de albums in de database.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_fk_en_pk_referentiële_integriteit">18.9. FK en PK: Referentiële integriteit</h3>
+<div class="sect3">
+<h4 id="_fk_en_pk_referentiële_integriteit">18.4.3. FK en PK: Referentiële integriteit</h4>
 <div class="paragraph">
 <p>Het correct gebruik van Primary en Foreign Keys waarborgt data-integriteit door:</p>
 </div>
@@ -6472,8 +6538,9 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 <p>bij het verwijderen van gegevens uit de databank moet er dus steeds opgelet worden dat je niets verwijderd waar een FK naar verwijst. De referentie (FK naar PK) mag niet verstoord worden. Voor het verwijderen zal je de FK-PK verwijzing eerst moeten opheffen of verwijderen. Dit is de referentiële integriteit.</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_joins_het_combineren_van_tabellen">18.10. Joins: Het Combineren van Tabellen</h3>
+<h3 id="_joins_het_combineren_van_tabellen">18.5. Joins: Het Combineren van Tabellen</h3>
 <div class="paragraph">
 <p>Een JOIN combineert gegevens uit verschillende tabellen op basis van een bepaalde kolom, de <em>Foreign key (FK)</em> die verwijst naar een kolom in een andere tabel, de <em>Primary key (PK)</em> van die tabel.</p>
 </div>
@@ -6494,6 +6561,97 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 <div class="imageblock">
 <div class="content">
 <img src="images/trackjoin.PNG" alt="trackjoin">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verbinding_maken_en_queryen_naar_mysql_database_in_python">18.6. Verbinding maken en Queryen naar MySQL Database in Python</h3>
+<div class="sect3">
+<h4 id="_installatie_van_de_mysql_connector">18.6.1. Installatie van de MySQL-Connector</h4>
+<div class="paragraph">
+<p>Om te beginnen, installeer de <code>mysql-connector</code> library door het volgende commando in je terminal of command prompt uit te voeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>mysql-connector-python</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_verbinding_maken_met_de_mysql_database">18.7. Verbinding maken met de MySQL-database</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">mysql.connector</span>
+
+<span class="c1"># Verbindingsparameters
+</span><span class="n">host</span> <span class="o">=</span> <span class="sh">"</span><span class="s">jouw_host</span><span class="sh">"</span>
+<span class="n">gebruiker</span> <span class="o">=</span> <span class="sh">"</span><span class="s">jouw_gebruikersnaam</span><span class="sh">"</span>
+<span class="n">wachtwoord</span> <span class="o">=</span> <span class="sh">"</span><span class="s">jouw_wachtwoord</span><span class="sh">"</span>
+<span class="n">database</span> <span class="o">=</span> <span class="sh">"</span><span class="s">jouw_database</span><span class="sh">"</span>
+
+<span class="c1"># Verbinding maken
+</span><span class="n">verbinding</span> <span class="o">=</span> <span class="n">mysql</span><span class="p">.</span><span class="n">connector</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">gebruiker</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="n">wachtwoord</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="n">database</span>
+<span class="p">)</span>
+
+<span class="c1"># Controleren op succesvolle verbinding
+</span><span class="k">if</span> <span class="n">verbinding</span><span class="p">.</span><span class="nf">is_connected</span><span class="p">():</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Verbinding met de database tot stand gebracht.</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Verbinding mislukt.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_een_eenvoudige_query_uitvoeren">18.7.1. Een eenvoudige query uitvoeren</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="Python"># Een eenvoudige query uitvoeren
+query = "SELECT * FROM jouw_tabel"
+cursor = verbinding.cursor()
+
+# De query uitvoeren
+cursor.execute(query)
+
+# De resultaten ophalen
+resultaten = cursor.fetchall()
+
+# Resultaten afdrukken
+for resultaat in resultaten:
+    print(resultaat)
+
+# Cursor sluiten
+cursor.close()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Met deze stappen maak je verbinding met een MySQL-database vanuit Python en voer je eenvoudige query&#8217;s uit. Zorg ervoor dat je de variabelen aanpast met de specifieke gegevens van jouw database.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_geavanceerde_query_met_parameters">18.7.2. Geavanceerde Query met Parameters</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Geavanceerde query met parameters
+</span><span class="n">parameter_query</span> <span class="o">=</span> <span class="sh">"</span><span class="s">SELECT * FROM jouw_tabel WHERE kolom = %s</span><span class="sh">"</span>
+<span class="n">parameter</span> <span class="o">=</span> <span class="p">(</span><span class="sh">"</span><span class="s">waarde</span><span class="sh">"</span><span class="p">,)</span>
+
+<span class="c1"># De query met parameters uitvoeren
+</span><span class="n">cursor</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="n">parameter_query</span><span class="p">,</span> <span class="n">parameter</span><span class="p">)</span>
+
+<span class="c1"># Resultaten ophalen
+</span><span class="n">resultaten_met_parameter</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="nf">fetchall</span><span class="p">()</span>
+
+<span class="c1"># Resultaten afdrukken
+</span><span class="k">for</span> <span class="n">resultaat</span> <span class="ow">in</span> <span class="n">resultaten_met_parameter</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">resultaat</span><span class="p">)</span>
+
+<span class="c1"># Cursor sluiten
+</span><span class="n">cursor</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
 </div>
 </div>
 </div>

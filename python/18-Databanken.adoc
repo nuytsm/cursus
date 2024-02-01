@@ -21,14 +21,40 @@ Bijvoorbeeld een _Title_ is een string, de _ArtistId_ is een integer, een geboor
 
 image::images/sqldatatypes.PNG[]
 
+=== De SQL standaard
+
+Hoewel er een algemene SQL-standaard bestaat, staat deze standaard bepaalde variabiliteit toe, waardoor verschillende databasesystemen verschillende dialecten kunnen hebben.
+
+Hier volgt een overzicht van enkele veelvoorkomende SQL-dialecten en databasesystemen:
+
+==== MySQL
+
+MySQL is een veelgebruikt opensource-databasesysteem dat bekend staat om zijn snelheid en betrouwbaarheid. Het ondersteunt de ANSI SQL-standaard, maar heeft ook specifieke syntaxis en functies.
+
+==== PostgreSQL
+
+PostgreSQL is een krachtig opensource relationeel databasesysteem met een sterke focus op uitbreidbaarheid en conformiteit aan de SQL-standaard. Het biedt geavanceerde functies en ondersteunt complexe query's.
+
+==== Microsoft SQL Server (T-SQL)
+
+Microsoft SQL Server maakt gebruik van Transact-SQL (T-SQL), een uitbreiding van SQL met specifieke syntaxis en functies die zijn geoptimaliseerd voor gebruik met SQL Server-databases. Het is nauw geïntegreerd met de Microsoft-stack.
+
+==== SQLite
+
+SQLite is een lichtgewicht, zelfstandig databasesysteem dat geen server nodig heeft. Het wordt vaak ingebed in applicaties en apparaten. SQLite volgt de SQL-standaard, maar heeft enkele beperkingen vanwege zijn lichte karakter.
+
 == Het Gebruiken van SQLite
 
 SQLite is een lichte, ingebouwde database-engine die geen aparte server nodig heeft. De Chinook-database is een kleine SQLite databank.
 De software die we gaan gebruiken om de database te queriën (ondervragen) is DBeaver. Deze kan je hier downloaden: https://dbeaver.io/download/[DBeaver software]. Deze __community edition__ software is open source en gratis te gebruiken.
 
+image::images/data_edit-450x220.png[]
+
 In de software is de __'Sample Chinook database'__ reeds aanwezig. Deze kunnen we gebruiken om voorbeeldqueries op uit te voeren.
 
-== Het SELECT-Statement: Basisquery
+== SQL queries
+
+=== Het SELECT-Statement: Basisquery
 
 Het meest fundamentele SQL-statement is het SELECT-statement. Hiermee kun je gegevens uit een tabel ophalen.
 
@@ -41,7 +67,7 @@ Dit geeft alle records en kolommen van de 'artists'-tabel weer:
 
 image::images/dbresult.PNG[]
 
-== Filteren van Resultaten met WHERE
+=== Filteren van Resultaten met WHERE
 
 Om specifieke resultaten te verkrijgen, gebruiken we de WHERE-clausule.
 
@@ -55,7 +81,7 @@ Dit geeft alleen de artiest 'Queen' weer:
 
 image::images/selectwhere.PNG[]
 
-== Sorteren van Resultaten met ORDER BY
+=== Sorteren van Resultaten met ORDER BY
 
 Met ORDER BY kun je resultaten sorteren op basis van een kolom.
 
@@ -69,7 +95,7 @@ Dit toont alle genres gesorteerd op naam:
 
 image::images/genres.PNG[]
 
-== Aggregatiefuncties: COUNT, SUM, AVG
+=== Aggregatiefuncties: COUNT, SUM, AVG
 
 Aggregatiefuncties vatten gegevens samen. Bijvoorbeeld, het aantal tracks per album:
 
@@ -106,7 +132,7 @@ In de 'artists'-tabel van de Chinook-database is het veld 'ArtistId' een voorbee
 |===
 ----
 
-== Foreign Key
+=== Foreign Key
 
 Een **Foreign Key** is een veld in een tabel dat verwijst naar de Primary Key in een andere tabel. Het wordt gebruikt om relaties tussen tabellen tot stand te brengen. De Foreign Key zorgt ervoor dat de waarden in dat veld overeenkomen met de waarden van de Primary Key in de gerelateerde tabel.
 
@@ -128,7 +154,7 @@ In de 'albums'-tabel van de Chinook-database verwijst het veld 'ArtistId' naar d
 
 In dit voorbeeld verwijst het veld 'ArtistId' naar de Primary Key 'ArtistId' in de 'artists'-tabel, waardoor een **relatie ontstaat** tussen de artiesten en de albums in de database.
 
-== FK en PK: Referentiële integriteit
+=== FK en PK: Referentiële integriteit
 
 Het correct gebruik van Primary en Foreign Keys waarborgt data-integriteit door:
 
@@ -155,4 +181,89 @@ JOIN album ON track.AlbumId = album.AlbumId;
 Dit toont tracks met bijbehorende albuminformatie:
 
 image::images/trackjoin.PNG[]
+
+== Verbinding maken en Queryen naar MySQL Database in Python
+
+=== Installatie van de MySQL-Connector
+
+Om te beginnen, installeer de `mysql-connector` library door het volgende commando in je terminal of command prompt uit te voeren:
+
+[source, bash]
+----
+pip install mysql-connector-python
+----
+
+## Verbinding maken met de MySQL-database
+
+[source, python]
+----
+import mysql.connector
+
+# Verbindingsparameters
+host = "jouw_host"
+gebruiker = "jouw_gebruikersnaam"
+wachtwoord = "jouw_wachtwoord"
+database = "jouw_database"
+
+# Verbinding maken
+verbinding = mysql.connector.connect(
+    host=host,
+    user=gebruiker,
+    password=wachtwoord,
+    database=database
+)
+
+# Controleren op succesvolle verbinding
+if verbinding.is_connected():
+    print("Verbinding met de database tot stand gebracht.")
+else:
+    print("Verbinding mislukt.")
+----
+
+=== Een eenvoudige query uitvoeren
+
+[source, Python]
+----
+# Een eenvoudige query uitvoeren
+query = "SELECT * FROM jouw_tabel"
+cursor = verbinding.cursor()
+
+# De query uitvoeren
+cursor.execute(query)
+
+# De resultaten ophalen
+resultaten = cursor.fetchall()
+
+# Resultaten afdrukken
+for resultaat in resultaten:
+    print(resultaat)
+
+# Cursor sluiten
+cursor.close()
+----
+
+Met deze stappen maak je verbinding met een MySQL-database vanuit Python en voer je eenvoudige query's uit. Zorg ervoor dat je de variabelen aanpast met de specifieke gegevens van jouw database.
+
+=== Geavanceerde Query met Parameters
+
+[source, python]
+----
+# Geavanceerde query met parameters
+parameter_query = "SELECT * FROM jouw_tabel WHERE kolom = %s"
+parameter = ("waarde",)
+
+# De query met parameters uitvoeren
+cursor.execute(parameter_query, parameter)
+
+# Resultaten ophalen
+resultaten_met_parameter = cursor.fetchall()
+
+# Resultaten afdrukken
+for resultaat in resultaten_met_parameter:
+    print(resultaat)
+
+# Cursor sluiten
+cursor.close()
+----
+
 
