@@ -193,7 +193,7 @@ Om te beginnen, installeer de `mysql-connector` library door het volgende comman
 pip install mysql-connector-python
 ----
 
-## Verbinding maken met de MySQL-database
+=== Verbinding maken met de MySQL-database
 
 [source, python]
 ----
