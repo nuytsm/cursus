@@ -1001,12 +1001,14 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_verbinding_maken_en_queryen_naar_mysql_database_in_python">18.6. Verbinding maken en Queryen naar MySQL Database in Python</a>
 <ul class="sectlevel3">
 <li><a href="#_installatie_van_de_mysql_connector">18.6.1. Installatie van de MySQL-Connector</a></li>
+<li><a href="#_verbinding_maken_met_de_mysql_database">18.6.2. Verbinding maken met de MySQL-database</a></li>
+<li><a href="#_een_eenvoudige_query_uitvoeren">18.6.3. Een eenvoudige query uitvoeren</a></li>
+<li><a href="#_queries_parameters_in_sql">18.6.4. Queries parameters in SQL</a>
+<ul class="sectlevel4">
+<li><a href="#_voordelen_van_geparametriseerde_queries">Voordelen van Geparametriseerde Queries</a></li>
+<li><a href="#_voorbeeld_van_geparametriseerde_query_in_python">Voorbeeld van Geparametriseerde Query in Python</a></li>
 </ul>
 </li>
-<li><a href="#_verbinding_maken_met_de_mysql_database">18.7. Verbinding maken met de MySQL-database</a>
-<ul class="sectlevel3">
-<li><a href="#_een_eenvoudige_query_uitvoeren">18.7.1. Een eenvoudige query uitvoeren</a></li>
-<li><a href="#_geavanceerde_query_met_parameters">18.7.2. Geavanceerde Query met Parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -6577,9 +6579,8 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_verbinding_maken_met_de_mysql_database">18.7. Verbinding maken met de MySQL-database</h3>
+<div class="sect3">
+<h4 id="_verbinding_maken_met_de_mysql_database">18.6.2. Verbinding maken met de MySQL-database</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">mysql.connector</span>
@@ -6605,8 +6606,9 @@ De software die we gaan gebruiken om de database te queriën (ondervragen) is DB
     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Verbinding mislukt.</span><span class="sh">"</span><span class="p">)</span></code></pre>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="_een_eenvoudige_query_uitvoeren">18.7.1. Een eenvoudige query uitvoeren</h4>
+<h4 id="_een_eenvoudige_query_uitvoeren">18.6.3. Een eenvoudige query uitvoeren</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="Python"># Een eenvoudige query uitvoeren
@@ -6632,7 +6634,16 @@ cursor.close()</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_geavanceerde_query_met_parameters">18.7.2. Geavanceerde Query met Parameters</h4>
+<h4 id="_queries_parameters_in_sql">18.6.4. Queries parameters in SQL</h4>
+<div class="paragraph">
+<p>Geparametriseerde queries zijn SQL-query&#8217;s waarbij parameters worden gebruikt om dynamisch waarden in te voegen in de query. Dit is een belangrijke techniek om SQL-injectieaanvallen te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query&#8217;s te schrijven.</p>
+</div>
+<div class="paragraph">
+<p>Geparametriseerde queries worden meestal uitgevoerd met behulp van placeholders in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld:</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="c1"># Geavanceerde query met parameters
@@ -6651,6 +6662,59 @@ cursor.close()</code></pre>
 
 <span class="c1"># Cursor sluiten
 </span><span class="n">cursor</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_voordelen_van_geparametriseerde_queries">Voordelen van Geparametriseerde Queries</h5>
+<div class="paragraph">
+<p>Geparametriseerde queries bieden verschillende voordelen:</p>
+</div>
+<div class="paragraph">
+<p>Voorkomt SQL-injectie: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.
+Verbeterde Veiligheid: Het scheiden van querystructuur van gegevens verhoogt de beveiliging van de toepassing en beschermt tegen kwaadaardige invoer.
+Optimalisatie van Query&#8217;s: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_voorbeeld_van_geparametriseerde_query_in_python">Voorbeeld van Geparametriseerde Query in Python</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">mysql.connector</span>
+
+<span class="c1"># Verbinding maken met de database
+</span><span class="n">verbinding</span> <span class="o">=</span> <span class="n">mysql</span><span class="p">.</span><span class="n">connector</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span>
+<span class="n">host</span><span class="o">=</span><span class="sh">"</span><span class="s">jouw_host</span><span class="sh">"</span><span class="p">,</span>
+<span class="n">gebruiker</span><span class="o">=</span><span class="sh">"</span><span class="s">jouw_gebruikersnaam</span><span class="sh">"</span><span class="p">,</span>
+<span class="n">wachtwoord</span><span class="o">=</span><span class="sh">"</span><span class="s">jouw_wachtwoord</span><span class="sh">"</span><span class="p">,</span>
+<span class="n">database</span><span class="o">=</span><span class="sh">"</span><span class="s">jouw_database</span><span class="sh">"</span>
+<span class="p">)</span>
+
+<span class="c1"># Cursor object maken
+</span><span class="n">cursor</span> <span class="o">=</span> <span class="n">verbinding</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
+
+<span class="c1"># Voorbeeld van een geparametriseerde query
+</span><span class="n">query</span> <span class="o">=</span> <span class="sh">"</span><span class="s">SELECT * FROM klanten WHERE achternaam = %s</span><span class="sh">"</span>
+
+<span class="c1"># Parameterwaarde
+</span><span class="n">parameter</span> <span class="o">=</span> <span class="p">(</span><span class="sh">"</span><span class="s">Smith</span><span class="sh">"</span><span class="p">,)</span>
+
+<span class="c1"># De query uitvoeren
+</span><span class="n">cursor</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">parameter</span><span class="p">)</span>
+
+<span class="c1"># Resultaten ophalen
+</span><span class="n">resultaten</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="nf">fetchall</span><span class="p">()</span>
+
+<span class="c1"># Resultaten afdrukken
+</span><span class="k">for</span> <span class="n">resultaat</span> <span class="ow">in</span> <span class="n">resultaten</span><span class="p">:</span>
+   <span class="nf">print</span><span class="p">(</span><span class="n">resultaat</span><span class="p">)</span>
+
+<span class="c1"># Cursor en verbinding sluiten
+</span><span class="n">cursor</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+<span class="n">verbinding</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een geparametriseerde query uitgevoerd om klanten met de achternaam "Smith" op te halen uit een fictieve "klanten" tabel. De parameterwaarde wordt ingevoegd in de query met behulp van de %s placeholder en meegegeven aan de execute methode samen met de query.</p>
 </div>
 </div>
 </div>

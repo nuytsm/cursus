@@ -244,7 +244,13 @@ cursor.close()
 
 Met deze stappen maak je verbinding met een MySQL-database vanuit Python en voer je eenvoudige query's uit. Zorg ervoor dat je de variabelen aanpast met de specifieke gegevens van jouw database.
 
-=== Geavanceerde Query met Parameters
+=== Queries parameters in SQL
+
+Geparametriseerde queries zijn SQL-query's waarbij parameters worden gebruikt om dynamisch waarden in te voegen in de query. Dit is een belangrijke techniek om SQL-injectieaanvallen te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query's te schrijven.
+
+Geparametriseerde queries worden meestal uitgevoerd met behulp van placeholders in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.
+
+Voorbeeld:
 
 [source, python]
 ----
@@ -265,5 +271,54 @@ for resultaat in resultaten_met_parameter:
 # Cursor sluiten
 cursor.close()
 ----
+
+
+==== Voordelen van Geparametriseerde Queries
+
+Geparametriseerde queries bieden verschillende voordelen:
+
+Voorkomt SQL-injectie: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.
+Verbeterde Veiligheid: Het scheiden van querystructuur van gegevens verhoogt de beveiliging van de toepassing en beschermt tegen kwaadaardige invoer.
+Optimalisatie van Query's: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.
+
+==== Voorbeeld van Geparametriseerde Query in Python
+
+[source,python]
+----
+import mysql.connector
+
+# Verbinding maken met de database
+verbinding = mysql.connector.connect(
+host="jouw_host",
+gebruiker="jouw_gebruikersnaam",
+wachtwoord="jouw_wachtwoord",
+database="jouw_database"
+)
+
+# Cursor object maken
+cursor = verbinding.cursor()
+
+# Voorbeeld van een geparametriseerde query
+query = "SELECT * FROM klanten WHERE achternaam = %s"
+
+# Parameterwaarde
+parameter = ("Smith",)
+
+# De query uitvoeren
+cursor.execute(query, parameter)
+
+# Resultaten ophalen
+resultaten = cursor.fetchall()
+
+# Resultaten afdrukken
+for resultaat in resultaten:
+   print(resultaat)
+
+# Cursor en verbinding sluiten
+cursor.close()
+verbinding.close()
+----
+
+In dit voorbeeld wordt een geparametriseerde query uitgevoerd om klanten met de achternaam "Smith" op te halen uit een fictieve "klanten" tabel. De parameterwaarde wordt ingevoegd in de query met behulp van de %s placeholder en meegegeven aan de execute methode samen met de query.
 
 
