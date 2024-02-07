@@ -6636,10 +6636,10 @@ cursor.close()</code></pre>
 <div class="sect3">
 <h4 id="_query_parameters_in_sql">18.6.4. Query parameters in SQL</h4>
 <div class="paragraph">
-<p>Geparametriseerde queries zijn SQL-query&#8217;s waarbij parameters worden gebruikt om dynamisch waarden in te voegen in de query. Dit is een belangrijke techniek om <a href="https://portswigger.net/web-security/sql-injection">SQL-injection attacks</a> te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query&#8217;s te schrijven.</p>
+<p>Geparametriseerde queries zijn SQL-query&#8217;s waarbij parameters worden gebruikt om <mark>dynamisch waarden in te voegen in de query</mark>. Dit is een belangrijke techniek om <a href="https://portswigger.net/web-security/sql-injection">SQL-injection attacks</a> te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query&#8217;s te schrijven.</p>
 </div>
 <div class="paragraph">
-<p>Geparametriseerde queries worden meestal uitgevoerd met behulp van placeholders in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.</p>
+<p>Geparametriseerde queries worden meestal uitgevoerd met behulp van <strong>placeholders</strong> in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.</p>
 </div>
 <div class="paragraph">
 <p>Voorbeeld:</p>
@@ -6669,10 +6669,15 @@ cursor.close()</code></pre>
 <div class="paragraph">
 <p>Geparametriseerde queries bieden verschillende voordelen:</p>
 </div>
-<div class="paragraph">
-<p>Voorkomt SQL-injectie: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.
-Verbeterde Veiligheid: Het scheiden van querystructuur van gegevens verhoogt de beveiliging van de toepassing en beschermt tegen kwaadaardige invoer.
-Optimalisatie van Query&#8217;s: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Voorkomt SQL-injectie</strong>: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.</p>
+</li>
+<li>
+<p><strong>Optimalisatie van Query&#8217;s</strong>: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect4">

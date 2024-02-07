@@ -246,11 +246,11 @@ Met deze stappen maak je verbinding met een MySQL-database vanuit Python en voer
 
 === Query parameters in SQL
 
-Geparametriseerde queries zijn SQL-query's waarbij parameters worden gebruikt om dynamisch waarden in te voegen in de query. Dit is een belangrijke techniek om https://portswigger.net/web-security/sql-injection[SQL-injection attacks] te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query's te schrijven.
+Geparametriseerde queries zijn SQL-query's waarbij parameters worden gebruikt om ##dynamisch waarden in te voegen in de query##. Dit is een belangrijke techniek om https://portswigger.net/web-security/sql-injection[SQL-injection attacks] te voorkomen en maakt het ook gemakkelijker om herbruikbare en veilige query's te schrijven.
 
 
 
-Geparametriseerde queries worden meestal uitgevoerd met behulp van placeholders in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.
+Geparametriseerde queries worden meestal uitgevoerd met behulp van **placeholders** in de SQL-query, waarbij de daadwerkelijke waarden vervolgens worden ingevoegd tijdens de query-uitvoering. Dit proces helpt bij het scheiden van de querystructuur van de gegevens, waardoor potentiële aanvallen worden voorkomen.
 
 Voorbeeld:
 
@@ -279,9 +279,8 @@ cursor.close()
 
 Geparametriseerde queries bieden verschillende voordelen:
 
-Voorkomt SQL-injectie: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.
-Verbeterde Veiligheid: Het scheiden van querystructuur van gegevens verhoogt de beveiliging van de toepassing en beschermt tegen kwaadaardige invoer.
-Optimalisatie van Query's: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.
+. **Voorkomt SQL-injectie**: Door parameters te gebruiken, worden gebruikersinvoerwaarden niet rechtstreeks in de SQL-query opgenomen, waardoor SQL-injectieaanvallen worden voorkomen.
+. **Optimalisatie van Query's**: Geparametriseerde queries kunnen worden gecachet door de database, waardoor de prestaties kunnen worden verbeterd bij herhaaldelijk gebruik.
 
 ==== Voorbeeld van Geparametriseerde Query in Python
 
