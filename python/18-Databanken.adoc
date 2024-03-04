@@ -201,8 +201,8 @@ import mysql.connector
 
 # Verbindingsparameters
 host = "jouw_host"
-gebruiker = "jouw_gebruikersnaam"
-wachtwoord = "jouw_wachtwoord"
+user = "jouw_gebruikersnaam"
+password = "jouw_wachtwoord"
 database = "jouw_database"
 
 # Verbinding maken
@@ -291,8 +291,8 @@ import mysql.connector
 # Verbinding maken met de database
 verbinding = mysql.connector.connect(
 host="jouw_host",
-gebruiker="jouw_gebruikersnaam",
-wachtwoord="jouw_wachtwoord",
+user="jouw_gebruikersnaam",
+password="jouw_wachtwoord",
 database="jouw_database"
 )
 
