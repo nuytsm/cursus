@@ -1013,6 +1013,15 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 </ul>
 </li>
+<li><a href="#_cartopy_geografische_data_visualisatie_in_python">19. Cartopy: Geografische Data Visualisatie in Python</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_cartopy">19.1. Wat is Cartopy?</a></li>
+<li><a href="#_installatie_van_cartopy">19.2. Installatie van Cartopy</a></li>
+<li><a href="#_belangrijkste_kenmerken">19.3. Belangrijkste Kenmerken</a></li>
+<li><a href="#_voorbeeldcode">19.4. Voorbeeldcode</a></li>
+<li><a href="#_een_punt_op_de_kaart">19.5. Een punt op de kaart</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -6726,10 +6735,139 @@ cursor.close()</code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_cartopy_geografische_data_visualisatie_in_python">19. Cartopy: Geografische Data Visualisatie in Python</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_wat_is_cartopy">19.1. Wat is Cartopy?</h3>
+<div class="paragraph">
+<p>Cartopy is een open-source bibliotheek die is gebouwd bovenop Matplotlib en Shapely en die is ontworpen voor het maken van kaarten en het werken met geografische gegevens in Python. Het biedt een eenvoudige en intuïtieve interface voor het maken van verschillende soorten kaarten, zoals orthografische, cilindrische en azimutale projecties.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installatie_van_cartopy">19.2. Installatie van Cartopy</h3>
+<div class="paragraph">
+<p>Om Cartopy te installeren, kunt u gebruik maken van pip, de Python package manager. U kunt Cartopy installeren met het volgende commando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>cartopy</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_belangrijkste_kenmerken">19.3. Belangrijkste Kenmerken</h3>
+<div class="paragraph">
+<p>Enkele van de belangrijkste kenmerken van Cartopy zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Ondersteuning voor Verschillende Kaartprojecties:</strong> Cartopy biedt ondersteuning voor een breed scala aan kaartprojecties, waaronder Mercator, Orthografisch, Stereografisch, en nog veel meer.</p>
+</li>
+<li>
+<p><strong>Gegevensvisualisatie:</strong> Met Cartopy kunt u geografische gegevens visualiseren, zoals landgrenzen, kustlijnen, rivieren, enzovoort.</p>
+</li>
+<li>
+<p><strong>Geografische Plotting:</strong> Cartopy biedt de mogelijkheid om gegevens te plotten op geografische coördinaten, waardoor u verschillende soorten kaarten kunt maken met behulp van uw eigen datasets.</p>
+</li>
+<li>
+<p><strong>Eenvoudige Integratie met Matplotlib:</strong> Omdat Cartopy is gebouwd bovenop Matplotlib, kunt u de plotfuncties van Matplotlib gebruiken in combinatie met de geografische functionaliteit van Cartopy.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voorbeeldcode">19.4. Voorbeeldcode</h3>
+<div class="paragraph">
+<p>Hier is een eenvoudig voorbeeld van hoe Cartopy kan worden gebruikt om een eenvoudige kaart te maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">from</span> <span class="n">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Maak een nieuwe kaartfiguur
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Voeg landen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">)</span>
+
+<span class="c1"># Voeg kustlijnen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">COASTLINE</span><span class="p">)</span>
+
+<span class="c1"># Voeg een titel toe aan de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Een Eenvoudige Kaart met Cartopy</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld creëert een eenvoudige kaart met Cartopy, met landen en kustlijnen als kenmerken:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy1.png" alt="cartopy1">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_een_punt_op_de_kaart">19.5. Een punt op de kaart</h3>
+<div class="paragraph">
+<p>Op de gerenderde kaart willen we bijvoorbeeld Brussel tonen als een rode bol.
+Hiervoor moeten we de coördinaten van Brussel kennen, namelijk: 50.8503, 4.3517.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">from</span> <span class="n">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Coördinaten van Brussel (latitude, longitude)
+</span><span class="n">brussels_coords</span> <span class="o">=</span> <span class="p">(</span><span class="mf">50.8503</span><span class="p">,</span> <span class="mf">4.3517</span><span class="p">)</span>
+
+<span class="c1"># Bepaal de extent voor de hele wereldkaart
+</span><span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="c1"># Maak een nieuwe kaartfiguur
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_extent</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span>
+
+<span class="c1"># Voeg landen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">)</span>
+
+<span class="c1"># Voeg kustlijnen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">COASTLINE</span><span class="p">)</span>
+
+<span class="c1"># Voeg een rode bol toe voor Brussel
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">brussels_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">brussels_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sh">'</span><span class="s">ro</span><span class="sh">'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Voeg een titel toe aan de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Een Eenvoudige Kaart met Brussel Gemarkeerd</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy2.png" alt="cartopy2">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-01-17 11:58:13 +0100
+Last updated 2024-03-20 11:12:00 +0100
 </div>
 </div>
 </body>
