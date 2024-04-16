@@ -57,7 +57,7 @@ Dit voorbeeld creëert een eenvoudige kaart met Cartopy, met landen en kustlijne
 image::images/cartopy1.png[]
 
 
-== Een punt op de kaart
+=== Een punt op de kaart
 
 Op de gerenderde kaart willen we bijvoorbeeld Brussel tonen als een rode bol.
 Hiervoor moeten we de coördinaten van Brussel kennen, namelijk: 50.8503, 4.3517.
@@ -99,7 +99,9 @@ Resultaat:
 
 image::images/cartopy2.png[]
 
-== Inzoomen
+=== Inzoomen
+
+Op basis van de gekende coördinaten:
 
 [source, python]
 ----
@@ -107,5 +109,44 @@ image::images/cartopy2.png[]
 extent = [brussels_coords[1]-10, brussels_coords[1]+10, brussels_coords[0]-5, brussels_coords[0]+5]
 ax.set_extent(extent)
 ----
+
+Of via bepaalde longitude en latitude:
+
+[source, python]
+----
+# Bepaal de extent voor de hele wereldkaart
+extent = [-10, 20, 30, 60]
+----
+
+Resultaat:
+
+image::images/inzoom.png[]
+
+=== Grenzen en provincies
+
+[source, python]
+----
+# Bepaal de extent voor de hele wereldkaart
+extent = [1.8, 6.5, 49.4, 52]
+
+# Maak een nieuwe kaartfiguur
+plt.figure(figsize=(10, 5))
+ax = plt.axes(projection=ccrs.Aitoff())
+ax.set_extent(extent)
+
+# Voeg landen toe aan de kaart
+ax.add_feature(cartopy.feature.LAND)
+ax.add_feature(cartopy.feature.STATES, linestyle='--', edgecolor='blue')
+ax.add_feature(cartopy.feature.BORDERS, linestyle=':', edgecolor='red')
+----
+
+Resultaat:
+
+image::images/cartopy_borders.png[]
+
+
+
+
+
 
 
