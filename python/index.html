@@ -1027,6 +1027,33 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 </ul>
 </li>
+<li><a href="#_logging">20. Logging</a>
+<ul class="sectlevel2">
+<li><a href="#_basisconfiguratie">20.1. Basisconfiguratie</a></li>
+<li><a href="#_logboekberichten_vastleggen">20.2. Logboekberichten vastleggen</a>
+<ul class="sectlevel3">
+<li><a href="#_variabelen_loggen">20.2.1. Variabelen loggen</a></li>
+<li><a href="#_exceptions_vastleggen">20.2.2. Exceptions vastleggen</a></li>
+</ul>
+</li>
+<li><a href="#_een_samenvattend_voorbeeld">20.3. Een samenvattend voorbeeld</a></li>
+</ul>
+</li>
+<li><a href="#_python_unittest_testen_van_python_code">21. Python Unittest: Testen van Python-code</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_unittest">21.1. Wat is unittest?</a>
+<ul class="sectlevel3">
+<li><a href="#_testcase_maken">21.1.1. Testcase maken</a></li>
+<li><a href="#_test_uitvoeren">21.1.2. Test uitvoeren</a></li>
+<li><a href="#_assert_functies">21.1.3. <em>Assert</em>-Functies</a></li>
+<li><a href="#_setup_en_teardown">21.1.4. SetUp en TearDown</a></li>
+<li><a href="#_testen_van_exceptions">21.1.5. Testen van <em>Exceptions</em></a></li>
+</ul>
+</li>
+<li><a href="#_parametrized_testcases">21.2. <em>Parametrized Testcases</em></a></li>
+<li><a href="#_test_coverage">21.3. Test Coverage</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -6926,10 +6953,389 @@ Hiervoor moeten we de coördinaten van Brussel kennen, namelijk: 50.8503, 4.3517
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_logging">20. Logging</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tot nu toe hebben we veel gebruik gemaakt van <em>'print()'</em> <em>statements</em> om fouten op te sporen in onze code.
+Dit is niet altijd handig, we moeten de <em>print statements</em> soms in commentaar zetten om ze niet te laten uitvoeren.</p>
+</div>
+<div class="paragraph">
+<p>Een betere oplossing hiervoor is om gebruik te maken van <em>logging</em>:</p>
+</div>
+<div class="paragraph">
+<p>Logging is een handige techniek om berichten van een programma vast te leggen tijdens de uitvoering ervan. Hierdoor kun je nuttige informatie verzamelen over wat er gebeurt, fouten opsporen en de prestaties van je programma volgen.</p>
+</div>
+<div class="sect2">
+<h3 id="_basisconfiguratie">20.1. Basisconfiguratie</h3>
+<div class="paragraph">
+<p>Om te beginnen met logging in Python, moeten we eerst de loggingmodule configureren.
+Dit omvat het instellen van het <strong>logniveau</strong> en het opgeven van het <strong>logformaat</strong>.
+Het logniveau bepaalt welke berichten worden vastgelegd, terwijl het logformaat de structuur van de logboekberichten definieert.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">logging</span>
+
+<span class="c1"># Configureer de logging
+</span><span class="n">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="sh">'</span><span class="s">%(asctime)s - %(levelname)s - %(message)s</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld hebben we de logging ingesteld op het DEBUG-niveau, wat betekent dat alle logboekberichten van DEBUG-niveau en hoger worden vastgelegd.
+We hebben ook een aangepast logformaat opgegeven waarin de datum, het logniveau en het bericht worden weergegeven.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logboekberichten_vastleggen">20.2. Logboekberichten vastleggen</h3>
+<div class="paragraph">
+<p>Nu we de logging hebben geconfigureerd, kunnen we logboekberichten vastleggen met verschillende logniveaus, zoals DEBUG, INFO, WARNING, ERROR en CRITICAL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeeld van logboekberichten met verschillende logniveaus
+</span><span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een DEBUG bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een INFO bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">warning</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een WARNING bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een ERROR bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">critical</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een CRITICAL bericht</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze logboekberichten worden vastgelegd met het opgegeven logniveau en worden weergegeven met het opgegeven logformaat in de console of het logbestand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">2024-04-24 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-24 12:00:01,000 - INFO - Dit is een INFO bericht
+2024-04-24 12:00:02,000 - WARNING - Dit is een WARNING bericht
+2024-04-24 12:00:03,000 - ERROR - Dit is een ERROR bericht
+2024-04-24 12:00:04,000 - CRITICAL - Dit is een CRITICAL bericht</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_variabelen_loggen">20.2.1. Variabelen loggen</h4>
+<div class="paragraph">
+<p>Je kunt ook variabelen in logboekberichten opnemen om nuttige informatie vast te leggen tijdens de uitvoering van je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeeld van het gebruik van variabelen in logboekberichten
+</span><span class="n">name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">Alice</span><span class="sh">'</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Gebruikersnaam: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, Leeftijd: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal een logboekbericht genereren met informatie over de gebruiker, inclusief de gebruikersnaam en leeftijd:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_exceptions_vastleggen">20.2.2. Exceptions vastleggen</h4>
+<div class="paragraph">
+<p>Logging is handig bij het vastleggen van exceptions en fouten die optreden tijdens de uitvoering van je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeeld van het vastleggen van uitzonderingen
+</span><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="nb">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logging</span><span class="p">.</span><span class="nf">exception</span><span class="p">(</span><span class="sh">'</span><span class="s">Er is een fout opgetreden bij het delen</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal niet alleen het opgegeven foutbericht vastleggen, maar ook de volledige stacktrace van de uitzondering.</p>
+</div>
+<div class="paragraph">
+<p>Logging voor specifieke modules configureren
+Je kunt logging ook configureren voor specifieke modules in je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeeld van het configureren van logging voor een specifieke module
+</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="sh">'</span><span class="s">my_module</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="nc">StreamHandler</span><span class="p">())</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit bericht wordt vastgelegd door de my_module logger</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier hebben we een logger geconfigureerd voor de module 'my_module' met een specifiek logniveau en een loghandler.
+Dit stelt ons in staat om logboekberichten te genereren die specifiek zijn voor deze module.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_een_samenvattend_voorbeeld">20.3. Een samenvattend voorbeeld</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">logging</span>
+
+<span class="c1"># Configureer de logging
+</span><span class="n">logging</span><span class="p">.</span><span class="nf">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="sh">'</span><span class="s">%(asctime)s - %(levelname)s - %(message)s</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Voorbeeld van logboekberichten met verschillende logniveaus
+</span><span class="n">logging</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een DEBUG bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een INFO bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">warning</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een WARNING bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een ERROR bericht</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">critical</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit is een CRITICAL bericht</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Voorbeeld van het gebruik van variabelen in logboekberichten
+</span><span class="n">name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">Alice</span><span class="sh">'</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">logging</span><span class="p">.</span><span class="nf">info</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Gebruikersnaam: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, Leeftijd: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Voorbeeld van het vastleggen van uitzonderingen
+</span><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="nb">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logging</span><span class="p">.</span><span class="nf">exception</span><span class="p">(</span><span class="sh">'</span><span class="s">Er is een fout opgetreden bij het delen</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Voorbeeld van het configureren van logging voor een specifieke module
+</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="nf">getLogger</span><span class="p">(</span><span class="sh">'</span><span class="s">my_module</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="nc">StreamHandler</span><span class="p">())</span>
+<span class="n">logger</span><span class="p">.</span><span class="nf">debug</span><span class="p">(</span><span class="sh">'</span><span class="s">Dit bericht wordt vastgelegd door de my_module logger</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Uitvoer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">2024-04-01 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-01 12:00:00,000 - INFO - Dit is een INFO bericht
+2024-04-01 12:00:00,000 - WARNING - Dit is een WARNING bericht
+2024-04-01 12:00:00,000 - ERROR - Dit is een ERROR bericht
+2024-04-01 12:00:00,000 - CRITICAL - Dit is een CRITICAL bericht
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+2024-04-01 12:00:00,000 - ERROR - Er is een fout opgetreden bij het delen
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">"example.py"</span>, line 16, <span class="k">in</span> &lt;module&gt;
+    result <span class="o">=</span> 10 / 0
+ZeroDivisionError: division by zero
+2024-04-01 12:00:00,000 - DEBUG - Dit bericht wordt vastgelegd door de my_module logger</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_python_unittest_testen_van_python_code">21. Python Unittest: Testen van Python-code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://docs.python.org/3/library/unittest.html">Python unittest</a> is een ingebouwde module waarmee je testcases kan schrijven om de functionaliteit van Python-code te valideren.
+In dit hoofdstuk zullen we de basisprincipes van unittest verkennen en laten zien hoe je het kunt gebruiken om je Python-code te testen.</p>
+</div>
+<div class="sect2">
+<h3 id="_wat_is_unittest">21.1. Wat is unittest?</h3>
+<div class="paragraph">
+<p>Unittest is een framework voor het schrijven, organiseren en <strong>uitvoeren van testcases in Python</strong>.
+Het biedt verschillende <em>assert</em>-functies om de <mark>verwachte uitvoer van functies en klassen te vergelijken met de daadwerkelijke uitvoer</mark>.</p>
+</div>
+<div class="sect3">
+<h4 id="_testcase_maken">21.1.1. Testcase maken</h4>
+<div class="paragraph">
+<p>Een testcase is een individuele eenheid van testen binnen unittest.
+Het kan een of meer testmethoden bevatten die de functionaliteit van specifieke delen van je code testen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_addition</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_uitvoeren">21.1.2. Test uitvoeren</h4>
+<div class="paragraph">
+<p>Om de tests uit te voeren, voer je het testbestand uit met behulp van de unittest.main() functie of via de <em>commandline</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assert_functies">21.1.3. <em>Assert</em>-Functies</h4>
+<div class="paragraph">
+<p>Unittest biedt verschillende <em>Assert</em>-Functies om te controleren of bepaalde beweringen of uitkomsten waar (juist) zijn.</p>
+</div>
+<div class="paragraph">
+<p>Enkele veelgebruikte methoden zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>assertEqual(a, b): Controleert of a gelijk is aan b.</p>
+</li>
+<li>
+<p>assertTrue(x): Controleert of x waar is.</p>
+</li>
+<li>
+<p>assertFalse(x): Controleert of x onwaar is.</p>
+</li>
+<li>
+<p>assertIn(a, b): Controleert of a aanwezig is in b.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_setup_en_teardown">21.1.4. SetUp en TearDown</h4>
+<div class="paragraph">
+<p>SetUp en TearDown-methoden worden gebruikt om voorbereidende stappen uit te voeren voor elke test en opruimingsstappen uit te voeren na elke test.
+Bijvoorbeeld het ophalen van data uit een database of het inlezen van een <em>csv</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Voorbereidende stappen voor elke test
+</span>        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Opruimingsstappen na elke test
+</span>        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Testcode hier
+</span>        <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_testen_van_exceptions">21.1.5. Testen van <em>Exceptions</em></h4>
+<div class="paragraph">
+<p>Soms wil je controleren of een bepaalde functie een verwachte <em>Exceptions</em> opwerpt. Je kunt de assertRaises() methode gebruiken om dit te doen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">'</span><span class="s">Cannot divide by zero</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_divide</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertRaises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parametrized_testcases">21.2. <em>Parametrized Testcases</em></h3>
+<div class="paragraph">
+<p>Parametrized testcases stellen ons in staat om <mark>dezelfde testlogica met verschillende invoer te hergebruiken</mark>, waardoor we efficiënter kunnen testen.
+Dit wordt bereikt door gebruik te maken van de <em>@unittest.parametrized.expand</em> decorator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@unittest.parametrized.expand</span><span class="p">([</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="k">def</span> <span class="nf">test_addition</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de test_addition-methode herhaaldelijk uitgevoerd met verschillende invoercombinaties.
+Dit zorgt ervoor dat dezelfde testlogica wordt toegepast op meerdere scenario&#8217;s, wat de testdekking vergroot en ons helpt om fouten te identificeren.</p>
+</div>
+<div class="paragraph">
+<p>Een ander voorbeeld van parametrized testcases:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@unittest.parametrized.expand</span><span class="p">([</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">hello</span><span class="sh">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">world</span><span class="sh">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">python</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="k">def</span> <span class="nf">test_string_length</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="n">length</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld toont hoe dezelfde testlogica wordt toegepast op verschillende invoerwaarden voor het controleren van de lengte van een string.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_coverage">21.3. Test Coverage</h3>
+<div class="paragraph">
+<p>Test coverage is een maatstaf die aangeeft <mark>hoeveel van de broncode wordt uitgevoerd (controleerd) door de testsuite</mark>.
+Het meten van test coverage helpt ontwikkelaars om gebieden van <mark>ongeteste code te identificeren</mark> en de algehele kwaliteit van de tests te verbeteren.</p>
+</div>
+<div class="paragraph">
+<p>Je kunt test coverage meten met behulp van tools zoals coverage.py. Installeer eerst de tool met pip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>coverage</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gebruik vervolgens de <strong>coverage run</strong> opdracht om je tests uit te voeren en de dekking te meten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">coverage run <span class="nt">-m</span> unittest test_mycode.py</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Om een rapport te genereren, gebruik je:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">coverage report</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal een rapport genereren dat laat zien welke delen van de code zijn gedekt door je tests en welke delen niet.</p>
+</div>
+<div class="paragraph">
+<p>Het meten van test coverage kan je helpen om gebieden van je code te identificeren die mogelijk onvoldoende worden getest, waardoor je de testsuite kunt verbeteren en de stabiliteit van je code kunt verhogen.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-20 11:12:00 +0100
+Last updated 2024-05-02 10:13:26 +0200
 </div>
 </div>
 </body>

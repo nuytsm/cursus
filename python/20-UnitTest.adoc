@@ -1,0 +1,317 @@
+= Logging
+
+Tot nu toe hebben we veel gebruik gemaakt van _'print()'_ _statements_ om fouten op te sporen in onze code.
+Dit is niet altijd handig, we moeten de __print statements__ soms in commentaar zetten om ze niet te laten uitvoeren.
+
+Een betere oplossing hiervoor is om gebruik te maken van _logging_:
+
+Logging is een handige techniek om berichten van een programma vast te leggen tijdens de uitvoering ervan. Hierdoor kun je nuttige informatie verzamelen over wat er gebeurt, fouten opsporen en de prestaties van je programma volgen.
+
+== Basisconfiguratie
+
+Om te beginnen met logging in Python, moeten we eerst de loggingmodule configureren. 
+Dit omvat het instellen van het **logniveau** en het opgeven van het **logformaat**. 
+Het logniveau bepaalt welke berichten worden vastgelegd, terwijl het logformaat de structuur van de logboekberichten definieert.
+
+[source, python]
+----
+import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+----
+
+In dit voorbeeld hebben we de logging ingesteld op het DEBUG-niveau, wat betekent dat alle logboekberichten van DEBUG-niveau en hoger worden vastgelegd. 
+We hebben ook een aangepast logformaat opgegeven waarin de datum, het logniveau en het bericht worden weergegeven.
+
+== Logboekberichten vastleggen
+
+Nu we de logging hebben geconfigureerd, kunnen we logboekberichten vastleggen met verschillende logniveaus, zoals DEBUG, INFO, WARNING, ERROR en CRITICAL.
+
+[source, python]
+----
+# Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')
+----
+
+Deze logboekberichten worden vastgelegd met het opgegeven logniveau en worden weergegeven met het opgegeven logformaat in de console of het logbestand:
+
+[source, bash]
+----
+2024-04-24 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-24 12:00:01,000 - INFO - Dit is een INFO bericht
+2024-04-24 12:00:02,000 - WARNING - Dit is een WARNING bericht
+2024-04-24 12:00:03,000 - ERROR - Dit is een ERROR bericht
+2024-04-24 12:00:04,000 - CRITICAL - Dit is een CRITICAL bericht
+----
+
+=== Variabelen loggen
+
+Je kunt ook variabelen in logboekberichten opnemen om nuttige informatie vast te leggen tijdens de uitvoering van je programma.
+
+[source, python]
+----
+# Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')
+----
+
+Dit zal een logboekbericht genereren met informatie over de gebruiker, inclusief de gebruikersnaam en leeftijd:
+
+[source, bash]
+----
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+----
+
+=== Exceptions vastleggen
+
+Logging is handig bij het vastleggen van exceptions en fouten die optreden tijdens de uitvoering van je programma.
+
+[source, python]
+----
+# Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')
+----
+
+Dit zal niet alleen het opgegeven foutbericht vastleggen, maar ook de volledige stacktrace van de uitzondering.
+
+Logging voor specifieke modules configureren
+Je kunt logging ook configureren voor specifieke modules in je programma.
+
+[source, python]
+----
+# Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')
+----
+
+Hier hebben we een logger geconfigureerd voor de module 'my_module' met een specifiek logniveau en een loghandler. 
+Dit stelt ons in staat om logboekberichten te genereren die specifiek zijn voor deze module.
+
+== Een samenvattend voorbeeld
+
+[source, python]
+----
+import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')
+
+# Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')
+
+# Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')
+
+# Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')
+----
+
+Uitvoer:
+
+[source, bash]
+----
+2024-04-01 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-01 12:00:00,000 - INFO - Dit is een INFO bericht
+2024-04-01 12:00:00,000 - WARNING - Dit is een WARNING bericht
+2024-04-01 12:00:00,000 - ERROR - Dit is een ERROR bericht
+2024-04-01 12:00:00,000 - CRITICAL - Dit is een CRITICAL bericht
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+2024-04-01 12:00:00,000 - ERROR - Er is een fout opgetreden bij het delen
+Traceback (most recent call last):
+  File "example.py", line 16, in <module>
+    result = 10 / 0
+ZeroDivisionError: division by zero
+2024-04-01 12:00:00,000 - DEBUG - Dit bericht wordt vastgelegd door de my_module logger
+----
+
+= Python Unittest: Testen van Python-code
+
+https://docs.python.org/3/library/unittest.html[Python unittest] is een ingebouwde module waarmee je testcases kan schrijven om de functionaliteit van Python-code te valideren. 
+In dit hoofdstuk zullen we de basisprincipes van unittest verkennen en laten zien hoe je het kunt gebruiken om je Python-code te testen.
+
+== Wat is unittest?
+
+Unittest is een framework voor het schrijven, organiseren en **uitvoeren van testcases in Python**. 
+Het biedt verschillende _assert_-functies om de ##verwachte uitvoer van functies en klassen te vergelijken met de daadwerkelijke uitvoer##.
+
+=== Testcase maken
+
+Een testcase is een individuele eenheid van testen binnen unittest. 
+Het kan een of meer testmethoden bevatten die de functionaliteit van specifieke delen van je code testen.
+
+[source, python]
+----
+import unittest
+
+class MyTestCase(unittest.TestCase):
+    def test_addition(self):
+        result = 1 + 2
+        self.assertEqual(result, 3)
+
+    def test_subtraction(self):
+        result = 5 - 2
+        self.assertEqual(result, 3)
+
+if __name__ == '__main__':
+    unittest.main()
+----
+
+=== Test uitvoeren
+
+Om de tests uit te voeren, voer je het testbestand uit met behulp van de unittest.main() functie of via de __commandline__.
+
+
+=== __Assert__-Functies
+
+Unittest biedt verschillende __Assert__-Functies om te controleren of bepaalde beweringen of uitkomsten waar (juist) zijn. 
+
+Enkele veelgebruikte methoden zijn:
+
+. assertEqual(a, b): Controleert of a gelijk is aan b.
+. assertTrue(x): Controleert of x waar is.
+. assertFalse(x): Controleert of x onwaar is.
+. assertIn(a, b): Controleert of a aanwezig is in b.
+
+=== SetUp en TearDown
+
+SetUp en TearDown-methoden worden gebruikt om voorbereidende stappen uit te voeren voor elke test en opruimingsstappen uit te voeren na elke test.
+Bijvoorbeeld het ophalen van data uit een database of het inlezen van een _csv_.
+
+[source, python]
+----
+import unittest
+
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        # Voorbereidende stappen voor elke test
+        pass
+
+    def tearDown(self):
+        # Opruimingsstappen na elke test
+        pass
+
+    def test_something(self):
+        # Testcode hier
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
+----
+
+=== Testen van _Exceptions_
+
+Soms wil je controleren of een bepaalde functie een verwachte _Exceptions_ opwerpt. Je kunt de assertRaises() methode gebruiken om dit te doen:
+
+[source, python]
+----
+import unittest
+
+def divide(x, y):
+    if y == 0:
+        raise ValueError('Cannot divide by zero')
+    return x / y
+
+class MyTestCase(unittest.TestCase):
+    def test_divide(self):
+        self.assertRaises(ValueError, divide, 10, 0)
+
+if __name__ == '__main__':
+    unittest.main()
+----
+
+== __Parametrized Testcases__
+
+Parametrized testcases stellen ons in staat om ##dezelfde testlogica met verschillende invoer te hergebruiken##, waardoor we efficiënter kunnen testen. 
+Dit wordt bereikt door gebruik te maken van de __@unittest.parametrized.expand__ decorator.
+
+[source, python]
+----
+import unittest
+
+class MyTestCase(unittest.TestCase):
+    @unittest.parametrized.expand([
+        (1, 2, 3),
+        (0, 0, 0),
+        (-1, 1, 0),
+    ])
+    def test_addition(self, a, b, expected):
+        result = a + b
+        self.assertEqual(result, expected)
+----
+
+In dit voorbeeld wordt de test_addition-methode herhaaldelijk uitgevoerd met verschillende invoercombinaties. 
+Dit zorgt ervoor dat dezelfde testlogica wordt toegepast op meerdere scenario's, wat de testdekking vergroot en ons helpt om fouten te identificeren.
+
+Een ander voorbeeld van parametrized testcases:
+
+[source, python]
+----
+import unittest
+
+class MyTestCase(unittest.TestCase):
+    @unittest.parametrized.expand([
+        ("hello", 5),
+        ("world", 5),
+        ("python", 6),
+    ])
+    def test_string_length(self, string, length):
+        self.assertEqual(len(string), length)
+----
+
+Dit voorbeeld toont hoe dezelfde testlogica wordt toegepast op verschillende invoerwaarden voor het controleren van de lengte van een string.
+
+== Test Coverage
+
+Test coverage is een maatstaf die aangeeft ##hoeveel van de broncode wordt uitgevoerd (controleerd) door de testsuite##. 
+Het meten van test coverage helpt ontwikkelaars om gebieden van ##ongeteste code te identificeren## en de algehele kwaliteit van de tests te verbeteren.
+
+Je kunt test coverage meten met behulp van tools zoals coverage.py. Installeer eerst de tool met pip:
+
+[source, bash]
+----
+pip install coverage
+----
+
+Gebruik vervolgens de **coverage run** opdracht om je tests uit te voeren en de dekking te meten:
+
+[source, bash]
+----
+coverage run -m unittest test_mycode.py
+----
+
+Om een rapport te genereren, gebruik je:
+
+[source, bash]
+----
+coverage report
+----
+
+Dit zal een rapport genereren dat laat zien welke delen van de code zijn gedekt door je tests en welke delen niet.
+
+Het meten van test coverage kan je helpen om gebieden van je code te identificeren die mogelijk onvoldoende worden getest, waardoor je de testsuite kunt verbeteren en de stabiliteit van je code kunt verhogen.

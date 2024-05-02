@@ -8,6 +8,7 @@
 
 = Project Pong
 
+
 Gegeven begincode van het spel:
 
 [source, python]
