@@ -1025,6 +1025,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_grenzen_en_provincies">19.4.3. Grenzen en provincies</a></li>
 </ul>
 </li>
+<li><a href="#_een_land_markeren">19.5. Een land markeren</a></li>
 </ul>
 </li>
 <li><a href="#_logging">20. Logging</a>
@@ -6948,6 +6949,48 @@ Hiervoor moeten we de coördinaten van Brussel kennen, namelijk: 50.8503, 4.3517
 <div class="content">
 <img src="images/cartopy_borders.png" alt="cartopy borders">
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_een_land_markeren">19.5. Een land markeren</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">import</span> <span class="n">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">cartopy.io.shapereader</span> <span class="k">as</span> <span class="n">shpreader</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">Orthographic</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">black</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">gridlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">shpfilename</span> <span class="o">=</span> <span class="n">shpreader</span><span class="p">.</span><span class="nf">natural_earth</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="sh">'</span><span class="s">110m</span><span class="sh">'</span><span class="p">,</span>
+                                      <span class="n">category</span><span class="o">=</span><span class="sh">'</span><span class="s">cultural</span><span class="sh">'</span><span class="p">,</span>
+                                      <span class="n">name</span><span class="o">=</span><span class="sh">'</span><span class="s">admin_0_countries</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">shpreader</span><span class="p">.</span><span class="nc">Reader</span><span class="p">(</span><span class="n">shpfilename</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="nf">records</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">country</span><span class="p">.</span><span class="n">attributes</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">country</span><span class="p">.</span><span class="n">attributes</span><span class="p">[</span><span class="sh">'</span><span class="s">GEOUNIT</span><span class="sh">'</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">China</span><span class="sh">'</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">.</span><span class="nf">add_geometries</span><span class="p">(</span><span class="n">country</span><span class="p">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">(),</span> <span class="n">facecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">red</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy_land.png" alt="cartopy land">
 </div>
 </div>
 </div>
