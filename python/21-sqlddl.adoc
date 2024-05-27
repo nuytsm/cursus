@@ -1,0 +1,138 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+= SQL - DDL (Data Definition Language)
+
+SQL DDL, of Data Definition Language, wordt gebruikt om databaseobjecten zoals tabellen te maken, 
+aan te passen en te verwijderen. 
+
+Met DDL kan je:
+
+. Een nieuwe tabel aanmaken.
+. Kolommen toevoegen in de tabel.
+. Datatypen aan de kolommen toewijzen.
+. _Primary_ en __foreign keys__ bepalen.
+
+== Tabellen maken
+
+Om een nieuwe tabel te maken, gebruiken we het `CREATE TABLE` statement.
+Stel dat we een tabel willen maken om klantgegevens op te slaan:
+
+[source, sql]
+----
+CREATE TABLE Klanten (
+    KlantID INT AUTO_INCREMENT PRIMARY KEY,
+    Naam VARCHAR(50) NOT NULL,
+    Adres VARCHAR(100),
+    Stad VARCHAR(30)
+);
+----
+
+In dit voorbeeld maken we een tabel genaamd `Klanten` met vier kolommen: `KlantID` (een integer), 
+`Naam` (een tekstkolom die niet NULL (leeg) mag zijn), `Adres` en `Stad` (beide tekstkolommen).
+
+In MySQL gebruiken we AUTO_INCREMENT om een automatisch oplopende integer-waarde toe te kennen aan de primaire sleutelkolom KlantID.
+
+=== Datatypen
+
+Bij het maken van een tabel moeten we voor elke kolom een datatype opgeven. 
+Enkele veelgebruikte datatypen zijn:
+
+. `INT` voor gehele getallen.
+. FLOAT of DECIMAL(m,n) voor decimale getallen (waarbij m het totale aantal cijfers is en n het aantal cijfers na de decimale punt)
+. `VARCHAR(n)` voor tekenreeksen met een maximumlengte van `n` tekens.
+. `DATE` voor datumwaarden.
+. `BLOB` of `VARBINARY(n)` voor binaire gegevens (zoals een afbeelding, mp3 bestand, ..).
+
+De beschikbare datatypen kunnen variëren tussen verschillende databasesystemen.
+
+== Primaire sleutels
+
+Een primaire sleutel is een kolom of combinatie van kolommen die de rijen in een tabel uniek identificeert.
+In het vorige voorbeeld gebruikten we `KlantID` als primaire sleutel voor de tabel `Klanten`.
+
+We kunnen een primaire sleutel definiëren door `PRIMARY KEY` toe te voegen aan de kolomdefinitie:
+
+[source, sql]
+----
+KlantID INT PRIMARY KEY
+----
+
+Of we kunnen een afzonderlijke `PRIMARY KEY`-constraint maken:
+
+[source, sql]
+----
+PRIMARY KEY (KlantID)
+----
+
+== Foreign Keys
+
+Een foreign key wordt gebruikt om de integriteit van de gegevens te waarborgen door ##een verwijzing te maken naar de primaire sleutel van een andere tabel##. 
+In MySQL moeten we foreign keys definiëren met behulp van afzonderlijke _constraints_ na de kolomdefinities.
+
+Stel dat we een tabel `Bestellingen` willen maken die verwijst naar de `KlantID` in de tabel `Klanten`:
+
+[source, sql]
+----
+CREATE TABLE Bestellingen (
+    BestelID INT AUTO_INCREMENT PRIMARY KEY,
+    KlantID INT,
+    Datum DATE,
+    Totaal DECIMAL(10,2),
+    FOREIGN KEY (KlantID) REFERENCES Klanten(KlantID)
+);
+----
+
+In dit voorbeeld definieert `FOREIGN KEY (KlantID) REFERENCES Klanten(KlantID)` een foreign key-constraint op de `KlantID`-kolom van de tabel `Bestellingen`. Deze foreign key verwijst naar de `KlantID`-primaire sleutel in de tabel `Klanten`.
+
+== Tabellen aanpassen
+
+We kunnen bestaande tabellen aanpassen met het `ALTER TABLE` statement. Enkele veelgebruikte bewerkingen zijn:
+
+=== Kolom toevoegen
+
+[source, sql]
+----
+ALTER TABLE Klanten
+ADD Email VARCHAR(50);
+----
+
+Dit voegt een nieuwe kolom `Email` toe aan de tabel `Klanten`.
+
+=== Kolom verwijderen
+
+[source, sql]
+----
+ALTER TABLE Klanten
+DROP COLUMN Email;
+----
+
+Dit verwijdert de kolom `Email` uit de tabel `Klanten`.
+
+=== Constraint toevoegen
+
+[source, sql]
+----
+ALTER TABLE Bestellingen
+ADD CONSTRAINT FK_Bestellingen_Klanten FOREIGN KEY (KlantID) REFERENCES Klanten(KlantID);
+----
+
+Dit voegt een foreign key-constraint toe aan de tabel `Bestellingen` die verwijst naar de primaire sleutel `KlantID` in de tabel `Klanten`.
+
+== Tabellen verwijderen
+
+Om een tabel volledig te verwijderen, gebruiken we de `DROP TABLE` statement:
+
+[source, sql]
+----
+DROP TABLE Bestellingen;
+----
+
+Dit verwijdert de tabel `Bestellingen` en al haar gegevens permanent uit de database.
+
+In dit hoofdstuk hebben we de basisprincipes van SQL DDL behandeld, inclusief het maken, aanpassen en verwijderen van tabellen, het definiëren van primaire en foreign keys, en het gebruik van verschillende datatypen. Door het bestuderen van deze onderwerpen en het oefenen met meer voorbeelden, zult u beter voorbereid zijn om databases effectief te ontwerpen en te beheren.

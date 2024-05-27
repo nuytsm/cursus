@@ -315,3 +315,4 @@ coverage report
 Dit zal een rapport genereren dat laat zien welke delen van de code zijn gedekt door je tests en welke delen niet.
 
 Het meten van test coverage kan je helpen om gebieden van je code te identificeren die mogelijk onvoldoende worden getest, waardoor je de testsuite kunt verbeteren en de stabiliteit van je code kunt verhogen.
+

@@ -1055,6 +1055,25 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_test_coverage">21.3. Test Coverage</a></li>
 </ul>
 </li>
+<li><a href="#_sql_ddl_data_definition_language">22. SQL - DDL (Data Definition Language)</a>
+<ul class="sectlevel2">
+<li><a href="#_tabellen_maken">22.1. Tabellen maken</a>
+<ul class="sectlevel3">
+<li><a href="#_datatypen">22.1.1. Datatypen</a></li>
+</ul>
+</li>
+<li><a href="#_primaire_sleutels">22.2. Primaire sleutels</a></li>
+<li><a href="#_foreign_keys">22.3. Foreign Keys</a></li>
+<li><a href="#_tabellen_aanpassen">22.4. Tabellen aanpassen</a>
+<ul class="sectlevel3">
+<li><a href="#_kolom_toevoegen">22.4.1. Kolom toevoegen</a></li>
+<li><a href="#_kolom_verwijderen">22.4.2. Kolom verwijderen</a></li>
+<li><a href="#_constraint_toevoegen">22.4.3. Constraint toevoegen</a></li>
+</ul>
+</li>
+<li><a href="#_tabellen_verwijderen">22.5. Tabellen verwijderen</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -7375,10 +7394,197 @@ Het meten van test coverage helpt ontwikkelaars om gebieden van <mark>ongeteste 
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_sql_ddl_data_definition_language">22. SQL - DDL (Data Definition Language)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SQL DDL, of Data Definition Language, wordt gebruikt om databaseobjecten zoals tabellen te maken,
+aan te passen en te verwijderen.</p>
+</div>
+<div class="paragraph">
+<p>Met DDL kan je:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Een nieuwe tabel aanmaken.</p>
+</li>
+<li>
+<p>Kolommen toevoegen in de tabel.</p>
+</li>
+<li>
+<p>Datatypen aan de kolommen toewijzen.</p>
+</li>
+<li>
+<p><em>Primary</em> en <em>foreign keys</em> bepalen.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_tabellen_maken">22.1. Tabellen maken</h3>
+<div class="paragraph">
+<p>Om een nieuwe tabel te maken, gebruiken we het <code>CREATE TABLE</code> statement.
+Stel dat we een tabel willen maken om klantgegevens op te slaan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Klanten</span> <span class="p">(</span>
+    <span class="n">KlantID</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">Naam</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">Adres</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="n">Stad</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld maken we een tabel genaamd <code>Klanten</code> met vier kolommen: <code>KlantID</code> (een integer),
+<code>Naam</code> (een tekstkolom die niet NULL (leeg) mag zijn), <code>Adres</code> en <code>Stad</code> (beide tekstkolommen).</p>
+</div>
+<div class="paragraph">
+<p>In MySQL gebruiken we AUTO_INCREMENT om een automatisch oplopende integer-waarde toe te kennen aan de primaire sleutelkolom KlantID.</p>
+</div>
+<div class="sect3">
+<h4 id="_datatypen">22.1.1. Datatypen</h4>
+<div class="paragraph">
+<p>Bij het maken van een tabel moeten we voor elke kolom een datatype opgeven.
+Enkele veelgebruikte datatypen zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>INT</code> voor gehele getallen.</p>
+</li>
+<li>
+<p>FLOAT of DECIMAL(m,n) voor decimale getallen (waarbij m het totale aantal cijfers is en n het aantal cijfers na de decimale punt)</p>
+</li>
+<li>
+<p><code>VARCHAR(n)</code> voor tekenreeksen met een maximumlengte van <code>n</code> tekens.</p>
+</li>
+<li>
+<p><code>DATE</code> voor datumwaarden.</p>
+</li>
+<li>
+<p><code>BLOB</code> of <code>VARBINARY(n)</code> voor binaire gegevens (zoals een afbeelding, mp3 bestand, ..).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>De beschikbare datatypen kunnen variëren tussen verschillende databasesystemen.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primaire_sleutels">22.2. Primaire sleutels</h3>
+<div class="paragraph">
+<p>Een primaire sleutel is een kolom of combinatie van kolommen die de rijen in een tabel uniek identificeert.
+In het vorige voorbeeld gebruikten we <code>KlantID</code> als primaire sleutel voor de tabel <code>Klanten</code>.</p>
+</div>
+<div class="paragraph">
+<p>We kunnen een primaire sleutel definiëren door <code>PRIMARY KEY</code> toe te voegen aan de kolomdefinitie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="n">KlantID</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of we kunnen een afzonderlijke <code>PRIMARY KEY</code>-constraint maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_foreign_keys">22.3. Foreign Keys</h3>
+<div class="paragraph">
+<p>Een foreign key wordt gebruikt om de integriteit van de gegevens te waarborgen door <mark>een verwijzing te maken naar de primaire sleutel van een andere tabel</mark>.
+In MySQL moeten we foreign keys definiëren met behulp van afzonderlijke <em>constraints</em> na de kolomdefinities.</p>
+</div>
+<div class="paragraph">
+<p>Stel dat we een tabel <code>Bestellingen</code> willen maken die verwijst naar de <code>KlantID</code> in de tabel <code>Klanten</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span> <span class="p">(</span>
+    <span class="n">BestelID</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">KlantID</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">Datum</span> <span class="nb">DATE</span><span class="p">,</span>
+    <span class="n">Totaal</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Klanten</span><span class="p">(</span><span class="n">KlantID</span><span class="p">)</span>
+<span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld definieert <code>FOREIGN KEY (KlantID) REFERENCES Klanten(KlantID)</code> een foreign key-constraint op de <code>KlantID</code>-kolom van de tabel <code>Bestellingen</code>. Deze foreign key verwijst naar de <code>KlantID</code>-primaire sleutel in de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tabellen_aanpassen">22.4. Tabellen aanpassen</h3>
+<div class="paragraph">
+<p>We kunnen bestaande tabellen aanpassen met het <code>ALTER TABLE</code> statement. Enkele veelgebruikte bewerkingen zijn:</p>
+</div>
+<div class="sect3">
+<h4 id="_kolom_toevoegen">22.4.1. Kolom toevoegen</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Klanten</span>
+<span class="k">ADD</span> <span class="n">Email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt een nieuwe kolom <code>Email</code> toe aan de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kolom_verwijderen">22.4.2. Kolom verwijderen</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Klanten</span>
+<span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">Email</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit verwijdert de kolom <code>Email</code> uit de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_constraint_toevoegen">22.4.3. Constraint toevoegen</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span>
+<span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">FK_Bestellingen_Klanten</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Klanten</span><span class="p">(</span><span class="n">KlantID</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt een foreign key-constraint toe aan de tabel <code>Bestellingen</code> die verwijst naar de primaire sleutel <code>KlantID</code> in de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tabellen_verwijderen">22.5. Tabellen verwijderen</h3>
+<div class="paragraph">
+<p>Om een tabel volledig te verwijderen, gebruiken we de <code>DROP TABLE</code> statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit verwijdert de tabel <code>Bestellingen</code> en al haar gegevens permanent uit de database.</p>
+</div>
+<div class="paragraph">
+<p>In dit hoofdstuk hebben we de basisprincipes van SQL DDL behandeld, inclusief het maken, aanpassen en verwijderen van tabellen, het definiëren van primaire en foreign keys, en het gebruik van verschillende datatypen. Door het bestuderen van deze onderwerpen en het oefenen met meer voorbeelden, zult u beter voorbereid zijn om databases effectief te ontwerpen en te beheren.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-05-02 10:13:26 +0200
+Last updated 2024-05-27 11:03:15 +0200
 </div>
 </div>
 </body>
