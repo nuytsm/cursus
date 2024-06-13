@@ -1,3 +1,9 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
 = Logging
 
 Tot nu toe hebben we veel gebruik gemaakt van _'print()'_ _statements_ om fouten op te sporen in onze code.
