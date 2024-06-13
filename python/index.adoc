@@ -8,18 +8,32 @@
 :sectnums:
 :google-analytics-code: G-3K061L13YN
 //:stylesheet: dark.css
-
-
-= Cursus OOP - Object-oriented programming
+:author: Mark Nuyts
+:revnumber: 07-2024
+:doctype: book
+//:leveloffset: +1
+:title-image: image::images/python-logo-only.svg[]
 ifdef::env-name[:relfilesuffix: .adoc]
-:leveloffset: +1
 
+// = Python Cursus - Object-oriented programming
 
+ifdef::backend-html5[]
+++++
+<div style="display: flex; align-items: center; padding: 0px;">
+  <img src="images/python-logo-only.svg" alt="" style="width: 60px; height: 60px; margin-right: 10px;">
+  <div>
+    <h1 style="margin: 0;color:black">Python Cursus - Object-oriented programming</h1>
+    <p style="margin: 0px 0;color:grey;font-size: 0.875em;">Mark Nuyts</p>
+    <hr style="margin-top:0">
+  </div>
+</div>
+++++
+endif::[]
 
-//* xref:./00-inhoudsopgave.adoc[]
 
 * xref:cursus-volledig.adoc[De volledige cursus]
 
+De verschillende hoofdstukken:
 
 * xref:01-intro.adoc[Hoofdstuk 1: Programmeertalen en Python]
 * xref:02-vanPythonNaarProcessor.adoc[Hoofdstuk 2: Van code naar uitvoering op de CPU]
