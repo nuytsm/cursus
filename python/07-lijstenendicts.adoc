@@ -1,3 +1,9 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
 = Hoofdstuk 7: Dictionaries, Lists en Tuples
 
 Dit hoofdstuk richt zich op het begrijpen en toepassen van de fundamentele gegevensstructuren in Python - dictionaries, lists en tuples. We zullen beginnen met eenvoudige concepten en geleidelijk overgaan naar complexere voorbeelden om de kracht van deze gegevensstructuren te demonstreren.

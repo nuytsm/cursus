@@ -2,6 +2,7 @@
 :rouge-style: thankful_eyes
 :toc: left
 :toclevels: 5
+:sectnums:
 
 = Hoofdstuk 9: Exceptions (Uitzonderingen) - Hanteren van fouten
 

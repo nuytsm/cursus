@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Constructors</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,362 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Constructors</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_wat_is_een_constructor">1. Wat is een Constructor?</a></li>
+<li><a href="#_defaultwaarden_en_optionele_parameters">2. Defaultwaarden en Optionele Parameters</a></li>
+<li><a href="#_initialisatiecode">3. Initialisatiecode</a></li>
+<li><a href="#_meerdere_constructors_overloading">4. Meerdere Constructors - <em>Overloading</em></a></li>
+<li><a href="#_initialisatie_van_objecten">5. Initialisatie van Objecten</a></li>
+<li><a href="#_toegang_tot_attributen">6. Toegang tot Attributen</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
-</li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Python, net als in veel andere objectgeoriënteerde programmeertalen, worden constructors gebruikt om objecten initialiseren (instanties van klassen te maken).
+Constructors worden aangeroepen wanneer een object (of instanitie) van een klasse wordt gemaakt, en ze bieden de mogelijkheid om de initiële toestand van dat object in te stellen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wat_is_een_constructor">1. Wat is een Constructor?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een constructor is een speciale methode (functie) in een klasse die wordt aangeroepen wanneer een object van die klasse wordt gemaakt. In Python wordt de constructor gemarkeerd door de methode <code><em>init</em></code>. Het doel van de constructor is om de initiële staat van een object in te stellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Auto</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">merk</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">merk</span> <span class="o">=</span> <span class="n">merk</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier heeft de klasse <code>Auto</code> een constructor <code><em>init</em></code> die twee parameters, <code>merk</code> en <code>model</code>, accepteert. <mark>De <code>self</code> parameter verwijst naar het object dat wordt gemaakt</mark>.
+Wanneer een object van deze klasse wordt gemaakt, wordt de constructor automatisch aangeroepen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een instantie van de klasse Auto maken
+</span><span class="n">auto1</span> <span class="o">=</span> <span class="nc">Auto</span><span class="p">(</span><span class="sh">"</span><span class="s">Toyota</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Camry</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">merk</span><span class="p">)</span>  <span class="c1"># Output: Toyota
+</span><span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># Output: Camry</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_defaultwaarden_en_optionele_parameters">2. Defaultwaarden en Optionele Parameters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Constructors kunnen parameters hebben met standaardwaarden, waardoor ze optioneel worden bij het maken van een object.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Persoon</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">naam</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">naam</span> <span class="o">=</span> <span class="n">naam</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">leeftijd</span> <span class="o">=</span> <span class="n">leeftijd</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier heeft de parameter <code>leeftijd</code> een standaardwaarde van 18. Als de gebruiker geen leeftijd opgeeft bij het maken van een object, wordt automatisch 18 gebruikt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeelden van het maken van objecten van de klasse Persoon
+</span><span class="n">persoon1</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">persoon2</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">persoon1</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 18
+</span><span class="nf">print</span><span class="p">(</span><span class="n">persoon2</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 25</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_initialisatiecode">3. Initialisatiecode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In de constructor kun je naast het instellen van attributen ook andere initialisatiecode plaatsen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Bankrekening</span><span class="p">:</span>
+    <span class="n">rentevoet</span> <span class="o">=</span> <span class="mf">0.02</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">eigenaar</span><span class="p">,</span> <span class="n">saldo</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">eigenaar</span> <span class="o">=</span> <span class="n">eigenaar</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span> <span class="o">+</span> <span class="p">(</span><span class="n">saldo</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">rentevoet</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt de rente automatisch toegevoegd aan het saldo wanneer een bankrekening wordt gemaakt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Een instantie van de klasse Bankrekening maken
+</span><span class="n">rekening1</span> <span class="o">=</span> <span class="nc">Bankrekening</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rekening1</span><span class="p">.</span><span class="n">saldo</span><span class="p">)</span>  <span class="c1"># Output: 1020.0</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_meerdere_constructors_overloading">4. Meerdere Constructors - <em>Overloading</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Python heeft geen traditionele <em>methodoverloading</em> zoals sommige andere talen. Maar je kunt optionele parameters gebruiken om verschillende gedragingen te simuleren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Driehoek</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">zijde1</span><span class="p">,</span> <span class="n">zijde2</span><span class="p">,</span> <span class="n">zijde3</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde1</span> <span class="o">=</span> <span class="n">zijde1</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde2</span> <span class="o">=</span> <span class="n">zijde2</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">zijde3</span> <span class="o">=</span> <span class="n">zijde3</span> <span class="k">if</span> <span class="n">zijde3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">zijde1</span> <span class="o">+</span> <span class="n">zijde2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kan de gebruiker ofwel drie zijden opgeven, of slechts twee, waarbij de derde zijde automatisch wordt berekend.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Voorbeelden van het maken van objecten van de klasse Driehoek
+</span><span class="n">driehoek1</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">driehoek2</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">driehoek1</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 7
+</span><span class="nf">print</span><span class="p">(</span><span class="n">driehoek2</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 5</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_initialisatie_van_objecten">5. Initialisatie van Objecten</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het initialiseren van objecten gebeurt door een instantie van de klasse te maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">auto1</span> <span class="o">=</span> <span class="nc">Auto</span><span class="p">(</span><span class="sh">"</span><span class="s">Toyota</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Camry</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">persoon1</span> <span class="o">=</span> <span class="nc">Persoon</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">rekening1</span> <span class="o">=</span> <span class="nc">Bankrekening</span><span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">driehoek1</span> <span class="o">=</span> <span class="nc">Driehoek</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wanneer je een object van een klasse maakt, wordt automatisch de bijbehorende constructor aangeroepen en worden de attributen geïnitialiseerd.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_toegang_tot_attributen">6. Toegang tot Attributen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Na initialisatie zijn de attributen van een object toegankelijk met behulp van de dot-notatie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="n">auto1</span><span class="p">.</span><span class="n">merk</span><span class="p">)</span>  <span class="c1"># Output: Toyota
+</span><span class="nf">print</span><span class="p">(</span><span class="n">persoon1</span><span class="p">.</span><span class="n">leeftijd</span><span class="p">)</span>  <span class="c1"># Output: 18
+</span><span class="nf">print</span><span class="p">(</span><span class="n">rekening1</span><span class="p">.</span><span class="n">saldo</span><span class="p">)</span>  <span class="c1"># Output: 1020.0
+</span><span class="nf">print</span><span class="p">(</span><span class="n">driehoek1</span><span class="p">.</span><span class="n">zijde3</span><span class="p">)</span>  <span class="c1"># Output: 7</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:03 +0200
 </div>
 </div>
 </body>

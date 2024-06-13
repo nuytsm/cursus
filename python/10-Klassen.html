@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Klassen</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,668 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
-</div>
-<div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<h1>Klassen</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_voorbeeld_van_een_klasse">Voorbeeld van een klasse</a></li>
+<li><a href="#_de_code_om_een_klasse_te_definiëren">De <em>code</em> om een klasse te definiëren</a></li>
+<li><a href="#_instanties">Instanties</a>
+<ul class="sectlevel2">
+<li><a href="#_variabelen_en_geheugengebruik">Variabelen en geheugengebruik</a></li>
+<li><a href="#_variabelen">Variabelen</a></li>
+<li><a href="#_methods_functies">Methods (functies)</a></li>
+<li><a href="#_lists_en_tuples">Lists en Tuples</a></li>
+</ul>
 </li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
+<li><a href="#_gebruik_van_bestaande_klassen">Gebruik van bestaande klassen</a>
+<ul class="sectlevel2">
+<li><a href="#_random">Random</a></li>
+</ul>
 </li>
 </ul>
 </div>
 </div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een <strong>klasse</strong> in een object georiënteerde taal is een concept dat een blauwdruk vormt.
+Van deze blauwdruk kunnen verschillende <strong>instanties</strong> aangemaakt worden.
+Een klasse bestaat uit:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>variabelen</p>
+</li>
+<li>
+<p>methods (functies die in een klasse geschreven zijn)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeld_van_een_klasse">Voorbeeld van een klasse</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een klasse kan elk concept voorstellen, bijvoorbeeld een auto, een gebouw, een cirkel,..
+In computerspellen wordt veel gebruik gemaakt van klassen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ages.png" alt="Game characters">
+</div>
+<div class="title">Figure 1. Klassen en instanties in Age of Empires 2</div>
+</div>
+<div class="paragraph">
+<p>In de afbeelding hierboven (uit het computerspel <em>Age of Empires</em>) kunnen we verschillende klassen aan het werk zien:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Een ruiter (deze komt meerdere keren voor &#8594; meerdere instanties)</p>
+</li>
+<li>
+<p>Een kameel (ook deze komt meerdere keren voor &#8594; meerdere instanties)</p>
+</li>
+<li>
+<p>Een kasteel (komt 1x voor &#8594; slechts 1 instantie)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Een ruiter is als <strong>klasse</strong> in dit computerspel slechts <strong>eenmaal gedefiniëerd</strong>.
+Toch zien we meerdere ruiters.
+Dit komt omdat er van deze ruiter klasse <strong>meerdere instanties</strong> werden aangemaakt.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_code_om_een_klasse_te_definiëren">De <em>code</em> om een klasse te definiëren</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>De ruiter klasse uit bovenstaande <em>screenshot</em> zou als volgt geprogrameerd kunnen zijn:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Ruiter</span><span class="p">:</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="n">self</span><span class="p">.</span><span class="n">totalhitpoints</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">200</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">armour</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">positionX</span> <span class="o">=</span> <span class="mi">485</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">positionY</span> <span class="o">=</span> <span class="mi">312</span>
+
+    <span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <i class="conum" data-value="3"></i><b>(3)</b>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span> <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>We definiëren een Python-klasse genaamd <code>Ruiter</code>. De definitie van de klasse.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Binnen de klasse <code>Ruiter</code> definiëren we enkele attributen zoals <code>totalhitpoints</code>, <code>health</code>, <code>speed</code>, <code>armour</code>, <code>positionX</code>, en <code>positionY</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>We definiëren een methode genaamd <code>hit()</code>, die de gezondheid (<code>health</code>) van de ruiter verlaagt wanneer deze wordt aangeroepen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>De code in de functie werkt op de variabelen uit de klasse.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><mark>Een klasse begint steeds met een hoofdletter</mark>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instanties">Instanties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een klasse kan je beschouwen als een blauwdruk (een ontwerp of plan) van iets, bijvoorbeeld van een auto.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/teslablauwdruk.jpg" alt="Tesla blauwdruk">
+</div>
+</div>
+<div class="paragraph">
+<p>Dit ontwerp beschrijft hoe een auto eruit moet zien, wat het concept is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De afmetingen</p>
+</li>
+<li>
+<p>De buiging van de carosserie</p>
+</li>
+<li>
+<p>Het aantal zetels</p>
+</li>
+<li>
+<p>De maat van de velgen</p>
+</li>
+<li>
+<p>Paardenkracht van de motor</p>
+</li>
+<li>
+<p>..</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Maar het is (nog) geen auto die je kan gebruiken.
+Om het te gaan gebruiken zal je een instantie moeten maken (een echte auto van de fabrieksband laten rollen).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/teslas.webp" alt="Tesla fabriek">
+</div>
+<div class="title">Figure 2. In de fabriek worden instanties van Teslas aangemaakt.</div>
+</div>
+<div class="paragraph">
+<p>Het aanmaken van instanties in Python gebeurt door de naam van de klasse te geven, gevolgd door de ronde haken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter1</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">()</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Merk op dat de klasse met een hoofdletter wordt geschreven en de instantie met een kleine letter.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Het is mogelijk meerdere instanties aan te maken van dezelfde klasse:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter2</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">()</span>
+<span class="n">ruiter3</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">()</span>
+<span class="n">ruiter4</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">()</span>
+<span class="n">ruiter5</span> <span class="o">=</span> <span class="nc">Ruiter</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Zo lang het werkgeheugen (RAM) niet vol is, kan je instanties blijven aanmaken.</strong></p>
+</div>
+<div class="sect2">
+<h3 id="_variabelen_en_geheugengebruik">Variabelen en geheugengebruik</h3>
+<div class="paragraph">
+<p>Iedere instantie van een klasse neemt een deel van het geheugen in.
+<mark>Voor iedere instantie worden immers de waarden van de verschillende variabelen apart bijgehouden.</mark></p>
+</div>
+<div class="paragraph">
+<p>Als de hitpoints van 1 ruiter verminderen doordat hij aangevallen werd, geldt dit enkel voor deze ruiter.
+De hitpoints van de andere ruiters behouden hun eigen waarden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health2.jpg" alt="Game health">
+</div>
+<div class="title">Figure 3. Geselecteerde <em>units</em> en hun <em>health bar</em> in Age of Empires.</div>
+</div>
+<div class="paragraph">
+<p>Al deze informatie moet (voor iedere instantie) in het werkgeheugen bijgehouden worden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variabelen">Variabelen</h3>
+<div class="paragraph">
+<p>Om de variabele van instanties aan te passen kunnen we via de <em>dot notatie</em> (punt notatie) aan de variabelen van een instantie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="n">ruiter1</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>  <span class="c1"># Geeft de gezondheid van 'ruiter1' weer (200)
+</span><span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">positionX</span><span class="p">)</span>  <span class="c1"># Geeft de X-positie van 'ruiter2' weer (485)
+</span>
+<span class="n">ruiter2</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span>  <span class="c1"># Roept de 'hit' methode aan voor 'ruiter2', verlaagt de gezondheid met 10
+</span><span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>  <span class="c1"># Geeft de bijgewerkte gezondheid van 'ruiter2' weer (190)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Initieel hebben deze variabelen een standaardwaarde. Deze werd in de klasse bepaald, namelijk 200.</p>
+</div>
+<div class="paragraph">
+<p>Als we de hit() method (functie in een klasse) uitvoeren op de 3de instantie, zal van deze instantie 10 hitpoints afgetrokken worden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="nf">print</span><span class="p">(</span><span class="n">ruiter2</span><span class="p">.</span><span class="n">health</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nf">print</span><span class="p">(</span><span class="n">ruiter3</span><span class="p">.</span><span class="n">health</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Het uitvoeren van de hit() method op de 3de instantie (via de <em>dot notatie</em>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Het afprinten van de <em>health</em> van ruiter 2: 200</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Het afprinten van de <em>health</em> van ruiter 3. Dit is nu: 190</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_methods_functies">Methods (functies)</h3>
+<div class="paragraph">
+<p>In een klasse kunnen methods (of functies) geschreven worden.
+Deze methods kunnen aangeroepen worden op de instantie van een klasse.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Een dergelijke method kan gedefinieerd worden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Identieke methods kunnen niet voorkomen in een klasse, tenzij de parameters verschillend zijn.
+Het volgende is dus niet mogelijk:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">20</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit maakt 2 maal dezelfde method (naam) aan, dit geeft de compiler aan als een fout.
+Wat wel kan is andere <em>parameters</em> gebruiken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">damage</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">damage</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier kan de compiler een duidelijk onderscheid maken tussen de 2 methods.
+Bij het aanroepen van de method op een instantie is het immers duidelijk welke van de 2 bedoeld wordt door te kijken naar de parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ruiter3</span><span class="p">.</span><span class="nf">hit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De eerste zal de hit() method oproepen die parameters bevat.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lists_en_tuples">Lists en Tuples</h3>
+<div class="paragraph">
+<p>Instanties van klassen kunnen in een list (of Tuple of dictionary) worden geplaatst, net zoals andere datatypes.
+De gehele getallen 4, 5, 6, 7, .. zijn immers ook maar instanties van een integer datatype.
+Ruiter1, ruiter2, .. zijn instanties van het Ruiter datatype.</p>
+</div>
+<div class="paragraph">
+<p>Om een list aan te maken van Ruiters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Maak een lijst van Ruiter-instanties
+</span><span class="n">ruiters</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Voeg instanties toe aan de lijst
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg een nieuwe Ruiter-instantie toe
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg nog een Ruiter-instantie toe
+</span>
+<span class="c1"># Je kunt zoveel instanties toevoegen als je nodig hebt
+</span><span class="n">ruiters</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nc">Ruiter</span><span class="p">())</span>  <span class="c1"># Voeg nog een Ruiter-instantie toe
+</span>
+<span class="c1"># Toegang tot individuele ruiters in de lijst
+</span><span class="n">eerste_ruiter</span> <span class="o">=</span> <span class="n">ruiters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tweede_ruiter</span> <span class="o">=</span> <span class="n">ruiters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Roep methoden aan voor individuele ruiters
+</span><span class="n">eerste_ruiter</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Pas schade toe op de eerste ruiter
+</span><span class="n">tweede_ruiter</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>  <span class="c1"># Pas schade toe op de tweede ruiter
+</span>
+<span class="c1"># Controleer de gezondheid van individuele ruiters
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Gezondheid van de eerste ruiter:</span><span class="sh">"</span><span class="p">,</span> <span class="n">eerste_ruiter</span><span class="p">.</span><span class="n">health</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Gezondheid van de tweede ruiter:</span><span class="sh">"</span><span class="p">,</span> <span class="n">tweede_ruiter</span><span class="p">.</span><span class="n">health</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Games</em> maken veel gebruik van lijsten van instanties.
+Hieronder kan je een voorbeeld zien van een selectie van <em>units</em> in een strategiespel.
+De speler heeft via de muis zijn leger van <em>units</em> geselecteerd.
+Deze selectie is zichtbaar door de kadertjes die rond de units zijn getrokken.
+De groene balk geeft vervolgens de hitpoints aan van de individuele <em>units</em> in de selectie list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/health.png" alt="Game selectie">
+</div>
+<div class="title">Figure 4. Geselecteerde <em>units</em> en hun <em>health bar</em> in Tiberian Sun.</div>
+</div>
+<div class="paragraph">
+<p>Ieder <em>unit</em> in het spel is een instantie van een klasse.
+<mark>Voor iedere instantie worden de variabelen apart bijgehouden.</mark>
+In het screenshot kan je zien dat enkele <em>units</em> meer schade hebben opgelopen dan anderen.</p>
+</div>
+<div class="paragraph">
+<p>Voor de bommenwerpers (de vliegtuigen onderaan op het screenshots) kan je zien aan de hand van de gele blokjes, hoeveel bommen ze nog dragen.</p>
+</div>
+<div class="paragraph">
+<p>In Python code zouden we de array als volgt kunnen voorstellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Unit</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">hitpoints</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Maak een lijst van Unit-objecten met een maximum van 100 eenheden
+</span><span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Bereken het gezondheidspercentage van elke eenheid en druk dit af
+</span><span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="n">selected</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">unit</span><span class="p">.</span><span class="n">hitpoints</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">health_percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">unit</span><span class="p">.</span><span class="n">health</span> <span class="o">/</span> <span class="n">unit</span><span class="p">.</span><span class="n">hitpoints</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">health_percentage</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Deze eenheid heeft geen hitpoints, dus het gezondheidspercentage kan niet worden berekend.</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gebruik_van_bestaande_klassen">Gebruik van bestaande klassen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In de <em>standard library</em> van Python (die wordt meegeinstalleerd bij het installeren van Python) zijn veel bestaande klassen aanwezig.
+Deze kan je gebruiken zonder ze zelf vanaf 0 te hoeven schrijven.</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld hiervan is de <em>math</em> klasse.
+Deze bevat enkele constanten (onveranderbare variabelen), zoals het getal PI.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">math</span>
+
+<span class="c1"># Gebruik de math.pi constante om de waarde van pi te verkrijgen
+</span><span class="n">pi_value</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">pi</span>
+
+<span class="c1"># Druk de waarde van pi af
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">De waarde van pi is:</span><span class="sh">"</span><span class="p">,</span> <span class="n">pi_value</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ook bevat deze klasse enkele methods zoals het berekenen van het gemiddelde, maximum, minimum,.. Kortom veel zaken die in de wiskunde van pas kunnen komen.</p>
+</div>
+<div class="sect2">
+<h3 id="_random">Random</h3>
+<div class="paragraph">
+<p>Om een willekeurig getal te genereren in Python, kun je de <code>random</code>-module gebruiken. Hier is een voorbeeld van hoe je een willekeurig getal kunt maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># Genereer een willekeurig geheel getal tussen 1 en 10 (inclusief 1 en 10)
+</span><span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Druk het willekeurige getal af
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Willekeurig getal tussen 1 en 10:</span><span class="sh">"</span><span class="p">,</span> <span class="n">random_number</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We importeren eerst de <code>random</code>-module, die functionaliteit biedt om willekeurige getallen te genereren.</p>
+</li>
+<li>
+<p>Met <code>random.randint(a, b)</code> kunnen we een willekeurig geheel getal genereren tussen <code>a</code> (inclusief) en <code>b</code> (inclusief). In het bovenstaande voorbeeld genereren we een willekeurig getal tussen 1 en 10 en slaan dit op in de variabele <code>random_number</code>.</p>
+</li>
+<li>
+<p>We drukken het willekeurige getal af met <code>print()</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Telkens wanneer je dit script uitvoert, wordt een ander willekeurig getal tussen 1 en 10 gegenereerd. Je kunt de bereikwaarden (<code>1</code> en <code>10</code> in dit voorbeeld) aanpassen aan je specifieke behoeften.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:00:50 +0200
 </div>
 </div>
 </body>

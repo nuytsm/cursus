@@ -1,3 +1,9 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
 = Cartopy: Geografische Data Visualisatie in Python
 
 == Wat is Cartopy?

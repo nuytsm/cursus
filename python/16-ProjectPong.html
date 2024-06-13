@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Project Pong</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,375 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
 <body class="article">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Project Pong</h1>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
-</li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Gegeven begincode van het spel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">arcade</span>
+
+<span class="n">SCREEN_WIDTH</span> <span class="o">=</span> <span class="mi">640</span>
+<span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">480</span>
+<span class="n">MOVEMENT_SPEED</span> <span class="o">=</span> <span class="mi">3</span>
+
+
+<span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">position_x</span><span class="p">,</span> <span class="n">position_y</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_x</span> <span class="o">=</span> <span class="n">position_x</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_y</span> <span class="o">=</span> <span class="n">position_y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">change_x</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">change_y</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Draw the balls with the instance variables we have. </span><span class="sh">"""</span>
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">draw_circle_filled</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">position_x</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">position_y</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">radius</span><span class="p">,</span>
+                                  <span class="n">self</span><span class="p">.</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Move the ball
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">position_y</span> <span class="o">+=</span> <span class="n">self</span><span class="p">.</span><span class="n">change_y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">position_x</span> <span class="o">+=</span> <span class="n">self</span><span class="p">.</span><span class="n">change_x</span>
+
+
+<span class="k">class</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Window</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+
+        <span class="c1"># Call the parent class's init function
+</span>        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+
+        <span class="c1"># Make the mouse disappear when it is over the window.
+</span>        <span class="c1"># So we just see our object, not the pointer.
+</span>        <span class="n">self</span><span class="p">.</span><span class="nf">set_mouse_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">set_background_color</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">BLACK</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ball</span> <span class="o">=</span> <span class="nc">Ball</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">AUBURN</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever we need to draw the window. </span><span class="sh">"""</span>
+        <span class="n">arcade</span><span class="p">.</span><span class="nf">start_render</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">ball</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">delta_time</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="n">ball</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_key_press</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever the user presses a key. </span><span class="sh">"""</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">UP</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">up ingeduwd</span><span class="sh">"</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">on_key_release</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s"> Called whenever a user releases a key. </span><span class="sh">"""</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">UP</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">==</span> <span class="n">arcade</span><span class="p">.</span><span class="n">key</span><span class="p">.</span><span class="n">DOWN</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">up of down losgelaten</span><span class="sh">"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">,</span> <span class="sh">"</span><span class="s">Drawing Example</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">arcade</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+
+<span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Code om een explosie te laten zien op de plaats waar met de muis geklikt wordt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">arcade</span>
+
+<span class="c1"># Set constants for the screen dimensions
+</span><span class="n">SCREEN_WIDTH</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">SCREEN_HEIGHT</span> <span class="o">=</span> <span class="mi">600</span>
+
+<span class="k">class</span> <span class="nc">Explosion</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Sprite</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s"> This class creates an explosion animation </span><span class="sh">"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">texture_list</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">()</span>
+
+        <span class="c1"># Start at the first frame
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">textures</span> <span class="o">=</span> <span class="n">texture_list</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Update to the next frame of the animation. If we are at the end
+</span>        <span class="c1"># of our frames, then delete this sprite.
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="n">current_texture</span> <span class="o">&lt;</span> <span class="nf">len</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">textures</span><span class="p">):</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">set_texture</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">current_texture</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">self</span><span class="p">.</span><span class="nf">remove_from_sprite_lists</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">Window</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+        <span class="c1"># Set the background color
+</span>        <span class="n">arcade</span><span class="p">.</span><span class="nf">set_background_color</span><span class="p">(</span><span class="n">arcade</span><span class="p">.</span><span class="n">color</span><span class="p">.</span><span class="n">AMAZON</span><span class="p">)</span>
+
+        <span class="c1"># Create a variable to hold the textures from the sprite sheet
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Create a variable to hold the current frame index
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">current_frame</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Load the sprite sheet image containing multiple sprites
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">sprite_sheet</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nf">load_texture</span><span class="p">(</span><span class="sh">"</span><span class="s">TestPython/src/arcade/spritesheets/exp2_0.png</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Slice the sprite sheet into individual textures
+</span>        <span class="n">sprite_width</span> <span class="o">=</span> <span class="mi">64</span>
+        <span class="n">sprite_height</span> <span class="o">=</span> <span class="mi">64</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Number of columns in the sprite sheet
+</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nf">load_spritesheet</span><span class="p">(</span><span class="sh">"</span><span class="s">TestPython/src/arcade/spritesheets/exp2_0.png</span><span class="sh">"</span><span class="p">,</span> <span class="n">sprite_width</span><span class="p">,</span> <span class="n">sprite_height</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span> <span class="o">=</span> <span class="n">arcade</span><span class="p">.</span><span class="nc">SpriteList</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">clear</span><span class="p">()</span>
+        <span class="c1"># Start rendering the screen
+</span>        <span class="n">arcade</span><span class="p">.</span><span class="nf">start_render</span><span class="p">()</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">on_mouse_press</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">button</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="c1"># Make an explosion
+</span>        <span class="n">explosion</span> <span class="o">=</span> <span class="nc">Explosion</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">explosion_texture_list</span><span class="p">)</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">center_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">center_y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">explosion</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">delta_time</span><span class="p">):</span>
+
+
+        <span class="n">self</span><span class="p">.</span><span class="n">explosions_list</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create the game window
+</span>    <span class="n">window</span> <span class="o">=</span> <span class="nc">MyGame</span><span class="p">(</span><span class="n">SCREEN_WIDTH</span><span class="p">,</span> <span class="n">SCREEN_HEIGHT</span><span class="p">)</span>
+
+    <span class="c1"># Call the setup method to initialize the game
+</span>    <span class="n">window</span><span class="p">.</span><span class="nf">setup</span><span class="p">()</span>
+
+    <span class="c1"># Run the game
+</span>    <span class="n">arcade</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De explosie is een Sprite. Een Sprite maakt gebruik van een Texture (of Texture list).
+Voor elke explosie lussen we door een texture list die de verschillende frames van de explosie laat zien.</p>
+</div>
+<div class="paragraph">
+<p>Dit is de afbeelding die gebruikt wordt met de verschillende explosion frames:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/exp2_0.png" alt="exp2 0">
+</div>
+</div>
+<div class="paragraph">
+<p>Deze kan je ook op de volgende pagina terugvinden: <a href="https://opengameart.org/content/explosion" class="bare">https://opengameart.org/content/explosion</a></p>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:30 +0200
 </div>
 </div>
 </body>

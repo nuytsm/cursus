@@ -5,6 +5,10 @@
 :m: method
 :icons: font
 :source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
 
 = Matplotlib: Grafieken
 

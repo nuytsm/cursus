@@ -3,6 +3,7 @@
 :toc: left
 :toclevels: 5
 //:stylesheet: dark.css
+:sectnums:
 
 
 = Hoofdstuk 5: Lussen in Python: Van Herhaling tot Efficiëntie

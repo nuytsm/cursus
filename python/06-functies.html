@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Hoofdstuk 6: Functies en Herbruikbaarheid van Code</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,526 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
-</div>
-<div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<h1>Hoofdstuk 6: Functies en Herbruikbaarheid van Code</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_wat_is_een_functie">1. Wat is een functie</a>
+<ul class="sectlevel2">
+<li><a href="#_functies_definiëren_en_oproepen">1.1. Functies Definiëren en Oproepen</a></li>
+<li><a href="#_parameters_vs_argumenten">1.2. Parameters vs argumenten</a></li>
+<li><a href="#_herbruikbaarheid_van_code">1.3. Herbruikbaarheid van Code</a></li>
+<li><a href="#_return_statements">1.4. Return Statements</a></li>
+<li><a href="#_functies_met_meerdere_parameters">1.5. Functies met Meerdere Parameters</a></li>
+<li><a href="#_scope_en_lokale_variabelen">1.6. Scope en Lokale Variabelen</a></li>
+<li><a href="#_ingebouwde_en_aangepaste_functies">1.7. Ingebouwde en Aangepaste Functies</a></li>
+</ul>
 </li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
+<li><a href="#_parameters_in_functies">2. Parameters in Functies</a>
+<ul class="sectlevel2">
+<li><a href="#_het_belang_van_parameters_in_functies">2.1. Het Belang van Parameters in Functies</a></li>
+<li><a href="#_positionele_parameters">2.2. Positionele Parameters</a></li>
+<li><a href="#_standaardwaarden_voor_parameters">2.3. Standaardwaarden voor Parameters</a></li>
+<li><a href="#_args_en_kwargs">2.4. args en kwargs</a></li>
+<li><a href="#_documentatie_van_functies">2.5. Documentatie van Functies</a></li>
+</ul>
 </li>
 </ul>
 </div>
 </div>
+<div id="content">
+<div class="sect1">
+<h2 id="_wat_is_een_functie">1. Wat is een functie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Functies (of methods) zijn <mark>stukken code die een naam hebben gekregen</mark>.
+Met de naam te gebruiken (en er () achter te voegen), kan het stuk code opgeroepen worden.
+De code van een functie wordt alleen maar uitgevoerd wanneer de functie wordt opgeroepen.
+Als een programma veel dezelfde code bevat (herhaling),
+kan je de code die altijd hetzelfde is, apart zetten in een functie en die functie telkens opnieuw oproepen.</p>
+</div>
+<div class="sect2">
+<h3 id="_functies_definiëren_en_oproepen">1.1. Functies Definiëren en Oproepen</h3>
+<div class="paragraph">
+<p>Het definiëren van een functie begint met het <code>def</code>-sleutelwoord, gevolgd door de naam van de functie en de parameters tussen haakjes. Parameters zijn waarden die aan de functie worden doorgegeven om mee te werken. Je kunt nul, één of meerdere parameters hebben, afhankelijk van de behoeften van je functie.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een eenvoudige functie definiëren om twee getallen op te tellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt twee getallen op en geeft het resultaat terug.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Om deze functie op te roepen, verstrekken we argumenten die overeenkomen met de parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">som</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parameters_vs_argumenten">1.2. Parameters vs argumenten</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/paraargs.png" alt="paraargs" width="400">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_herbruikbaarheid_van_code">1.3. Herbruikbaarheid van Code</h3>
+<div class="paragraph">
+<p>Een van de belangrijkste voordelen van functies is hun bijdrage aan herbruikbaarheid van code. Zodra je een functie hebt gedefinieerd, kun je deze op elk gewenst moment oproepen vanuit verschillende delen van je programma. Hierdoor kun je dezelfde functionaliteit hergebruiken zonder code te dupliceren.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, stel dat we dezelfde optelling op meerdere plaatsen in ons programma moeten uitvoeren. Met een functie kunnen we dit efficiënt doen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">som1</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">som2</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">som3</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">som1</span><span class="p">)</span> <span class="c1"># Output: 8
+</span><span class="nf">print</span><span class="p">(</span><span class="n">som2</span><span class="p">)</span> <span class="c1"># Output: 17
+</span><span class="nf">print</span><span class="p">(</span><span class="n">som3</span><span class="p">)</span> <span class="c1"># Output: 4</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_return_statements">1.4. Return Statements</h3>
+<div class="paragraph">
+<p>Het <code>return</code>-statement beëindigt de uitvoering van een functie en retourneert een resultaat aan de oproepende code. Dit resultaat kan van elk gegevenstype zijn, inclusief numeriek, tekstueel of zelfs complexe objecten.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie berekent het kwadraat van een getal.
+    :param x: Het getal waarvan het kwadraat wordt berekend.
+    :return: Het kwadraat van het gegeven getal.
+    </span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="n">getal</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kwadraat_van_getal</span> <span class="o">=</span> <span class="nf">kwadraat</span><span class="p">(</span><span class="n">getal</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">kwadraat_van_getal</span><span class="p">)</span> <span class="c1"># Output: 25</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functies_met_meerdere_parameters">1.5. Functies met Meerdere Parameters</h3>
+<div class="paragraph">
+<p>Functies kunnen meerdere parameters accepteren, waardoor je complexere berekeningen en logica kunt uitvoeren. Parameters kunnen worden gebruikt om waarden door te geven aan de functie, zodat deze ermee kan werken.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, een functie om de oppervlakte van een rechthoek te berekenen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie berekent de oppervlakte van een rechthoek.
+    :param breedte: De breedte van de rechthoek.
+    :param lengte: De lengte van de rechthoek.
+    :return: De oppervlakte van de rechthoek.
+    </span><span class="sh">"""</span>
+    <span class="n">oppervlakte</span> <span class="o">=</span> <span class="n">breedte</span> <span class="o">*</span> <span class="n">lengte</span>
+    <span class="k">return</span> <span class="n">oppervlakte</span>
+
+<span class="n">breedte</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">lengte</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">opp</span> <span class="o">=</span> <span class="nf">oppervlakte_rechthoek</span><span class="p">(</span><span class="n">breedte</span><span class="p">,</span> <span class="n">lengte</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">opp</span><span class="p">)</span> <span class="c1"># Output: 28</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope_en_lokale_variabelen">1.6. Scope en Lokale Variabelen</h3>
+<div class="paragraph">
+<p>Functies introduceren ook het concept van "scope", wat aangeeft <mark>waar variabelen beschikbaar en geldig zijn</mark>. Variabelen die binnen een functie worden gedefinieerd, zijn meestal alleen beschikbaar binnen die functie, tenzij ze expliciet als resultaat worden geretourneerd. Dit helpt om variabelen geïsoleerd te houden en interferentie met andere delen van je programma te voorkomen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ingebouwde_en_aangepaste_functies">1.7. Ingebouwde en Aangepaste Functies</h3>
+<div class="paragraph">
+<p>Python biedt een breed scala aan ingebouwde functies, zoals <code>print()</code>, <code>len()</code>, <code>str()</code>, <code>int()</code>, <code>float()</code>, enz. Deze functies zijn al beschikbaar in de taal en kunnen worden gebruikt zonder dat je ze zelf hoeft te definiëren. Aangepaste functies zijn de functies die je zelf definieert om specifieke taken uit te voeren.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parameters_in_functies">2. Parameters in Functies</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_het_belang_van_parameters_in_functies">2.1. Het Belang van Parameters in Functies</h3>
+<div class="paragraph">
+<p>Parameters stellen functies in staat om gegevens te ontvangen en ermee te werken, waardoor functies dynamisch en flexibel kunnen worden. Met parameters kun je waarden doorgeven aan functies zodat deze kunnen worden verwerkt en gemanipuleerd.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_positionele_parameters">2.2. Positionele Parameters</h3>
+<div class="paragraph">
+<p>Positionele parameters zijn de meest voorkomende soorten parameters in Python. Ze zijn waarden die aan een functie worden doorgegeven in dezelfde volgorde als waarin de parameters in de functiedefinitie zijn opgegeven. Bij het aanroepen van de functie worden argumenten voor deze parameters in dezelfde volgorde doorgegeven.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die twee getallen optelt met behulp van positionele parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt twee getallen op.
+    :param a: Het eerste getal.
+    :param b: Het tweede getal.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">som</span> <span class="o">=</span> <span class="nf">optellen</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">som</span><span class="p">)</span> <span class="c1"># Output: 8</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standaardwaarden_voor_parameters">2.3. Standaardwaarden voor Parameters</h3>
+<div class="paragraph">
+<p>Functies kunnen standaardwaarden hebben voor hun parameters. Dit betekent dat als een waarde niet expliciet wordt doorgegeven bij het aanroepen van de functie, de standaardwaarde wordt gebruikt. Standaardwaarden maken functies flexibeler omdat ze kunnen werken met verschillende aantallen argumenten.</p>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die een bericht afdrukt met een standaardgroet als er geen naam wordt opgegeven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">begroeten</span><span class="p">(</span><span class="n">naam</span><span class="o">=</span><span class="sh">"</span><span class="s">Vriend</span><span class="sh">"</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie begroet een persoon met een optionele naam.
+    :param naam: De naam van de persoon (standaard is </span><span class="sh">"</span><span class="s">Vriend</span><span class="sh">"</span><span class="s">).
+    </span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Hallo, </span><span class="si">{</span><span class="n">naam</span><span class="si">}</span><span class="s">!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">begroeten</span><span class="p">()</span>         <span class="c1"># Output: Hallo, Vriend!
+</span><span class="nf">begroeten</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># Output: Hallo, Alice!</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_args_en_kwargs">2.4. args en kwargs</h3>
+<div class="paragraph">
+<p>In sommige gevallen wil je een variabel aantal argumenten aan een functie doorgeven, zonder vooraf te weten hoeveel dat er zullen zijn. De notatie <code>args</code> en <code>kwargs</code> staan dit toe.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>args</code> staat voor "arguments" en verzamelt positionele argumenten in een tuple.</p>
+</li>
+<li>
+<p><code>kwargs</code> staat voor "keyword arguments" en verzamelt genoemde argumenten in een dictionary.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bijvoorbeeld, laten we een functie definiëren die een variabel aantal getallen kan optellen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie telt een variabel aantal getallen op.
+    :param args: Een tuple van getallen om op te tellen.
+    :return: Het resultaat van de optelling.
+    </span><span class="sh">"""</span>
+    <span class="n">resultaat</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultaat</span>
+
+<span class="n">totaal</span> <span class="o">=</span> <span class="nf">optellen_met_args</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">totaal</span><span class="p">)</span> <span class="c1"># Output: 30</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Je kunt ook genoemde argumenten doorgeven met <code>kwargs</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie drukt genoemde argumenten af.
+    :param kwargs: Een dictionary van genoemde argumenten.
+    </span><span class="sh">"""</span>
+    <span class="k">for</span> <span class="n">sleutel</span><span class="p">,</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">sleutel</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">waarde</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">afdrukken_met_kwargs</span><span class="p">(</span><span class="n">voornaam</span><span class="o">=</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="n">leeftijd</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="c1"># Output:
+# voornaam: Alice
+# leeftijd: 25</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentatie_van_functies">2.5. Documentatie van Functies</h3>
+<div class="paragraph">
+<p>Het is een goede gewoonte om functies te documenteren, zodat anderen (en jijzelf in de toekomst) begrijpen wat de functie doet, welke parameters deze verwacht en welke resultaten deze retourneert. Dit wordt vaak gedaan met behulp van zogenaamde "docstrings", zoals weergegeven in het vorige voorbeeld. Door je code goed te documenteren, wordt het delen en samenwerken aan projecten eenvoudiger.</p>
+</div>
+<div class="paragraph">
+<p>Een docstring (documentatiestring) in Python is een manier om documentatie aan een functie, klasse, module of methode toe te voegen. Het is een meer uitgebreide beschrijving van wat de code doet, en het is een goede gewoonte om docstrings te gebruiken om je code gemakkelijk te begrijpen en te onderhouden. Hier is een voorbeeld van het gebruik van een docstring:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Deze functie begroet de gebruiker.
+
+    Args:
+        name (str): De naam van de persoon die begroet moet worden.
+
+    Returns:
+        str: Een begroetingsbericht.
+
+    Voorbeeld:
+</span><span class="gp">        &gt;&gt;&gt;</span> <span class="nf">greet</span><span class="p">(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">)</span>
+        <span class="sh">'</span><span class="s">Hallo, Alice! Welkom terug.</span><span class="sh">'</span>
+    <span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">'</span><span class="s">Hallo, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">! Welkom terug.</span><span class="sh">'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Laten we de bovenstaande docstring uitleggen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De docstring begint met drie dubbele aanhalingstekens <code>"""</code> en eindigt met drie dubbele aanhalingstekens <code>"""</code>. Hierdoor kan de docstring meerdere regels tekst bevatten.</p>
+</li>
+<li>
+<p>De eerste regel van de docstring bevat een korte beschrijving van wat de functie doet.</p>
+</li>
+<li>
+<p>De <code>Args</code> sectie beschrijft de argumenten (parameters) die de functie accepteert. In dit geval accepteert de functie één argument genaamd <code>name</code>, dat een string (str) moet zijn.</p>
+</li>
+<li>
+<p>De <code>Returns</code> sectie beschrijft wat de functie retourneert. Hier retourneert de functie een string (str).</p>
+</li>
+<li>
+<p>Onder de docstring wordt vaak een voorbeeld gegeven van hoe de functie kan worden gebruikt. Dit is handig voor andere ontwikkelaars die de functie willen begrijpen en gebruiken.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Met deze docstring kunnen andere ontwikkelaars snel zien hoe de functie werkt, welke argumenten deze verwacht en wat deze retourneert. Bovendien kunnen hulpmiddelen zoals docstring-generatoren deze informatie automatisch extraheren om documentatie te genereren. Het gebruik van docstrings is dus een goede gewoonte om je code goed gedocumenteerd en onderhoudbaar te houden.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/autocomplete.gif" alt="Autocomplete voorbeeld in vscode. Deze maakt gebruik van de docstrings in de standard library." width="600">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 10:59:23 +0200
 </div>
 </div>
 </body>

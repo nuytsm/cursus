@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>SQL - DDL (Data Definition Language)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,411 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>SQL - DDL (Data Definition Language)</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_tabellen_maken">1. Tabellen maken</a>
+<ul class="sectlevel2">
+<li><a href="#_datatypen">1.1. Datatypen</a></li>
+</ul>
+</li>
+<li><a href="#_primaire_sleutels">2. Primaire sleutels</a></li>
+<li><a href="#_foreign_keys">3. Foreign Keys</a></li>
+<li><a href="#_tabellen_aanpassen">4. Tabellen aanpassen</a>
+<ul class="sectlevel2">
+<li><a href="#_kolom_toevoegen">4.1. Kolom toevoegen</a></li>
+<li><a href="#_kolom_verwijderen">4.2. Kolom verwijderen</a></li>
+<li><a href="#_constraint_toevoegen">4.3. Constraint toevoegen</a></li>
+</ul>
+</li>
+<li><a href="#_tabellen_verwijderen">5. Tabellen verwijderen</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>SQL DDL, of Data Definition Language, wordt gebruikt om databaseobjecten zoals tabellen te maken,
+aan te passen en te verwijderen.</p>
+</div>
+<div class="paragraph">
+<p>Met DDL kan je:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p>Een nieuwe tabel aanmaken.</p>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p>Kolommen toevoegen in de tabel.</p>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p>Datatypen aan de kolommen toewijzen.</p>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p><em>Primary</em> en <em>foreign keys</em> bepalen.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tabellen_maken">1. Tabellen maken</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Om een nieuwe tabel te maken, gebruiken we het <code>CREATE TABLE</code> statement.
+Stel dat we een tabel willen maken om klantgegevens op te slaan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Klanten</span> <span class="p">(</span>
+    <span class="n">KlantID</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">Naam</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">Adres</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="n">Stad</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld maken we een tabel genaamd <code>Klanten</code> met vier kolommen: <code>KlantID</code> (een integer),
+<code>Naam</code> (een tekstkolom die niet NULL (leeg) mag zijn), <code>Adres</code> en <code>Stad</code> (beide tekstkolommen).</p>
+</div>
+<div class="paragraph">
+<p>In MySQL gebruiken we AUTO_INCREMENT om een automatisch oplopende integer-waarde toe te kennen aan de primaire sleutelkolom KlantID.</p>
+</div>
+<div class="sect2">
+<h3 id="_datatypen">1.1. Datatypen</h3>
+<div class="paragraph">
+<p>Bij het maken van een tabel moeten we voor elke kolom een datatype opgeven.
+Enkele veelgebruikte datatypen zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>INT</code> voor gehele getallen.</p>
 </li>
 <li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
+<p>FLOAT of DECIMAL(m,n) voor decimale getallen (waarbij m het totale aantal cijfers is en n het aantal cijfers na de decimale punt)</p>
 </li>
 <li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
+<p><code>VARCHAR(n)</code> voor tekenreeksen met een maximumlengte van <code>n</code> tekens.</p>
 </li>
 <li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
+<p><code>DATE</code> voor datumwaarden.</p>
 </li>
 <li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
+<p><code>BLOB</code> of <code>VARBINARY(n)</code> voor binaire gegevens (zoals een afbeelding, mp3 bestand, ..).</p>
 </li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+<div class="paragraph">
+<p>De beschikbare datatypen kunnen variëren tussen verschillende databasesystemen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_primaire_sleutels">2. Primaire sleutels</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een primaire sleutel is een kolom of combinatie van kolommen die de rijen in een tabel uniek identificeert.
+In het vorige voorbeeld gebruikten we <code>KlantID</code> als primaire sleutel voor de tabel <code>Klanten</code>.</p>
+</div>
+<div class="paragraph">
+<p>We kunnen een primaire sleutel definiëren door <code>PRIMARY KEY</code> toe te voegen aan de kolomdefinitie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="n">KlantID</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of we kunnen een afzonderlijke <code>PRIMARY KEY</code>-constraint maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_foreign_keys">3. Foreign Keys</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een foreign key wordt gebruikt om de integriteit van de gegevens te waarborgen door <mark>een verwijzing te maken naar de primaire sleutel van een andere tabel</mark>.
+In MySQL moeten we foreign keys definiëren met behulp van afzonderlijke <em>constraints</em> na de kolomdefinities.</p>
+</div>
+<div class="paragraph">
+<p>Stel dat we een tabel <code>Bestellingen</code> willen maken die verwijst naar de <code>KlantID</code> in de tabel <code>Klanten</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span> <span class="p">(</span>
+    <span class="n">BestelID</span> <span class="nb">INT</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">KlantID</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">Datum</span> <span class="nb">DATE</span><span class="p">,</span>
+    <span class="n">Totaal</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Klanten</span><span class="p">(</span><span class="n">KlantID</span><span class="p">)</span>
+<span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld definieert <code>FOREIGN KEY (KlantID) REFERENCES Klanten(KlantID)</code> een foreign key-constraint op de <code>KlantID</code>-kolom van de tabel <code>Bestellingen</code>. Deze foreign key verwijst naar de <code>KlantID</code>-primaire sleutel in de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tabellen_aanpassen">4. Tabellen aanpassen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We kunnen bestaande tabellen aanpassen met het <code>ALTER TABLE</code> statement. Enkele veelgebruikte bewerkingen zijn:</p>
+</div>
+<div class="sect2">
+<h3 id="_kolom_toevoegen">4.1. Kolom toevoegen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Klanten</span>
+<span class="k">ADD</span> <span class="n">Email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt een nieuwe kolom <code>Email</code> toe aan de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kolom_verwijderen">4.2. Kolom verwijderen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Klanten</span>
+<span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">Email</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit verwijdert de kolom <code>Email</code> uit de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraint_toevoegen">4.3. Constraint toevoegen</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span>
+<span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">FK_Bestellingen_Klanten</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">KlantID</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">Klanten</span><span class="p">(</span><span class="n">KlantID</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voegt een foreign key-constraint toe aan de tabel <code>Bestellingen</code> die verwijst naar de primaire sleutel <code>KlantID</code> in de tabel <code>Klanten</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tabellen_verwijderen">5. Tabellen verwijderen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Om een tabel volledig te verwijderen, gebruiken we de <code>DROP TABLE</code> statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">Bestellingen</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit verwijdert de tabel <code>Bestellingen</code> en al haar gegevens permanent uit de database.</p>
+</div>
+<div class="paragraph">
+<p>In dit hoofdstuk hebben we de basisprincipes van SQL DDL behandeld, inclusief het maken, aanpassen en verwijderen van tabellen, het definiëren van primaire en foreign keys, en het gebruik van verschillende datatypen. Door het bestuderen van deze onderwerpen en het oefenen met meer voorbeelden, zult u beter voorbereid zijn om databases effectief te ontwerpen en te beheren.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:58 +0200
 </div>
 </div>
 </body>

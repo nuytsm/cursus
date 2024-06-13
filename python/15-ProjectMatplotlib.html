@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Project Temperatuur grafieken</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,446 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Project Temperatuur grafieken</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_de_brondata">1. De brondata</a></li>
+<li><a href="#_het_bronbestand_inlezen">2. Het bronbestand inlezen</a></li>
+<li><a href="#_filteren_op_jaartal">3. Filteren op jaartal</a></li>
+<li><a href="#_de_code_organiseren">4. De code organiseren</a></li>
+<li><a href="#_het_volledige_project">5. Het volledige project</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In dit voorbeeldproject, gaan we met <strong>Matplotlib</strong> een grafiek maken van de temperatuur in België.
+We gaan in dit project gebruik maken van brondata.</p>
+</div>
+<div class="paragraph">
+<p>Dit is de werkwijze:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p>We downloaden een csv bestand met temperatuursinfo.</p>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p>We lezen het bestand met python in.</p>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p>Via python filteren we op Brussel en op een bepaald jaar.</p>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p>De gefilterde gegevens plaatsen we in een python list.</p>
 </li>
 <li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
+<p>We plotten de gegevens met Matplotlib.</p>
 </li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_brondata">1. De brondata</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het csv bestand kan je hier terugvinden: <a href="https://www.kaggle.com/datasets/sudalairajkumar/daily-temperature-of-major-cities" class="bare">https://www.kaggle.com/datasets/sudalairajkumar/daily-temperature-of-major-cities</a></p>
+</div>
+<div class="paragraph">
+<p>Een csv bestand bevat verschillende gegevens die met een komme gescheiden zijn (vandaar csv: <em>Comma Seperated Values</em>).</p>
+</div>
+<div class="paragraph">
+<p>Enkele voorbeeldlijnen uit het bestand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">Europe,Belgium,,Brussels,6,1,2009,66.1
+Europe,Belgium,,Brussels,6,2,2009,61.3
+Europe,Belgium,,Brussels,6,3,2009,55.9
+Europe,Belgium,,Brussels,6,4,2009,52.1
+Europe,Belgium,,Brussels,6,5,2009,51.9
+Europe,Belgium,,Brussels,6,6,2009,52.6
+Europe,Belgium,,Brussels,6,7,2009,54.6
+Europe,Belgium,,Brussels,6,8,2009,56.2
+Europe,Belgium,,Brussels,6,9,2009,59.2
+Europe,Belgium,,Brussels,6,10,2009,56.7
+Europe,Belgium,,Brussels,6,11,2009,56.5
+Europe,Belgium,,Brussels,6,12,2009,57.6
+Europe,Belgium,,Brussels,6,13,2009,61.1
+Europe,Belgium,,Brussels,6,14,2009,63.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_het_bronbestand_inlezen">2. Het bronbestand inlezen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We kunnen het bestand inlezen door in de folder en de naam van het bestand te specifiëren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">object-oriented-programming</span><span class="se">\\</span><span class="s">Modules</span><span class="se">\\</span><span class="s">data_plotting</span><span class="se">\\</span><span class="s">city_temperature.csv</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filteren_op_jaartal">3. Filteren op jaartal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het bestand is geopend, nu kunnen we het inlezen in een datastructuur.
+Via de (in Python ingebouwde) csv module, kunnen we het bestand inlezen in een dictionary:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">csv</span>
+
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">object-oriented-programming</span><span class="se">\\</span><span class="s">Modules</span><span class="se">\\</span><span class="s">data_plotting</span><span class="se">\\</span><span class="s">city_temperature.csv</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nc">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Aan de gebruiker kunnen we een jaartal vragen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">year</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Enter a year (from 1996): </span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vervolgens kunnen we beginnen filteren.
+De dictreader maakt een lijst van rows (waar we over kunnen lussen).
+Elke row wordt voorgesteld als een dictionary (waarvan we een <em>key</em> kunnen opvragen).</p>
+</div>
+<div class="paragraph">
+<p>Filteren doen we door te aan de dictionary een bepaalde key te vragen voor elke row:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="c1"># Filter op Brussel en een gegeven jaartal
+</span>            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">City</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">Brussels</span><span class="sh">"</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">Year</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">:</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na het filteren kunnen we van de juiste rows (Brussel en juiste jaartal), de temperatuur opvragen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">AvgTemperature</span><span class="sh">"</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze temperatuur kunnen we omzetten in Celcius. Hiervoor maken we zelf een functie aan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">FtoC</span><span class="p">(</span><span class="n">F</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">Deze functie zet de temparatuur van Fahrenheit om naar Celcius</span><span class="sh">'''</span>
+    <span class="nf">return </span><span class="p">(</span><span class="nf">float</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze gebruiken we als volgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">celcius</span> <span class="o">=</span> <span class="nc">FtoC</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze temperatuur kunnen we vervolgens toevoegen aan een lijst van temperaturen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># bovenaan in het programma
+</span><span class="n">temperatures</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">celcius</span><span class="p">)</span> <span class="c1"># telkens bij het uitlezen van de row</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_code_organiseren">4. De code organiseren</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We splitsen de code best op in verschillende functies. Dit bakent de moeilijkheid af per deelprobleem.
+En het maakt de code ook veel leesbaarder.</p>
+</div>
+<div class="paragraph">
+<p>Ik heb hier gekozen voor de volgende functies (maar hier ben je zelf vrij in, er zijn meerdere wegen naar Rome):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">FtoC</span><span class="p">(</span><span class="n">F</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">Deze functie zet de temparatuur van Fahrenheit om naar Celcius</span><span class="sh">'''</span>
+
+<span class="k">def</span> <span class="nf">readcsv_from_file</span><span class="p">():</span>
+    <span class="sh">'''</span><span class="s">Deze functie leest het csv bestand in en filtert</span><span class="sh">'''</span>
+
+<span class="k">def</span> <span class="nf">toongrafiek</span><span class="p">():</span>
+    <span class="sh">'''</span><span class="s">Deze functie tekent de matplotlib grafiek.
+
+#we starten het programma door de readcsv functie op te roepen:
+
+readcsv_from_file()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_het_volledige_project">5. Het volledige project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>De volledige code van het projectje:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">csv</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1">#We houden de ingelezen temperaturen globaal bij, om ze ook in andere functies te kunnen gebruiken
+</span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">FtoC</span><span class="p">(</span><span class="n">F</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">Deze functie zet de temparatuur van Fahrenheit om naar Celcius</span><span class="sh">'''</span>
+    <span class="nf">return </span><span class="p">(</span><span class="nf">float</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+
+<span class="k">def</span> <span class="nf">readcsv_from_file</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">object-oriented-programming</span><span class="se">\\</span><span class="s">Modules</span><span class="se">\\</span><span class="s">data_plotting</span><span class="se">\\</span><span class="s">city_temperature.csv</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">Enter a year (1996 or higher): </span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nc">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="c1"># Filter op Brussel en een gegeven jaartal
+</span>            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">City</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">Brussels</span><span class="sh">"</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">Year</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">:</span>
+                <span class="c1"># Haal voor iedere row de temperatuur op
+</span>                <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="sh">"</span><span class="s">AvgTemperature</span><span class="sh">"</span><span class="p">]</span>
+                <span class="c1"># Zet de temperatuur om naar graden Celcius
+</span>                <span class="n">celcius</span> <span class="o">=</span> <span class="nc">FtoC</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">)</span>
+                <span class="c1"># Meetfouten halen we uit de gegevens (er zitten meetfouten van 0 kelvin in het bronbestand)
+</span>                <span class="k">if</span> <span class="n">celcius</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">30</span><span class="p">:</span>
+                    <span class="c1"># Bij een meetfout gaan we naar de volgene iteratie van de lus
+</span>                    <span class="k">break</span>
+                <span class="c1"># Voeg de gevonden tempertuur toe aan de lijst van temperaturen
+</span>                <span class="n">temperatures</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">celcius</span><span class="p">)</span> <span class="c1"># F° =&gt; C°
+</span>
+        <span class="c1"># Na het uitvoeren van de lus, roepen we de toongrafiek functie op.
+</span>        <span class="nf">toongrafiek</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">toongrafiek</span><span class="p">():</span>
+
+    <span class="n">dagen</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">temperatures</span><span class="p">))]</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">dagen</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">dag</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">ylabel</span><span class="p">(</span><span class="sh">'</span><span class="s">graden</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">grafiek temperaturen per dag in Brussel</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+
+<span class="nf">readcsv_from_file</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat wanneer we deze code uitvoeren:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/temperatuurgrafiek.png" alt="temperatuurgrafiek">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:25 +0200
 </div>
 </div>
 </body>

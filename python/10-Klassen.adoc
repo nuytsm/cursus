@@ -5,6 +5,9 @@
 :m: method
 :icons: font
 :source-highlighter: rouge
+:toc: left
+:toclevels: 5
+:rouge-style: thankful_eyes
 
 
 = Klassen

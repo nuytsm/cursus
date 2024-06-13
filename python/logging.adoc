@@ -1,0 +1,151 @@
+= Logging
+
+Tot nu toe hebben we veel gebruik gemaakt van _'print()'_ _statements_ om fouten op te sporen in onze code.
+Dit is niet altijd handig, we moeten de __print statements__ soms in commentaar zetten om ze niet te laten uitvoeren.
+
+Een betere oplossing hiervoor is om gebruik te maken van _logging_:
+
+Logging is een handige techniek om berichten van een programma vast te leggen tijdens de uitvoering ervan. Hierdoor kun je nuttige informatie verzamelen over wat er gebeurt, fouten opsporen en de prestaties van je programma volgen.
+
+== Basisconfiguratie
+
+Om te beginnen met logging in Python, moeten we eerst de loggingmodule configureren. 
+Dit omvat het instellen van het **logniveau** en het opgeven van het **logformaat**. 
+Het logniveau bepaalt welke berichten worden vastgelegd, terwijl het logformaat de structuur van de logboekberichten definieert.
+
+[source, python]
+----
+import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+----
+
+In dit voorbeeld hebben we de logging ingesteld op het DEBUG-niveau, wat betekent dat alle logboekberichten van DEBUG-niveau en hoger worden vastgelegd. 
+We hebben ook een aangepast logformaat opgegeven waarin de datum, het logniveau en het bericht worden weergegeven.
+
+== Logboekberichten vastleggen
+
+Nu we de logging hebben geconfigureerd, kunnen we logboekberichten vastleggen met verschillende logniveaus, zoals DEBUG, INFO, WARNING, ERROR en CRITICAL.
+
+[source, python]
+----
+# Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')
+----
+
+Deze logboekberichten worden vastgelegd met het opgegeven logniveau en worden weergegeven met het opgegeven logformaat in de console of het logbestand:
+
+[source, bash]
+----
+2024-04-24 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-24 12:00:01,000 - INFO - Dit is een INFO bericht
+2024-04-24 12:00:02,000 - WARNING - Dit is een WARNING bericht
+2024-04-24 12:00:03,000 - ERROR - Dit is een ERROR bericht
+2024-04-24 12:00:04,000 - CRITICAL - Dit is een CRITICAL bericht
+----
+
+=== Variabelen loggen
+
+Je kunt ook variabelen in logboekberichten opnemen om nuttige informatie vast te leggen tijdens de uitvoering van je programma.
+
+[source, python]
+----
+# Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')
+----
+
+Dit zal een logboekbericht genereren met informatie over de gebruiker, inclusief de gebruikersnaam en leeftijd:
+
+[source, bash]
+----
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+----
+
+=== Exceptions vastleggen
+
+Logging is handig bij het vastleggen van exceptions en fouten die optreden tijdens de uitvoering van je programma.
+
+[source, python]
+----
+# Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')
+----
+
+Dit zal niet alleen het opgegeven foutbericht vastleggen, maar ook de volledige stacktrace van de uitzondering.
+
+Logging voor specifieke modules configureren
+Je kunt logging ook configureren voor specifieke modules in je programma.
+
+[source, python]
+----
+# Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')
+----
+
+Hier hebben we een logger geconfigureerd voor de module 'my_module' met een specifiek logniveau en een loghandler. 
+Dit stelt ons in staat om logboekberichten te genereren die specifiek zijn voor deze module.
+
+== Een samenvattend voorbeeld
+
+[source, python]
+----
+import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')
+
+# Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')
+
+# Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')
+
+# Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')
+----
+
+Uitvoer:
+
+[source, bash]
+----
+2024-04-01 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-01 12:00:00,000 - INFO - Dit is een INFO bericht
+2024-04-01 12:00:00,000 - WARNING - Dit is een WARNING bericht
+2024-04-01 12:00:00,000 - ERROR - Dit is een ERROR bericht
+2024-04-01 12:00:00,000 - CRITICAL - Dit is een CRITICAL bericht
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+2024-04-01 12:00:00,000 - ERROR - Er is een fout opgetreden bij het delen
+Traceback (most recent call last):
+  File "example.py", line 16, in <module>
+    result = 10 / 0
+ZeroDivisionError: division by zero
+2024-04-01 12:00:00,000 - DEBUG - Dit bericht wordt vastgelegd door de my_module logger
+----

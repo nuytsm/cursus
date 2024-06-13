@@ -1,3 +1,6 @@
+:ruby-ext: ./GoogleAnalyticsDocinfoProcessor.rb
+:google_analytics_account: G-3K061L13YN
+:google_analytics_account_id: G-3K061L13YN
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
 :toc: left
@@ -6,33 +9,39 @@
 :google-analytics-code: G-3K061L13YN
 //:stylesheet: dark.css
 
-= Cursus OOP - Object-oriented programming
 
+= Cursus OOP - Object-oriented programming
+ifdef::env-name[:relfilesuffix: .adoc]
 :leveloffset: +1
 
-//include::./00-inhoudsopgave.adoc[]
-include::01-intro.adoc[]
 
-include::01-pythonvsjava.adoc[]
-include::02-vanPythonNaarProcessor.adoc[]
-include::03-variabelen.adoc[]
-include::04-Beslissingsstructuren.adoc[]
-include::05-lussen.adoc[]
-include::06-functies.adoc[]
-include::07-lijstenendicts.adoc[]
-include::08-invoer.adoc[]
-include::09-Exceptions.adoc[]
-include::10-Klassen.adoc[]
-include::11-Constructors.adoc[]
-include::12-Subklassen.adoc[]
-include::13-Modules.adoc[]
-include::14-Matplotlib.adoc[]
-include::15-ProjectMatplotlib.adoc[]
-include::16-ProjectPong.adoc[]
-include::17-Tkinter.adoc[]
-include::18-Databanken.adoc[]
-include::19-Cartopy.adoc[]
-include::20-UnitTest.adoc[]
-include::21-sqlddl.adoc[]
-//include::conditionals.adoc[]
-//include::lussen.adoc[]
+
+//* xref:./00-inhoudsopgave.adoc[]
+
+* xref:cursus-volledig.adoc[De volledige cursus]
+
+
+* xref:01-intro.adoc[Hoofdstuk 1: Programmeertalen en Python]
+* xref:02-vanPythonNaarProcessor.adoc[Hoofdstuk 2: Van code naar uitvoering op de CPU]
+* xref:03-variabelen.adoc[Hoofdstuk 3: Variabelen]
+* xref:04-Beslissingsstructuren.adoc[Hoofdstuk 4: If Else]
+* xref:05-lussen.adoc[Hoofdstuk 5: Lussen]
+* xref:06-functies.adoc[Hoofdstuk 6: Functies]
+* xref:07-lijstenendicts.adoc[Hoofdstuk 7: Lists & Dictionaries]
+* xref:08-invoer.adoc[Hoofdstuk 8: Input]
+* xref:09-Exceptions.adoc[Hoofdstuk 9: Exceptions]
+* xref:10-Klassen.adoc[Hoofdstuk 10: Klassen]
+* xref:11-Constructors.adoc[Hoofdstuk 11: Constructors]
+* xref:12-Subklassen.adoc[Hoofdstuk 12: Subklassen]
+* xref:13-Modules.adoc[Hoofdstuk 13: Modules]
+* xref:14-Matplotlib.adoc[Hoofdstuk 14: Matplotlib]
+* xref:15-ProjectMatplotlib.adoc[Hoofdstuk 15: Project Matplotlib]
+* xref:16-ProjectPong.adoc[Hoofdstuk 16: Project Pong]
+* xref:17-Tkinter.adoc[Hoofdstuk 17: Tkinter GUI]
+* xref:18-Databanken.adoc[Hoofdstuk 18: Databanken]
+* xref:19-Cartopy.adoc[Hoofdstuk 19: Cartopy]
+* xref:logging.adoc[Hoofdstuk 20: Logging]s
+* xref:20-UnitTest.adoc[Hoofdstuk 21: Unit tests]
+* xref:21-sqlddl.adoc[Hoofdstuk 22: SQL - DDL]
+//* xref:conditionals.adoc[]
+//* xref:lussen.adoc[]

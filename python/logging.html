@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Logging</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -435,86 +435,192 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Logging</h1>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
-</li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tot nu toe hebben we veel gebruik gemaakt van <em>'print()'</em> <em>statements</em> om fouten op te sporen in onze code.
+Dit is niet altijd handig, we moeten de <em>print statements</em> soms in commentaar zetten om ze niet te laten uitvoeren.</p>
+</div>
+<div class="paragraph">
+<p>Een betere oplossing hiervoor is om gebruik te maken van <em>logging</em>:</p>
+</div>
+<div class="paragraph">
+<p>Logging is een handige techniek om berichten van een programma vast te leggen tijdens de uitvoering ervan. Hierdoor kun je nuttige informatie verzamelen over wat er gebeurt, fouten opsporen en de prestaties van je programma volgen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basisconfiguratie">Basisconfiguratie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Om te beginnen met logging in Python, moeten we eerst de loggingmodule configureren.
+Dit omvat het instellen van het <strong>logniveau</strong> en het opgeven van het <strong>logformaat</strong>.
+Het logniveau bepaalt welke berichten worden vastgelegd, terwijl het logformaat de structuur van de logboekberichten definieert.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld hebben we de logging ingesteld op het DEBUG-niveau, wat betekent dat alle logboekberichten van DEBUG-niveau en hoger worden vastgelegd.
+We hebben ook een aangepast logformaat opgegeven waarin de datum, het logniveau en het bericht worden weergegeven.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logboekberichten_vastleggen">Logboekberichten vastleggen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nu we de logging hebben geconfigureerd, kunnen we logboekberichten vastleggen met verschillende logniveaus, zoals DEBUG, INFO, WARNING, ERROR en CRITICAL.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze logboekberichten worden vastgelegd met het opgegeven logniveau en worden weergegeven met het opgegeven logformaat in de console of het logbestand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">2024-04-24 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-24 12:00:01,000 - INFO - Dit is een INFO bericht
+2024-04-24 12:00:02,000 - WARNING - Dit is een WARNING bericht
+2024-04-24 12:00:03,000 - ERROR - Dit is een ERROR bericht
+2024-04-24 12:00:04,000 - CRITICAL - Dit is een CRITICAL bericht</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variabelen_loggen">Variabelen loggen</h3>
+<div class="paragraph">
+<p>Je kunt ook variabelen in logboekberichten opnemen om nuttige informatie vast te leggen tijdens de uitvoering van je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal een logboekbericht genereren met informatie over de gebruiker, inclusief de gebruikersnaam en leeftijd:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exceptions_vastleggen">Exceptions vastleggen</h3>
+<div class="paragraph">
+<p>Logging is handig bij het vastleggen van exceptions en fouten die optreden tijdens de uitvoering van je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal niet alleen het opgegeven foutbericht vastleggen, maar ook de volledige stacktrace van de uitzondering.</p>
+</div>
+<div class="paragraph">
+<p>Logging voor specifieke modules configureren
+Je kunt logging ook configureren voor specifieke modules in je programma.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python"># Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier hebben we een logger geconfigureerd voor de module 'my_module' met een specifiek logniveau en een loghandler.
+Dit stelt ons in staat om logboekberichten te genereren die specifiek zijn voor deze module.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_een_samenvattend_voorbeeld">Een samenvattend voorbeeld</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">import logging
+
+# Configureer de logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Voorbeeld van logboekberichten met verschillende logniveaus
+logging.debug('Dit is een DEBUG bericht')
+logging.info('Dit is een INFO bericht')
+logging.warning('Dit is een WARNING bericht')
+logging.error('Dit is een ERROR bericht')
+logging.critical('Dit is een CRITICAL bericht')
+
+# Voorbeeld van het gebruik van variabelen in logboekberichten
+name = 'Alice'
+age = 30
+logging.info(f'Gebruikersnaam: {name}, Leeftijd: {age}')
+
+# Voorbeeld van het vastleggen van uitzonderingen
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    logging.exception('Er is een fout opgetreden bij het delen')
+
+# Voorbeeld van het configureren van logging voor een specifieke module
+logger = logging.getLogger('my_module')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+logger.debug('Dit bericht wordt vastgelegd door de my_module logger')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Uitvoer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">2024-04-01 12:00:00,000 - DEBUG - Dit is een DEBUG bericht
+2024-04-01 12:00:00,000 - INFO - Dit is een INFO bericht
+2024-04-01 12:00:00,000 - WARNING - Dit is een WARNING bericht
+2024-04-01 12:00:00,000 - ERROR - Dit is een ERROR bericht
+2024-04-01 12:00:00,000 - CRITICAL - Dit is een CRITICAL bericht
+2024-04-01 12:00:00,000 - INFO - Gebruikersnaam: Alice, Leeftijd: 30
+2024-04-01 12:00:00,000 - ERROR - Er is een fout opgetreden bij het delen
+Traceback (most recent call last):
+  File "example.py", line 16, in &lt;module&gt;
+    result = 10 / 0
+ZeroDivisionError: division by zero
+2024-04-01 12:00:00,000 - DEBUG - Dit bericht wordt vastgelegd door de my_module logger</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 10:39:38 +0200
 </div>
 </div>
 </body>

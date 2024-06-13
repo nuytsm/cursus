@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Cartopy: Geografische Data Visualisatie in Python</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,443 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Cartopy: Geografische Data Visualisatie in Python</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_wat_is_cartopy">1. Wat is Cartopy?</a></li>
+<li><a href="#_installatie_van_cartopy">2. Installatie van Cartopy</a></li>
+<li><a href="#_belangrijkste_kenmerken">3. Belangrijkste Kenmerken</a></li>
+<li><a href="#_voorbeeldcode">4. Voorbeeldcode</a>
+<ul class="sectlevel2">
+<li><a href="#_een_punt_op_de_kaart">4.1. Een punt op de kaart</a></li>
+<li><a href="#_inzoomen">4.2. Inzoomen</a></li>
+<li><a href="#_grenzen_en_provincies">4.3. Grenzen en provincies</a></li>
+</ul>
+</li>
+<li><a href="#_een_land_markeren">5. Een land markeren</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div class="sect1">
+<h2 id="_wat_is_cartopy">1. Wat is Cartopy?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cartopy is een open-source bibliotheek die is gebouwd bovenop Matplotlib en Shapely en die is ontworpen voor het maken van kaarten en het werken met geografische gegevens in Python. Het biedt een eenvoudige en intuïtieve interface voor het maken van verschillende soorten kaarten, zoals orthografische, cilindrische en azimutale projecties.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installatie_van_cartopy">2. Installatie van Cartopy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Om Cartopy te installeren, kunt u gebruik maken van pip, de Python package manager. U kunt Cartopy installeren met het volgende commando:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>cartopy</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_belangrijkste_kenmerken">3. Belangrijkste Kenmerken</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Enkele van de belangrijkste kenmerken van Cartopy zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p><strong>Ondersteuning voor Verschillende Kaartprojecties:</strong> Cartopy biedt ondersteuning voor een breed scala aan kaartprojecties, waaronder Mercator, Orthografisch, Stereografisch, en nog veel meer.</p>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p><strong>Gegevensvisualisatie:</strong> Met Cartopy kunt u geografische gegevens visualiseren, zoals landgrenzen, kustlijnen, rivieren, enzovoort.</p>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p><strong>Geografische Plotting:</strong> Cartopy biedt de mogelijkheid om gegevens te plotten op geografische coördinaten, waardoor u verschillende soorten kaarten kunt maken met behulp van uw eigen datasets.</p>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p><strong>Eenvoudige Integratie met Matplotlib:</strong> Omdat Cartopy is gebouwd bovenop Matplotlib, kunt u de plotfuncties van Matplotlib gebruiken in combinatie met de geografische functionaliteit van Cartopy.</p>
 </li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voorbeeldcode">4. Voorbeeldcode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hier is een eenvoudig voorbeeld van hoe Cartopy kan worden gebruikt om een eenvoudige kaart te maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">from</span> <span class="n">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Maak een nieuwe kaartfiguur
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Voeg landen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">)</span>
+
+<span class="c1"># Voeg kustlijnen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">COASTLINE</span><span class="p">)</span>
+
+<span class="c1"># Voeg een titel toe aan de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Een Eenvoudige Kaart met Cartopy</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld creëert een eenvoudige kaart met Cartopy, met landen en kustlijnen als kenmerken:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy1.png" alt="cartopy1">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_een_punt_op_de_kaart">4.1. Een punt op de kaart</h3>
+<div class="paragraph">
+<p>Op de gerenderde kaart willen we bijvoorbeeld Brussel tonen als een rode bol.
+Hiervoor moeten we de coördinaten van Brussel kennen, namelijk: 50.8503, 4.3517.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">from</span> <span class="n">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Coördinaten van Brussel (latitude, longitude)
+</span><span class="n">brussels_coords</span> <span class="o">=</span> <span class="p">(</span><span class="mf">50.8503</span><span class="p">,</span> <span class="mf">4.3517</span><span class="p">)</span>
+
+<span class="c1"># Bepaal de extent voor de hele wereldkaart
+</span><span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="c1"># Maak een nieuwe kaartfiguur
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_extent</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span>
+
+<span class="c1"># Voeg landen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">)</span>
+
+<span class="c1"># Voeg kustlijnen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">COASTLINE</span><span class="p">)</span>
+
+<span class="c1"># Voeg een rode bol toe voor Brussel
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">brussels_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">brussels_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="sh">'</span><span class="s">ro</span><span class="sh">'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">())</span>
+
+<span class="c1"># Voeg een titel toe aan de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Een Eenvoudige Kaart met Brussel Gemarkeerd</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de kaart
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy2.png" alt="cartopy2">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inzoomen">4.2. Inzoomen</h3>
+<div class="paragraph">
+<p>Op basis van de gekende coördinaten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bepaal de extent van de kaart op basis van de coördinaten van Brussel
+</span><span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">brussels_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">brussels_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="n">brussels_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">brussels_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_extent</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of via bepaalde longitude en latitude:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bepaal de extent voor de hele wereldkaart
+</span><span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inzoom.png" alt="inzoom">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grenzen_en_provincies">4.3. Grenzen en provincies</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Bepaal de extent voor de hele wereldkaart
+</span><span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">49.4</span><span class="p">,</span> <span class="mi">52</span><span class="p">]</span>
+
+<span class="c1"># Maak een nieuwe kaartfiguur
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="p">.</span><span class="nc">Aitoff</span><span class="p">())</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_extent</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span>
+
+<span class="c1"># Voeg landen toe aan de kaart
+</span><span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">STATES</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">blue</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">red</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy_borders.png" alt="cartopy borders">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_een_land_markeren">5. Een land markeren</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">cartopy</span>
+<span class="kn">import</span> <span class="n">cartopy.crs</span> <span class="k">as</span> <span class="n">ccrs</span>
+<span class="kn">import</span> <span class="n">cartopy.io.shapereader</span> <span class="k">as</span> <span class="n">shpreader</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">Orthographic</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">OCEAN</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">black</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_global</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">gridlines</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">BORDERS</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">:</span><span class="sh">'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">shpfilename</span> <span class="o">=</span> <span class="n">shpreader</span><span class="p">.</span><span class="nf">natural_earth</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="sh">'</span><span class="s">110m</span><span class="sh">'</span><span class="p">,</span>
+                                      <span class="n">category</span><span class="o">=</span><span class="sh">'</span><span class="s">cultural</span><span class="sh">'</span><span class="p">,</span>
+                                      <span class="n">name</span><span class="o">=</span><span class="sh">'</span><span class="s">admin_0_countries</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">shpreader</span><span class="p">.</span><span class="nc">Reader</span><span class="p">(</span><span class="n">shpfilename</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="nf">records</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">country</span><span class="p">.</span><span class="n">attributes</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">country</span><span class="p">.</span><span class="n">attributes</span><span class="p">[</span><span class="sh">'</span><span class="s">GEOUNIT</span><span class="sh">'</span><span class="p">]</span> <span class="o">==</span> <span class="sh">'</span><span class="s">China</span><span class="sh">'</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">.</span><span class="nf">add_geometries</span><span class="p">(</span><span class="n">country</span><span class="p">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">ccrs</span><span class="p">.</span><span class="nc">PlateCarree</span><span class="p">(),</span> <span class="n">facecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">red</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cartopy_land.png" alt="cartopy land">
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:47 +0200
 </div>
 </div>
 </body>

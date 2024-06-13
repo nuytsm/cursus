@@ -2,6 +2,7 @@
 :rouge-style: thankful_eyes
 :toc: left
 :toclevels: 5
+:sectnums:
 //:stylesheet: dark.css
 
 = Hoofdstuk 8: Gegevensinvoer, Expressies en Berekeningen

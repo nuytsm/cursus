@@ -1,3 +1,9 @@
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
 = SQL: Basisprincipes en Querying
 
 

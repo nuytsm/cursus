@@ -1,5 +1,8 @@
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
 
 = Hoofdstuk 2: Van Code naar Uitvoering op de CPU
 

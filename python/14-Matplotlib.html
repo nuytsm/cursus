@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Matplotlib: Grafieken</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,426 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Matplotlib: Grafieken</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_inleiding_tot_matplotlib">1. Inleiding tot Matplotlib</a></li>
+<li><a href="#_eenvoudige_lijnplot">2. Eenvoudige Lijnplot</a></li>
+<li><a href="#_scatterplot">3. Scatterplot</a></li>
+<li><a href="#_histogram">4. Histogram</a></li>
+<li><a href="#_balkgrafiek">5. Balkgrafiek</a></li>
+<li><a href="#_aanpassen_van_grafieken">6. Aanpassen van Grafieken</a></li>
+<li><a href="#_opslaan_van_grafieken">7. Opslaan van Grafieken</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
-</li>
-<li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
-</li>
-<li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
-</li>
-<li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
-</li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Matplotlib is een krachtige bibliotheek voor datavisualisatie in Python.
+Het biedt de mogelijkheid om verschillende soorten grafieken en plots te maken.
+In dit hoofdstuk zullen we dieper ingaan op het gebruik van Matplotlib, beginnend met eenvoudige grafieken en geleidelijk aan naar meer complexe visualisaties.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inleiding_tot_matplotlib">1. Inleiding tot Matplotlib</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Matplotlib is ontworpen voor het genereren van statische, interactieve en geanimeerde plots in Python. Het is handig voor het weergeven van gegevens en patronen, en het wordt veel gebruikt in wetenschappelijke en technische gebieden.</p>
+</div>
+<div class="paragraph">
+<p>Om Matplotlib te gebruiken, moet je het eerst installeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>matplotlib</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Importeer het vervolgens in je python script:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Op de <a href="https://matplotlib.org/">website van maptplotlib</a> kan je uitleg en veel voorbeelden vinden.
+In de rest van dit hoofdstuk overlopen we enkele voorbeelden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_eenvoudige_lijnplot">2. Eenvoudige Lijnplot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Laten we beginnen met het maken van een eenvoudige lijnplot:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Maak een lijnplot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Toon de plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal een eenvoudige lijnplot genereren met punten verbonden door lijnen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/lijnplot.png" alt="lijnplot">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scatterplot">3. Scatterplot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een scatterplot is handig om individuele punten weer te geven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Maak een scatterplot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Toon de plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit genereert een scatterplot met punten zonder lijnen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scatterplot.png" alt="scatterplot">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_histogram">4. Histogram</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Matplotlib kan ook histogrammen maken:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens
+</span><span class="n">gegevens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Maak een histogram
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">hist</span><span class="p">(</span><span class="n">gegevens</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="sh">'</span><span class="s">black</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit geeft een histogram weer met vijf delen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/histplot.png" alt="histplot">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_balkgrafiek">5. Balkgrafiek</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een balkgrafiek is handig voor het vergelijken van verschillende categorieën:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens
+</span><span class="n">categorieën</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">A</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">B</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">C</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">D</span><span class="sh">'</span><span class="p">]</span>
+<span class="n">waarden</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Maak een balkgrafiek
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">categorieën</span><span class="p">,</span> <span class="n">waarden</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">skyblue</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Toon de plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit geeft een eenvoudige balkgrafiek weer.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/barplot.png" alt="barplot">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aanpassen_van_grafieken">6. Aanpassen van Grafieken</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Matplotlib biedt uitgebreide mogelijkheden voor het aanpassen van grafieken. Je kunt labels, titels, kleuren, enzovoort toevoegen. Hier is een voorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens
+</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Maak een lijnplot met aangepaste opmaak
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="sh">'</span><span class="s">o</span><span class="sh">'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="sh">'</span><span class="s">--</span><span class="sh">'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">'</span><span class="s">green</span><span class="sh">'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sh">'</span><span class="s">Mijn Data</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">'</span><span class="s">Mijn Eerste Matplotlib Plot</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="sh">'</span><span class="s">X-as</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">ylabel</span><span class="p">(</span><span class="sh">'</span><span class="s">Y-as</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">()</span>
+
+<span class="c1"># Toon de plot
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit laat zien hoe je labels, een legende en aangepaste opmaak kunt toevoegen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/legendplot.png" alt="legendplot">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_opslaan_van_grafieken">7. Opslaan van Grafieken</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Je kunt je grafieken ook opslaan in verschillende formaten, zoals PNG of PDF:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Gegevens en plot
+</span>
+<span class="c1"># Opslaan als PNG
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">savefig</span><span class="p">(</span><span class="sh">'</span><span class="s">mijn_plot.png</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Opslaan als PDF
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">savefig</span><span class="p">(</span><span class="sh">'</span><span class="s">mijn_plot.pdf</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zijn slechts enkele basisconcepten van Matplotlib. De bibliotheek biedt veel meer functies en mogelijkheden, dus het is de moeite waard om de documentatie te verkennen voor meer geavanceerde visualisaties.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:20 +0200
 </div>
 </div>
 </body>

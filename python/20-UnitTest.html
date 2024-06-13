@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Python Unittest: Testen van Python-code</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,420 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Python Unittest: Testen van Python-code</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_wat_is_unittest">1. Wat is unittest?</a>
+<ul class="sectlevel2">
+<li><a href="#_testcase_maken">1.1. Testcase maken</a></li>
+<li><a href="#_test_uitvoeren">1.2. Test uitvoeren</a></li>
+<li><a href="#_assert_functies">1.3. <em>Assert</em>-Functies</a></li>
+<li><a href="#_setup_en_teardown">1.4. SetUp en TearDown</a></li>
+<li><a href="#_testen_van_exceptions">1.5. Testen van <em>Exceptions</em></a></li>
+</ul>
+</li>
+<li><a href="#_parametrized_testcases">2. <em>Parametrized Testcases</em></a></li>
+<li><a href="#_test_coverage">3. Test Coverage</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://docs.python.org/3/library/unittest.html">Python unittest</a> is een ingebouwde module waarmee je testcases kan schrijven om de functionaliteit van Python-code te valideren.
+In dit hoofdstuk zullen we de basisprincipes van unittest verkennen en laten zien hoe je het kunt gebruiken om je Python-code te testen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wat_is_unittest">1. Wat is unittest?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unittest is een framework voor het schrijven, organiseren en <strong>uitvoeren van testcases in Python</strong>.
+Het biedt verschillende <em>assert</em>-functies om de <mark>verwachte uitvoer van functies en klassen te vergelijken met de daadwerkelijke uitvoer</mark>.</p>
+</div>
+<div class="sect2">
+<h3 id="_testcase_maken">1.1. Testcase maken</h3>
+<div class="paragraph">
+<p>Een testcase is een individuele eenheid van testen binnen unittest.
+Het kan een of meer testmethoden bevatten die de functionaliteit van specifieke delen van je code testen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_addition</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_subtraction</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_uitvoeren">1.2. Test uitvoeren</h3>
+<div class="paragraph">
+<p>Om de tests uit te voeren, voer je het testbestand uit met behulp van de unittest.main() functie of via de <em>commandline</em>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assert_functies">1.3. <em>Assert</em>-Functies</h3>
+<div class="paragraph">
+<p>Unittest biedt verschillende <em>Assert</em>-Functies om te controleren of bepaalde beweringen of uitkomsten waar (juist) zijn.</p>
+</div>
+<div class="paragraph">
+<p>Enkele veelgebruikte methoden zijn:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p>assertEqual(a, b): Controleert of a gelijk is aan b.</p>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p>assertTrue(x): Controleert of x waar is.</p>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p>assertFalse(x): Controleert of x onwaar is.</p>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p>assertIn(a, b): Controleert of a aanwezig is in b.</p>
 </li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup_en_teardown">1.4. SetUp en TearDown</h3>
+<div class="paragraph">
+<p>SetUp en TearDown-methoden worden gebruikt om voorbereidende stappen uit te voeren voor elke test en opruimingsstappen uit te voeren na elke test.
+Bijvoorbeeld het ophalen van data uit een database of het inlezen van een <em>csv</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Voorbereidende stappen voor elke test
+</span>        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Opruimingsstappen na elke test
+</span>        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="c1"># Testcode hier
+</span>        <span class="k">pass</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_testen_van_exceptions">1.5. Testen van <em>Exceptions</em></h3>
+<div class="paragraph">
+<p>Soms wil je controleren of een bepaalde functie een verwachte <em>Exceptions</em> opwerpt. Je kunt de assertRaises() methode gebruiken om dit te doen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">'</span><span class="s">Cannot divide by zero</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_divide</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertRaises</span><span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="n">divide</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="p">.</span><span class="nf">main</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parametrized_testcases">2. <em>Parametrized Testcases</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Parametrized testcases stellen ons in staat om <mark>dezelfde testlogica met verschillende invoer te hergebruiken</mark>, waardoor we efficiënter kunnen testen.
+Dit wordt bereikt door gebruik te maken van de <em>@unittest.parametrized.expand</em> decorator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@unittest.parametrized.expand</span><span class="p">([</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="k">def</span> <span class="nf">test_addition</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de test_addition-methode herhaaldelijk uitgevoerd met verschillende invoercombinaties.
+Dit zorgt ervoor dat dezelfde testlogica wordt toegepast op meerdere scenario&#8217;s, wat de testdekking vergroot en ons helpt om fouten te identificeren.</p>
+</div>
+<div class="paragraph">
+<p>Een ander voorbeeld van parametrized testcases:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">unittest</span>
+
+<span class="k">class</span> <span class="nc">MyTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@unittest.parametrized.expand</span><span class="p">([</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">hello</span><span class="sh">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">world</span><span class="sh">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="sh">"</span><span class="s">python</span><span class="sh">"</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="p">])</span>
+    <span class="k">def</span> <span class="nf">test_string_length</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">string</span><span class="p">),</span> <span class="n">length</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld toont hoe dezelfde testlogica wordt toegepast op verschillende invoerwaarden voor het controleren van de lengte van een string.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_coverage">3. Test Coverage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Test coverage is een maatstaf die aangeeft <mark>hoeveel van de broncode wordt uitgevoerd (controleerd) door de testsuite</mark>.
+Het meten van test coverage helpt ontwikkelaars om gebieden van <mark>ongeteste code te identificeren</mark> en de algehele kwaliteit van de tests te verbeteren.</p>
+</div>
+<div class="paragraph">
+<p>Je kunt test coverage meten met behulp van tools zoals coverage.py. Installeer eerst de tool met pip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>coverage</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gebruik vervolgens de <strong>coverage run</strong> opdracht om je tests uit te voeren en de dekking te meten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">coverage run <span class="nt">-m</span> unittest test_mycode.py</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Om een rapport te genereren, gebruik je:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">coverage report</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zal een rapport genereren dat laat zien welke delen van de code zijn gedekt door je tests en welke delen niet.</p>
+</div>
+<div class="paragraph">
+<p>Het meten van test coverage kan je helpen om gebieden van je code te identificeren die mogelijk onvoldoende worden getest, waardoor je de testsuite kunt verbeteren en de stabiliteit van je code kunt verhogen.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:52 +0200
 </div>
 </div>
 </body>

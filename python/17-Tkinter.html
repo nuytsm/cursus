@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Tkinter: Grafische Gebruikersinterface</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,451 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Tkinter: Grafische Gebruikersinterface</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_wat_is_tkinter">1. Wat is Tkinter?</a></li>
+<li><a href="#_hoe_werkt_tkinter">2. Hoe Werkt Tkinter?</a></li>
+<li><a href="#_tkinter_voorbeeld">3. Tkinter Voorbeeld</a></li>
+<li><a href="#_toevoegen_van_complexiteit_berichtvenster">4. Toevoegen van Complexiteit - Berichtvenster</a></li>
+<li><a href="#_geavanceerde_lay_out_frames">5. Geavanceerde Lay-out - Frames</a></li>
+<li><a href="#_gebruik_van_stijlen_en_themas">6. Gebruik van Stijlen en Thema&#8217;s</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tkinter is een krachtige bibliotheek in Python waarmee je snel en eenvoudig grafische gebruikersinterfaces (GUI&#8217;s) kunt bouwen. GUI&#8217;s stellen gebruikers in staat om interactief met programma&#8217;s te communiceren door middel van visuele elementen zoals knoppen, tekstvakken en vensters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_wat_is_tkinter">1. Wat is Tkinter?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tkinter is de standaard GUI-bibliotheek voor Python en wordt meegeleverd met de Python-installatie. Het is gebaseerd op het Tk GUI-toolkit, dat oorspronkelijk is ontwikkeld voor het Tcl-programmeerplatform. Tkinter biedt een set widgets (grafische elementen) en hulpmiddelen om GUI&#8217;s te maken met een minimale hoeveelheid code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hoe_werkt_tkinter">2. Hoe Werkt Tkinter?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tkinter volgt een gebeurtenisgestuurde programmeerstijl. Hier zijn de basisstappen om een Tkinter-toepassing te maken:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p><strong>Importeer Tkinter:</strong> Begin met het importeren van de Tkinter-module in je Python-script.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="kn">import</span> <span class="n">tkinter</span> <span class="k">as</span> <span class="n">tk</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p><strong>Creëer het Hoofdvenster:</strong> Maak een instantie van het Tk-klasse-object om het hoofdvenster van je toepassing te definiëren.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="n">venster</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Tk</span><span class="p">()</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p><strong>Voeg Widgets Toe:</strong> Voeg verschillende widgets toe aan het hoofdvenster, zoals knoppen, labels, invoervelden, enz.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">venster</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Welkom bij Tkinter!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">knop</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Button</span><span class="p">(</span><span class="n">venster</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Klik hier</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p><strong>Lay-out Organiseren:</strong> Organiseer de lay-out van de widgets, bijvoorbeeld met behulp van frames of rasterindelingen.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="n">label</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span>
+    <span class="n">knop</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
+<p><strong>Definieer Functies:</strong> Definieer functies die moeten worden uitgevoerd wanneer bepaalde gebeurtenissen optreden, zoals het klikken op een knop.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="k">def</span> <span class="nf">begroet</span><span class="p">():</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hallo, Tkinter!</span><span class="sh">"</span><span class="p">)</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
+<p><strong>Koppel Functies aan Widgets:</strong> Koppel de gedefinieerde functies aan de bijbehorende widgets.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="n">knop</span><span class="p">.</span><span class="nf">config</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="n">begroet</span><span class="p">)</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
+<p><strong>Start de Tkinter Event Loop:</strong> Start de oneindige event loop om de GUI actief te houden en te reageren op gebruikersinteractie.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python">    <span class="n">venster</span><span class="p">.</span><span class="nf">mainloop</span><span class="p">()</span></code></pre>
+</div>
+</div>
 </li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tkinter_voorbeeld">3. Tkinter Voorbeeld</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Laten we beginnen met een basisvoorbeeld dat een venster met een knop weergeeft:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">import</span> <span class="n">tkinter</span> <span class="k">as</span> <span class="n">tk</span>
+
+<span class="k">def</span> <span class="nf">begroet</span><span class="p">():</span>
+    <span class="n">label</span><span class="p">.</span><span class="nf">config</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Hallo, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">invoer</span><span class="p">.</span><span class="nf">get</span><span class="p">())</span>
+
+<span class="c1"># Creëer het hoofdvenster
+</span><span class="n">venster</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Tk</span><span class="p">()</span>
+<span class="n">venster</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Mijn Eerste Tkinter Toepassing</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Voeg een label toe
+</span><span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Label</span><span class="p">(</span><span class="n">venster</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Voer je naam in:</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">label</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span>
+
+<span class="c1"># Voeg een invoerveld toe
+</span><span class="n">invoer</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Entry</span><span class="p">(</span><span class="n">venster</span><span class="p">)</span>
+<span class="n">invoer</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span>
+
+<span class="c1"># Voeg een knop toe die een functie uitvoert wanneer erop wordt geklikt
+</span><span class="n">knop</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Button</span><span class="p">(</span><span class="n">venster</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Begroet</span><span class="sh">"</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">begroet</span><span class="p">)</span>
+<span class="n">knop</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span>
+
+<span class="c1"># Start de Tkinter-eventloop
+</span><span class="n">venster</span><span class="p">.</span><span class="nf">mainloop</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tkinter.PNG" alt="tkinter">
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voorbeeld toont een venster met een label, een invoerveld en een knop. Wanneer je je naam invoert en op de knop klikt, wordt een begroetingsbericht weergegeven.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_toevoegen_van_complexiteit_berichtvenster">4. Toevoegen van Complexiteit - Berichtvenster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Laten we nu een berichtvenster toevoegen dat verschijnt wanneer op de begroetingsknop wordt geklikt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">tkinter</span> <span class="kn">import</span> <span class="n">messagebox</span>
+
+<span class="k">def</span> <span class="nf">begroet</span><span class="p">():</span>
+    <span class="n">gebruikersnaam</span> <span class="o">=</span> <span class="n">invoer</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">gebruikersnaam</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="p">.</span><span class="nf">showinfo</span><span class="p">(</span><span class="sh">"</span><span class="s">Begroeting</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Hallo, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">gebruikersnaam</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="p">.</span><span class="nf">showwarning</span><span class="p">(</span><span class="sh">"</span><span class="s">Waarschuwing</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Voer eerst je naam in!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Rest van de code blijft hetzelfde</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tkbegroeting.PNG" alt="tkbegroeting">
+</div>
+</div>
+<div class="paragraph">
+<p>Nu wordt een berichtvenster getoond wanneer de begroetingsknop wordt ingedrukt, wat de gebruiker informeert of waarschuwt, afhankelijk van of er wel of geen naam is ingevoerd.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_geavanceerde_lay_out_frames">5. Geavanceerde Lay-out - Frames</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Laten we de lay-out verbeteren door frames toe te voegen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">begroet</span><span class="p">():</span>
+    <span class="n">gebruikersnaam</span> <span class="o">=</span> <span class="n">invoer</span><span class="p">.</span><span class="nf">get</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">gebruikersnaam</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="p">.</span><span class="nf">showinfo</span><span class="p">(</span><span class="sh">"</span><span class="s">Begroeting</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Hallo, </span><span class="sh">"</span> <span class="o">+</span> <span class="n">gebruikersnaam</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="p">.</span><span class="nf">showwarning</span><span class="p">(</span><span class="sh">"</span><span class="s">Waarschuwing</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Voer eerst je naam in!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Creëer een frame voor invoer en knop
+</span><span class="n">frame_invoer</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Frame</span><span class="p">(</span><span class="n">venster</span><span class="p">)</span>
+<span class="n">frame_invoer</span><span class="p">.</span><span class="nf">pack</span><span class="p">()</span>
+
+<span class="c1"># Voeg een invoerveld toe aan het frame
+</span><span class="n">invoer</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Entry</span><span class="p">(</span><span class="n">frame_invoer</span><span class="p">)</span>
+<span class="n">invoer</span><span class="p">.</span><span class="nf">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="sh">"</span><span class="s">left</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Voeg een knop toe aan het frame
+</span><span class="n">knop</span> <span class="o">=</span> <span class="n">tk</span><span class="p">.</span><span class="nc">Button</span><span class="p">(</span><span class="n">frame_invoer</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Begroet</span><span class="sh">"</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">begroet</span><span class="p">)</span>
+<span class="n">knop</span><span class="p">.</span><span class="nf">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="sh">"</span><span class="s">left</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Rest van de code blijft hetzelfde</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tkframes.PNG" alt="tkframes">
+</div>
+</div>
+<div class="paragraph">
+<p>Hier voegen we een frame toe voor het invoerveld en de begroetingsknop om de lay-out te organiseren en te verbeteren.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gebruik_van_stijlen_en_themas">6. Gebruik van Stijlen en Thema&#8217;s</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Laten we de visuele stijl van onze GUI verbeteren door het gebruik van stijlen en thema&#8217;s:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+<span class="c1"># Creëer een stijl en gebruik het thema 'clam'
+</span><span class="n">stijl</span> <span class="o">=</span> <span class="n">ttk</span><span class="p">.</span><span class="nc">Style</span><span class="p">()</span>
+<span class="n">stijl</span><span class="p">.</span><span class="nf">theme_use</span><span class="p">(</span><span class="sh">"</span><span class="s">clam</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Pas de stijl toe op de knop
+</span><span class="n">knop</span> <span class="o">=</span> <span class="n">ttk</span><span class="p">.</span><span class="nc">Button</span><span class="p">(</span><span class="n">frame_invoer</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sh">"</span><span class="s">Begroet</span><span class="sh">"</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">begroet</span><span class="p">)</span>
+<span class="n">knop</span><span class="p">.</span><span class="nf">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="sh">"</span><span class="s">left</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Rest van de code blijft hetzelfde</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tkstiijl.PNG" alt="tkstiijl">
+</div>
+</div>
+<div class="paragraph">
+<p>Hier passen we een stijl toe op de begroetingsknop met behulp van het <code>ttk</code> (themed tkinter) subpakket om een moderner uiterlijk te krijgen.</p>
+</div>
+<div class="paragraph">
+<p>Meer informatie in de tkinter tutorial: <a href="https://www.pythontutorial.net/tkinter/tkinter-hello-world/" class="bare">https://www.pythontutorial.net/tkinter/tkinter-hello-world/</a></p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 11:01:36 +0200
 </div>
 </div>
 </body>

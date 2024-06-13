@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<title>Cursus OOP - Object-oriented programming</title>
+<title>Hoofdstuk 2: Van Code naar Uitvoering op de CPU</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -432,89 +432,417 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>Cursus OOP - Object-oriented programming</h1>
+<h1>Hoofdstuk 2: Van Code naar Uitvoering op de CPU</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_de_rol_van_de_interpreter">1. De Rol van de Interpreter</a></li>
+<li><a href="#_van_bytecode_naar_machinecode">2. Van Bytecode naar Machinecode</a></li>
+<li><a href="#_linter_codekwaliteit_en_conventies">3. Linter: Codekwaliteit en Conventies</a></li>
+<li><a href="#_compilatie_en_uitvoering">4. Compilatie en Uitvoering</a>
+<ul class="sectlevel2">
+<li><a href="#_het_interpreterproces_van_de_interpreter">4.1. Het Interpreterproces van de interpreter</a></li>
+<li><a href="#_een_voorbeeld">4.2. Een voorbeeld</a></li>
+<li><a href="#_just_in_time_jit_compiler_in_python">4.3. Just-In-Time (JIT) Compiler in Python</a>
+<ul class="sectlevel3">
+<li><a href="#_hoe_werkt_de_jit_compiler">4.3.1. Hoe Werkt de JIT-Compiler?</a></li>
+<li><a href="#_voorbeeld">4.3.2. Voorbeeld</a></li>
+<li><a href="#_voordelen_in_gaming">4.3.3. Voordelen in Gaming</a></li>
+</ul>
+</li>
+<li><a href="#_voordelen_en_nadelen">4.4. Voordelen en Nadelen</a></li>
+</ul>
+</li>
+<li><a href="#_samenvatting">5. Samenvatting</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div class="ulist">
-<ul>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Deze python code print een tekst naar de console:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello world!</span><span class="sh">'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maar toch wordt deze codeopdracht niet rechtstreeks uitgevoerd op de CPU. De CPU werkt immers enkel op machinecode instructies.</p>
+</div>
+<div class="paragraph">
+<p>Er worden dus enkele tussenliggende stappen uitgevoerd.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_rol_van_de_interpreter">1. De Rol van de Interpreter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wanneer je Python-code schrijft, schrijf je in een taal die begrijpelijk is voor mensen, maar niet direct voor computers. Om deze code uit te voeren, wordt een cruciale tussenstap ingezet: de <mark>Python-interpreter</mark>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pythonvirtualmachine.png" alt="pythonvirtualmachine">
+</div>
+</div>
+<div class="paragraph">
+<p>De Python-interpreter vertaalt de menselijk leesbare Python-code naar een vorm van tussentaal die bekend staat als <mark>bytecode</mark>. Bytecode is een reeks instructies die specifiek zijn ontworpen om te worden uitgevoerd door de <mark>Python Virtual Machine (PVM)</mark>. Dit virtuele uitvoeringssysteem fungeert als een brug tussen de abstracte code en de werkelijke uitvoering op de CPU.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/python-virtual-machine.webp" alt="python virtual machine">
+</div>
+</div>
+<div class="paragraph">
+<p>Dit is bijvoorbeeld de gegenereerde bytecode van het 'Hello world' programma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>\00\00\00\00\EA\D5\E5d\00\00\00\E3\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00@\00\00\00s\00\00\00e\00d\00\83\00dS\00)zHello world!N)\DAprint\A9\00r\00\00\00r\00\00\00\FAR/home/mark/Documents/python/liclipse-workspace/pythontest/pythoncode/helloworld.py\DA&lt;module&gt;\00\00\00s\00\00\00\00\00</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Voor ons is dit moeilijk leesbaar, maar de Python virtual machine kan dit perfect lezen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_van_bytecode_naar_machinecode">2. Van Bytecode naar Machinecode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Machinecode is de laagste niveau van instructies die de CPU direct begrijpt. Echter, voordat de machinecode wordt bereikt, wordt de bytecode verwerkt door de PVM, die het omzet in instructies die kunnen worden uitgevoerd door de fysieke CPU van de computer.</p>
+</div>
+<div class="paragraph">
+<p>De PVM is in feite een interpreter voor bytecode die ervoor zorgt dat de code wordt uitgevoerd op verschillende platforms (Windows, Linux, MacOSX, &#8230;&#8203; , maar ook de processor op dit systeem: x86, ARM, x64, RISC,..) zonder dat het nodig is om dezelfde code te herschrijven voor elk platform. Dit maakt Python een platformonafhankelijke taal.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linter_codekwaliteit_en_conventies">3. Linter: Codekwaliteit en Conventies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Voordat de <mark>code</mark> wordt uitgevoerd, is het van groot belang om ervoor te zorgen dat deze <mark>correct is en voldoet aan specifieke coderingsstandaarden</mark>. Een linter is een hulpmiddel dat de code <mark>analyseert op fouten, inconsistenties en afwijkingen van de conventies</mark>.</p>
+</div>
+<div class="paragraph">
+<p>Laten we dit illustreren met een voorbeeld van een stukje Python-code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Onjuiste naamgeving van variabelen
+</span><span class="n">Var</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="nf">prinT</span><span class="p">(</span><span class="n">var</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Een linter zou hier waarschuwingen genereren voor onjuiste naamgeving van variabelen en een functie die niet correct is gespeld.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compilatie_en_uitvoering">4. Compilatie en Uitvoering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Python wordt beschouwd als een <mark>geïnterpreteerde taal</mark>, wat betekent dat de code <mark>regel voor regel</mark> wordt uitgevoerd door de interpreter. Dit in tegenstelling tot talen zoals C++ of Java, waarbij de code eerst volledig wordt omgezet in machinecode door een <strong>compilatieproces</strong> voordat deze wordt uitgevoerd.</p>
+</div>
+<div class="sect2">
+<h3 id="_het_interpreterproces_van_de_interpreter">4.1. Het Interpreterproces van de interpreter</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/lexer.webp" alt="lexer">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="cursus-volledig.html">De volledige cursus</a></p>
+<p>Tokenizing (lexer): De broncode wordt <strong>opgesplitst in elementaire eenheden</strong>, tokens genaamd. Deze tokens omvatten sleutelwoorden, symbolen, variabelen en getallen.</p>
 </li>
 <li>
-<p><a href="01-intro.html">Hoofdstuk 1: Programmeertalen en Python</a></p>
+<p>Parsing: De tokens worden <strong>geanalyseerd</strong> om de <strong>syntactische structuur</strong> van het programma te begrijpen. Hierbij wordt gecontroleerd of de code voldoet aan de grammaticaregels van Python.</p>
 </li>
 <li>
-<p><a href="02-vanPythonNaarProcessor.html">Hoofdstuk 2: Van code naar uitvoering op de CPU</a></p>
+<p>Vertalen: De geparste code wordt omgezet in <strong>tussentijdse bytecode</strong>. Dit is een binair formaat dat de computer begrijpt en dat sneller kan worden uitgevoerd dan de originele broncode.</p>
 </li>
 <li>
-<p><a href="03-variabelen.html">Hoofdstuk 3: Variabelen</a></p>
+<p>Uitvoering: De bytecode wordt uitgevoerd door de <strong>Python-runtime</strong>. Tijdens deze stap worden variabelen gemaakt, waarden toegewezen, bewerkingen uitgevoerd en resultaten gegenereerd.</p>
 </li>
-<li>
-<p><a href="04-Beslissingsstructuren.html">Hoofdstuk 4: If Else</a></p>
-</li>
-<li>
-<p><a href="05-lussen.html">Hoofdstuk 5: Lussen</a></p>
-</li>
-<li>
-<p><a href="06-functies.html">Hoofdstuk 6: Functies</a></p>
-</li>
-<li>
-<p><a href="07-lijstenendicts.html">Hoofdstuk 7: Lists &amp; Dictionaries</a></p>
-</li>
-<li>
-<p><a href="08-invoer.html">Hoofdstuk 8: Input</a></p>
-</li>
-<li>
-<p><a href="09-Exceptions.html">Hoofdstuk 9: Exceptions</a></p>
-</li>
-<li>
-<p><a href="10-Klassen.html">Hoofdstuk 10: Klassen</a></p>
-</li>
-<li>
-<p><a href="11-Constructors.html">Hoofdstuk 11: Constructors</a></p>
-</li>
-<li>
-<p><a href="12-Subklassen.html">Hoofdstuk 12: Subklassen</a></p>
-</li>
-<li>
-<p><a href="13-Modules.html">Hoofdstuk 13: Modules</a></p>
-</li>
-<li>
-<p><a href="14-Matplotlib.html">Hoofdstuk 14: Matplotlib</a></p>
-</li>
-<li>
-<p><a href="15-ProjectMatplotlib.html">Hoofdstuk 15: Project Matplotlib</a></p>
-</li>
-<li>
-<p><a href="16-ProjectPong.html">Hoofdstuk 16: Project Pong</a></p>
-</li>
-<li>
-<p><a href="17-Tkinter.html">Hoofdstuk 17: Tkinter GUI</a></p>
-</li>
-<li>
-<p><a href="18-Databanken.html">Hoofdstuk 18: Databanken</a></p>
-</li>
-<li>
-<p><a href="19-Cartopy.html">Hoofdstuk 19: Cartopy</a></p>
-</li>
-<li>
-<p><a href="logging.html">Hoofdstuk 20: Logging</a>s</p>
-</li>
-<li>
-<p><a href="20-UnitTest.html">Hoofdstuk 21: Unit tests</a></p>
-</li>
-<li>
-<p><a href="21-sqlddl.html">Hoofdstuk 22: SQL - DDL</a></p>
-</li>
-</ul>
+</ol>
+</div>
+<div class="paragraph">
+<p>Deze 4 stappen zijn een voortdurende lus, die bij iedere regel (dus regel per regel) wordt uitgevoerd.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_een_voorbeeld">4.2. Een voorbeeld</h3>
+<div class="paragraph">
+<p>Stel je voor dat je een Python-script hebt dat de beweging van een speler in een game simuleert:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">initial_position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span> <span class="o">+</span> <span class="n">movement_speed</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Nieuwe positie van de speler:</span><span class="sh">"</span><span class="p">,</span> <span class="n">new_position</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bij het uitvoeren van dit script zal de interpreter de variabelen initial_position en movement_speed aanmaken en waarden toewijzen. Vervolgens wordt de positie van de speler berekend door movement_speed op te tellen bij initial_position. Het resultaat wordt afgedrukt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_just_in_time_jit_compiler_in_python">4.3. Just-In-Time (JIT) Compiler in Python</h3>
+<div class="paragraph">
+<p>De Just-In-Time (JIT) compiler is een techniek die wordt gebruikt om de uitvoeringssnelheid van code te verbeteren door delen van de code tijdens de uitvoering te compileren naar machinecode. Hoewel Python een geïnterpreteerde taal is, kan de JIT-compiler de prestaties aanzienlijk verbeteren door bepaalde stukken code te compileren op het moment dat ze worden uitgevoerd.</p>
+</div>
+<div class="sect3">
+<h4 id="_hoe_werkt_de_jit_compiler">4.3.1. Hoe Werkt de JIT-Compiler?</h4>
+<div class="paragraph">
+<p>Normaal gesproken wordt Python-code geïnterpreteerd en vertaald naar tussentijdse bytecode. Bij gebruik van een JIT-compiler worden sommige delen van de code, die vaak worden uitgevoerd, tijdens de uitvoering gecompileerd naar directe machinecode. Dit maakt de uitvoering sneller omdat machinecode direct door de computer kan worden uitgevoerd zonder interpretatie.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld">4.3.2. Voorbeeld</h4>
+<div class="paragraph">
+<p>Stel je voor dat je een eenvoudig Python-script hebt voor het simuleren van de beweging van een speler in een game:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">def</span> <span class="nf">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">):</span>
+    <span class="n">new_position</span> <span class="o">=</span> <span class="n">initial_position</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">new_position</span> <span class="o">+=</span> <span class="n">movement_speed</span>
+    <span class="k">return</span> <span class="n">new_position</span>
+
+<span class="n">initial_position</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">movement_speed</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">final_position</span> <span class="o">=</span> <span class="nf">simulate_movement</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movement_speed</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Laatste positie van de speler:</span><span class="sh">"</span><span class="p">,</span> <span class="n">final_position</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de functie simulate_movement herhaaldelijk (meerdere keren per seconde) opgeroepen om de beweging van een speler te simuleren. Python kan na een aantal uitvoeringen ervoor kiezen om de simulate_movement-functie te optimaliseren door het om te zetten in efficiënte machinecode (via de JIT compiler).</p>
+</div>
+<div class="paragraph">
+<p>Dit proces gebeurt automatisch, hier heb je als programmeur geen invloed op.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voordelen_in_gaming">4.3.3. Voordelen in Gaming</h4>
+<div class="paragraph">
+<p>In de context van gaming kan de JIT-compiler de prestaties van Python-code verbeteren, vooral voor onderdelen van het spel die veelvuldig worden gebruikt, zoals fysica-simulaties, beeldverwerking of AI-berekeningen. Dit kan leiden tot soepelere en responsievere spelervaringen.</p>
+</div>
+<div class="paragraph">
+<p>Hoewel JIT-compilatie Python niet zo snel maakt als strikt gecompileerde talen, kan het aanzienlijke prestatieverbeteringen bieden.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voordelen_en_nadelen">4.4. Voordelen en Nadelen</h3>
+<div class="paragraph">
+<p>Python&#8217;s interpretatieproces biedt voordelen zoals <strong>directe feedback</strong> en gemakkelijke debugging. Echter, omdat elke regel code wordt geïnterpreteerd wanneer deze wordt uitgevoerd, kan Python trager zijn dan gecompileerde talen voor intensieve berekeningen in games.</p>
+</div>
+<div class="paragraph">
+<p>Ondanks enige <strong>snelheidsbeperkingen</strong> blijft Python een veelgebruikte taal in de game-ontwikkeling vanwege zijn flexibiliteit, eenvoudige syntax en uitgebreide bibliotheken.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_samenvatting">5. Samenvatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het pad van Python-code naar uitvoering op de CPU omvat diverse tussenstappen, van interpretatie en bytecode tot JIT-compilatie en uiteindelijk machinecode.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-13 11:03:32 +0200
+Last updated 2024-06-13 10:58:53 +0200
 </div>
 </div>
 </body>
