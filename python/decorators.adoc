@@ -1,0 +1,173 @@
+# Decorators
+
+Decorators zijn een krachtig hulpmiddel in Python waarmee je de functionaliteit van bestaande functies of methoden kunt uitbreiden zonder hun code direct te wijzigen. Ze bieden een elegante manier om herbruikbare code toe te passen op meerdere functies of methoden, wat zorgt voor een meer gestroomlijnde en onderhoudbare codebasis.
+
+## Inleiding
+
+Een decorator is een functie die een andere functie of methode neemt als invoer en een nieuwe functie retourneert met extra functionaliteit. Dit wordt vaak gebruikt om taken zoals logging, autorisatie, of caching op een herbruikbare manier toe te passen.
+
+In zijn eenvoudigste vorm ziet een decorator er als volgt uit:
+
+[source, python]
+----
+def mijn_decorator(functie):
+    def wrapper():
+        print("Voor het uitvoeren van de functie")
+        functie()
+        print("Na het uitvoeren van de functie")
+    return wrapper
+----
+
+Je kunt deze decorator toepassen op een functie door de naam van de decorator boven de functie te plaatsen met het `@`-symbool:
+
+[source, python]
+----
+@mijn_decorator
+def zeg_hallo():
+    print("Hallo, wereld!")
+
+zeg_hallo()
+----
+
+**Uitvoer:**
+----
+Voor het uitvoeren van de functie
+Hallo, wereld!
+Na het uitvoeren van de functie
+----
+
+## Hoe Werken Decorators?
+
+Decorators maken gebruik van de eigenschap van Python-functies dat ze first-class objects zijn, wat betekent dat ze kunnen worden doorgegeven als argumenten aan andere functies en dat ze kunnen worden geretourneerd door andere functies. Een decorator neemt een functie als invoer en retourneert een nieuwe functie die de originele functie uitbreidt.
+
+Hier is een vereenvoudigd voorbeeld van een decorator die de uitvoertijd van een functie meet:
+
+[source, python]
+----
+import time
+
+def meet_tijd(functie):
+    def wrapper(*args, **kwargs):
+        starttijd = time.time()
+        result = functie(*args, **kwargs)
+        eindtijd = time.time()
+        print(f"Uitvoeringstijd: {eindtijd - starttijd} seconden")
+        return result
+    return wrapper
+----
+
+## Voorbeelden
+
+### Logging Decorator
+
+Een veelvoorkomend gebruik van decorators is het toevoegen van logging aan een functie. Hieronder is een voorbeeld van een logging decorator:
+
+[source, python]
+----
+def log_function(functie):
+    def wrapper(*args, **kwargs):
+        print(f"Functie {functie.__name__} wordt uitgevoerd met de volgende argumenten: {args}, {kwargs}")
+        return functie(*args, **kwargs)
+    return wrapper
+
+@log_function
+def voeg_samen(a, b):
+    return a + b
+
+resultaat = voeg_samen(5, 7)
+print(resultaat)
+----
+
+**Uitvoer:**
+----
+Functie voeg_samen wordt uitgevoerd met de volgende argumenten: (5, 7), {}
+12
+----
+
+### Autorisatie Decorator
+
+Een ander gebruik van decorators is het controleren van de autorisatie voordat een functie wordt uitgevoerd. Dit kan handig zijn in webapplicaties.
+
+[source, python]
+----
+def vereist_autorisatie(functie):
+    def wrapper(*args, **kwargs):
+        gebruiker = kwargs.get('gebruiker')
+        if gebruiker == 'admin':
+            return functie(*args, **kwargs)
+        else:
+            print("Onvoldoende rechten om deze functie uit te voeren.")
+    return wrapper
+
+@vereist_autorisatie
+def verwijder_bestand(bestandsnaam, gebruiker):
+    print(f"{bestandsnaam} is verwijderd.")
+
+verwijder_bestand("data.txt", gebruiker="admin")
+verwijder_bestand("data.txt", gebruiker="gast")
+----
+
+**Uitvoer:**
+----
+data.txt is verwijderd.
+Onvoldoende rechten om deze functie uit te voeren.
+----
+
+## Decorators met Parameters
+
+Decorators kunnen zelf ook parameters accepteren. Dit kan nuttig zijn als je extra informatie wilt meegeven aan de decorator.
+  
+[source, python]
+----
+def herhaal(aantal_keer):
+    def decorator(functie):
+        def wrapper(*args, **kwargs):
+            for _ in range(aantal_keer):
+                functie(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@herhaal(3)
+def zeg_hallo():
+    print("Hallo!")
+
+zeg_hallo()
+----
+
+**Uitvoer:**
+----
+Hallo!
+Hallo!
+Hallo!
+----
+
+## Decorators voor Klassenmethoden
+
+Decorators zijn niet alleen beperkt tot functies; je kunt ze ook gebruiken met klassenmethoden.
+
+[source, python]
+----
+def log_aanroep(functie):
+    def wrapper(self, *args, **kwargs):
+        print(f"De methode {functie.__name__} is aangeroepen met: {args}, {kwargs}")
+        return functie(self, *args, **kwargs)
+    return wrapper
+
+class Speler:
+    def __init__(self, naam):
+        self.naam = naam
+
+    @log_aanroep
+    def beweeg(self, richting):
+        print(f"{self.naam} beweegt {richting}")
+
+speler = Speler("Mario")
+speler.beweeg("links")
+----
+
+**Uitvoer:**
+----
+De methode beweeg is aangeroepen met: ('links',), {}
+Mario beweegt links
+----
+
