@@ -14,8 +14,9 @@
 //:leveloffset: +1
 :title-image: image::images/python-logo-only.svg[]
 ifdef::env-name[:relfilesuffix: .adoc]
+:notitle:
 
-// = Python Cursus - Object-oriented programming
+= Python Cursus - Object-oriented programming
 
 ifdef::backend-html5[]
 ++++
@@ -32,6 +33,7 @@ endif::[]
 
 
 * xref:cursus-volledig.adoc[De volledige cursus]
+* xref:009-pycharm.adoc[De Pycharm Editor]
 
 De verschillende hoofdstukken:
 

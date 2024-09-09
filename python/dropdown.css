@@ -1,0 +1,13 @@
+.collapsible {
+  cursor: pointer;
+}
+
+.collapsible-content {
+  display: none;
+  list-style-type: disc;
+}
+
+.collapsible:active + .collapsible-content,
+.collapsible:focus + .collapsible-content {
+  display: block;
+}

@@ -1,0 +1,98 @@
+
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Code Editor: Werken met PyCharm
+
+PyCharm is een van de meest populaire Integrated Development Environments (IDE's) voor Python-programmering. 
+Een teksteditor is een eenvoudig hulpmiddel waarmee je broncode kunt schrijven en aanpassen. Voorbeelden van teksteditors zijn Notepad, Sublime Text, en Visual Studio Code. 
+Een editor is echter vaak beperkt tot het bewerken van tekst zonder extra tools voor projectbeheer, foutdetectie, of debugging.
+
+Een Integrated Development Environment (IDE) gaat verder dan een eenvoudige teksteditor. 
+Het biedt hulpmiddelen zoals **foutdetectie** tijdens het typen, debugging, versiebeheer en projectstructuur. 
+
+== Wat is PyCharm?
+
+PyCharm is een krachtige IDE ontwikkeld door JetBrains, speciaal ontworpen voor Python.
+Het wordt gebruikt door zowel beginners als professionele ontwikkelaars om Python-projecten efficiënt te beheren en te ontwikkelen.
+De belangrijkste functies van PyCharm zijn:
+
+* **Codevoltooiing** – automatische suggesties terwijl je code schrijft.
+* **Foutcontrole** – real-time waarschuwingen voor syntax- en logische fouten.
+* **Geïntegreerde debugger** – stap voor stap je code doorlopen om bugs te vinden.
+* **Projectbeheer** – geavanceerde tools om grote projecten te organiseren.
+* **Integratie met versiebeheersystemen** zoals Git.
+
+== Installeren van PyCharm
+
+Het installeren van PyCharm is eenvoudig. Volg deze stappen om PyCharm te installeren:
+
+1. Ga naar https://www.jetbrains.com/pycharm/download/other.html 
+2. Kies de Community Edition (gratis).
+3. Download en installeer het programma voor jouw besturingssysteem (Windows, macOS of Linux).
+
+Nadat de installatie is voltooid, kun je PyCharm openen en beginnen met het ontwikkelen van Python-projecten.
+
+== PyCharm Projecten: De Basis
+
+Wanneer je PyCharm opent, kun je een nieuw project starten. Een project in PyCharm is een map met bestanden en instellingen die gerelateerd zijn aan een specifiek Python-project. Volg deze stappen om een nieuw project te starten:
+
+1. Klik op 'New Project'.
+2. Kies een locatie voor je project.
+3. Selecteer een Python-omgeving, zoals een bestaande Python-interpreter of maak een nieuwe virtuele omgeving aan.
+4. Klik op 'Create'.
+
+PyCharm maakt nu een projectstructuur aan waarin je Python-bestanden kunt aanmaken, configuratiebestanden kunt beheren en toegang hebt tot de tools van de IDE.
+
+== PyCharm Editor: Code Schrijven
+
+Eenmaal binnen je project kun je beginnen met het schrijven van Python-code. PyCharm biedt een intelligente editor met functies zoals:
+
+* **Code Completion**: Terwijl je typt, suggereert PyCharm automatisch methoden, functies, en variabelen.
+* **Code Navigatie**: Je kunt snel naar de definitie van een functie, klasse of variabele springen met de toetsencombinatie `Ctrl+B`.
+* **Live Foutopsporing**: PyCharm markeert fouten en waarschuwingen tijdens het typen, wat zorgt voor directe feedback.
+
+=== Voorbeeld: Een Simpele Python Script Schrijven
+
+Laten we een eenvoudig Python-programma schrijven om de basis van PyCharm te verkennen. Maak in je project een nieuw Python-bestand aan (`hello_world.py`) en schrijf de volgende code:
+
+[source, python]
+----
+def hello_world():
+    print("Hallo, wereld!")
+
+if __name__ == "__main__":
+    hello_world()
+----
+
+Om het script uit te voeren, klik je met de rechtermuisknop op het bestand en selecteer je 'Run'. PyCharm zal het script uitvoeren en de uitvoer weergeven in het 'Run'-venster onderaan het scherm.
+
+== Debugging in PyCharm
+
+Debugging is een cruciaal onderdeel van softwareontwikkeling. 
+PyCharm maakt het gemakkelijk om fouten in je code op te sporen met zijn ingebouwde debugger. 
+Je kunt een breakpoint instellen door links van een regel code te klikken. 
+Als je het programma uitvoert in debugmodus (`Run > Debug`), stopt de uitvoering bij dit breakpoint.
+
+Vanuit de debugger kun je:
+* Waarden van variabelen bekijken.
+* Code stap voor stap doorlopen.
+* Controleren wat er gebeurt in de stack van functies.
+
+== Refactoring en Herstructureren
+
+PyCharm biedt krachtige refactoring-tools om je code efficiënter te maken zonder fouten te introduceren. Zo kun je:
+* Variabelen hernoemen (`Shift+F6`) zonder ze handmatig in de hele code te zoeken.
+* Functies of methoden verplaatsen tussen bestanden of klassen.
+
+Dit zorgt voor meer gestructureerde en leesbare code, vooral bij grotere projecten.
+
