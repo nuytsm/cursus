@@ -397,6 +397,174 @@ Enkele populaire Flask-extensies zijn:
 - `Flask-SQLAlchemy` voor database-integratie.
 - `Flask-WTF` voor formuliervalidatie.
 
+== Extensie: SQLAlchemy in Flask
+
+SQLAlchemy is een Object Relational Mapper (ORM) voor Python die een abstractielaag biedt tussen relationele databases en Python-objecten.
+
+Met SQLAlchemy hoef je niet handmatig SQL-queries te schrijven, maar werk je met Python-objecten om met de database te communiceren. 
+Flask integreert SQLAlchemy naadloos via de `Flask-SQLAlchemy` extensie, wat het gebruik van databases eenvoudiger en overzichtelijker maakt.
+
+=== Installatie van Flask-SQLAlchemy ===
+
+Om SQLAlchemy te gebruiken binnen Flask, moet je eerst de benodigde module installeren. Dit kan eenvoudig worden gedaan via pip:
+
+[source, bash]
+----
+pip install Flask-SQLAlchemy
+----
+
+Na installatie kunnen we SQLAlchemy in een Flask-applicatie gebruiken door het te importeren en te configureren.
+
+=== Configureren van Flask-SQLAlchemy ===
+
+Voordat je met SQLAlchemy kunt werken, moet je de database configureren. 
+In Flask gebeurt dit door de `SQLALCHEMY_DATABASE_URI` configuratieparameter in te stellen. Dit geeft aan met welk type database je wilt verbinden en waar deze zich bevindt.
+
+==== Voorbeeld van een basisconfiguratie ====
+
+[source, python]
+----
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+# Configuratie van de database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialiseer de SQLAlchemy database
+db = SQLAlchemy(app)
+----
+
+In dit voorbeeld gebruiken we een SQLite-database. De URI `sqlite:///example.db` geeft aan dat de database een bestand is met de naam `example.db`.
+
+=== Het maken van een Model ===
+In SQLAlchemy wordt een database weergegeven door middel van "modellen". 
+Een **model is een Python-klasse die een tabel in de database vertegenwoordigt**, waarbij de attributen van de klasse de kolommen van de tabel vertegenwoordigen.
+
+==== Voorbeeld van een modelklasse ====
+
+[source, python]
+----
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.username}>'
+----
+
+Hier definiëren we een `User`-model met de volgende kolommen:
+* `id`: een uniek geheel getal dat fungeert als primaire sleutel.
+* `username`: een string van maximaal 80 tekens.
+* `email`: een string van maximaal 120 tekens.
+
+=== Het aanmaken van de database ===
+Nadat de modellen zijn gedefinieerd, moet de database worden aangemaakt. Dit kan eenvoudig worden gedaan door de `create_all()` methode van SQLAlchemy te gebruiken. 
+
+==== Voorbeeld van het aanmaken van de database ====
+
+[source, python]
+----
+with app.app_context():
+    db.create_all()
+----
+
+Dit maakt alle tabellen aan die door de gedefinieerde modellen worden gerepresenteerd in de database.
+
+=== Het toevoegen van records/rows ===
+Nadat de database en de modellen zijn aangemaakt, kun je records (rijen) toevoegen aan de tabel door een instantie van een model te maken en deze toe te voegen aan de sessie van de database.
+
+==== Voorbeeld van het toevoegen van een gebruiker ====
+
+[source, python]
+----
+new_user = User(username='johndoe', email='johndoe@example.com')
+db.session.add(new_user)
+db.session.commit()
+----
+
+In dit voorbeeld voegen we een nieuwe gebruiker toe met de naam 'johndoe' en e-mailadres 'johndoe@example.com'. 
+De wijzigingen worden doorgevoerd met `db.session.commit()`.
+
+=== Het opvragen van records ===
+Je kunt records uit de database opvragen door gebruik te maken van de query-functionaliteit van SQLAlchemy.
+
+==== Voorbeeld van het opvragen van een gebruiker ====
+
+[source, python]
+----
+user = User.query.filter_by(username='johndoe').first()
+print(user.email)
+----
+
+Hier zoeken we naar de eerste gebruiker met de gebruikersnaam 'johndoe' en printen het e-mailadres van deze gebruiker.
+
+=== Het updaten van records ===
+Om een record te updaten, zoek je het eerst op, wijzig je het gewenste veld, en voer je de wijzigingen door met `commit()`.
+
+==== Voorbeeld van het updaten van een gebruiker ====
+
+[source, python]
+----
+user = User.query.filter_by(username='johndoe').first()
+user.email = 'newemail@example.com'
+db.session.commit()
+----
+
+In dit voorbeeld wijzigen we het e-mailadres van de gebruiker met de gebruikersnaam 'johndoe' naar 'newemail@example.com'.
+
+=== Het verwijderen van records ===
+Je kunt een record verwijderen door de methode `delete()` te gebruiken en vervolgens de wijzigingen door te voeren met `commit()`.
+
+=== Voorbeeld van het verwijderen van een gebruiker ===
+
+[source, python]
+----
+user = User.query.filter_by(username='johndoe').first()
+db.session.delete(user)
+db.session.commit()
+----
+
+Dit verwijdert de gebruiker met de gebruikersnaam 'johndoe' uit de database.
+
+=== Relaties tussen modellen ===
+SQLAlchemy ondersteunt relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties. 
+Dit kan eenvoudig worden geïmplementeerd door gebruik te maken van de `db.relationship()` en `db.ForeignKey()` functies.
+
+==== Voorbeeld van een één-op-veel relatie ====
+
+[source, python]
+----
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120), nullable=False)
+    body = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    author = db.relationship('User', backref=db.backref('posts', lazy=True))
+
+----
+
+In dit voorbeeld heeft de `Post`-tabel een `user_id`-kolom die verwijst naar de `id`-kolom in de `User`-tabel. 
+De relatie tussen gebruikers en berichten wordt vastgelegd via de `db.relationship()` methode.
+
+=== Migraties uitvoeren ===
+
+Flask biedt, via de extensie `Flask-Migrate`, de mogelijkheid om database-migraties uit te voeren. Dit is handig wanneer je wijzigingen aanbrengt in je database zoals het toevoegen van nieuwe kolommen of tabellen.
+
+Je kunt `Flask-Migrate` installeren via pip:
+
+[source, bash]
+----
+pip install Flask-Migrate
+----
+
+Na installatie kan je migraties uitvoeren, zoals het aanmaken van nieuwe tabellen of het bijwerken van bestaande tabellen.
+
+
 == Samenvatting ==
 
 Flask is een flexibel en lichtgewicht framework waarmee je snel webapplicaties kunt bouwen.
