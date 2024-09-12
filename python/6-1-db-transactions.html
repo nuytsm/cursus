@@ -627,7 +627,15 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_concurrerende_transacties_en_isolatie">6. Concurrerende Transacties en Isolatie</a></li>
 <li><a href="#_race_conditions_in_mysql_transacties">7. Race Conditions in MySQL Transacties</a></li>
 <li><a href="#_deadlocks_in_mysql_transacties">8. Deadlocks in MySQL Transacties</a></li>
-<li><a href="#_conclusie">9. Conclusie</a></li>
+<li><a href="#_mysql_savepoints_in_transactions">9. MySQL Savepoints in Transactions</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_zijn_savepoints">9.1. Wat zijn Savepoints?</a></li>
+<li><a href="#_hoe_werken_savepoints">9.2. Hoe werken Savepoints?</a></li>
+<li><a href="#_voorbeeld_van_savepoints">9.3. Voorbeeld van Savepoints</a></li>
+<li><a href="#_voordelen_van_savepoints">9.4. Voordelen van Savepoints</a></li>
+</ul>
+</li>
+<li><a href="#_conclusie">10. Conclusie</a></li>
 </ul>
 </div>
 </div>
@@ -706,6 +714,11 @@ Alle daaropvolgende bewerkingen worden uitgevoerd binnen de context van deze tra
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="sql"><span class="k">ROLLBACK</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/transactions.gif" alt="transactions">
 </div>
 </div>
 </div>
@@ -936,7 +949,84 @@ Daarnaast is het belangrijk om transacties zo kort mogelijk te houden, zodat de 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conclusie">9. Conclusie</h2>
+<h2 id="_mysql_savepoints_in_transactions">9. MySQL Savepoints in Transactions</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_wat_zijn_savepoints">9.1. Wat zijn Savepoints?</h3>
+<div class="paragraph">
+<p>Savepoints zijn punten binnen een transactie waarnaar je kunt terugkeren zonder de volledige transactie terug te draaien. Ze bieden meer flexibiliteit bij het beheer van transacties, vooral bij complexe operaties, door een gedeeltelijke "rollback" mogelijk te maken. Dit betekent dat je specifieke delen van een transactie kunt herstellen terwijl andere delen ongewijzigd blijven.</p>
+</div>
+<div class="paragraph">
+<p>Savepoints worden voornamelijk gebruikt in situaties waarin je meerdere stappen in een transactie uitvoert, maar slechts een deel van die stappen wilt terugdraaien als er iets misgaat.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hoe_werken_savepoints">9.2. Hoe werken Savepoints?</h3>
+<div class="paragraph">
+<p>Een savepoint creëert een herstelpunt binnen een transactie. Mocht er een fout optreden na een savepoint, dan kun je teruggaan naar dat savepoint en de wijzigingen vanaf dat punt terugdraaien, terwijl de wijzigingen die ervoor zijn gemaakt behouden blijven.</p>
+</div>
+<div class="paragraph">
+<p>In MySQL kun je met <code>SAVEPOINT</code> een savepoint maken, met <code>ROLLBACK TO SAVEPOINT</code> terugkeren naar een eerder ingesteld savepoint, en met <code>RELEASE SAVEPOINT</code> een savepoint vrijgeven.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voorbeeld_van_savepoints">9.3. Voorbeeld van Savepoints</h3>
+<div class="paragraph">
+<p>Laten we een voorbeeld bekijken waarin we savepoints gebruiken om te voorkomen dat een hele transactie wordt teruggedraaid:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+
+<span class="c1">-- Voeg een nieuwe klant toe</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">customers</span> <span class="p">(</span><span class="n">customer_id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Alice'</span><span class="p">);</span>
+<span class="n">SAVEPOINT</span> <span class="n">sp1</span><span class="p">;</span>  <span class="c1">-- Savepoint na de eerste insert</span>
+
+<span class="c1">-- Voeg een bestelling toe</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">orders</span> <span class="p">(</span><span class="n">order_id</span><span class="p">,</span> <span class="n">customer_id</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+<span class="n">SAVEPOINT</span> <span class="n">sp2</span><span class="p">;</span>  <span class="c1">-- Savepoint na de tweede insert</span>
+
+<span class="c1">-- Voeg een betaling toe, maar er is een fout</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">payments</span> <span class="p">(</span><span class="n">payment_id</span><span class="p">,</span> <span class="n">order_id</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="s1">'wrong_amount'</span><span class="p">);</span>
+
+<span class="c1">-- Er is een fout opgetreden, rollback naar sp2</span>
+<span class="k">ROLLBACK</span> <span class="k">TO</span> <span class="n">SAVEPOINT</span> <span class="n">sp2</span><span class="p">;</span>
+
+<span class="c1">-- Corrigeer de fout en voeg de betaling correct in</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">payments</span> <span class="p">(</span><span class="n">payment_id</span><span class="p">,</span> <span class="n">order_id</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+
+<span class="c1">-- Maak de transactie af</span>
+<span class="k">COMMIT</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld:
+. We beginnen de transactie met <code>START TRANSACTION</code>.
+. Twee savepoints (<code>sp1</code> en <code>sp2</code>) worden ingesteld.
+. Wanneer er een fout optreedt tijdens het invoegen van de betaling, keren we terug naar <code>sp2</code>, zonder de klant of de bestelling terug te draaien.
+. Na het corrigeren van de fout wordt de transactie succesvol afgerond met <code>COMMIT</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voordelen_van_savepoints">9.4. Voordelen van Savepoints</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Fijnmazige controle</strong>: Savepoints bieden meer controle binnen een transactie, zodat je niet de volledige transactie hoeft terug te draaien wanneer zich een fout voordoet.</p>
+</li>
+<li>
+<p><strong>Betere foutafhandeling</strong>: Savepoints maken het eenvoudiger om gedeeltelijke fouten in complexe transacties te beheren.</p>
+</li>
+<li>
+<p><strong>Flexibiliteit</strong>: Je kunt bepaalde delen van een transactie terugdraaien zonder de rest aan te tasten.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusie">10. Conclusie</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Transacties waarborgen de integriteit van gegevens in MySQL-databases.
@@ -948,7 +1038,7 @@ Het begrijpen van transacties, isolatieniveaus en het omgaan met deadlocks is cr
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-11 09:26:11 +0200
+Last updated 2024-09-12 13:44:01 +0200
 </div>
 </div>
 </body>

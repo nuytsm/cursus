@@ -57,6 +57,8 @@ ROLLBACK: Als er tijdens de transactie iets misgaat (zoals een fout in de bewerk
 ROLLBACK;
 ----
 
+image::images/transactions.gif[]
+
 == Voorbeeld: Transactie in MySQL
 
 Laten we een voorbeeld bekijken waarin we geld overboeken tussen twee bankrekeningen. 
@@ -221,6 +223,58 @@ De andere transactie kan dan doorgaan en worden voltooid.
 Deadlocks zijn lastig te voorkomen, vooral in systemen met veel gelijktijdige transacties. 
 Een manier om deadlocks te minimaliseren is door ervoor te zorgen dat transacties altijd dezelfde volgorde van bronnen volgen. 
 Daarnaast is het belangrijk om transacties zo kort mogelijk te houden, zodat de kans op vergrendelingen afneemt.
+
+== MySQL Savepoints in Transactions ==
+
+=== Wat zijn Savepoints? ===
+Savepoints zijn punten binnen een transactie waarnaar je kunt terugkeren zonder de volledige transactie terug te draaien. Ze bieden meer flexibiliteit bij het beheer van transacties, vooral bij complexe operaties, door een gedeeltelijke "rollback" mogelijk te maken. Dit betekent dat je specifieke delen van een transactie kunt herstellen terwijl andere delen ongewijzigd blijven.
+
+Savepoints worden voornamelijk gebruikt in situaties waarin je meerdere stappen in een transactie uitvoert, maar slechts een deel van die stappen wilt terugdraaien als er iets misgaat.
+
+=== Hoe werken Savepoints? ===
+Een savepoint creëert een herstelpunt binnen een transactie. Mocht er een fout optreden na een savepoint, dan kun je teruggaan naar dat savepoint en de wijzigingen vanaf dat punt terugdraaien, terwijl de wijzigingen die ervoor zijn gemaakt behouden blijven.
+
+In MySQL kun je met `SAVEPOINT` een savepoint maken, met `ROLLBACK TO SAVEPOINT` terugkeren naar een eerder ingesteld savepoint, en met `RELEASE SAVEPOINT` een savepoint vrijgeven.
+
+=== Voorbeeld van Savepoints ===
+
+Laten we een voorbeeld bekijken waarin we savepoints gebruiken om te voorkomen dat een hele transactie wordt teruggedraaid:
+
+[source, sql]
+----
+START TRANSACTION;
+
+-- Voeg een nieuwe klant toe
+INSERT INTO customers (customer_id, name) VALUES (1, 'Alice');
+SAVEPOINT sp1;  -- Savepoint na de eerste insert
+
+-- Voeg een bestelling toe
+INSERT INTO orders (order_id, customer_id, total) VALUES (101, 1, 500);
+SAVEPOINT sp2;  -- Savepoint na de tweede insert
+
+-- Voeg een betaling toe, maar er is een fout
+INSERT INTO payments (payment_id, order_id, amount) VALUES (201, 101, 'wrong_amount');
+
+-- Er is een fout opgetreden, rollback naar sp2
+ROLLBACK TO SAVEPOINT sp2;
+
+-- Corrigeer de fout en voeg de betaling correct in
+INSERT INTO payments (payment_id, order_id, amount) VALUES (201, 101, 500);
+
+-- Maak de transactie af
+COMMIT;
+----
+
+In dit voorbeeld:
+. We beginnen de transactie met `START TRANSACTION`.
+. Twee savepoints (`sp1` en `sp2`) worden ingesteld.
+. Wanneer er een fout optreedt tijdens het invoegen van de betaling, keren we terug naar `sp2`, zonder de klant of de bestelling terug te draaien.
+. Na het corrigeren van de fout wordt de transactie succesvol afgerond met `COMMIT`.
+
+=== Voordelen van Savepoints ===
+1. **Fijnmazige controle**: Savepoints bieden meer controle binnen een transactie, zodat je niet de volledige transactie hoeft terug te draaien wanneer zich een fout voordoet.
+2. **Betere foutafhandeling**: Savepoints maken het eenvoudiger om gedeeltelijke fouten in complexe transacties te beheren.
+3. **Flexibiliteit**: Je kunt bepaalde delen van een transactie terugdraaien zonder de rest aan te tasten.
 
 
 == Conclusie

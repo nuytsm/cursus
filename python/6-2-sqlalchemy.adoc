@@ -23,10 +23,11 @@ SQLAlchemy is nuttig omdat het een elegante manier biedt om databases te beheren
 == Waarom SQLAlchemy nuttig is ==
 
 SQLAlchemy biedt enkele belangrijke voordelen ten opzichte van handgeschreven SQL-queries:
-- **Veiligheid tegen SQL-injectie:** SQLAlchemy maakt gebruik van geparametriseerde queries om het risico op SQL-injecties te minimaliseren.
-- **Gemakkelijker databasebeheer:** Met SQLAlchemy kun je werken met Python-klassen en objecten in plaats van complexe SQL-syntaxis. Hierdoor is het gemakkelijker om je code te onderhouden.
-- **Database-onafhankelijkheid:** SQLAlchemy ondersteunt meerdere databasesystemen, waardoor je applicatie eenvoudig kan overstappen naar een ander systeem zonder veel wijzigingen aan te brengen.
-- **Modelleren van relaties:** SQLAlchemy biedt eenvoudige manieren om complexe relaties tussen verschillende tabellen in een database te modelleren.
+
+* **Veiligheid tegen SQL-injectie:** SQLAlchemy maakt gebruik van geparametriseerde queries om het risico op SQL-injecties te minimaliseren.
+* **Gemakkelijker databasebeheer:** Met SQLAlchemy kun je werken met Python-klassen en objecten in plaats van complexe SQL-syntaxis. Hierdoor is het gemakkelijker om je code te onderhouden.
+* **Database-onafhankelijkheid:** SQLAlchemy ondersteunt meerdere databasesystemen, waardoor je applicatie eenvoudig kan overstappen naar een ander systeem zonder veel wijzigingen aan te brengen.
+* **Modelleren van relaties:** SQLAlchemy biedt eenvoudige manieren om complexe relaties tussen verschillende tabellen in een database te modelleren.
 
 == Wat is een SQL-injectieaanval? ==
 

@@ -24,6 +24,8 @@ Met ORM kunnen ontwikkelaars database-operaties uitvoeren, zoals het invoegen, b
 
 == Hoe werkt ORM? ==
 
+image::images/orm.JPG[]
+
 ORM is gebaseerd op het idee van het "mappen" van objecten in de programmeertaal naar tabellen in de database. Elk object of instantie in de programmeertaal komt overeen met een rij in de database, en elke eigenschap van het object komt overeen met een kolom in de database.
 
 Laten we een paar concepten bespreken die fundamenteel zijn voor ORM.
