@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>Symetrische en asymetrische encryptie</title>
+<title>HTML</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -434,26 +434,143 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Symetrische en asymetrische encryptie</h1>
+<h1>HTML</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_symmetrische_encryptie">Symmetrische encryptie</a></li>
-<li><a href="#_asymmetrische_encryptie">Asymmetrische encryptie</a></li>
-<li><a href="#_digitale_handtekening">Digitale handtekening</a>
+<li><a href="#_de_werking_van_html">De werking van html</a>
 <ul class="sectlevel2">
-<li><a href="#_hashwaarde">Hashwaarde</a></li>
-<li><a href="#_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</a></li>
+<li><a href="#_de_browser">De browser</a></li>
+<li><a href="#_tags">Tags</a></li>
+<li><a href="#_attributen">Attributen</a></li>
+<li><a href="#_voorbeelden_van_tags">Voorbeelden van tags</a></li>
 </ul>
 </li>
-<li><a href="#_het_compromis_voor_snelheid">Het compromis voor snelheid</a>
+<li><a href="#_het_html_document">Het html document</a>
 <ul class="sectlevel2">
-<li><a href="#_een_samenvatting_van_de_werking">Een samenvatting van de werking:</a></li>
+<li><a href="#_de_body">De body</a></li>
+<li><a href="#_de_head">De head</a></li>
+<li><a href="#_het_doctype">Het Doctype</a></li>
 </ul>
 </li>
+<li><a href="#_volledige_html_pagina">Volledige html pagina</a></li>
 </ul>
 </div>
 </div>
@@ -461,230 +578,174 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bij encryptie of versleuteling wordt een boodschap (de ‘plaintext’) op zo’n manier gecodeerd dat alleen iemand met de juiste sleutel de oorspronkelijke boodschap kan decoderen.
-De versleutelde versie van de boodschap wordt ook wel ‘ciphertext’ genoemd.
-Wie de ciphertext dus weer in de oorspronkelijke boodschap wil omzetten (dat proces heet ‘decryptie’), heeft de sleutel nodig.
-De sleutel is in principe een willekeurig getal.
-In de praktijk maken we gebruik van een wachtwoord en dus wordt het wachtwoord via een ‘key derivation function’ eerst omgezet naar een willekeurig getal dat dan als sleutel dient.</p>
+<p>HTML staat voor <mark>Hypertext Markup Language</mark>.
+Het is een gestructureerde taal om webpagina&#8217;s inhoud en structuur te kunnen geven.</p>
 </div>
 <div class="paragraph">
-<p>Er bestaan diverse manieren om die versleuteling uit te voeren.
-Zo’n manier heet een encryptie-algoritme of ‘cipher’.
-De Nederlandse taalkundige en cryptograaf Auguste Kerckhoffs stelde al in de 19de eeuw een belangrijk ontwerpprincipe op: een encryptie-algoritme moet zelfs veilig zijn als alle details van het systeem publiek bekend zijn, behalve de sleutel.
-Dit principe van Kerckhoffs is anno 2020 nog altijd even belangrijk voor de veiligheid van een encryptie-algoritme.</p>
-</div>
-<div class="paragraph">
-<p>Als iemand je dus wil overtuigen om een propriëtair, topgeheim encryptiesysteem te gebruiken, loop er dan maar in een wijde boog omheen.
-De enige verantwoorde keuzes voor encryptiesystemen zijn algoritmes waarvan de specificatie openbaar is, waarvan de ontwikkeling in open commissies gebeurt en waarvan opensource implementaties bestaan.</p>
-</div>
-<div class="paragraph">
-<p>De diverse encryptie-algoritmes zijn in twee groepen onder te verdelen:</p>
+<p>Inhoud:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Symmetrische</p>
+<p>paragrafen</p>
 </li>
 <li>
-<p>Asymmetrische</p>
+<p>links</p>
+</li>
+<li>
+<p>afbeeldingen</p>
+</li>
+<li>
+<p>..</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_symmetrische_encryptie">Symmetrische encryptie</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Bij die eerste (‘symmetric-key encryption’) gebeuren de encryptie en decryptie met dezelfde sleutel.
-Een voorbeeld van zo’n algoritme is AES (Advanced Encryption Standard).
-Bijna alle programma’s die tegenwoordig symmetrische encryptie aanbieden, doen dat met AES.
-Zo ook BitLocker in Windows, FileVault in macOS en LUKS (Linux Unified Key Setup) in Linux.</p>
-</div>
-<div class="paragraph">
-<p>Algoritmes voor <strong>symmetrische encryptie werken doorgaans snel</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Enkele voorbeelden hiervan zijn:</p>
+<p>Structuur:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>DES (Data Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Data_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Data_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>DES wordt nu als onveilig beschouwd, het is relatief makkelijk kraakbaar. Het gebruikt een sleutellengte van slechts 64 bits.</p>
-</div>
+<p>Lijsten</p>
 </li>
 <li>
-<p>AES of het Rijndaelcijfer (Advanced Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>De veilige opvolger van DES. AES laat het gebruik van langere sleutellengtes toe (met blokken van minimun 128 bits).</p>
-</div>
+<p>Tabellen</p>
+</li>
+<li>
+<p>Onderverdelingen</p>
+</li>
+<li>
+<p>Titels</p>
+</li>
+<li>
+<p>..</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Maar dat encryptie en decryptie dezelfde sleutel vereisen, zorgt in heel wat situaties voor praktische problemen.
-Als je een versleutelde boodschap met iemand wilt uitwisselen, dienen de ontvanger en jij namelijk ook de gebruikte sleutel uit te wisselen.
-Dat doe je het liefst op een veilige manier, maar de vraag is hoe: met encryptie? Maar hoe zit het dan met de sleutel daarvoor?</p>
+<p>Als je tekst (een .txt bestand) in kladblok schrijft,
+wordt dit gewoon weergegeven als tekst.
+Als je op het internet surft is het mooier als deze tekst een opmaak krijgt.
+Dat bijvoorbeeld de titels grafisch eruit springen, dat je op tekst kunt klikken (links),
+dat je afbeeldingen kan gebruiken, etc.</p>
+</div>
+<div class="paragraph">
+<p>Html zorgt ervoor dat we meer opmaak of <em>markup</em> kunnen meegeven aan het website.
+Toch wordt html geschreven als een gewoon, leesbare tekstbestand (met de .html of .htm extensie).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asymmetrische_encryptie">Asymmetrische encryptie</h2>
+<h2 id="_de_werking_van_html">De werking van html</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Asymmetrische encryptie (met als bekendste algoritme RSA) pakt dit probleem aan door de sleutel voor encryptie en de sleutel voor decryptie los te koppelen.
-Bij deze vorm van encryptie heb je namelijk niet één sleutel meer voor encryptie én decryptie, maar een sleutelpaar.
-Twee afzonderlijke sleutels: <mark>één voor encryptie en één voor decryptie</mark>.</p>
+<p>Html wordt geschreven in tekstbestanden (met een .html extensie).
+Als we naar een website surfen, antwoordt de webserver (de computer waarop de website draait) door
+ons .html bestanden terug te sturen.</p>
+</div>
+<div class="sect2">
+<h3 id="_de_browser">De browser</h3>
+<div class="paragraph">
+<p>Als we surfen met een browser (zoals Firefox, Chrome, Internet explorer, ..), weet de browser
+dat hij deze .html bestanden moet inlezen, dat hij moet kijken wat er in het bestand staat,
+wat de inhoud en de gevraagde structuur moet zijn.
+Vervolgens zet de browser deze .html bestanden om naar een webpagina op ons scherm.</p>
 </div>
 <div class="paragraph">
-<p>Hoe werkt dat in de praktijk?
-De encryptiesleutel publiceer je en iedereen mag die zien.
-Deze sleutel wordt dan ook de <mark>publieke sleutel</mark> genoemd. De decryptiesleutel houd je zelf bij en je zorgt dat alleen jijzelf deze sleutel kan inzien.
-Die heet daarom ook de geheime sleutel of <mark><em>private key</em></mark>.
-Als iemand een boodschap met je publieke sleutel versleutelt, kan alleen jij met de bijbehorende geheime sleutel (<em>private key</em>) de boodschap decrypteren.</p>
+<p>Door de inhoud van de .html bestanden aan te passen, kunnen we dus beslissen wat er in het scherm van de browser terecht komt.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>Html houdt zich aan standaarden (die worden overeengekomen en evolueren door de tijd (nu zitten we bijvoorbeeld al aan html versie 5).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tags">Tags</h3>
+<div class="paragraph">
+<p>De html standaard legt op dat er in een html bestand gewerkt moet worden met <em>tags</em>.
+<em>Tags</em> zijn markeringen die bepalen wanneer een element moet beginnen en eindigen.</p>
+</div>
+<div class="listingblock">
+<div class="title">Een voorbeeld van een paragraaf tag.</div>
 <div class="content">
-<img src="encrypt1.jpg" alt="Public private key encryptie">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;p&gt;</span>My first paragraph.<span class="nt">&lt;/p&gt;</span></code></pre>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_syntax">Syntax</h4>
 <div class="paragraph">
-<p><mark>Bob versleutelt zijn boodschap met de publieke sleutel van Alice.</mark>
-Alleen Alice kan de boodschap lezen, met haar geheime sleutel – bron: Wikipedia, David Göthberg</p>
+<p>Een <em>tag</em>  zoals hierboven geeft een paragraaf aan (vandaar de <em>p</em>).
+Het openen van de tag begint met een <em>&lt;</em> teken en eindigt met een <em>&gt;</em> teken.
+Om de tag te sluiten gebruik je een <em>&lt;/</em> tag <em>&gt;</em></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_sluiten_van_tags">Sluiten van tags</h4>
 <div class="paragraph">
-<p>Een bijkomend voorbeeld:</p>
+<p><em>Tags</em> moeten steeds gesloten worden.
+Anders weet de browser niet goed tot waar een bepaalde <em>tag</em> of element juist komt.</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
+<div class="title">tags worden steeds gesloten</div>
 <div class="content">
-<img src="encrypt3.png" alt="Public private key encryption">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;h1&gt;</span>My First Heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>My first paragraph.<span class="nt">&lt;/p&gt;</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>In het voorbeeld hierboven is het zeer duidelijk wanneer de h1 (of hoofding) tag begint
+en eindigt.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attributen">Attributen</h3>
+<div class="paragraph">
+<p>Iedere <em>tag</em> kan over attributen beschikken.
+Attributen zijn duidingen (of extra informatie) over een bepaalde <em>tag</em>.</p>
+</div>
+<div class="paragraph">
+<p>Om bijvoorbeeld een link te maken, gebruiken we de <em>&lt;a&gt; tag</em>.
+Deze geeft als attribuut het webadres van de link.
+Dit webadres wordt aangegeven met het <em>href</em> attribuut (dit staat voor <em>http reference</em>).</p>
+</div>
+<div class="listingblock">
+<div class="title">Een voorbeeld van een link tag met attribuut.</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"www.google.com"</span><span class="nt">&gt;</span>Een link naar google.<span class="nt">&lt;/a&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De link hierboven zorg ervoor dat je naar www.google.be surft (zoals aangegeven in het href attribuut)
+als je op de tekst "Een link naar google." klikt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voorbeelden_van_tags">Voorbeelden van tags</h3>
+
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_digitale_handtekening">Digitale handtekening</h2>
+<h2 id="_het_html_document">Het html document</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Als je de twee sleutels omdraait, krijg je iets heel anders: een digitale handtekening.
-Je zendt dan een boodschap (onversleuteld) aan iemand anders en zendt ook diezelfde boodschap mee, versleuteld met je eigen geheime sleutel.</p>
-</div>
-<div class="paragraph">
-<p>De ontvanger kan met jouw publieke sleutel, die immers gewoon bekend is, de versleutelde boodschap decrypteren.
-Als er niets met de boodschap gebeurd is, zou die ontsleutelde boodschap exact moeten overeenkomen met de boodschap die je samen met de digitale handtekening hebt verzonden.</p>
-</div>
-<div class="paragraph">
-<p>Het resultaat? De digitale handtekening garandeert twee zaken: <mark>authenticatie van de zender en integriteit van de boodschap</mark>.
-Jij bent namelijk de enige met toegang tot je geheime sleutel.
-Als de ontvanger met je bijbehorende publieke sleutel je digitale handtekening kan ontsleutelen, weet die dan ook zeker dat jij die digitale handtekening hebt aangemaakt.
-En omdat de ontsleutelde digitale handtekening exact overeenkomt met de boodschap die je stuurde, weet hij ook zeker dat niemand die boodschap tussen de zender en ontvanger heeft veranderd.</p>
+<div class="sect2">
+<h3 id="_de_body">De body</h3>
+
 </div>
 <div class="sect2">
-<h3 id="_hashwaarde">Hashwaarde</h3>
-<div class="paragraph">
-<p>In de praktijk wordt die digitale handtekening niet berekend op de boodschap zelf, want dan zou elke boodschap dubbel zo groot worden: de boodschap zelf en een versleutelde versie daarvan.
-Daarom wordt een hashwaarde van de boodschap berekend.</p>
-</div>
-<div class="paragraph">
-<p>Een hashwaarde is een getal van een vaste lengte, dat afhangt van een boodschap van willekeurige lengte.
-<mark>Een eigenschap van een hashwaarde is dat als de boodschap verandert, de hashwaarde ervan ook verandert.</mark>
-Als je de hashwaarde van twee boodschappen vergelijkt en die identiek zijn, ben je zo goed als zeker dat ook die boodschappen zelf identiek zijn, zonder dat je de inhoud van die boodschappen hoeft te kennen.</p>
-</div>
-<div class="paragraph">
-<p>Een digitale handtekening maak je in de praktijk dan ook door een hashwaarde van je boodschap te berekenen, die hashwaarde te versleutelen met je geheime sleutel en het resultaat (een kort getal) mee te sturen met je boodschap.
-De ontvanger hoeft je digitale handtekening maar te ontsleutelen met je publieke sleutel en de resulterende hashwaarde te vergelijken met de hashwaarde van je boodschap, die hij eenvoudig kan berekenen.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="encrypt2.jpg" alt="Public private key signing">
-</div>
-</div>
-<div class="paragraph">
-<p>Alice versleutelt de hashwaarde van haar boodschap met haar geheime sleutel. Bob kan met de publieke sleutel van Alice verifiëren of de boodschap van haar komt.</p>
-</div>
+<h3 id="_de_head">De head</h3>
+
 </div>
 <div class="sect2">
-<h3 id="_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</h3>
-<div class="paragraph">
-<p>Dit alles kun je nu ook nog combineren: je versleutelt je boodschap met de publieke sleutel van de ontvanger, berekent een hashwaarde van de (onversleutelde) boodschap en versleutelt die met je eigen geheime sleutel.
-De versleutelde boodschap stuur je samen met de digitale handtekening naar de ontvanger.
-Die ontsleutelt de boodschap met zijn geheime sleutel en ontsleutelt de digitale handtekening met jouw publieke sleutel.
-Hij berekent de hashwaarde van je ontsleutelde boodschap en vergelijkt die met de ontsleutelde digitale handtekening.</p>
-</div>
-<div class="paragraph">
-<p>Op die manier heb je een boodschap naar de ontvanger gestuurd die niemand anders kan lezen en de ontvanger weet zeker dat jij de boodschap gestuurd hebt en dat er onderweg niets aan de boodschap veranderd is.
-Dat is de kracht van asymmetrische encryptie!</p>
-</div>
+<h3 id="_het_doctype">Het Doctype</h3>
+
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_het_compromis_voor_snelheid">Het compromis voor snelheid</h2>
+<h2 id="_volledige_html_pagina">Volledige html pagina</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Het nadeel van symmetrische encryptie is dat het zeer traag werkt.
-Eigenlijk is het niet geschikt om alle data (websites etc) over het internet op die encrypteren.</p>
-</div>
-<div class="paragraph">
-<p>Daarom heeft men voor een compromis gezorgd:</p>
-</div>
-<div class="paragraph">
-<p><mark>Asymmetrische encryptie wordt gebruikt om sleutels van symmetrische encryptie uit te wisselen.</mark>
-Op die manier neemt men het grootste nadeel van symmetrische encryptie weg (het delen van de sleutel). En ook het nadeel van asymmetrisch encryptie wordt aangepakt (snelheid).</p>
-</div>
-<div class="paragraph">
-<p>Asymmetrische encryptie wordt voor een klein, maar belangrijk deel, van de communicatie gebruikt. Dit zijn hybride systemen.</p>
-</div>
-<div class="sect2">
-<h3 id="_een_samenvatting_van_de_werking">Een samenvatting van de werking:</h3>
-<div class="paragraph">
-<p>De tekst die men geëncrypteerd wil doorsturen, wordt versleuteld door <strong>symmertrische</strong> encryptie.
-Dit is vaak een 128bit cijfer, maar het kan groter zijn.
-Bij symmetrische encryptie moeten beide partijen over dezelfde sleutel beschikken.</p>
-</div>
-<div class="paragraph">
-<p>Om dit gedaan te krijgen moet de ene partij de sleutel van de symmetrische encryptie doorsturen naar de andere partij.
-Dit gebeurt op een veilige manier door de sleutel door te sturen met behulp van asymmetrische encryptie (public key encryption).</p>
-</div>
-<div class="paragraph">
-<p>De publieke sleutel van de bestemmeling wordt gebruikt om de symmetrische sleutel te encrypteren.
-De bestemmeling kan vervolgens met zijn <em><strong>private key</strong></em> de geëncrypteerde data decrypteren om tot de sleutel van de symmetrische encryptie te komen.</p>
-</div>
-<div class="paragraph">
-<p>Met deze informatie kan hij vervolgens de tekst die werd doorgestuurd decrypteren.
-De symmetrische encryptiesleutel wordt weggegooid na de huidige sessie.
-De asymmetrische encryptiesleutel kan langer in gebruik blijven (afhankelijk van het gebruikte systeem).</p>
-</div>
-<div class="paragraph">
-<p>Een korte levensduur voor de symmetrische sleutel, verkleint het succes van <em>bruteforce</em> aanvallen om de sleutel te achterhalen.</p>
-</div>
-<div class="paragraph">
-<p>Tegenwoordig maken browsers gebruik van <em>Transport Layer Security (TLS)</em> en zijn voorganger, Secure Sockets Layer (SSL).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title=":information_source:"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Bij communicatie in 2 richtingen wordt bovenstaande procedure vaak 2x toegepast. 1x in elke richting (met de andere computer als vertrekpunt en dus ook telkens geëncrypteerd met de public key van de tegenpartij).
-De gebruikte sleutels voor de asymmetrische en de symmetrische encryptie zijn in beide richtingen verschillend.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
+
 </div>
 </div>
 </div>

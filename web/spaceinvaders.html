@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>Symetrische en asymetrische encryptie</title>
+<title>Space Invaders</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -434,26 +434,133 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Symetrische en asymetrische encryptie</h1>
+<h1>Space Invaders</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_symmetrische_encryptie">Symmetrische encryptie</a></li>
-<li><a href="#_asymmetrische_encryptie">Asymmetrische encryptie</a></li>
-<li><a href="#_digitale_handtekening">Digitale handtekening</a>
-<ul class="sectlevel2">
-<li><a href="#_hashwaarde">Hashwaarde</a></li>
-<li><a href="#_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</a></li>
-</ul>
-</li>
-<li><a href="#_het_compromis_voor_snelheid">Het compromis voor snelheid</a>
-<ul class="sectlevel2">
-<li><a href="#_een_samenvatting_van_de_werking">Een samenvatting van de werking:</a></li>
-</ul>
-</li>
+<li><a href="#_de_bestanden">De bestanden</a></li>
+<li><a href="#_de_afbeeldingen">De afbeeldingen</a></li>
+<li><a href="#_de_achergrond_toepassen">De achergrond toepassen</a></li>
+<li><a href="#_het_ruimteschip">Het ruimteschip</a></li>
+<li><a href="#_reageren_op_keyboardinput">Reageren op keyboardinput</a></li>
+<li><a href="#_schieten">Schieten</a></li>
 </ul>
 </div>
 </div>
@@ -461,228 +568,404 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bij encryptie of versleuteling wordt een boodschap (de ‘plaintext’) op zo’n manier gecodeerd dat alleen iemand met de juiste sleutel de oorspronkelijke boodschap kan decoderen.
-De versleutelde versie van de boodschap wordt ook wel ‘ciphertext’ genoemd.
-Wie de ciphertext dus weer in de oorspronkelijke boodschap wil omzetten (dat proces heet ‘decryptie’), heeft de sleutel nodig.
-De sleutel is in principe een willekeurig getal.
-In de praktijk maken we gebruik van een wachtwoord en dus wordt het wachtwoord via een ‘key derivation function’ eerst omgezet naar een willekeurig getal dat dan als sleutel dient.</p>
+<p>In deze oefening gaan we stap voor stap het spel <em>Space Invaders</em> namaken.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_bestanden">De bestanden</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We gaan het spel maken in een html file met gekoppelde javascript en css file.</p>
 </div>
 <div class="paragraph">
-<p>Er bestaan diverse manieren om die versleuteling uit te voeren.
-Zo’n manier heet een encryptie-algoritme of ‘cipher’.
-De Nederlandse taalkundige en cryptograaf Auguste Kerckhoffs stelde al in de 19de eeuw een belangrijk ontwerpprincipe op: een encryptie-algoritme moet zelfs veilig zijn als alle details van het systeem publiek bekend zijn, behalve de sleutel.
-Dit principe van Kerckhoffs is anno 2020 nog altijd even belangrijk voor de veiligheid van een encryptie-algoritme.</p>
+<p>De html file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+	<span class="nt">&lt;head&gt;</span>
+		<span class="nt">&lt;title&gt;</span>Space Invaders<span class="nt">&lt;/title&gt;</span>
+		<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"invaders.css"</span> <span class="nt">&gt;</span>
+		<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"invaders.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+	<span class="nt">&lt;/head&gt;</span>
+	<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Als iemand je dus wil overtuigen om een propriëtair, topgeheim encryptiesysteem te gebruiken, loop er dan maar in een wijde boog omheen.
-De enige verantwoorde keuzes voor encryptiesystemen zijn algoritmes waarvan de specificatie openbaar is, waarvan de ontwikkeling in open commissies gebeurt en waarvan opensource implementaties bestaan.</p>
+<p>De css file en de javascript file zijn voorlopig leeg.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_de_afbeeldingen">De afbeeldingen</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>De diverse encryptie-algoritmes zijn in twee groepen onder te verdelen:</p>
+<p>In het spel maken we gebruik van enkele afbeeldingen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Symmetrische</p>
+<p>Het ruimteschip</p>
+<div class="imageblock">
+<div class="content">
+<img src="Char.png" alt="200" width="150">
+</div>
+</div>
 </li>
 <li>
-<p>Asymmetrische</p>
+<p>De vijand</p>
+<div class="imageblock">
+<div class="content">
+<img src="Enemy.png" alt="200" width="150">
+</div>
+</div>
+</li>
+<li>
+<p>Een laserstraal</p>
+<div class="imageblock">
+<div class="content">
+<img src="Shot.png" alt="200" width="150">
+</div>
+</div>
+</li>
+<li>
+<p>Een explosie</p>
+<div class="imageblock">
+<div class="content">
+<img src="explosion-gif.gif" alt="200" width="150">
+</div>
+</div>
+</li>
+<li>
+<p>Een achtergrond (sterren)</p>
+<div class="imageblock">
+<div class="content">
+<img src="stars.jpg" alt="Stars" width="200" height="150">
+</div>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetrische_encryptie">Symmetrische encryptie</h2>
+<h2 id="_de_achergrond_toepassen">De achergrond toepassen</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Bij die eerste (‘symmetric-key encryption’) gebeuren de encryptie en decryptie met dezelfde sleutel.
-Een voorbeeld van zo’n algoritme is AES (Advanced Encryption Standard).
-Bijna alle programma’s die tegenwoordig symmetrische encryptie aanbieden, doen dat met AES.
-Zo ook BitLocker in Windows, FileVault in macOS en LUKS (Linux Unified Key Setup) in Linux.</p>
-</div>
-<div class="paragraph">
-<p>Algoritmes voor <strong>symmetrische encryptie werken doorgaans snel</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Enkele voorbeelden hiervan zijn:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DES (Data Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Data_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Data_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>DES wordt nu als onveilig beschouwd, het is relatief makkelijk kraakbaar. Het gebruikt een sleutellengte van slechts 64 bits.</p>
-</div>
-</li>
-<li>
-<p>AES of het Rijndaelcijfer (Advanced Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>De veilige opvolger van DES. AES laat het gebruik van langere sleutellengtes toe (met blokken van minimun 128 bits).</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Maar dat encryptie en decryptie dezelfde sleutel vereisen, zorgt in heel wat situaties voor praktische problemen.
-Als je een versleutelde boodschap met iemand wilt uitwisselen, dienen de ontvanger en jij namelijk ook de gebruikte sleutel uit te wisselen.
-Dat doe je het liefst op een veilige manier, maar de vraag is hoe: met encryptie? Maar hoe zit het dan met de sleutel daarvoor?</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_asymmetrische_encryptie">Asymmetrische encryptie</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Asymmetrische encryptie (met als bekendste algoritme RSA) pakt dit probleem aan door de sleutel voor encryptie en de sleutel voor decryptie los te koppelen.
-Bij deze vorm van encryptie heb je namelijk niet één sleutel meer voor encryptie én decryptie, maar een sleutelpaar.
-Twee afzonderlijke sleutels: <mark>één voor encryptie en één voor decryptie</mark>.</p>
-</div>
-<div class="paragraph">
-<p>Hoe werkt dat in de praktijk?
-De encryptiesleutel publiceer je en iedereen mag die zien.
-Deze sleutel wordt dan ook de <mark>publieke sleutel</mark> genoemd. De decryptiesleutel houd je zelf bij en je zorgt dat alleen jijzelf deze sleutel kan inzien.
-Die heet daarom ook de geheime sleutel of <mark><em>private key</em></mark>.
-Als iemand een boodschap met je publieke sleutel versleutelt, kan alleen jij met de bijbehorende geheime sleutel (<em>private key</em>) de boodschap decrypteren.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="encrypt1.jpg" alt="Public private key encryptie">
-</div>
-</div>
-<div class="paragraph">
-<p><mark>Bob versleutelt zijn boodschap met de publieke sleutel van Alice.</mark>
-Alleen Alice kan de boodschap lezen, met haar geheime sleutel – bron: Wikipedia, David Göthberg</p>
-</div>
-<div class="paragraph">
-<p>Een bijkomend voorbeeld:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="encrypt3.png" alt="Public private key encryption">
+<pre class="rouge highlight"><code data-lang="css"><span class="nt">body</span><span class="p">{</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("stars.jpg")</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_digitale_handtekening">Digitale handtekening</h2>
+<h2 id="_het_ruimteschip">Het ruimteschip</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Als je de twee sleutels omdraait, krijg je iets heel anders: een digitale handtekening.
-Je zendt dan een boodschap (onversleuteld) aan iemand anders en zendt ook diezelfde boodschap mee, versleuteld met je eigen geheime sleutel.</p>
-</div>
-<div class="paragraph">
-<p>De ontvanger kan met jouw publieke sleutel, die immers gewoon bekend is, de versleutelde boodschap decrypteren.
-Als er niets met de boodschap gebeurd is, zou die ontsleutelde boodschap exact moeten overeenkomen met de boodschap die je samen met de digitale handtekening hebt verzonden.</p>
-</div>
-<div class="paragraph">
-<p>Het resultaat? De digitale handtekening garandeert twee zaken: <mark>authenticatie van de zender en integriteit van de boodschap</mark>.
-Jij bent namelijk de enige met toegang tot je geheime sleutel.
-Als de ontvanger met je bijbehorende publieke sleutel je digitale handtekening kan ontsleutelen, weet die dan ook zeker dat jij die digitale handtekening hebt aangemaakt.
-En omdat de ontsleutelde digitale handtekening exact overeenkomt met de boodschap die je stuurde, weet hij ook zeker dat niemand die boodschap tussen de zender en ontvanger heeft veranderd.</p>
-</div>
-<div class="sect2">
-<h3 id="_hashwaarde">Hashwaarde</h3>
-<div class="paragraph">
-<p>In de praktijk wordt die digitale handtekening niet berekend op de boodschap zelf, want dan zou elke boodschap dubbel zo groot worden: de boodschap zelf en een versleutelde versie daarvan.
-Daarom wordt een hashwaarde van de boodschap berekend.</p>
-</div>
-<div class="paragraph">
-<p>Een hashwaarde is een getal van een vaste lengte, dat afhangt van een boodschap van willekeurige lengte.
-<mark>Een eigenschap van een hashwaarde is dat als de boodschap verandert, de hashwaarde ervan ook verandert.</mark>
-Als je de hashwaarde van twee boodschappen vergelijkt en die identiek zijn, ben je zo goed als zeker dat ook die boodschappen zelf identiek zijn, zonder dat je de inhoud van die boodschappen hoeft te kennen.</p>
-</div>
-<div class="paragraph">
-<p>Een digitale handtekening maak je in de praktijk dan ook door een hashwaarde van je boodschap te berekenen, die hashwaarde te versleutelen met je geheime sleutel en het resultaat (een kort getal) mee te sturen met je boodschap.
-De ontvanger hoeft je digitale handtekening maar te ontsleutelen met je publieke sleutel en de resulterende hashwaarde te vergelijken met de hashwaarde van je boodschap, die hij eenvoudig kan berekenen.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="encrypt2.jpg" alt="Public private key signing">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;body&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"ruimteveer"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Alice versleutelt de hashwaarde van haar boodschap met haar geheime sleutel. Bob kan met de publieke sleutel van Alice verifiëren of de boodschap van haar komt.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</h3>
-<div class="paragraph">
-<p>Dit alles kun je nu ook nog combineren: je versleutelt je boodschap met de publieke sleutel van de ontvanger, berekent een hashwaarde van de (onversleutelde) boodschap en versleutelt die met je eigen geheime sleutel.
-De versleutelde boodschap stuur je samen met de digitale handtekening naar de ontvanger.
-Die ontsleutelt de boodschap met zijn geheime sleutel en ontsleutelt de digitale handtekening met jouw publieke sleutel.
-Hij berekent de hashwaarde van je ontsleutelde boodschap en vergelijkt die met de ontsleutelde digitale handtekening.</p>
-</div>
-<div class="paragraph">
-<p>Op die manier heb je een boodschap naar de ontvanger gestuurd die niemand anders kan lezen en de ontvanger weet zeker dat jij de boodschap gestuurd hebt en dat er onderweg niets aan de boodschap veranderd is.
-Dat is de kracht van asymmetrische encryptie!</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="css"><span class="nf">#ruimteveer</span><span class="p">{</span>
+	<span class="nl">position</span><span class="p">:</span><span class="nb">fixed</span><span class="p">;</span>
+	<span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("Char.png")</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span><span class="n">cover</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">9.8%</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">2.5%</span><span class="p">;</span>
+	<span class="nl">left</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+	<span class="nl">top</span><span class="p">:</span> <span class="m">90%</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_het_compromis_voor_snelheid">Het compromis voor snelheid</h2>
+<h2 id="_reageren_op_keyboardinput">Reageren op keyboardinput</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Het nadeel van symmetrische encryptie is dat het zeer traag werkt.
-Eigenlijk is het niet geschikt om alle data (websites etc) over het internet op die encrypteren.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;body</span> <span class="na">onkeydown=</span><span class="s">"keydown(event)"</span><span class="nt">&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
-<div class="paragraph">
-<p>Daarom heeft men voor een compromis gezorgd:</p>
 </div>
-<div class="paragraph">
-<p><mark>Asymmetrische encryptie wordt gebruikt om sleutels van symmetrische encryptie uit te wisselen.</mark>
-Op die manier neemt men het grootste nadeel van symmetrische encryptie weg (het delen van de sleutel). En ook het nadeel van asymmetrisch encryptie wordt aangepakt (snelheid).</p>
-</div>
-<div class="paragraph">
-<p>Asymmetrische encryptie wordt voor een klein, maar belangrijk deel, van de communicatie gebruikt. Dit zijn hybride systemen.</p>
-</div>
-<div class="sect2">
-<h3 id="_een_samenvatting_van_de_werking">Een samenvatting van de werking:</h3>
-<div class="paragraph">
-<p>De tekst die men geëncrypteerd wil doorsturen, wordt versleuteld door <strong>symmertrische</strong> encryptie.
-Dit is vaak een 128bit cijfer, maar het kan groter zijn.
-Bij symmetrische encryptie moeten beide partijen over dezelfde sleutel beschikken.</p>
-</div>
-<div class="paragraph">
-<p>Om dit gedaan te krijgen moet de ene partij de sleutel van de symmetrische encryptie doorsturen naar de andere partij.
-Dit gebeurt op een veilige manier door de sleutel door te sturen met behulp van asymmetrische encryptie (public key encryption).</p>
-</div>
-<div class="paragraph">
-<p>De publieke sleutel van de bestemmeling wordt gebruikt om de symmetrische sleutel te encrypteren.
-De bestemmeling kan vervolgens met zijn <em><strong>private key</strong></em> de geëncrypteerde data decrypteren om tot de sleutel van de symmetrische encryptie te komen.</p>
-</div>
-<div class="paragraph">
-<p>Met deze informatie kan hij vervolgens de tekst die werd doorgestuurd decrypteren.
-De symmetrische encryptiesleutel wordt weggegooid na de huidige sessie.
-De asymmetrische encryptiesleutel kan langer in gebruik blijven (afhankelijk van het gebruikte systeem).</p>
-</div>
-<div class="paragraph">
-<p>Een korte levensduur voor de symmetrische sleutel, verkleint het succes van <em>bruteforce</em> aanvallen om de sleutel te achterhalen.</p>
-</div>
-<div class="paragraph">
-<p>Tegenwoordig maken browsers gebruik van <em>Transport Layer Security (TLS)</em> en zijn voorganger, Secure Sockets Layer (SSL).</p>
-</div>
-<div class="admonitionblock note">
+<div class="colist arabic">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title=":information_source:"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Bij communicatie in 2 richtingen wordt bovenstaande procedure vaak 2x toegepast. 1x in elke richting (met de andere computer als vertrekpunt en dus ook telkens geëncrypteerd met de public key van de tegenpartij).
-De gebruikte sleutels voor de asymmetrische en de symmetrische encryptie zijn in beide richtingen verschillend.</p>
-</div>
-</td>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Bij het drukken op de toetsen van het toetsenbord wordt het onkeydown event onderschept en doorgestuurd naar de functie 'keydown'.</td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Bijhorende javascript functie die elk keyboard <em>event</em> afprint naar de console.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="js"><span class="kd">function</span> <span class="nf">keydown</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Hier printen we de toetsenbord code die werd ingedrukt af naar de console.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In deze functie kunnen we vervolgens if statement schrijven die rekening houden met de ArrowLeft of ArrowRight key.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="js"><span class="kd">var</span> <span class="nx">positie</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">// Het ruimteveer bevindt zich in het midden van het scherm</span>
+<span class="kd">function</span> <span class="nf">keydown</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">ArrowLeft</span><span class="dl">'</span><span class="p">){</span>
+		<span class="nf">beweegNaarLinks</span><span class="p">();</span> <i class="conum" data-value="1"></i><b>(1)</b>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">ArrowRight</span><span class="dl">'</span><span class="p">){</span>
+		<span class="nf">beweegNaarRechts</span><span class="p">();</span> <i class="conum" data-value="2"></i><b>(2)</b>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nf">beweegNaarLinks</span><span class="p">(){</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">positie</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span> <i class="conum" data-value="3"></i><b>(3)</b>
+		<span class="nx">positie</span> <span class="o">=</span> <span class="nx">positie</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+	<span class="p">}</span>
+	<span class="nf">beweeg</span><span class="p">();</span> <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nf">beweegNaarRechts</span><span class="p">(){</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">positie</span> <span class="o">&lt;</span> <span class="mi">95</span><span class="p">){</span>
+		<span class="nx">positie</span> <span class="o">=</span> <span class="nx">positie</span> <span class="o">+</span> <span class="mf">0.4</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nf">beweeg</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nf">beweeg</span><span class="p">(){</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">ruimteveer</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">positie</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span> <i class="conum" data-value="6"></i><b>(6)</b>
+	<span class="c1">// console.log(document.getElementById('ruimteveer').style.left)</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Wanneer de keycode het pijltje naar links is, roepen we een functie op die het ruimteveer naar links laat bewegen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Wanneer de keycode het pijltje naar rechts is, roepen we een functie op die het ruimteveer naar rechts laat bewegen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>In dit if statement kijken we na of het ruimteveer zich al helemaal links bevindt op het scherm (dat is de limiet)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Hier maken we de positie wat kleiner (dus meer naar links).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>We roepen een functie op die de positie gaat wegschrijven op het div element.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Via de style (css) left van het div element schrijven we de positie weg (hoe ver van de linkerkant van het scherm dat het ruimteveer zich moet bevinden).</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schieten">Schieten</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Om het ruimteveer te laten schieten hanteren we de volgende denkwijze:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We detecteren het drukken op de spatiebalk</p>
+</li>
+<li>
+<p>De afbeelding van de laserstraal tonen we boven het ruimteschip</p>
+</li>
+<li>
+<p>Via een timerfunctie (wordt herhaaldelijk uitgevoerd) passen we de positie van de laserstraal telkens aan (naar boven toe)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Als we de timerfunctie snel genoeg laten uitvoeren, lijkt het alsof de laserstraal vlot naar boven schiet.</p>
+</div>
+<div class="paragraph">
+<p>Detectie van het drukken op de spatiebalk:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="js"><span class="kd">function</span> <span class="nf">keydown</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">ArrowLeft</span><span class="dl">'</span><span class="p">){</span>
+		<span class="nf">beweegNaarLinks</span><span class="p">();</span> <i class="conum" data-value="1"></i><b>(1)</b>
+	<span class="p">}</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">ArrowRight</span><span class="dl">'</span><span class="p">){</span>
+		<span class="nf">beweegNaarRechts</span><span class="p">();</span> <i class="conum" data-value="2"></i><b>(2)</b>
+	<span class="p">}</span>
+	<span class="k">if </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Space</span><span class="dl">"</span><span class="p">){</span> <i class="conum" data-value="1"></i><b>(1)</b>
+		<span class="nf">schiet</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Hier detecteren we het drukken op de spatiebalk.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>De afbeelding van de laserstraal tonen boven het ruimteschip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="js"><span class="kd">function</span> <span class="nf">schiet</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">schot</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">img</span><span class="dl">"</span><span class="p">);</span> <i class="conum" data-value="1"></i><b>(1)</b>
+	<span class="nx">schot</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">schot</span><span class="dl">"</span><span class="p">);</span> <i class="conum" data-value="2"></i><b>(2)</b>
+	<span class="nx">schot</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Shot.png</span><span class="dl">'</span><span class="p">;</span> <i class="conum" data-value="3"></i><b>(3)</b>
+	<span class="nx">schot</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">positie</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span> <i class="conum" data-value="4"></i><b>(4)</b>
+	<span class="nx">schot</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="mi">87</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span> <i class="conum" data-value="5"></i><b>(5)</b>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="nx">schot</span><span class="p">);</span> <i class="conum" data-value="6"></i><b>(6)</b>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Hier maken we met javascript dynamisch een <em>img tag</em> aan.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>We geven de tag de klasse 'shot'. Dit kunnen we in css gebruiken en later om alle schoten op te roepen van de pagina.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>We geven de source naar de shot.png mee.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>We geven een initiële positie aan het schot (in het midden van het ruimteveer).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Hier plaatsen we het schot beneden, net boven het ruimteveer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>En vervolgens zorgen we ervoor dat de nieuwe img tag op de webpagina body terecht komt.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>We geven elk schot afbeelding een hoogte en breedte (dit kan via css klasse):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="css"><span class="nc">.schot</span><span class="p">{</span>
+	<span class="nl">position</span><span class="p">:</span><span class="nb">fixed</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">70px</span><span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Via een timerfunctie passen we de positie van de laserstraal telkens aan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">onload</span><span class="dl">'</span><span class="p">)</span>
+	<span class="nf">setInterval</span><span class="p">(</span><span class="nx">beweegschoten</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nf">beweegschoten</span><span class="p">(){</span>
+	 <span class="kd">var</span> <span class="nx">schoten</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByClassName</span><span class="p">(</span><span class="dl">"</span><span class="s2">schot</span><span class="dl">"</span><span class="p">);</span> <i class="conum" data-value="2"></i><b>(2)</b>
+
+	<span class="c1">//schoten naar boven laten bewegen</span>
+	<span class="k">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">schoten</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span> <i class="conum" data-value="3"></i><b>(3)</b>
+		<span class="kd">var</span> <span class="nx">hoogte</span> <span class="o">=</span> <span class="nf">parseInt</span><span class="p">(</span><span class="nx">schoten</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <i class="conum" data-value="4"></i><b>(4)</b>
+		<span class="nx">hoogte</span> <span class="o">=</span> <span class="nx">hoogte</span> <span class="o">-</span> <span class="mf">1.5</span><span class="p">;</span> <i class="conum" data-value="5"></i><b>(5)</b>
+		<span class="nx">schoten</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">hoogte</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">%</span><span class="dl">"</span><span class="p">;</span> <i class="conum" data-value="6"></i><b>(6)</b>
+	<span class="p">}</span>
+
+	<span class="c1">//schoten verwijderen die uit het scherm vliegen </span><i class="conum" data-value="7"></i><b>(7)</b>
+	<span class="k">for </span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">schoten</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="k">if </span><span class="p">(</span><span class="nf">parseInt</span><span class="p">(</span><span class="nx">schoten</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+			<span class="nf">removeimg</span><span class="p">(</span><span class="nx">schoten</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nf">removeimg</span><span class="p">(</span><span class="nx">img</span><span class="p">){</span>
+	<span class="nx">img</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nf">removeChild</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span> <i class="conum" data-value="8"></i><b>(8)</b>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Een interval timer die elke 14 milliseconden de functie 'beweegschoten' oproept.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>We halen alle schoten op via de klasse die we elke afbeelding tag hadden gegeven.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Over de array van alle schoten kunnen we lussen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>We vragen de hoogte (top: hoe ver van de bovenkant van het scherm) op. Dit bevat een % teken. Met de parseInt functie houden we enkel het getal over (en wordt de % weggelaten).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>We passen de hoogte aan.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>En schrijven de hoogte weg naar de img css.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Eens de schoten buiten het scherm vliegen, verwijderen we ze best uit de body (anders geraakt het geheugen uiteindelijk vol).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>We vragen aan de parentNode van het img, om het img te verwijderen.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Het resultaat bij het drukken op de spatieknop:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="schieten.png" alt="400" width="400">
 </div>
 </div>
 </div>

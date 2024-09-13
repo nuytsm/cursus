@@ -1,0 +1,300 @@
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Inleiding tot JavaScript =
+
+JavaScript is een van de meest gebruikte programmeertalen ter wereld, vooral voor het bouwen van dynamische en interactieve webpagina's. Het is een veelzijdige taal die zowel op de client-side (in de browser) als op de server-side (met behulp van platforms zoals Node.js) kan worden gebruikt.
+
+JavaScript is essentieel voor moderne webontwikkeling, waarbij het wordt gebruikt om acties op een pagina te beheren, zoals het reageren op gebruikersinvoer, het wijzigen van inhoud zonder de pagina opnieuw te laden, en het communiceren met een server via API-aanroepen. Dit hoofdstuk geeft een overzicht van de basisconcepten van JavaScript, inclusief enkele van de belangrijkste functies en hoe je het kunt gebruiken om interactieve webtoepassingen te maken.
+
+== Waarom JavaScript? ==
+JavaScript is populair vanwege de volgende redenen:
+
+- **Cross-platform**: Werkt op verschillende browsers en platforms zonder dat specifieke software of plugins nodig zijn.
+- **Interactiviteit**: Maakt webpagina's dynamischer en interactiever.
+- **Inzetbaarheid**: Kan worden gebruikt voor zowel front-end (client-side) als back-end (server-side) ontwikkeling.
+- **Brede ondersteuning**: JavaScript wordt ondersteund door alle moderne webbrowsers.
+
+== JavaScript in HTML Integreren ==
+
+JavaScript wordt meestal geïntegreerd in HTML-pagina's om dynamische functionaliteit aan websites toe te voegen. Dit kan worden gedaan door het gebruik van het `<script>`-element binnen HTML.
+
+Hier is een eenvoudig voorbeeld:
+
+[source, html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <h1>Welkom op mijn pagina!</h1>
+    <p id="demo">Dit is een paragraaf.</p>
+
+    <script>
+        document.getElementById("demo").innerHTML = "De paragraaf is gewijzigd met JavaScript!";
+    </script>
+</body>
+</html>
+----
+
+In dit voorbeeld verandert de JavaScript-code de inhoud van de paragraaf (`<p>`) zodra de pagina is geladen.
+
+== Variabelen in JavaScript ==
+Een van de kernconcepten in JavaScript is het gebruik van variabelen om gegevens op te slaan. Variabelen worden gedefinieerd met behulp van de trefwoorden `var`, `let`, of `const`.
+
+* `var`: Traditionele manier om variabelen te declareren (globaal of function-scope).
+* `let`: Gebruikt voor variabelen die binnen een blok scope moeten blijven.
+* `const`: Gebruikt voor constante waarden die niet opnieuw toegewezen kunnen worden.
+
+Voorbeeld van variabelen:
+
+[source, javascript]
+----
+var x = 10;
+let y = 20;
+const z = 30;
+
+console.log(x);  // Output: 10
+console.log(y);  // Output: 20
+console.log(z);  // Output: 30
+----
+
+== Functies in JavaScript ==
+Functies in JavaScript worden gebruikt om herbruikbare codeblokken te definiëren. Je kunt een functie aanroepen door de functienaam te gebruiken gevolgd door haakjes.
+
+Voorbeeld van een functie:
+
+[source, javascript]
+----
+function greet(name) {
+    return "Hallo, " + name + "!";
+}
+
+console.log(greet("Alice"));  // Output: Hallo, Alice!
+----
+
+JavaScript ondersteunt ook anonieme functies en functies die aan variabelen worden toegewezen:
+
+[source, javascript]
+----
+let add = function(a, b) {
+    return a + b;
+};
+
+console.log(add(5, 10));  // Output: 15
+----
+
+== Control Flow in JavaScript ==
+JavaScript biedt verschillende manieren om beslissingen te nemen en herhaalde acties uit te voeren. Hier zijn enkele veelgebruikte structuren:
+
+- **If/else statements**: Voor het maken van keuzes op basis van voorwaarden.
+
+[source, javascript]
+----
+let age = 18;
+
+if (age >= 18) {
+    console.log("Je bent een volwassene.");
+} else {
+    console.log("Je bent een minderjarige.");
+}
+----
+
+- **Loops**: Voor het herhalen van een blok code, zoals een `for`-loop of een `while`-loop.
+
+[source, javascript]
+----
+for (let i = 0; i < 5; i++) {
+    console.log("Dit is iteratie nummer " + i);
+}
+----
+
+== JavaScript Event Handling ==
+Een van de krachtigste functies van JavaScript is het vermogen om te reageren op gebeurtenissen, zoals klikken op knoppen, het invoeren van tekst, en het bewegen van de muis. 
+
+Voorbeeld van het reageren op een klikgebeurtenis:
+
+[source, html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+</head>
+<body>
+    <button onclick="sayHello()">Klik mij</button>
+
+    <script>
+        function sayHello() {
+            alert("Hallo, je hebt op de knop geklikt!");
+        }
+    </script>
+</body>
+</html>
+----
+
+Wanneer de gebruiker op de knop klikt, wordt de functie `sayHello` aangeroepen en wordt er een alert weergegeven.
+
+== JavaScript Klassen ==
+
+In moderne JavaScript kunnen klassen worden gebruikt om objectgeoriënteerde structuren te definiëren, wat het makkelijker maakt om code georganiseerd en gestructureerd te houden. Klassen in JavaScript zijn vergelijkbaar met klassen in andere objectgeoriënteerde talen zoals Python, Java of C++. Ze bieden een manier om objecten te creëren met behulp van constructors en methoden, en maken het hergebruik van code eenvoudiger.
+
+=== Wat is een Klasse? ===
+Een klasse is een blauwdruk voor het maken van objecten. Een klasse definieert eigenschappen (data) en methoden (functionaliteit) die alle objecten van die klasse zullen bezitten. Met behulp van een klasse kunnen we meerdere objecten maken die vergelijkbare eigenschappen en gedrag vertonen.
+
+Hier is een eenvoudig voorbeeld van het maken van een klasse in JavaScript:
+
+[source, javascript]
+----
+class Auto {
+    constructor(merk, model, jaar) {
+        this.merk = merk;
+        this.model = model;
+        this.jaar = jaar;
+    }
+
+    beschrijving() {
+        return `${this.merk} ${this.model} is gebouwd in ${this.jaar}.`;
+    }
+}
+
+const mijnAuto = new Auto("Toyota", "Corolla", 2020);
+console.log(mijnAuto.beschrijving());
+----
+
+Output:
+----
+Toyota Corolla is gebouwd in 2020.
+----
+
+=== Constructors ===
+In het bovenstaande voorbeeld zien we de `constructor`-methode. De constructor wordt aangeroepen wanneer een nieuw object van een klasse wordt gemaakt met behulp van het trefwoord `new`. De constructor kan parameters ontvangen die worden gebruikt om de eigenschappen van het nieuwe object te initialiseren.
+
+[source, javascript]
+----
+class Persoon {
+    constructor(naam, leeftijd) {
+        this.naam = naam;
+        this.leeftijd = leeftijd;
+    }
+
+    begroet() {
+        console.log(`Hallo, mijn naam is ${this.naam} en ik ben ${this.leeftijd} jaar oud.`);
+    }
+}
+
+const persoon1 = new Persoon("Alice", 25);
+persoon1.begroet();
+----
+
+Output:
+----
+Hallo, mijn naam is Alice en ik ben 25 jaar oud.
+----
+
+=== Methoden in Klassen ===
+Methoden in klassen zijn functies die bij elk object horen dat van die klasse is gemaakt. In de bovenstaande voorbeelden zijn `beschrijving()` en `begroet()` methoden die aan objecten van hun respectievelijke klassen zijn gekoppeld. Ze bieden functionaliteit voor de objecten van die klasse.
+
+[source, javascript]
+----
+class Hond {
+    constructor(naam, ras) {
+        this.naam = naam;
+        this.ras = ras;
+    }
+
+    blaf() {
+        console.log(`${this.naam} de ${this.ras} blaft!`);
+    }
+}
+
+const mijnHond = new Hond("Max", "Labrador");
+mijnHond.blaf();
+----
+
+Output:
+----
+Max de Labrador blaft!
+----
+
+=== Inheritance (Overerving) ===
+Overerving is een belangrijk concept in objectgeoriënteerd programmeren waarbij een klasse eigenschappen en methoden van een andere klasse overneemt. Dit helpt om duplicatie van code te vermijden en maakt het hergebruik van code mogelijk.
+
+Hier is een voorbeeld van hoe je overerving kunt gebruiken in JavaScript:
+
+[source, javascript]
+----
+class Dier {
+    constructor(naam) {
+        this.naam = naam;
+    }
+
+    eet() {
+        console.log(`${this.naam} is aan het eten.`);
+    }
+}
+
+class Hond extends Dier {
+    blaf() {
+        console.log(`${this.naam} blaft!`);
+    }
+}
+
+const mijnHond = new Hond("Rex");
+mijnHond.eet();
+mijnHond.blaf();
+----
+
+Output:
+----
+Rex is aan het eten.
+Rex blaft!
+----
+
+In dit voorbeeld zien we dat de klasse `Hond` de eigenschappen en methoden van de klasse `Dier` overneemt door gebruik te maken van het trefwoord `extends`. De klasse `Hond` kan nu zowel de `eet()`-methode van de `Dier`-klasse gebruiken, als zijn eigen methode `blaf()`.
+
+=== Getters en Setters ===
+In JavaScript-klassen kunnen we gebruik maken van getters en setters om de toegang tot de eigenschappen van een klasse te controleren. Getters worden gebruikt om een eigenschap op te halen, terwijl setters worden gebruikt om de waarde van een eigenschap te wijzigen.
+
+[source, javascript]
+----
+class Cirkel {
+    constructor(straal) {
+        this._straal = straal;
+    }
+
+    get straal() {
+        return this._straal;
+    }
+
+    set straal(nieuweStraal) {
+        if (nieuweStraal <= 0) {
+            console.log("Straal moet groter zijn dan 0.");
+        } else {
+            this._straal = nieuweStraal;
+        }
+    }
+}
+
+const mijnCirkel = new Cirkel(10);
+console.log(mijnCirkel.straal);  // Output: 10
+mijnCirkel.straal = 15;          // Wijzig de straal naar 15
+console.log(mijnCirkel.straal);  // Output: 15
+----
+
+In dit voorbeeld gebruiken we een getter om de waarde van `straal` op te halen, en een setter om de waarde van `straal` veilig bij te werken. De setter controleert of de nieuwe straal groter is dan nul voordat deze wordt bijgewerkt.
+
+== Conclusie ==
+JavaScript is een krachtige en flexibele programmeertaal die onmisbaar is voor webontwikkeling. Of je nu eenvoudige interactiviteit aan een website wilt toevoegen of complexe webapplicaties wilt maken, JavaScript biedt de tools om dit te doen.
+
+In dit hoofdstuk hebben we de basisprincipes van JavaScript besproken, zoals variabelen, functies, control flow, event handling en objecten. Door deze concepten goed te beheersen, kun je effectieve en dynamische webtoepassingen maken.

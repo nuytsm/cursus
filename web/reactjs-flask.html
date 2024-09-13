@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>Symetrische en asymetrische encryptie</title>
+<title>ReactJS gebruiken met Python Flask</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -434,26 +434,209 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Symetrische en asymetrische encryptie</h1>
+<h1>ReactJS gebruiken met Python Flask</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_symmetrische_encryptie">Symmetrische encryptie</a></li>
-<li><a href="#_asymmetrische_encryptie">Asymmetrische encryptie</a></li>
-<li><a href="#_digitale_handtekening">Digitale handtekening</a>
+<li><a href="#_waarom_reactjs_en_flask_combineren">1. Waarom ReactJS en Flask combineren?</a></li>
+<li><a href="#_projectstructuur">2. Projectstructuur</a></li>
+<li><a href="#_installatie_en_setup">3. Installatie en Setup</a>
 <ul class="sectlevel2">
-<li><a href="#_hashwaarde">Hashwaarde</a></li>
-<li><a href="#_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</a></li>
+<li><a href="#_1_flask_backend_setup">3.1. 1. Flask Backend Setup</a></li>
+<li><a href="#_2_reactjs_frontend_setup">3.2. 2. ReactJS Frontend Setup</a></li>
+<li><a href="#_3_proxy_instellen">3.3. 3. Proxy Instellen</a></li>
 </ul>
 </li>
-<li><a href="#_het_compromis_voor_snelheid">Het compromis voor snelheid</a>
+<li><a href="#_de_applicatie_draaien">4. De Applicatie Draaien</a>
 <ul class="sectlevel2">
-<li><a href="#_een_samenvatting_van_de_werking">Een samenvatting van de werking:</a></li>
+<li><a href="#_1_flask_backend">4.1. 1. Flask Backend</a></li>
+<li><a href="#_2_react_frontend">4.2. 2. React Frontend</a></li>
 </ul>
 </li>
+<li><a href="#_api_communicatie_en_data_handling">5. API-Communicatie en Data Handling</a></li>
+<li><a href="#_afhandelen_van_formulieren_en_post_requests">6. Afhandelen van Formulieren en Post Requests</a></li>
+<li><a href="#_conclusie">7. Conclusie</a></li>
 </ul>
 </div>
 </div>
@@ -461,236 +644,301 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bij encryptie of versleuteling wordt een boodschap (de ‘plaintext’) op zo’n manier gecodeerd dat alleen iemand met de juiste sleutel de oorspronkelijke boodschap kan decoderen.
-De versleutelde versie van de boodschap wordt ook wel ‘ciphertext’ genoemd.
-Wie de ciphertext dus weer in de oorspronkelijke boodschap wil omzetten (dat proces heet ‘decryptie’), heeft de sleutel nodig.
-De sleutel is in principe een willekeurig getal.
-In de praktijk maken we gebruik van een wachtwoord en dus wordt het wachtwoord via een ‘key derivation function’ eerst omgezet naar een willekeurig getal dat dan als sleutel dient.</p>
+<p>We willen een ReactJS-frontend combineren met een Python Flask-backend.</p>
 </div>
 <div class="paragraph">
-<p>Er bestaan diverse manieren om die versleuteling uit te voeren.
-Zo’n manier heet een encryptie-algoritme of ‘cipher’.
-De Nederlandse taalkundige en cryptograaf Auguste Kerckhoffs stelde al in de 19de eeuw een belangrijk ontwerpprincipe op: een encryptie-algoritme moet zelfs veilig zijn als alle details van het systeem publiek bekend zijn, behalve de sleutel.
-Dit principe van Kerckhoffs is anno 2020 nog altijd even belangrijk voor de veiligheid van een encryptie-algoritme.</p>
+<p>Deze combinatie van technologieën wordt vaak gebruikt om een gescheiden frontend-backendarchitectuur op te zetten.
+En om een databank te kunnen queriën via Python.</p>
 </div>
 <div class="paragraph">
-<p>Als iemand je dus wil overtuigen om een propriëtair, topgeheim encryptiesysteem te gebruiken, loop er dan maar in een wijde boog omheen.
-De enige verantwoorde keuzes voor encryptiesystemen zijn algoritmes waarvan de specificatie openbaar is, waarvan de ontwikkeling in open commissies gebeurt en waarvan opensource implementaties bestaan.</p>
+<p>ReactJS wordt gebruikt voor het maken van interactieve user interfaces, terwijl Flask zorgt voor de server-side logica en API-communicatie.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_waarom_reactjs_en_flask_combineren">1. Waarom ReactJS en Flask combineren?</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>De diverse encryptie-algoritmes zijn in twee groepen onder te verdelen:</p>
+<p>Het gebruik van een gescheiden frontend (ReactJS) en backend (Flask) biedt verschillende voordelen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Symmetrische</p>
+<p><strong>Losse koppelbaarheid</strong>: React en Flask werken onafhankelijk van elkaar, waardoor de frontend en backend apart kunnen worden ontwikkeld en gehost.</p>
 </li>
 <li>
-<p>Asymmetrische</p>
+<p><strong>Herbruikbare API&#8217;s</strong>: De backend kan RESTful API&#8217;s aanbieden die door meerdere clients (zoals web, mobiel, etc.) gebruikt kunnen worden.</p>
+</li>
+<li>
+<p><strong>Schaalbaarheid</strong>: Dit maakt het eenvoudiger om onderdelen van de applicatie te schalen of te vervangen zonder dat dit grote gevolgen heeft voor het hele systeem.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_symmetrische_encryptie">Symmetrische encryptie</h2>
+<h2 id="_projectstructuur">2. Projectstructuur</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bij die eerste (‘symmetric-key encryption’) gebeuren de encryptie en decryptie met dezelfde sleutel.
-Een voorbeeld van zo’n algoritme is AES (Advanced Encryption Standard).
-Bijna alle programma’s die tegenwoordig symmetrische encryptie aanbieden, doen dat met AES.
-Zo ook BitLocker in Windows, FileVault in macOS en LUKS (Linux Unified Key Setup) in Linux.</p>
+<p>Een typische structuur voor een project met React en Flask ziet er als volgt uit:</p>
 </div>
-<div class="paragraph">
-<p>Algoritmes voor <strong>symmetrische encryptie werken doorgaans snel</strong>.</p>
+<div class="listingblock">
+<div class="content">
+<pre>mijn-project/
+│
+├── backend/
+│   ├── app.py
+│   └── templates/
+│       └── index.html
+│
+└── frontend/
+    └── src/
+        └── index.js</pre>
 </div>
-<div class="paragraph">
-<p>Enkele voorbeelden hiervan zijn:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>DES (Data Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Data_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Data_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>DES wordt nu als onveilig beschouwd, het is relatief makkelijk kraakbaar. Het gebruikt een sleutellengte van slechts 64 bits.</p>
-</div>
+<p><strong>backend/</strong>: Dit bevat de Flask-server en de API-logica.</p>
 </li>
 <li>
-<p>AES of het Rijndaelcijfer (Advanced Encryption Standard)</p>
-<div class="paragraph">
-<p><a href="https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard" class="bare">https://nl.wikipedia.org/wiki/Advanced_Encryption_Standard</a></p>
-</div>
-<div class="paragraph">
-<p>De veilige opvolger van DES. AES laat het gebruik van langere sleutellengtes toe (met blokken van minimun 128 bits).</p>
-</div>
+<p><strong>frontend/</strong>: Dit is waar de ReactJS-applicatie zich bevindt, met de componenten, logica en frontendcode.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Maar dat encryptie en decryptie dezelfde sleutel vereisen, zorgt in heel wat situaties voor praktische problemen.
-Als je een versleutelde boodschap met iemand wilt uitwisselen, dienen de ontvanger en jij namelijk ook de gebruikte sleutel uit te wisselen.
-Dat doe je het liefst op een veilige manier, maar de vraag is hoe: met encryptie? Maar hoe zit het dan met de sleutel daarvoor?</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asymmetrische_encryptie">Asymmetrische encryptie</h2>
+<h2 id="_installatie_en_setup">3. Installatie en Setup</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Asymmetrische encryptie (met als bekendste algoritme RSA) pakt dit probleem aan door de sleutel voor encryptie en de sleutel voor decryptie los te koppelen.
-Bij deze vorm van encryptie heb je namelijk niet één sleutel meer voor encryptie én decryptie, maar een sleutelpaar.
-Twee afzonderlijke sleutels: <mark>één voor encryptie en één voor decryptie</mark>.</p>
-</div>
-<div class="paragraph">
-<p>Hoe werkt dat in de praktijk?
-De encryptiesleutel publiceer je en iedereen mag die zien.
-Deze sleutel wordt dan ook de <mark>publieke sleutel</mark> genoemd. De decryptiesleutel houd je zelf bij en je zorgt dat alleen jijzelf deze sleutel kan inzien.
-Die heet daarom ook de geheime sleutel of <mark><em>private key</em></mark>.
-Als iemand een boodschap met je publieke sleutel versleutelt, kan alleen jij met de bijbehorende geheime sleutel (<em>private key</em>) de boodschap decrypteren.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="encrypt1.jpg" alt="Public private key encryptie">
-</div>
-</div>
-<div class="paragraph">
-<p><mark>Bob versleutelt zijn boodschap met de publieke sleutel van Alice.</mark>
-Alleen Alice kan de boodschap lezen, met haar geheime sleutel – bron: Wikipedia, David Göthberg</p>
-</div>
-<div class="paragraph">
-<p>Een bijkomend voorbeeld:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="encrypt3.png" alt="Public private key encryption">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_digitale_handtekening">Digitale handtekening</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Als je de twee sleutels omdraait, krijg je iets heel anders: een digitale handtekening.
-Je zendt dan een boodschap (onversleuteld) aan iemand anders en zendt ook diezelfde boodschap mee, versleuteld met je eigen geheime sleutel.</p>
-</div>
-<div class="paragraph">
-<p>De ontvanger kan met jouw publieke sleutel, die immers gewoon bekend is, de versleutelde boodschap decrypteren.
-Als er niets met de boodschap gebeurd is, zou die ontsleutelde boodschap exact moeten overeenkomen met de boodschap die je samen met de digitale handtekening hebt verzonden.</p>
-</div>
-<div class="paragraph">
-<p>Het resultaat? De digitale handtekening garandeert twee zaken: <mark>authenticatie van de zender en integriteit van de boodschap</mark>.
-Jij bent namelijk de enige met toegang tot je geheime sleutel.
-Als de ontvanger met je bijbehorende publieke sleutel je digitale handtekening kan ontsleutelen, weet die dan ook zeker dat jij die digitale handtekening hebt aangemaakt.
-En omdat de ontsleutelde digitale handtekening exact overeenkomt met de boodschap die je stuurde, weet hij ook zeker dat niemand die boodschap tussen de zender en ontvanger heeft veranderd.</p>
-</div>
 <div class="sect2">
-<h3 id="_hashwaarde">Hashwaarde</h3>
+<h3 id="_1_flask_backend_setup">3.1. 1. Flask Backend Setup</h3>
 <div class="paragraph">
-<p>In de praktijk wordt die digitale handtekening niet berekend op de boodschap zelf, want dan zou elke boodschap dubbel zo groot worden: de boodschap zelf en een versleutelde versie daarvan.
-Daarom wordt een hashwaarde van de boodschap berekend.</p>
+<p>Begin met het instellen van de Flask-backend. Installeer Flask als volgt:</p>
 </div>
-<div class="paragraph">
-<p>Een hashwaarde is een getal van een vaste lengte, dat afhangt van een boodschap van willekeurige lengte.
-<mark>Een eigenschap van een hashwaarde is dat als de boodschap verandert, de hashwaarde ervan ook verandert.</mark>
-Als je de hashwaarde van twee boodschappen vergelijkt en die identiek zijn, ben je zo goed als zeker dat ook die boodschappen zelf identiek zijn, zonder dat je de inhoud van die boodschappen hoeft te kennen.</p>
-</div>
-<div class="paragraph">
-<p>Een digitale handtekening maak je in de praktijk dan ook door een hashwaarde van je boodschap te berekenen, die hashwaarde te versleutelen met je geheime sleutel en het resultaat (een kort getal) mee te sturen met je boodschap.
-De ontvanger hoeft je digitale handtekening maar te ontsleutelen met je publieke sleutel en de resulterende hashwaarde te vergelijken met de hashwaarde van je boodschap, die hij eenvoudig kan berekenen.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="encrypt2.jpg" alt="Public private key signing">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Alice versleutelt de hashwaarde van haar boodschap met haar geheime sleutel. Bob kan met de publieke sleutel van Alice verifiëren of de boodschap van haar komt.</p>
+<p>Maak een bestand aan genaamd <code>app.py</code> in de map <code>backend/</code>. Dit is waar we onze Flask-applicatie instellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/data</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Hello from Flask!</span><span class="sh">"</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een eenvoudige API-route gedefinieerd die een JSON-response retourneert. Wanneer je de server start, kan je via <code>/api/data</code> toegang krijgen tot deze API.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_encryptie_en_handtekening_tegelijk">Encryptie en handtekening tegelijk</h3>
+<h3 id="_2_reactjs_frontend_setup">3.2. 2. ReactJS Frontend Setup</h3>
 <div class="paragraph">
-<p>Dit alles kun je nu ook nog combineren: je versleutelt je boodschap met de publieke sleutel van de ontvanger, berekent een hashwaarde van de (onversleutelde) boodschap en versleutelt die met je eigen geheime sleutel.
-De versleutelde boodschap stuur je samen met de digitale handtekening naar de ontvanger.
-Die ontsleutelt de boodschap met zijn geheime sleutel en ontsleutelt de digitale handtekening met jouw publieke sleutel.
-Hij berekent de hashwaarde van je ontsleutelde boodschap en vergelijkt die met de ontsleutelde digitale handtekening.</p>
+<p>Om de frontend op te zetten, gebruik je <code>create-react-app</code> zoals besproken in het vorige hoofdstuk.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npx create-react-app frontend
+<span class="nb">cd </span>frontend</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Op die manier heb je een boodschap naar de ontvanger gestuurd die niemand anders kan lezen en de ontvanger weet zeker dat jij de boodschap gestuurd hebt en dat er onderweg niets aan de boodschap veranderd is.
-Dat is de kracht van asymmetrische encryptie!</p>
+<p>Dit genereert een standaard React-projectstructuur. Open vervolgens <code>src/App.js</code> en vervang de inhoud met de volgende code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">({</span> <span class="na">message</span><span class="p">:</span> <span class="dl">''</span> <span class="p">});</span>
+
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/data</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">())</span>
+      <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nf">setData</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld maakt de React-applicatie een fetch-call naar de Flask-backend om data op te halen. Deze wordt vervolgens weergegeven in de user interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_proxy_instellen">3.3. 3. Proxy Instellen</h3>
+<div class="paragraph">
+<p>Omdat React en Flask op <mark>verschillende TCP poorten</mark> draaien, moeten we een <mark>proxy instellen</mark> in het React-project. Open het bestand <code>package.json</code> in de frontend-map en voeg het volgende toe:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><span class="nl">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="err">,</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zorgt ervoor dat alle API-aanvragen die vanuit React komen (bijv. <code>/api/data</code>) worden doorgestuurd naar de Flask-backend op poort 5000.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_het_compromis_voor_snelheid">Het compromis voor snelheid</h2>
+<h2 id="_de_applicatie_draaien">4. De Applicatie Draaien</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_flask_backend">4.1. 1. Flask Backend</h3>
 <div class="paragraph">
-<p>Het nadeel van symmetrische encryptie is dat het zeer traag werkt.
-Eigenlijk is het niet geschikt om alle data (websites etc) over het internet op die encrypteren.</p>
+<p>Start de Flask-server in de <code>backend</code>-map door het volgende commando uit te voeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">python app.py</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Daarom heeft men voor een compromis gezorgd:</p>
+<p>De Flask-server draait nu op <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.</p>
 </div>
-<div class="paragraph">
-<p><mark>Asymmetrische encryptie wordt gebruikt om sleutels van symmetrische encryptie uit te wisselen.</mark>
-Op die manier neemt men het grootste nadeel van symmetrische encryptie weg (het delen van de sleutel). En ook het nadeel van asymmetrisch encryptie wordt aangepakt (snelheid).</p>
-</div>
-<div class="paragraph">
-<p>Asymmetrische encryptie wordt voor een klein, maar belangrijk deel, van de communicatie gebruikt. Dit zijn hybride systemen.</p>
 </div>
 <div class="sect2">
-<h3 id="_een_samenvatting_van_de_werking">Een samenvatting van de werking:</h3>
+<h3 id="_2_react_frontend">4.2. 2. React Frontend</h3>
 <div class="paragraph">
-<p>De tekst die men geëncrypteerd wil doorsturen, wordt versleuteld door <strong>symmertrische</strong> encryptie.
-Dit is vaak een 128bit cijfer, maar het kan groter zijn.
-Bij symmetrische encryptie moeten beide partijen over dezelfde sleutel beschikken.</p>
+<p>Ga naar de <code>frontend</code>-map en start de React-app met:</p>
 </div>
-<div class="paragraph">
-<p>Om dit gedaan te krijgen moet de ene partij de sleutel van de symmetrische encryptie doorsturen naar de andere partij.
-Dit gebeurt op een veilige manier door de sleutel door te sturen met behulp van asymmetrische encryptie (public key encryption).</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npm start</code></pre>
 </div>
-<div class="paragraph">
-<p>De publieke sleutel van de bestemmeling wordt gebruikt om de symmetrische sleutel te encrypteren.
-De bestemmeling kan vervolgens met zijn <em><strong>private key</strong></em> de geëncrypteerde data decrypteren om tot de sleutel van de symmetrische encryptie te komen.</p>
 </div>
 <div class="paragraph">
-<p>Met deze informatie kan hij vervolgens de tekst die werd doorgestuurd decrypteren.
-De symmetrische encryptiesleutel wordt weggegooid na de huidige sessie.
-De asymmetrische encryptiesleutel kan langer in gebruik blijven (afhankelijk van het gebruikte systeem).</p>
+<p>De React-applicatie draait nu op <code><a href="http://localhost:3000" class="bare">http://localhost:3000</a></code>, en maakt gebruik van de Flask-backend om data op te halen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_communicatie_en_data_handling">5. API-Communicatie en Data Handling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>De kracht van een React-frontend met een Flask-backend zit in de mogelijkheid om gemakkelijk data tussen frontend en backend te laten communiceren via API-endpoints.
+Dit stelt je in staat om een dynamische frontend op te bouwen met real-time data die wordt opgehaald van de backend.</p>
 </div>
 <div class="paragraph">
-<p>Een korte levensduur voor de symmetrische sleutel, verkleint het succes van <em>bruteforce</em> aanvallen om de sleutel te achterhalen.</p>
+<p>In het vorige voorbeeld hebben we slechts één API-endpoint gebruikt.
+Je kunt meerdere API-routes in Flask definiëren om verschillende soorten data te leveren aan de React-frontend, zoals gebruikersinformatie, productgegevens, of statistieken.</p>
 </div>
 <div class="paragraph">
-<p>Tegenwoordig maken browsers gebruik van <em>Transport Layer Security (TLS)</em> en zijn voorganger, Secure Sockets Layer (SSL).</p>
+<p>Hier is een voorbeeld waarin we data van een database halen en naar de frontend sturen:</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title=":information_source:"></i>
-</td>
-<td class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="n">sqlite3</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_db_data</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="sh">'</span><span class="s">data.db</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">'</span><span class="s">SELECT * FROM users</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="nf">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">users</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/users</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="nf">get_db_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Bij communicatie in 2 richtingen wordt bovenstaande procedure vaak 2x toegepast. 1x in elke richting (met de andere computer als vertrekpunt en dus ook telkens geëncrypteerd met de public key van de tegenpartij).
-De gebruikte sleutels voor de asymmetrische en de symmetrische encryptie zijn in beide richtingen verschillend.</p>
+<p>In dit voorbeeld haalt de backend gebruikersgegevens op uit een SQLite-database en stuurt deze naar de frontend als JSON.</p>
 </div>
-</td>
-</tr>
-</table>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_afhandelen_van_formulieren_en_post_requests">6. Afhandelen van Formulieren en Post Requests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Naast het ophalen van data via GET-aanvragen, kun je ook POST-aanvragen sturen vanuit React naar Flask om data naar de server te sturen, bijvoorbeeld bij het invullen van een formulier.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een voorbeeld van hoe je een POST-aanvraag kunt afhandelen in zowel React als Flask.</p>
+</div>
+<div class="paragraph">
+<p><strong>ReactJS - versturen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="kd">function</span> <span class="nf">sendData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}),</span>
+  <span class="p">});</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Flask - ontvangen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/send</span><span class="sh">'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">POST</span><span class="sh">'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">receive_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">get_json</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Verwerk de data zoals nodig
+</span>    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">"</span><span class="s">status</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">success</span><span class="sh">"</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een JSON-object met gebruikersinformatie verstuurd vanuit React en ontvangen door Flask. De data kan vervolgens worden verwerkt of opgeslagen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusie">7. Conclusie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Door ReactJS en Flask te combineren, kun je een krachtige en moderne webapplicatie opzetten met een scheiding tussen frontend en backend.
+React zorgt voor een dynamische gebruikersinterface, terwijl Flask de API en backend-logica afhandelt.
+Met de flexibiliteit van beide technologieën kun je gemakkelijk uitbreiden en aanpassen naar de behoeften van je project.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-09-15 06:47:33 +0200
+Last updated 2024-09-13 09:34:56 +0200
 </div>
 </div>
 </body>

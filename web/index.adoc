@@ -15,4 +15,10 @@
 
 :leveloffset: +1
 
-include::html.adoc[]
+include::javascript.adoc[]
+
+include::reactjs.adoc[]
+
+include::reactjs-flask.adoc[]
+
+include::encryptie.adoc[]
