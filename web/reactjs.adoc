@@ -43,10 +43,22 @@ Belangrijkste functies van NPM:
 
 Om NPM te gebruiken, moet je eerst Node.js installeren, omdat NPM samen met Node.js wordt geleverd. Volg deze stappen:
 
-1. Ga naar de officiële Node.js-website: https://nodejs.org/
-2. Download de **LTS**-versie (Long Term Support) en installeer deze op je computer.
-3. Controleer na de installatie of Node.js en NPM correct zijn geïnstalleerd door de volgende commando's in je terminal of command prompt uit te voeren:
-
+. Installeer **NVM** (Node version manager) in windows
++
+Zie: https://github.com/coreybutler/nvm-windows?tab=readme-ov-file 
++
+. Installeer **nodejs** via NVM
++
+**Open een commandprompt of powershell:**
++
+----
+nvm install --lts
+nvm use lts
+----
++
+. Download de **LTS**-versie (Long Term Support) en installeer deze op je computer.
+. Controleer na de installatie of Node.js en NPM correct zijn geïnstalleerd door de volgende commando's in je terminal of command prompt uit te voeren:
++
 [source, bash]
 ----
 node -v
@@ -88,6 +100,8 @@ npm start
 Dit zal een nieuwe React-applicatie genereren met een basisstructuur en de benodigde dependencies. De applicatie draait lokaal op `http://localhost:3000`.
 
 == 3. Componenten in React ==
+
+TIP: Volg de reactjs tutorial hier: https://react.dev/learn 
 
 React is gebaseerd op het concept van componenten. Een component is een herbruikbare bouwsteen die zowel functionaliteit als weergave kan bevatten. Je kunt componenten zien als individuele functies die een bepaald deel van de UI representeren. React-componenten kunnen op twee manieren worden gedefinieerd: als functionele componenten en als class-componenten.
 
