@@ -650,51 +650,66 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_foutafhandeling">8. Foutafhandeling</a></li>
 <li><a href="#_development_vs_production">9. Development vs production</a></li>
 <li><a href="#_debugging_en_herladen">10. Debugging en Herladen</a></li>
-<li><a href="#_extensies">11. Extensies</a></li>
-<li><a href="#_extensie_sqlalchemy_in_flask">12. Extensie: SQLAlchemy in Flask</a>
+<li><a href="#_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</a>
 <ul class="sectlevel2">
-<li><a href="#_installatie_van_flask_sqlalchemy">12.1. Installatie van Flask-SQLAlchemy</a></li>
-<li><a href="#_configureren_van_flask_sqlalchemy">12.2. Configureren van Flask-SQLAlchemy</a>
+<li><a href="#_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</a></li>
+<li><a href="#_installatie_en_setup">11.2. Installatie en Setup</a></li>
+<li><a href="#_1_flask_backend_setup">11.3. 1. Flask Backend Setup</a></li>
+<li><a href="#_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</a></li>
+<li><a href="#_3_proxy_instellen">11.5. 3. Proxy Instellen</a></li>
+<li><a href="#_de_applicatie_draaien">11.6. De Applicatie Draaien</a></li>
+<li><a href="#_1_flask_backend">11.7. 1. Flask Backend</a></li>
+<li><a href="#_2_react_frontend">11.8. 2. React Frontend</a></li>
+<li><a href="#_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</a></li>
+<li><a href="#_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</a></li>
+<li><a href="#_conclusie">11.11. Conclusie</a></li>
+</ul>
+</li>
+<li><a href="#_extensies">12. Extensies</a></li>
+<li><a href="#_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</a>
+<ul class="sectlevel2">
+<li><a href="#_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</a></li>
+<li><a href="#_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_basisconfiguratie">12.2.1. Voorbeeld van een basisconfiguratie</a></li>
+<li><a href="#_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</a></li>
 </ul>
 </li>
-<li><a href="#_het_maken_van_een_model">12.3. Het maken van een Model</a>
+<li><a href="#_het_maken_van_een_model">13.3. Het maken van een Model</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_modelklasse">12.3.1. Voorbeeld van een modelklasse</a></li>
+<li><a href="#_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</a></li>
 </ul>
 </li>
-<li><a href="#_het_aanmaken_van_de_database">12.4. Het aanmaken van de database</a>
+<li><a href="#_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_aanmaken_van_de_database">12.4.1. Voorbeeld van het aanmaken van de database</a></li>
+<li><a href="#_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</a></li>
 </ul>
 </li>
-<li><a href="#_het_toevoegen_van_recordsrows">12.5. Het toevoegen van records/rows</a>
+<li><a href="#_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_toevoegen_van_een_gebruiker">12.5.1. Voorbeeld van het toevoegen van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_opvragen_van_records">12.6. Het opvragen van records</a>
+<li><a href="#_het_opvragen_van_records">13.6. Het opvragen van records</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_opvragen_van_een_gebruiker">12.6.1. Voorbeeld van het opvragen van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_updaten_van_records">12.7. Het updaten van records</a>
+<li><a href="#_het_updaten_van_records">13.7. Het updaten van records</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_updaten_van_een_gebruiker">12.7.1. Voorbeeld van het updaten van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_verwijderen_van_records">12.8. Het verwijderen van records</a></li>
-<li><a href="#_voorbeeld_van_het_verwijderen_van_een_gebruiker">12.9. Voorbeeld van het verwijderen van een gebruiker</a></li>
-<li><a href="#_relaties_tussen_modellen">12.10. Relaties tussen modellen</a>
+<li><a href="#_het_verwijderen_van_records">13.8. Het verwijderen van records</a></li>
+<li><a href="#_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</a></li>
+<li><a href="#_relaties_tussen_modellen">13.10. Relaties tussen modellen</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">12.10.1. Voorbeeld van een één-op-veel relatie</a></li>
+<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</a></li>
 </ul>
 </li>
-<li><a href="#_migraties_uitvoeren">12.11. Migraties uitvoeren</a></li>
+<li><a href="#_migraties_uitvoeren">13.11. Migraties uitvoeren</a></li>
 </ul>
 </li>
-<li><a href="#_samenvatting">13. Samenvatting</a></li>
+<li><a href="#_samenvatting">14. Samenvatting</a></li>
 </ul>
 </div>
 </div>
@@ -1178,7 +1193,255 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extensies">11. Extensies</h2>
+<h2 id="_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het integreren van een ReactJS-frontend met een Python Flask-backend: Deze combinatie van technologieën wordt vaak gebruikt om een gescheiden frontend-backendarchitectuur op te zetten. ReactJS wordt gebruikt voor het maken van interactieve user interfaces, terwijl Flask zorgt voor de server-side logica en API-communicatie.</p>
+</div>
+<div class="sect2">
+<h3 id="_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</h3>
+<div class="paragraph">
+<p>Het gebruik van een gescheiden frontend (ReactJS) en backend (Flask) biedt verschillende voordelen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Losse koppelbaarheid</strong>: React en Flask werken onafhankelijk van elkaar, waardoor de frontend en backend apart kunnen worden ontwikkeld en gehost.</p>
+</li>
+<li>
+<p><strong>Herbruikbare API&#8217;s</strong>: De backend kan RESTful API&#8217;s aanbieden die door meerdere clients (zoals web, mobiel, etc.) gebruikt kunnen worden.</p>
+</li>
+<li>
+<p><strong>Schaalbaarheid</strong>: Dit maakt het eenvoudiger om onderdelen van de applicatie te schalen of te vervangen zonder dat dit grote gevolgen heeft voor het hele systeem.</p>
+</li>
+<li>
+<p><strong>backend/</strong>: Dit bevat de Flask-server en de API-logica.</p>
+</li>
+<li>
+<p><strong>frontend/</strong>: Dit is waar de ReactJS-applicatie zich bevindt, met de componenten, logica en frontendcode.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installatie_en_setup">11.2. Installatie en Setup</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_1_flask_backend_setup">11.3. 1. Flask Backend Setup</h3>
+<div class="paragraph">
+<p>Begin met het instellen van de Flask-backend. Installeer Flask als volgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maak een bestand aan genaamd <code>app.py</code> in de map <code>backend/</code>. Dit is waar we onze Flask-applicatie instellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/data</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Hello from Flask!</span><span class="sh">"</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een eenvoudige API-route gedefinieerd die een JSON-response retourneert. Wanneer je de server start, kan je via <code>/api/data</code> toegang krijgen tot deze API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</h3>
+<div class="paragraph">
+<p>Om de frontend op te zetten, gebruik je <code>create-react-app</code> zoals besproken in het hoofdstuk 'reactjs' in webdesign.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npx create-react-app frontend
+<span class="nb">cd </span>frontend</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit genereert een standaard React-projectstructuur. Open vervolgens <code>src/App.js</code> en vervang de inhoud met de volgende code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">({</span> <span class="na">message</span><span class="p">:</span> <span class="dl">''</span> <span class="p">});</span>
+
+  <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/data</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">())</span>
+      <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nf">setData</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return </span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld maakt de React-applicatie een fetch-call naar de Flask-backend om data op te halen. Deze wordt vervolgens weergegeven in de user interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_proxy_instellen">11.5. 3. Proxy Instellen</h3>
+<div class="paragraph">
+<p>Omdat React en Flask op verschillende poorten draaien, moeten we een proxy instellen in het React-project. Open het bestand <code>package.json</code> in de frontend-map en voeg het volgende toe:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><span class="nl">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="err">,</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zorgt ervoor dat alle API-aanvragen die vanuit React komen (bijv. <code>/api/data</code>) worden doorgestuurd naar de Flask-backend op poort 5000.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_applicatie_draaien">11.6. De Applicatie Draaien</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_1_flask_backend">11.7. 1. Flask Backend</h3>
+<div class="paragraph">
+<p>Start de Flask-server in de <code>backend</code>-map door het volgende commando uit te voeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">python app.py</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De Flask-server draait nu op <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_react_frontend">11.8. 2. React Frontend</h3>
+<div class="paragraph">
+<p>Ga naar de <code>frontend</code>-map en start de React-app met:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npm start</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De React-applicatie draait nu op <code><a href="http://localhost:3000" class="bare">http://localhost:3000</a></code>, en maakt gebruik van de Flask-backend om data op te halen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</h3>
+<div class="paragraph">
+<p>De React-frontend communiceert met de Flask-backend via API-endpoints. Dit stelt je in staat om een dynamische frontend op te bouwen met real-time data die wordt opgehaald van de backend.</p>
+</div>
+<div class="paragraph">
+<p>In het vorige voorbeeld hebben we slechts één API-endpoint gebruikt. Je kunt meerdere API-routes in Flask definiëren om verschillende soorten data te leveren aan de React-frontend, zoals gebruikersinformatie, productgegevens, of statistieken.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een uitgebreid voorbeeld waarin we data van een database halen en naar de frontend sturen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="n">sqlite3</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_db_data</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="sh">'</span><span class="s">data.db</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">'</span><span class="s">SELECT * FROM users</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="nf">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">users</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/users</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="nf">get_db_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld haalt de backend gebruikersgegevens op uit een SQLite-database en stuurt deze naar de frontend als JSON.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</h3>
+<div class="paragraph">
+<p>Naast het ophalen van data via GET-aanvragen, kun je ook POST-aanvragen sturen vanuit React naar Flask om data naar de server te sturen, bijvoorbeeld bij het invullen van een formulier.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een voorbeeld van hoe je een POST-aanvraag kunt afhandelen in zowel React als Flask.</p>
+</div>
+<div class="paragraph">
+<p><strong>ReactJS - versturen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="kd">function</span> <span class="nf">sendData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}),</span>
+  <span class="p">});</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Flask - ontvangen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/send</span><span class="sh">'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">POST</span><span class="sh">'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">receive_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">get_json</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Verwerk de data zoals nodig
+</span>    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span><span class="sh">"</span><span class="s">status</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">success</span><span class="sh">"</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een JSON-object met gebruikersinformatie verstuurd vanuit React en ontvangen door Flask. De data kan vervolgens worden verwerkt of opgeslagen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusie">11.11. Conclusie</h3>
+<div class="paragraph">
+<p>Door ReactJS en Flask te combineren, kun je een krachtige en moderne webapplicatie opzetten met een scheiding tussen frontend en backend. React zorgt voor een dynamische gebruikersinterface, terwijl Flask de API en backend-logica afhandelt. Met de flexibiliteit van beide technologieën kun je gemakkelijk uitbreiden en aanpassen naar de behoeften van je project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extensies">12. Extensies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Hoewel Flask een "micro" framework is, kan het worden uitgebreid met verschillende extensies.
@@ -1197,7 +1460,7 @@ Enkele populaire Flask-extensies zijn:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extensie_sqlalchemy_in_flask">12. Extensie: SQLAlchemy in Flask</h2>
+<h2 id="_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SQLAlchemy is een Object Relational Mapper (ORM) voor Python die een abstractielaag biedt tussen relationele databases en Python-objecten.</p>
@@ -1207,7 +1470,7 @@ Enkele populaire Flask-extensies zijn:</p>
 Flask integreert SQLAlchemy naadloos via de <code>Flask-SQLAlchemy</code> extensie, wat het gebruik van databases eenvoudiger en overzichtelijker maakt.</p>
 </div>
 <div class="sect2">
-<h3 id="_installatie_van_flask_sqlalchemy">12.1. Installatie van Flask-SQLAlchemy</h3>
+<h3 id="_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</h3>
 <div class="paragraph">
 <p>Om SQLAlchemy te gebruiken binnen Flask, moet je eerst de benodigde module installeren. Dit kan eenvoudig worden gedaan via pip:</p>
 </div>
@@ -1221,13 +1484,13 @@ Flask integreert SQLAlchemy naadloos via de <code>Flask-SQLAlchemy</code> extens
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configureren_van_flask_sqlalchemy">12.2. Configureren van Flask-SQLAlchemy</h3>
+<h3 id="_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</h3>
 <div class="paragraph">
 <p>Voordat je met SQLAlchemy kunt werken, moet je de database configureren.
 In Flask gebeurt dit door de <code>SQLALCHEMY_DATABASE_URI</code> configuratieparameter in te stellen. Dit geeft aan met welk type database je wilt verbinden en waar deze zich bevindt.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_basisconfiguratie">12.2.1. Voorbeeld van een basisconfiguratie</h4>
+<h4 id="_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
@@ -1249,13 +1512,13 @@ In Flask gebeurt dit door de <code>SQLALCHEMY_DATABASE_URI</code> configuratiepa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_maken_van_een_model">12.3. Het maken van een Model</h3>
+<h3 id="_het_maken_van_een_model">13.3. Het maken van een Model</h3>
 <div class="paragraph">
 <p>In SQLAlchemy wordt een database weergegeven door middel van "modellen".
 Een <strong>model is een Python-klasse die een tabel in de database vertegenwoordigt</strong>, waarbij de attributen van de klasse de kolommen van de tabel vertegenwoordigen.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_modelklasse">12.3.1. Voorbeeld van een modelklasse</h4>
+<h4 id="_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
@@ -1276,12 +1539,12 @@ Een <strong>model is een Python-klasse die een tabel in de database vertegenwoor
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_aanmaken_van_de_database">12.4. Het aanmaken van de database</h3>
+<h3 id="_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</h3>
 <div class="paragraph">
 <p>Nadat de modellen zijn gedefinieerd, moet de database worden aangemaakt. Dit kan eenvoudig worden gedaan door de <code>create_all()</code> methode van SQLAlchemy te gebruiken.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_aanmaken_van_de_database">12.4.1. Voorbeeld van het aanmaken van de database</h4>
+<h4 id="_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="nf">app_context</span><span class="p">():</span>
@@ -1294,12 +1557,12 @@ Een <strong>model is een Python-klasse die een tabel in de database vertegenwoor
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_toevoegen_van_recordsrows">12.5. Het toevoegen van records/rows</h3>
+<h3 id="_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</h3>
 <div class="paragraph">
 <p>Nadat de database en de modellen zijn aangemaakt, kun je records (rijen) toevoegen aan de tabel door een instantie van een model te maken en deze toe te voegen aan de sessie van de database.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_toevoegen_van_een_gebruiker">12.5.1. Voorbeeld van het toevoegen van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">new_user</span> <span class="o">=</span> <span class="nc">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe@example.com</span><span class="sh">'</span><span class="p">)</span>
@@ -1314,12 +1577,12 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_opvragen_van_records">12.6. Het opvragen van records</h3>
+<h3 id="_het_opvragen_van_records">13.6. Het opvragen van records</h3>
 <div class="paragraph">
 <p>Je kunt records uit de database opvragen door gebruik te maken van de query-functionaliteit van SQLAlchemy.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_opvragen_van_een_gebruiker">12.6.1. Voorbeeld van het opvragen van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1332,12 +1595,12 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_updaten_van_records">12.7. Het updaten van records</h3>
+<h3 id="_het_updaten_van_records">13.7. Het updaten van records</h3>
 <div class="paragraph">
 <p>Om een record te updaten, zoek je het eerst op, wijzig je het gewenste veld, en voer je de wijzigingen door met <code>commit()</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_updaten_van_een_gebruiker">12.7.1. Voorbeeld van het updaten van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1351,13 +1614,13 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_verwijderen_van_records">12.8. Het verwijderen van records</h3>
+<h3 id="_het_verwijderen_van_records">13.8. Het verwijderen van records</h3>
 <div class="paragraph">
 <p>Je kunt een record verwijderen door de methode <code>delete()</code> te gebruiken en vervolgens de wijzigingen door te voeren met <code>commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_voorbeeld_van_het_verwijderen_van_een_gebruiker">12.9. Voorbeeld van het verwijderen van een gebruiker</h3>
+<h3 id="_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1370,13 +1633,13 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_relaties_tussen_modellen">12.10. Relaties tussen modellen</h3>
+<h3 id="_relaties_tussen_modellen">13.10. Relaties tussen modellen</h3>
 <div class="paragraph">
 <p>SQLAlchemy ondersteunt relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties.
 Dit kan eenvoudig worden geïmplementeerd door gebruik te maken van de <code>db.relationship()</code> en <code>db.ForeignKey()</code> functies.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_één_op_veel_relatie">12.10.1. Voorbeeld van een één-op-veel relatie</h4>
+<h4 id="_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
@@ -1395,7 +1658,7 @@ De relatie tussen gebruikers en berichten wordt vastgelegd via de <code>db.relat
 </div>
 </div>
 <div class="sect2">
-<h3 id="_migraties_uitvoeren">12.11. Migraties uitvoeren</h3>
+<h3 id="_migraties_uitvoeren">13.11. Migraties uitvoeren</h3>
 <div class="paragraph">
 <p>Flask biedt, via de extensie <code>Flask-Migrate</code>, de mogelijkheid om database-migraties uit te voeren. Dit is handig wanneer je wijzigingen aanbrengt in je database zoals het toevoegen van nieuwe kolommen of tabellen.</p>
 </div>
@@ -1414,7 +1677,7 @@ De relatie tussen gebruikers en berichten wordt vastgelegd via de <code>db.relat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_samenvatting">13. Samenvatting</h2>
+<h2 id="_samenvatting">14. Samenvatting</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask is een flexibel en lichtgewicht framework waarmee je snel webapplicaties kunt bouwen.
@@ -1426,7 +1689,7 @@ Met ingebouwde ondersteuning voor routing, templates, foutafhandeling en extensi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-12 13:14:37 +0200
+Last updated 2024-09-24 09:13:01 +0200
 </div>
 </div>
 </body>
