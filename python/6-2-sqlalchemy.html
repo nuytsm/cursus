@@ -637,14 +637,15 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_gegevens_opvragen_uit_de_database">7. Gegevens opvragen uit de database</a></li>
 <li><a href="#_gegevens_updaten_in_de_database">8. Gegevens updaten in de database</a></li>
 <li><a href="#_gegevens_verwijderen_uit_de_database">9. Gegevens verwijderen uit de database</a></li>
-<li><a href="#_relaties_tussen_tabellen">10. Relaties tussen tabellen</a>
+<li><a href="#_werken_met_data_klassen">10. Werken met data klassen</a></li>
+<li><a href="#_relaties_tussen_tabellen">11. Relaties tussen tabellen</a>
 <ul class="sectlevel2">
-<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">10.1. Voorbeeld van een één-op-veel relatie</a></li>
+<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">11.1. Voorbeeld van een één-op-veel relatie</a></li>
 </ul>
 </li>
-<li><a href="#_transacties_beheren">11. Transacties beheren</a>
+<li><a href="#_transacties_beheren">12. Transacties beheren</a>
 <ul class="sectlevel2">
-<li><a href="#_voorbeeld_van_een_transactie">11.1. Voorbeeld van een transactie</a></li>
+<li><a href="#_voorbeeld_van_een_transactie">12.1. Voorbeeld van een transactie</a></li>
 </ul>
 </li>
 </ul>
@@ -895,13 +896,84 @@ Dit type aanval kan eenvoudig worden voorkomen met SQLAlchemy, omdat het automat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_relaties_tussen_tabellen">10. Relaties tussen tabellen</h2>
+<h2 id="_werken_met_data_klassen">10. Werken met data klassen</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span><span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">MetaData</span>
+<span class="kn">from</span> <span class="n">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+<span class="kn">from</span> <span class="n">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+
+<span class="c1"># Replace with your own database credentials
+</span><span class="n">username</span> <span class="o">=</span> <span class="sh">'</span><span class="s">root</span><span class="sh">'</span>
+<span class="n">password</span> <span class="o">=</span> <span class="sh">''</span>
+<span class="n">database_name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">sqlalchemydb</span><span class="sh">'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">3306</span>
+
+<span class="c1"># Create the engine using the connection string
+</span><span class="n">engine</span> <span class="o">=</span> <span class="nf">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">mysql+pymysql://</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Connect to the database
+</span><span class="n">connection</span> <span class="o">=</span> <span class="n">engine</span><span class="p">.</span><span class="nf">connect</span><span class="p">()</span>
+
+<span class="c1"># Definieer metadata en een tabel
+</span><span class="n">metadata</span> <span class="o">=</span> <span class="nc">MetaData</span><span class="p">()</span>
+
+<span class="c1"># Create the base class
+</span><span class="n">Base</span> <span class="o">=</span> <span class="nf">declarative_base</span><span class="p">()</span>
+
+<span class="c1"># Define the User class (mapping it to a "users" table)
+</span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="sh">'</span><span class="s">users</span><span class="sh">'</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="nc">String</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="nc">String</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># Optional: Add a constructor for easier object creation
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">&lt;User(username=</span><span class="sh">'</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">username</span><span class="si">}</span><span class="sh">'</span><span class="s">, email=</span><span class="sh">'</span><span class="si">{</span><span class="n">self</span><span class="p">.</span><span class="n">email</span><span class="si">}</span><span class="sh">'</span><span class="s">)&gt;</span><span class="sh">"</span>
+
+
+<span class="c1"># Create the users table in the database
+</span><span class="n">Base</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="nf">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="c1">#  Create a Session
+</span>
+<span class="n">Session</span> <span class="o">=</span> <span class="nf">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="nc">Session</span><span class="p">()</span>
+
+<span class="c1">#  Insert a User
+</span>
+<span class="n">new_user</span> <span class="o">=</span> <span class="nc">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">john_doe</span><span class="sh">'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="sh">'</span><span class="s">john.doe@example.com</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">session</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>  <span class="c1"># Add the new user to the session
+</span><span class="n">session</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>  <span class="c1"># Commit the transaction to persist changes in the DB
+</span>
+<span class="c1">#  Query the Database
+</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">session</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="n">User</span><span class="p">).</span><span class="nf">all</span><span class="p">()</span>  <span class="c1"># Fetch all users
+</span><span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+
+<span class="n">session</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relaties_tussen_tabellen">11. Relaties tussen tabellen</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SQLAlchemy biedt ondersteuning voor relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties.</p>
 </div>
 <div class="sect2">
-<h3 id="_voorbeeld_van_een_één_op_veel_relatie">10.1. Voorbeeld van een één-op-veel relatie</h3>
+<h3 id="_voorbeeld_van_een_één_op_veel_relatie">11.1. Voorbeeld van een één-op-veel relatie</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">ForeignKey</span>
@@ -923,13 +995,13 @@ Dit type aanval kan eenvoudig worden voorkomen met SQLAlchemy, omdat het automat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_transacties_beheren">11. Transacties beheren</h2>
+<h2 id="_transacties_beheren">12. Transacties beheren</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SQLAlchemy maakt het mogelijk om transacties te beheren. Dit betekent dat je meerdere bewerkingen kunt groeperen en deze kunt bevestigen of terugdraaien als er een fout optreedt.</p>
 </div>
 <div class="sect2">
-<h3 id="_voorbeeld_van_een_transactie">11.1. Voorbeeld van een transactie</h3>
+<h3 id="_voorbeeld_van_een_transactie">12.1. Voorbeeld van een transactie</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="n">engine</span><span class="p">.</span><span class="nf">begin</span><span class="p">()</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
@@ -947,7 +1019,7 @@ Als een van de bewerkingen mislukt, worden beide bewerkingen teruggedraaid.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-24 10:06:19 +0200
+Last updated 2024-09-24 10:37:02 +0200
 </div>
 </div>
 </body>

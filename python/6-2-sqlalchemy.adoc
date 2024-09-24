@@ -196,6 +196,75 @@ connection.execute(stmt)
 
 Dit verwijdert de gebruiker met de gebruikersnaam 'johndoe' uit de database.
 
+== Werken met data klassen ==
+
+[source, python]
+----
+from sqlalchemy import create_engine,Table, Column, Integer, String, MetaData
+from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# Replace with your own database credentials
+username = 'root'
+password = ''
+database_name = 'sqlalchemydb'
+host = 'localhost'
+port = 3306
+
+# Create the engine using the connection string
+engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database_name}')
+
+# Connect to the database
+connection = engine.connect()
+
+# Definieer metadata en een tabel
+metadata = MetaData()
+
+# Create the base class
+Base = declarative_base()
+
+# Define the User class (mapping it to a "users" table)
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    username = Column(String(50), nullable=False, unique=True)
+    email = Column(String(100), nullable=False, unique=True)
+
+    # Optional: Add a constructor for easier object creation
+    def __init__(self, username, email):
+        self.username = username
+        self.email = email
+
+    def __repr__(self):
+        return f"<User(username='{self.username}', email='{self.email}')>"
+
+
+# Create the users table in the database
+Base.metadata.create_all(engine)
+
+#  Create a Session
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+#  Insert a User
+
+new_user = User(username='john_doe', email='john.doe@example.com')
+session.add(new_user)  # Add the new user to the session
+session.commit()  # Commit the transaction to persist changes in the DB
+
+#  Query the Database
+
+users = session.query(User).all()  # Fetch all users
+for user in users:
+    print(user)
+
+
+session.close()
+----
+
+
 == Relaties tussen tabellen ==
 
 SQLAlchemy biedt ondersteuning voor relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties.
