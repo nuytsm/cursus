@@ -65,7 +65,7 @@ Voordat we SQLAlchemy kunnen gebruiken, moeten we het installeren met pip:
 
 [source, bash]
 ----
-pip install SQLAlchemy
+pip install SQLAlchemy pymysql
 ----
 
 == Basisgebruik van SQLAlchemy ==
