@@ -59,6 +59,8 @@ Wanneer je het script uitvoert, start Flask een webserver en is de applicatie to
 
 == Routes en URL’s ==
 
+image::images/chapter04_flask_request_response_diagram.png[]
+
 In Flask kun je routes definiëren met behulp van de `@app.route()` decorator.
 Een route is een pad in de URL die naar een specifieke functie verwijst.
 Hier is een voorbeeld met meerdere routes:
@@ -95,6 +97,8 @@ def login():
 
 In dit voorbeeld accepteert de `'/login'` route zowel GET- als POST-verzoeken.
 De methode `request.method` controleert of het een POST-verzoek is en handelt dienovereenkomstig.
+
+image::images/web-crawling-scraping-ajax-sites-3-638.jpg[]
 
 == Templates ==
 
