@@ -80,8 +80,16 @@ De engine is het punt waarmee je verbinding maakt met de database. Dit wordt ged
 ----
 from sqlalchemy import create_engine
 
-# Maak een verbinding met een SQLite-database
-engine = create_engine('sqlite:///example.db')
+# Replace with your own database credentials
+username = 'root'
+password = ''
+database_name = 'sqlalchemydb'
+host = 'localhost'
+port = 3306
+
+# Create the engine using the connection string
+engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database_name}')
+
 ----
 
 Dit maakt een engine-object aan dat verbinding maakt met een SQLite-database.
@@ -92,15 +100,28 @@ Nadat de engine is geconfigureerd, kun je een database tabel definiëren met de 
 
 [source, python]
 ----
-from sqlalchemy import Table, Column, Integer, String, MetaData
+from sqlalchemy import create_engine,Table, Column, Integer, String, MetaData
+
+# Replace with your own database credentials
+username = 'root'
+password = ''
+database_name = 'sqlalchemydb'
+host = 'localhost'
+port = 3306
+
+# Create the engine using the connection string
+engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}:{port}/{database_name}')
+
+# Connect to the database
+connection = engine.connect()
 
 # Definieer metadata en een tabel
 metadata = MetaData()
 
 users = Table('users', metadata,
     Column('id', Integer, primary_key=True),
-    Column('username', String),
-    Column('email', String)
+    Column('username', String(50)),  # Define maximum length for username
+    Column('email', String(100))     # Define maximum length for email
 )
 
 # Maak de tabel aan in de database

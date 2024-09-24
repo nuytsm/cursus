@@ -752,8 +752,15 @@ Dit type aanval kan eenvoudig worden voorkomen met SQLAlchemy, omdat het automat
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 
-<span class="c1"># Maak een verbinding met een SQLite-database
-</span><span class="n">engine</span> <span class="o">=</span> <span class="nf">create_engine</span><span class="p">(</span><span class="sh">'</span><span class="s">sqlite:///example.db</span><span class="sh">'</span><span class="p">)</span></code></pre>
+<span class="c1"># Replace with your own database credentials
+</span><span class="n">username</span> <span class="o">=</span> <span class="sh">'</span><span class="s">root</span><span class="sh">'</span>
+<span class="n">password</span> <span class="o">=</span> <span class="sh">''</span>
+<span class="n">database_name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">sqlalchemydb</span><span class="sh">'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">3306</span>
+
+<span class="c1"># Create the engine using the connection string
+</span><span class="n">engine</span> <span class="o">=</span> <span class="nf">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">mysql+pymysql://</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -767,16 +774,29 @@ Dit type aanval kan eenvoudig worden voorkomen met SQLAlchemy, omdat het automat
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">MetaData</span>
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span><span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">MetaData</span>
+
+<span class="c1"># Replace with your own database credentials
+</span><span class="n">username</span> <span class="o">=</span> <span class="sh">'</span><span class="s">root</span><span class="sh">'</span>
+<span class="n">password</span> <span class="o">=</span> <span class="sh">''</span>
+<span class="n">database_name</span> <span class="o">=</span> <span class="sh">'</span><span class="s">sqlalchemydb</span><span class="sh">'</span>
+<span class="n">host</span> <span class="o">=</span> <span class="sh">'</span><span class="s">localhost</span><span class="sh">'</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">3306</span>
+
+<span class="c1"># Create the engine using the connection string
+</span><span class="n">engine</span> <span class="o">=</span> <span class="nf">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">mysql+pymysql://</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Connect to the database
+</span><span class="n">connection</span> <span class="o">=</span> <span class="n">engine</span><span class="p">.</span><span class="nf">connect</span><span class="p">()</span>
 
 <span class="c1"># Definieer metadata en een tabel
 </span><span class="n">metadata</span> <span class="o">=</span> <span class="nc">MetaData</span><span class="p">()</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="nc">Table</span><span class="p">(</span><span class="sh">'</span><span class="s">users</span><span class="sh">'</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>
     <span class="nc">Column</span><span class="p">(</span><span class="sh">'</span><span class="s">id</span><span class="sh">'</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
-    <span class="nc">Column</span><span class="p">(</span><span class="sh">'</span><span class="s">username</span><span class="sh">'</span><span class="p">,</span> <span class="n">String</span><span class="p">),</span>
-    <span class="nc">Column</span><span class="p">(</span><span class="sh">'</span><span class="s">email</span><span class="sh">'</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>
-<span class="p">)</span>
+    <span class="nc">Column</span><span class="p">(</span><span class="sh">'</span><span class="s">username</span><span class="sh">'</span><span class="p">,</span> <span class="nc">String</span><span class="p">(</span><span class="mi">50</span><span class="p">)),</span>  <span class="c1"># Define maximum length for username
+</span>    <span class="nc">Column</span><span class="p">(</span><span class="sh">'</span><span class="s">email</span><span class="sh">'</span><span class="p">,</span> <span class="nc">String</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>     <span class="c1"># Define maximum length for email
+</span><span class="p">)</span>
 
 <span class="c1"># Maak de tabel aan in de database
 </span><span class="n">metadata</span><span class="p">.</span><span class="nf">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span></code></pre>
@@ -927,7 +947,7 @@ Als een van de bewerkingen mislukt, worden beide bewerkingen teruggedraaid.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-12 13:43:37 +0200
+Last updated 2024-09-24 10:00:42 +0200
 </div>
 </div>
 </body>
