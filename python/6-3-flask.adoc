@@ -443,6 +443,7 @@ Om deze Flask-app te draaien:
 
 Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens op een andere pagina weergeven.
 
+
 == Flask en JSON ==
 
 Flask maakt het gemakkelijk om met JSON-gegevens te werken.
