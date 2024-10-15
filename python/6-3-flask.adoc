@@ -331,6 +331,118 @@ def submit():
 
 De `request.form` methode wordt gebruikt om toegang te krijgen tot de gegevens van het formulier.
 
+=== Uitgebreider voorbeeld ===
+
+Een voorbeeld over hoe je een formulier in Flask kunt indienen en de ingevoerde gegevens kunt weergeven op een andere pagina.
+
+Je volgt deze stappen:
+
+1. **Maak het HTML-formulier**: Dit formulier wordt ingediend naar een route in Flask.
+2. **Maak een route in Flask die het formulier afhandelt**: Deze route verwerkt de formuliergegevens en leidt door naar een pagina waar de gegevens worden weergegeven.
+3. **Maak een route om de formuliergegevens te tonen**: Op deze pagina worden de verzonden gegevens getoond.
+
+#### Stap 1: Maak het HTML-formulier
+
+[source, html]
+----
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulier Indienen</title>
+</head>
+<body>
+    <h1>Vul je gegevens in</h1>
+    <form action="/verzenden" method="POST">
+        <label for="name">Naam:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <input type="submit" value="Verzenden">
+    </form>
+</body>
+</html>
+----
+
+Dit formulier gebruikt de `POST`-methode en stuurt de gegevens naar de route `/verzenden`.
+
+#### Stap 2: Maak een route om het formulier te verwerken
+
+Deze route vangt de formuliergegevens op en leidt door naar een pagina waar de gegevens worden weergegeven.
+
+[source, python]
+----
+from flask import Flask, request, render_template, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('form.html')
+
+# Route om het formulier te verwerken
+@app.route('/verzenden', methods=['POST'])
+def verzend_formulier():
+    naam = request.form['name']
+    email = request.form['email']
+    
+    # Doorverwijzen naar de weergavepagina met de verzonden gegevens
+    return redirect(url_for('toon_data', naam=naam, email=email))
+
+# Route om de verzonden formuliergegevens weer te geven
+@app.route('/weergeven')
+def toon_data():
+    naam = request.args.get('naam')
+    email = request.args.get('email')
+    
+    return render_template('display.html', naam=naam, email=email)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+----
+
+#### Stap 3: Maak een template om de gegevens weer te geven
+
+Maak een template die de verzonden gegevens toont.
+
+[source, python]
+----
+<!-- templates/display.html -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingevoerde Gegevens</title>
+</head>
+<body>
+    <h1>Ingevoerde Gegevens</h1>
+    <p>Naam: {{ naam }}</p>
+    <p>E-mail: {{ email }}</p>
+</body>
+</html>
+----
+
+#### Hoe het werkt:
+
+1. Wanneer een gebruiker naar `/` gaat, ziet hij het formulier (`form.html`).
+2. Na het indienen van het formulier worden de gegevens naar de route `/verzenden` gestuurd met de methode `POST`.
+3. De route `/verzenden` vangt de gegevens (`naam` en `email`) op en verwijst door naar de route `/weergeven`, waarbij de gegevens als query parameters worden meegestuurd.
+4. De route `/weergeven` gebruikt de query parameters om de template `display.html` te tonen, met daarin de verzonden gegevens.
+
+#### De app draaien:
+Om deze Flask-app te draaien:
+
+1. Sla de Python-code op als `app.py`.
+2. Sla de HTML-bestanden op in een map genaamd `templates/`.
+3. Installeer Flask met `pip install flask` (als dat nog niet is gedaan).
+4. Start de app met: `python app.py`.
+5. Open je browser en ga naar `http://127.0.0.1:5000/` om het formulier te zien, het in te vullen, en de verzonden gegevens te bekijken.
+
+Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens op een andere pagina weergeven.
+
 == Flask en JSON ==
 
 Flask maakt het gemakkelijk om met JSON-gegevens te werken.

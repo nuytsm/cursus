@@ -645,7 +645,19 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 </ul>
 </li>
-<li><a href="#_flask_en_forms">6. Flask en Forms</a></li>
+<li><a href="#_flask_en_forms">6. Flask en Forms</a>
+<ul class="sectlevel2">
+<li><a href="#_uitgebreider_voorbeeld">6.1. Uitgebreider voorbeeld</a>
+<ul class="sectlevel3">
+<li><a href="#_stap_1_maak_het_html_formulier">6.1.1. Stap 1: Maak het HTML-formulier</a></li>
+<li><a href="#_stap_2_maak_een_route_om_het_formulier_te_verwerken">6.1.2. Stap 2: Maak een route om het formulier te verwerken</a></li>
+<li><a href="#_stap_3_maak_een_template_om_de_gegevens_weer_te_geven">6.1.3. Stap 3: Maak een template om de gegevens weer te geven</a></li>
+<li><a href="#_hoe_het_werkt">6.1.4. Hoe het werkt:</a></li>
+<li><a href="#_de_app_draaien">6.1.5. De app draaien:</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_flask_en_json">7. Flask en JSON</a></li>
 <li><a href="#_foutafhandeling">8. Foutafhandeling</a></li>
 <li><a href="#_development_vs_production">9. Development vs production</a></li>
@@ -1102,6 +1114,165 @@ Hier is een voorbeeld van een eenvoudig formulier met een POST-verzoek:</p>
 </div>
 <div class="paragraph">
 <p>De <code>request.form</code> methode wordt gebruikt om toegang te krijgen tot de gegevens van het formulier.</p>
+</div>
+<div class="sect2">
+<h3 id="_uitgebreider_voorbeeld">6.1. Uitgebreider voorbeeld</h3>
+<div class="paragraph">
+<p>Een voorbeeld over hoe je een formulier in Flask kunt indienen en de ingevoerde gegevens kunt weergeven op een andere pagina.</p>
+</div>
+<div class="paragraph">
+<p>Je volgt deze stappen:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Maak het HTML-formulier</strong>: Dit formulier wordt ingediend naar een route in Flask.</p>
+</li>
+<li>
+<p><strong>Maak een route in Flask die het formulier afhandelt</strong>: Deze route verwerkt de formuliergegevens en leidt door naar een pagina waar de gegevens worden weergegeven.</p>
+</li>
+<li>
+<p><strong>Maak een route om de formuliergegevens te tonen</strong>: Op deze pagina worden de verzonden gegevens getoond.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_stap_1_maak_het_html_formulier">6.1.1. Stap 1: Maak het HTML-formulier</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="c">&lt;!-- templates/form.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"nl"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Formulier Indienen<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Vul je gegevens in<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/verzenden"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Naam:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;&lt;br&gt;&lt;br&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>E-mail:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span><span class="nt">&gt;&lt;br&gt;&lt;br&gt;</span>
+
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Verzenden"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit formulier gebruikt de <code>POST</code>-methode en stuurt de gegevens naar de route <code>/verzenden</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stap_2_maak_een_route_om_het_formulier_te_verwerken">6.1.2. Stap 2: Maak een route om het formulier te verwerken</h4>
+<div class="paragraph">
+<p>Deze route vangt de formuliergegevens op en leidt door naar een pagina waar de gegevens worden weergegeven.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">'</span><span class="s">form.html</span><span class="sh">'</span><span class="p">)</span>
+
+<span class="c1"># Route om het formulier te verwerken
+</span><span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/verzenden</span><span class="sh">'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">POST</span><span class="sh">'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">verzend_formulier</span><span class="p">():</span>
+    <span class="n">naam</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="sh">'</span><span class="s">email</span><span class="sh">'</span><span class="p">]</span>
+
+    <span class="c1"># Doorverwijzen naar de weergavepagina met de verzonden gegevens
+</span>    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="nf">url_for</span><span class="p">(</span><span class="sh">'</span><span class="s">toon_data</span><span class="sh">'</span><span class="p">,</span> <span class="n">naam</span><span class="o">=</span><span class="n">naam</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+
+<span class="c1"># Route om de verzonden formuliergegevens weer te geven
+</span><span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/weergeven</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">toon_data</span><span class="p">():</span>
+    <span class="n">naam</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">naam</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">email</span><span class="sh">'</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">'</span><span class="s">display.html</span><span class="sh">'</span><span class="p">,</span> <span class="n">naam</span><span class="o">=</span><span class="n">naam</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stap_3_maak_een_template_om_de_gegevens_weer_te_geven">6.1.3. Stap 3: Maak een template om de gegevens weer te geven</h4>
+<div class="paragraph">
+<p>Maak een template die de verzonden gegevens toont.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">templates</span><span class="o">/</span><span class="n">display</span><span class="p">.</span><span class="n">html</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="err">!</span><span class="n">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="sh">"</span><span class="s">nl</span><span class="sh">"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="sh">"</span><span class="s">UTF-8</span><span class="sh">"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Ingevoerde</span> <span class="n">Gegevens</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Ingevoerde</span> <span class="n">Gegevens</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Naam</span><span class="p">:</span> <span class="p">{{</span> <span class="n">naam</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">E</span><span class="o">-</span><span class="n">mail</span><span class="p">:</span> <span class="p">{{</span> <span class="n">email</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hoe_het_werkt">6.1.4. Hoe het werkt:</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wanneer een gebruiker naar <code>/</code> gaat, ziet hij het formulier (<code>form.html</code>).</p>
+</li>
+<li>
+<p>Na het indienen van het formulier worden de gegevens naar de route <code>/verzenden</code> gestuurd met de methode <code>POST</code>.</p>
+</li>
+<li>
+<p>De route <code>/verzenden</code> vangt de gegevens (<code>naam</code> en <code>email</code>) op en verwijst door naar de route <code>/weergeven</code>, waarbij de gegevens als query parameters worden meegestuurd.</p>
+</li>
+<li>
+<p>De route <code>/weergeven</code> gebruikt de query parameters om de template <code>display.html</code> te tonen, met daarin de verzonden gegevens.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_de_app_draaien">6.1.5. De app draaien:</h4>
+<div class="paragraph">
+<p>Om deze Flask-app te draaien:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sla de Python-code op als <code>app.py</code>.</p>
+</li>
+<li>
+<p>Sla de HTML-bestanden op in een map genaamd <code>templates/</code>.</p>
+</li>
+<li>
+<p>Installeer Flask met <code>pip install flask</code> (als dat nog niet is gedaan).</p>
+</li>
+<li>
+<p>Start de app met: <code>python app.py</code>.</p>
+</li>
+<li>
+<p>Open je browser en ga naar <code><a href="http://127.0.0.1:5000/" class="bare">http://127.0.0.1:5000/</a></code> om het formulier te zien, het in te vullen, en de verzonden gegevens te bekijken.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens op een andere pagina weergeven.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1699,7 +1870,7 @@ Met ingebouwde ondersteuning voor routing, templates, foutafhandeling en extensi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-24 09:24:00 +0200
+Last updated 2024-10-15 09:51:24 +0200
 </div>
 </div>
 </body>
