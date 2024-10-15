@@ -87,6 +87,7 @@ De `@app.route()` decorator kan worden uitgebreid om specifieke methods te accep
 
 [source, python]
 ----
+from flask import Flask, request, jsonify
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
