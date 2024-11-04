@@ -1416,7 +1416,8 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask
+pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1425,8 +1426,10 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="n">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="nc">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="sh">"</span><span class="s">/api/*</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="sh">"</span><span class="s">origins</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">http://localhost:3000</span><span class="sh">"</span><span class="p">}})</span>
 
 <span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/data</span><span class="sh">'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
@@ -1489,7 +1492,9 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="json"><span class="nl">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="err">,</span></code></pre>
+<pre class="rouge highlight"><code data-lang="json"><span class="w"> </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="w">
+  </span><span class="p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1871,7 +1876,7 @@ Met ingebouwde ondersteuning voor routing, templates, foutafhandeling en extensi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-10-15 10:16:30 +0200
+Last updated 2024-11-04 11:46:48 +0100
 </div>
 </div>
 </body>

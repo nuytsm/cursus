@@ -532,6 +532,7 @@ Begin met het instellen van de Flask-backend. Installeer Flask als volgt:
 [source, bash]
 ----
 pip install Flask
+pip install Flask-Cors
 ----
 
 Maak een bestand aan genaamd `app.py` in de map `backend/`. Dit is waar we onze Flask-applicatie instellen.
@@ -539,8 +540,10 @@ Maak een bestand aan genaamd `app.py` in de map `backend/`. Dit is waar we onze 
 [source, python]
 ----
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
 @app.route('/api/data')
 def get_data():
@@ -596,7 +599,9 @@ Omdat React en Flask op verschillende poorten draaien, moeten we een proxy inste
 
 [source, json]
 ----
-"proxy": "http://localhost:5000",
+ "options": {
+    "proxy": "http://localhost:5000"
+  }
 ----
 
 Dit zorgt ervoor dat alle API-aanvragen die vanuit React komen (bijv. `/api/data`) worden doorgestuurd naar de Flask-backend op poort 5000.

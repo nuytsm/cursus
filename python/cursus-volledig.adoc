@@ -16,8 +16,6 @@
 
 //include::./00-inhoudsopgave.adoc[]
 include::01-intro.adoc[]
-
-include::01-pythonvsjava.adoc[]
 include::02-vanPythonNaarProcessor.adoc[]
 include::03-variabelen.adoc[]
 include::04-Beslissingsstructuren.adoc[]
@@ -32,12 +30,13 @@ include::12-Subklassen.adoc[]
 include::13-Modules.adoc[]
 include::14-Matplotlib.adoc[]
 include::15-ProjectMatplotlib.adoc[]
-include::16-ProjectPong.adoc[]
+include::pong.adoc[]
 include::17-Tkinter.adoc[]
 include::18-Databanken.adoc[]
 include::19-Cartopy.adoc[]
 include::logging.adoc[]
 include::20-UnitTest.adoc[]
 include::21-sqlddl.adoc[]
+
 //include::conditionals.adoc[]
 //include::lussen.adoc[]

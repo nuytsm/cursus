@@ -1,0 +1,1059 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+== Inleiding
+
+Welkom bij de documentatie voor het Pong-spel in Python. Dit project is een eenvoudige implementatie van het klassieke Pong-spel, waarbij twee spelers een bal heen en weer slaan met behulp van paddles. Het doel is om de bal langs de paddle van de tegenstander te krijgen om punten te scoren.
+
+Dit is wat we ongeveer gaan maken:
+
+image::assets/images/pong.gif[Blank Window, width=600]
+
+In deze documentatie vind je een overzicht van de basisstructuur van de bestanden, evenals een gedetailleerde uitleg van de belangrijkste componenten van de code.
+
+== Wat is pygame?
+Pygame is een python library waarmee je eenvoudige games snel en efficiënt kunt bouwen.
+Populaire voorbeelden zijn:
+
+- Without a Voice
+- Highway Blossoms
+- Love in a Bottle
+
+
+== Leeg scherm
+
+=== pyGame importeren en initialiseren
+Eerst gaan we een pyGame importeren en initialiseren.
+
+[source, python]
+----
+import pygame
+
+pygame.init()
+----
+=== Creeër leeg scherm
+Nu we pyGame hebben geinitialiseerd kunnen we een leeg scherm maken waar we onze game op gaan bouwen.
+
+[source, python]
+----
+# Create a window
+screen = pygame.display.set_mode((1280, 720))
+# Set the name of the game
+pygame.display.set_caption('Pong Game')
+----
+=== Game Manager
+
+Creeër een ´gamemanager.py´ bestand waar we de basis op gaan bouwen.
+Plaats deze code in de ´gamemanager.py´.
+
+[source, python]
+----
+import pygame
+
+class GameManager:
+    screen = None
+    clock = None
+    FPS = 30
+    colors = []
+
+    def __init__(self, screen, clock, colors):
+        self.screen = screen
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False <1>
+
+            self.screen.fill(self.colors[1])
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+
+----
+<1> Bij alles dat er gebeurd doorloop wat er in de while loop staat opnieuw en opnieuw totdat het programma gesloten wordt.
+
+Nu maak je een object in de ´main.py´ en dat doe je zo:
+[source, python]
+----
+import pygame
+import game_manager
+
+pygame.init()
+
+screen = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption('Pong')
+# Define FPS
+clock = pygame.time.Clock()
+FPS = 30
+
+# Create a game manager object
+game_manager = game_manager.GameManager(screen, clock, colors=[(255, 255, 255), (0, 0, 0)]) <1>
+game_manager.main()
+----
+<1> Creëer een game_manager object met de nodige variabelen.
+
+Dit is wat je krijgt te zien:
+
+image::assets/images/blank_window.png[Blank Window, width=600]
+
+== Lijn tekenen op scherm
+
+Nu we een scherm hebben kunnen we er objecten op plaatsen.
+Om een lijn te maken doen we dat zo:
+
+[source, python]
+----
+import pygame
+
+class GameManager:
+    screen = None
+    clock = None
+    FPS = 30
+    colors = []
+
+    def __init__(self, screen, clock, colors):
+        self.screen = screen
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors
+    
+    # Draw the line function
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size() <1>
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5) <2>
+        pygame.display.update() <3>
+
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            
+            self.screen.fill(self.colors[1])
+            
+            # Draw the line
+            self.draw_line()
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Verkrijg de grote van het scherm.
+<2> Teken een lijn in het midden van het scherm met als grootte het scherm en als breedte 5.
+<3> Update de game.
+
+== Paddle
+
+Nu gaan we een nieuw bestand aanmaken waar we de klassen gaan opslaan.
+
+ + `paddle.py`
+
+=== Creeëren van paddle klasse
+
+[source, python]
+
+----
+class Paddle:
+    name = ""
+    speed = 0
+
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
+----
+
+Wanneer je de klasse heb geinitialiseerd dan kan je de paddles gaan tekenen.
+
+Hier is de code om de 2 paddles te tekenen.
+
+[source, python]
+
+----
+import pygame
+
+
+class Paddle:
+    name = ""
+    speed = 0
+    velocity = 0
+    isRight = False
+    screen = None <1>
+
+    def __init__(self, name, speed, rect, velocity, isRight, screen):
+        self.name = name
+        self.speed = speed
+        self.rect = rect
+        self.velocity = velocity
+        self.isRight = isRight
+        self.screen = screen
+        # Center the paddle
+        self.rect.centery = self.screen.get_height() // 2
+        self.centered = True <2>
+        # Set the paddle to the right side of the screen
+        if self.isRight:
+            self.rect.x = self.screen.get_width() - self.rect.width - 10 <3>
+
+    def draw_paddle(self, screen):
+        pygame.draw.rect(screen, (255, 255, 255), self.rect)
+        pygame.display.update()
+----
+<1> Creëer de nodige variabelen.
+<2> Center de paddle verticaal.
+<3> Als de boolean ´isRight´ True is dan plaats de paddle aan de rechterkant van het scherm.
+
+Daarna moet je de paddle importeren in het ´main.py´ bestand.
+
+Dat doe je zo:
+
+[source, python]
+
+----
+import pygame
+import paddle
+import game_ball
+import game_manager
+
+pygame.init()
+
+screen = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption('Pong')
+clock = pygame.time.Clock()
+FPS = 30
+
+# Create objects for the ball and paddles
+paddle1 = paddle.Paddle(
+    "Player 1", 10, pygame.Rect(10, 10, 10, 100), 10, False, screen) <1>
+paddle2 = paddle.Paddle(
+    "Player 2", 10, pygame.Rect(10, 10, 10, 100), 10, True, screen) <2>
+
+# Add the 2 padles to the game manager
+game_manager = game_manager.GameManager(
+    0, screen, paddle1, paddle2, clock, colors=[(255, 255, 255), (0, 0, 0)]) <3>
+game_manager.main()
+
+----
+<1> Creëer paddle 1
+<2> Creëer paddle 2
+<3> Voeg de paddles toe aan de gamemanager op de juiste positie.
+
+Nu moet je de paddle gaan tekenen in de game manager.
+Je doet dat zo:
+[source, python]
+----
+import pygame
+
+
+class GameManager:
+    score = 0
+    screen = None
+    # Add the paddles it's variables
+    paddle1 = None
+    paddle2 = None
+    clock = None
+    FPS = 30
+    colors = []
+    
+    # Add the paddles to the __init__ function.
+    def __init__(self, score, screen, paddle1, paddle2, clock, colors):
+        self.score = score
+        self.screen = screen
+        self.paddle1 = paddle1
+        self.paddle2 = paddle2
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors 
+    
+    
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size()
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5)
+        pygame.display.update()
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.screen.fill(self.colors[1]) <1>
+            self.draw_line()
+            
+            # Execute the draw_paddle function
+            self.paddle1.draw_paddle(self.screen) <2>
+            self.paddle2.draw_paddle(self.screen) <3>
+            
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Vul het scherm
+<2> Teken paddle 1 met als parameter de breedte en hoogte van het scherm
+<3> Teken paddle 2 met als parameter de breedte en hoogte van het scherm
+
+
+Eenmaal je dat gedaan hebt dan zie je een paddle op je scherm.
+
+image::assets/images/paddle.png[Paddle, width=600]
+
+== Paddle bewegen
+
+Eerst moet je de input controleren zodat je de juiste 
+functie uitvoert op basis van de ingedrukte knop op 
+je toetsenbord.
+
+[source, python]
+
+----
+import pygame
+
+
+class GameManager:
+    score = 0
+    screen = None
+    # Add the paddles it's variables
+    paddle1 = None
+    paddle2 = None
+    clock = None
+    FPS = 30
+    colors = []
+    
+    # Add the paddles to the __init__ function.
+    def __init__(self, score, screen, paddle1, paddle2, clock, colors):
+        self.score = score
+        self.screen = screen
+        self.paddle1 = paddle1
+        self.paddle2 = paddle2
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors 
+    
+    
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size()
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5)
+        pygame.display.update()
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                # Add key input
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_DOWN]: <1>
+                    self.paddle1.move_down(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_UP]: <2>
+                    self.paddle1.move_up(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_w]: <3>
+                    self.paddle2.move_up(self.paddle2.velocity, self.screen)
+                if keys[pygame.K_s]: <4>
+                  self.paddle2.move_down(self.paddle2.velocity, self.screen)
+
+                if event.type == pygame.QUIT:
+                    running = False
+            
+
+            self.screen.fill(self.colors[1])
+            self.draw_line()
+            
+            # Execute the draw_paddle function
+            self.paddle1.draw_paddle(self.screen)
+            self.paddle2.draw_paddle(self.screen)
+            
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Als het ´Pijltje naar beneden´ knop wordt ingedrukt dan beweeg paddle1 naar beneden.
+<2> Als het ´Pijltje naar boven´ knop wordt ingedrukt dan beweeg paddle1 naar boven.
+<3> Als het ´W´ knop wordt ingedrukt dan beweeg paddle2 naar boven.
+<4> Als het ´S´ knop wordt ingedrukt dan beweeg paddle2 naar beneden.
+
+=== Move paddle
+Om de paddle te laten bewegen moeten we deze code implementeren in de ´paddle.py´.
+
+[source, python]
+
+----
+import pygame
+
+
+class Paddle:
+    name = ""
+    speed = 0
+    velocity = 0
+    isRight = False
+    screen = None
+
+    def __init__(self, name, speed, rect, velocity, isRight, screen):
+        self.name = name
+        self.speed = speed
+        self.rect = rect
+        self.velocity = velocity
+        self.isRight = isRight
+        self.screen = screen
+        # Center the paddle
+        self.rect.centery = self.screen.get_height() // 2
+        self.centered = True
+        # Set the paddle to the right side of the screen
+        if self.isRight:
+            self.rect.x = self.screen.get_width() - self.rect.width - 10
+
+    def draw_paddle(self, screen):
+        pygame.draw.rect(screen, (255, 255, 255), self.rect)
+        pygame.display.update()
+        pygame.key.set_repeat(100, self.speed)
+
+    def move_up(self, velocity, screen):
+        screen.get_height() - self.rect.height
+        # Setting the boundaries
+        if self.rect.y > 10: <1>
+            self.rect.y -= velocity
+
+    def move_down(self, velocity, screen):
+        screen.get_height() - self.rect.height <2>
+        # Setting the boundaries
+        if self.rect.y < screen.get_height() - self.rect.height - 10: <3>
+            self.rect.y += velocity
+----
+<1> Het start automatisch vanboven waardoor je alleen een beetje lege ruimte moet toevoegen als detail namelijk "10".
+<2>  Verkrijg de hoogte van het scherm trek dat van de hoogte van de paddle af.
+<3> Als het scherm groter is dan de y coordinaat van de paddle dan trekt die de hoogte er vanaf en 10 minder om wat ruimte over te laten tussen het maximum. (Het start vanboven dus het gaat naar onder)
+
+== De bal creëren
+
+Nu we de paddles kunnen bewegen gaan we beginnen aan de bal. Maak het bestand ´game_ball.py´ aan en dit is de code om de bal te laten tekenen op het scherm.
+
+[source, python]
+
+----
+import pygame
+
+
+class Ball:
+    width = 0
+    height = 0
+    speed = 0
+    x = 0
+    y = 0
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+
+    def draw_ball(self, screen):
+        radius = min(self.width, self.height) // 2 <1>
+        pygame.draw.circle(screen, (255, 255, 255), (self.x, self.y), radius) <2>
+        pygame.display.update()
+----
+<1> Maak de cirkel helemaal rond.
+<2> Teken een witte cirkel met de gegeven x en y coordinaten en de radius van ´1´.
+
+Je kan de bal op scherm laten tekenen door een bal object te maken en de functie ´draw_ball()´ uit te voeren.
+Dat doe je zo: 
+
+[source, python]
+
+----
+import pygame
+import paddle
+import game_ball
+import game_manager
+
+pygame.init()
+
+screen = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption('Pong')
+clock = pygame.time.Clock()
+FPS = 30
+# Centering the ball
+centerx = screen.get_width() // 2 <1>
+centery = screen.get_height() // 2 <1>
+
+# Create objects for the ball and paddles
+ball = game_ball.Ball(25, 25, 10, centerx, centery) <2>
+paddle1 = paddle.Paddle(
+    "Player 1", 10, pygame.Rect(10, 10, 10, 100), 10, False, screen)
+paddle2 = paddle.Paddle(
+    "Player 2", 10, pygame.Rect(10, 10, 10, 100), 10, True, screen)
+
+# Create a game manager object
+game_manager = game_manager.GameManager(
+    0, screen, ball, paddle1, paddle2, clock, colors=[(255, 255, 255), (0, 0, 0)])
+game_manager.main()
+----
+<1> Pak de hoogte en breedte van het scherm en pak daar het midden van.
+<2> Creëer een bal met als grootte 25, snelheid 10 & het midden.
+
+Nu moet je de ball gaan registreren in de game manager:
+[source, python]
+----
+import pygame
+
+
+class GameManager:
+    score = 0
+    screen = None
+    # Add a ball variable
+    ball = None <1>
+    paddle1 = None
+    paddle2 = None
+    clock = None
+    FPS = 30
+    colors = []
+
+    # Add the ball to the __init__ function.
+    def __init__(self, score, screen, ball, paddle1, paddle2, clock, colors): <2>
+        self.score = score
+        self.screen = screen
+        self.ball = ball <2>
+        self.paddle1 = paddle1
+        self.paddle2 = paddle2
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors
+
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size()
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5)
+        pygame.display.update()
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                # Add key input
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_DOWN]:
+                    self.paddle1.move_down(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_UP]:
+                    self.paddle1.move_up(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_w]:
+                    self.paddle2.move_up(self.paddle2.velocity, self.screen)
+                if keys[pygame.K_s]:
+                    self.paddle2.move_down(self.paddle2.velocity, self.screen)
+
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.screen.fill(self.colors[1])
+            self.draw_line()
+            
+            # Execute the draw_ball function
+            self.ball.draw_ball(self.screen) <3>
+
+            # Execute the draw_paddle function
+            self.paddle1.draw_paddle(self.screen)
+            self.paddle2.draw_paddle(self.screen)
+
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Creëer een bal variabele.
+<2> Voeg de bal to aan de init.
+<3> Teken de bal
+
+image::assets/images/ball.png[Ball, width=600]
+
+=== De bal laten bewegen
+Nu gaan we de bal laten bewegen. Om de bal bewegen voeg je deze code toe aan je project:
+[source, python]
+----
+import pygame
+
+
+class GameManager:
+    score = 0
+    screen = None
+    ball = None
+    paddle1 = None
+    paddle2 = None
+    clock = None
+    FPS = 30
+    colors = []
+
+    def __init__(self, score, screen, ball, paddle1, paddle2, clock, colors):
+        self.score = score
+        self.screen = screen
+        self.ball = ball
+        self.paddle1 = paddle1
+        self.paddle2 = paddle2
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors
+
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size()
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5)
+        pygame.display.update()
+    
+    # Reset screen
+    def reset_screen(self): <1>
+        self.ball.x = self.screen.get_width() // 2
+        self.ball.y = self.screen.get_height() // 2
+        self.ball.dx = -self.ball.dx
+        self.ball.dy = -self.ball.dy
+        self.paddle1.rect.centery = self.screen.get_height() // 2
+        self.paddle2.rect.centery = self.screen.get_height() // 2 
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_DOWN]:
+                    self.paddle1.move_down(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_UP]:
+                    self.paddle1.move_up(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_w]:
+                    self.paddle2.move_up(self.paddle2.velocity, self.screen)
+                if keys[pygame.K_s]:
+                    self.paddle2.move_down(self.paddle2.velocity, self.screen)
+
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.screen.fill(self.colors[1])
+            self.draw_line()
+            # Draw, move and check if the ball has touched the other players it's edge
+            move_ball = self.ball.move_ball(self.screen, self.paddle1, self.paddle2) <2>
+            if move_ball == True:
+                self.reset_screen() <3>
+            self.ball.draw_ball(self.screen)
+
+            self.paddle1.draw_paddle(self.screen)
+            self.paddle2.draw_paddle(self.screen)
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Reset het scherm op de manier hoe het in het begin was.
+<2> Beweeg de bal en geef de 2 paddles mee zodat je die kan laten botsen
+<3> Reset het scherm wanneer de bal ´True´ retourneerd.
+
+Nu pas de code aan in de game_ball.py:
+
+[source, python]
+----
+import math
+import pygame
+import random
+
+class Ball:
+    width = 0
+    height = 0
+    speed = 0
+    x = 0
+    y = 0
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+
+    def draw_ball(self, screen):
+        radius = min(self.width, self.height) // 2
+        pygame.draw.circle(screen, (255, 255, 255),
+                           (self.x, self.y), radius)
+        pygame.display.update()
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+        angle = random.uniform(0, 2 * 3.14159)
+        self.dx = self.speed * math.cos(angle)
+        self.dy = self.speed * math.sin(angle)
+
+    def move_ball(self, screen):
+        self.x += self.dx
+        self.y += self.dy
+        if self.x - self.width // 2 <= 0 or self.x + self.width // 2 >= screen.get_width(): <1>
+            return True
+        
+        if self.y - self.height // 2 <= 0 or self.y + self.height // 2 >= screen.get_height(): <2>
+            self.dy = -self.dy
+
+        pygame.display.update()
+----
+
+<1> Pak de breedte van de bal en zorg ervoor dat die botst tegen de rand met het uiteinde van de bal en kijk daarna ofdat het tegen de linkse rand botst met coordinaat 0. Daarna reset het scherm. Na de ´or´ zorgt die ervoor dat die rand aan de rechterkant pakt. In de eerste helft doet die een deling om de straal van het object te verkrijgen zodat de rand van het object wordt gebruikt als nauwkeurigheid tijdens het botsen, er wordt ook een int gebruikt om het nauwkeuriger te maken tijdens het spelen want een float is minder nauwkeurig dan een int in grafische applicaties.
+<2> Doe hetzelfde bij ´1´ maar pak de y coordinaat om die te laten botsen met de y as beneden door de ´0´ coordinaat te gebruiken en de bovenste kant van de bal. Na de ´or´ pakt die de hoogte van het sherm zodat die de onderkant van het scherm pakt en die ook gebruikt als rand waar je kunt tegen botsen.
+
+=== Sprite Animatie
+Maak een sprite animatie wanneer het scherm resets. Wanneer de andere speler een punt maakt laat de bal exploderen door de explosie animatie te tonen. Plaats de onderstaande afbeeldingen in ´assets/imgs/´
+
+image::assets/images/spritesheet.png[Explosion, width=600]
+link:./assets/explosions.zip[Download Afbeeldingen]
+
+[source, python]
+----
+import math
+import pygame
+import random
+import os
+
+
+class Ball:
+    width = 0
+    height = 0
+    speed = 0
+    x = 0
+    y = 0
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+    
+    # Create the explosion animation
+    def ExplosionAnimation(self, screen):
+        # Load explosion images
+        explosion = []
+        for i in range(1, 6):
+            explosion.append(pygame.image.load(
+                os.path.join(f'./assets/imgs/explosion{i}.png'))) <1>
+        # Play explosion animation
+        for i in range(5):
+            explosion_image = pygame.transform.scale(explosion[i], (100, 100)) <2>
+            screen.blit(explosion_image, (self.x - explosion_image.get_width() //
+                        2, self.y - explosion_image.get_height() // 2)) <3>
+            pygame.time.delay(100) <4>
+            pygame.display.update()
+            pygame.time.delay(1)
+
+    def draw_ball(self, screen):
+        radius = min(self.width, self.height) // 2
+        pygame.draw.circle(screen, (255, 255, 255),
+                           (self.x, self.y), radius)
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+        angle = random.uniform(-3.14159 / 4, 3.14159 / 4) 
+        self.dx = self.speed * math.cos(angle)
+        self.dy = self.speed * math.sin(angle)
+
+    def move_ball(self, screen, paddle1, paddle2):
+        self.x += self.dx
+        self.y += self.dy
+
+        if self.x - self.width // 2 <= 0 or self.x + self.width // 2 >= screen.get_width():
+            # Play the explosion animation when the ball touches the player edges.
+            self.ExplosionAnimation(screen)
+            return True
+        if self.y - self.height // 2 <= 0 or self.y + self.height // 2 >= screen.get_height():
+            self.dy = -self.dy
+----
+<1> Verkrijg de explosie animatie gebasseerd op het nummer
+<2> Vergoot de afbeelding
+<3> Toon de animatie op het scherm 1 voor 1 gebasseerd op de locatie van de bal.
+<4> Doe dit elke 100 miliseconde
+
+== Bewegen via paddles
+Om ervoor te zorgen dat je de paddles kunt laten bewegen met paddles voeg je deze code toe aan de move_ball() function.
+
+[source, python]
+----
+
+
+import math
+import pygame
+import random
+import os
+
+
+class Ball:
+    width = 0
+    height = 0
+    speed = 0
+    x = 0
+    y = 0
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+
+    def ExplosionAnimation(self, screen):
+        # Load explosion images
+        explosion = []
+        for i in range(1, 6):
+            explosion.append(pygame.image.load(
+                os.path.join(f'./assets/imgs/explosion{i}.png')))
+        # Play explosion animation
+        for i in range(5):
+            explosion_image = pygame.transform.scale(explosion[i], (100, 100))
+            screen.blit(explosion_image, (self.x - explosion_image.get_width() //
+                        2, self.y - explosion_image.get_height() // 2))
+            pygame.time.delay(100)
+            pygame.display.update()
+            pygame.time.delay(1)
+
+    def draw_ball(self, screen):
+        radius = min(self.width, self.height) // 2
+        pygame.draw.circle(screen, (255, 255, 255),
+                           (self.x, self.y), radius)
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+        angle = random.uniform(-3.14159 / 4, 3.14159 / 4)
+        self.dx = self.speed * math.cos(angle)
+        self.dy = self.speed * math.sin(angle)
+
+    def move_ball(self, screen, paddle1, paddle2):
+        self.x += self.dx
+        self.y += self.dy
+
+        if self.x - self.width // 2 <= 0 or self.x + self.width // 2 >= screen.get_width():
+            self.ExplosionAnimation(screen)
+            return True
+        if self.y - self.height // 2 <= 0 or self.y + self.height // 2 >= screen.get_height():
+            self.dy = -self.dy
+        # Bounce ball with paddles
+        # Paddle 1
+        if self.x - self.width // 2 <= paddle1.rect.x + paddle1.rect.width and paddle1.rect.y <= self.y <= paddle1.rect.y + paddle1.rect.height: <1>
+            self.dx = -self.dx
+        # Paddle 2
+        if self.x + self.width // 2 >= paddle2.rect.x and paddle2.rect.y <= self.y <= paddle2.rect.y + paddle2.rect.height: <2>
+            self.dx = -self.dx
+----
+<1> Als beide voorwaarden waar zijn, betekent dit dat de bal paddle1 raakt. In dat geval wordt de horizontale snelheid (dx) van de bal omgekeerd (self.dx = -self.dx), waardoor de bal stuitert.
+<2> Hetzelfde als 1 dus als beide voorwaarden waar zijn, betekent dit dat de bal paddle2 raakt. Ook hier wordt de horizontale snelheid (dx) van de bal omgekeerd, waardoor de bal stuitert.
+
+
+== Score
+Om score toe te voegen wanneer je een punt maakt voeg je eerst deze code toe aan het ´game_manager.py´ bestand.
+[source, python]
+----
+
+
+import pygame
+
+
+class GameManager:
+    # Change score to score1 and add an extra variable named score2
+    score1 = 0
+    score2 = 0
+    screen = None
+    ball = None
+    paddle1 = None
+    paddle2 = None
+    clock = None
+    FPS = 30
+    colors = []
+    
+    # Initialize the new/edited variables
+    def __init__(self, score1, score2, screen, ball, paddle1, paddle2, clock, colors):
+        self.score1 = score1
+        self.score2 = score2
+        self.screen = screen
+        self.ball = ball
+        self.paddle1 = paddle1
+        self.paddle2 = paddle2
+        self.clock = clock
+        self.FPS = 30
+        self.colors = colors
+
+    def draw_line(self):
+        screen_width, screen_height = self.screen.get_size()
+        pygame.draw.line(
+            self.screen, (255, 255, 255), [screen_width // 2, 0], [screen_width // 2, screen_height], 5)
+
+    # Reset screen
+    def reset_screen(self):
+        self.ball.x = self.screen.get_width() // 2
+        self.ball.y = self.screen.get_height() // 2
+        self.ball.dx = -self.ball.dx
+        self.ball.dy = -self.ball.dy
+        self.paddle1.rect.centery = self.screen.get_height() // 2
+        self.paddle2.rect.centery = self.screen.get_height() // 2
+    
+    # Draw the score on screen
+    def draw_score(self):
+        font = pygame.font.Font(None, 74)
+        score1 = font.render(str(self.score1), True, (255, 255, 255))
+        score2 = font.render(str(self.score2), True, (255, 255, 255))
+        self.screen.blit(score1, (self.screen.get_width() // 4, 10))
+        self.screen.blit(score2, (self.screen.get_width() // 4 * 3, 10)) <1>
+
+    def main(self):
+        running = True
+        while running:
+            for event in pygame.event.get():
+                keys = pygame.key.get_pressed()
+                if keys[pygame.K_DOWN]:
+                    self.paddle1.move_down(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_UP]:
+                    self.paddle1.move_up(self.paddle1.velocity, self.screen)
+                if keys[pygame.K_w]:
+                    self.paddle2.move_up(self.paddle2.velocity, self.screen)
+                if keys[pygame.K_s]:
+                    self.paddle2.move_down(self.paddle2.velocity, self.screen)
+
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.screen.fill(self.colors[1])
+            self.draw_line()
+            # Draw the score on screen
+            self.draw_score() <2>
+            move_ball = self.ball.move_ball(
+                self.screen, self.paddle1, self.paddle2)
+            # When something is returned then check which player made the point.
+            if move_ball:
+                if move_ball == self.paddle1:
+                    self.score1 += 1
+                elif move_ball == self.paddle2:
+                    self.score2 += 1
+                self.reset_screen()
+            self.ball.draw_ball(self.screen)
+
+            self.paddle1.draw_paddle(self.screen)
+            self.paddle2.draw_paddle(self.screen)
+            pygame.display.update()
+            self.clock.tick(self.FPS)
+----
+<1> Je toont de score op het scherm met font grootte ´74´. Daarna toon je de score die opgeslagen zijn in de game manager en die toon je achteraf definitief op het scherm via de self.screen.blit feature.
+<2> Roep de functie uit altijd wanneer er iets veranderd.
+
+Daarna moet je het paddle object gaan doorgeven in het game_ball.py bestand.
+[source, python]
+----
+
+
+import math
+import pygame
+import random
+import os
+
+
+class Ball:
+    width = 0
+    height = 0
+    speed = 0
+    x = 0
+    y = 0
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+
+    def ExplosionAnimation(self, screen):
+        # Load explosion images
+        explosion = []
+        for i in range(1, 6):
+            explosion.append(pygame.image.load(
+                os.path.join(f'./assets/imgs/explosion{i}.png')))
+        # Play explosion animation
+        for i in range(5):
+            explosion_image = pygame.transform.scale(explosion[i], (100, 100))
+            screen.blit(explosion_image, (self.x - explosion_image.get_width() //
+                        2, self.y - explosion_image.get_height() // 2))
+            pygame.time.delay(100)
+            pygame.display.update()
+            pygame.time.delay(1)
+
+    def draw_ball(self, screen):
+        radius = min(self.width, self.height) // 2
+        pygame.draw.circle(screen, (255, 255, 255),
+                           (self.x, self.y), radius)
+
+    def __init__(self, height, width, speed, x, y):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.speed = speed
+        angle = random.uniform(-3.14159 / 4, 3.14159 / 4)
+        self.dx = self.speed * math.cos(angle)
+        self.dy = self.speed * math.sin(angle)
+
+    def move_ball(self, screen, paddle1, paddle2):
+        self.x += self.dx
+        self.y += self.dy
+
+        if self.x - self.width // 2 <= 0:
+            self.ExplosionAnimation(screen)
+            return paddle1
+        if self.x + self.width // 2 >= screen.get_width():
+            self.ExplosionAnimation(screen)
+            return paddle2
+        if self.y - self.height // 2 <= 0 or self.y + self.height // 2 >= screen.get_height():
+            self.dy = -self.dy
+        # Bounce ball with paddles
+        if self.x - self.width // 2 <= paddle1.rect.x + paddle1.rect.width and paddle1.rect.y <= self.y <= paddle1.rect.y + paddle1.rect.height:
+            self.dx = -self.dx
+        if self.x + self.width // 2 >= paddle2.rect.x and paddle2.rect.y <= self.y <= paddle2.rect.y + paddle2.rect.height:
+            self.dx = -self.dx
+----
+Als je dat gedaan hebt moet je de score nog doorgeven in het ´game_manager´ object in het main.py bestand.
+[source, python]
+----
+import pygame
+import game_manager
+import paddle
+import game_ball
+
+pygame.init()
+
+screen = pygame.display.set_mode((1280, 720))
+pygame.display.set_caption('Pong')
+# Define FPS
+clock = pygame.time.Clock()
+FPS = 30
+# Centering the ball
+centerx = screen.get_width() // 2
+centery = screen.get_height() // 2
+
+ball = game_ball.Ball(25, 25, 10, centerx, centery)
+paddle1 = paddle.Paddle(
+    "Player 1", 10, pygame.Rect(10, 10, 10, 100), 10, False, screen)
+paddle2 = paddle.Paddle(
+    "Player 2", 10, pygame.Rect(10, 10, 10, 100), 10, True, screen)
+
+game_manager = game_manager.GameManager(
+    0, 0, screen, ball, paddle1, paddle2, clock, colors=[(255, 255, 255), (0, 0, 0)]) <1>
+game_manager.main()
+----
+<1> Voeg score aan game manager
+
+Nu je dit hebt zou je normaal gezien het spel kunnen spelen.
+
+link:./assets/pong.zip[Download code]
