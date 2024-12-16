@@ -206,7 +206,7 @@ if has_key or has_unlock_code:
     print("Je hebt toegang tot de geheime deur!")
 ----
 
-Hier wordt de 'or' operator gebruikt om te controleren of de speler geen gezondheid meer heeft of geen levens meer over heeft.
+Hier wordt de 'or' operator gebruikt om te controleren of de speler de deur kan openen: Ofwel met een sleutel, ofwel met een code. Hij heeft 1 van de 2 nodig, niet beide.
 
 === Combinatie van 'and' en 'or': Complexe Voorwaarden
 
