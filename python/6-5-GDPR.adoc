@@ -21,6 +21,20 @@ De wet bepaalt hoe bedrijven, scholen, verenigingen, overheden en andere organis
 Voor jongeren in de IT is het belangrijk om te begrijpen wat deze wet inhoudt, zeker als je zelf later software ontwikkelt of met data werkt.  
 De GDPR is niet optioneel: het is verplicht voor iedereen die persoonsgegevens verwerkt van EU-burgers, ook als het bedrijf buiten Europa gevestigd is.
 
+=== De Geschiedenis en Waarom van de GDPR
+
+De **GDPR** vervangt de **Data Protection Directive** uit 1995. Het doel was om de privacy van burgers te beschermen in een tijd van snelle digitale vooruitgang en toenemende gegevensverzameling.
+
+**Waarom is de GDPR geïntroduceerd?**
+
+1. **Technologische Vooruitgang**: Digitale technologieën zoals sociale media en smartphones maakten het mogelijk om enorme hoeveelheden persoonlijke gegevens te verzamelen, wat leidde tot zorgen over privacy en misbruik van gegevens.
+   
+2. **Uniformiteit in Europa**: Voor de GDPR had elk EU-land zijn eigen gegevensbeschermingswetgeving. De GDPR zorgde voor een uniforme wetgeving, waardoor bedrijven makkelijker in de EU konden opereren zonder telkens verschillende regels te volgen.
+   
+3. **Bescherming van Gebruikers**: De GDPR versterkt de rechten van individuen, zoals het recht om vergeten te worden en het recht op toegang tot hun gegevens. Het stelt strengere eisen aan bedrijven om transparantie en gegevensbeveiliging te waarborgen.
+
+4. **Herstellen van Vertrouwen**: Na verschillende datalekken en misbruik van gegevens was er een groeiende behoefte aan transparantie en bescherming van gebruikers. De GDPR werd geïntroduceerd om dat vertrouwen te herstellen.
+
 == Wat zijn persoonsgegevens?
 
 Een persoonsgegeven is **alle informatie die herleidbaar is tot een persoon**.  
