@@ -1,2 +1,0 @@
-:source-highlighter: rouge
-:rouge-style: thankful_eyes
