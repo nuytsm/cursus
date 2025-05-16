@@ -10,7 +10,7 @@
 :toclevels: 5
 :sectnums:
 
-= Hoofdstuk: NoSQL – Een Grondige Inleiding in Niet-Relationele Databases
+= Hoofdstuk: NoSQL – Inleiding in Niet-Relationele Databases
 
 == Inleiding
 
