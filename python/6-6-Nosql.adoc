@@ -1,0 +1,290 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Hoofdstuk: NoSQL – Een Grondige Inleiding in Niet-Relationele Databases
+
+== Inleiding
+
+In de wereld van databases is relationeel lang de norm geweest. Relationale databases zoals MySQL, PostgreSQL en Oracle gebruiken tabellen met vaste schema’s, rijen en kolommen. Ze vertrouwen op SQL als querytaal. Maar met de opkomst van het internet, mobiele applicaties, big data en realtime systemen werd duidelijk dat relationele databases niet altijd het meest geschikt zijn.
+
+Daarom ontstond NoSQL: een nieuwe familie van databases die meer schaalbaarheid, flexibiliteit en snelheid bieden voor moderne toepassingen.
+
+NoSQL staat voor *“Not Only SQL”* en verwijst naar databasesystemen die geen of slechts gedeeltelijk gebruik maken van SQL en relationele tabellen.
+
+== Waarom NoSQL ontstond
+
+Er zijn verschillende redenen waarom NoSQL-databases populair zijn geworden:
+
+- Moderne toepassingen vereisen *horizontale schaalbaarheid* over meerdere servers.
+- Data is vaak *ongestructureerd* of verandert snel van structuur (denk aan JSON- of XML-gegevens).
+- Toepassingen moeten *grote hoeveelheden data* kunnen verwerken met hoge snelheid (denk aan Facebook, Netflix, Twitter).
+- Ontwikkelaars willen snel kunnen itereren zonder telkens het schema (ontwerp van de tabellen, Primary keys, Foreign keys) van de database te moeten aanpassen.
+
+== Kenmerken van NoSQL
+
+- **Schema-loos**: Geen vast schema vereist zoals bij SQL.
+- **Horizontale schaalbaarheid**: Eenvoudig verdelen over meerdere servers (sharding).
+- **Flexibele dataopslag**: Geschikt voor documenten, grafen, key-value paren, etc.
+- **Hoge prestaties**: Snelle lees- en schrijfbewerkingen, zelfs bij grote datavolumes.
+- **Eventueel consistente systemen**: Sommige NoSQL-systemen gebruiken een ander consistentiemodel dan SQL.
+
+== Verschillende types NoSQL-databases
+
+NoSQL is geen technologie, maar een overkoepelende term. Er bestaan verschillende soorten NoSQL-databases, elk met hun eigen toepassingen.
+
+=== 1. Document-gebaseerde databases
+
+Slaan gegevens op in documenten, meestal in JSON- of BSON-formaat.
+
+Gebruiksscenario: webapplicaties, gebruikersgegevens, CMS, logs.
+
+*Voorbeeld: MongoDB, CouchDB*
+
+[source,json]
+----
+{
+  "name": "Alice",
+  "age": 30,
+  "email": "alice@example.com",
+  "courses": ["math", "history"]
+}
+----
+
+[source,python]
+----
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")
+db = client["school"]
+students = db["students"]
+
+students.insert_one({
+    "name": "Alice",
+    "age": 30,
+    "courses": ["math", "history"]
+})
+
+student = students.find_one({"name": "Alice"})
+print(student["courses"])
+----
+
+=== 2. Key-Value Stores
+
+Simpel: een unieke sleutel verwijst naar een waarde.
+
+Gebruiksscenario: caching, sessies, configuratie-instellingen.
+
+*Voorbeeld: Redis, Amazon DynamoDB, Riak*
+
+[source,python]
+----
+# Redis (command line)
+SET user:1:name "Alice"
+GET user:1:name
+----
+
+=== 3. Kolom-gebaseerde databases
+
+Kolom-gebaseerde databases slaan data op per kolom in plaats van per rij, wat een belangrijk verschil is met klassieke relationele databases zoals MySQL of PostgreSQL.
+
+==== Wat betekent dit verschil?
+
+In een traditionele SQL-database worden rijen als 1 geheel opgeslagen. Dit is efficiënt voor toepassingen waarbij je meestal volledige records (rijen) nodig hebt.
+
+[source,sql]
+----
+SELECT * FROM students WHERE id = 5;
+----
+
+In een kolom-gebaseerde database wordt elke kolom afzonderlijk opgeslagen, waardoor het veel efficiënter is om grote hoeveelheden gegevens uit één enkele kolom op te vragen. Dit is bijzonder nuttig voor analytische toepassingen, zoals rapporten en dashboards, waar je bijvoorbeeld de gemiddelde temperatuur of verkoopcijfers per maand wilt berekenen over miljoenen rijen.
+
+==== Verschillen met SQL:
+
+- Relationeel (SQL): Opslag per rij → goed voor OLTP (online transactieverwerking), zoals inschrijvingen of bestellingen.
+- Kolom-gebaseerd (NoSQL): Opslag per kolom → goed voor OLAP (analytische verwerking), zoals rapportages en data-analyse.
+
+==== Voorbeeld: Apache Cassandra
+
+Cassandra is een populaire kolom-gebaseerde NoSQL-database.
+
+[source,sql]
+----
+CREATE TABLE temperature_readings (
+  sensor_id UUID,
+  reading_time timestamp,
+  temperature float,
+  PRIMARY KEY (sensor_id, reading_time)
+);
+----
+
+In Cassandra worden de kolommen `sensor_id`, `reading_time` en `temperature` fysiek gescheiden opgeslagen, wat toelaat snel bijvoorbeeld alleen alle `temperature`-waarden op te vragen over een bepaalde periode zonder onnodige data te lezen.
+
+==== Wanneer gebruiken?
+
+Gebruik kolom-gebaseerde NoSQL als:
+
+- Je grote hoeveelheden data moet analyseren.
+- Je vaak werkt met aggregaties (gemiddelde, som, minimum, maximum).
+- Snel lezen van specifieke kolommen belangrijker is dan volledige records ophalen.
+
+=== 4. Grafendatabases
+
+Modelleert relaties tussen data als knopen en verbindingen (edges).
+
+Gebruiksscenario: sociale netwerken, aanbevelingssystemen, fraudedetectie.
+
+*Voorbeeld: Neo4j, ArangoDB*
+
+[source,plaintext]
+----
+(:Person {name: "Alice"})-[:FRIENDS_WITH]->(:Person {name: "Bob"})
+----
+
+== Vergelijking: NoSQL vs. Relationele Databases
+
+[cols="1,1", options="header"]
+|===
+| Relationale DB (SQL)
+| NoSQL
+
+| Vast schema vereist
+| Geen vast schema nodig
+
+| Moeilijk horizontaal schaalbaar
+| Eenvoudig horizontaal schaalbaar
+
+| SQL als querytaal
+| API’s of eigen querytalen
+
+| Goede ondersteuning voor JOINs
+| JOINs vaak niet of beperkt
+
+| Sterke consistentie (ACID)
+| Vaak uiteindelijk consistent (BASE)
+
+| Best voor gestructureerde data
+| Geschikt voor flexibele of ongestructureerde data
+|===
+
+=== ACID vs BASE
+
+Wanneer we relationele (SQL) en NoSQL-databases vergelijken, komt vaak het verschil tussen *ACID* en *BASE* naar voren. Deze termen beschrijven hoe databases omgaan met betrouwbaarheid, transacties en consistentie.
+
+==== ACID: Eigenschappen van traditionele relationele databases
+
+ACID staat voor:
+
+- **A**tomicity: Alles of niets. Een transactie slaagt volledig of wordt volledig teruggedraaid.
+- **C**onsistency: De database blijft na elke transactie in een geldige toestand.
+- **I**solation: Transacties hebben geen invloed op elkaar terwijl ze gelijktijdig lopen.
+- **D**urability: Na een bevestigde transactie blijven de gegevens permanent bewaard, zelfs bij een crash.
+
+ACID is typisch voor SQL-databases zoals MySQL, PostgreSQL en Oracle. Deze eigenschappen zijn essentieel bij toepassingen zoals bankverkeer, boekhouding of voorraadbeheer, waar betrouwbaarheid cruciaal is.
+
+==== BASE: Eigenschappen van veel NoSQL-databases
+
+BASE is een losser alternatief, en staat voor:
+
+- **B**asically Available: Het systeem blijft beschikbaar, zelfs als niet alles perfect werkt.
+- **S**oft state: De toestand van het systeem kan veranderen, zelfs zonder input (door replicatie of updates).
+- **E**ventual consistency: Gegevens zullen uiteindelijk consistent worden over alle nodes, maar dit is niet onmiddellijk.
+
+BASE komt vaak voor bij NoSQL-systemen zoals Cassandra, Couchbase en DynamoDB. Deze zijn ontworpen voor schaalbaarheid en prestaties op grote schaal (bijvoorbeeld sociale media of real-time analytics), waarbij het geen ramp is als een update niet onmiddellijk overal zichtbaar is.
+
+==== Samenvatting van het verschil:
+
+[cols="1,1", options="header"]
+|===
+| ACID (SQL)                    | BASE (NoSQL)
+| Strikte consistentie          | Eventuele consistentie
+| Transactie = volledig of niets| Flexibeler, toleranter voor fouten
+| Geschikt voor kritische data  | Geschikt voor schaalbare toepassingen
+| Minder schaalbaar             | Horizontaal schaalbaar
+|===
+
+==== Wanneer kies je wat?
+
+- Gebruik **ACID** als je te maken hebt met financiële gegevens, gebruikersrechten of gevoelige data.
+- Gebruik **BASE** wanneer je vooral snelheid, schaalbaarheid en fouttolerantie nodig hebt, zoals bij apps met miljoenen gebruikers of IoT-platformen.
+
+
+== NoSQL en Beveiliging: SQL Injection
+
+Een voordeel van NoSQL-systemen (zoals MongoDB) is dat ze niet vatbaar zijn voor klassieke SQL-injectie-aanvallen, omdat ze geen string-gebaseerde queryopbouw gebruiken.
+
+*Wat is een SQL Injection?*
+
+Bij klassieke SQL schrijf je vaak query’s als strings. Slechte inputafhandeling kan ertoe leiden dat een aanvaller eigen SQL-code in een invoerveld invoert.
+
+[source,sql]
+----
+SELECT * FROM users WHERE username = '$input';
+----
+
+Als de gebruiker `' OR '1'='1` invoert, wordt de hele gebruikerslijst getoond.
+
+Met NoSQL werk je met objecten in plaats van ruwe strings, wat veiliger is:
+
+[source,python]
+----
+db.users.find_one({"username": input_value})
+----
+
+== Wanneer gebruik je NoSQL?
+
+Kies voor NoSQL als:
+
+- Je met grote hoeveelheden ongestructureerde data werkt.
+- Je applicatie horizontaal moet kunnen schalen.
+- Je een flexibel gegevensmodel nodig hebt.
+- Je prestaties belangrijker zijn dan complexe relaties.
+
+Gebruik relationele databases als:
+
+- Je data gestructureerd is en sterk onderling verbonden.
+- Je complexe transacties met sterke consistentie nodig hebt.
+- Je met bestaande relationele tools wilt blijven werken.
+
+== Voorbeeldproject: gebruikersdata opslaan in MongoDB
+
+[source,python]
+----
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")
+db = client["app"]
+users = db["users"]
+
+# Een gebruiker toevoegen
+users.insert_one({
+    "username": "janedoe",
+    "email": "jane@example.com",
+    "age": 27
+})
+
+# Een gebruiker opvragen
+user = users.find_one({"username": "janedoe"})
+print(user)
+----
+
+== Samenvatting
+
+NoSQL-databases bieden een moderne oplossing voor veel van de uitdagingen waar traditionele relationele databases tegenaan lopen.
+
+Ze zijn flexibel, schaalbaar en krachtig bij het werken met grote hoeveelheden ongestructureerde data.
+
+Er zijn verschillende types NoSQL-databases, elk met hun eigen sterktes.
+
+Kies altijd de juiste database op basis van de behoeften van je project – relationeel of NoSQL.
+
+
+
