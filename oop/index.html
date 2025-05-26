@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.17">
+<meta name="generator" content="Asciidoctor 2.0.23">
 <title>Cursus OOP - Object-oriented programming</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -84,10 +84,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -208,13 +209,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -330,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -393,7 +391,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -439,216 +437,119 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <style>
 pre.rouge table td { padding: 5px; }
 pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
 }
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
 }
 pre.rouge .gr {
-  color: #aa0000;
+  color: #f6f8fa;
 }
-pre.rouge .gh {
-  color: #999999;
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
 }
 pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
+  color: #116329;
+  background-color: #dafbe1;
 }
-pre.rouge .go {
-  color: #888888;
+pre.rouge .ges {
+  font-weight: bold;
+  font-style: italic;
 }
-pre.rouge .gp {
-  color: #555555;
+pre.rouge .kc {
+  color: #0550ae;
 }
-pre.rouge .gs {
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
   font-weight: bold;
 }
 pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
+  color: #0550ae;
   font-weight: bold;
 }
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sa {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
 }
 pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
+  color: #8250df;
 }
 pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
   font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
 }
 </style>
 </head>
@@ -659,6 +560,31 @@ pre.rouge {
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_programmeren">Programmeren</a>
+<ul class="sectlevel2">
+<li><a href="#_programmeertaal">Programmeertaal</a>
+<ul class="sectlevel3">
+<li><a href="#_opdrachten_voor_de_computer">Opdrachten voor de computer</a></li>
+<li><a href="#_cpu_instructieset">CPU Instructieset</a></li>
+<li><a href="#_hoog_niveau_programmeertalen">Hoog niveau programmeertalen</a></li>
+<li><a href="#_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</a></li>
+</ul>
+</li>
+<li><a href="#_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</a></li>
+<li><a href="#_java">Java</a></li>
+<li><a href="#_java_2">Java</a>
+<ul class="sectlevel3">
+<li><a href="#_java_schrijven_of_programmeren">Java schrijven (of programmeren)</a>
+<ul class="sectlevel4">
+<li><a href="#_de_syntax">De syntax</a></li>
+</ul>
+</li>
+<li><a href="#_java_compileren_naar_bytecode">Java compileren naar bytecode</a></li>
+<li><a href="#_bytecode_uitvoeren_met_de_virtuele_machine">Bytecode uitvoeren met de virtuele machine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_planning">Planning</a>
 <ul class="sectlevel2">
 <li><a href="#_stappenplan">Stappenplan</a>
 <ul class="sectlevel3">
@@ -934,7 +860,7 @@ pre.rouge {
 <li><a href="#_structuur_van_een_maven_project">Structuur van een Maven project</a></li>
 <li><a href="#_pom_xml">POM.xml</a>
 <ul class="sectlevel3">
-<li><a href="#_de_syntax">De syntax</a></li>
+<li><a href="#_de_syntax_2">De syntax</a></li>
 <li><a href="#_libraries_toevoegen"><em>Libraries</em> toevoegen</a></li>
 <li><a href="#_compiler_opties">Compiler opties</a></li>
 </ul>
@@ -1024,6 +950,513 @@ pre.rouge {
 <div id="content">
 <div class="sect1">
 <h2 id="_programmeren">Programmeren</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_programmeertaal">Programmeertaal</h3>
+<div class="sect3">
+<h4 id="_opdrachten_voor_de_computer">Opdrachten voor de computer</h4>
+<div class="paragraph">
+<p>Een computer is een logische machine die we opdrachten kunnen geven.</p>
+</div>
+<div class="paragraph">
+<p>Voorbeelden van opdrachten:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Schrijf iets weg naar een bestand op de ssd.</p>
+</li>
+<li>
+<p>Krijg een lijst van de bestanden op de hdd.</p>
+</li>
+<li>
+<p>Toon iets op het scherm.</p>
+</li>
+<li>
+<p>Haal een pagina op van het internet via het ethernet netwerk.</p>
+</li>
+<li>
+<p>Tel 2 getallen op en sla het op in een variabele x.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Opdrachten worden gegeven via een programma.
+De computer bestaat uit verschillende onderdelen. Het is de CPU of centrale rekeneenheid die het programma interpreteerd.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="motherboard.webp" alt="De onderdelen van een moederbord.">
+</div>
+</div>
+<div class="paragraph">
+<p><mark>Opdrachten geven aan een computer kan via een programma.
+Met een programmeertaal kan een programma geschreven worden.</mark></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cpu_instructieset">CPU Instructieset</h4>
+<div class="paragraph">
+<p>Iedere computer <strong>CPU</strong> heeft een bepaalde <strong>architectuur</strong> of ontwerp.
+Hier zijn heel wat standaarden in:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>x86 (32bit)</p>
+<div class="imageblock">
+<div class="content">
+<img src="x86.jpg" alt="x86 cpu">
+</div>
+</div>
+</li>
+<li>
+<p>x64 (64bit)</p>
+<div class="imageblock">
+<div class="content">
+<img src="AMD_Opteron_146_Venus,_2005.jpg" alt="x64 cpu">
+</div>
+</div>
+</li>
+<li>
+<p>ARM</p>
+<div class="imageblock">
+<div class="content">
+<img src="arm.webp" alt="ARM cpu">
+</div>
+</div>
+</li>
+<li>
+<p>RISC</p>
+<div class="imageblock">
+<div class="content">
+<img src="KL_Sun_UltraSparc.jpg" alt="SUN Sparc RISC cpu">
+</div>
+</div>
+</li>
+<li>
+<p>Mainframe</p>
+<div class="imageblock">
+<div class="content">
+<img src="mainframe1.jpg" alt="mainframe">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="mainframe.jpg" alt="modern mainframe">
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Aan deze architectuurstandaarden van CPU&#8217;s kunnen opdrachten gegeven worden via <strong>de instructieset</strong>, dit is de <mark>machinetaal</mark>.
+Dit zijn afgesproken opdrachten op een laag niveau (vb. onthoud een getal, tel een getal op, haal een waarde op van de ssd, &#8230;&#8203;)</p>
+</div>
+<div class="paragraph">
+<p>Deze opdrachten via de instructieset kunnen in een laag niveau computertaal worden voorgesteld, namelijk <em>assembly</em>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assembly.jpeg" alt="Assembly en machinetaal">
+</div>
+</div>
+<div class="paragraph">
+<p>Dit is een <strong>zeer ingewikkelde manier om te programmeren</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Gelukkig zijn er hoog niveau programmeertalen ontwikkeld die het ons gemakkelijker maken.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hoog_niveau_programmeertalen">Hoog niveau programmeertalen</h4>
+<div class="paragraph">
+<p>Hoog niveau programmeertalen (die makkelijker zijn om te schrijven), kunnen via <mark>compilatie</mark> automatisch omgezet worden naar machinetaal.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tekst (Hogere programmeertaal) &#8594; compilatie &#8594; machinetaal voor een specifieke architectuur</strong></p>
+</div>
+<div class="paragraph">
+<p>De machinetaal wordt bijgehouden in een uitvoerbaar bestand of <em>executable</em> (iets waarop je kan dubbelklikken om het programma te openen).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_voorbeelden_hello_world_in_enkele_programmeertalen">Voorbeelden <em>Hello World</em> in enkele programmeertalen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>C</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hello World");
+    return 0;
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Cpp</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+    cout &lt;&lt; "Hello World";
+    return 0;
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ruby</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>puts "Hello World!"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Java</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>    class MyClass{
+        public static void main(String args[]){
+         System.out.println("Hello Java");
+        }
+    }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Python 3</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>print("Hello, World!")</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>C#</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>using System;
+namespace HelloWorldApp {
+    class MyClass {
+        static void Main(string[] args) {
+            Console.WriteLine("Hello World!");
+            Console.ReadKey();
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Fortran</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>program hello
+  print *, 'Hello, World!'
+end program hello</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_programmeertalen_een_historisch_overzicht">Programmeertalen: Een historisch overzicht</h3>
+<div class="imageblock">
+<div class="content">
+<img src="ComputerLanguagesChart.png" alt="ComputerLanguagesChart">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_java">Java</h3>
+<div class="paragraph">
+<p>In deze cursus programmeren werken we met de programmeertaal Java.
+Dit heeft enkele redenen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Java is <strong><em>open source</em></strong>, je kan het dus gratis gebruiken zonder te betalen voor licenties.</p>
+</li>
+<li>
+<p>Java is een <strong>krachtige programmeertaal</strong>.</p>
+</li>
+<li>
+<p>Het is <strong>Object georienteerd</strong> en werkt naast functies ook met klassen.</p>
+</li>
+<li>
+<p>Java is een <strong>multiplatform</strong> programmeertaal, eenmaal gecompileerd werkt het op zowel Windows, Linux, MacOSX, Mainframes, BSD, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Java is deels een <strong>functionele programmeertaal</strong>, naast object georienteerd ( en dus een multi-paradigme programmeertaal).</p>
+</li>
+<li>
+<p>In het <strong>bedrijfsleven</strong> is Java populair.</p>
+</li>
+<li>
+<p>Java maakt van veel concepten gebruik die ook in andere programmeertalen voorkomen. Eenmaal je Java beheerst, kan je eenvoudig overschakelen naar andere talen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_java_2">Java</h3>
+<div class="paragraph">
+<p>Java werd ontwikkeld om de nadelen van voorgaande talen weg te werken.
+De populaire C taal had de volgende nadelen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Het was complex om te schrijven, je moest rekening houden met het geheugenbeheer (variabelen verwijderen)</p>
+</li>
+<li>
+<p>Je moest voor elke computerarchitectuur hercompileren.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Java moest dus:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eenvoudiger zijn om te schrijven.</p>
+</li>
+<li>
+<p>Multiplatform zijn.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Java heeft deze 2 problemen opgelost door een tussenliggende <mark>virtuele machine</mark> te ontwikkelen.
+Deze JVM (Java virtuele machine) is een processor die virtueel draait als een programma op je echte processor.
+Dezelfde JVM kan men laten draaien op alle verschillende computerarchitecturen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="jvm.png" alt="jvm">
+</div>
+</div>
+<div class="paragraph">
+<p><mark>Het volstaat dus 1x te compileren naar de instructieset van de virtuele machine, deze heet <strong>bytecode</strong></mark>.
+Vervolgens kan elke computerarchitectuur deze JVM opstarten en het gecompileerde programma starten.</p>
+</div>
+<div class="paragraph">
+<p>Op de JVM draait periodiek (met een bepaald interval) een <mark><em>garbage collector</em></mark> of een afvalopruimer.
+Deze verwijderd ongebruikte variabelen. Hierdoor moet je in Java geen rekening meer houden met het geheugenbeheer.</p>
+</div>
+<div class="paragraph">
+<p>Het grote nadeel van deze aanpak is dat Java wat trager is dan C:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>De JVM neemt wat <em>computerresources</em> in beslag.</p>
+</li>
+<li>
+<p>Om de zoveel tijd moet de <em>garbage collector</em> zijn werk doen.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_java_schrijven_of_programmeren">Java schrijven (of programmeren)</h4>
+<div class="paragraph">
+<p>Java wordt geschreven in een <mark>tekst document</mark>.
+Dit tekst document heeft de <mark>.java extensie</mark>.
+Bijvoorbeeld: MijnJavaBestand.java .
+Dit tekstbestand bevat gewone tekst (woorden bestaande uit karakters).
+De tekst die je schrijft moet wel voldoen aan de <mark>syntax</mark> van de taal.</p>
+</div>
+<div class="sect4">
+<h5 id="_de_syntax">De syntax</h5>
+<div class="paragraph">
+<p>Iedere programmeertaal bestaat uit een syntax.
+Dit zijn een reeks afspraken van de taal:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Welke woorden kunnen gebruikt worden? In Java mag een woord bijvoorbeeld niet beginnen met een cijfer.</p>
+</li>
+<li>
+<p>welke woorden zijn gereserveerd door de programmeertaal? Bijvoorbeeld het <em>public</em> woord.</p>
+</li>
+<li>
+<p>Op welke plaats mogen deze woorden staan?</p>
+</li>
+<li>
+<p>Welke scheidingskarakters worden toegestaan of verplicht? Java verplicht bijvoorbeeld <em>;</em> na elke regel.</p>
+</li>
+<li>
+<p>Hoe belangrijk is indentatie?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Om succesvol te programmeren dien je de syntax van een taal te kennen.</p>
+</div>
+<div class="paragraph">
+<p>De syntax bepaalt hoe statements, variabelen, functies en klassen geschreven moeten worden.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_java_compileren_naar_bytecode">Java compileren naar bytecode</h4>
+<div class="paragraph">
+<p>Een voorbeeld Java programma:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na het schrijven van een programma, dienen we het nog te <strong>compileren</strong> naar bytecode.
+De bytecode kan door de JVM ingelezen worden.</p>
+</div>
+<div class="paragraph">
+<p>Dit gaat als volgt te werk:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compilatie:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>javac Helloworld.java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>java<mark>c</mark></em> is het commando voor de java <mark>c</mark>ompiler.</p>
+</div>
+</li>
+<li>
+<p>Resultaat van de compilatie:</p>
+<div class="paragraph">
+<p>Dit proces produceert bytecode, <mark>bytecode</mark> staat altijd in een <mark>.class</mark> bestand:</p>
+</div>
+<div class="paragraph">
+<p>Voorbeeld bytecode van de Helloworld.class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Compiled from "HelloWorld.java"
+public class HelloWorld extends java.lang.Object
+  SourceFile: "HelloWorld.java"
+  minor version: 0
+  major version: 50
+  Constant pool:
+const #1 = Method	#6.#15;	//  java/lang/Object."&lt;init&gt;":()V
+const #2 = Field	#16.#17;	//  java/lang/System.out:Ljava/io/PrintStream;
+const #3 = String	#18;	//  Hello World
+const #4 = Method	#19.#20;	//  java/io/PrintStream.println:(Ljava/lang/String;)V
+const #5 = class	#21;	//  HelloWorld
+const #6 = class	#22;	//  java/lang/Object
+const #7 = Asciz	&lt;init&gt;;
+const #8 = Asciz	()V;
+const #9 = Asciz	Code;
+const #10 = Asciz	LineNumberTable;
+const #11 = Asciz	main;
+const #12 = Asciz	([Ljava/lang/String;)V;
+const #13 = Asciz	SourceFile;
+const #14 = Asciz	HelloWorld.java;
+const #15 = NameAndType	#7:#8;//  "&lt;init&gt;":()V
+const #16 = class	#23;	//  java/lang/System
+const #17 = NameAndType	#24:#25;//  out:Ljava/io/PrintStream;
+const #18 = Asciz	Hello World;
+const #19 = class	#26;	//  java/io/PrintStream
+const #20 = NameAndType	#27:#28;//  println:(Ljava/lang/String;)V
+const #21 = Asciz	HelloWorld;
+const #22 = Asciz	java/lang/Object;
+const #23 = Asciz	java/lang/System;
+const #24 = Asciz	out;
+const #25 = Asciz	Ljava/io/PrintStream;;
+const #26 = Asciz	java/io/PrintStream;
+const #27 = Asciz	println;
+const #28 = Asciz	(Ljava/lang/String;)V;
+
+{
+public HelloWorld();
+  Code:
+   Stack=1, Locals=1, Args_size=1
+   0:	aload_0
+   1:	invokespecial	#1; //Method java/lang/Object."&lt;init&gt;":()V
+   4:	return
+  LineNumberTable:
+   line 2: 0
+
+
+public static void main(java.lang.String[]);
+  Code:
+   Stack=2, Locals=1, Args_size=1
+   0:	getstatic	#2; //Field java/lang/System.out:Ljava/io/PrintStream;
+   3:	ldc	#3; //String Hello World
+   5:	invokevirtual	#4; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   8:	return
+  LineNumberTable:
+   line 9: 0
+   line 10: 8
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Bytecode is de machinetaal voor de ##Java virtuele machine##. Dit is geen leesbare taal (binaire instructies).</pre>
+</div>
+</div>
+</li>
+<li>
+<p>De bytecode kan op een JVM draaien (op een bepaalde computerarchtitectuur):</p>
+<div class="imageblock">
+<div class="content">
+<img src="java-virtual-machine.png" alt="java virtual machine">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bytecode_uitvoeren_met_de_virtuele_machine">Bytecode uitvoeren met de virtuele machine</h4>
+<div class="paragraph">
+<p>De JVM voert bytecode uit op de onderliggende CPU.
+Om gebruik te maken van de JVM, gebruiken we het <em>java</em> commando op het .class (bytecode) bestand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>java Helloworld.class</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit voert het geschreven programma uit. De output wordt naar de console (het <em>command prompt</em> scherm) geschreven:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code>Hello World</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_planning">Planning</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_stappenplan">Stappenplan</h3>
@@ -2040,7 +2473,7 @@ Het is een variatie op de <em>for</em> lus, die het voor de programmeur wat makk
 </div>
 <div class="paragraph">
 <p>Zo kan je in een array bijvoorbeeld een reeks van gehele getallen bijhouden.
-Zonder hiervoor 10 keer een verschillende veriabele te moeten voor aanmaken.
+Zonder hiervoor 10 keer een verschillende variabele te moeten voor aanmaken.
 Het voordeel hiervan is dat:</p>
 </div>
 <div class="ulist">
@@ -2726,7 +3159,7 @@ De <em>class Ruiter</em> zal dus in een Ruiter.java <em>file</em> moeten staan.
 </div>
 </div>
 <div class="paragraph">
-<p>Dit ontwerp beschrijft hoe auto eruit moet zien, wat het concept is:</p>
+<p>Dit ontwerp beschrijft hoe een auto eruit moet zien, wat het concept is:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3420,7 +3853,7 @@ Bij het aanmaken van een instantie wordt telkens een bepaalde constructor opgero
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Er is geen andere constructor aanwezig, de compiler voegt deze autmatisch toe, maar enkel <mark>indien er geen andere constructor (met parameters) werd toegevoegd</mark>.</td>
+<td>Er is geen andere constructor aanwezig, de compiler voegt deze automatisch toe, maar enkel <mark>indien er geen andere constructor (met parameters) werd toegevoegd</mark>.</td>
 </tr>
 </table>
 </div>
@@ -6191,7 +6624,7 @@ Dit is een xml bestand dat beschrijft hoe het project eruit ziet, wat de <mark><
 </ol>
 </div>
 <div class="sect3">
-<h4 id="_de_syntax">De syntax</h4>
+<h4 id="_de_syntax_2">De syntax</h4>
 <div class="paragraph">
 <p>De syntax is een xml syntax, je maakt hier dus gebruik van tags (net zoals in html) om elementen te definieren, groepen te maken en te sluiten.</p>
 </div>
@@ -7523,16 +7956,16 @@ Met de <a href="https://github.com/axios/axios#readme"><strong>Axios</strong> ja
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="js"><span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:8080/artistById?ID=12345</span><span class="dl">'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<pre class="rouge highlight"><code data-lang="js"><span class="nx">axios</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:8080/artistById?ID=12345</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// handle success</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// handle error</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">})</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// always executed</span>
   <span class="p">});</span></code></pre>
 </div>
@@ -7545,26 +7978,21 @@ Met de <a href="https://github.com/axios/axios#readme"><strong>Axios</strong> ja
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="js"><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:8080/artist</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+<pre class="rouge highlight"><code data-lang="js"><span class="nx">axios</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:8080/artist</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Fred</span><span class="dl">'</span><span class="p">,</span>
     <span class="na">lastName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Flintstone</span><span class="dl">'</span>
   <span class="p">})</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
   <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nf">function </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
   <span class="p">});</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div id="footer">
-<div id="footer-text">
-Last updated 2022-06-13 11:10:17 +0200
 </div>
 </div>
 </body>
