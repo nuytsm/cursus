@@ -210,7 +210,7 @@ Wanneer je deze container start, zal PostgreSQL automatisch deze tabel aanmaken 
 
 ==== Container starten met Docker
 
-image::images/what-is-docker-container-1024x354.avif[width:640]
+image::images/docker-container.webp[width:640]
 
 Zorg dat je Dockerfile en `init.sql` in dezelfde map staan, en voer vervolgens uit:
 
@@ -313,7 +313,7 @@ Voordelen:
 - Containers starten snel en zijn licht
 - Makkelijk te automatiseren in CI/CD-pijplijnen
 
-image::images/CI-CD-Architecture-using-Docker.ppm[]
+image::images/dockcicd.webp[]
 
 === Voorbeeld: CI/CD met Docker
 
