@@ -20,6 +20,10 @@ jobs:
         mkdir -p build/python
         asciidoctor -a nofooter -D build/python python/*.adoc
 
+    - name: Copy custom index.html
+      run: |
+        cp python/index.html build/python/
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
