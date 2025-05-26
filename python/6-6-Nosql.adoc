@@ -149,6 +149,10 @@ Gebruiksscenario: sociale netwerken, aanbevelingssystemen, fraudedetectie.
 (:Person {name: "Alice"})-[:FRIENDS_WITH]->(:Person {name: "Bob"})
 ----
 
+Grafische voorstelling van een Neo4J databank:
+
+image::images/neo4j.png[Neo4j voorbeeld]
+
 == Vergelijking: NoSQL vs. Relationele Databases
 
 [cols="1,1", options="header"]

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>Hoofdstuk: NoSQL – Inleiding in Niet-Relationele Databases</title>
+<title>Hoofdstuk: DevOps en Docker</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -615,531 +615,626 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Hoofdstuk: NoSQL – Inleiding in Niet-Relationele Databases</h1>
+<h1>Hoofdstuk: DevOps en Docker</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_inleiding">1. Inleiding</a></li>
-<li><a href="#_waarom_nosql_ontstond">2. Waarom NoSQL ontstond</a></li>
-<li><a href="#_kenmerken_van_nosql">3. Kenmerken van NoSQL</a></li>
-<li><a href="#_verschillende_types_nosql_databases">4. Verschillende types NoSQL-databases</a>
+<li><a href="#_inleiding_tot_devops">1. Inleiding tot DevOps</a></li>
+<li><a href="#_wat_is_docker">2. Wat is Docker?</a>
 <ul class="sectlevel2">
-<li><a href="#_1_document_gebaseerde_databases">4.1. 1. Document-gebaseerde databases</a></li>
-<li><a href="#_2_key_value_stores">4.2. 2. Key-Value Stores</a></li>
-<li><a href="#_3_kolom_gebaseerde_databases">4.3. 3. Kolom-gebaseerde databases</a>
-<ul class="sectlevel3">
-<li><a href="#_wat_betekent_dit_verschil">4.3.1. Wat betekent dit verschil?</a></li>
-<li><a href="#_verschillen_met_sql">4.3.2. Verschillen met SQL:</a></li>
-<li><a href="#_voorbeeld_apache_cassandra">4.3.3. Voorbeeld: Apache Cassandra</a></li>
-<li><a href="#_wanneer_gebruiken">4.3.4. Wanneer gebruiken?</a></li>
+<li><a href="#_verschil_tussen_docker_en_virtual_machines">2.1. Verschil tussen Docker en Virtual Machines</a></li>
+<li><a href="#_voordelen_van_docker">2.2. Voordelen van Docker</a></li>
 </ul>
 </li>
-<li><a href="#_4_grafendatabases">4.4. 4. Grafendatabases</a></li>
-</ul>
-</li>
-<li><a href="#_vergelijking_nosql_vs_relationele_databases">5. Vergelijking: NoSQL vs. Relationele Databases</a>
+<li><a href="#_docker_installeren">3. Docker installeren</a>
 <ul class="sectlevel2">
-<li><a href="#_acid_vs_base">5.1. ACID vs BASE</a>
+<li><a href="#_op_linux">3.1. Op Linux</a></li>
+<li><a href="#_op_windows_macos">3.2. Op Windows / macOS</a></li>
+</ul>
+</li>
+<li><a href="#_docker_gebruiken">4. Docker gebruiken</a>
+<ul class="sectlevel2">
+<li><a href="#_een_eenvoudige_container_draaien">4.1. Een eenvoudige container draaien</a></li>
+<li><a href="#_interactieve_shell_starten_in_een_ubuntu_container">4.2. Interactieve shell starten in een Ubuntu-container</a></li>
+</ul>
+</li>
+<li><a href="#_docker_images_en_dockerfiles">5. Docker Images en Dockerfiles</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_een_dockerfile">5.1. Wat is een Dockerfile?</a></li>
+<li><a href="#_wat_is_docker_hub">5.2. Wat is Docker Hub?</a>
 <ul class="sectlevel3">
-<li><a href="#_acid_eigenschappen_van_traditionele_relationele_databases">5.1.1. ACID: Eigenschappen van traditionele relationele databases</a></li>
-<li><a href="#_base_eigenschappen_van_veel_nosql_databases">5.1.2. BASE: Eigenschappen van veel NoSQL-databases</a></li>
-<li><a href="#_samenvatting_van_het_verschil">5.1.3. Samenvatting van het verschil:</a></li>
-<li><a href="#_wanneer_kies_je_wat">5.1.4. Wanneer kies je wat?</a></li>
+<li><a href="#_publieke_images_gebruiken">5.2.1. Publieke images gebruiken</a></li>
+</ul>
+</li>
+<li><a href="#_voorbeeld_dockerfile_voor_een_postgresql_database">5.3. Voorbeeld: Dockerfile voor een PostgreSQL database</a>
+<ul class="sectlevel3">
+<li><a href="#_init_sql_voorbeeld">5.3.1. init.sql voorbeeld</a></li>
+<li><a href="#_container_starten_met_docker">5.3.2. Container starten met Docker</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#_nosql_en_beveiliging_sql_injection">6. NoSQL en Beveiliging: SQL Injection</a></li>
-<li><a href="#_wanneer_gebruik_je_nosql">7. Wanneer gebruik je NoSQL?</a></li>
-<li><a href="#_voorbeeldproject_gebruikersdata_opslaan_in_mongodb">8. Voorbeeldproject: gebruikersdata opslaan in MongoDB</a></li>
-<li><a href="#_samenvatting">9. Samenvatting</a></li>
+<li><a href="#_volumes">6. Volumes</a></li>
+<li><a href="#_poorten_mappen">7. Poorten mappen</a></li>
+<li><a href="#_devops_cicd_en_de_rol_van_docker">8. DevOps, CI/CD en de rol van Docker</a>
+<ul class="sectlevel2">
+<li><a href="#_wat_is_devops">8.1. Wat is DevOps?</a></li>
+<li><a href="#_wat_is_cicd">8.2. Wat is CI/CD?</a></li>
+<li><a href="#_de_rol_van_docker_in_devops">8.3. De rol van Docker in DevOps</a></li>
+<li><a href="#_voorbeeld_cicd_met_docker">8.4. Voorbeeld: CI/CD met Docker</a></li>
+<li><a href="#_samenvatting">8.5. Samenvatting</a></li>
+</ul>
+</li>
+<li><a href="#_nadelen_van_docker">9. Nadelen van Docker</a></li>
+<li><a href="#_besluit">10. Besluit</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_inleiding">1. Inleiding</h2>
+<h2 id="_inleiding_tot_devops">1. Inleiding tot DevOps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In de wereld van databases is relationeel lang de norm geweest. Relationale databases zoals MySQL, PostgreSQL en Oracle gebruiken tabellen met vaste schema’s, rijen en kolommen. Ze vertrouwen op SQL als querytaal. Maar met de opkomst van het internet, mobiele applicaties, big data en realtime systemen werd duidelijk dat relationele databases niet altijd het meest geschikt zijn.</p>
+<p>DevOps is een samenvoeging van "Development" (ontwikkeling) en "Operations" (systeembeheer).
+Het doel van DevOps is om de samenwerking tussen ontwikkelaars en IT-operations te verbeteren door processen te automatiseren en continu te integreren en implementeren (CI/CD).
+DevOps streeft naar snellere levering van software met een hogere betrouwbaarheid.</p>
 </div>
 <div class="paragraph">
-<p>Daarom ontstond NoSQL: een nieuwe familie van databases die meer schaalbaarheid, flexibiliteit en snelheid bieden voor moderne toepassingen.</p>
-</div>
-<div class="paragraph">
-<p>NoSQL staat voor <strong>“Not Only SQL”</strong> en verwijst naar databasesystemen die geen of slechts gedeeltelijk gebruik maken van SQL en relationele tabellen.</p>
+<p>DevOps is geen technologie op zich, maar eerder een cultuur en manier van werken, ondersteund door tools. Een van die tools is Docker.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_waarom_nosql_ontstond">2. Waarom NoSQL ontstond</h2>
+<h2 id="_wat_is_docker">2. Wat is Docker?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Er zijn verschillende redenen waarom NoSQL-databases populair zijn geworden:</p>
+<p>Docker is een platform waarmee je applicaties verpakt in containers.
+Een container is een lichtgewicht, draagbare eenheid die alles bevat wat een applicatie nodig heeft om te draaien: code, runtime, libraries en configuratie.</p>
 </div>
+<div class="paragraph">
+<p>Containers draaien consistent op elk systeem dat Docker ondersteunt – of dat nu een lokale laptop is, een server in het datacenter of een cloudomgeving.</p>
+</div>
+<div class="sect2">
+<h3 id="_verschil_tussen_docker_en_virtual_machines">2.1. Verschil tussen Docker en Virtual Machines</h3>
+<div class="paragraph">
+<p>Docker en virtuele machines (VM&#8217;s) zorgen beide voor isolatie van software, maar op een andere manier.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Docker-and-Vm-blog-image_result-1.webp" alt="Docker and Vm blog image result 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Een <strong>VM</strong> emuleert een <mark>volledige computer, inclusief besturingssysteem</mark>. Elke VM draait bovenop een hypervisor en bevat zijn eigen OS, wat zorgt voor zware resourceconsumptie.</p>
+</div>
+<div class="paragraph">
+<p>Docker gebruikt <strong>containers</strong>, die de <mark>kernel van het host-besturingssysteem delen</mark>. Alleen de applicatie en haar afhankelijkheden worden geïsoleerd. Dit maakt containers <strong>lichter</strong>, <strong>sneller opstartend</strong> en <strong>efficiënter</strong> in resourcegebruik dan VM&#8217;s.</p>
+</div>
+<div class="paragraph">
+<p>Kort samengevat:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Docker (containers)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Virtuele Machines (VM&#8217;s)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lichtgewicht</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zwaar, inclusief OS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snelle opstart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trage opstart</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deelt OS-kernel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Volledig OS per VM</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiënt in gebruik</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Meer resourceverbruik</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Docker is ideaal voor snelle ontwikkeling en schaalbaarheid.
+VM’s zijn geschikt als je volledige OS-isolatie nodig hebt (bijv. verschillende OS’en op één host).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voordelen_van_docker">2.2. Voordelen van Docker</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Moderne toepassingen vereisen <strong>horizontale schaalbaarheid</strong> over meerdere servers.</p>
+<p><strong>Portabiliteit</strong>: Containers draaien hetzelfde op elk platform.</p>
 </li>
 <li>
-<p>Data is vaak <strong>ongestructureerd</strong> of verandert snel van structuur (denk aan JSON- of XML-gegevens).</p>
+<p><strong>Snelle deploys</strong>: Containers starten snel op.</p>
 </li>
 <li>
-<p>Toepassingen moeten <strong>grote hoeveelheden data</strong> kunnen verwerken met hoge snelheid (denk aan Facebook, Netflix, Twitter).</p>
+<p><strong>Isolatie</strong>: Elke container draait in zijn eigen omgeving.</p>
 </li>
 <li>
-<p>Ontwikkelaars willen snel kunnen itereren zonder telkens het schema (ontwerp van de tabellen, Primary keys, Foreign keys) van de database te moeten aanpassen.</p>
+<p><strong>Versiebeheer</strong>: Docker-images zijn versieerbaar en reproduceerbaar.</p>
+</li>
+<li>
+<p><strong>Schaalbaarheid</strong>: Containers kunnen eenvoudig gerepliceerd en geschaald worden.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_kenmerken_van_nosql">3. Kenmerken van NoSQL</h2>
+<h2 id="_docker_installeren">3. Docker installeren</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Schema-loos</strong>: Geen vast schema vereist zoals bij SQL.</p>
-</li>
-<li>
-<p><strong>Horizontale schaalbaarheid</strong>: Eenvoudig verdelen over meerdere servers (sharding).</p>
-</li>
-<li>
-<p><strong>Flexibele dataopslag</strong>: Geschikt voor documenten, grafen, key-value paren, etc.</p>
-</li>
-<li>
-<p><strong>Hoge prestaties</strong>: Snelle lees- en schrijfbewerkingen, zelfs bij grote datavolumes.</p>
-</li>
-<li>
-<p><strong>Eventueel consistente systemen</strong>: Sommige NoSQL-systemen gebruiken een ander consistentiemodel dan SQL.</p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="_op_linux">3.1. Op Linux</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>docker.io
+<span class="nb">sudo </span>systemctl <span class="nb">enable</span> <span class="nt">--now</span> docker</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_op_windows_macos">3.2. Op Windows / macOS</h3>
+<div class="paragraph">
+<p>Bezoek <a href="https://www.docker.com/products/docker-desktop/" class="bare">https://www.docker.com/products/docker-desktop/</a> en download Docker Desktop.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_verschillende_types_nosql_databases">4. Verschillende types NoSQL-databases</h2>
+<h2 id="_docker_gebruiken">4. Docker gebruiken</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_een_eenvoudige_container_draaien">4.1. Een eenvoudige container draaien</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell">docker run hello-world</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze container test of Docker correct werkt.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interactieve_shell_starten_in_een_ubuntu_container">4.2. Interactieve shell starten in een Ubuntu-container</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell">docker run <span class="nt">-it</span> ubuntu /bin/bash</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier krijg je een shell in een geïsoleerde Ubuntu-omgeving.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_docker_images_en_dockerfiles">5. Docker Images en Dockerfiles</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>NoSQL is geen technologie, maar een overkoepelende term. Er bestaan verschillende soorten NoSQL-databases, elk met hun eigen toepassingen.</p>
+<p>Docker maakt gebruik van "images", vooraf gebouwde sjablonen voor containers.</p>
 </div>
 <div class="sect2">
-<h3 id="_1_document_gebaseerde_databases">4.1. 1. Document-gebaseerde databases</h3>
+<h3 id="_wat_is_een_dockerfile">5.1. Wat is een Dockerfile?</h3>
 <div class="paragraph">
-<p>Slaan gegevens op in documenten, meestal in JSON- of BSON-formaat.</p>
-</div>
-<div class="paragraph">
-<p>Gebruiksscenario: webapplicaties, gebruikersgegevens, CMS, logs.</p>
+<p>Een <strong>Dockerfile</strong> is een tekstbestand met instructies die beschrijven hoe een Docker image moet worden opgebouwd.</p>
 </div>
 <div class="paragraph">
-<p><strong>Voorbeeld: MongoDB, CouchDB</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="json"><span class="p">{</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"math"</span><span class="p">,</span><span class="w"> </span><span class="s2">"history"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="nc">MongoClient</span><span class="p">(</span><span class="sh">"</span><span class="s">mongodb://localhost:27017/</span><span class="sh">"</span><span class="p">)</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="sh">"</span><span class="s">school</span><span class="sh">"</span><span class="p">]</span>
-<span class="n">students</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="sh">"</span><span class="s">students</span><span class="sh">"</span><span class="p">]</span>
-
-<span class="n">students</span><span class="p">.</span><span class="nf">insert_one</span><span class="p">({</span>
-    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span>
-    <span class="sh">"</span><span class="s">age</span><span class="sh">"</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
-    <span class="sh">"</span><span class="s">courses</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="sh">"</span><span class="s">math</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">history</span><span class="sh">"</span><span class="p">]</span>
-<span class="p">})</span>
-
-<span class="n">student</span> <span class="o">=</span> <span class="n">students</span><span class="p">.</span><span class="nf">find_one</span><span class="p">({</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">})</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="sh">"</span><span class="s">courses</span><span class="sh">"</span><span class="p">])</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_2_key_value_stores">4.2. 2. Key-Value Stores</h3>
-<div class="paragraph">
-<p>Simpel: een unieke sleutel verwijst naar een waarde.</p>
+<p>Je kan het vergelijken met een recept: het beschrijft stap voor stap welke software, configuraties en bestanden in een image terechtkomen.</p>
 </div>
 <div class="paragraph">
-<p>Gebruiksscenario: caching, sessies, configuratie-instellingen.</p>
+<p>Docker gebruikt dit bestand om automatisch een image te bouwen via het commando <code>docker build</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Voorbeeld: Redis, Amazon DynamoDB, Riak</strong></p>
+<p>Elke regel in een Dockerfile is een instructie, bijvoorbeeld:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="c1"># Redis (command line)
-</span><span class="n">SET</span> <span class="n">user</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">name</span> <span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span>
-<span class="n">GET</span> <span class="n">user</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">name</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_3_kolom_gebaseerde_databases">4.3. 3. Kolom-gebaseerde databases</h3>
-<div class="paragraph">
-<p>Kolom-gebaseerde databases slaan data op per kolom in plaats van per rij, wat een belangrijk verschil is met klassieke relationele databases zoals MySQL of PostgreSQL.</p>
-</div>
-<div class="sect3">
-<h4 id="_wat_betekent_dit_verschil">4.3.1. Wat betekent dit verschil?</h4>
-<div class="paragraph">
-<p>In een traditionele SQL-database worden rijen als 1 geheel opgeslagen. Dit is efficiënt voor toepassingen waarbij je meestal volledige records (rijen) nodig hebt.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">students</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In een kolom-gebaseerde database wordt elke kolom afzonderlijk opgeslagen, waardoor het veel efficiënter is om grote hoeveelheden gegevens uit één enkele kolom op te vragen. Dit is bijzonder nuttig voor analytische toepassingen, zoals rapporten en dashboards, waar je bijvoorbeeld de gemiddelde temperatuur of verkoopcijfers per maand wilt berekenen over miljoenen rijen.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_verschillen_met_sql">4.3.2. Verschillen met SQL:</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Relationeel (SQL): Opslag per rij → goed voor OLTP (online transactieverwerking), zoals inschrijvingen of bestellingen.</p>
+<p><code>FROM</code>: bepaalt het startpunt, meestal een bestaande basisimage zoals <code>python</code>, <code>ubuntu</code>, of <code>postgres</code>.</p>
 </li>
 <li>
-<p>Kolom-gebaseerd (NoSQL): Opslag per kolom → goed voor OLAP (analytische verwerking), zoals rapportages en data-analyse.</p>
+<p><code>COPY</code>: kopieert bestanden van je lokale systeem naar de container.</p>
+</li>
+<li>
+<p><code>RUN</code>: voert commando’s uit tijdens het bouwen van de image (bijv. installeren van pakketten).</p>
+</li>
+<li>
+<p><code>ENV</code>: stelt omgevingsvariabelen in (zoals gebruikersnamen of paden).</p>
+</li>
+<li>
+<p><code>CMD</code> of <code>ENTRYPOINT</code>: bepaalt welk commando wordt uitgevoerd als de container wordt opgestart.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="_voorbeeld_apache_cassandra">4.3.3. Voorbeeld: Apache Cassandra</h4>
 <div class="paragraph">
-<p>Cassandra is een populaire kolom-gebaseerde NoSQL-database.</p>
+<p>Een eenvoudige Dockerfile voor een Python-script kan er bijvoorbeeld zo uitzien:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">temperature_readings</span> <span class="p">(</span>
-  <span class="n">sensor_id</span> <span class="n">UUID</span><span class="p">,</span>
-  <span class="n">reading_time</span> <span class="nb">timestamp</span><span class="p">,</span>
-  <span class="n">temperature</span> <span class="nb">float</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">sensor_id</span><span class="p">,</span> <span class="n">reading_time</span><span class="p">)</span>
+<pre class="rouge highlight"><code data-lang="dockerfile"><span class="k">FROM</span><span class="s"> python:3.10</span>
+<span class="k">COPY</span><span class="s"> script.py /app/script.py</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">CMD</span><span class="s"> ["python", "script.py"]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze image bevat Python, kopieert een script en voert het uit wanneer de container start.</p>
+</div>
+<div class="paragraph">
+<p>Dockerfiles maken het dus mogelijk om je omgeving consistent, herhaalbaar en deelbaar te maken — ideaal voor zowel ontwikkeling als productie.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wat_is_docker_hub">5.2. Wat is Docker Hub?</h3>
+<div class="paragraph">
+<p><strong>Docker Hub</strong> is een publieke online dienst van Docker waar je Docker images kan <strong>opslaan</strong>, <strong>delen</strong> en <strong>downloaden</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Het is vergelijkbaar met GitHub, maar dan specifiek voor Docker images.</p>
+</div>
+<div class="paragraph">
+<p>Je kan Docker Hub gebruiken om:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Images te downloaden van andere ontwikkelaars of bedrijven.</p>
+</li>
+<li>
+<p>Je eigen images te uploaden en te delen met anderen.</p>
+</li>
+<li>
+<p>Automatische builds te configureren vanaf Git-repositories.</p>
+</li>
+<li>
+<p>Openbare of privé-repositories aan te maken.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_publieke_images_gebruiken">5.2.1. Publieke images gebruiken</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/docker_high_level.png" alt="docker high level">
+</div>
+</div>
+<div class="paragraph">
+<p>Docker Hub bevat duizenden publieke images, bijvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">docker pull python
+docker pull postgres</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deze commando’s halen de officiële images van Python en PostgreSQL op.</p>
+</div>
+<div class="paragraph">
+<p>Daarna kan je ze meteen gebruiken om containers te starten:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">docker run <span class="nt">-it</span> python
+docker run <span class="nt">-e</span> <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>mypassword postgres</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Docker Hub is dus een centrale plek voor samenwerking, distributie en hergebruik van containers.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voorbeeld_dockerfile_voor_een_postgresql_database">5.3. Voorbeeld: Dockerfile voor een PostgreSQL database</h3>
+<div class="paragraph">
+<p>Om een PostgreSQL-database te draaien met Docker, is het niet nodig om een Dockerfile zelf te schrijven, omdat er al een officiële PostgreSQL-image beschikbaar is op <strong>Docker Hub</strong>. Maar als je toch een eigen configuratie wil opzetten (bijvoorbeeld met extra scripts of instellingen), kan je onderstaande <code>Dockerfile</code> gebruiken als uitgangspunt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="dockerfile"><span class="c"># Gebruik de officiële PostgreSQL image als basis</span>
+<span class="k">FROM</span><span class="s"> postgres:15</span>
+
+<span class="c"># Stel omgeving variabelen in</span>
+<span class="k">ENV</span><span class="s"> POSTGRES_USER=admin</span>
+<span class="k">ENV</span><span class="s"> POSTGRES_PASSWORD=geheim</span>
+<span class="k">ENV</span><span class="s"> POSTGRES_DB=voorbeeld_db</span>
+
+<span class="c"># Voeg optioneel een SQL-initiatiescript toe</span>
+<span class="c"># Deze worden automatisch uitgevoerd bij de eerste keer opstarten van de container</span>
+<span class="k">COPY</span><span class="s"> init.sql /docker-entrypoint-initdb.d/</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FROM postgres:15</code> gebruikt versie 15 van de officiële PostgreSQL Docker image.</p>
+</li>
+<li>
+<p><code>ENV</code> stelt variabelen in zoals de gebruikersnaam, het wachtwoord en de standaarddatabase.</p>
+</li>
+<li>
+<p><code>COPY</code> plaatst een SQL-bestand in de juiste map zodat het automatisch wordt uitgevoerd bij het opstarten van de database (bijv. voor tabellen aanmaken of data importeren).</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_init_sql_voorbeeld">5.3.1. init.sql voorbeeld</h4>
+<div class="paragraph">
+<p>Als je een eenvoudig SQL-script wil gebruiken om een tabel aan te maken, kan je dit plaatsen in <code>init.sql</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">leerlingen</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">naam</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">leeftijd</span> <span class="nb">INT</span>
 <span class="p">);</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In Cassandra worden de kolommen <code>sensor_id</code>, <code>reading_time</code> en <code>temperature</code> fysiek gescheiden opgeslagen, wat toelaat snel bijvoorbeeld alleen alle <code>temperature</code>-waarden op te vragen over een bepaalde periode zonder onnodige data te lezen.</p>
+<p>Wanneer je deze container start, zal PostgreSQL automatisch deze tabel aanmaken in de opgegeven database.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_wanneer_gebruiken">4.3.4. Wanneer gebruiken?</h4>
-<div class="paragraph">
-<p>Gebruik kolom-gebaseerde NoSQL als:</p>
+<h4 id="_container_starten_met_docker">5.3.2. Container starten met Docker</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/what-is-docker-container-1024x354.avif" alt="width:640">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Je grote hoeveelheden data moet analyseren.</p>
-</li>
-<li>
-<p>Je vaak werkt met aggregaties (gemiddelde, som, minimum, maximum).</p>
-</li>
-<li>
-<p>Snel lezen van specifieke kolommen belangrijker is dan volledige records ophalen.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_4_grafendatabases">4.4. 4. Grafendatabases</h3>
-<div class="paragraph">
-<p>Modelleert relaties tussen data als knopen en verbindingen (edges).</p>
 </div>
 <div class="paragraph">
-<p>Gebruiksscenario: sociale netwerken, aanbevelingssystemen, fraudedetectie.</p>
-</div>
-<div class="paragraph">
-<p><strong>Voorbeeld: Neo4j, ArangoDB</strong></p>
+<p>Zorg dat je Dockerfile en <code>init.sql</code> in dezelfde map staan, en voer vervolgens uit:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="plaintext">(:Person {name: "Alice"})-[:FRIENDS_WITH]-&gt;(:Person {name: "Bob"})</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">docker build <span class="nt">-t</span> mijn-postgres <span class="nb">.</span>
+docker run <span class="nt">-d</span> <span class="nt">-p</span> 5432:5432 <span class="nt">--name</span> postgres-db mijn-postgres</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Grafische voorstelling van een Neo4J databank:</p>
+<p>Nu draait je eigen PostgreSQL-container met een vooraf ingestelde gebruiker en database.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_volumes">6. Volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Een volume is opslag buiten de container, zodat gegevens behouden blijven als de container verdwijnt.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/neo4j.png" alt="Neo4j voorbeeld">
+<img src="images/docker-volumes.webp" alt="docker volumes">
 </div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell">docker run <span class="nt">-v</span> /mijn/host/pad:/app/data mijn-python-app</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vergelijking_nosql_vs_relationele_databases">5. Vergelijking: NoSQL vs. Relationele Databases</h2>
+<h2 id="_poorten_mappen">7. Poorten mappen</h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Relationale DB (SQL)</th>
-<th class="tableblock halign-left valign-top">NoSQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vast schema vereist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Geen vast schema nodig</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Moeilijk horizontaal schaalbaar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Eenvoudig horizontaal schaalbaar</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SQL als querytaal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">API’s of eigen querytalen</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Goede ondersteuning voor JOINs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JOINs vaak niet of beperkt</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sterke consistentie (ACID)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vaak uiteindelijk consistent (BASE)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Best voor gestructureerde data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Geschikt voor flexibele of ongestructureerde data</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Wanneer je een webserver draait in Docker, moet je een poort openen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dockerportmapping.webp" alt="dockerportmapping">
+</div>
+</div>
+<div class="paragraph">
+<p>Wanneer een Docker-container een service aanbiedt (zoals een webserver of database), draait die service <strong>binnenin</strong> de container, op een interne poort (bijvoorbeeld 80 of 5432).</p>
+</div>
+<div class="paragraph">
+<p>Om die service bereikbaar te maken vanaf je eigen computer, moet je een <strong>poort van je host</strong> koppelen aan een <strong>poort in de container</strong>.
+Dit doe je met <strong>port mapping</strong> via de <code>-p</code> vlag:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">docker run <span class="nt">-p</span> 8080:80 nginx</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>80</code> is de poort <strong>in de container</strong> waarop de Nginx webserver draait.</p>
+</li>
+<li>
+<p><code>8080</code> is de poort <strong>op je computer (de host)</strong> waar je naar surft.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Resultaat:
+Je kan nu surfen naar <code><a href="http://localhost:8080" class="bare">http://localhost:8080</a></code> om de Nginx server in de container te zien.</p>
+</div>
+<div class="paragraph">
+<p>Je kan meerdere port mappings opgeven met meerdere <code>-p</code> vlaggen. Bijvoorbeeld:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">docker run <span class="nt">-p</span> 8080:80 <span class="nt">-p</span> 8443:443 myserver</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let op: zorg ervoor dat de gekozen host-poorten niet al in gebruik zijn op je systeem.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_devops_cicd_en_de_rol_van_docker">8. DevOps, CI/CD en de rol van Docker</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_acid_vs_base">5.1. ACID vs BASE</h3>
+<h3 id="_wat_is_devops">8.1. Wat is DevOps?</h3>
 <div class="paragraph">
-<p>Wanneer we relationele (SQL) en NoSQL-databases vergelijken, komt vaak het verschil tussen <strong>ACID</strong> en <strong>BASE</strong> naar voren. Deze termen beschrijven hoe databases omgaan met betrouwbaarheid, transacties en consistentie.</p>
-</div>
-<div class="sect3">
-<h4 id="_acid_eigenschappen_van_traditionele_relationele_databases">5.1.1. ACID: Eigenschappen van traditionele relationele databases</h4>
-<div class="paragraph">
-<p>ACID staat voor:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>A</strong>tomicity: Alles of niets. Een transactie slaagt volledig of wordt volledig teruggedraaid.</p>
-</li>
-<li>
-<p><strong>C</strong>onsistency: De database blijft na elke transactie in een geldige toestand.</p>
-</li>
-<li>
-<p><strong>I</strong>solation: Transacties hebben geen invloed op elkaar terwijl ze gelijktijdig lopen.</p>
-</li>
-<li>
-<p><strong>D</strong>urability: Na een bevestigde transactie blijven de gegevens permanent bewaard, zelfs bij een crash.</p>
-</li>
-</ul>
+<p>DevOps is een combinatie van "Development" (ontwikkeling) en "Operations" (beheer).
+Het is een werkwijze die teams helpt om sneller en efficiënter software te ontwikkelen, testen en uit te rollen.
+In plaats van dat ontwikkelaars software bouwen en die dan overdragen aan een apart team voor installatie, werken beide teams samen als één geheel.</p>
 </div>
 <div class="paragraph">
-<p>ACID is typisch voor SQL-databases zoals MySQL, PostgreSQL en Oracle. Deze eigenschappen zijn essentieel bij toepassingen zoals bankverkeer, boekhouding of voorraadbeheer, waar betrouwbaarheid cruciaal is.</p>
+<p>Het doel van DevOps is:
+- Snellere leveringen van nieuwe softwareversies
+- Minder fouten in productie
+- Meer automatisatie van processen zoals testen, bouwen en uitrollen</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_base_eigenschappen_van_veel_nosql_databases">5.1.2. BASE: Eigenschappen van veel NoSQL-databases</h4>
-<div class="paragraph">
-<p>BASE is een losser alternatief, en staat voor:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>B</strong>asically Available: Het systeem blijft beschikbaar, zelfs als niet alles perfect werkt.</p>
-</li>
-<li>
-<p><strong>S</strong>oft state: De toestand van het systeem kan veranderen, zelfs zonder input (door replicatie of updates).</p>
-</li>
-<li>
-<p><strong>E</strong>ventual consistency: Gegevens zullen uiteindelijk consistent worden over alle nodes, maar dit is niet onmiddellijk.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>BASE komt vaak voor bij NoSQL-systemen zoals Cassandra, Couchbase en DynamoDB. Deze zijn ontworpen voor schaalbaarheid en prestaties op grote schaal (bijvoorbeeld sociale media of real-time analytics), waarbij het geen ramp is als een update niet onmiddellijk overal zichtbaar is.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_samenvatting_van_het_verschil">5.1.3. Samenvatting van het verschil:</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">ACID (SQL)</th>
-<th class="tableblock halign-left valign-top">BASE (NoSQL)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Strikte consistentie</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Eventuele consistentie</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Transactie = volledig of niets</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Flexibeler, toleranter voor fouten</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Geschikt voor kritische data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Geschikt voor schaalbare toepassingen</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minder schaalbaar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Horizontaal schaalbaar</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_wanneer_kies_je_wat">5.1.4. Wanneer kies je wat?</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Gebruik <strong>ACID</strong> als je te maken hebt met financiële gegevens, gebruikersrechten of gevoelige data.</p>
-</li>
-<li>
-<p>Gebruik <strong>BASE</strong> wanneer je vooral snelheid, schaalbaarheid en fouttolerantie nodig hebt, zoals bij apps met miljoenen gebruikers of IoT-platformen.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_nosql_en_beveiliging_sql_injection">6. NoSQL en Beveiliging: SQL Injection</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Een voordeel van NoSQL-systemen (zoals MongoDB) is dat ze niet vatbaar zijn voor klassieke SQL-injectie-aanvallen, omdat ze geen string-gebaseerde queryopbouw gebruiken.</p>
-</div>
-<div class="paragraph">
-<p><strong>Wat is een SQL Injection?</strong></p>
-</div>
-<div class="paragraph">
-<p>Bij klassieke SQL schrijf je vaak query’s als strings. Slechte inputafhandeling kan ertoe leiden dat een aanvaller eigen SQL-code in een invoerveld invoert.</p>
-</div>
-<div class="listingblock">
+<div class="sect2">
+<h3 id="_wat_is_cicd">8.2. Wat is CI/CD?</h3>
+<div class="imageblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">users</span> <span class="k">WHERE</span> <span class="n">username</span> <span class="o">=</span> <span class="s1">'$input'</span><span class="p">;</span></code></pre>
+<img src="images/cicd.png" alt="cicd">
 </div>
 </div>
 <div class="paragraph">
-<p>Als de gebruiker <code>' OR '1'='1</code> invoert, wordt de hele gebruikerslijst getoond.</p>
+<p>CI/CD staat voor:</p>
 </div>
 <div class="paragraph">
-<p>Met NoSQL werk je met objecten in plaats van ruwe strings, wat veiliger is:</p>
+<p><strong>Continuous Integration (CI)</strong>
+CI betekent dat ontwikkelaars regelmatig (soms meerdere keren per dag) hun code samenvoegen in een centrale code-opslagplaats (zoals GitHub of GitLab).
+Elke keer dat nieuwe code wordt toegevoegd, wordt automatisch:
+- De applicatie opgebouwd (build)
+- Tests uitgevoerd</p>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><strong>Continuous Delivery / Deployment (CD)</strong>
+Bij CD wordt de geteste code automatisch uitgerold naar een staging- of productieomgeving.
+Er is dus geen handmatig tussenkomen meer nodig om software te installeren.</p>
+</div>
+<div class="paragraph">
+<p>CI/CD zorgt voor:
+- Snelle feedback als er iets fout zit in de code
+- Automatische installaties en updates
+- Betrouwbare en voorspelbare releases</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_rol_van_docker_in_devops">8.3. De rol van Docker in DevOps</h3>
+<div class="paragraph">
+<p>Docker is onmisbaar geworden binnen DevOps en CI/CD.
+Het maakt het mogelijk om een volledige applicatie, inclusief afhankelijkheden, te verpakken in een <strong>container</strong>.
+Zo&#8217;n container draait overal hetzelfde: op de computer van de ontwikkelaar, in de testomgeving én in productie.</p>
+</div>
+<div class="paragraph">
+<p>Voordelen:
+- Geen problemen meer met "werkt op mijn machine"
+- Containers starten snel en zijn licht
+- Makkelijk te automatiseren in CI/CD-pijplijnen</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="nf">find_one</span><span class="p">({</span><span class="sh">"</span><span class="s">username</span><span class="sh">"</span><span class="p">:</span> <span class="n">input_value</span><span class="p">})</span></code></pre>
+<img src="images/CI-CD-Architecture-using-Docker.ppm" alt="CI CD Architecture using Docker">
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_wanneer_gebruik_je_nosql">7. Wanneer gebruik je NoSQL?</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_voorbeeld_cicd_met_docker">8.4. Voorbeeld: CI/CD met Docker</h3>
 <div class="paragraph">
-<p>Kies voor NoSQL als:</p>
+<p>Een typische CI/CD-pijplijn met Docker werkt zo:</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>De ontwikkelaar pusht code naar GitHub</p>
+</li>
+<li>
+<p>De CI-server (bijv. GitHub Actions, GitLab CI, Jenkins) voert automatisch deze stappen uit:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Je met grote hoeveelheden ongestructureerde data werkt.</p>
+<p>Docker-image bouwen met de nieuwe code</p>
 </li>
 <li>
-<p>Je applicatie horizontaal moet kunnen schalen.</p>
+<p>Tests uitvoeren in de container</p>
 </li>
 <li>
-<p>Je een flexibel gegevensmodel nodig hebt.</p>
+<p>Image uploaden naar Docker Hub (of andere registry)</p>
 </li>
 <li>
-<p>Je prestaties belangrijker zijn dan complexe relaties.</p>
+<p>Container uitrollen naar productie (bijv. met Kubernetes)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_samenvatting">8.5. Samenvatting</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>DevOps</strong> is een samenwerking tussen ontwikkeling en beheer.</p>
+</li>
+<li>
+<p><strong>CI/CD</strong> automatiseert het testen en uitrollen van software.</p>
+</li>
+<li>
+<p><strong>Docker</strong> zorgt ervoor dat code betrouwbaar en consistent draait, en maakt automatisatie via CI/CD eenvoudiger.</p>
+</li>
+<li>
+<p>Samen vormen deze technologieën de basis van moderne softwareontwikkeling.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Gebruik relationele databases als:</p>
+<p>Met Docker, CI/CD en DevOps kun je sneller software leveren, betrouwbaarder testen en eenvoudiger beheren.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nadelen_van_docker">9. Nadelen van Docker</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Je data gestructureerd is en sterk onderling verbonden.</p>
+<p>Complexiteit bij grote projecten.</p>
 </li>
 <li>
-<p>Je complexe transacties met sterke consistentie nodig hebt.</p>
+<p>Beveiliging als containers verkeerd geconfigureerd zijn.</p>
 </li>
 <li>
-<p>Je met bestaande relationele tools wilt blijven werken.</p>
+<p>Leercurve voor beginners.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_voorbeeldproject_gebruikersdata_opslaan_in_mongodb">8. Voorbeeldproject: gebruikersdata opslaan in MongoDB</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="nc">MongoClient</span><span class="p">(</span><span class="sh">"</span><span class="s">mongodb://localhost:27017/</span><span class="sh">"</span><span class="p">)</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="sh">"</span><span class="s">app</span><span class="sh">"</span><span class="p">]</span>
-<span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="sh">"</span><span class="s">users</span><span class="sh">"</span><span class="p">]</span>
-
-<span class="c1"># Een gebruiker toevoegen
-</span><span class="n">users</span><span class="p">.</span><span class="nf">insert_one</span><span class="p">({</span>
-    <span class="sh">"</span><span class="s">username</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">janedoe</span><span class="sh">"</span><span class="p">,</span>
-    <span class="sh">"</span><span class="s">email</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">jane@example.com</span><span class="sh">"</span><span class="p">,</span>
-    <span class="sh">"</span><span class="s">age</span><span class="sh">"</span><span class="p">:</span> <span class="mi">27</span>
-<span class="p">})</span>
-
-<span class="c1"># Een gebruiker opvragen
-</span><span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">find_one</span><span class="p">({</span><span class="sh">"</span><span class="s">username</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">janedoe</span><span class="sh">"</span><span class="p">})</span>
-<span class="nf">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_samenvatting">9. Samenvatting</h2>
+<h2 id="_besluit">10. Besluit</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>NoSQL-databases bieden een moderne oplossing voor veel van de uitdagingen waar traditionele relationele databases tegenaan lopen.</p>
-</div>
-<div class="paragraph">
-<p>Ze zijn flexibel, schaalbaar en krachtig bij het werken met grote hoeveelheden ongestructureerde data.</p>
-</div>
-<div class="paragraph">
-<p>Er zijn verschillende types NoSQL-databases, elk met hun eigen sterktes.</p>
-</div>
-<div class="paragraph">
-<p>Kies altijd de juiste database op basis van de behoeften van je project – relationeel of NoSQL.</p>
+<p>Docker is een essentiële tool binnen de moderne DevOps-wereld. Het zorgt voor consistente, snelle en schaalbare deployments.
+Voor wie wil werken aan cloud-native apps of microservices, is kennis van Docker onmisbaar.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-05-16 11:14:27 +0200
+Last updated 2025-05-26 10:35:21 +0200
 </div>
 </div>
 </body>
