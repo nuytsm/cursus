@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.20">
+<title>Flask: Een Web Framework voor Python</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Flask: Een Web Framework voor Python</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_installatie_van_flask">1. Installatie van Flask</a></li>
+<li><a href="#_je_eerste_flask_applicatie">2. Je Eerste Flask Applicatie</a></li>
+<li><a href="#_routes_en_urls">3. Routes en URL’s</a></li>
+<li><a href="#_http_methodes">4. HTTP Methodes</a></li>
+<li><a href="#_templates">5. Templates</a>
+<ul class="sectlevel2">
+<li><a href="#_waarom_templates_gebruiken">5.1. Waarom Templates Gebruiken?</a></li>
+<li><a href="#_basis_template_gebruik">5.2. Basis Template Gebruik</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_een_eenvoudige_html_pagina">5.2.1. Voorbeeld: Een eenvoudige HTML-pagina</a></li>
+</ul>
+</li>
+<li><a href="#_dynamische_inhoud_met_variabelen">5.3. Dynamische Inhoud met Variabelen</a></li>
+<li><a href="#_loops_en_conditionele_statements">5.4. Loops en Conditionele Statements</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_lijsten_renderen">5.4.1. Voorbeeld: Lijsten renderen</a></li>
+</ul>
+</li>
+<li><a href="#_includen_van_templates">5.5. Includen van Templates</a></li>
+<li><a href="#_templates_oververven">5.6. Templates oververven</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_basislayout">5.6.1. Voorbeeld: Basislayout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_flask_en_forms">6. Flask en Forms</a>
+<ul class="sectlevel2">
+<li><a href="#_uitgebreider_voorbeeld">6.1. Uitgebreider voorbeeld</a>
+<ul class="sectlevel3">
+<li><a href="#_stap_1_maak_het_html_formulier">6.1.1. Stap 1: Maak het HTML-formulier</a></li>
+<li><a href="#_stap_2_maak_een_route_om_het_formulier_te_verwerken">6.1.2. Stap 2: Maak een route om het formulier te verwerken</a></li>
+<li><a href="#_stap_3_maak_een_template_om_de_gegevens_weer_te_geven">6.1.3. Stap 3: Maak een template om de gegevens weer te geven</a></li>
+<li><a href="#_hoe_het_werkt">6.1.4. Hoe het werkt:</a></li>
+<li><a href="#_de_app_draaien">6.1.5. De app draaien:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_flask_en_json">7. Flask en JSON</a></li>
+<li><a href="#_foutafhandeling">8. Foutafhandeling</a></li>
+<li><a href="#_development_vs_production">9. Development vs production</a></li>
+<li><a href="#_debugging_en_herladen">10. Debugging en Herladen</a></li>
+<li><a href="#_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</a>
+<ul class="sectlevel2">
+<li><a href="#_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</a></li>
+<li><a href="#_installatie_en_setup">11.2. Installatie en Setup</a></li>
+<li><a href="#_1_flask_backend_setup">11.3. 1. Flask Backend Setup</a></li>
+<li><a href="#_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</a></li>
+<li><a href="#_3_proxy_instellen">11.5. 3. Proxy Instellen</a></li>
+<li><a href="#_de_applicatie_draaien">11.6. De Applicatie Draaien</a></li>
+<li><a href="#_1_flask_backend">11.7. 1. Flask Backend</a></li>
+<li><a href="#_2_react_frontend">11.8. 2. React Frontend</a></li>
+<li><a href="#_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</a></li>
+<li><a href="#_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</a></li>
+<li><a href="#_conclusie">11.11. Conclusie</a></li>
+</ul>
+</li>
+<li><a href="#_extensies">12. Extensies</a></li>
+<li><a href="#_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</a>
+<ul class="sectlevel2">
+<li><a href="#_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</a></li>
+<li><a href="#_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</a></li>
+</ul>
+</li>
+<li><a href="#_het_maken_van_een_model">13.3. Het maken van een Model</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</a></li>
+</ul>
+</li>
+<li><a href="#_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</a></li>
+</ul>
+</li>
+<li><a href="#_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</a></li>
+</ul>
+</li>
+<li><a href="#_het_opvragen_van_records">13.6. Het opvragen van records</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</a></li>
+</ul>
+</li>
+<li><a href="#_het_updaten_van_records">13.7. Het updaten van records</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</a></li>
+</ul>
+</li>
+<li><a href="#_het_verwijderen_van_records">13.8. Het verwijderen van records</a></li>
+<li><a href="#_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</a></li>
+<li><a href="#_relaties_tussen_modellen">13.10. Relaties tussen modellen</a>
+<ul class="sectlevel3">
+<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</a></li>
+</ul>
+</li>
+<li><a href="#_migraties_uitvoeren">13.11. Migraties uitvoeren</a></li>
+</ul>
+</li>
+<li><a href="#_samenvatting">14. Samenvatting</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask is een lichtgewicht webframework voor Python.
+Het is ontworpen om snel en eenvoudig webapplicaties te bouwen.
+Flask volgt het "micro" raamwerk principe, wat betekent dat het minimale tools en libraries biedt.
+Dit maakt het flexibel en geschikt voor kleine tot middelgrote webapplicaties.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/flask_development_server_diagram.png" alt="flask development server diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>De flask server reageert op http requests en stuurt http respone berichten terug naar de client.
+Flask kan verbinden naar een databank (je kan verschillende kiezen) om er data uit op te halen via sql queries of er data in weg schrijven.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installatie_van_flask">1. Installatie van Flask</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Voordat je Flask kunt gebruiken, moet je het installeren.
+Dit kan eenvoudig via pip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_je_eerste_flask_applicatie">2. Je Eerste Flask Applicatie</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hier is een eenvoudig voorbeeld van een "Hello, World!" Flask-applicatie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'Hello, World!'</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een Flask-applicatie aangemaakt.
+De <code>@app.route('/')</code> <strong>decorator</strong> definieert een route naar de hoofdpagina.
+De functie <code>hello_world()</code> retourneert de tekst "Hello, World!".
+Wanneer je het script uitvoert, start Flask een webserver en is de applicatie toegankelijk via <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_routes_en_urls">3. Routes en URL’s</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/chapter04_flask_request_response_diagram.png" alt="chapter04 flask request response diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In Flask kun je routes definiëren met behulp van de <code>@app.route()</code> decorator.
+Een route is een pad in de URL die naar een specifieke functie verwijst.
+Hier is een voorbeeld met meerdere routes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/about'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">about</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">'About Page'</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/user/&lt;username&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">show_user_profile</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">'User </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s">'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De eerste route <code>'/about'</code> geeft een statische pagina weer.
+De tweede route is dynamisch en accepteert een parameter <code>username</code>.
+Deze parameter wordt doorgegeven aan de functie en verwerkt.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_http_methodes">4. HTTP Methodes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask ondersteunt verschillende HTTP-methodes zoals GET en POST.
+De <code>@app.route()</code> decorator kan worden uitgebreid om specifieke methods te accepteren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/login'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">'POST'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Processing Login'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Login Page'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld accepteert de <code>'/login'</code> route zowel GET- als POST-verzoeken.
+De methode <code>request.method</code> controleert of het een POST-verzoek is en handelt dienovereenkomstig.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/web-crawling-scraping-ajax-sites-3-638.jpg" alt="web crawling scraping ajax sites 3 638">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_templates">5. Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask templates zijn HTML-bestanden die dynamische content kunnen bevatten door middel van Python-code.
+Met Flask kun je deze templates gebruiken om content te genereren op basis van variabelen, loops, en conditionele statements.
+Flask maakt gebruik van Jinja2, een krachtige template engine waarmee je HTML-pagina&#8217;s kunt creëren met geavanceerde functionaliteiten.</p>
+</div>
+<div class="paragraph">
+<p>Een voorbeeld van een template:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>{{ title }}<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>{{ heading }}<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>{{ message }}<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Flask kun je de template renderen met de <code>render_template()</code> functie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Home'</span><span class="p">,</span> <span class="n">heading</span><span class="o">=</span><span class="s">'Welcome'</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s">'This is the home page'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De variabelen <code>title</code>, <code>heading</code>, en <code>message</code> worden doorgegeven aan het template en ingevuld in de HTML.</p>
+</div>
+<div class="sect2">
+<h3 id="_waarom_templates_gebruiken">5.1. Waarom Templates Gebruiken?</h3>
+<div class="paragraph">
+<p>Templates scheiden de logica van je applicatie van de presentatie ervan.
+Hierdoor kun je:
+- Dezelfde template hergebruiken voor verschillende pagina’s.
+- Dynamische content weergeven zonder je HTML handmatig te moeten genereren.
+- Een duidelijke scheiding hebben tussen het Python-gedeelte van je code en de HTML-pagina&#8217;s.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_basis_template_gebruik">5.2. Basis Template Gebruik</h3>
+<div class="paragraph">
+<p>In Flask maak je templates door HTML-bestanden in een map genaamd <code>templates</code> te plaatsen.
+Je kunt deze templates renderen in je routes met behulp van de <code>render_template()</code> functie.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_een_eenvoudige_html_pagina">5.2.1. Voorbeeld: Een eenvoudige HTML-pagina</h4>
+<div class="paragraph">
+<p>Dit is een eenvoudig voorbeeld van een route die een template rendert:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'index.html'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld verwijst <code>index.html</code> naar een bestand dat zich in de <code>templates</code> map bevindt.</p>
+</div>
+<div class="paragraph">
+<p>De inhoud van <code>index.html</code> zou er als volgt kunnen uitzien:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Welcome<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Welkom op mijn Flask-applicatie!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wanneer de gebruiker de index pagina bezoekt, wordt deze HTML gerenderd en naar de browser gestuurd.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dynamische_inhoud_met_variabelen">5.3. Dynamische Inhoud met Variabelen</h3>
+<div class="paragraph">
+<p>Je kunt variabelen vanuit je route naar de template sturen en die in de HTML weergeven.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/user/&lt;name&gt;'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'user.html'</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt de variabele <code>name</code> naar de template <code>user.html</code> gestuurd:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>User Page<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Welkom, {{ username }}!<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Het resultaat is dat wanneer je <code>/user/John</code> bezoekt, de pagina "Welkom, John!" toont.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_loops_en_conditionele_statements">5.4. Loops en Conditionele Statements</h3>
+<div class="paragraph">
+<p>Jinja2 ondersteunt ook loops en conditionele statements, waarmee je dynamische lijsten en content kunt tonen.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_lijsten_renderen">5.4.1. Voorbeeld: Lijsten renderen</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/items'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">items</span><span class="p">():</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Zwaard'</span><span class="p">,</span> <span class="s">'Schild'</span><span class="p">,</span> <span class="s">'Helm'</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'items.html'</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">items</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De template <code>items.html</code> kan een lijst weergeven met een loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Items<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Beschikbare Items:<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        {% for item in items %}
+            <span class="nt">&lt;li&gt;</span>{{ item }}<span class="nt">&lt;/li&gt;</span>
+        {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_includen_van_templates">5.5. Includen van Templates</h3>
+<div class="paragraph">
+<p>Je kunt ook templates hergebruiken door stukken code te includen, zoals een header of footer die op meerdere pagina&#8217;s gebruikt wordt.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html">{% include 'header.html' %}
+<span class="nt">&lt;h1&gt;</span>Welkom op de hoofdpagina!<span class="nt">&lt;/h1&gt;</span>
+{% include 'footer.html' %}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_templates_oververven">5.6. Templates oververven</h3>
+<div class="paragraph">
+<p>Template erfenis in Flask stelt je in staat om een basislayout te maken die door andere templates geërfd kan worden. Dit wordt gedaan met de <code>block</code> tag in Jinja2.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_basislayout">5.6.1. Voorbeeld: Basislayout</h4>
+<div class="paragraph">
+<p>Maak een bestand <code>base.html</code> dat als basis dient voor andere templates:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>{% block title %}Mijn Website{% endblock %}<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Mijn Website<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+
+    <span class="nt">&lt;main&gt;</span>
+        {% block content %}{% endblock %}
+    <span class="nt">&lt;/main&gt;</span>
+
+    <span class="nt">&lt;footer&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Copyright 2024<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Een andere template kan deze layout erven en alleen de <code>content</code> en <code>title</code> blokken aanpassen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html">{% extends 'base.html' %}
+
+{% block title %}Over Ons{% endblock %}
+
+{% block content %}
+    <span class="nt">&lt;h2&gt;</span>Over Ons<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Wij zijn een bedrijf dat zich specialiseert in softwareontwikkeling.<span class="nt">&lt;/p&gt;</span>
+{% endblock %}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flask_en_forms">6. Flask en Forms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask maakt het eenvoudig om formulieren te verwerken.
+Hier is een voorbeeld van een eenvoudig formulier met een POST-verzoek:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">action=</span><span class="s">"/submit"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Flask verwerk je de gegevens van het formulier als volgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/submit'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">submit</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">'Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">!'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De <code>request.form</code> methode wordt gebruikt om toegang te krijgen tot de gegevens van het formulier.</p>
+</div>
+<div class="sect2">
+<h3 id="_uitgebreider_voorbeeld">6.1. Uitgebreider voorbeeld</h3>
+<div class="paragraph">
+<p>Een voorbeeld over hoe je een formulier in Flask kunt indienen en de ingevoerde gegevens kunt weergeven op een andere pagina.</p>
+</div>
+<div class="paragraph">
+<p>Je volgt deze stappen:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Maak het HTML-formulier</strong>: Dit formulier wordt ingediend naar een route in Flask.</p>
+</li>
+<li>
+<p><strong>Maak een route in Flask die het formulier afhandelt</strong>: Deze route verwerkt de formuliergegevens en leidt door naar een pagina waar de gegevens worden weergegeven.</p>
+</li>
+<li>
+<p><strong>Maak een route om de formuliergegevens te tonen</strong>: Op deze pagina worden de verzonden gegevens getoond.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_stap_1_maak_het_html_formulier">6.1.1. Stap 1: Maak het HTML-formulier</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="c">&lt;!-- templates/form.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"nl"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Formulier Indienen<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Vul je gegevens in<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/verzenden"</span> <span class="na">method=</span><span class="s">"POST"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Naam:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;&lt;br&gt;&lt;br&gt;</span>
+
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>E-mail:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span><span class="nt">&gt;&lt;br&gt;&lt;br&gt;</span>
+
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Verzenden"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit formulier gebruikt de <code>POST</code>-methode en stuurt de gegevens naar de route <code>/verzenden</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stap_2_maak_een_route_om_het_formulier_te_verwerken">6.1.2. Stap 2: Maak een route om het formulier te verwerken</h4>
+<div class="paragraph">
+<p>Deze route vangt de formuliergegevens op en leidt door naar een pagina waar de gegevens worden weergegeven.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'form.html'</span><span class="p">)</span>
+
+<span class="c1"># Route om het formulier te verwerken
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/verzenden'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">verzend_formulier</span><span class="p">():</span>
+    <span class="n">naam</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">[</span><span class="s">'email'</span><span class="p">]</span>
+
+    <span class="c1"># Doorverwijzen naar de weergavepagina met de verzonden gegevens
+</span>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">'toon_data'</span><span class="p">,</span> <span class="n">naam</span><span class="o">=</span><span class="n">naam</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+
+<span class="c1"># Route om de verzonden formuliergegevens weer te geven
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/weergeven'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">toon_data</span><span class="p">():</span>
+    <span class="n">naam</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'naam'</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'email'</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'display.html'</span><span class="p">,</span> <span class="n">naam</span><span class="o">=</span><span class="n">naam</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_stap_3_maak_een_template_om_de_gegevens_weer_te_geven">6.1.3. Stap 3: Maak een template om de gegevens weer te geven</h4>
+<div class="paragraph">
+<p>Maak een template die de verzonden gegevens toont.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">templates</span><span class="o">/</span><span class="n">display</span><span class="p">.</span><span class="n">html</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="err">!</span><span class="n">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span> <span class="n">lang</span><span class="o">=</span><span class="s">"nl"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Ingevoerde</span> <span class="n">Gegevens</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Ingevoerde</span> <span class="n">Gegevens</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Naam</span><span class="p">:</span> <span class="p">{{</span> <span class="n">naam</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">E</span><span class="o">-</span><span class="n">mail</span><span class="p">:</span> <span class="p">{{</span> <span class="n">email</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hoe_het_werkt">6.1.4. Hoe het werkt:</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Wanneer een gebruiker naar <code>/</code> gaat, ziet hij het formulier (<code>form.html</code>).</p>
+</li>
+<li>
+<p>Na het indienen van het formulier worden de gegevens naar de route <code>/verzenden</code> gestuurd met de methode <code>POST</code>.</p>
+</li>
+<li>
+<p>De route <code>/verzenden</code> vangt de gegevens (<code>naam</code> en <code>email</code>) op en verwijst door naar de route <code>/weergeven</code>, waarbij de gegevens als query parameters worden meegestuurd.</p>
+</li>
+<li>
+<p>De route <code>/weergeven</code> gebruikt de query parameters om de template <code>display.html</code> te tonen, met daarin de verzonden gegevens.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_de_app_draaien">6.1.5. De app draaien:</h4>
+<div class="paragraph">
+<p>Om deze Flask-app te draaien:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sla de Python-code op als <code>app.py</code>.</p>
+</li>
+<li>
+<p>Sla de HTML-bestanden op in een map genaamd <code>templates/</code>.</p>
+</li>
+<li>
+<p>Installeer Flask met <code>pip install flask</code> (als dat nog niet is gedaan).</p>
+</li>
+<li>
+<p>Start de app met: <code>python app.py</code>.</p>
+</li>
+<li>
+<p>Open je browser en ga naar <code><a href="http://127.0.0.1:5000/" class="bare">http://127.0.0.1:5000/</a></code> om het formulier te zien, het in te vullen, en de verzonden gegevens te bekijken.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens op een andere pagina weergeven.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flask_en_json">7. Flask en JSON</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask maakt het gemakkelijk om met JSON-gegevens te werken.
+Je kunt eenvoudig JSON teruggeven als een API-reactie:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">jsonify</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/data'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'John'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld retourneert de route <code>/api/data</code> een JSON-object met de naam en leeftijd.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_foutafhandeling">8. Foutafhandeling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask biedt ingebouwde ondersteuning voor foutafhandeling.
+Je kunt aangepaste foutpagina&#8217;s maken voor veelvoorkomende HTTP-statuscodes zoals 404:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">'Page not found'</span><span class="p">,</span> <span class="mi">404</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een aangepaste foutmelding weergegeven wanneer een pagina niet wordt gevonden.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_development_vs_production">9. Development vs production</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask wordt vaak in een ontwikkelomgeving gebruikt met zijn ingebouwde webserver.
+Deze webserver is echter niet geschikt voor productieomgevingen omdat het niet voldoende geoptimaliseerd is voor hoge belasting en meerdere gelijktijdige verzoeken.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/flask_production_diagram.png" alt="flask production diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Gunicorn is een WSGI (Web Server Gateway Interface) server die speciaal is ontworpen voor productieomgevingen.
+Wanneer Flask in productie wordt gebruikt met Gunicorn, biedt dit de volgende voordelen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Betere prestaties</strong>: Gunicorn kan meerdere verzoeken tegelijk afhandelen en biedt ondersteuning voor meerdere processen en threads, wat zorgt voor schaalbaarheid en efficiëntie.</p>
+</li>
+<li>
+<p><strong>Stabiliteit</strong>: In tegenstelling tot Flask’s ontwikkelingsserver, kan Gunicorn omgaan met zware belasting zonder te crashen.</p>
+</li>
+<li>
+<p><strong>Veiligheid</strong>: Gunicorn biedt betere beveiligingsfunctionaliteiten en is beter geschikt om blootgesteld te worden aan het internet.</p>
+</li>
+<li>
+<p><strong>Multiprocessing</strong>: Gunicorn kan meerdere werkprocessen creëren, waardoor applicaties kunnen profiteren van multi-core CPU’s en zware belasting efficiënter kunnen verdelen.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Door Flask met Gunicorn te gebruiken in productie, wordt de applicatie robuuster, sneller en stabieler.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_debugging_en_herladen">10. Debugging en Herladen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask heeft een ingebouwde debugmodus.
+Dit helpt bij het opsporen van fouten tijdens de ontwikkeling.
+Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run()</code> toe te voegen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Met debugmodus ingeschakeld wordt de applicatie automatisch opnieuw gestart wanneer je wijzigingen aanbrengt in de code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Het integreren van een ReactJS-frontend met een Python Flask-backend: Deze combinatie van technologieën wordt vaak gebruikt om een gescheiden frontend-backendarchitectuur op te zetten. ReactJS wordt gebruikt voor het maken van interactieve user interfaces, terwijl Flask zorgt voor de server-side logica en API-communicatie.</p>
+</div>
+<div class="sect2">
+<h3 id="_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</h3>
+<div class="paragraph">
+<p>Het gebruik van een gescheiden frontend (ReactJS) en backend (Flask) biedt verschillende voordelen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Losse koppelbaarheid</strong>: React en Flask werken onafhankelijk van elkaar, waardoor de frontend en backend apart kunnen worden ontwikkeld en gehost.</p>
+</li>
+<li>
+<p><strong>Herbruikbare API&#8217;s</strong>: De backend kan RESTful API&#8217;s aanbieden die door meerdere clients (zoals web, mobiel, etc.) gebruikt kunnen worden.</p>
+</li>
+<li>
+<p><strong>Schaalbaarheid</strong>: Dit maakt het eenvoudiger om onderdelen van de applicatie te schalen of te vervangen zonder dat dit grote gevolgen heeft voor het hele systeem.</p>
+</li>
+<li>
+<p><strong>backend/</strong>: Dit bevat de Flask-server en de API-logica.</p>
+</li>
+<li>
+<p><strong>frontend/</strong>: Dit is waar de ReactJS-applicatie zich bevindt, met de componenten, logica en frontendcode.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installatie_en_setup">11.2. Installatie en Setup</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_1_flask_backend_setup">11.3. 1. Flask Backend Setup</h3>
+<div class="paragraph">
+<p>Begin met het instellen van de Flask-backend. Installeer Flask als volgt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask
+pip <span class="nb">install </span>Flask-Cors</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maak een bestand aan genaamd <code>app.py</code> in de map <code>backend/</code>. Dit is waar we onze Flask-applicatie instellen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s">"/api/*"</span><span class="p">:</span> <span class="p">{</span><span class="s">"origins"</span><span class="p">:</span> <span class="s">"http://localhost:3000"</span><span class="p">}})</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/data'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">"message"</span><span class="p">:</span> <span class="s">"Hello from Flask!"</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wordt een eenvoudige API-route gedefinieerd die een JSON-response retourneert. Wanneer je de server start, kan je via <code>/api/data</code> toegang krijgen tot deze API.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</h3>
+<div class="paragraph">
+<p>Om de frontend op te zetten, gebruik je <code>create-react-app</code> zoals besproken in het hoofdstuk 'reactjs' in webdesign.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npx create-react-app frontend
+<span class="nb">cd </span>frontend</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit genereert een standaard React-projectstructuur. Open vervolgens <code>src/App.js</code> en vervang de inhoud met de volgende code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">({</span> <span class="na">message</span><span class="p">:</span> <span class="dl">''</span> <span class="p">});</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/data</span><span class="dl">'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">setData</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">App</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld maakt de React-applicatie een fetch-call naar de Flask-backend om data op te halen. Deze wordt vervolgens weergegeven in de user interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_proxy_instellen">11.5. 3. Proxy Instellen</h3>
+<div class="paragraph">
+<p>Omdat React en Flask op verschillende poorten draaien, moeten we een proxy instellen in het React-project. Open het bestand <code>package.json</code> in de frontend-map en voeg het volgende toe:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="json"><span class="w"> </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5000"</span><span class="w">
+  </span><span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit zorgt ervoor dat alle API-aanvragen die vanuit React komen (bijv. <code>/api/data</code>) worden doorgestuurd naar de Flask-backend op poort 5000.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_applicatie_draaien">11.6. De Applicatie Draaien</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_1_flask_backend">11.7. 1. Flask Backend</h3>
+<div class="paragraph">
+<p>Start de Flask-server in de <code>backend</code>-map door het volgende commando uit te voeren:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">python app.py</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De Flask-server draait nu op <code><a href="http://localhost:5000" class="bare">http://localhost:5000</a></code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_react_frontend">11.8. 2. React Frontend</h3>
+<div class="paragraph">
+<p>Ga naar de <code>frontend</code>-map en start de React-app met:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npm start</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>De React-applicatie draait nu op <code><a href="http://localhost:3000" class="bare">http://localhost:3000</a></code>, en maakt gebruik van de Flask-backend om data op te halen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</h3>
+<div class="paragraph">
+<p>De React-frontend communiceert met de Flask-backend via API-endpoints. Dit stelt je in staat om een dynamische frontend op te bouwen met real-time data die wordt opgehaald van de backend.</p>
+</div>
+<div class="paragraph">
+<p>In het vorige voorbeeld hebben we slechts één API-endpoint gebruikt. Je kunt meerdere API-routes in Flask definiëren om verschillende soorten data te leveren aan de React-frontend, zoals gebruikersinformatie, productgegevens, of statistieken.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een uitgebreid voorbeeld waarin we data van een database halen en naar de frontend sturen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_db_data</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">'data.db'</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">'SELECT * FROM users'</span><span class="p">)</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">users</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/users'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_users</span><span class="p">():</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">get_db_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld haalt de backend gebruikersgegevens op uit een SQLite-database en stuurt deze naar de frontend als JSON.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</h3>
+<div class="paragraph">
+<p>Naast het ophalen van data via GET-aanvragen, kun je ook POST-aanvragen sturen vanuit React naar Flask om data naar de server te sturen, bijvoorbeeld bij het invullen van een formulier.</p>
+</div>
+<div class="paragraph">
+<p>Hier is een voorbeeld van hoe je een POST-aanvraag kunt afhandelen in zowel React als Flask.</p>
+</div>
+<div class="paragraph">
+<p><strong>ReactJS - versturen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="kd">function</span> <span class="nx">sendData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}),</span>
+  <span class="p">});</span>
+<span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Flask - ontvangen van data:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/api/send'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">receive_data</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Verwerk de data zoals nodig
+</span>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s">"status"</span><span class="p">:</span> <span class="s">"success"</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier wordt een JSON-object met gebruikersinformatie verstuurd vanuit React en ontvangen door Flask. De data kan vervolgens worden verwerkt of opgeslagen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusie">11.11. Conclusie</h3>
+<div class="paragraph">
+<p>Door ReactJS en Flask te combineren, kun je een krachtige en moderne webapplicatie opzetten met een scheiding tussen frontend en backend. React zorgt voor een dynamische gebruikersinterface, terwijl Flask de API en backend-logica afhandelt. Met de flexibiliteit van beide technologieën kun je gemakkelijk uitbreiden en aanpassen naar de behoeften van je project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extensies">12. Extensies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hoewel Flask een "micro" framework is, kan het worden uitgebreid met verschillende extensies.
+Enkele populaire Flask-extensies zijn:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Flask-SQLAlchemy</code> voor database-integratie.</p>
+</li>
+<li>
+<p><code>Flask-WTF</code> voor formuliervalidatie.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SQLAlchemy is een Object Relational Mapper (ORM) voor Python die een abstractielaag biedt tussen relationele databases en Python-objecten.</p>
+</div>
+<div class="paragraph">
+<p>Met SQLAlchemy hoef je niet handmatig SQL-queries te schrijven, maar werk je met Python-objecten om met de database te communiceren.
+Flask integreert SQLAlchemy naadloos via de <code>Flask-SQLAlchemy</code> extensie, wat het gebruik van databases eenvoudiger en overzichtelijker maakt.</p>
+</div>
+<div class="sect2">
+<h3 id="_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</h3>
+<div class="paragraph">
+<p>Om SQLAlchemy te gebruiken binnen Flask, moet je eerst de benodigde module installeren. Dit kan eenvoudig worden gedaan via pip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask-SQLAlchemy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na installatie kunnen we SQLAlchemy in een Flask-applicatie gebruiken door het te importeren en te configureren.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</h3>
+<div class="paragraph">
+<p>Voordat je met SQLAlchemy kunt werken, moet je de database configureren.
+In Flask gebeurt dit door de <code>SQLALCHEMY_DATABASE_URI</code> configuratieparameter in te stellen. Dit geeft aan met welk type database je wilt verbinden en waar deze zich bevindt.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c1"># Configuratie van de database
+</span><span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'sqlite:///example.db'</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># Initialiseer de SQLAlchemy database
+</span><span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">(</span><span class="n">app</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld gebruiken we een SQLite-database. De URI <code>sqlite:///example.db</code> geeft aan dat de database een bestand is met de naam <code>example.db</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_maken_van_een_model">13.3. Het maken van een Model</h3>
+<div class="paragraph">
+<p>In SQLAlchemy wordt een database weergegeven door middel van "modellen".
+Een <strong>model is een Python-klasse die een tabel in de database vertegenwoordigt</strong>, waarbij de attributen van de klasse de kolommen van de tabel vertegenwoordigen.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s">'&lt;User </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">username</span><span class="si">}</span><span class="s">&gt;'</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier definiëren we een <code>User</code>-model met de volgende kolommen:
+* <code>id</code>: een uniek geheel getal dat fungeert als primaire sleutel.
+* <code>username</code>: een string van maximaal 80 tekens.
+* <code>email</code>: een string van maximaal 120 tekens.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</h3>
+<div class="paragraph">
+<p>Nadat de modellen zijn gedefinieerd, moet de database worden aangemaakt. Dit kan eenvoudig worden gedaan door de <code>create_all()</code> methode van SQLAlchemy te gebruiken.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">create_all</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit maakt alle tabellen aan die door de gedefinieerde modellen worden gerepresenteerd in de database.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</h3>
+<div class="paragraph">
+<p>Nadat de database en de modellen zijn aangemaakt, kun je records (rijen) toevoegen aan de tabel door een instantie van een model te maken en deze toe te voegen aan de sessie van de database.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">'johndoe'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s">'johndoe@example.com'</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld voegen we een nieuwe gebruiker toe met de naam 'johndoe' en e-mailadres '<a href="mailto:johndoe@example.com">johndoe@example.com</a>'.
+De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_opvragen_van_records">13.6. Het opvragen van records</h3>
+<div class="paragraph">
+<p>Je kunt records uit de database opvragen door gebruik te maken van de query-functionaliteit van SQLAlchemy.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">'johndoe'</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">email</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hier zoeken we naar de eerste gebruiker met de gebruikersnaam 'johndoe' en printen het e-mailadres van deze gebruiker.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_updaten_van_records">13.7. Het updaten van records</h3>
+<div class="paragraph">
+<p>Om een record te updaten, zoek je het eerst op, wijzig je het gewenste veld, en voer je de wijzigingen door met <code>commit()</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">'johndoe'</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="o">=</span> <span class="s">'newemail@example.com'</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld wijzigen we het e-mailadres van de gebruiker met de gebruikersnaam 'johndoe' naar '<a href="mailto:newemail@example.com">newemail@example.com</a>'.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_het_verwijderen_van_records">13.8. Het verwijderen van records</h3>
+<div class="paragraph">
+<p>Je kunt een record verwijderen door de methode <code>delete()</code> te gebruiken en vervolgens de wijzigingen door te voeren met <code>commit()</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s">'johndoe'</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dit verwijdert de gebruiker met de gebruikersnaam 'johndoe' uit de database.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relaties_tussen_modellen">13.10. Relaties tussen modellen</h3>
+<div class="paragraph">
+<p>SQLAlchemy ondersteunt relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties.
+Dit kan eenvoudig worden geïmplementeerd door gebruik te maken van de <code>db.relationship()</code> en <code>db.ForeignKey()</code> functies.</p>
+</div>
+<div class="sect3">
+<h4 id="_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s">'user.id'</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">author</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">relationship</span><span class="p">(</span><span class="s">'User'</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="n">db</span><span class="p">.</span><span class="n">backref</span><span class="p">(</span><span class="s">'posts'</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In dit voorbeeld heeft de <code>Post</code>-tabel een <code>user_id</code>-kolom die verwijst naar de <code>id</code>-kolom in de <code>User</code>-tabel.
+De relatie tussen gebruikers en berichten wordt vastgelegd via de <code>db.relationship()</code> methode.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migraties_uitvoeren">13.11. Migraties uitvoeren</h3>
+<div class="paragraph">
+<p>Flask biedt, via de extensie <code>Flask-Migrate</code>, de mogelijkheid om database-migraties uit te voeren. Dit is handig wanneer je wijzigingen aanbrengt in je database zoals het toevoegen van nieuwe kolommen of tabellen.</p>
+</div>
+<div class="paragraph">
+<p>Je kunt <code>Flask-Migrate</code> installeren via pip:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>Flask-Migrate</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na installatie kan je migraties uitvoeren, zoals het aanmaken van nieuwe tabellen of het bijwerken van bestaande tabellen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_samenvatting">14. Samenvatting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flask is een flexibel en lichtgewicht framework waarmee je snel webapplicaties kunt bouwen.
+Door de eenvoudige structuur en uitbreidbaarheid is het ideaal voor zowel beginners als ervaren ontwikkelaars.
+Met ingebouwde ondersteuning voor routing, templates, foutafhandeling en extensies biedt Flask alles wat nodig is voor het bouwen van moderne webapplicaties.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
