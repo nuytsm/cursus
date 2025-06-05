@@ -18,16 +18,13 @@ jobs:
     - name: Build Python AsciiDoc files
       run: |
         mkdir -p build/python
+        mkdir -p build/web
         asciidoctor -a nofooter -D build/python python/*.adoc
+        asciidoctor -a nofooter -D build/web web/*.adoc
 
     - name: Copy web images folder
       run: |
         cp -r web/* build/web/
-        
-    - name: Build web AsciiDoc files
-      run: |
-        mkdir -p build/web
-        asciidoctor -a nofooter -D build/web web/*.adoc
 
     - name: Copy custom index.html
       run: |
