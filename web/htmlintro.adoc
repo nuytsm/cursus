@@ -1,0 +1,111 @@
+:icons: font
+:source-highlighter: rouge
+
+= HTML
+:toc: left
+
+HTML staat voor ##Hypertext Markup Language##.
+Het is een gestructureerde taal om webpagina's inhoud en structuur te kunnen geven.
+
+Inhoud:
+
+* paragrafen
+* links
+* afbeeldingen
+* ..
+
+Structuur:
+
+* Lijsten
+* Tabellen
+* Onderverdelingen
+* Titels
+* ..
+
+Als je tekst (een .txt bestand) in kladblok schrijft, 
+wordt dit gewoon weergegeven als tekst.
+Als je op het internet surft is het mooier als deze tekst een opmaak krijgt.
+Dat bijvoorbeeld de titels grafisch eruit springen, dat je op tekst kunt klikken (links),
+dat je afbeeldingen kan gebruiken, etc.
+
+Html zorgt ervoor dat we meer opmaak of _markup_ kunnen meegeven aan het website.
+Toch wordt html geschreven als een gewoon, leesbare tekstbestand (met de .html of .htm extensie).
+
+== De werking van html
+
+Html wordt geschreven in tekstbestanden (met een .html extensie).
+Als we naar een website surfen, antwoordt de webserver (de computer waarop de website draait) door
+ons .html bestanden terug te sturen.
+
+=== De browser
+
+Als we surfen met een browser (zoals Firefox, Chrome, Internet explorer, ..), weet de browser 
+dat hij deze .html bestanden moet inlezen, dat hij moet kijken wat er in het bestand staat,
+wat de inhoud en de gevraagde structuur moet zijn. 
+Vervolgens zet de browser deze .html bestanden om naar een webpagina op ons scherm.
+
+Door de inhoud van de .html bestanden aan te passen, kunnen we dus beslissen wat er in het scherm van de browser terecht komt.
+
+Html houdt zich aan standaarden (die worden overeengekomen en evolueren door de tijd (nu zitten we bijvoorbeeld al aan html versie 5).
+
+=== Tags
+
+De html standaard legt op dat er in een html bestand gewerkt moet worden met _tags_.
+_Tags_ zijn markeringen die bepalen wanneer een element moet beginnen en eindigen.
+
+.Een voorbeeld van een paragraaf tag.
+[source,html]
+----
+include::example.html[lines=7]
+----
+
+==== Syntax
+
+Een _tag_  zoals hierboven geeft een paragraaf aan (vandaar de _p_).
+Het openen van de tag begint met een _<_ teken en eindigt met een _>_ teken.
+Om de tag te sluiten gebruik je een _</_ tag _>_
+
+
+==== Sluiten van tags
+
+_Tags_ moeten steeds gesloten worden.
+Anders weet de browser niet goed tot waar een bepaalde _tag_ of element juist komt.
+
+.tags worden steeds gesloten
+[source,html]
+----
+include::example.html[lines=5;7]
+----
+
+In het voorbeeld hierboven is het zeer duidelijk wanneer de h1 (of hoofding) tag begint
+en eindigt.
+
+=== Attributen
+
+Iedere _tag_ kan over attributen beschikken.
+Attributen zijn duidingen (of extra informatie) over een bepaalde _tag_.
+
+Om bijvoorbeeld een link te maken, gebruiken we de _<a> tag_.
+Deze geeft als attribuut het webadres van de link.
+Dit webadres wordt aangegeven met het _href_ attribuut (dit staat voor _http reference_).
+
+.Een voorbeeld van een link tag met attribuut.
+[source,html]
+----
+include::example.html[lines=9]
+----
+
+De link hierboven zorg ervoor dat je naar www.google.be surft (zoals aangegeven in het href attribuut) 
+als je op de tekst "Een link naar google." klikt.
+
+=== Voorbeelden van tags
+
+== Het html document
+
+=== De body
+
+=== De head
+
+=== Het Doctype
+
+== Volledige html pagina

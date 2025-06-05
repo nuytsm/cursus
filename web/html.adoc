@@ -1,0 +1,101 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+
+:toc: left
+:toclevels: 5
+
+= HTML - Hypertext Markup Language
+
+De structuur en inhoud van een webpagina wordt bepaald door html elementen.
+In de html taal kan je titels, opsommingen, tekst, knoppen, afbeeldingen, etc.. in een web pagina plaatsen.
+
+== De Html taal
+
+Html is opgebouwd uit #tags#, een tag begint met een < teken, en wordt gesloten met een > teken:
+
+[source, html]
+----
+<h1>Grote Titel</h1>
+----
+
+De _h1_ tag staat voor _heading_, dus titel. Deze variëren van grootte, van 1 tot 9. 1 is de grootste titel, 9 de kleinste.
+Een tag wordt geopend en gesloten:
+ 
+[source, html]
+----
+<h1> <1>
+  Grote Titel <2>
+</h1> <3>
+----
+<1> Het openen van de tag.
+<2> De inhoud van de tag (de titeltekst op zich).
+<3> Het sluiten van de tag.
+
+=== Attributen
+
+Iedere tag kan meerdere attributen hebben. Dit is **extra informatie** over de tag.
+Ieder attribuut kan maar 1x voorkomen per tag.
+
+Bijvoorbeeld:
+
+[source, html]
+----
+<img src="f16.jpg"/>
+----
+
+In dit voorbeeld is _src_ een *attribuut* van de _img_ tag.
+De img tag bepaalt dat er een afbeelding in de html pagina moet komen. Het src attribuut, bepaalt welke afbeelding van de harde schijf moet worden ingelezen.
+
+Er zijn meerdere attributen mogelijk per tag:
+
+[source, html]
+----
+<img src="f16.jpg" width="300px"/>
+----
+Het extra _width_ attribuut geeft hier aan dat de afbeelding moet worden getoond met een breedte van 300 pixels.
+
+=== De standaard structuur
+
+Iedere html pagina is opgebouwd uit html tags.
+Deze volgen een vaste structuur:
+
+[source, html]
+----
+<html> <1>
+  <head> <2>
+    <title>Tabtitel</title>
+  </head>
+  <body> <3>
+    <h1>Titel</h1>
+    <p>Tekstparagraaf</p>
+  </body>
+</html> <4>
+----
+<1> De _html_ tag is de meest bovenliggende tag, deze is verplicht in html.
+<2> Onder de _html_ tag kunnen we de _head_ en _body_ tags plaatsen. De head geeft zaken aan die niet zichtbaar zijn in de pagina zelf (in dit geval de titel die enkel in de titelbalk van de browser zichtbaar wordt).
+<3> In de _body_ tag worden alle tags geplaatst die zichtbaar zijn in de webpagina.
+<4> Merk op dat iedere html tag **steeds gesloten wordt**.
+
+Tags kunnen dus rond andere tags geplaatst worden, bepaalde tags kunnen dus in andere tags zitten.
+
+
+== Html gebruiken
+
+Html wordt gebruikt door browsers (zoals bijvoorbeeld Firefox of Chrome) om webpagina's te tonen. Html is dus geen programeertaal, maar een __markup language__.
+Html bepaalt de structuur en de inhoud van een webpagina.
+Om een html pagina aan te maken, maken we een tekstbestand aan.
+Dit tekstbestand geven we vervolgend de .html extensie.
+In de html pagina kunnen we de standaard structuur plaatsen uit voorgaand voorbeeld.
+Vervolgens kunnen we de html pagina openen in een browser om de pagina zichtbaar te maken.
+
+=== De browser interpreteert html
+
+Html wordt niet gecompileerd. De browser leest de html _file_ regel per regel uit en bouwt hiermee een webpagina op die zichtbaar wordt voor de gebruiker.
+
+

@@ -1,0 +1,307 @@
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+
+= ReactJS =
+
+ReactJS is een veelgebruikte ##JavaScript-bibliotheek voor het bouwen van gebruikersinterfaces##, ontwikkeld door Facebook in 2013. Het is vooral populair voor het bouwen van interactieve, dynamische webapplicaties en stelt ontwikkelaars in staat om **componenten te hergebruiken**, wat de ontwikkeling efficiënter en onderhoudbaarder maakt.
+
+In dit hoofdstuk behandelen we de basisconcepten van React, hoe je een React-applicatie opzet, en we gaan dieper in op belangrijke onderwerpen zoals componenten, state, props, en hoe je interacties beheert. Dit hoofdstuk biedt een stapsgewijze uitleg met codevoorbeelden om een solide basis in ReactJS te leggen.
+
+== 1. Wat is ReactJS? ==
+ReactJS is een declaratieve, componentgebaseerde JavaScript-bibliotheek die wordt gebruikt om complexe en interactieve gebruikersinterfaces op te bouwen.
+
+In tegenstelling tot traditionele benaderingen, waar de UI direct wordt gemanipuleerd via de DOM, gebruikt React een virtuele DOM, wat resulteert in betere prestaties.
+
+Voordelen van React:
+
+* **Componenten**: React maakt gebruik van componenten, wat het eenvoudig maakt om kleine, herbruikbare stukjes UI te bouwen.
+* **Virtuele DOM**: In plaats van de hele pagina opnieuw te renderen bij elke wijziging, werkt React efficiënt door alleen de veranderde delen van de UI bij te werken.
+* **Unidirectionele Dataflow**: Data stroomt van de parent-component naar de child-componenten, wat het gemakkelijker maakt om de controle over data te behouden.
+
+== Installatie van React met NPM ==
+
+Om aan de slag te gaan met React, moeten we een ontwikkelomgeving instellen. Dit begint met het installeren van Node.js en NPM. Maar voordat we de stappen uitleggen, is het nuttig om te begrijpen wat NPM is en hoe het werkt.
+
+=== Wat is NPM? ===
+
+NPM (Node Package Manager) is een tool die samen met Node.js wordt geleverd. Het wordt gebruikt om JavaScript-pakketten te beheren, te delen en te installeren. Met NPM kunnen ontwikkelaars externe bibliotheken en tools, zoals React, eenvoudig in hun project integreren. Het biedt toegang tot duizenden JavaScript-modules die de ontwikkeling vereenvoudigen.
+
+NPM werkt met een centrale repository waar je packages kunt publiceren en delen met de wereld, of je kunt ervoor kiezen om alleen bepaalde packages voor je project te gebruiken. 
+
+Belangrijkste functies van NPM:
+
+* **Installeren van pakketten**: NPM maakt het eenvoudig om externe tools en bibliotheken (zoals React) in je project te gebruiken.
+* **Versiebeheer**: NPM helpt bij het beheren van de versies van je afhankelijkheden, zodat je zeker bent dat je project werkt met specifieke versies van de gebruikte bibliotheken.
+* **Scripten**: Met NPM kun je veelgebruikte scripts automatiseren, zoals het bouwen van je project, het draaien van tests of het starten van een server.
+
+=== Installatie van Node.js en NPM ===
+
+Om NPM te gebruiken, moet je eerst Node.js installeren, omdat NPM samen met Node.js wordt geleverd. Volg deze stappen:
+
+. Installeer **NVM** (Node version manager) in windows
++
+Zie: https://github.com/coreybutler/nvm-windows?tab=readme-ov-file 
++
+. Installeer **nodejs** via NVM
++
+**Open een commandprompt of powershell:**
++
+----
+nvm install --lts
+nvm use lts
+----
++
+. Download de **LTS**-versie (Long Term Support) en installeer deze op je computer.
+. Controleer na de installatie of Node.js en NPM correct zijn geïnstalleerd door de volgende commando's in je terminal of command prompt uit te voeren:
++
+[source, bash]
+----
+node -v
+npm -v
+----
+
+Deze commando's geven de versienummers van Node.js en NPM weer, wat betekent dat beide correct zijn geïnstalleerd.
+
+=== Installeren van React met NPM ===
+
+Nu je NPM hebt geïnstalleerd, kun je beginnen met het opzetten van een React-project. Het eenvoudigste en snelste manier om een React-app te maken is door `create-react-app` te gebruiken, een tool die is ontwikkeld om je snel een werkende React-omgeving te bieden.
+
+Volg de onderstaande stappen:
+
+. Open je terminal of command prompt.
+. Gebruik het volgende commando om een nieuwe React-applicatie te genereren:
++
+[source, bash]
+----
+npx create-react-app mijn-react-app
+----
++
+Het `npx`-commando is een tool die wordt geleverd met NPM en waarmee je pakketten kunt uitvoeren zonder ze globaal te installeren. `create-react-app` is de tool die een React-project maakt met alle benodigde configuratie en afhankelijkheden. Vervang `mijn-react-app` door de naam van je project.
++
+. Ga naar de nieuwe projectmap:
++
+[source, bash]
+----
+cd mijn-react-app
+----
++
+. Start de ontwikkelserver:
++
+[source, bash]
+----
+npm start
+----
++
+Dit zal een nieuwe React-applicatie genereren met een basisstructuur en de benodigde dependencies. De applicatie draait lokaal op `http://localhost:3000`.
+
+== 3. Componenten in React ==
+
+TIP: Volg de reactjs tutorial hier: https://react.dev/learn 
+
+React is gebaseerd op het concept van componenten. Een component is een herbruikbare bouwsteen die zowel functionaliteit als weergave kan bevatten. Je kunt componenten zien als individuele functies die een bepaald deel van de UI representeren. React-componenten kunnen op twee manieren worden gedefinieerd: als functionele componenten en als class-componenten.
+
+=== 3.1 Functionele Componenten ===
+
+Functionele componenten zijn eenvoudig te schrijven en worden gedefinieerd als JavaScript-functies die JSX retourneren.
+
+[source, javascript]
+----
+import React from 'react';
+
+function Welkom() {
+    return <h1>Welkom bij React!</h1>;
+}
+
+export default Welkom;
+----
+
+=== 3.2 Class Componenten ===
+
+Class componenten waren het traditionele model in React, maar ze zijn ingewikkelder dan functionele componenten. Toch blijven ze belangrijk voor legacy-code.
+
+[source, javascript]
+----
+import React, { Component } from 'react';
+
+class Welkom extends Component {
+    render() {
+        return <h1>Welkom bij React!</h1>;
+    }
+}
+
+export default Welkom;
+----
+
+== 4. JSX: JavaScript XML ==
+
+JSX is een syntax extension voor JavaScript en stelt ons in staat om HTML-achtige code te schrijven in JavaScript. Het is een van de meest opvallende kenmerken van React, en het zorgt voor een intuïtieve manier om componenten te maken.
+
+[source, javascript]
+----
+const element = <h1>Hello, world!</h1>;
+----
+
+Onder de motorkap wordt JSX getransformeerd naar reguliere JavaScript door een build tool zoals Babel. JSX helpt bij het bouwen van complexe UI-structuren door componenten en HTML direct in JavaScript te combineren.
+
+== 5. Props: Data doorgeven aan componenten ==
+
+Props (properties) zijn de manier waarop je data van een parent-component naar een child-component kunt doorgeven. Props zijn read-only en kunnen niet worden aangepast door de child-component.
+
+[source, javascript]
+----
+function Welkom(props) {
+    return <h1>Welkom, {props.naam}!</h1>;
+}
+
+function App() {
+    return <Welkom naam="Alice" />;
+}
+----
+
+In dit voorbeeld wordt de prop `naam` doorgegeven aan de `Welkom`-component, die deze prop gebruikt om een gepersonaliseerde begroeting te renderen.
+
+== 6. State: Interne componentdata beheren ==
+
+State is een ingebouwd object in React-componenten dat wordt gebruikt om gegevens op te slaan die invloed hebben op de rendering van de component. Waar props statisch zijn en van bovenaf worden doorgegeven, is state dynamisch en kan deze binnen de component zelf worden bijgewerkt.
+
+=== 6.1 State in Functionele Componenten met Hooks ===
+
+Sinds React 16.8 worden hooks gebruikt om state in functionele componenten te beheren.
+
+[source, javascript]
+----
+import React, { useState } from 'react';
+
+function Teller() {
+    const [teller, setTeller] = useState(0);
+
+    return (
+        <div>
+            <p>Je hebt {teller} keer geklikt</p>
+            <button onClick={() => setTeller(teller + 1)}>
+                Klik mij
+            </button>
+        </div>
+    );
+}
+----
+
+Hier gebruiken we de `useState` hook om een `teller`-state te definiëren en een methode (`setTeller`) om de state bij te werken. Telkens wanneer de knop wordt ingedrukt, wordt de state bijgewerkt, en de component rendert opnieuw.
+
+=== 6.2 State in Class Componenten ===
+
+In class componenten wordt state beheerd via het `this.state` object en bijgewerkt via `this.setState()`.
+
+[source, javascript]
+----
+class Teller extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { teller: 0 };
+    }
+
+    render() {
+        return (
+            <div>
+                <p>Je hebt {this.state.teller} keer geklikt</p>
+                <button onClick={() => this.setState({ teller: this.state.teller + 1 })}>
+                    Klik mij
+                </button>
+            </div>
+        );
+    }
+}
+----
+
+== 7. Events en Interactie ==
+
+React maakt het eenvoudig om op gebeurtenissen te reageren met behulp van event handlers, zoals `onClick`, `onChange`, enz. Deze handlers kunnen worden gekoppeld aan functies om te bepalen wat er gebeurt wanneer een gebruiker interactie heeft met de UI.
+
+[source, javascript]
+----
+function App() {
+    function handeKnopKlik() {
+        alert('De knop is ingedrukt!');
+    }
+
+    return (
+        <button onClick={handeKnopKlik}>
+            Klik mij
+        </button>
+    );
+}
+----
+
+In dit voorbeeld roept de functie `handeKnopKlik` een alert aan wanneer de knop wordt ingedrukt.
+
+== 8. Lijsten en Sleutels ==
+
+Wanneer je een lijst met elementen wilt weergeven in React, kun je de `map()`-methode van JavaScript gebruiken om door een array te itereren en een JSX-element voor elk item te retourneren. Het is belangrijk om unieke sleutels te verstrekken om React te helpen bij het identificeren van welke items zijn gewijzigd, toegevoegd of verwijderd.
+
+[source, javascript]
+----
+function NamenLijst(props) {
+    const namen = props.namen;
+    const lijstItems = namen.map((naam) =>
+        <li key={naam}>{naam}</li>
+    );
+    return <ul>{lijstItems}</ul>;
+}
+
+const namen = ['Alice', 'Bob', 'Charlie'];
+ReactDOM.render(
+    <NamenLijst namen={namen} />,
+    document.getElementById('root')
+);
+----
+
+== 9. Lifecycle-methoden in React ==
+
+Class componenten hebben bepaalde lifecycle-methoden die worden aangeroepen tijdens verschillende fasen van de levenscyclus van een component (zoals het monteren, bijwerken en demonteren van een component). Enkele belangrijke lifecycle-methoden zijn `componentDidMount`, `componentDidUpdate`, en `componentWillUnmount`.
+
+[source, javascript]
+----
+class Klok extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { tijd: new Date() };
+    }
+
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            tijd: new Date()
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Hallo, wereld!</h1>
+                <h2>Het is {this.state.tijd.toLocaleTimeString()}.</h2>
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(<Klok />, document.getElementById('root'));
+----
+
+== 10. Conclusie ==
+
+ReactJS is een krachtige bibliotheek die het bouwen van gebruikersinterfaces efficiënt en gestructureerd maakt. Door componenten, props, en state te gebruiken, kunnen ontwikkelaars schaalbare applicaties bouwen die eenvoudig te onderhouden zijn. In dit hoofdstuk hebben we de belangrijkste concepten van React behandeld, van het instellen van een project tot het werken met componenten en events. De flexibiliteit en eenvoud van React maken het een populaire keuze voor webontwikkeling.

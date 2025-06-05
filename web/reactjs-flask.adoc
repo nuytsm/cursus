@@ -1,0 +1,229 @@
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= ReactJS gebruiken met Python Flask =
+
+We willen een ReactJS-frontend combineren met een Python Flask-backend. 
+
+Deze combinatie van technologieën wordt vaak gebruikt om een gescheiden frontend-backendarchitectuur op te zetten.
+En om een databank te kunnen queriën via Python.
+
+ReactJS wordt gebruikt voor het maken van interactieve user interfaces, terwijl Flask zorgt voor de server-side logica en API-communicatie.
+
+== Waarom ReactJS en Flask combineren? ==
+
+Het gebruik van een gescheiden frontend (ReactJS) en backend (Flask) biedt verschillende voordelen:
+
+* **Losse koppelbaarheid**: React en Flask werken onafhankelijk van elkaar, waardoor de frontend en backend apart kunnen worden ontwikkeld en gehost.
+* **Herbruikbare API's**: De backend kan RESTful API's aanbieden die door meerdere clients (zoals web, mobiel, etc.) gebruikt kunnen worden.
+* **Schaalbaarheid**: Dit maakt het eenvoudiger om onderdelen van de applicatie te schalen of te vervangen zonder dat dit grote gevolgen heeft voor het hele systeem.
+
+== Projectstructuur ==
+
+Een typische structuur voor een project met React en Flask ziet er als volgt uit:
+
+----
+mijn-project/
+│
+├── backend/
+│   ├── app.py
+│   └── templates/
+│       └── index.html
+│
+└── frontend/
+    └── src/
+        └── index.js
+----
+
+* **backend/**: Dit bevat de Flask-server en de API-logica.
+* **frontend/**: Dit is waar de ReactJS-applicatie zich bevindt, met de componenten, logica en frontendcode.
+
+== Installatie en Setup ==
+
+### 1. Flask Backend Setup
+
+Begin met het instellen van de Flask-backend. Installeer Flask als volgt:
+
+[source, bash]
+----
+pip install Flask
+----
+
+Maak een bestand aan genaamd `app.py` in de map `backend/`. Dit is waar we onze Flask-applicatie instellen.
+
+[source, python]
+----
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/data')
+def get_data():
+    data = {"message": "Hello from Flask!"}
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+----
+
+In dit voorbeeld wordt een eenvoudige API-route gedefinieerd die een JSON-response retourneert. Wanneer je de server start, kan je via `/api/data` toegang krijgen tot deze API.
+
+### 2. ReactJS Frontend Setup
+
+Om de frontend op te zetten, gebruik je `create-react-app` zoals besproken in het vorige hoofdstuk.
+
+[source, bash]
+----
+npx create-react-app frontend
+cd frontend
+----
+
+Dit genereert een standaard React-projectstructuur. Open vervolgens `src/App.js` en vervang de inhoud met de volgende code:
+
+[source, javascript]
+----
+import React, { useEffect, useState } from 'react';
+
+function App() {
+  const [data, setData] = useState({ message: '' });
+
+  useEffect(() => {
+    fetch('/api/data')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>{data.message}</h1>
+    </div>
+  );
+}
+
+export default App;
+----
+
+In dit voorbeeld maakt de React-applicatie een fetch-call naar de Flask-backend om data op te halen. Deze wordt vervolgens weergegeven in de user interface.
+
+### 3. Proxy Instellen
+
+Omdat React en Flask op ##verschillende TCP poorten## draaien, moeten we een ##proxy instellen## in het React-project. Open het bestand `package.json` in de frontend-map en voeg het volgende toe:
+
+[source, json]
+----
+"proxy": "http://localhost:5000",
+----
+
+Dit zorgt ervoor dat alle API-aanvragen die vanuit React komen (bijv. `/api/data`) worden doorgestuurd naar de Flask-backend op poort 5000.
+
+== De Applicatie Draaien ==
+
+### 1. Flask Backend
+
+Start de Flask-server in de `backend`-map door het volgende commando uit te voeren:
+
+[source, bash]
+----
+python app.py
+----
+
+De Flask-server draait nu op `http://localhost:5000`.
+
+### 2. React Frontend
+
+Ga naar de `frontend`-map en start de React-app met:
+
+[source, bash]
+----
+npm start
+----
+
+De React-applicatie draait nu op `http://localhost:3000`, en maakt gebruik van de Flask-backend om data op te halen.
+
+== API-Communicatie en Data Handling ==
+
+De kracht van een React-frontend met een Flask-backend zit in de mogelijkheid om gemakkelijk data tussen frontend en backend te laten communiceren via API-endpoints. 
+Dit stelt je in staat om een dynamische frontend op te bouwen met real-time data die wordt opgehaald van de backend.
+
+In het vorige voorbeeld hebben we slechts één API-endpoint gebruikt. 
+Je kunt meerdere API-routes in Flask definiëren om verschillende soorten data te leveren aan de React-frontend, zoals gebruikersinformatie, productgegevens, of statistieken.
+
+Hier is een voorbeeld waarin we data van een database halen en naar de frontend sturen:
+
+[source, python]
+----
+from flask import Flask, jsonify
+import sqlite3
+
+app = Flask(__name__)
+
+def get_db_data():
+    conn = sqlite3.connect('data.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM users')
+    users = cursor.fetchall()
+    conn.close()
+    return users
+
+@app.route('/api/users')
+def get_users():
+    users = get_db_data()
+    return jsonify(users)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+----
+
+In dit voorbeeld haalt de backend gebruikersgegevens op uit een SQLite-database en stuurt deze naar de frontend als JSON.
+
+== Afhandelen van Formulieren en Post Requests ==
+
+Naast het ophalen van data via GET-aanvragen, kun je ook POST-aanvragen sturen vanuit React naar Flask om data naar de server te sturen, bijvoorbeeld bij het invullen van een formulier.
+
+Hier is een voorbeeld van hoe je een POST-aanvraag kunt afhandelen in zowel React als Flask.
+
+**ReactJS - versturen van data:**
+
+[source, javascript]
+----
+function sendData() {
+  fetch('/api/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name: 'John', age: 30 }),
+  });
+}
+----
+
+**Flask - ontvangen van data:**
+
+[source, python]
+----
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/send', methods=['POST'])
+def receive_data():
+    data = request.get_json()
+    print(data)  # Verwerk de data zoals nodig
+    return jsonify({"status": "success"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+----
+
+Hier wordt een JSON-object met gebruikersinformatie verstuurd vanuit React en ontvangen door Flask. De data kan vervolgens worden verwerkt of opgeslagen.
+
+== Conclusie ==
+
+Door ReactJS en Flask te combineren, kun je een krachtige en moderne webapplicatie opzetten met een scheiding tussen frontend en backend. 
+React zorgt voor een dynamische gebruikersinterface, terwijl Flask de API en backend-logica afhandelt.
+Met de flexibiliteit van beide technologieën kun je gemakkelijk uitbreiden en aanpassen naar de behoeften van je project.
+

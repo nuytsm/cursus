@@ -1,0 +1,24 @@
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:j: Java
+:fs: functies
+:f: functie
+:m: method
+:js: javascript
+:icons: font
+:source-highlighter: rouge
+
+:toc: left
+:toclevels: 5
+
+= Cursus Webdesign
+
+:leveloffset: +1
+
+include::javascript.adoc[]
+
+include::reactjs.adoc[]
+
+include::reactjs-flask.adoc[]
+
+include::encryptie.adoc[]
