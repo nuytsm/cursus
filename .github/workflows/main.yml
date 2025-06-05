@@ -19,14 +19,27 @@ jobs:
       run: |
         mkdir -p build/python
         asciidoctor -a nofooter -D build/python python/*.adoc
+        
+    - name: Build web AsciiDoc files
+      run: |
+        mkdir -p build/web
+        asciidoctor -a nofooter -D build/web web/*.adoc
 
     - name: Copy custom index.html
       run: |
         cp python/index.html build/python/
-
+        
+    - name: Copy web custom index.html
+      run: |
+        cp web/index.html build/web/
+        
     - name: Copy images folder
       run: |
         cp -r python/images build/python/
+        
+    - name: Copy web images folder
+      run: |
+        cp -r web/images build/web/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
