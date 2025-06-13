@@ -16,7 +16,7 @@ Welkom bij de documentatie voor het Pong-spel in Python. Dit project is een eenv
 
 Dit is wat we ongeveer gaan maken:
 
-image::assets/images/pong.gif[Blank Window, width=600]
+image::images/pong.gif[Blank Window, width=600]
 
 In deze documentatie vind je een overzicht van de basisstructuur van de bestanden, evenals een gedetailleerde uitleg van de belangrijkste componenten van de code.
 
@@ -107,7 +107,7 @@ game_manager.main()
 
 Dit is wat je krijgt te zien:
 
-image::assets/images/blank_window.png[Blank Window, width=600]
+image::images/blank_window.png[Blank Window, width=600]
 
 == Lijn tekenen op scherm
 
@@ -308,7 +308,7 @@ class GameManager:
 
 Eenmaal je dat gedaan hebt dan zie je een paddle op je scherm.
 
-image::assets/images/paddle.png[Paddle, width=600]
+image::images/paddle.png[Paddle, width=600]
 
 == Paddle bewegen
 
@@ -571,7 +571,7 @@ class GameManager:
 <2> Voeg de bal to aan de init.
 <3> Teken de bal
 
-image::assets/images/ball.png[Ball, width=600]
+image::images/ball.png[Ball, width=600]
 
 === De bal laten bewegen
 Nu gaan we de bal laten bewegen. Om de bal bewegen voeg je deze code toe aan je project:
@@ -705,7 +705,7 @@ class Ball:
 === Sprite Animatie
 Maak een sprite animatie wanneer het scherm resets. Wanneer de andere speler een punt maakt laat de bal exploderen door de explosie animatie te tonen. Plaats de onderstaande afbeeldingen in ´assets/imgs/´
 
-image::assets/images/spritesheet.png[Explosion, width=600]
+image::images/spritesheet.png[Explosion, width=600]
 link:./assets/explosions.zip[Download Afbeeldingen]
 
 [source, python]
