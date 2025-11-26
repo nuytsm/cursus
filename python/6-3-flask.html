@@ -658,70 +658,88 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 </li>
 </ul>
 </li>
-<li><a href="#_flask_en_json">7. Flask en JSON</a></li>
-<li><a href="#_foutafhandeling">8. Foutafhandeling</a></li>
-<li><a href="#_development_vs_production">9. Development vs production</a></li>
-<li><a href="#_debugging_en_herladen">10. Debugging en Herladen</a></li>
-<li><a href="#_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</a>
+<li><a href="#_cors_en_flask_cors">7. CORS en Flask-CORS</a>
 <ul class="sectlevel2">
-<li><a href="#_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</a></li>
-<li><a href="#_installatie_en_setup">11.2. Installatie en Setup</a></li>
-<li><a href="#_1_flask_backend_setup">11.3. 1. Flask Backend Setup</a></li>
-<li><a href="#_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</a></li>
-<li><a href="#_3_proxy_instellen">11.5. 3. Proxy Instellen</a></li>
-<li><a href="#_de_applicatie_draaien">11.6. De Applicatie Draaien</a></li>
-<li><a href="#_1_flask_backend">11.7. 1. Flask Backend</a></li>
-<li><a href="#_2_react_frontend">11.8. 2. React Frontend</a></li>
-<li><a href="#_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</a></li>
-<li><a href="#_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</a></li>
-<li><a href="#_conclusie">11.11. Conclusie</a></li>
+<li><a href="#_wat_is_cors">7.1. Wat is CORS?</a></li>
+<li><a href="#_waarom_bestaat_deze_beveiliging">7.2. Waarom bestaat deze beveiliging?</a></li>
+<li><a href="#_flask_cors_gebruiken_voor_local_development">7.3. Flask-CORS gebruiken voor local development</a>
+<ul class="sectlevel3">
+<li><a href="#_installatie">7.3.1. Installatie</a></li>
+<li><a href="#_codevoorbeeld">7.3.2. Codevoorbeeld</a></li>
 </ul>
 </li>
-<li><a href="#_extensies">12. Extensies</a></li>
-<li><a href="#_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</a>
+</ul>
+</li>
+<li><a href="#_flask_en_json">8. Flask en JSON</a></li>
+<li><a href="#_foutafhandeling">9. Foutafhandeling</a></li>
+<li><a href="#_flask_javascript_fetch_met_filtering">10. Flask + javascript fetch() met filtering</a>
 <ul class="sectlevel2">
-<li><a href="#_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</a></li>
-<li><a href="#_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</a>
+<li><a href="#_flask_backend">10.1. Flask backend</a></li>
+<li><a href="#_javascript_met_fetch_api">10.2. JavaScript - met fetch api</a></li>
+</ul>
+</li>
+<li><a href="#_development_vs_production">11. Development vs production</a></li>
+<li><a href="#_debugging_en_herladen">12. Debugging en Herladen</a></li>
+<li><a href="#_reactjs_gebruiken_met_python_flask">13. ReactJS Gebruiken met Python Flask</a>
+<ul class="sectlevel2">
+<li><a href="#_waarom_reactjs_en_flask_combineren">13.1. Waarom ReactJS en Flask combineren?</a></li>
+<li><a href="#_installatie_en_setup">13.2. Installatie en Setup</a></li>
+<li><a href="#_1_flask_backend_setup">13.3. 1. Flask Backend Setup</a></li>
+<li><a href="#_2_reactjs_frontend_setup">13.4. 2. ReactJS Frontend Setup</a></li>
+<li><a href="#_3_proxy_instellen">13.5. 3. Proxy Instellen</a></li>
+<li><a href="#_de_applicatie_draaien">13.6. De Applicatie Draaien</a></li>
+<li><a href="#_1_flask_backend">13.7. 1. Flask Backend</a></li>
+<li><a href="#_2_react_frontend">13.8. 2. React Frontend</a></li>
+<li><a href="#_api_communicatie_en_data_handling">13.9. API-Communicatie en Data Handling</a></li>
+<li><a href="#_afhandelen_van_formulieren_en_post_requests">13.10. Afhandelen van Formulieren en Post Requests</a></li>
+<li><a href="#_conclusie">13.11. Conclusie</a></li>
+</ul>
+</li>
+<li><a href="#_extensies">14. Extensies</a></li>
+<li><a href="#_extensie_sqlalchemy_in_flask">15. Extensie: SQLAlchemy in Flask</a>
+<ul class="sectlevel2">
+<li><a href="#_installatie_van_flask_sqlalchemy">15.1. Installatie van Flask-SQLAlchemy</a></li>
+<li><a href="#_configureren_van_flask_sqlalchemy">15.2. Configureren van Flask-SQLAlchemy</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</a></li>
+<li><a href="#_voorbeeld_van_een_basisconfiguratie">15.2.1. Voorbeeld van een basisconfiguratie</a></li>
 </ul>
 </li>
-<li><a href="#_het_maken_van_een_model">13.3. Het maken van een Model</a>
+<li><a href="#_het_maken_van_een_model">15.3. Het maken van een Model</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</a></li>
+<li><a href="#_voorbeeld_van_een_modelklasse">15.3.1. Voorbeeld van een modelklasse</a></li>
 </ul>
 </li>
-<li><a href="#_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</a>
+<li><a href="#_het_aanmaken_van_de_database">15.4. Het aanmaken van de database</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</a></li>
+<li><a href="#_voorbeeld_van_het_aanmaken_van_de_database">15.4.1. Voorbeeld van het aanmaken van de database</a></li>
 </ul>
 </li>
-<li><a href="#_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</a>
+<li><a href="#_het_toevoegen_van_recordsrows">15.5. Het toevoegen van records/rows</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_toevoegen_van_een_gebruiker">15.5.1. Voorbeeld van het toevoegen van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_opvragen_van_records">13.6. Het opvragen van records</a>
+<li><a href="#_het_opvragen_van_records">15.6. Het opvragen van records</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_opvragen_van_een_gebruiker">15.6.1. Voorbeeld van het opvragen van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_updaten_van_records">13.7. Het updaten van records</a>
+<li><a href="#_het_updaten_van_records">15.7. Het updaten van records</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</a></li>
+<li><a href="#_voorbeeld_van_het_updaten_van_een_gebruiker">15.7.1. Voorbeeld van het updaten van een gebruiker</a></li>
 </ul>
 </li>
-<li><a href="#_het_verwijderen_van_records">13.8. Het verwijderen van records</a></li>
-<li><a href="#_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</a></li>
-<li><a href="#_relaties_tussen_modellen">13.10. Relaties tussen modellen</a>
+<li><a href="#_het_verwijderen_van_records">15.8. Het verwijderen van records</a></li>
+<li><a href="#_voorbeeld_van_het_verwijderen_van_een_gebruiker">15.9. Voorbeeld van het verwijderen van een gebruiker</a></li>
+<li><a href="#_relaties_tussen_modellen">15.10. Relaties tussen modellen</a>
 <ul class="sectlevel3">
-<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</a></li>
+<li><a href="#_voorbeeld_van_een_één_op_veel_relatie">15.10.1. Voorbeeld van een één-op-veel relatie</a></li>
 </ul>
 </li>
-<li><a href="#_migraties_uitvoeren">13.11. Migraties uitvoeren</a></li>
+<li><a href="#_migraties_uitvoeren">15.11. Migraties uitvoeren</a></li>
 </ul>
 </li>
-<li><a href="#_samenvatting">14. Samenvatting</a></li>
+<li><a href="#_samenvatting">16. Samenvatting</a></li>
 </ul>
 </div>
 </div>
@@ -1286,7 +1304,97 @@ Hier is een voorbeeld van een eenvoudig formulier met een POST-verzoek:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_flask_en_json">7. Flask en JSON</h2>
+<h2 id="_cors_en_flask_cors">7. CORS en Flask-CORS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_wat_is_cors">7.1. Wat is CORS?</h3>
+<div class="paragraph">
+<p>CORS staat voor <strong>Cross-Origin Resource Sharing</strong>. Het is een mechanisme waarmee webbrowsers gecontroleerd toegang kunnen krijgen tot bronnen (zoals een API) die op een ander domein, protocol of poort ("origin") staan dan de website die de aanvraag doet.</p>
+</div>
+<div class="paragraph">
+<p>Standaard blokkeert een browser requests die "cross-origin" zijn uit veiligheidsoverwegingen.</p>
+</div>
+<div class="paragraph">
+<p>Indien we in onze browser rechtstreekt een html bestand openen en via javascript naar flask gaan. Worden we al geblokkeerd door CORS restricties.
+Deze restricties kunnen we uitschakelen voor development.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_waarom_bestaat_deze_beveiliging">7.2. Waarom bestaat deze beveiliging?</h3>
+<div class="paragraph">
+<p>CORS bestaat eigenlijk als een veilige uitzondering op de <strong>Same-Origin Policy (SOP)</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Het probleem:</strong> Zonder SOP zou een script op <code>kwaadaardige-site.com</code> een verzoek kunnen sturen naar <code>jouw-bank.be</code> (waar jij misschien ingelogd bent) en jouw privégegevens kunnen uitlezen.</p>
+</li>
+<li>
+<p><strong>De oplossing:</strong> De browser blokkeert het lezen van antwoorden van externe domeinen, tenzij die externe server via <strong>CORS-headers</strong> expliciet zegt: "Het is oké, ik vertrouw dit verzoek van dit specifieke domein."</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_flask_cors_gebruiken_voor_local_development">7.3. Flask-CORS gebruiken voor local development</h3>
+<div class="paragraph">
+<p>Tijdens ontwikkeling draaien je frontend (bijv. React op poort 3000) en backend (Flask op poort 5000) vaak op verschillende poorten. De browser ziet dit als verschillende origins en blokkeert de verbinding.</p>
+</div>
+<div class="paragraph">
+<p>Om dit lokaal op te lossen, gebruiken we de extensie <code>flask-cors</code> om alle verbindingen toe te staan.</p>
+</div>
+<div class="sect3">
+<h4 id="_installatie">7.3.1. Installatie</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>flask-cors</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_codevoorbeeld">7.3.2. Codevoorbeeld</h4>
+<div class="paragraph">
+<p>Hieronder zie je hoe je CORS voor de <strong>gehele applicatie</strong> openzet. Dit voegt de header <code>Access-Control-Allow-Origin: *</code> toe aan je responses.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="n">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c1"># Schakel CORS in voor de hele app op alle routes
+# Dit staat requests toe vanaf ELKE oorsprong (handig voor dev)
+</span><span class="nc">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/api/data</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="sh">"</span><span class="s">message</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Dit is nu bereikbaar vanaf je frontend!</span><span class="sh">"</span><span class="p">}</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Gebruik de bovenstaande configuratie (<code>CORS(app)</code>) <strong>alleen voor lokale ontwikkeling</strong>. In een productieomgeving is het cruciaal om specifiek te configureren welke domeinen (origins) toegang hebben tot je API om beveiligingslekken te voorkomen.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flask_en_json">8. Flask en JSON</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask maakt het gemakkelijk om met JSON-gegevens te werken.
@@ -1308,7 +1416,7 @@ Je kunt eenvoudig JSON teruggeven als een API-reactie:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_foutafhandeling">8. Foutafhandeling</h2>
+<h2 id="_foutafhandeling">9. Foutafhandeling</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask biedt ingebouwde ondersteuning voor foutafhandeling.
@@ -1327,7 +1435,77 @@ Je kunt aangepaste foutpagina&#8217;s maken voor veelvoorkomende HTTP-statuscode
 </div>
 </div>
 <div class="sect1">
-<h2 id="_development_vs_production">9. Development vs production</h2>
+<h2 id="_flask_javascript_fetch_met_filtering">10. Flask + javascript fetch() met filtering</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_flask_backend">10.1. Flask backend</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="n">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="nc">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>                                     <span class="c1"># zodat de browser mag praten
+</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/api/data</span><span class="sh">'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">():</span>
+    <span class="c1"># Lees alles wat achter ? in de URL staat
+</span>    <span class="n">categorie</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">cat</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">prijs</span>     <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">prijs</span><span class="sh">'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">zoek</span>      <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">args</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">zoek</span><span class="sh">'</span><span class="p">)</span>
+
+    <span class="c1"># Hier zou je normaal je filtering doen
+</span>    <span class="c1"># Voor nu sturen we gewoon terug wat we ontvangen hebben
+</span>    <span class="k">return</span> <span class="nf">jsonify</span><span class="p">({</span>
+        <span class="sh">"</span><span class="s">jij_vroeg</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">cat</span><span class="sh">"</span><span class="p">:</span> <span class="n">categorie</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">prijs_max</span><span class="sh">"</span><span class="p">:</span> <span class="n">prijs</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">zoekterm</span><span class="sh">"</span><span class="p">:</span> <span class="n">zoek</span>
+        <span class="p">},</span>
+        <span class="sh">"</span><span class="s">bericht</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Filtering werkt!</span><span class="sh">"</span>
+    <span class="p">})</span>
+
+<span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javascript_met_fetch_api">10.2. JavaScript - met fetch api</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="html"><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"haal()"</span><span class="nt">&gt;</span>Vraag data op<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;pre</span> <span class="na">id=</span><span class="s">"uit"</span><span class="nt">&gt;&lt;/pre&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="k">async</span> <span class="kd">function</span> <span class="nf">haal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">URL</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:5000/api/data</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">cat</span><span class="dl">'</span><span class="p">,</span>   <span class="dl">'</span><span class="s1">boeken</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">prijs</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">50</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">url</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="dl">'</span><span class="s1">zoek</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">python</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">res</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">uit</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Of nog korter met URLSearchParams:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="javascript"><span class="kd">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">URLSearchParams</span><span class="p">({</span><span class="na">cat</span><span class="p">:</span><span class="dl">'</span><span class="s1">boeken</span><span class="dl">'</span><span class="p">,</span> <span class="na">prijs</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="na">zoek</span><span class="p">:</span><span class="dl">'</span><span class="s1">js</span><span class="dl">'</span><span class="p">});</span>
+<span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://localhost:5000/api/data?</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">params</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">r</span> <span class="o">=&gt;</span> <span class="nx">r</span><span class="p">.</span><span class="nf">json</span><span class="p">())</span>
+    <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_development_vs_production">11. Development vs production</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask wordt vaak in een ontwikkelomgeving gebruikt met zijn ingebouwde webserver.
@@ -1364,7 +1542,7 @@ Wanneer Flask in productie wordt gebruikt met Gunicorn, biedt dit de volgende vo
 </div>
 </div>
 <div class="sect1">
-<h2 id="_debugging_en_herladen">10. Debugging en Herladen</h2>
+<h2 id="_debugging_en_herladen">12. Debugging en Herladen</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask heeft een ingebouwde debugmodus.
@@ -1383,13 +1561,13 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 </div>
 </div>
 <div class="sect1">
-<h2 id="_reactjs_gebruiken_met_python_flask">11. ReactJS Gebruiken met Python Flask</h2>
+<h2 id="_reactjs_gebruiken_met_python_flask">13. ReactJS Gebruiken met Python Flask</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Het integreren van een ReactJS-frontend met een Python Flask-backend: Deze combinatie van technologieën wordt vaak gebruikt om een gescheiden frontend-backendarchitectuur op te zetten. ReactJS wordt gebruikt voor het maken van interactieve user interfaces, terwijl Flask zorgt voor de server-side logica en API-communicatie.</p>
 </div>
 <div class="sect2">
-<h3 id="_waarom_reactjs_en_flask_combineren">11.1. Waarom ReactJS en Flask combineren?</h3>
+<h3 id="_waarom_reactjs_en_flask_combineren">13.1. Waarom ReactJS en Flask combineren?</h3>
 <div class="paragraph">
 <p>Het gebruik van een gescheiden frontend (ReactJS) en backend (Flask) biedt verschillende voordelen:</p>
 </div>
@@ -1414,11 +1592,11 @@ Je kunt debugmodus inschakelen door <code>debug=True</code> aan de <code>app.run
 </div>
 </div>
 <div class="sect2">
-<h3 id="_installatie_en_setup">11.2. Installatie en Setup</h3>
+<h3 id="_installatie_en_setup">13.2. Installatie en Setup</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_1_flask_backend_setup">11.3. 1. Flask Backend Setup</h3>
+<h3 id="_1_flask_backend_setup">13.3. 1. Flask Backend Setup</h3>
 <div class="paragraph">
 <p>Begin met het instellen van de Flask-backend. Installeer Flask als volgt:</p>
 </div>
@@ -1453,7 +1631,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_reactjs_frontend_setup">11.4. 2. ReactJS Frontend Setup</h3>
+<h3 id="_2_reactjs_frontend_setup">13.4. 2. ReactJS Frontend Setup</h3>
 <div class="paragraph">
 <p>Om de frontend op te zetten, gebruik je <code>create-react-app</code> zoals besproken in het hoofdstuk 'reactjs' in webdesign.</p>
 </div>
@@ -1494,7 +1672,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_proxy_instellen">11.5. 3. Proxy Instellen</h3>
+<h3 id="_3_proxy_instellen">13.5. 3. Proxy Instellen</h3>
 <div class="paragraph">
 <p>Omdat React en Flask op verschillende poorten draaien, moeten we een proxy instellen in het React-project. Open het bestand <code>package.json</code> in de frontend-map en voeg het volgende toe:</p>
 </div>
@@ -1510,11 +1688,11 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_de_applicatie_draaien">11.6. De Applicatie Draaien</h3>
+<h3 id="_de_applicatie_draaien">13.6. De Applicatie Draaien</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_1_flask_backend">11.7. 1. Flask Backend</h3>
+<h3 id="_1_flask_backend">13.7. 1. Flask Backend</h3>
 <div class="paragraph">
 <p>Start de Flask-server in de <code>backend</code>-map door het volgende commando uit te voeren:</p>
 </div>
@@ -1528,7 +1706,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_react_frontend">11.8. 2. React Frontend</h3>
+<h3 id="_2_react_frontend">13.8. 2. React Frontend</h3>
 <div class="paragraph">
 <p>Ga naar de <code>frontend</code>-map en start de React-app met:</p>
 </div>
@@ -1542,7 +1720,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_communicatie_en_data_handling">11.9. API-Communicatie en Data Handling</h3>
+<h3 id="_api_communicatie_en_data_handling">13.9. API-Communicatie en Data Handling</h3>
 <div class="paragraph">
 <p>De React-frontend communiceert met de Flask-backend via API-endpoints. Dit stelt je in staat om een dynamische frontend op te bouwen met real-time data die wordt opgehaald van de backend.</p>
 </div>
@@ -1581,7 +1759,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_afhandelen_van_formulieren_en_post_requests">11.10. Afhandelen van Formulieren en Post Requests</h3>
+<h3 id="_afhandelen_van_formulieren_en_post_requests">13.10. Afhandelen van Formulieren en Post Requests</h3>
 <div class="paragraph">
 <p>Naast het ophalen van data via GET-aanvragen, kun je ook POST-aanvragen sturen vanuit React naar Flask om data naar de server te sturen, bijvoorbeeld bij het invullen van een formulier.</p>
 </div>
@@ -1628,7 +1806,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conclusie">11.11. Conclusie</h3>
+<h3 id="_conclusie">13.11. Conclusie</h3>
 <div class="paragraph">
 <p>Door ReactJS en Flask te combineren, kun je een krachtige en moderne webapplicatie opzetten met een scheiding tussen frontend en backend. React zorgt voor een dynamische gebruikersinterface, terwijl Flask de API en backend-logica afhandelt. Met de flexibiliteit van beide technologieën kun je gemakkelijk uitbreiden en aanpassen naar de behoeften van je project.</p>
 </div>
@@ -1636,7 +1814,7 @@ pip <span class="nb">install </span>Flask-Cors</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extensies">12. Extensies</h2>
+<h2 id="_extensies">14. Extensies</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Hoewel Flask een "micro" framework is, kan het worden uitgebreid met verschillende extensies.
@@ -1655,7 +1833,7 @@ Enkele populaire Flask-extensies zijn:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extensie_sqlalchemy_in_flask">13. Extensie: SQLAlchemy in Flask</h2>
+<h2 id="_extensie_sqlalchemy_in_flask">15. Extensie: SQLAlchemy in Flask</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>SQLAlchemy is een Object Relational Mapper (ORM) voor Python die een abstractielaag biedt tussen relationele databases en Python-objecten.</p>
@@ -1665,7 +1843,7 @@ Enkele populaire Flask-extensies zijn:</p>
 Flask integreert SQLAlchemy naadloos via de <code>Flask-SQLAlchemy</code> extensie, wat het gebruik van databases eenvoudiger en overzichtelijker maakt.</p>
 </div>
 <div class="sect2">
-<h3 id="_installatie_van_flask_sqlalchemy">13.1. Installatie van Flask-SQLAlchemy</h3>
+<h3 id="_installatie_van_flask_sqlalchemy">15.1. Installatie van Flask-SQLAlchemy</h3>
 <div class="paragraph">
 <p>Om SQLAlchemy te gebruiken binnen Flask, moet je eerst de benodigde module installeren. Dit kan eenvoudig worden gedaan via pip:</p>
 </div>
@@ -1679,13 +1857,13 @@ Flask integreert SQLAlchemy naadloos via de <code>Flask-SQLAlchemy</code> extens
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configureren_van_flask_sqlalchemy">13.2. Configureren van Flask-SQLAlchemy</h3>
+<h3 id="_configureren_van_flask_sqlalchemy">15.2. Configureren van Flask-SQLAlchemy</h3>
 <div class="paragraph">
 <p>Voordat je met SQLAlchemy kunt werken, moet je de database configureren.
 In Flask gebeurt dit door de <code>SQLALCHEMY_DATABASE_URI</code> configuratieparameter in te stellen. Dit geeft aan met welk type database je wilt verbinden en waar deze zich bevindt.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_basisconfiguratie">13.2.1. Voorbeeld van een basisconfiguratie</h4>
+<h4 id="_voorbeeld_van_een_basisconfiguratie">15.2.1. Voorbeeld van een basisconfiguratie</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
@@ -1707,13 +1885,13 @@ In Flask gebeurt dit door de <code>SQLALCHEMY_DATABASE_URI</code> configuratiepa
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_maken_van_een_model">13.3. Het maken van een Model</h3>
+<h3 id="_het_maken_van_een_model">15.3. Het maken van een Model</h3>
 <div class="paragraph">
 <p>In SQLAlchemy wordt een database weergegeven door middel van "modellen".
 Een <strong>model is een Python-klasse die een tabel in de database vertegenwoordigt</strong>, waarbij de attributen van de klasse de kolommen van de tabel vertegenwoordigen.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_modelklasse">13.3.1. Voorbeeld van een modelklasse</h4>
+<h4 id="_voorbeeld_van_een_modelklasse">15.3.1. Voorbeeld van een modelklasse</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
@@ -1734,12 +1912,12 @@ Een <strong>model is een Python-klasse die een tabel in de database vertegenwoor
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_aanmaken_van_de_database">13.4. Het aanmaken van de database</h3>
+<h3 id="_het_aanmaken_van_de_database">15.4. Het aanmaken van de database</h3>
 <div class="paragraph">
 <p>Nadat de modellen zijn gedefinieerd, moet de database worden aangemaakt. Dit kan eenvoudig worden gedaan door de <code>create_all()</code> methode van SQLAlchemy te gebruiken.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_aanmaken_van_de_database">13.4.1. Voorbeeld van het aanmaken van de database</h4>
+<h4 id="_voorbeeld_van_het_aanmaken_van_de_database">15.4.1. Voorbeeld van het aanmaken van de database</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="nf">app_context</span><span class="p">():</span>
@@ -1752,12 +1930,12 @@ Een <strong>model is een Python-klasse die een tabel in de database vertegenwoor
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_toevoegen_van_recordsrows">13.5. Het toevoegen van records/rows</h3>
+<h3 id="_het_toevoegen_van_recordsrows">15.5. Het toevoegen van records/rows</h3>
 <div class="paragraph">
 <p>Nadat de database en de modellen zijn aangemaakt, kun je records (rijen) toevoegen aan de tabel door een instantie van een model te maken en deze toe te voegen aan de sessie van de database.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_toevoegen_van_een_gebruiker">13.5.1. Voorbeeld van het toevoegen van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_toevoegen_van_een_gebruiker">15.5.1. Voorbeeld van het toevoegen van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">new_user</span> <span class="o">=</span> <span class="nc">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe@example.com</span><span class="sh">'</span><span class="p">)</span>
@@ -1772,12 +1950,12 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_opvragen_van_records">13.6. Het opvragen van records</h3>
+<h3 id="_het_opvragen_van_records">15.6. Het opvragen van records</h3>
 <div class="paragraph">
 <p>Je kunt records uit de database opvragen door gebruik te maken van de query-functionaliteit van SQLAlchemy.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_opvragen_van_een_gebruiker">13.6.1. Voorbeeld van het opvragen van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_opvragen_van_een_gebruiker">15.6.1. Voorbeeld van het opvragen van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1790,12 +1968,12 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_updaten_van_records">13.7. Het updaten van records</h3>
+<h3 id="_het_updaten_van_records">15.7. Het updaten van records</h3>
 <div class="paragraph">
 <p>Om een record te updaten, zoek je het eerst op, wijzig je het gewenste veld, en voer je de wijzigingen door met <code>commit()</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_het_updaten_van_een_gebruiker">13.7.1. Voorbeeld van het updaten van een gebruiker</h4>
+<h4 id="_voorbeeld_van_het_updaten_van_een_gebruiker">15.7.1. Voorbeeld van het updaten van een gebruiker</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1809,13 +1987,13 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_het_verwijderen_van_records">13.8. Het verwijderen van records</h3>
+<h3 id="_het_verwijderen_van_records">15.8. Het verwijderen van records</h3>
 <div class="paragraph">
 <p>Je kunt een record verwijderen door de methode <code>delete()</code> te gebruiken en vervolgens de wijzigingen door te voeren met <code>commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_voorbeeld_van_het_verwijderen_van_een_gebruiker">13.9. Voorbeeld van het verwijderen van een gebruiker</h3>
+<h3 id="_voorbeeld_van_het_verwijderen_van_een_gebruiker">15.9. Voorbeeld van het verwijderen van een gebruiker</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nf">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="sh">'</span><span class="s">johndoe</span><span class="sh">'</span><span class="p">).</span><span class="nf">first</span><span class="p">()</span>
@@ -1828,13 +2006,13 @@ De wijzigingen worden doorgevoerd met <code>db.session.commit()</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_relaties_tussen_modellen">13.10. Relaties tussen modellen</h3>
+<h3 id="_relaties_tussen_modellen">15.10. Relaties tussen modellen</h3>
 <div class="paragraph">
 <p>SQLAlchemy ondersteunt relaties tussen tabellen, zoals één-op-veel en veel-op-veel relaties.
 Dit kan eenvoudig worden geïmplementeerd door gebruik te maken van de <code>db.relationship()</code> en <code>db.ForeignKey()</code> functies.</p>
 </div>
 <div class="sect3">
-<h4 id="_voorbeeld_van_een_één_op_veel_relatie">13.10.1. Voorbeeld van een één-op-veel relatie</h4>
+<h4 id="_voorbeeld_van_een_één_op_veel_relatie">15.10.1. Voorbeeld van een één-op-veel relatie</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="python"><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
@@ -1853,7 +2031,7 @@ De relatie tussen gebruikers en berichten wordt vastgelegd via de <code>db.relat
 </div>
 </div>
 <div class="sect2">
-<h3 id="_migraties_uitvoeren">13.11. Migraties uitvoeren</h3>
+<h3 id="_migraties_uitvoeren">15.11. Migraties uitvoeren</h3>
 <div class="paragraph">
 <p>Flask biedt, via de extensie <code>Flask-Migrate</code>, de mogelijkheid om database-migraties uit te voeren. Dit is handig wanneer je wijzigingen aanbrengt in je database zoals het toevoegen van nieuwe kolommen of tabellen.</p>
 </div>
@@ -1872,7 +2050,7 @@ De relatie tussen gebruikers en berichten wordt vastgelegd via de <code>db.relat
 </div>
 </div>
 <div class="sect1">
-<h2 id="_samenvatting">14. Samenvatting</h2>
+<h2 id="_samenvatting">16. Samenvatting</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Flask is een flexibel en lichtgewicht framework waarmee je snel webapplicaties kunt bouwen.
@@ -1884,7 +2062,7 @@ Met ingebouwde ondersteuning voor routing, templates, foutafhandeling en extensi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-11-26 10:08:29 +0100
+Last updated 2025-11-26 10:55:28 +0100
 </div>
 </div>
 </body>

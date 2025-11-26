@@ -448,6 +448,59 @@ Om deze Flask-app te draaien:
 
 Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens op een andere pagina weergeven.
 
+== CORS en Flask-CORS
+
+=== Wat is CORS?
+CORS staat voor **Cross-Origin Resource Sharing**. Het is een mechanisme waarmee webbrowsers gecontroleerd toegang kunnen krijgen tot bronnen (zoals een API) die op een ander domein, protocol of poort ("origin") staan dan de website die de aanvraag doet.
+
+Standaard blokkeert een browser requests die "cross-origin" zijn uit veiligheidsoverwegingen.
+
+Indien we in onze browser rechtstreekt een html bestand openen en via javascript naar flask gaan. Worden we al geblokkeerd door CORS restricties.
+Deze restricties kunnen we uitschakelen voor development.
+
+=== Waarom bestaat deze beveiliging?
+CORS bestaat eigenlijk als een veilige uitzondering op de **Same-Origin Policy (SOP)**.
+
+* **Het probleem:** Zonder SOP zou een script op `kwaadaardige-site.com` een verzoek kunnen sturen naar `jouw-bank.be` (waar jij misschien ingelogd bent) en jouw privégegevens kunnen uitlezen.
+* **De oplossing:** De browser blokkeert het lezen van antwoorden van externe domeinen, tenzij die externe server via **CORS-headers** expliciet zegt: "Het is oké, ik vertrouw dit verzoek van dit specifieke domein."
+
+=== Flask-CORS gebruiken voor local development
+Tijdens ontwikkeling draaien je frontend (bijv. React op poort 3000) en backend (Flask op poort 5000) vaak op verschillende poorten. De browser ziet dit als verschillende origins en blokkeert de verbinding.
+
+Om dit lokaal op te lossen, gebruiken we de extensie `flask-cors` om alle verbindingen toe te staan.
+
+==== Installatie
+[source,bash]
+----
+pip install flask-cors
+----
+
+==== Codevoorbeeld
+Hieronder zie je hoe je CORS voor de **gehele applicatie** openzet. Dit voegt de header `Access-Control-Allow-Origin: *` toe aan je responses.
+
+[source,python]
+----
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+
+# Schakel CORS in voor de hele app op alle routes
+# Dit staat requests toe vanaf ELKE oorsprong (handig voor dev)
+CORS(app)
+
+@app.route("/api/data")
+def data():
+    return {"message": "Dit is nu bereikbaar vanaf je frontend!"}
+
+if __name__ == "__main__":
+    app.run(debug=True)
+----
+
+[WARNING]
+====
+Gebruik de bovenstaande configuratie (`CORS(app)`) **alleen voor lokale ontwikkeling**. In een productieomgeving is het cruciaal om specifiek te configureren welke domeinen (origins) toegang hebben tot je API om beveiligingslekken te voorkomen.
+====
 
 == Flask en JSON ==
 
@@ -479,6 +532,71 @@ def page_not_found(e):
 ----
 
 In dit voorbeeld wordt een aangepaste foutmelding weergegeven wanneer een pagina niet wordt gevonden.
+
+== Flask + javascript fetch() met filtering
+
+=== Flask backend
+
+[source,python]
+----
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)                                     # zodat de browser mag praten
+
+@app.route('/api/data')
+def data():
+    # Lees alles wat achter ? in de URL staat
+    categorie = request.args.get('cat')
+    prijs     = request.args.get('prijs', type=int)
+    zoek      = request.args.get('zoek')
+
+    # Hier zou je normaal je filtering doen
+    # Voor nu sturen we gewoon terug wat we ontvangen hebben
+    return jsonify({
+        "jij_vroeg": {
+            "cat": categorie,
+            "prijs_max": prijs,
+            "zoekterm": zoek
+        },
+        "bericht": "Filtering werkt!"
+    })
+
+app.run(debug=True, port=5000)
+----
+
+=== JavaScript - met fetch api
+
+[source,html]
+----
+<button onclick="haal()">Vraag data op</button>
+<pre id="uit"></pre>
+
+<script>
+async function haal() {
+    const url = new URL('http://localhost:5000/api/data');
+    url.searchParams.append('cat',   'boeken');
+    url.searchParams.append('prijs', '50');
+    url.searchParams.append('zoek', 'python');
+
+    const res = await fetch(url);
+    const json = await res.json();
+    document.getElementById('uit').textContent = JSON.stringify(json, null, 2);
+}
+</script>
+----
+
+Of nog korter met URLSearchParams:
+
+[source,javascript]
+----
+const params = new URLSearchParams({cat:'boeken', prijs:50, zoek:'js'});
+fetch('http://localhost:5000/api/data?' + params)
+    .then(r => r.json())
+    .then(data => console.log(data));
+----
+
 
 == Development vs production
 
