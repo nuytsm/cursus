@@ -136,6 +136,10 @@ def index():
 
 De variabelen `title`, `heading`, en `message` worden doorgegeven aan het template en ingevuld in de HTML.
 
+Opgelet: De templates _moeten_ in een templates folder staan:
+
+image::images/flasktemplates.webp[]
+
 === Waarom Templates Gebruiken? ===
 
 Templates scheiden de logica van je applicatie van de presentatie ervan.
