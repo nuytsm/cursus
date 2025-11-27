@@ -663,8 +663,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_waarom_bestaat_deze_beveiliging">7.2. Waarom bestaat deze beveiliging?</a></li>
 <li><a href="#_flask_cors_gebruiken_voor_local_development">7.3. Flask-CORS gebruiken voor local development</a>
 <ul class="sectlevel3">
-<li><a href="#_installatie">7.3.1. Installatie</a></li>
-<li><a href="#_codevoorbeeld">7.3.2. Codevoorbeeld</a></li>
+<li><a href="#_codevoorbeeld">7.3.1. Codevoorbeeld</a></li>
 </ul>
 </li>
 </ul>
@@ -1308,6 +1307,9 @@ Hier is een voorbeeld van een eenvoudig formulier met een POST-verzoek:</p>
 <div class="sect2">
 <h3 id="_wat_is_cors">7.1. Wat is CORS?</h3>
 <div class="paragraph">
+<p>Een website kan niet zomaar elke api aanspreken, dit komt doordat browsers specifieke beveiliging hebben die cross-origin (andere domeinen) verzoeken beperken. De API (flask) heeft de mogelijkheid om domeinen toe te staan om verzoeken te versturen naar de API (flask).</p>
+</div>
+<div class="paragraph">
 <p>CORS staat voor <strong>Cross-Origin Resource Sharing</strong>. Het is een mechanisme waarmee webbrowsers gecontroleerd toegang kunnen krijgen tot bronnen (zoals een API) die op een ander domein, protocol of poort ("origin") staan dan de website die de aanvraag doet.</p>
 </div>
 <div class="paragraph">
@@ -1340,18 +1342,47 @@ Deze restricties kunnen we uitschakelen voor development.</p>
 <p>Tijdens ontwikkeling draaien je frontend (bijv. React op poort 3000) en backend (Flask op poort 5000) vaak op verschillende poorten. De browser ziet dit als verschillende origins en blokkeert de verbinding.</p>
 </div>
 <div class="paragraph">
+<p>Dan krijg je dit type error te zien in je browser:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/cors-error.png" alt="CORS Error">
+</div>
+</div>
+<div class="paragraph">
 <p>Om dit lokaal op te lossen, gebruiken we de extensie <code>flask-cors</code> om alle verbindingen toe te staan.</p>
 </div>
-<div class="sect3">
-<h4 id="_installatie">7.3.1. Installatie</h4>
+<div class="paragraph">
+<p>Om CORS te configureren in Flask, moet je de <code>flask-cors</code> extensie installeren.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash">pip <span class="nb">install </span>flask-cors</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Eenmaal geïnstalleerd, kun je de flask-cors library importeren.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Na het importeren, kan je CORS inschakelen met volgende code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">app</span> <span class="o">=</span> <span class="n">flask</span><span class="p">.</span><span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span> <span class="c1"># Bestaat al in je code (normaal gezien)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="sa">r</span><span class="s">"/api/*"</span><span class="p">:</span> <span class="p">{</span><span class="s">"origins"</span><span class="p">:</span> <span class="s">"*"</span><span class="p">}})</span> <span class="c1"># Gebruik de app variabele van hierboven</span></code></pre>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_codevoorbeeld">7.3.2. Codevoorbeeld</h4>
+<h4 id="_codevoorbeeld">7.3.1. Codevoorbeeld</h4>
 <div class="paragraph">
 <p>Hieronder zie je hoe je CORS voor de <strong>gehele applicatie</strong> openzet. Dit voegt de header <code>Access-Control-Allow-Origin: *</code> toe aan je responses.</p>
 </div>
