@@ -451,6 +451,8 @@ Op deze manier kun je in Flask een formulier verwerken en de ingevoerde gegevens
 == CORS en Flask-CORS
 
 === Wat is CORS?
+Een website kan niet zomaar elke api aanspreken, dit komt doordat browsers specifieke beveiliging hebben die cross-origin (andere domeinen) verzoeken beperken. De API (flask) heeft de mogelijkheid om domeinen toe te staan om verzoeken te versturen naar de API (flask). 
+
 CORS staat voor **Cross-Origin Resource Sharing**. Het is een mechanisme waarmee webbrowsers gecontroleerd toegang kunnen krijgen tot bronnen (zoals een API) die op een ander domein, protocol of poort ("origin") staan dan de website die de aanvraag doet.
 
 Standaard blokkeert een browser requests die "cross-origin" zijn uit veiligheidsoverwegingen.
@@ -467,13 +469,35 @@ CORS bestaat eigenlijk als een veilige uitzondering op de **Same-Origin Policy (
 === Flask-CORS gebruiken voor local development
 Tijdens ontwikkeling draaien je frontend (bijv. React op poort 3000) en backend (Flask op poort 5000) vaak op verschillende poorten. De browser ziet dit als verschillende origins en blokkeert de verbinding.
 
+Dan krijg je dit type error te zien in je browser:
+
+image::images/cors-error.png[CORS Error]
+
 Om dit lokaal op te lossen, gebruiken we de extensie `flask-cors` om alle verbindingen toe te staan.
 
-==== Installatie
-[source,bash]
+Om CORS te configureren in Flask, moet je de `flask-cors` extensie installeren.
+[source, bash]
 ----
 pip install flask-cors
 ----
+
+Eenmaal geïnstalleerd, kun je de flask-cors library importeren.
+[source, python]
+----
+from flask_cors import CORS
+----
+
+Na het importeren, kan je CORS inschakelen met volgende code:
+[source, python]
+----
+app = flask.Flask(__name__) # Bestaat al in je code (normaal gezien)
+----
+
+[source, python]
+----
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}}) # Gebruik de app variabele van hierboven
+----
+
 
 ==== Codevoorbeeld
 Hieronder zie je hoe je CORS voor de **gehele applicatie** openzet. Dit voegt de header `Access-Control-Allow-Origin: *` toe aan je responses.
