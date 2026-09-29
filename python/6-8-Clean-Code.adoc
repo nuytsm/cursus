@@ -1,0 +1,1841 @@
+
+:lib: pass:quotes[_library_]
+:libs: pass:quotes[_libraries_]
+:fs: functies
+:f: functie
+:m: method
+:icons: font
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toc: left
+:toclevels: 5
+:sectnums:
+
+= Hoofdstuk: Clean Code in Python
+
+== Inleiding
+
+Wanneer je leert programmeren, is het verleidelijk om vooral te kijken naar de vraag:
+
+*"Werkt mijn programma?"*
+
+Dat is natuurlijk belangrijk. Een programma dat niet werkt, heeft weinig nut. Maar naarmate programma's groter worden, ontstaat er een tweede belangrijke vraag:
+
+*"Is mijn code gemakkelijk te begrijpen en aan te passen?"*
+
+Twee programma's kunnen precies hetzelfde resultaat geven, maar toch sterk verschillen in kwaliteit. Het ene programma is overzichtelijk, logisch opgebouwd en gemakkelijk aan te passen. Het andere programma werkt misschien ook, maar is moeilijk te begrijpen, bevat veel herhaling en zorgt ervoor dat een kleine wijziging onverwachte problemen veroorzaakt.
+
+Het schrijven van goed leesbare en onderhoudbare code noemen we vaak *clean code*.
+
+Clean code is geen programmeertaal en ook geen officiële standaard waaraan je automatisch voldoet. Het is een verzameling van principes en gewoontes die helpen om code duidelijker, eenvoudiger en betrouwbaarder te maken.
+
+In dit hoofdstuk leer je onder andere:
+
+* wat clean code precies betekent;
+* waarom leesbaarheid belangrijk is;
+* hoe je goede namen kiest;
+* hoe je functies klein en duidelijk houdt;
+* welke code smells vaak voorkomen;
+* hoe je herhaling voorkomt;
+* hoe je onnodige complexiteit vermindert;
+* hoe je foutafhandeling netjes schrijft;
+* hoe je code testbaar maakt;
+* wat refactoring betekent;
+* en hoe je bestaande slechte code stap voor stap kunt verbeteren.
+
+Het belangrijkste doel is niet dat je perfecte code leert schrijven.
+
+Het doel is dat je leert herkennen wanneer code onduidelijk is en dat je weet hoe je die code kunt verbeteren.
+
+== Waarom is clean code belangrijk?
+
+Programmeren bestaat voor een groot deel uit het schrijven van instructies voor een computer. Maar mensen moeten die instructies ook kunnen lezen.
+
+Dat klinkt misschien vreemd.
+
+De computer voert immers de code uit. Waarom zou het dan belangrijk zijn dat mensen de code gemakkelijk kunnen lezen?
+
+Omdat programma's bijna nooit klaar zijn nadat je ze één keer hebt geschreven.
+
+In de praktijk gebeurt er voortdurend iets met bestaande code:
+
+* er worden fouten opgelost;
+* er worden nieuwe functies toegevoegd;
+* bestaande functies worden aangepast;
+* andere programmeurs werken aan dezelfde code;
+* gebruikers vragen nieuwe mogelijkheden;
+* beveiligingsproblemen moeten worden opgelost;
+* prestaties moeten worden verbeterd.
+
+Daardoor wordt bestaande code vaak veel vaker *gelezen* dan *geschreven*.
+
+Een regel code die je vandaag schrijft, kan maanden of jaren later nog worden bekeken door iemand die niet bij het oorspronkelijke project betrokken was.
+
+Goede code maakt dat onderhoud gemakkelijker.
+
+=== Een voorbeeld
+
+Bekijk deze code:
+
+[source, python]
+----
+a = 17
+b = 16
+
+if a >= b:
+    print("OK")
+----
+
+Deze code werkt.
+
+Maar wat betekenen `a` en `b`?
+
+Bekijk dezelfde code:
+
+[source, python]
+----
+leeftijd = 17
+minimumleeftijd = 16
+
+if leeftijd >= minimumleeftijd:
+    print("OK")
+----
+
+De tweede versie is langer, maar waarschijnlijk gemakkelijker te begrijpen.
+
+De namen vertellen namelijk wat de waarden betekenen.
+
+Dat is een belangrijk principe van clean code:
+
+[IMPORTANT]
+Code moet niet alleen correct zijn voor de computer, maar ook begrijpelijk zijn voor mensen.
+
+== Voor wie schrijf je code?
+
+Een beginner denkt soms:
+
+*"De computer moet mijn code begrijpen, dus de code is goed."*
+
+Maar er zijn eigenlijk twee lezers van je programma:
+
+. de computer;
+. de mensen die de code moeten begrijpen en onderhouden.
+
+Python zorgt ervoor dat de computer jouw programma kan uitvoeren.
+
+Clean code zorgt ervoor dat mensen kunnen begrijpen wat jouw programma doet.
+
+Daarom is leesbaarheid een belangrijk onderdeel van goede code.
+
+== De belangrijkste eigenschappen van clean code
+
+Er bestaat geen universele lijst met eigenschappen waaraan alle clean code moet voldoen. Toch komen een aantal eigenschappen vaak terug.
+
+Goede code is meestal:
+
+* duidelijk;
+* eenvoudig;
+* logisch opgebouwd;
+* consequent;
+* gemakkelijk te testen;
+* gemakkelijk aan te passen;
+* zo weinig mogelijk dubbel;
+* begrijpelijk zonder onnodige uitleg.
+
+Een handige manier om hierover na te denken is:
+
+##Goede code maakt de bedoeling duidelijk.##
+
+Als iemand naar je code kijkt, zou die persoon zo snel mogelijk moeten kunnen begrijpen:
+
+* wat de code doet;
+* waarom de code dat doet;
+* welke gegevens worden gebruikt;
+* welk resultaat wordt verwacht.
+
+== Namen geven aan variabelen
+
+Een van de eenvoudigste manieren om je code beter te maken, is betere namen gebruiken.
+
+Vergelijk:
+
+[source, python]
+----
+x = 25
+y = 3
+z = x * y
+----
+
+met:
+
+[source, python]
+----
+prijs = 25
+aantal = 3
+totaal = prijs * aantal
+----
+
+De tweede versie maakt de bedoeling onmiddellijk duidelijk.
+
+=== Gebruik betekenisvolle namen
+
+Een variabele moet bij voorkeur een naam hebben die vertelt wat erin zit.
+
+Minder duidelijk:
+
+[source, python]
+----
+a = "Jan"
+b = 17
+c = True
+----
+
+Duidelijker:
+
+[source, python]
+----
+naam = "Jan"
+leeftijd = 17
+ingeschreven = True
+----
+
+=== Vermijd namen zoals x, y en z
+
+Korte namen zijn niet altijd verkeerd.
+
+Een naam als `i` wordt bijvoorbeeld vaak gebruikt als teller in een korte lus:
+
+[source, python]
+----
+for i in range(10):
+    print(i)
+----
+
+Dat is meestal begrijpelijk.
+
+Maar bij complexere code zijn betekenisvolle namen vaak beter:
+
+[source, python]
+----
+for leerling_nummer in range(10):
+    print(leerling_nummer)
+----
+
+De juiste keuze hangt af van de context.
+
+=== Gebruik geen onnodige afkortingen
+
+Deze naam:
+
+[source, python]
+----
+usr_cnt = 25
+----
+
+is minder duidelijk dan:
+
+[source, python]
+----
+aantal_gebruikers = 25
+----
+
+Afkortingen kunnen handig zijn als ze algemeen bekend zijn, maar willekeurige afkortingen maken code moeilijker te lezen.
+
+=== Namen moeten niet misleiden
+
+Een naam moet overeenkomen met de werkelijke inhoud.
+
+Slecht:
+
+[source, python]
+----
+namen = 25
+----
+
+Als `namen` eigenlijk een aantal is en geen verzameling namen, is die naam verwarrend.
+
+Beter:
+
+[source, python]
+----
+aantal_namen = 25
+----
+
+== Variabelen moeten één duidelijke betekenis hebben
+
+Een variabele moet bij voorkeur één duidelijk concept voorstellen.
+
+Minder duidelijk:
+
+[source, python]
+----
+data = ["Jan", "Piet", "Sara"]
+----
+
+Wat is `data` precies?
+
+Zijn het namen?, Leerlingen?, Gebruikers?, Klanten?
+
+Beter:
+
+[source, python]
+----
+leerling_namen = ["Jan", "Piet", "Sara"]
+----
+
+De naam geeft extra informatie zonder dat er een commentaar nodig is.
+
+== Functies: één taak per functie
+
+Een functie is gemakkelijker te begrijpen wanneer ze één duidelijke taak uitvoert.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    return prijs * aantal
+----
+
+De functie doet precies wat de naam zegt.
+
+Ze berekent een totaal.
+
+Een functie die tegelijkertijd gegevens leest, berekeningen uitvoert, gebruikersinput vraagt, bestanden opslaat en resultaten afdrukt, is veel moeilijker te begrijpen.
+
+== Te veel verantwoordelijkheden in één functie
+
+Bekijk bijvoorbeeld deze functie:
+
+[source, python]
+----
+def verwerk_bestelling():
+    naam = input("Naam: ")
+    prijs = float(input("Prijs: "))
+    aantal = int(input("Aantal: "))
+
+    totaal = prijs * aantal
+
+    print("Klant:", naam)
+    print("Totaal:", totaal)
+
+    with open("bestellingen.txt", "a") as bestand:
+        bestand.write(f"{naam}: {totaal}\n")
+
+----
+
+Deze functie doet verschillende dingen:
+
+* input vragen;
+* gegevens omzetten;
+* een berekening uitvoeren;
+* informatie afdrukken;
+* een bestand openen;
+* gegevens opslaan.
+
+Dat zijn verschillende verantwoordelijkheden.
+
+Een mogelijke verbetering is:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    return prijs * aantal
+
+def toon_bestelling(naam, totaal):
+    print("Klant:", naam)
+    print("Totaal:", totaal)
+
+def sla_bestelling_op(naam, totaal):
+    with open("bestellingen.txt", "a") as bestand:
+        bestand.write(f"{naam}: {totaal}\n")
+----
+
+Elke functie heeft nu een duidelijke taak.
+
+== Functies moeten niet onnodig lang zijn
+
+Een functie van enkele tientallen regels is niet automatisch slecht.
+
+Een lange functie is vooral een probleem wanneer ze verschillende concepten en verantwoordelijkheden door elkaar gebruikt.
+
+Een goede vraag is:
+
+*"Kan ik een deel van deze functie een duidelijke naam geven?"*
+
+Als het antwoord ja is, kan dat deel misschien een aparte functie worden.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def bereken_gemiddelde(cijfers):
+    totaal = sum(cijfers)
+    aantal = len(cijfers)
+
+
+    if aantal == 0:
+        return 0
+
+    return totaal / aantal
+
+----
+
+Deze functie is duidelijk.
+
+Je kunt bovendien gemakkelijk zien wat ze doet.
+
+== Code smells
+
+Een *code smell* is een aanwijzing dat er mogelijk iets mis is met de structuur van je code.
+
+Een code smell betekent niet automatisch dat de code fout is.
+
+Het betekent eerder:
+
+*"Hier zou je eens kritisch naar moeten kijken."*
+
+Voorbeelden zijn:
+
+* lange functies;
+* onduidelijke namen;
+* dubbele code;
+* te veel parameters;
+* te veel geneste voorwaarden;
+* globale variabelen;
+* onnodig ingewikkelde oplossingen.
+
+Code smells zijn dus signalen.
+
+Ze helpen je plaatsen in je code te vinden waar verbetering mogelijk is.
+
+=== Code smell 1: betekenisloze namen
+
+Bekijk:
+
+[source, python]
+----
+def f(x, y):
+    return x * y
+----
+
+Wat doet deze functie?
+
+Je moet de code bestuderen om dat te ontdekken.
+
+Beter:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    return prijs * aantal
+----
+
+De naam van de functie en de parameters vertellen al veel over de bedoeling.
+
+=== Code smell 2: magic numbers
+
+Een *magic number* is een getal dat rechtstreeks in je code staat zonder dat duidelijk is waarom dat getal wordt gebruikt.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+if leeftijd >= 18:
+    print("Volwassen")
+----
+
+Het getal `18` heeft hier een betekenis.
+
+Je kunt die betekenis expliciet maken:
+
+[source, python]
+----
+VOLWASSEN_LEEFTIJD = 18
+
+if leeftijd >= VOLWASSEN_LEEFTIJD:
+    print("Volwassen")
+----
+
+Dit is vooral nuttig wanneer dezelfde waarde meerdere keren wordt gebruikt.
+
+==== Wanneer is een getal geen probleem?
+
+Niet elk getal is automatisch een magic number.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+for nummer in range(10):
+    print(nummer)
+----
+
+Het is niet noodzakelijk beter om hier een constante voor `10` te maken.
+
+Het doel is niet om elk getal uit je code te verwijderen.
+
+Het doel is om betekenisvolle waarden herkenbaar te maken.
+
+=== Code smell 3: herhaalde code
+
+Herhaling kan leiden tot fouten.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+prijs1 = 10
+prijs2 = 20
+prijs3 = 30
+
+totaal1 = prijs1 * 1.21
+totaal2 = prijs2 * 1.21
+totaal3 = prijs3 * 1.21
+----
+
+De berekening wordt drie keer geschreven.
+
+Een functie kan deze logica centraliseren:
+
+[source, python]
+----
+def bereken_prijs_met_btw(prijs):
+    return prijs * 1.21
+
+totaal1 = bereken_prijs_met_btw(prijs1)
+totaal2 = bereken_prijs_met_btw(prijs2)
+totaal3 = bereken_prijs_met_btw(prijs3)
+----
+
+Wanneer het btw-percentage later verandert, hoef je maar één plaats aan te passen.
+
+=== Code smell 4: bijna dezelfde code meerdere keren
+
+Niet alle dubbele code is letterlijk identiek.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+prijs_met_btw = prijs * 1.21
+korting_prijs = prijs * 0.90
+speciale_prijs = prijs * 0.80
+----
+
+Hier zit eenzelfde soort berekening in: een prijs vermenigvuldigen met een factor.
+
+Je kunt dit eventueel abstraheren:
+
+[source, python]
+----
+def pas_factor_toe(prijs, factor):
+    return prijs * factor
+
+prijs_met_btw = pas_factor_toe(prijs, 1.21)
+korting_prijs = pas_factor_toe(prijs, 0.90)
+speciale_prijs = pas_factor_toe(prijs, 0.80)
+----
+
+Maar pas op met te veel abstraheren.
+
+Als de abstractie de code moeilijker maakt, kan de oorspronkelijke versie duidelijker zijn.
+
+=== Code smell 5: te veel if-statements
+
+Veel `if`-statements zijn niet automatisch slecht.
+
+Voorwaarden zijn een essentieel onderdeel van programmeren.
+
+Maar veel voorwaarden kunnen erop wijzen dat een functie te veel verantwoordelijkheden heeft.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+if gebruiker == "admin":
+...
+elif gebruiker == "leraar":
+...
+elif gebruiker == "leerling":
+...
+elif gebruiker == "gast":
+...
+elif gebruiker == "beheerder":
+...
+----
+
+Als dit patroon steeds groter wordt, kan het verstandig zijn om de structuur opnieuw te bekijken.
+
+=== Code smell 6: diepe geneste if-statements
+
+Deze code is moeilijk te lezen:
+
+[source, python]
+----
+if gebruiker_is_ingelogd:
+    if gebruiker_is_actief:
+        if heeft_rechten:
+            if account_is_niet_geblokkeerd:
+                print("Toegang toegestaan")
+----
+
+De voorwaarden kunnen soms eenvoudiger worden gecombineerd:
+
+[source, python]
+----
+if (
+gebruiker_is_ingelogd
+and gebruiker_is_actief
+and heeft_rechten
+and account_is_niet_geblokkeerd
+):
+    print("Toegang toegestaan")
+----
+
+Een andere mogelijkheid is een functie die de voorwaarden benoemt:
+
+[source, python]
+----
+def mag_toegang_krijgen(gebruiker):
+    return (
+    gebruiker.is_ingelogd
+    and gebruiker.is_actief
+    and gebruiker.heeft_rechten
+    and not gebruiker.is_geblokkeerd
+    )
+
+if mag_toegang_krijgen(gebruiker):
+    print("Toegang toegestaan")
+----
+
+De naam `mag_toegang_krijgen` geeft nu betekenis aan de volledige voorwaarde.
+
+=== Code smell 7: lange voorwaarden
+
+Deze code is moeilijk te lezen:
+
+[source, python]
+----
+if leeftijd >= 18 and heeft_rijbewijs and niet_geschorst and heeft_verzekering:
+    print("Mag rijden")
+----
+
+Je kunt de voorwaarde bijvoorbeeld in een functie plaatsen:
+
+[source, python]
+----
+def mag_rijden(leeftijd, heeft_rijbewijs, niet_geschorst, heeft_verzekering):
+    return (
+    leeftijd >= 18
+    and heeft_rijbewijs
+    and niet_geschorst
+    and heeft_verzekering
+    )
+
+if mag_rijden(leeftijd, heeft_rijbewijs, niet_geschorst, heeft_verzekering):
+    print("Mag rijden")
+----
+
+De functie geeft de voorwaarde een naam.
+
+=== Code smell 8: comments die slechte code proberen te redden
+
+Een commentaar kan nuttig zijn.
+
+Maar een commentaar zou niet nodig moeten zijn om volledig onbegrijpelijke code begrijpelijk te maken.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+#Controleer of de gebruiker oud genoeg is om toegang te krijgen
+
+if x >= 18:
+    print("Toegang")
+----
+
+Je kunt de code zelf duidelijker maken:
+
+[source, python]
+----
+if leeftijd >= 18:
+    print("Toegang")
+----
+
+De code vertelt nu zelf wat er gebeurt.
+
+=== Code smell 9: overbodige comments
+
+Comments zijn niet automatisch goed.
+
+Deze commentaarregel voegt weinig toe:
+
+[source, python]
+----
+#Verhoog de teller met 1
+teller += 1
+----
+
+De code is al duidelijk.
+
+Comments zijn vooral nuttig wanneer ze iets uitleggen dat niet rechtstreeks uit de code blijkt.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+#Deze correctie is nodig omdat de externe API
+
+#bedragen in centen terugstuurt.
+
+bedrag = bedrag_in_centen / 100
+----
+
+
+De commentaar legt hier de reden achter de code uit.
+
+=== Code smell 10: functies met te veel parameters
+
+Een functie met veel parameters kan moeilijk te gebruiken zijn.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def maak_gebruiker(
+naam,
+voornaam,
+straat,
+huisnummer,
+postcode,
+gemeente,
+telefoon,
+email
+):
+...
+----
+
+Dit kan een teken zijn dat verschillende gegevens eigenlijk bij elkaar horen.
+
+Een mogelijke oplossing is een object of dataclass:
+
+[source, python]
+----
+from dataclasses import dataclass
+
+@dataclass
+class Adres:
+    straat: str
+    huisnummer: int
+    postcode: str
+    gemeente: str
+
+@dataclass
+class Gebruiker:
+    naam: str
+    voornaam: str
+    adres: Adres
+    telefoon: str
+    email: str
+----
+
+De gegevens zijn nu logisch gegroepeerd.
+
+=== Code smell 11: functies die te veel doen
+
+Bekijk:
+
+[source, python]
+----
+def verwerk_leerling():
+    naam = input("Naam: ")
+    punten = int(input("Punten: "))
+
+
+if punten >= 50:
+    resultaat = "geslaagd"
+else:
+    resultaat = "niet geslaagd"
+
+print(naam, resultaat)
+
+with open("resultaten.txt", "a") as bestand:
+    bestand.write(f"{naam}: {resultaat}\n")
+
+----
+
+Ook hier gebeuren meerdere dingen.
+
+Je kunt bijvoorbeeld de berekening afzonderlijk maken:
+
+[source, python]
+----
+def bepaal_resultaat(punten):
+    if punten >= 50:
+        return "geslaagd"
+
+    return "niet geslaagd"
+
+----
+
+Daarna kan de hoofdcode de verschillende stappen uitvoeren:
+
+[source, python]
+----
+naam = input("Naam: ")
+punten = int(input("Punten: "))
+
+resultaat = bepaal_resultaat(punten)
+
+print(naam, resultaat)
+----
+
+Dat maakt de logica gemakkelijker te testen.
+
+=== Code smell 12: onnodige complexiteit
+
+Soms schrijven programmeurs ingewikkelde code terwijl een eenvoudige oplossing beschikbaar is.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+if waarde == True:
+    print("Ja")
+else:
+    print("Nee")
+----
+
+Dit kan eenvoudiger:
+
+[source, python]
+----
+if waarde:
+    print("Ja")
+else:
+    print("Nee")
+----
+
+Nog een voorbeeld:
+
+[source, python]
+----
+if len(namen) > 0:
+    print("Er zijn namen")
+----
+
+Python biedt hiervoor een eenvoudigere manier:
+
+[source, python]
+----
+if namen:
+    print("Er zijn namen")
+----
+
+Eenvoudige code is vaak gemakkelijker te begrijpen.
+
+=== Code smell 13: dezelfde waarde meerdere keren gebruiken
+
+Stel dat je dezelfde grenswaarde op meerdere plaatsen gebruikt:
+
+[source, python]
+----
+if temperatuur > 30:
+...
+
+if temperatuur > 30:
+...
+
+if temperatuur > 30:
+...
+----
+
+Je kunt de betekenis benoemen:
+
+[source, python]
+----
+HOGE_TEMPERATUUR = 30
+
+if temperatuur > HOGE_TEMPERATUUR:
+...
+
+if temperatuur > HOGE_TEMPERATUUR:
+...
+
+if temperatuur > HOGE_TEMPERATUUR:
+...
+----
+
+Dit maakt de code duidelijker en voorkomt dat je dezelfde waarde op verschillende plaatsen moet aanpassen.
+
+=== Code smell 14: lange functies met veel tijdelijke variabelen
+
+Een functie met veel tijdelijke variabelen kan erop wijzen dat er eigenlijk meerdere stappen in zitten.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def bereken_factuur(prijzen):
+    totaal = sum(prijzen)
+    btw = totaal * 0.21
+    totaal_met_btw = totaal + btw
+    korting = totaal_met_btw * 0.10
+    eindbedrag = totaal_met_btw - korting
+
+
+    return eindbedrag
+
+
+----
+
+Je kunt delen van de berekening benoemen:
+
+[source, python]
+----
+def bereken_btw(bedrag):
+    return bedrag * 0.21
+
+def bereken_korting(bedrag):
+    return bedrag * 0.10
+
+def bereken_factuur(prijzen):
+    totaal = sum(prijzen)
+    totaal_met_btw = totaal + bereken_btw(totaal)
+    eindbedrag = totaal_met_btw - bereken_korting(totaal_met_btw)
+    return eindbedrag
+
+----
+
+Ook hier geldt: maak niet automatisch voor elke regel een functie. Een functie moet extra betekenis geven.
+
+=== Code smell 15: functies die niets teruggeven terwijl dat nuttig zou zijn
+
+Een functie kan soms beter een waarde teruggeven dan rechtstreeks iets afdrukken.
+
+Minder flexibel:
+
+[source, python]
+----
+def bereken_oppervlakte(lengte, breedte):
+    print(lengte * breedte)
+----
+
+Je kunt het resultaat niet gemakkelijk ergens anders gebruiken.
+
+Beter:
+
+[source, python]
+----
+def bereken_oppervlakte(lengte, breedte):
+    return lengte * breedte
+----
+
+Nu kun je zelf bepalen wat je met het resultaat doet:
+
+[source, python]
+----
+oppervlakte = bereken_oppervlakte(5, 10)
+
+print(oppervlakte)
+----
+
+Of:
+
+[source, python]
+----
+oppervlakte = bereken_oppervlakte(5, 10)
+
+if oppervlakte > 40:
+    print("Grote oppervlakte")
+----
+
+=== Code smell 16: input, verwerking en output door elkaar
+
+Bij kleine programma's is dit normaal:
+
+[source, python]
+----
+naam = input("Naam: ")
+leeftijd = int(input("Leeftijd: "))
+
+if leeftijd >= 18:
+    resultaat = "volwassen"
+else:
+    resultaat = "minderjarig"
+
+print(naam, resultaat)
+----
+
+Bij grotere programma's wordt het nuttig om input, verwerking en output van elkaar te scheiden.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def bepaal_categorie(leeftijd):
+    if leeftijd >= 18:
+        return "volwassen"
+    return "minderjarig"
+
+naam = input("Naam: ")
+leeftijd = int(input("Leeftijd: "))
+
+categorie = bepaal_categorie(leeftijd)
+
+print(naam, categorie)
+----
+
+De functie `bepaal_categorie` is nu onafhankelijk van `input()` en `print()`.
+
+Dat maakt haar gemakkelijker te testen.
+
+=== Code smell 17: globale variabelen
+
+Globale variabelen kunnen problemen veroorzaken omdat verschillende delen van een programma dezelfde waarde kunnen veranderen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+score = 0
+
+def voeg_punt_toe():
+    global score
+    score += 1
+
+def verwijder_punt():
+    global score
+    score -= 1
+----
+
+Het is niet onmiddellijk duidelijk waar `score` verandert.
+
+Een alternatief is om waarden door te geven:
+
+[source, python]
+----
+def voeg_punt_toe(score):
+    return score + 1
+
+def verwijder_punt(score):
+    return score - 1
+
+score = 0
+score = voeg_punt_toe(score)
+----
+
+Globale constanten kunnen wel nuttig zijn:
+
+[source, python]
+----
+MAXIMUM_SCORE = 100
+----
+
+Een globale variabele is dus niet automatisch fout. Het probleem ontstaat vooral wanneer veranderlijke globale toestand op veel plaatsen wordt gebruikt.
+
+=== Code smell 18: kopiëren en plakken
+
+Een veel voorkomende programmeergewoonte is code kopiëren en vervolgens een klein stukje aanpassen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+prijs1 = prijs1 * 1.21
+prijs2 = prijs2 * 1.21
+prijs3 = prijs3 * 1.21
+prijs4 = prijs4 * 1.21
+----
+
+Een lus kan herhaling verminderen:
+
+[source, python]
+----
+prijzen = [prijs1, prijs2, prijs3, prijs4]
+
+prijzen_met_btw = []
+
+for prijs in prijzen:
+    prijzen_met_btw.append(prijs * 1.21)
+----
+
+Of met een list comprehension:
+
+[source, python]
+----
+prijzen_met_btw = [prijs * 1.21 for prijs in prijzen]
+----
+
+Gebruik de oplossing die het duidelijkst is.
+
+=== Code smell 19: te veel verantwoordelijkheden in een klasse
+
+Ook klassen kunnen te veel verantwoordelijkheden krijgen.
+
+Stel dat een klasse tegelijkertijd:
+
+* klantgegevens beheert;
+* facturen berekent;
+* e-mails verstuurt;
+* bestanden opslaat;
+* rapporten genereert.
+
+Dan wordt de klasse moeilijker te begrijpen en te onderhouden.
+
+Het kan beter zijn om verantwoordelijkheden te verdelen over meerdere onderdelen.
+
+Een klasse moet niet zo groot mogelijk worden gemaakt.
+
+Een goede vraag is:
+
+*"Welke verantwoordelijkheid heeft deze klasse precies?"*
+
+=== Code smell 20: onnodige abstractie
+
+Niet alle ingewikkelde code is betere code.
+
+Soms maken programmeurs een enorme structuur voor een probleem dat met enkele regels kan worden opgelost.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def controleer_of_even_getal(getal):
+    resultaat = getal % 2 == 0
+    return resultaat
+----
+
+Dat kan eenvoudiger:
+
+[source, python]
+----
+def is_even(getal):
+    return getal % 2 == 0
+----
+
+Nog eenvoudiger kan zelfs:
+
+[source, python]
+----
+is_even = getal % 2 == 0
+----
+
+De juiste oplossing hangt af van de context.
+
+Abstractie is nuttig wanneer ze complexiteit verbergt.
+
+Abstractie is minder nuttig wanneer ze zelf extra complexiteit toevoegt.
+
+== DRY: Don't Repeat Yourself
+
+DRY staat voor:
+
+*Don't Repeat Yourself.*
+
+Het idee is dat dezelfde kennis niet onnodig op verschillende plaatsen in je programma moet staan.
+
+Stel dat je op vijf plaatsen weet dat een bepaalde grens `18` is.
+
+Als die grens later `21` wordt, moet je vijf plaatsen aanpassen.
+
+Met één constante:
+
+[source, python]
+----
+MINIMUMLEEFTIJD = 18
+----
+
+kun je die kennis centraliseren.
+
+DRY betekent echter niet:
+
+*"Elke regel die hetzelfde lijkt, moet worden samengevoegd."*
+
+Soms is enige herhaling duidelijker dan een ingewikkelde abstractie.
+
+== KISS: Keep It Simple
+
+KISS betekent:
+
+*Keep It Simple.*
+
+Het principe is eenvoudig:
+
+> Kies geen ingewikkelde oplossing als een eenvoudige oplossing volstaat.
+
+Stel dat je wilt controleren of een lijst leeg is.
+
+Dit is onnodig ingewikkeld:
+
+Stel dat een API een lijst gebruikers teruggeeft:
+
+[source, python]
+----
+gebruikers = [
+    {"naam": "Anna", "email": "anna@example.com", "actief": True},
+    {"naam": "Bram", "email": "bram@example.com", "actief": False},
+    {"naam": "Chris", "email": "chris@example.com", "actief": True},
+]
+----
+
+Je wilt de e-mailadressen van alle actieve gebruikers doorgeven aan een notificatieservice.
+
+Een oplossing die al snel ontstaat wanneer je het probleem stap voor stap uitschrijft:
+
+[source, python]
+----
+actieve_gebruikers = []
+
+ for gebruiker in gebruikers:
+    if gebruiker["actief"] is True:
+        actieve_gebruikers.append(gebruiker)
+
+e_mailadressen = []
+for gebruiker in actieve_gebruikers:
+    email = gebruiker["email"]
+    e_mailadressen.append(email)
+
+for email in e_mailadressen:
+    stuur_notificatie(email)
+----
+
+Eenvoudiger (Keep it simple):
+
+[source, python]
+----
+for gebruiker in gebruikers:
+    if gebruiker["actief"]:
+        stuur_notificatie(gebruiker["email"])
+----
+
+Eenvoud betekent niet dat je functies altijd zo kort mogelijk moet maken.
+
+Het betekent dat je geen complexiteit toevoegt zonder goede reden.
+
+== YAGNI: You Aren't Gonna Need It
+
+YAGNI betekent:
+
+*You Aren't Gonna Need It.*
+
+Het principe zegt dat je geen functionaliteit moet bouwen alleen omdat je misschien ooit in de toekomst nodig zou kunnen hebben.
+
+Stel dat je een programma maakt waarin gebruikers hun naam kunnen invoeren.
+
+Je hoeft misschien niet meteen ondersteuning te bouwen voor:
+
+* honderd verschillende naamformaten;
+* twintig databases;
+* meerdere externe API's;
+* toekomstige functies die nog niet gevraagd zijn.
+
+Begin met wat daadwerkelijk nodig is.
+
+Wanneer de behoefte verandert, kun je de code uitbreiden.
+
+== Gebruik Python zoals Python bedoeld is
+
+Python heeft veel ingebouwde mogelijkheden.
+
+Clean code betekent daarom ook dat je de taal goed leert kennen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+bestanden = ["rapport.pdf", "factuur.pdf", "contract.pdf"]
+for i in range(len(bestanden)):
+    print(f"{i + 1}. {bestanden[i]}")
+----
+
+Kan meer 'python achtig':
+
+[source, python]
+----
+bestanden = ["rapport.pdf", "factuur.pdf", "contract.pdf"]
+for nummer, bestand in enumerate(bestanden, start=1):
+    print(f"{nummer}. {bestand}")
+----
+
+Dat is duidelijker dan allerlei ingewikkelde manieren om hetzelfde te bereiken.
+
+Python heeft veel krachtige functies en constructies die code korter en duidelijker kunnen maken.
+
+== Gebruik ingebouwde functies
+
+Python bevat veel ingebouwde functies.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+getallen = [4, 7, 2, 9]
+
+grootste = max(getallen)
+kleinste = min(getallen)
+totaal = sum(getallen)
+aantal = len(getallen)
+----
+
+Je hoeft dus niet zelf functies te schrijven voor eenvoudige bewerkingen die Python al ondersteunt.
+
+Het kennen van de standaardbibliotheek en ingebouwde functies is een belangrijk onderdeel van goed programmeren.
+
+== Gebruik comprehensions met mate
+
+Python ondersteunt comprehensions.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+getallen = [1, 2, 3, 4, 5]
+
+kwadraten = [getal ** 2 for getal in getallen]
+----
+
+Dit is compact en duidelijk.
+
+Maar comprehensions kunnen ook te ingewikkeld worden.
+
+Moeilijker leesbaar:
+
+[source, python]
+----
+resultaat = [
+x ** 2
+for x in getallen
+if x % 2 == 0
+if x > 10
+]
+----
+
+Wanneer een comprehension moeilijk begint te lezen, is een gewone lus soms beter:
+
+[source, python]
+----
+resultaat = []
+
+for getal in getallen:
+    if getal % 2 == 0 and getal > 10:
+        resultaat.append(getal ** 2)
+----
+
+Kortere code is niet automatisch betere code.
+
+== Gebruik type hints
+
+Type hints kunnen duidelijk maken welk type gegevens een functie verwacht.
+
+Zonder type hints:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    return prijs * aantal
+----
+
+Met type hints:
+
+[source, python]
+----
+def bereken_totaal(prijs: float, aantal: int) -> float:
+    return prijs * aantal
+----
+
+De functie vertelt nu expliciet:
+
+* `prijs` is een `float`;
+* `aantal` is een `int`;
+* het resultaat is een `float`.
+
+Voor grotere programma's kunnen type hints de leesbaarheid en onderhoudbaarheid verbeteren.
+
+== Gebruik docstrings voor belangrijke functies
+
+Een docstring is documentatie die rechtstreeks bij een functie, klasse of module hoort.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def bereken_gemiddelde(cijfers):
+    """Bereken het gemiddelde van een lijst met cijfers."""
+    if not cijfers:
+        return 0
+
+
+return sum(cijfers) / len(cijfers)
+----
+
+Een docstring kan vooral nuttig zijn wanneer niet onmiddellijk duidelijk is wat een functie precies doet.
+
+Gebruik docstrings niet als vervanging voor duidelijke code.
+
+Een functie met een goede naam en duidelijke parameters heeft vaak al weinig extra uitleg nodig.
+
+== Fouten zijn ook onderdeel van clean code
+
+Goede code houdt rekening met fouten.
+
+Stel dat een gebruiker een getal moet invoeren:
+
+[source, python]
+----
+leeftijd = int(input("Leeftijd: "))
+----
+
+Wat gebeurt er als de gebruiker `abc` invoert?
+
+Python kan dan een `ValueError` veroorzaken.
+
+Je kunt dat afhandelen:
+
+[source, python]
+----
+try:
+    leeftijd = int(input("Leeftijd: "))
+except ValueError:
+    print("Voer een geldig getal in.")
+----
+
+Foutafhandeling maakt deel uit van de kwaliteit van een programma.
+
+== Vermijd te brede exception handling
+
+Dit is meestal geen goed idee:
+
+[source, python]
+----
+try:
+    resultaat = berekening()
+except:
+    print("Er is iets misgegaan.")
+----
+
+Je vangt hiermee bijna elke exception op.
+
+Daardoor kunnen programmeerfouten verborgen blijven.
+
+Beter is om de specifieke fout op te vangen die je verwacht:
+
+[source, python]
+----
+try:
+    leeftijd = int(input("Leeftijd: "))
+except ValueError:
+    print("De invoer is geen geldig getal.")
+----
+
+Zo blijft duidelijk welke fout je probeert af te handelen.
+
+== Formatteer je code consequent
+
+Consistente code is gemakkelijker te lezen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+naam = "Jan"
+leeftijd = 17
+
+if leeftijd >= 18:
+    print(naam, "is volwassen")
+else:
+    print(naam, "is minderjarig")
+----
+
+Gebruik consequent:
+
+* inspringing;
+* spaties;
+* lege regels;
+* naamgeving;
+* hoofdletters voor constanten;
+* duidelijke structuur.
+
+In Python wordt vaak de stijl uit PEP 8 gevolgd.
+
+Een formatter zoals `Black` kan bovendien helpen om de opmaak automatisch consistent te houden.
+
+== Houd functies voorspelbaar
+
+Een functie moet bij voorkeur doen wat je op basis van haar naam verwacht.
+
+Als je deze functie ziet:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+----
+
+verwacht je dat de functie een totaal berekent.
+
+Je verwacht niet dat ze daarnaast:
+
+* een bestand verwijdert;
+* een e-mail verstuurt;
+* een globale variabele verandert;
+* gegevens naar een database schrijft.
+
+Een voorspelbare functie is gemakkelijker te begrijpen en te testen.
+
+== Vermijd verrassende bijwerkingen
+
+Een functie heeft een *bijwerking* wanneer ze naast haar directe resultaat ook iets anders verandert.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+score = 0
+
+def bereken_score(punten):
+    global score
+    score += punten
+    return score
+----
+
+De naam `bereken_score` suggereert vooral een berekening.
+
+Maar de functie verandert ook een globale variabele.
+
+Dat kan verrassend zijn.
+
+Een duidelijkere aanpak:
+
+[source, python]
+----
+def bereken_score(huidige_score, punten):
+    return huidige_score + punten
+----
+
+De functie berekent nu alleen een resultaat.
+
+== Testbare code
+
+Clean code en testbaarheid zijn sterk met elkaar verbonden.
+
+Bekijk:
+
+[source, python]
+----
+def bereken_btw(prijs):
+    return prijs * 0.21
+----
+
+Deze functie is gemakkelijk te testen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+assert bereken_btw(100) == 21
+----
+
+De functie heeft geen invoer van de gebruiker nodig en print niets.
+
+Daarom kun je haar eenvoudig testen.
+
+Vergelijk dit met:
+
+[source, python]
+----
+def bereken_btw():
+    prijs = float(input("Prijs: "))
+    print(prijs * 0.21)
+----
+
+Deze functie is moeilijker automatisch te testen omdat ze rechtstreeks met de gebruiker communiceert.
+
+== Clean code en testen versterken elkaar
+
+Wanneer functies klein en duidelijk zijn, worden ze gemakkelijker te testen.
+
+Een functie zoals:
+
+[source, python]
+----
+def is_even(getal):
+    return getal % 2 == 0
+----
+
+kan eenvoudig worden getest:
+
+[source, python]
+----
+assert is_even(2)
+assert is_even(4)
+assert not is_even(3)
+assert not is_even(5)
+----
+
+Kleine functies hebben vaak duidelijke invoer en uitvoer.
+
+Dat maakt testen eenvoudiger.
+
+== Refactoring
+
+*Refactoring* betekent dat je bestaande code structureel verbetert zonder het bedoelde gedrag te veranderen.
+
+Je maakt de code dus beter georganiseerd, terwijl het programma hetzelfde blijft doen.
+
+Bijvoorbeeld:
+
+[source, python]
+----
+def f(x):
+    if x >= 18:
+        return True
+    else:
+        return False
+----
+
+Je kunt dit vereenvoudigen:
+
+[source, python]
+----
+def is_volwassen(leeftijd):
+    return leeftijd >= 18
+----
+
+Het resultaat blijft hetzelfde.
+
+Maar de tweede versie is duidelijker.
+
+== Refactoring stap voor stap
+
+Refactoring doe je bij voorkeur in kleine stappen.
+
+Een mogelijke aanpak:
+
+. Zorg dat je weet wat de code momenteel doet.
+. Zorg indien mogelijk voor tests.
+. Verander één klein onderdeel.
+. Controleer of de tests nog werken.
+. Ga daarna verder met de volgende verbetering.
+
+Stel dat je deze code hebt:
+
+[source, python]
+----
+def f(x, y):
+    z = x * y
+    return z
+----
+
+Eerst kun je de parameters verbeteren:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    z = prijs * aantal
+    return z
+----
+
+Daarna kun je de tijdelijke variabele verwijderen:
+
+[source, python]
+----
+def bereken_totaal(prijs, aantal):
+    return prijs * aantal
+----
+
+De code is stap voor stap verbeterd.
+
+== Een volledig voorbeeld: van rommelige naar clean code
+
+Bekijk deze code:
+
+[source, python]
+----
+def f(a, b, c):
+    x = a * b
+    if c == True:
+        x = x * 0.9
+    print("Totaal:", x)
+----
+
+De code werkt misschien.
+
+Maar verschillende dingen kunnen beter.
+
+. De namen zijn onduidelijk.
+. De functie print rechtstreeks.
+. De korting is een magic number.
+. De vergelijking met `True` is onnodig.
+
+Een eerste verbetering:
+
+[source, python]
+----
+KORTING = 0.90
+
+def bereken_totaal(prijs, aantal, korting_toepassen):
+    totaal = prijs * aantal
+    if korting_toepassen:
+        totaal = totaal * KORTING
+    return totaal
+----
+
+Nu heeft de functie een duidelijke naam en betekenisvolle parameters.
+
+We kunnen de korting nog explicieter maken:
+
+[source, python]
+----
+KORTING_FACTOR = 0.90
+
+def bereken_totaal(prijs, aantal, korting_toepassen):
+    totaal = prijs * aantal
+    if korting_toepassen:
+        totaal *= KORTING_FACTOR
+
+    return totaal
+----
+
+De uitvoer kan buiten de functie gebeuren:
+
+[source, python]
+----
+KORTING_FACTOR = 0.90
+
+def bereken_totaal(prijs, aantal, korting_toepassen):
+    totaal = prijs * aantal
+    if korting_toepassen:
+        totaal *= KORTING_FACTOR
+
+    return totaal
+
+totaal = bereken_totaal(25, 3, True)
+print("Totaal:", totaal)
+
+----
+
+De functie berekent nu alleen het resultaat.
+
+Dat maakt de functie flexibeler en gemakkelijker te testen.
+
+== Een checklist voor clean code
+
+Wanneer je je eigen code bekijkt, kun je de volgende vragen stellen.
+
+=== Namen
+
+* Begrijp ik wat elke variabele betekent?
+* Zijn functienamen duidelijk?
+* Gebruik ik onnodige afkortingen?
+* Zijn namen consistent?
+
+=== Functies
+
+* Heeft elke functie één duidelijke verantwoordelijkheid?
+* Zijn functies niet onnodig lang?
+* Zijn parameters duidelijk?
+* Geeft een functie een resultaat terug wanneer dat nuttig is?
+
+=== Herhaling
+
+* Staat dezelfde logica op meerdere plaatsen?
+* Kan een functie of constante herhaling verminderen?
+* Ben ik niet te veel aan het kopiëren en plakken?
+
+=== Complexiteit
+
+* Kan deze code eenvoudiger?
+* Zijn er onnodig veel `if`-statements?
+* Zijn voorwaarden te lang?
+* Zijn er veel geneste blokken?
+
+=== Comments
+
+* Is de code zelf duidelijk?
+* Legt een commentaar iets uit wat niet vanzelfsprekend is?
+* Beschrijf ik niet gewoon wat de code letterlijk doet?
+
+=== Fouten
+
+* Welke fouten kunnen optreden?
+* Vang ik alleen de fouten op die ik verwacht?
+* Verberg ik geen programmeerfouten met een te brede `except`?
+
+=== Testbaarheid
+
+* Kan ik belangrijke functies afzonderlijk testen?
+* Zijn input en output voldoende gescheiden?
+* Heeft de functie onnodige bijwerkingen?
+
+== Een belangrijk onderscheid: clean code is geen perfectie
+
+Clean code betekent niet dat je programma perfect moet zijn.
+
+Er bestaat niet één magische manier waarop alle goede code geschreven moet worden.
+
+Soms is een korte functie beter.
+
+Soms is een iets langere functie duidelijker.
+
+Soms is een abstractie nuttig.
+
+Soms maakt dezelfde abstractie de code moeilijker.
+
+Soms is herhaling acceptabel.
+
+Soms is herhaling een groot probleem.
+
+Daarom moet je clean code zien als een manier van nadenken.
+
+Vraag jezelf voortdurend af:
+
+*"Kan iemand anders deze code gemakkelijk begrijpen?"*
+
+En ook:
+
+*"Kan ik deze code later gemakkelijk aanpassen?"*
+
+== De gouden regel
+
+Een van de belangrijkste lessen van dit hoofdstuk is:
+
+[IMPORTANT]
+Schrijf code voor mensen én voor de computer.
+
+De computer heeft vooral correcte instructies nodig.
+
+Mensen hebben daarnaast duidelijke namen, logische structuur en begrijpelijke code nodig.
+
+Als je alleen kijkt naar wat de computer accepteert, kun je programma's maken die technisch correct zijn maar moeilijk te onderhouden.
+
+Als je ook kijkt naar de mensen die de code moeten lezen, wordt je software meestal veel beter beheersbaar.
+
+== Samenvatting
+
+Clean code is code die gemakkelijk te begrijpen, te testen en te onderhouden is.
+
+Belangrijke principes zijn:
+
+* Gebruik betekenisvolle namen.
+* Geef functies één duidelijke verantwoordelijkheid.
+* Vermijd onnodige herhaling.
+* Vermijd magic numbers wanneer ze betekenisvolle waarden voorstellen.
+* Houd voorwaarden overzichtelijk.
+* Vermijd onnodig diepe nesting.
+* Gebruik comments wanneer ze echt extra informatie geven.
+* Vermijd functies die te veel verschillende dingen doen.
+* Gebruik Python-functies en -constructies die de code duidelijker maken.
+* Gebruik type hints wanneer ze nuttig zijn.
+* Handel fouten gericht af.
+* Houd code consistent geformatteerd.
+* Maak functies zo veel mogelijk testbaar.
+* Gebruik refactoring om bestaande code stap voor stap te verbeteren.
+* Vermijd zowel onnodige complexiteit als onnodige abstractie.
+
+Het belangrijkste is niet om alle regels uit het hoofd te leren.
+
+Het belangrijkste is dat je leert *kijken* naar code.
+
+Je moet kunnen herkennen wanneer code onduidelijk, ingewikkeld of moeilijk te onderhouden wordt.
+
